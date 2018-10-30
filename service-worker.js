@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/forminator-ui/precache-manifest.c5eaad916c193060914f82be9efef7e5.js"
+  "/forminator-ui/precache-manifest.3e4a2603f996b1238464b4423c5b1b2c.js"
 );
 
 workbox.clientsClaim();

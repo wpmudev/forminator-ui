@@ -1,14 +1,13 @@
 {
-  "main.css": "/forminator-ui/static/css/main.f8c27686.chunk.css",
-  "main.js": "/forminator-ui/static/js/main.bad71358.chunk.js",
-  "main.js.map": "/forminator-ui/static/js/main.bad71358.chunk.js.map",
-  "static/js/1.a700ff87.chunk.js": "/forminator-ui/static/js/1.a700ff87.chunk.js",
-  "static/js/1.a700ff87.chunk.js.map": "/forminator-ui/static/js/1.a700ff87.chunk.js.map",
+  "main.css": "/forminator-ui/static/css/main.e39f100f.chunk.css",
+  "main.js": "/forminator-ui/static/js/main.9038adf7.chunk.js",
+  "main.js.map": "/forminator-ui/static/js/main.9038adf7.chunk.js.map",
+  "static/js/1.37f90d57.chunk.js": "/forminator-ui/static/js/1.37f90d57.chunk.js",
+  "static/js/1.37f90d57.chunk.js.map": "/forminator-ui/static/js/1.37f90d57.chunk.js.map",
   "runtime~main.js": "/forminator-ui/static/js/runtime~main.f5a5ffff.js",
   "runtime~main.js.map": "/forminator-ui/static/js/runtime~main.f5a5ffff.js.map",
-  "static/media/logo.svg": "/forminator-ui/static/media/logo.5d5d9eef.svg",
-  "static/css/main.f8c27686.chunk.css.map": "/forminator-ui/static/css/main.f8c27686.chunk.css.map",
+  "static/css/main.e39f100f.chunk.css.map": "/forminator-ui/static/css/main.e39f100f.chunk.css.map",
   "index.html": "/forminator-ui/index.html",
-  "precache-manifest.c5eaad916c193060914f82be9efef7e5.js": "/forminator-ui/precache-manifest.c5eaad916c193060914f82be9efef7e5.js",
+  "precache-manifest.3e4a2603f996b1238464b4423c5b1b2c.js": "/forminator-ui/precache-manifest.3e4a2603f996b1238464b4423c5b1b2c.js",
   "service-worker.js": "/forminator-ui/service-worker.js"
 }
