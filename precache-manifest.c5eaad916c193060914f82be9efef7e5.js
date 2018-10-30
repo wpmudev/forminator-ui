@@ -8,19 +8,19 @@ self.__precacheManifest = [
     "url": "/forminator-ui/static/js/runtime~main.f5a5ffff.js"
   },
   {
-    "revision": "284c7796d41f07c0da1b",
-    "url": "/forminator-ui/static/js/main.284c7796.chunk.js"
+    "revision": "bad713586a77ea874b5b",
+    "url": "/forminator-ui/static/js/main.bad71358.chunk.js"
   },
   {
     "revision": "a700ff875c24dcc7b8f8",
     "url": "/forminator-ui/static/js/1.a700ff87.chunk.js"
   },
   {
-    "revision": "284c7796d41f07c0da1b",
+    "revision": "bad713586a77ea874b5b",
     "url": "/forminator-ui/static/css/main.f8c27686.chunk.css"
   },
   {
-    "revision": "53e3f1be644745ff80daa147d6de6b36",
+    "revision": "02b20449575e08f66081b5563f9331b1",
     "url": "/forminator-ui/index.html"
   }
 ];

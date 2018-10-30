@@ -1,7 +1,7 @@
 {
   "main.css": "/forminator-ui/static/css/main.f8c27686.chunk.css",
-  "main.js": "/forminator-ui/static/js/main.284c7796.chunk.js",
-  "main.js.map": "/forminator-ui/static/js/main.284c7796.chunk.js.map",
+  "main.js": "/forminator-ui/static/js/main.bad71358.chunk.js",
+  "main.js.map": "/forminator-ui/static/js/main.bad71358.chunk.js.map",
   "static/js/1.a700ff87.chunk.js": "/forminator-ui/static/js/1.a700ff87.chunk.js",
   "static/js/1.a700ff87.chunk.js.map": "/forminator-ui/static/js/1.a700ff87.chunk.js.map",
   "runtime~main.js": "/forminator-ui/static/js/runtime~main.f5a5ffff.js",
@@ -9,6 +9,6 @@
   "static/media/logo.svg": "/forminator-ui/static/media/logo.5d5d9eef.svg",
   "static/css/main.f8c27686.chunk.css.map": "/forminator-ui/static/css/main.f8c27686.chunk.css.map",
   "index.html": "/forminator-ui/index.html",
-  "precache-manifest.c70f09c51ad717a843a75daf2b279c2d.js": "/forminator-ui/precache-manifest.c70f09c51ad717a843a75daf2b279c2d.js",
+  "precache-manifest.c5eaad916c193060914f82be9efef7e5.js": "/forminator-ui/precache-manifest.c5eaad916c193060914f82be9efef7e5.js",
   "service-worker.js": "/forminator-ui/service-worker.js"
 }
