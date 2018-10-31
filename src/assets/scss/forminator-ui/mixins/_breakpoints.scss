@@ -1,0 +1,48 @@
+// =============================================
+// You can get breakpoints based on minimum width
+// or based on maximium width. For both cases, do
+// the following:
+//
+// A) Display styles based on min-width:
+//    @include media(min-width, small);
+//
+// B) Display styles based on max-width:
+//    @include media(max-width, small);
+// =============================================
+
+@mixin media($bp-type, $bp-name-1, $bp-name-2: null) {
+
+	@if ($bp-type == min-width) {
+
+		$min-breakpoint-width: map-get($fui-breakpoints, $bp-name-1);
+
+		@media (min-width: $min-breakpoint-width) {
+			@content;
+		}
+	}
+
+	@else if ($bp-type == max-width) {
+
+		$max-breakpoint-width: #{map-get($fui-breakpoints, $bp-name-1) - 1px};
+
+		@media (max-width: $max-breakpoint-width) {
+			@content;
+		}
+	}
+
+	@else if ($bp-type == between) {
+		
+		$min-breakpoint-width: map-get($fui-breakpoints, $bp-name-1);
+		$max-breakpoint-width: #{map-get($fui-breakpoints, $bp-name-1) - 1px};
+
+		@media (min-width: $min-breakpoint-width) and (max-width: $max-breakpoint-width) {
+			@content;
+		}
+	}
+
+	@else {
+
+		@warn "Unfortunately, no type could be retrieved from `#{$bp-type}`. "
+		+ "Use either `min-width`, `max-width`, or `between`.";
+	}
+}

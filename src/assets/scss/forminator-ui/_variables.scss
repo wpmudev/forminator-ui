@@ -1,0 +1,23 @@
+// =============================================
+// VARIABLES MENU
+//
+// 1. BREAKPOINTS
+// 2. BASIC VARIABLES
+// =============================================
+
+// =============================================
+// 1. BREAKPOINTS
+
+$fui-breakpoints: (
+	sm: 783px,
+	md: 961px,
+	lg: 1201px
+) !default;
+
+// =============================================
+// 2. BASIC VARIABLES
+
+$gutter:				30px !default;
+$gutter-sm:				20px !default;
+$gutter-enclosed:		14px !default;
+$gutter-enclosed-sm:	8px  !default;

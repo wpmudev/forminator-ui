@@ -1,0 +1,13 @@
+$palettes: (
+	mono: (
+		default:	#000000,
+		black:		#000000,
+		white:		#FFFFFF,
+	)
+) !default;
+
+// =============================================
+// COLORS: Basic
+
+$black: palette(mono, black);
+$white: palette(mono, white);
