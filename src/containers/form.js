@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 
-import Form from './forms/form';
-import Row from './forms/row';
-import Grid from './forms/sample-grid';
-import Input from './forms/input';
-import Section from './forms/section';
+import Form from '../components/forms/form';
+import Row from '../components/forms/row';
+import Grid from '../components/forms/sample-grid';
+import Input from '../components/forms/input';
+import Section from '../components/forms/section';
 
-export default class PageForms extends Component {
+export default class PageForm extends Component {
 	render() {
 		return(
 			<React.Fragment>

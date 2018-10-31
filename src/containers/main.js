@@ -1,25 +1,49 @@
 import React, { Component } from 'react';
 
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
 
-import PageForms from '../components/page-forms';
-import PageQuizzes from '../components/page-quizzes';
-import PagePolls from '../components/page-polls';
+import PageHome from './home';
+import PageForm from './form';
+import PageQuiz from './quiz';
+import PagePoll from './poll';
 
-const Index = () => <h2>Home</h2>;
-const Form = () => <PageForms />;
-const Poll = () => <PagePolls />;
-const Quiz = () => <PageQuizzes />;
+const Home = () => <PageHome />;
+const Form = () => <PageForm />;
+const Poll = () => <PageQuiz />;
+const Quiz = () => <PagePoll />;
 
 class Main extends Component {
+	constructor( props ) {
+		super( props );
+
+		this.state = {
+			open: false,
+		}
+	}
+
+	openMenu() {
+		this.setState( {
+			open: ! this.state.open,
+		} );
+	}
+
 	render() {
+		const { open } = this.state;
+
+		let pageClass = '';
+
+		if ( open ) {
+			pageClass = ' menu-open';
+		}
+
 		return (
 			<Router>
 
-				<div className="page-wrap menu-open">
+				<div className={ `page-wrap${ pageClass }` }>
 
 					<nav>
-						<button className="navigation-button">
+						<button className="navigation-button"
+							onClick={ () => this.openMenu() }>
 							<i aria-hidden="true"></i>
 							<i aria-hidden="true"></i>
 							<i aria-hidden="true"></i>
@@ -30,25 +54,41 @@ class Main extends Component {
 						</span>
 						<ul className="navigation-menu">
 							<li>
-								<Link to="/">Home</Link>
+								<NavLink to="/"
+									exact={ true }
+									activeClassName="current">
+									Home
+								</NavLink>
 							</li>
 							<li>
-								<Link to="/form/">Form</Link>
+								<NavLink to="/form/"
+									exact={ true }
+									activeClassName="current">
+									Form
+								</NavLink>
 							</li>
 							<li>
-								<Link to="/poll/">Poll</Link>
+								<NavLink to="/poll/"
+									exact={ true }
+									activeClassName="current">
+									Poll
+								</NavLink>
 							</li>
 							<li>
-								<Link to="/quiz/">Quiz</Link>
+								<NavLink to="/quiz/"
+									exact={ true }
+									activeClassName="current">
+									Quiz
+								</NavLink>
 							</li>
 						</ul>
 					</nav>
 
 					<section>
-						<Route path="/" exact component={Index} />
-						<Route path="/form/" component={Form} />
-						<Route path="/poll/" component={Poll} />
-						<Route path="/quiz/" component={Quiz} />
+						<Route path="/" exact component={ Home } />
+						<Route path="/form/" component={ Form } />
+						<Route path="/poll/" component={ Poll } />
+						<Route path="/quiz/" component={ Quiz } />
 					</section>
 
 				</div>

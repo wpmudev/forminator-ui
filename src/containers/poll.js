@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export default class PagePolls extends Component {
+export default class PagePoll extends Component {
 	render() {
 		return(
 			<p>Page Polls</p>
