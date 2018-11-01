@@ -3,6 +3,10 @@
 //
 // 1. BREAKPOINTS
 // 2. BASIC VARIABLES
+// 3. DESIGN: DEFAULT
+// 4. DESIGN: FLAT
+// 5. DESIGN: BOLD
+// 6. DESIGN: MATERIAL
 // =============================================
 
 // =============================================
@@ -21,3 +25,30 @@ $gutter:				30px !default;
 $gutter-sm:				20px !default;
 $gutter-enclosed:		14px !default;
 $gutter-enclosed-sm:	8px  !default;
+
+$input--height:      40px !default;
+$input--line-height: 20px !default;
+
+// =============================================
+// 3. DESIGN: DEFAULT
+
+$default--border-width:  1px   !default;
+$default--border-style:  solid !default;
+$default--border-radius: 2px   !default;
+
+// =============================================
+// 4. DESIGN: FLAT
+
+$flat--input-border-width:       1px   !default;
+$flat--input-border-style:       none  !default;
+
+$flat--input-error-border-style: solid !default;
+
+// =============================================
+// 5. DESIGN: BOLD
+$bold--input-border-width: 3px   !default;
+$bold--input-border-style: solid !default;
+
+// =============================================
+// 6. DESIGN: MATERIAL
+$material--input-padding: 10px !default;
