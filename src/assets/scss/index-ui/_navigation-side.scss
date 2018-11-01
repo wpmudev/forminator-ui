@@ -1,0 +1,59 @@
+@include body-class() {
+
+	.navigation-side {
+		margin: 0;
+		padding: 0;
+		background-color: $mainnav-background;
+
+		&, li {
+			display: block;
+			border: 0;
+			list-style: none;
+		}
+
+		li {
+			margin: 0;
+			padding: 0;
+
+			a {
+				padding: 15px;
+				display: block;
+				font-size: 14px;
+				line-height: 22px;
+				transition: 0.2s ease;
+
+				&,
+				&:hover,
+				&:active,
+				&:visited {
+					color: $mainnav-color;
+					text-decoration: none;
+				}
+
+				&:hover,
+				&.current {
+					background-color: $sidenav-item-hover;
+				}
+			}
+		}
+
+		@include media(min-width, md) {
+			width: $sidenav-size;
+			height: 100vh;
+			position: fixed;
+			top: 0;
+			left: -#{$sidenav-size};
+		}
+	}
+
+	&.is-open {
+
+		.navigation-side {
+			left: 0;
+		}
+
+		@include media(min-width, md) {
+			padding-left: $sidenav-size;
+		}
+	}
+}

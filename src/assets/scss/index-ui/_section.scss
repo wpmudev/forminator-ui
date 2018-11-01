@@ -1,0 +1,14 @@
+@include body-class() {
+
+	section {
+		display: block;
+
+		@include media(max-width, md) {
+			padding: $gutter-md;
+		}
+
+		@include media(min-width, md) {
+			padding: $gutter;
+		}
+	}
+}
