@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 
+import Header from '../containers/header';
+
 export default class PageHome extends Component {
 	render() {
 		return(
-			<h1>Forminator UI</h1>
+			<Header title="Forminator UI" />
 		);
 	}
 }

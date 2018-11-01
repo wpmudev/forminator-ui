@@ -14,8 +14,19 @@ export default class Form extends Component {
 			: ''
 			;
 
+		const design = this.props.design
+			? ' forminator-design--' + this.props.design
+			: ' forminator-design--default'
+			;
+
+		const fieldId = this.props.property
+			? 'forminator-module-' + this.props.property
+			: 'forminator-module'
+			;
+
 		return (
-			<form className={ `forminator-custom-form${ enclosed }` }>
+			<form id={ fieldId }
+				className={ `forminator-custom-form${ enclosed }${ design }` }>
 				{ children }
 			</form>
 		);

@@ -3,14 +3,14 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
 
 import PageHome from './home';
-import PageForm from './form';
-import PageQuiz from './quiz';
-import PagePoll from './poll';
+import PageForm from '../form-ui/page';
+import PageQuiz from '../quiz-ui/page';
+import PagePoll from '../poll-ui/page';
 
 const Home = () => <PageHome />;
 const Form = () => <PageForm />;
-const Poll = () => <PageQuiz />;
-const Quiz = () => <PagePoll />;
+const Poll = () => <PagePoll />;
+const Quiz = () => <PageQuiz />;
 
 class Main extends Component {
 	constructor( props ) {
@@ -33,15 +33,16 @@ class Main extends Component {
 		let pageClass = '';
 
 		if ( open ) {
-			pageClass = ' menu-open';
+			pageClass = ' is-open';
 		}
 
 		return (
 			<Router>
 
-				<div className={ `page-wrap${ pageClass }` }>
+				<div className={ `demo-site${ pageClass }` }>
 
-					<nav>
+					<nav className="navigation-main">
+
 						<button className="navigation-button"
 							onClick={ () => this.openMenu() }>
 							<i aria-hidden="true"></i>
@@ -49,10 +50,12 @@ class Main extends Component {
 							<i aria-hidden="true"></i>
 							<span>Menu</span>
 						</button>
+
 						<span className="navigation-title">
 							Forminator UI
 						</span>
-						<ul className="navigation-menu">
+
+						<ul className="navigation-side">
 							<li>
 								<NavLink to="/"
 									exact={ true }
@@ -82,14 +85,13 @@ class Main extends Component {
 								</NavLink>
 							</li>
 						</ul>
+
 					</nav>
 
-					<section>
-						<Route path="/" exact component={ Home } />
-						<Route path="/form/" component={ Form } />
-						<Route path="/poll/" component={ Poll } />
-						<Route path="/quiz/" component={ Quiz } />
-					</section>
+					<Route path="/" exact component={ Home } />
+					<Route path="/form/" component={ Form } />
+					<Route path="/poll/" component={ Poll } />
+					<Route path="/quiz/" component={ Quiz } />
 
 				</div>
 

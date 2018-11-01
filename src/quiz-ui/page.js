@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 
+import Header from '../containers/header';
+
 export default class PageQuiz extends Component {
 	render() {
 		return(
-			<p>Page Quizzes</p>
+			<Header title="Quiz UI" />
 		);
 	}
 }

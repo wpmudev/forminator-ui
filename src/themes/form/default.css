@@ -1,0 +1,48 @@
+.forminator-custom-form.forminator-design--default {
+	padding-top: 0;
+	padding-right: 0;
+	padding-bottom: 0;
+	padding-left: 0;
+	border-width: 0;
+	border-style: none;
+	border-color: transparent;
+	border-radius: 0;
+}
+
+.forminator-custom-form.forminator-design--default .forminator-label,
+.forminator-custom-form.forminator-design--default .forminator-description,
+.forminator-custom-form.forminator-design--default .forminator-error-message {
+	font-size: 12px;
+	font-family: inherit;
+	font-weight: 500;
+}
+
+.forminator-custom-form.forminator-design--default .forminator-title {
+	font-size: 35px;
+	font-weight: normal;
+	font-family: inherit;
+	text-align: left;
+}
+
+.forminator-custom-form.forminator-design--default .forminator-subtitle {
+	font-size: 18px;
+	font-weight: normal;
+	font-family: inherit;
+	text-align: left;
+}
+
+.forminator-custom-form.forminator-design--default .forminator-input {
+	border-color: #777771;
+	color: #000;
+	font-size: 16px;
+	font-weight: normal;
+	font-family: inherit;
+}
+
+.forminator-custom-form.forminator-design--default .forminator-input::placeholder {
+	color: #AAAAAA;
+}
+
+.forminator-custom-form.forminator-design--default .forminator-input .forminator-is_hover .forminator-input {
+	border-color: #17A8E3;
+}
