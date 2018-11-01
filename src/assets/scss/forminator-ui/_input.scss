@@ -1,0 +1,87 @@
+@include body-class(custom-form) {
+
+	.forminator-input {
+		width: 100%;
+		height: $input--height;
+		display: block;
+		margin: 0;
+		padding: 0;
+		background-image: unset;
+		line-height: $input--line-height;
+	
+		&,
+		&:hover,
+		&:focus,
+		&:active,
+		&:disabled {
+			outline: none;
+			box-shadow: none;
+		}
+	
+		&:disabled {
+			pointer-events: none;
+			border-style: dotted;
+	
+			&:-moz-placeholder {
+				@include opacity(0.4);
+			}
+		
+			&::-moz-placeholder {
+				@include opacity(0.4);
+			}
+	
+			&:-ms-input-placeholder {
+				@include opacity(0.4);
+			}
+	
+			&::-webkit-input-placeholder {
+				@include opacity(0.4);
+			}
+		}
+	}
+}
+
+// =============================================
+// DESIGN: Default
+@include body-class(custom-form, default) {
+
+	.forminator-input {
+		padding: #{($input--height - ($default--border-width * 2) - $input--line-height) / 2};
+		border-width: $default--border-width;
+		border-style: $default--border-style;
+		border-radius: $default--border-radius;
+	}
+}
+
+// =============================================
+// DESIGN: Flat
+@include body-class(custom-form, flat) {
+
+	.forminator-input {
+		padding: #{($input--height - ($flat--input-border-width * 2) - $input--line-height) / 2};
+		border-width: $flat--input-border-width;
+		border-style: $flat--input-border-style;
+		border-radius: 0;
+	}
+}
+
+// =============================================
+// DESIGN: Bold
+@include body-class(custom-form, bold) {
+
+	.forminator-input {
+		border-width: $bold--input-border-width;
+		border-style: $bold--input-border-style;
+		border-radius: 0;
+	}
+}
+
+// =============================================
+// DESIGN: Material
+@include body-class(custom-form, material) {
+
+	.forminator-input {
+		padding: $material--input-padding 0;
+		border: 0;
+	}
+}
