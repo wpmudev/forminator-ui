@@ -22,7 +22,8 @@ var paths = {
 
 // Index
 var index = [
-	paths.src + 'index.scss'
+	paths.src + 'index.scss',
+	paths.src + 'index-ui/*.scss'
 ];
 
 // Forminator UI
