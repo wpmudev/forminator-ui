@@ -6,7 +6,7 @@ import Form from '../components/form';
 import Row from '../components/row';
 import Input from '../components/input';
 
-export default class InputSample extends Component {
+export default class Elements extends Component {
 	render() {
 		return (
 			<React.Fragment>
