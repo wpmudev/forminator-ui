@@ -28,8 +28,8 @@
 
 /* ELEMENT: Error Message */
 .forminator-custom-form.forminator-design--bold .forminator-error-message {
-	background-color: #E6E6E6;
-	color: #CB4B57;
+	background-color: #F9E4E8;
+	color: #E04562;
 	font-size: 12px;
 	font-family: inherit;
 	font-weight: 500;
@@ -78,5 +78,5 @@
 }
 
 .forminator-custom-form.forminator-design--bold .forminator-has_error .forminator-input {
-	border-color: #CB4B57;
+	border-color: #E04562;
 }

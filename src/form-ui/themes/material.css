@@ -19,9 +19,19 @@
 }
 
 .forminator-custom-form.forminator-design--material .forminator-is_active .forminator-label {
+	color: #17A8E3;
+	font-size: 12px;
+	font-weight: 500;
+}
+
+.forminator-custom-form.forminator-design--material .forminator-is_filled .forminator-label {
 	color: #777771;
 	font-size: 12px;
 	font-weight: 500;
+}
+
+.forminator-custom-form.forminator-design--material .forminator-has_error.forminator-is_active .forminator-label {
+	color: #E04562;
 }
 
 /* ELEMENT: Description */
@@ -34,7 +44,7 @@
 
 /* ELEMENT: Error Message */
 .forminator-custom-form.forminator-design--material .forminator-error-message {
-	color: #CB4B57;
+	color: #E04562;
 	font-size: 12px;
 	font-family: inherit;
 	font-weight: 500;
@@ -76,5 +86,5 @@
 }
 
 .forminator-custom-form.forminator-design--material .forminator-has_error .forminator-input--wrap:after {
-	background-color: #CB4B57;
+	background-color: #E04562;
 }
