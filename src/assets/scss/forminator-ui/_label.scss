@@ -58,38 +58,68 @@
 
 	.forminator-label {
 		line-height: 20px;
-		transition: 0.2s linear;
 	}
 
-	.forminator-field {
+	[class*="forminator-floating-"] {
+		pointer-events: none;
+		transition: $transition--linear;
+	}
 
-		.forminator-label {
-			transform: translateY(30px);
+	// ******************************
+	// INPUT: Floating label
+	.forminator-floating--input {
+		transform: translateY(30px);
+
+		+ .forminator-input--wrap {
+
+			.forminator-input::placeholder {
+				@include opacity(0);
+			}
+		}
+	}
+
+	.forminator-is_active,
+	.forminator-is_filled {
+
+		.forminator-floating--input {
+			transform: translateY(0);
 
 			+ .forminator-input--wrap {
 
-				.forminator-input {
-
-					&::placeholder {
-						@include opacity(0);
-					}
+				.forminator-input::placeholder {
+					@include opacity(1);
 				}
 			}
 		}
+	}
 
-		&.forminator-is_active {
+	// ******************************
+	// INPUT: Floating textarea
+	.forminator-floating--textarea {
+		position: relative;
+		z-index: 1;
+		padding: #{$input--padding - $material--border-width} 0 0 #{$input--padding - $material--border-width};
+		transform: translateY(30px);
 
-			.forminator-label {
-				transform: translateY(0);
+		+ .forminator-textarea--wrap {
+			margin-top: -20px;
 
-				+ .forminator-input--wrap {
+			.forminator-textarea::placeholder {
+				@include opacity(0);
+			}
+		}
+	}
 
-					.forminator-input {
+	.forminator-is_active,
+	.forminator-is_filled {
 
-						&::placeholder {
-							@include opacity(1);
-						}
-					}
+		.forminator-floating--textarea {
+			transform: translateY(10px);
+
+			+ .forminator-textarea--wrap {
+
+				.forminator-textarea::placeholder {
+					@include opacity(1);
 				}
 			}
 		}
