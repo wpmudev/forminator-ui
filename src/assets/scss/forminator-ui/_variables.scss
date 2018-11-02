@@ -26,8 +26,8 @@ $gutter-sm:				20px !default;
 $gutter-enclosed:		14px !default;
 $gutter-enclosed-sm:	8px  !default;
 
-$input--height:      40px !default;
-$input--line-height: 20px !default;
+$input--height:         40px !default;
+$input--line-height:    20px !default;
 
 // =============================================
 // 3. DESIGN: DEFAULT
@@ -39,10 +39,8 @@ $default--border-radius: 2px   !default;
 // =============================================
 // 4. DESIGN: FLAT
 
-$flat--input-border-width:       1px   !default;
-$flat--input-border-style:       none  !default;
-
-$flat--input-error-border-style: solid !default;
+$flat--input-border-width: 1px    !default;
+$flat--input-border-style: solid  !default;
 
 // =============================================
 // 5. DESIGN: BOLD
@@ -51,4 +49,6 @@ $bold--input-border-style: solid !default;
 
 // =============================================
 // 6. DESIGN: MATERIAL
-$material--input-padding: 10px !default;
+$material--input-border-width: 1px   !default;
+$material--input-border-style: solid !default;
+$material--input-padding:      10px  !default;

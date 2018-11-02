@@ -8,6 +8,7 @@
 		padding: 0;
 		background-image: unset;
 		line-height: $input--line-height;
+		transition: 0.2s ease;
 	
 		&,
 		&:hover,
@@ -46,7 +47,7 @@
 @include body-class(custom-form, default) {
 
 	.forminator-input {
-		padding: #{($input--height - ($default--border-width * 2) - $input--line-height) / 2};
+		padding: #{($input--height - ($default--border-width * 2) - $input--line-height) / 2} 9px;
 		border-width: $default--border-width;
 		border-style: $default--border-style;
 		border-radius: $default--border-radius;
@@ -58,9 +59,10 @@
 @include body-class(custom-form, flat) {
 
 	.forminator-input {
-		padding: #{($input--height - ($flat--input-border-width * 2) - $input--line-height) / 2};
+		padding: #{($input--height - ($flat--input-border-width * 2) - $input--line-height) / 2} 9px;
 		border-width: $flat--input-border-width;
 		border-style: $flat--input-border-style;
+		border-color: transparent;
 		border-radius: 0;
 	}
 }
@@ -70,6 +72,7 @@
 @include body-class(custom-form, bold) {
 
 	.forminator-input {
+		padding: #{($input--height - ($bold--input-border-width * 2) - $input--line-height) / 2} 7px;
 		border-width: $bold--input-border-width;
 		border-style: $bold--input-border-style;
 		border-radius: 0;
@@ -81,7 +84,44 @@
 @include body-class(custom-form, material) {
 
 	.forminator-input {
-		padding: $material--input-padding 0;
-		border: 0;
+		padding: $material--input-padding 0 #{$material--input-padding - $material--input-border-width};
+		border-width: 0;
+		border-bottom-width: $material--input-border-width;
+		border-style: $material--input-border-style;
+		background-color: transparent;
+
+		&:hover,
+		&:focus {
+			border-color: inherit;
+		}
+	}
+
+	.forminator-input--wrap {
+		display: block;
+		position: relative;
+
+		&:after {
+			content: " ";
+			height: 2px;
+			display: block;
+			position: absolute;
+			right: 50%;
+			bottom: 0;
+			left: 50%;
+			transition: 0.2s linear;
+		}
+	}
+
+	.forminator-field {
+
+		&.forminator-is_hover,
+		&.forminator-is_active,
+		&.forminator-has_error {
+
+			.forminator-input--wrap:after {
+				right: 0;
+				left: 0;
+			}
+		}
 	}
 }
