@@ -56,6 +56,11 @@
 
 @include body-class(custom-form, material) {
 
+	.forminator-label {
+		line-height: 20px;
+		transition: 0.2s linear;
+	}
+
 	.forminator-field {
 
 		.forminator-label {
