@@ -18,6 +18,13 @@
 			outline: none;
 			box-shadow: none;
 		}
+
+		&:hover,
+		&:focus,
+		&:active {
+			border-color: inherit;
+			background-color: inherit;
+		}
 	
 		&:disabled {
 			pointer-events: none;
@@ -89,11 +96,6 @@
 		border-bottom-width: $material--input-border-width;
 		border-style: $material--input-border-style;
 		background-color: transparent;
-
-		&:hover,
-		&:focus {
-			border-color: inherit;
-		}
 	}
 
 	.forminator-input--wrap {
