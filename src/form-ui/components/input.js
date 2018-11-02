@@ -7,14 +7,31 @@ export default class Input extends Component {
 		super();
 
 		this.state = {
-			isHovered: false
+			hover: false,
+			focus: false
 		};
 
-		this.handleHover = this.handleHover.bind(this);
+		this.onHover = this.onHover.bind( this );
+		this.onFocus = this.onFocus.bind( this );
+		this.onBlur  = this.onBlur.bind( this );
 	}
 
-	handleHover(){
-		this.setState();
+	onHover() {
+		this.setState({
+			hover: !this.state.hover
+		});
+	}
+
+	onFocus() {
+		this.setState({
+			focus: true
+		})
+	}
+
+	onBlur() {
+		this.setState({
+			focus: false
+		});
 	}
 
 	render() {
@@ -33,7 +50,9 @@ export default class Input extends Component {
 			: 'forminator-input'
 			;
 
-		const hoverClass = this.state.isHovered ? ' forminato-is_hover' : '';
+		const hoverClass = this.state.hover ? ' forminator-is_hover' : '';
+
+		const focusClass = this.state.focus ? ' forminator-is_active' : '';
 
 		const fieldError = this.props.hasError
 			? ' forminator-has_error'
@@ -43,6 +62,24 @@ export default class Input extends Component {
 		let description = '';
 
 		let errorMessage = '';
+
+		let fieldInput = (
+			<input type={ type }
+				placeholder={ placeholder }
+				size="1"
+				id={ `forminator-field-${ this.props.property }` }
+				className={ fieldClass }
+				onBlur={ this.onBlur }
+				onFocus={ this.onFocus } />
+		);
+
+		if ( this.props.isMaterial ) {
+			fieldInput = (
+				<div className="forminator-input--wrap">
+					{ fieldInput }
+				</div>
+			);
+		}
 
 		if ( this.props.description || this.props.helper ) {
 			description = (
@@ -65,20 +102,18 @@ export default class Input extends Component {
 
 		return(
 			<Col>
-				<div className={ `forminator-field${ fieldError }${ hoverClass }` }
-					onMouseEnter={ this.handleHover }
-					onMouseLeave={ this.handleHover }>
+				<div className={ `forminator-field${ fieldError }${ hoverClass }${ focusClass }` }
+					onMouseEnter={ this.onHover }
+					onMouseLeave={ this.onHover }>
 					{ this.props.label &&
 						<label htmlFor={ `forminator-field-${ this.props.property }` }
 							className="forminator-label">
 							{ this.props.label }
+							{ this.props.isRequired ? ' ' : '' }
+							{ this.props.isRequired ? ( <span className="forminator-required">*</span> ) : '' }
 						</label>
 					}
-					<input type={ type }
-						placeholder={ placeholder }
-						size="1"
-						id={ `forminator-field-${ this.props.property }` }
-						className={ fieldClass } />
+					{ fieldInput }
 					{ errorMessage }
 					{ description }
 				</div>
