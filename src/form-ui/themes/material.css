@@ -12,9 +12,15 @@
 
 /* ELEMENT: Label */
 .forminator-custom-form.forminator-design--material .forminator-label {
+	color: #AAAAAA;
+	font-size: 16px;
+	font-family: inherit;
+	font-weight: normal;
+}
+
+.forminator-custom-form.forminator-design--material .forminator-is_active .forminator-label {
 	color: #777771;
 	font-size: 12px;
-	font-family: inherit;
 	font-weight: 500;
 }
 
