@@ -107,7 +107,7 @@ export default class Input extends Component {
 					onMouseLeave={ this.onHover }>
 					{ this.props.label &&
 						<label htmlFor={ `forminator-field-${ this.props.property }` }
-							className="forminator-label">
+							className={ `forminator-label${ this.props.isMaterial ? ' forminator-floating--input' : '' }` }>
 							{ this.props.label }
 							{ this.props.isRequired ? ' ' : '' }
 							{ this.props.isRequired ? ( <span className="forminator-required">*</span> ) : '' }
