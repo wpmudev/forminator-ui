@@ -11,26 +11,32 @@
 }
 
 /* ELEMENT: Label */
-.forminator-custom-form.forminator-design--material .forminator-label {
+.forminator-custom-form.forminator-design--material .forminator-is_filled .forminator-label:not([class*="forminator-floating-"]) {
+	color: #777771;
+	font-size: 12px;
+	font-weight: 500;
+}
+
+.forminator-custom-form.forminator-design--material [class*="forminator-floating-"] {
 	color: #AAAAAA;
 	font-size: 16px;
 	font-family: inherit;
 	font-weight: normal;
 }
 
-.forminator-custom-form.forminator-design--material .forminator-is_active .forminator-label {
+.forminator-custom-form.forminator-design--material .forminator-is_active [class*="forminator-floating-"] {
 	color: #17A8E3;
 	font-size: 12px;
 	font-weight: 500;
 }
 
-.forminator-custom-form.forminator-design--material .forminator-is_filled .forminator-label {
+.forminator-custom-form.forminator-design--material .forminator-is_filled [class*="forminator-floating-"] {
 	color: #777771;
 	font-size: 12px;
 	font-weight: 500;
 }
 
-.forminator-custom-form.forminator-design--material .forminator-has_error.forminator-is_active .forminator-label {
+.forminator-custom-form.forminator-design--material .forminator-has_error.forminator-is_active [class*="forminator-floating-"] {
 	color: #E04562;
 }
 
@@ -87,4 +93,25 @@
 
 .forminator-custom-form.forminator-design--material .forminator-has_error .forminator-input--wrap:after {
 	background-color: #E04562;
+}
+
+/* ELEMENT: Textarea */
+.forminator-custom-form.forminator-design--material .forminator-textarea {
+	border-color: #777771;
+	color: #000000;
+	font-size: 16px;
+	font-family: inherit;
+	font-weight: normal;
+}
+
+.forminator-custom-form.forminator-design--material .forminator-textarea::placeholder {
+	color: #AAAAAA;
+}
+
+.forminator-custom-form.forminator-design--material .forminator-textarea--wrap:after {
+	border-color: #17A8E3;
+}
+
+.forminator-custom-form.forminator-design--material .forminator-has_error .forminator-textarea--wrap:after {
+	border-color: #E04562;
 }
