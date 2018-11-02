@@ -3,8 +3,6 @@ import ReactDOM from 'react-dom';
 
 import Main from './containers/main';
 
-import './themes/form/default.css';
-
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
