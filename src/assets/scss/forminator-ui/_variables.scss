@@ -21,13 +21,21 @@ $fui-breakpoints: (
 // =============================================
 // 2. BASIC VARIABLES
 
-$gutter:				30px !default;
-$gutter-sm:				20px !default;
-$gutter-enclosed:		14px !default;
-$gutter-enclosed-sm:	8px  !default;
+$gutter:                30px        !default;
+$gutter-sm:             20px        !default;
+$gutter-enclosed:       14px        !default;
+$gutter-enclosed-sm:    8px         !default;
 
-$input--height:         40px !default;
-$input--line-height:    20px !default;
+$transition--ease:      0.2s ease   !default;
+$transition--linear:    0.2s linear !default;
+
+$input--height:         40px        !default;
+$input--padding:        10px        !default;
+$input--line-height:    20px        !default;
+
+$textarea--height:      200px       !default;
+$textarea--padding:     10px        !default;
+$textarea--line-height: 20px        !default;
 
 // =============================================
 // 3. DESIGN: DEFAULT
@@ -39,16 +47,14 @@ $default--border-radius: 2px   !default;
 // =============================================
 // 4. DESIGN: FLAT
 
-$flat--input-border-width: 1px    !default;
-$flat--input-border-style: solid  !default;
-
 // =============================================
 // 5. DESIGN: BOLD
-$bold--input-border-width: 3px   !default;
-$bold--input-border-style: solid !default;
+$bold--border-width: 3px   !default;
+$bold--border-style: solid !default;
 
 // =============================================
 // 6. DESIGN: MATERIAL
-$material--input-border-width: 1px   !default;
-$material--input-border-style: solid !default;
-$material--input-padding:      10px  !default;
+$material--border-width:           1px   !default;
+$material--border-style:           solid !default;
+
+$material--textarea-border-radius: 2px   !default;
