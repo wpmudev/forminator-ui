@@ -75,5 +75,30 @@
 }
 
 .forminator-custom-form.forminator-design--flat .forminator-has_error .forminator-input {
-	border-color: #E04562;
+	box-shadow: inset 2px 0 0 0 #E04562;
+}
+
+/* ELEMENT: Textarea */
+.forminator-custom-form.forminator-design--flat .forminator-textarea {
+	background-color: #EDEDED;
+	color: #000;
+	font-size: 16px;
+	font-family: inherit;
+	font-weight: normal;
+}
+
+.forminator-custom-form.forminator-design--flat .forminator-textarea::placeholder {
+	color: #AAAAAA;
+}
+
+.forminator-custom-form.forminator-design--flat .forminator-is_hover .forminator-textarea {
+	background-color: #E6E6E6;
+}
+
+.forminator-custom-form.forminator-design--flat .forminator-is_active .forminator-textarea {
+	background-color: #E6E6E6;
+}
+
+.forminator-custom-form.forminator-design--flat .forminator-has_error .forminator-textarea {
+	box-shadow: inset 2px 0 0 0 #E04562;
 }
