@@ -27,14 +27,14 @@ export default class Options extends Component {
 				}
 
 				return (
-					<div className={ 'option' +
+					<button className={ 'option' +
 						( option.props.value === this.state.active
 							? ' active'
 							: ''
 						) }
 						onClick={ this.toggleValue.bind( this, option.props.value ) }>
 						{ option.props.label }
-					</div>
+					</button>
 				);
 			}
 		);
