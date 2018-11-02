@@ -1,0 +1,82 @@
+/* Form */
+.forminator-custom-form.forminator-design--default {
+	padding-top: 0;
+	padding-right: 0;
+	padding-bottom: 0;
+	padding-left: 0;
+	border-width: 0;
+	border-style: none;
+	border-color: transparent;
+	border-radius: 0;
+}
+
+/* ELEMENT: Label */
+.forminator-custom-form.forminator-design--default .forminator-label {
+	color: #777771;
+	font-size: 12px;
+	font-family: inherit;
+	font-weight: 500;
+}
+
+/* ELEMENT: Description */
+.forminator-custom-form.forminator-design--default .forminator-description {
+	color: #6D6D6D;
+	font-size: 12px;
+	font-family: inherit;
+	font-weight: 400;
+}
+
+/* ELEMENT: Error Message */
+.forminator-custom-form.forminator-design--default .forminator-error-message {
+	background-color: #E6E6E6;
+	color: #CB4B57;
+	font-size: 12px;
+	font-family: inherit;
+	font-weight: 500;
+}
+
+/* ELEMENT: Section Title */
+.forminator-custom-form.forminator-design--default .forminator-title {
+	color: #333333;
+	font-size: 45px;
+	font-weight: normal;
+	font-family: inherit;
+	text-align: left;
+}
+
+/* ELEMENT: Section Subtitle */
+.forminator-custom-form.forminator-design--default .forminator-subtitle {
+	color: #333333;
+	font-size: 18px;
+	font-weight: normal;
+	font-family: inherit;
+	text-align: left;
+}
+
+/* ELEMENT: Input */
+.forminator-custom-form.forminator-design--default .forminator-input {
+	border-color: #777771;
+	background-color: #EDEDED;
+	color: #000;
+	font-size: 16px;
+	font-family: inherit;
+	font-weight: normal;
+}
+
+.forminator-custom-form.forminator-design--default .forminator-input::placeholder {
+	color: #AAAAAA;
+}
+
+.forminator-custom-form.forminator-design--default .forminator-is_hover .forminator-input {
+	border-color: #17A8E3;
+	background-color: #E6E6E6;
+}
+
+.forminator-custom-form.forminator-design--default .forminator-is_active .forminator-input {
+	border-color: #17A8E3;
+	background-color: #E6E6E6;
+}
+
+.forminator-custom-form.forminator-design--default .forminator-has_error .forminator-input {
+	border-color: #CB4B57;
+}
