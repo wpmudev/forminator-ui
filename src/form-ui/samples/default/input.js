@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
-import Form from '../components/form';
-import Row from '../components/row';
-import Input from '../components/input';
+import Form from '../../components/form';
+import Row from '../../components/row';
+import Input from '../../components/input';
 
 export default class InputSample extends Component {
 	render() {
