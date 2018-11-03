@@ -3,7 +3,7 @@
 // demo site main class.
 // =============================================
 
-@mixin body-class() {
+@mixin body-class($wrap: false) {
 
 	.demo-site {
 		@content;
