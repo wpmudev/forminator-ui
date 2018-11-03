@@ -8,8 +8,12 @@ export default class Elements extends Component {
 		return (
 			<React.Fragment>
 
-				<InputSample />
-				<TextareaSample />
+				<InputSample design="default"
+					label="Input Element"
+					description="This element style is used for several form fields, like: input, name, email, number, etc." />
+
+				<TextareaSample design="default"
+					label="Textarea Element" />
 
 			</React.Fragment>
 		);
