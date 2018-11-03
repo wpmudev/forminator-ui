@@ -21,21 +21,28 @@ $fui-breakpoints: (
 // =============================================
 // 2. BASIC VARIABLES
 
-$gutter:                30px        !default;
-$gutter-sm:             20px        !default;
-$gutter-enclosed:       14px        !default;
-$gutter-enclosed-sm:    8px         !default;
+$sui-version:           '2.3.9'      !default;
 
-$transition--ease:      0.2s ease   !default;
-$transition--linear:    0.2s linear !default;
+$sui-font-path:         '../fonts/'  !default;
+$sui-image-path:        '../images/' !default;
 
-$input--height:         40px        !default;
-$input--padding:        10px        !default;
-$input--line-height:    20px        !default;
+$gutter:                30px         !default;
+$gutter-sm:             20px         !default;
+$gutter-enclosed:       14px         !default;
+$gutter-enclosed-sm:    8px          !default;
 
-$textarea--height:      200px       !default;
-$textarea--padding:     10px        !default;
-$textarea--line-height: 20px        !default;
+$transition--ease:      0.2s ease    !default;
+$transition--linear:    0.2s linear  !default;
+
+$input--height:         40px         !default;
+$input--padding:        10px         !default;
+$input--line-height:    20px         !default;
+
+$textarea--height:      200px        !default;
+$textarea--padding:     10px         !default;
+$textarea--line-height: 20px         !default;
+
+$icon-color: #888888 !default;
 
 // =============================================
 // 3. DESIGN: DEFAULT
