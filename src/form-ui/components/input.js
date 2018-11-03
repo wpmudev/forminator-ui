@@ -73,12 +73,16 @@ export default class Input extends Component {
 				onFocus={ this.onFocus } />
 		);
 
-		if ( this.props.isMaterial ) {
+		let labelClass = 'forminator-label';
+
+		if ( 'material' === this.props.design ) {
 			fieldInput = (
 				<div className="forminator-input--wrap">
 					{ fieldInput }
 				</div>
 			);
+
+			labelClass = 'forminator-label forminator-floating--input';
 		}
 
 		if ( this.props.description || this.props.helper ) {
@@ -107,7 +111,7 @@ export default class Input extends Component {
 					onMouseLeave={ this.onHover }>
 					{ this.props.label &&
 						<label htmlFor={ `forminator-field-${ this.props.property }` }
-							className={ `forminator-label${ this.props.isMaterial ? ' forminator-floating--input' : '' }` }>
+							className={ labelClass }>
 							{ this.props.label }
 							{ this.props.isRequired ? ' ' : '' }
 							{ this.props.isRequired ? ( <span className="forminator-required">*</span> ) : '' }
