@@ -54,13 +54,15 @@ export default class InputSample extends Component {
 
 						<Form design={ design }>
 							<Row>
-								<Input property="input-default"
+								<Input design={ design }
+									property="input-default"
 									label="Field label"
 									placeholder="Placeholder"
 									description="Description for input field." />
 							</Row>
 							<Row>
-								<Input property="input-required-default"
+								<Input design={ design }
+									property="input-required-default"
 									label="Required field"
 									placeholder="Placeholder"
 									description="Description for input field."
