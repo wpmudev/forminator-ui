@@ -8,111 +8,72 @@ import Textarea from '../components/textarea';
 
 export default class TextareaSample extends Component {
 	render() {
+		const design = this.props.design
+			? this.props.design
+			: 'default'
+			;
+
+		let label = '';
+
+		if ( this.props.label ) {
+			label = (
+				<span className="block-label dark">
+					{ this.props.label }
+				</span>
+			);
+		}
+
+		let description = '';
+
+		if ( this.props.description ) {
+			description = (
+				<span className="description">
+					{ this.props.description }
+				</span>
+			);
+		}
+
+		let blockSide = '';
+
+		if ( this.props.label || this.props.description ) {
+
+			blockSide = (
+				<div className="block-side">
+					{ label }
+					{ description }
+				</div>
+			);
+		}
+
 		return (
 			<React.Fragment>
 
-				<h2>Textarea</h2>
+				<div className="block">
 
-				<Options default="default">
+					{ blockSide }
 
-					<Form design="default"
-						value="default"
-						label="Default">
-						<Row>
-							<Textarea property="textarea-default"
-								label="Field label"
-								placeholder="Placeholder"
-								description="Description for textarea field." />
-						</Row>
-						<Row>
-							<Textarea property="textarea-required-default"
-								label="Required field"
-								placeholder="Placeholder"
-								description="Description for textarea field."
-								isRequired
-								hasError />
-						</Row>
-					</Form>
+					<div className="block-content">
 
-					<Form design="flat"
-						value="flat"
-						label="Flat">
-						<Row>
-							<Textarea property="textarea-flat"
-								label="Field label"
-								placeholder="Placeholder"
-								description="Description for textarea field." />
-						</Row>
-						<Row>
-							<Textarea property="textarea-required-flat"
-								label="Required field"
-								placeholder="Placeholder"
-								description="Description for textarea field."
-								isRequired
-								hasError />
-						</Row>
-					</Form>
+						<Form design={ design }>
+							<Row>
+								<Textarea property="textarea-default"
+									label="Field label"
+									placeholder="Placeholder"
+									description="Description for textarea field." />
+							</Row>
+							<Row>
+								<Textarea property="textarea-required-default"
+									label="Required field"
+									placeholder="Placeholder"
+									description="Description for textarea field."
+									isRequired
+									hasError />
+							</Row>
+						</Form>
 
-					<Form design="bold"
-						value="bold"
-						label="Bold">
-						<Row>
-							<Textarea property="textarea-bold"
-								label="Field label"
-								placeholder="Placeholder"
-								description="Description for textarea field." />
-						</Row>
-						<Row>
-							<Textarea property="textarea-required-bold"
-								label="Required field"
-								placeholder="Placeholder"
-								description="Description for textarea field."
-								isRequired
-								hasError />
-						</Row>
-					</Form>
+					</div>
 
-					<Form design="material"
-						value="material"
-						label="Material">
-						<Row>
-							<Textarea property="textarea-material"
-								label="Field label"
-								placeholder="Placeholder"
-								description="Description for textarea field."
-								isMaterial />
-						</Row>
-						<Row>
-							<Textarea property="textarea-required-material"
-								label="Required field"
-								placeholder="Placeholder"
-								description="Description for textarea field."
-								isMaterial
-								isRequired
-								hasError />
-						</Row>
-					</Form>
-
-					<Form design="none"
-						value="none"
-						label="None">
-						<Row>
-							<Textarea property="textarea-none"
-								label="Field label"
-								placeholder="Placeholder"
-								description="Description for textarea field." />
-						</Row>
-						<Row>
-							<Textarea property="textarea-required-none"
-								label="Required field"
-								placeholder="Placeholder"
-								description="Description for textarea field."
-								isRequired
-								hasError />
-						</Row>
-					</Form>
-
-				</Options>
+				</div>
 
 			</React.Fragment>
 		);
