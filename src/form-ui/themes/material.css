@@ -74,6 +74,13 @@
 	text-align: left;
 }
 
+/* ELEMENT: Section Border */
+.forminator-custom-form.forminator-design--material .forminator-border {
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-top-color: #E9E9E9;
+}
+
 /* ELEMENT: Input */
 .forminator-custom-form.forminator-design--material .forminator-input {
 	border-color: #777771;
