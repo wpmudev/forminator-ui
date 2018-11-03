@@ -85,12 +85,16 @@ export default class Textarea extends Component {
 				onFocus={ this.onFocus } />
 		);
 
-		if ( this.props.isMaterial ) {
+		let labelClass = 'forminator-label';
+
+		if ( 'material' === this.props.design ) {
 			fieldTextarea = (
 				<div className="forminator-textarea--wrap">
 					{ fieldTextarea }
 				</div>
 			);
+
+			labelClass = 'forminator-label forminator-floating--textarea';
 		}
 
 		return(
@@ -100,7 +104,7 @@ export default class Textarea extends Component {
 					onMouseLeave={ this.onHover }>
 					{ this.props.label &&
 						<label htmlFor={ `forminator-field-${ this.props.property }` }
-							className={ `forminator-label${ this.props.isMaterial ? ' forminator-floating--textarea' : '' }` }>
+							className={ labelClass }>
 							{ this.props.label }
 							{ this.props.isRequired ? ' ' : '' }
 							{ this.props.isRequired ? ( <span className="forminator-required">*</span> ) : '' }
