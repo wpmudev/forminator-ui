@@ -12,15 +12,27 @@
 
 @mixin body-class($module-type, $module-theme: null) {
 
-	@if ($module-theme == null) {
+	@if ( $module-type == true ) {
 
-		.forminator-#{$module-type} {
+		.forminator-custom-form,
+		.forminator-poll,
+		.forminator-quiz {
 			@content;
 		}
-	} @else {
+	}
 
-		.forminator-#{$module-type}.forminator-design--#{$module-theme} {
-			@content;
+	@else {
+
+		@if ($module-theme == null) {
+
+			.forminator-#{$module-type} {
+				@content;
+			}
+		} @else {
+	
+			.forminator-#{$module-type}.forminator-design--#{$module-theme} {
+				@content;
+			}
 		}
 	}
 }
