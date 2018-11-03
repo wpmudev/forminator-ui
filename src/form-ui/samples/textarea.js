@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 
-import Options from '../../components/options';
-
 import Form from '../components/form';
 import Row from '../components/row';
 import Textarea from '../components/textarea';
@@ -56,13 +54,15 @@ export default class TextareaSample extends Component {
 
 						<Form design={ design }>
 							<Row>
-								<Textarea property="textarea-default"
+								<Textarea design={ design }
+									property="textarea-default"
 									label="Field label"
 									placeholder="Placeholder"
 									description="Description for textarea field." />
 							</Row>
 							<Row>
-								<Textarea property="textarea-required-default"
+								<Textarea design={ design }
+									property="textarea-required-default"
 									label="Required field"
 									placeholder="Placeholder"
 									description="Description for textarea field."
