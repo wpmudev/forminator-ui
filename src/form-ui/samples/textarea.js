@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 
-import Options from '../../../components/options';
+import Options from '../../components/options';
 
-import Form from '../../components/form';
-import Row from '../../components/row';
-import Textarea from '../../components/textarea';
+import Form from '../components/form';
+import Row from '../components/row';
+import Textarea from '../components/textarea';
 
 export default class TextareaSample extends Component {
 	render() {
