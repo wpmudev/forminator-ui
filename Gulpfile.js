@@ -25,27 +25,27 @@ var pckg = JSON.parse( fs.readFileSync( './package.json' ) );
 
 // Main
 var paths = {
-	src:    './src/',
-	public: './public/',
+	src: './src/',
+	public: './public/'
 };
 
 // Production
 var src = {
-	js:   './src/js/',
-	scss: './src/scss/',
+	js: './src/js/',
+	scss: './src/scss/'
 };
 
 // Public
 var public = {
-	js:  './public/assets/js/',
-	css: './public/assets/css/',
+	js: './public/assets/js/',
+	css: './public/assets/css/'
 };
 
 // ==================================================
 // Compatible browsers
 var browserslist = [
 	'> 1%',
-	'ie > 9',
+	'ie > 9'
 ];
 
 // ==================================================
@@ -54,7 +54,7 @@ var browserslist = [
 // Forminator UI (Styles)
 var scssFUI = [
 	src.scss + 'forminator-ui.scss',
-	src.scss + 'forminator-ui/*.scss',
+	src.scss + 'forminator-ui/*.scss'
 ];
 
 // Forminator UI (Scripts)
@@ -80,10 +80,10 @@ var jsSUI = [
 ghpages.publish( 'public', {
 
 	user: {
-		name:  'Leighton Sapir',
+		name: 'Leighton Sapir',
 		email: 'leigh@incsub.com'
 	}
-} );
+});
 
 // ==================================================
 // BrowserSync
@@ -97,7 +97,7 @@ gulp.task( 'browser-sync', function() {
 			baseDir: './public/'
 		}
 	});
-} );
+});
 
 // ==================================================
 // Tasks
@@ -119,7 +119,7 @@ gulp.task( 'styles:forminator', function() {
 		.pipe( gulp.dest( public.css ) )
 		.pipe( browserSync.stream() )
 		;
-} );
+});
 
 // Task: Build showcase styles
 gulp.task( 'styles:showcase', function() {
@@ -138,12 +138,12 @@ gulp.task( 'styles:showcase', function() {
 		.pipe( gulp.dest( public.css ) )
 		.pipe( browserSync.stream() )
 		;
-} );
+});
 
 // Task: Build showcase scripts
 gulp.task( 'scripts:showcase', function( cb ) {
 
-	pump( [
+	pump([
 		gulp.src( jsSUI ),
 		eslint(),
 		eslint.format(),
@@ -155,31 +155,31 @@ gulp.task( 'scripts:showcase', function( cb ) {
 		gulp.dest( public.js ),
 		browserSync.stream()
 	], cb );
-} );
+});
 
 // Task: Watch for changes across project
 gulp.task( 'watch', function() {
 
 	// Watch for forminator styles changes
-	gulp.watch( scssFUI, [ 'styles:forminator' ] );
+	gulp.watch( scssFUI, [ 'styles:forminator' ]);
 
 	// Watch for showcase styles changes
-	gulp.watch( scssSUI, [ 'styles:showcase' ] );
+	gulp.watch( scssSUI, [ 'styles:showcase' ]);
 
 	// Watch for HTML changes
 	gulp.watch( paths.public + '*.html' ).on( 'change', browserSync.reload );
 
-} );
+});
 
 // Task: Build forminator files
 gulp.task( 'build:forminator', [
 	'styles:forminator'
-] );
+]);
 
 // Task: Build showcase files
 gulp.task( 'build:showcase', [
 	'styles:showcase'
-] );
+]);
 
 // Task: Run development environment
 gulp.task( 'start', [
@@ -187,4 +187,4 @@ gulp.task( 'start', [
 	'build:showcase',
 	'browser-sync',
 	'watch'
-] );
+]);
