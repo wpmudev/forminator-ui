@@ -71,6 +71,13 @@
 			// ELEMENT: Row
 			.forminator-row {
 
+				&:not(:last-child) {
+
+					@include media(min-width, md) {
+						margin-bottom: $gutter;
+					}
+				}
+
 				@include media(min-width, md) {
 					margin-right: -#{$gutter / 2};
 					margin-left: -#{$gutter / 2};
