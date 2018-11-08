@@ -1,55 +1,28 @@
 {
 	"name": "forminator-ui",
-	"version": "0.1.0",
+	"version": "1.6.0",
 	"private": true,
 	"author": "WPMU DEV",
 	"homepage": "https://wpmudev.github.io/forminator-ui",
-	"dependencies": {
-		"gh-pages": "^2.0.1",
-		"react": "^16.6.0",
-		"react-dom": "^16.6.0",
-		"react-router-dom": "^4.3.1",
-		"react-scripts": "2.1.0"
-	},
 	"devDependencies": {
 		"@wpmudev/shared-ui": "2.3.9",
-		"ajv-keywords": "^3.2.0",
-		"autoprefixer": "^7.2.6",
-		"babel-core": "^6.26.3",
-		"babel-loader": "^7.1.5",
-		"babel-preset-env": "^1.7.0",
-		"css-loader": "^0.28.11",
-		"es6-promise": "^4.2.4",
-		"extract-text-webpack-plugin": "^4.0.0-beta.0",
-		"file-loader": "^1.1.11",
-		"jquery": "^3.3.1",
-		"lodash": "^4.17.10",
-		"mocha": "^2.3.3",
-		"node-sass": "^4.9.0",
-		"path": "^0.12.7",
-		"postcss-loader": "^2.1.6",
-		"resolve-url-loader": "^2.3.0",
-		"sass-loader": "^6.0.7",
-		"style-loader": "^0.20.3",
-		"system-bell-webpack-plugin": "^1.0.0",
-		"webpack": "^4.16.3",
-		"webpack-cli": "^3.1.2",
-		"whatwg-fetch": "^2.0.4"
+		"browser-sync": "^2.26.3",
+		"fs": "0.0.1-security",
+		"gh-pages": "^2.0.1",
+		"gulp": "^3.9.1",
+		"gulp-autoprefixer": "^6.0.0",
+		"gulp-clean-css": "^3.10.0",
+		"gulp-concat": "^2.6.1",
+		"gulp-eslint": "^5.0.0",
+		"gulp-rename": "^1.4.0",
+		"gulp-replace": "^1.0.0",
+		"gulp-sass": "^4.0.2",
+		"gulp-uglify": "^3.0.1",
+		"gulp-watch": "^5.0.1",
+		"pump": "^3.0.0"
 	},
 	"scripts": {
-		"start": "react-scripts start",
-		"compile": "webpack -p --progress",
-		"build": "react-scripts build",
-		"test": "react-scripts test",
-		"predeploy": "npm run build",
-		"deploy": "gh-pages -d build",
-		"eject": "react-scripts eject"
-	},
-	"eslintConfig": {
-		"extends": "react-app"
-	},
-	"browserslist": [
-		"> 1%",
-		"ie > 9"
-	]
+		"start": "gulp start",
+		"deploy": "gh-pages -d public"
+	}
 }

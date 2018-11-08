@@ -5,7 +5,7 @@
 
 @mixin body-class($wrap: false) {
 
-	.demo-site {
+	.showcase {
 		@content;
 	}
 }

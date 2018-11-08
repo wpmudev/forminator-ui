@@ -60,7 +60,7 @@ export default class Select extends Component {
 					<select>
 						<option>Option 1</option>
 						<option>Option 2</option>
-						<option selected>Option 3</option>
+						<option>Option 3</option>
 						<option>Option 4</option>
 						<option>Option 5</option>
 						<option>Option 6</option>
