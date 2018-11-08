@@ -16,7 +16,7 @@
 
 	</head>
 
-	<body id="forminator-ui" class="sui-2-3-9">
+	<body id="forminator-ui">
 
 		<div class="showcase">
 
@@ -52,7 +52,27 @@
 
 				<div class="tabs">
 
-					<div class="tabs-menu"></div>
+					<ul class="tabs-menu">
+						<li class="tab-menu"><button class="active" data-tab="grid">The Grid</button></li>
+						<li class="tab-menu"><button data-tab="default">Default</button></li>
+						<li class="tab-menu"><button data-tab="flat">Flat</button></li>
+						<li class="tab-menu"><button data-tab="bold">Bold</button></li>
+						<li class="tab-menu"><button data-tab="material">Material</button></li>
+					</ul>
+
+					<div class="tabs-content">
+
+						<div class="tab-content active" data-tab="grid">Grid</div>
+
+						<div class="tab-content" data-tab="grid">Default</div>
+
+						<div class="tab-content" data-tab="grid">Flat</div>
+
+						<div class="tab-content" data-tab="grid">Bold</div>
+
+						<div class="tab-content" data-tab="grid">Material</div>
+
+					</div>
 
 				</div>
 
@@ -61,7 +81,8 @@
 		</div>
 
 		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-		<script type="text/javascript" src="assets/js/select.js"></script>
+		<script type="text/javascript" src="assets/js/showcase-ui.min.js"></script>
+		<script type="text/javascript" src="assets/js/forminator-ui.min.js"></script>
 
 	</body>
 
