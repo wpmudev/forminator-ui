@@ -121,6 +121,24 @@ gulp.task( 'styles:forminator', function() {
 		;
 });
 
+// Task: Build forminator scripts
+gulp.task( 'scripts:forminator', function( cb ) {
+
+	pump([
+		gulp.src( jsFUI ),
+		eslint(),
+		eslint.format(),
+		eslint.failAfterError(),
+		concat( 'forminator-ui.js' ),
+		uglify(),
+		rename({
+			suffix: '.min'
+		}),
+		gulp.dest( public.js ),
+		browserSync.stream()
+	], cb );
+});
+
 // Task: Build showcase styles
 gulp.task( 'styles:showcase', function() {
 
@@ -148,6 +166,7 @@ gulp.task( 'scripts:showcase', function( cb ) {
 		eslint(),
 		eslint.format(),
 		eslint.failAfterError(),
+		concat( 'showcase-ui.js' ),
 		uglify(),
 		rename({
 			suffix: '.min'
@@ -163,8 +182,14 @@ gulp.task( 'watch', function() {
 	// Watch for forminator styles changes
 	gulp.watch( scssFUI, [ 'styles:forminator' ]);
 
+	// Watch for forminator js changes
+	gulp.watch( jsFUI, [ 'scripts:forminator' ]);
+
 	// Watch for showcase styles changes
 	gulp.watch( scssSUI, [ 'styles:showcase' ]);
+
+	// Watch for showcase js changes
+	gulp.watch( jsSUI, [ 'scripts:showcase' ]);
 
 	// Watch for HTML changes
 	gulp.watch( paths.public + '*.html' ).on( 'change', browserSync.reload );
@@ -173,12 +198,14 @@ gulp.task( 'watch', function() {
 
 // Task: Build forminator files
 gulp.task( 'build:forminator', [
-	'styles:forminator'
+	'styles:forminator',
+	'scripts:forminator'
 ]);
 
 // Task: Build showcase files
 gulp.task( 'build:showcase', [
-	'styles:showcase'
+	'styles:showcase',
+	'scripts:showcase'
 ]);
 
 // Task: Run development environment
