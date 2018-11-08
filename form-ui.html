@@ -164,7 +164,24 @@
 						</div>
 
 						<!-- TAB: Default -->
-						<div class="tab-content" data-tab="default">Default</div>
+						<div class="tab-content" data-tab="default">
+
+							<div class="block">
+
+								<div class="block-side">
+									<span class="block-label dark">Input Element</span>
+									<span class="description">This element style is used for several form fields, like: input, name, email, number, etc.</span>
+								</div>
+
+								<div class="block-content">
+
+									<form class="forminator-custom-form" data-sample="input"></form>
+
+								</div>
+
+							</div>
+
+						</div>
 
 						<!-- TAB: Flat -->
 						<div class="tab-content" data-tab="flat">Flat</div>
@@ -182,6 +199,27 @@
 			</section>
 
 		</div>
+
+		<style id="forminator-grid-custom-styles" type="text/css">
+			.forminator-custom-form.forminator-custom .forminator-row:not(:last-child) {
+				margin-bottom: 20px;
+			}
+			.forminator-custom-form.forminator-custom .forminator-col:not(:last-child) {
+				margin-bottom: 20px;
+			}
+			@media (min-width: 961px) {
+				.forminator-custom-form.forminator-custom:not(.forminator-size--small) .forminator-row {
+					margin-right: -20px;
+					margin-left: -20px;
+				}
+				.forminator-custom-form.forminator-custom:not(.forminator-size--small) .forminator-col {
+					padding: 0 20px;
+				}
+				.forminator-custom-form.forminator-custom:not(.forminator-size--small) .forminator-col:not(:last-child) {
+					margin-bottom: 0;
+				}
+			}
+		</style>
 
 		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 		<script type="text/javascript" src="assets/js/showcase-ui.min.js"></script>
