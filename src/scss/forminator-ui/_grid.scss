@@ -106,6 +106,13 @@
 			// ELEMENT: Row
 			.forminator-row {
 
+				&:not(:last-child) {
+
+					@include media(min-width, md) {
+						margin-bottom: $gutter-enclosed;
+					}
+				}
+
 				@include media(min-width, md) {
 					margin-right: -#{$gutter-enclosed / 2};
 					margin-left: -#{$gutter-enclosed / 2};
