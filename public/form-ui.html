@@ -16,7 +16,7 @@
 
 	</head>
 
-	<body id="forminator-ui" class="sui-2-3-9">
+	<body id="forminator-ui">
 
 		<div class="showcase">
 
@@ -52,7 +52,148 @@
 
 				<div class="tabs">
 
-					<div class="tabs-menu"></div>
+					<ul class="tabs-menu">
+						<li class="tab-menu"><button class="active" data-tab="grid">The Grid</button></li>
+						<li class="tab-menu"><button data-tab="default">Default</button></li>
+						<li class="tab-menu"><button data-tab="flat">Flat</button></li>
+						<li class="tab-menu"><button data-tab="bold">Bold</button></li>
+						<li class="tab-menu"><button data-tab="material">Material</button></li>
+					</ul>
+
+					<div class="tabs-content">
+
+						<!-- TAB: The Grid -->
+						<div class="tab-content active" data-tab="grid">
+
+							<p>Form elements can be placed in a maximum of 4 columns per row and the spacing for the grid comes in three variations: comfortable, compact and custom.</p>
+
+							<div class="options">
+
+								<div class="options-menu">
+
+									<label for="form-grid-default" class="option active">
+										<input type="radio"
+											name="form-grid"
+											value="default"
+											id="form-grid-default" />
+										Default
+									</label>
+
+									<label for="form-grid-compact" class="option">
+										<input type="radio"
+											name="form-grid"
+											value="enclosed"
+											id="form-grid-compact" />
+										Compact
+									</label>
+
+									<label for="form-grid-custom" class="option">
+										<input type="radio"
+											name="form-grid"
+											value="custom"
+											id="form-grid-custom" />
+										Custom
+									</label>
+
+								</div>
+
+								<div class="options-content">
+
+									<div class="option active" data-option="default">
+										<span class="description">Comfortable spacing will add 30px distance between columns.</span>
+									</div>
+
+									<div class="option" data-option="enclosed">
+										<span class="description">Compact spacing will add 14px distance between columns.</span>
+									</div>
+
+									<div class="option" data-option="custom">
+										<span class="description">Custom will allow users to add the desired distance between columns. Give it a try:</span>
+										<input type="number"
+											placeholder="E.g. 10"
+											value="20"
+											id="form-grid-custom-value" />
+									</div>
+
+								</div>
+
+							</div>
+
+							<form class="forminator-custom-form">
+
+								<div class="forminator-row">
+
+									<div class="forminator-col">
+										<div class="sample-column">Field</div>
+									</div>
+
+								</div>
+
+								<div class="forminator-row">
+
+									<div class="forminator-col">
+										<div class="sample-column">Field</div>
+									</div>
+
+									<div class="forminator-col">
+										<div class="sample-column">Field</div>
+									</div>
+
+								</div>
+
+								<div class="forminator-row">
+
+									<div class="forminator-col">
+										<div class="sample-column">Field</div>
+									</div>
+
+									<div class="forminator-col">
+										<div class="sample-column">Field</div>
+									</div>
+
+									<div class="forminator-col">
+										<div class="sample-column">Field</div>
+									</div>
+
+								</div>
+
+								<div class="forminator-row">
+
+									<div class="forminator-col">
+										<div class="sample-column">Field</div>
+									</div>
+
+									<div class="forminator-col">
+										<div class="sample-column">Field</div>
+									</div>
+
+									<div class="forminator-col">
+										<div class="sample-column">Field</div>
+									</div>
+
+									<div class="forminator-col">
+										<div class="sample-column">Field</div>
+									</div>
+
+								</div>
+
+							</form>
+
+						</div>
+
+						<!-- TAB: Default -->
+						<div class="tab-content" data-tab="default">Default</div>
+
+						<!-- TAB: Flat -->
+						<div class="tab-content" data-tab="flat">Flat</div>
+
+						<!-- TAB: Bold -->
+						<div class="tab-content" data-tab="bold">Bold</div>
+
+						<!-- TAB: Material -->
+						<div class="tab-content" data-tab="material">Material</div>
+
+					</div>
 
 				</div>
 
@@ -61,7 +202,8 @@
 		</div>
 
 		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-		<script type="text/javascript" src="assets/js/select.js"></script>
+		<script type="text/javascript" src="assets/js/showcase-ui.min.js"></script>
+		<script type="text/javascript" src="assets/js/forminator-ui.min.js"></script>
 
 	</body>
 
