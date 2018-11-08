@@ -10,7 +10,9 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
 
 		<link rel="stylesheet" href="assets/css/showcase-ui.min.css" />
+
 		<link rel="stylesheet" href="assets/css/forminator-ui.min.css" />
+		<link rel="stylesheet" href="assets/css/forminator-themes.min.css" />
 
 		<title>Forminator UI</title>
 
@@ -307,8 +309,13 @@
 
 		</div>
 
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+		<script type="text/javascript" src="assets/js/showcase-ui.min.js"></script>
+		<script type="text/javascript" src="assets/js/forminator-ui.min.js"></script>
+
 		<!-- Custom Grid -->
-		<style id="showcase-custom-grid" type="text/css">
+		<style id="forminator-form-grid-tpl--custom" type="text/css">
 			.forminator-custom-form.forminator-custom .forminator-row:not(:last-child) {
 				margin-bottom: 20px;
 			}
@@ -329,12 +336,10 @@
 			}
 		</style>
 
-		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+		<!-- ************************************************************ -->
+		<!-- HTML TEMPLATES -->
 
-		<script type="text/javascript" src="assets/js/showcase-ui.min.js"></script>
-		<script type="text/javascript" src="assets/js/forminator-ui.min.js"></script>
-
-		<!-- Templates -->
+		<!-- ELEMENT: Input -->
 		<script id="forminator-form-element-tpl--input" type="text/html">
 
 			<div class="forminator-col">
@@ -344,6 +349,49 @@
 						size="1"
 						class="forminator-input" />
 					<span class="forminator-description">Description for input field.</span>
+				</div>
+			</div>
+
+		</script>
+
+		<!-- ELEMENT: Input (Required) -->
+		<script id="forminator-form-element-tpl--input-req" type="text/html">
+
+			<div class="forminator-col">
+				<div class="forminator-field">
+					<label class="forminator-label">Required field <span class="forminator-required">*</span></label>
+					<input placeholder="Placeholder"
+						size="1"
+						class="forminator-input" />
+					<span className="forminator-error-message">This field is required.</span>
+					<span class="forminator-description">Description for input field.</span>
+				</div>
+			</div>
+
+		</script>
+
+		<!-- ELEMENT: Textarea -->
+		<script id="forminator-form-element-tpl--textarea" type="text/html">
+
+			<div class="forminator-col">
+				<div class="forminator-field">
+					<label class="forminator-label">Field label</label>
+					<textarea placeholder="Placeholder" class="forminator-textarea"></textarea>
+					<span class="forminator-description">Description for textarea field.</span>
+				</div>
+			</div>
+
+		</script>
+
+		<!-- ELEMENT: Textarea (Required) -->
+		<script id="forminator-form-element-tpl--textarea-req" type="text/html">
+
+			<div class="forminator-col">
+				<div class="forminator-field">
+					<label class="forminator-label">Required field <span class="forminator-required">*</span></label>
+					<textarea placeholder="Placeholder" class="forminator-textarea"></textarea>
+					<span className="forminator-error-message">This field is required.</span>
+					<span class="forminator-description">Description for textarea field.</span>
 				</div>
 			</div>
 
