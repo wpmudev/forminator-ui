@@ -175,7 +175,7 @@
 
 								<div class="block-content">
 
-									<form class="forminator-custom-form" data-sample="true" data-element="input"></form>
+									<form class="forminator-custom-form forminator-design--default" data-sample="true" data-element="input"></form>
 
 								</div>
 
@@ -184,7 +184,24 @@
 						</div>
 
 						<!-- TAB: Flat -->
-						<div class="tab-content" data-tab="flat">Flat</div>
+						<div class="tab-content" data-tab="flat">
+
+							<div class="block">
+
+								<div class="block-side">
+									<span class="block-label dark">Input Element</span>
+									<span class="description">This element style is used for several form fields, like: input, name, email, number, etc.</span>
+								</div>
+
+								<div class="block-content">
+
+									<form class="forminator-custom-form forminator-design--flat" data-sample="true" data-element="input"></form>
+
+								</div>
+
+							</div>
+
+						</div>
 
 						<!-- TAB: Bold -->
 						<div class="tab-content" data-tab="bold">Bold</div>
@@ -200,7 +217,8 @@
 
 		</div>
 
-		<style id="forminator-grid-custom-styles" type="text/css">
+		<!-- Custom Grid -->
+		<style id="showcase-custom-grid" type="text/css">
 			.forminator-custom-form.forminator-custom .forminator-row:not(:last-child) {
 				margin-bottom: 20px;
 			}
@@ -222,6 +240,7 @@
 		</style>
 
 		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
 		<script type="text/javascript" src="assets/js/showcase-ui.min.js"></script>
 		<script type="text/javascript" src="assets/js/forminator-ui.min.js"></script>
 
