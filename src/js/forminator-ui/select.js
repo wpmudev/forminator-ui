@@ -1,7 +1,7 @@
 ( function( $ ) {
 
-	$( '.forminator-field select' ).ready( function() {
-		console.log('test');
-	} );
+	$( 'body' ).ready( function() {
+		console.log( 'Forminator is running' );
+	});
 
 }( jQuery ) );
