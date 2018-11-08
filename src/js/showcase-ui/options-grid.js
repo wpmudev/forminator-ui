@@ -1,35 +1,36 @@
 ( function( $ ) {
 
 	// Custom Grid
-	$( 'body' ).ready( function() {
+	$( '#form-grid-custom-value' ).on( 'change', function() {
 
 		var $input = $( '#form-grid-custom-value' ),
 			$gutterFull = $input.val(),
 			$gutterHalf = parseInt( $gutterFull ) / 2
 			;
 
-		$( 'body' ).append(
-			'<style type="text/css">' +
-				'.forminator-custom-form.forminator-custom .forminator-row:not(:last-child) {' +
-					'margin-bottom: ' + $gutterFull + 'px' +
+		var $styles = '<style id="forminator-grid-custom-styles" type="text/css">' +
+			'.forminator-custom-form.forminator-custom .forminator-row:not(:last-child) {' +
+				'margin-bottom: ' + $gutterFull + 'px' +
+			'}' +
+			'.forminator-custom-form.forminator-custom .forminator-col:not(:last-child) {' +
+				'margin-bottom: ' + $gutterFull + 'px' +
+			'}' +
+			'@media (min-width: 961px) {' +
+				'.forminator-custom-form.forminator-custom:not(.forminator-size--small) .forminator-row {' +
+					'margin-right: -' + $gutterHalf + 'px;' +
+					'margin-left: -' + $gutterHalf + 'px' +
 				'}' +
-				'.forminator-custom-form.forminator-custom .forminator-col:not(:last-child) {' +
-					'margin-bottom: ' + $gutterFull + 'px' +
+				'.forminator-custom-form.forminator-custom:not(.forminator-size--small) .forminator-col {' +
+					'padding: 0 ' + $gutterHalf + 'px' +
 				'}' +
-				'@media (min-width: 961px) {' +
-					'.forminator-custom-form.forminator-custom:not(.forminator-size--small) .forminator-row {' +
-						'margin-right: -' + $gutterHalf + 'px;' +
-						'margin-left: -' + $gutterHalf + 'px' +
-					'}' +
-					'.forminator-custom-form.forminator-custom:not(.forminator-size--small) .forminator-col {' +
-						'padding: 0 ' + $gutterHalf + 'px' +
-					'}' +
-					'.forminator-custom-form.forminator-custom:not(.forminator-size--small) .forminator-col:not(:last-child) {' +
-						'margin-bottom: 0' +
-					'}' +
+				'.forminator-custom-form.forminator-custom:not(.forminator-size--small) .forminator-col:not(:last-child) {' +
+					'margin-bottom: 0' +
 				'}' +
-			'</style>'
-		);
+			'}' +
+		'</style>';
+
+		$( '#forminator-grid-custom-styles' ).replaceWith( $styles );
+
 	});
 
 	// Get correct grid variation

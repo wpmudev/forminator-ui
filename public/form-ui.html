@@ -183,6 +183,27 @@
 
 		</div>
 
+		<style id="forminator-grid-custom-styles" type="text/css">
+			.forminator-custom-form.forminator-custom .forminator-row:not(:last-child) {
+				margin-bottom: 20px;
+			}
+			.forminator-custom-form.forminator-custom .forminator-col:not(:last-child) {
+				margin-bottom: 20px;
+			}
+			@media (min-width: 961px) {
+				.forminator-custom-form.forminator-custom:not(.forminator-size--small) .forminator-row {
+					margin-right: -20px;
+					margin-left: -20px;
+				}
+				.forminator-custom-form.forminator-custom:not(.forminator-size--small) .forminator-col {
+					padding: 0 20px;
+				}
+				.forminator-custom-form.forminator-custom:not(.forminator-size--small) .forminator-col:not(:last-child) {
+					margin-bottom: 0;
+				}
+			}
+		</style>
+
 		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 		<script type="text/javascript" src="assets/js/showcase-ui.min.js"></script>
 		<script type="text/javascript" src="assets/js/forminator-ui.min.js"></script>
