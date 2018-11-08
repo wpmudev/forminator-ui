@@ -18,6 +18,10 @@
 				font: 500 13px/22px $font;
 				transition: 0.2s ease;
 
+				input {
+					@extend %screen-reader-text;
+				}
+
 				&,
 				&:hover,
 				&:active {
