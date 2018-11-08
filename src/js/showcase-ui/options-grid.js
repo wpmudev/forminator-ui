@@ -8,7 +8,7 @@
 			$gutterHalf = parseInt( $gutterFull ) / 2
 			;
 
-		var $styles = '<style id="forminator-grid-custom-styles" type="text/css">' +
+		var $styles = '<style id="forminator-form-grid-tpl--custom" type="text/css">' +
 			'.forminator-custom-form.forminator-custom .forminator-row:not(:last-child) {' +
 				'margin-bottom: ' + $gutterFull + 'px' +
 			'}' +
@@ -29,7 +29,7 @@
 			'}' +
 		'</style>';
 
-		$( '#forminator-grid-custom-styles' ).replaceWith( $styles );
+		$( '#forminator-form-grid-tpl--custom' ).replaceWith( $styles );
 
 	});
 
