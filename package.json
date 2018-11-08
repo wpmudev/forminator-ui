@@ -4,9 +4,13 @@
 	"private": true,
 	"author": "WPMU DEV",
 	"homepage": "https://wpmudev.github.io/forminator-ui",
+	"eslintConfig": {
+		"extends": "wordpress"
+	},
 	"devDependencies": {
 		"@wpmudev/shared-ui": "2.3.9",
 		"browser-sync": "^2.26.3",
+		"eslint-config-wordpress": "^2.0.0",
 		"fs": "0.0.1-security",
 		"gh-pages": "^2.0.1",
 		"gulp": "^3.9.1",
@@ -21,8 +25,10 @@
 		"gulp-watch": "^5.0.1",
 		"pump": "^3.0.0"
 	},
+	"eslintIgnore": [],
 	"scripts": {
 		"start": "gulp start",
 		"deploy": "gh-pages -d public"
-	}
+	},
+	"dependencies": {}
 }
