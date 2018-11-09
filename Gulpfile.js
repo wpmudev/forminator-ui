@@ -30,15 +30,18 @@ var paths = {
 };
 
 // Production
-var src = {
-	js: './src/js/',
-	scss: './src/scss/'
+var production = {
+	themes: paths.src + 'themes/',
+	showcaseJS: paths.src + 'showcase/js/',
+	showcaseCSS: paths.src + 'showcase/scss/',
+	forminatorJS: paths.src + 'forminator-ui/js/',
+	forminatorCSS: paths.src + 'forminator-ui/scss/'
 };
 
 // Public
 var public = {
-	js: './public/assets/js/',
-	css: './public/assets/css/'
+	js: paths.public + 'assets/js/',
+	css: paths.public + 'assets/css/'
 };
 
 // ==================================================
@@ -51,26 +54,30 @@ var browserslist = [
 // ==================================================
 // List of files to watch/build
 
+// Themes
+var cssThemes = [
+	production.themes + 'forminator-themes.scss',
+	production.themes + '**/*.scss'
+];
+
 // Forminator UI (Styles)
 var scssFUI = [
-	src.scss + 'forminator-ui.scss',
-	src.scss + 'forminator-ui/*.scss'
+	production.forminatorCSS + '**/*.scss'
 ];
 
 // Forminator UI (Scripts)
 var jsFUI = [
-	src.js + 'forminator-ui/*.js'
+	production.forminatorJS + '*.js'
 ];
 
 // Showcase UI (Styles)
 var scssSUI = [
-	src.scss + 'showcase-ui.scss',
-	src.scss + 'showcase-ui/*.scss'
+	production.showcaseCSS + '**/*.scss'
 ];
 
 // Showcase UI (Scripts)
 var jsSUI = [
-	src.js + 'showcase-ui/*.js'
+	production.showcaseJS + '*.js'
 ];
 
 // ==================================================
@@ -94,13 +101,31 @@ gulp.task( 'browser-sync', function() {
 	browserSync.init({
 
 		server: {
-			baseDir: './public/'
+			baseDir: paths.public
 		}
 	});
 });
 
 // ==================================================
 // Tasks
+
+// Task: Build forminator themes
+gulp.task( 'styles:themes', function() {
+
+	gulp.src( cssThemes )
+		.pipe(
+			sass({ outputStyle: 'compressed' })
+			.on( 'error', sass.logError )
+		)
+		.pipe( autoprefixer( browserslist ) )
+		.pipe( cleanCSS() )
+		.pipe( gulp.dest( public.css ) )
+		.pipe( rename({
+			suffix: '.min'
+		}) )
+		.pipe( browserSync.stream() )
+		;
+});
 
 // Task: Build forminator styles
 gulp.task( 'styles:forminator', function() {
@@ -179,6 +204,9 @@ gulp.task( 'scripts:showcase', function( cb ) {
 // Task: Watch for changes across project
 gulp.task( 'watch', function() {
 
+	// Watch for forminator themes changes
+	gulp.watch( cssThemes, [ 'styles:themes' ]);
+
 	// Watch for forminator styles changes
 	gulp.watch( scssFUI, [ 'styles:forminator' ]);
 
@@ -196,6 +224,11 @@ gulp.task( 'watch', function() {
 
 });
 
+// Task: Build forminator themes
+gulp.task( 'build:themes', [
+	'styles:themes'
+]);
+
 // Task: Build forminator files
 gulp.task( 'build:forminator', [
 	'styles:forminator',
@@ -210,6 +243,7 @@ gulp.task( 'build:showcase', [
 
 // Task: Run development environment
 gulp.task( 'start', [
+	'build:themes',
 	'build:forminator',
 	'build:showcase',
 	'browser-sync',

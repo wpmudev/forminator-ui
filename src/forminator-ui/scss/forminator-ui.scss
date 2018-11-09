@@ -1,0 +1,21 @@
+@charset "UTF-8";
+
+// =============================================
+// FORMINATOR UI – FRONT STYLES
+// 
+// Author: Leighton Sapir (WPMU DEV)
+// Date: October 30, 2018
+// 
+// Last Update: Novemeber 2, 2018
+// =============================================
+
+@import "variables";
+@import "functions";
+@import "colors";
+@import "mixins";
+@import "../../../node_modules/@wpmudev/shared-ui/scss/icons.scss";
+@import "grid";
+@import "section";
+@import "label";
+@import "input";
+@import "textarea";
