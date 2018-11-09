@@ -5,7 +5,7 @@
 
 		<meta charset="utf-8" />
 
-		<link rel="shortcut icon" href="assets/images/favicon.ico" />
+		<link rel="icon" href="assets/images/favicon.png" />
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
 
@@ -14,7 +14,7 @@
 		<link rel="stylesheet" href="assets/css/forminator-ui.min.css" />
 		<link rel="stylesheet" href="assets/css/forminator-themes.min.css" />
 
-		<title>Forminator UI</title>
+		<title>Forminator UI | Forms</title>
 
 	</head>
 
@@ -26,9 +26,9 @@
 
 			<header>
 
-				<h1>Forms UI</h1>
+				<h1>Forminator Forms</h1>
 
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+				<p>Here you can find all elements related to Forminator forms as well as its design variations.</p>
 
 			</header>
 
@@ -344,26 +344,11 @@
 
 			<div class="forminator-col">
 				<div class="forminator-field">
-					<label class="forminator-label">Field label</label>
+					<label class="forminator-label">Field label <span class="forminator-required">*</span></label>
 					<input placeholder="Placeholder"
 						size="1"
 						class="forminator-input" />
-					<span class="forminator-description">Description for input field.</span>
-				</div>
-			</div>
-
-		</script>
-
-		<!-- ELEMENT: Input (Required) -->
-		<script id="forminator-form-element-tpl--input-req" type="text/html">
-
-			<div class="forminator-col">
-				<div class="forminator-field">
-					<label class="forminator-label">Required field <span class="forminator-required">*</span></label>
-					<input placeholder="Placeholder"
-						size="1"
-						class="forminator-input" />
-					<span className="forminator-error-message">This field is required.</span>
+					<span class="forminator-error-message">This field is required.</span>
 					<span class="forminator-description">Description for input field.</span>
 				</div>
 			</div>
@@ -375,8 +360,9 @@
 
 			<div class="forminator-col">
 				<div class="forminator-field">
-					<label class="forminator-label">Field label</label>
+					<label class="forminator-label">Field label <span class="forminator-required">*</span></label>
 					<textarea placeholder="Placeholder" class="forminator-textarea"></textarea>
+					<span class="forminator-error-message">This field is required.</span>
 					<span class="forminator-description">Description for textarea field.</span>
 				</div>
 			</div>
@@ -387,10 +373,10 @@
 		<script id="forminator-form-element-tpl--textarea-req" type="text/html">
 
 			<div class="forminator-col">
-				<div class="forminator-field">
+				<div class="forminator-field forminator-has_error">
 					<label class="forminator-label">Required field <span class="forminator-required">*</span></label>
 					<textarea placeholder="Placeholder" class="forminator-textarea"></textarea>
-					<span className="forminator-error-message">This field is required.</span>
+					<span class="forminator-error-message">This field is required.</span>
 					<span class="forminator-description">Description for textarea field.</span>
 				</div>
 			</div>
