@@ -197,6 +197,20 @@
 
 							</div>
 
+							<div class="block">
+
+								<div class="block-side">
+									<span class="block-label dark">Select Element</span>
+								</div>
+
+								<div class="block-content">
+
+									<form class="forminator-custom-form" data-sample="true" data-element="select" data-design="default"></form>
+
+								</div>
+
+							</div>
+
 						</div>
 
 						<!-- TAB: Flat -->
@@ -362,6 +376,26 @@
 				<div class="forminator-field">
 					<label class="forminator-label">Field label <span class="forminator-required">*</span></label>
 					<textarea placeholder="Placeholder" class="forminator-textarea"></textarea>
+					<span class="forminator-error-message">This field is required.</span>
+					<span class="forminator-description">Description for textarea field. <span>0 / 180</span></span>
+				</div>
+			</div>
+
+		</script>
+
+		<!-- ELEMENT: Select -->
+		<script id="forminator-form-element-tpl--select" type="text/html">
+
+			<div class="forminator-col">
+				<div class="forminator-field">
+					<label class="forminator-label">Field label <span class="forminator-required">*</span></label>
+					<select placeholder="Placeholder"
+						class="forminator-select">
+						<option>Option 1</option>
+						<option>Option 2</option>
+						<option>Option 3</option>
+						<option>Option 4</option>
+					</select>
 					<span class="forminator-error-message">This field is required.</span>
 					<span class="forminator-description">Description for textarea field.</span>
 				</div>
