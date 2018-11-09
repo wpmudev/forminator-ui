@@ -118,11 +118,12 @@ gulp.task( 'styles:themes', function() {
 			.on( 'error', sass.logError )
 		)
 		.pipe( autoprefixer( browserslist ) )
-		.pipe( cleanCSS() )
 		.pipe( gulp.dest( public.css ) )
+		.pipe( cleanCSS() )
 		.pipe( rename({
 			suffix: '.min'
 		}) )
+		.pipe( gulp.dest( public.css ) )
 		.pipe( browserSync.stream() )
 		;
 });
@@ -136,11 +137,12 @@ gulp.task( 'styles:forminator', function() {
 			.on( 'error', sass.logError )
 		)
 		.pipe( autoprefixer( browserslist ) )
-		.pipe( cleanCSS() )
 		.pipe( gulp.dest( public.css ) )
+		.pipe( cleanCSS() )
 		.pipe( rename({
 			suffix: '.min'
 		}) )
+		.pipe( gulp.dest( public.css ) )
 		.pipe( browserSync.stream() )
 		;
 });
@@ -172,11 +174,12 @@ gulp.task( 'styles:showcase', function() {
 			.on( 'error', sass.logError )
 		)
 		.pipe( autoprefixer( browserslist ) )
-		.pipe( cleanCSS() )
 		.pipe( gulp.dest( public.css ) )
+		.pipe( cleanCSS() )
 		.pipe( rename({
 			suffix: '.min'
 		}) )
+		.pipe( gulp.dest( public.css ) )
 		.pipe( browserSync.stream() )
 		;
 });
