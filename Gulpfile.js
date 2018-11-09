@@ -136,12 +136,11 @@ gulp.task( 'styles:forminator', function() {
 			.on( 'error', sass.logError )
 		)
 		.pipe( autoprefixer( browserslist ) )
-		.pipe( gulp.dest( public.css ) )
 		.pipe( cleanCSS() )
+		.pipe( gulp.dest( public.css ) )
 		.pipe( rename({
 			suffix: '.min'
 		}) )
-		.pipe( gulp.dest( public.css ) )
 		.pipe( browserSync.stream() )
 		;
 });
@@ -173,12 +172,11 @@ gulp.task( 'styles:showcase', function() {
 			.on( 'error', sass.logError )
 		)
 		.pipe( autoprefixer( browserslist ) )
-		.pipe( gulp.dest( public.css ) )
 		.pipe( cleanCSS() )
+		.pipe( gulp.dest( public.css ) )
 		.pipe( rename({
 			suffix: '.min'
 		}) )
-		.pipe( gulp.dest( public.css ) )
 		.pipe( browserSync.stream() )
 		;
 });
