@@ -12,7 +12,7 @@
 
 @mixin body-class($module-type, $module-theme: null) {
 
-	@if ( $module-type == true ) {
+	@if ($module-type == true) {
 
 		.forminator-custom-form,
 		.forminator-poll,
