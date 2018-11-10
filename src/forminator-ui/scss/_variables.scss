@@ -21,10 +21,8 @@ $fui-breakpoints: (
 // =============================================
 // 2. BASIC VARIABLES
 
-$sui-version:           '2.3.9'      !default;
-
-$sui-font-path:         '../fonts/'  !default;
-$sui-image-path:        '../images/' !default;
+$forminator-version:   '1.6.0'       !default;
+$forminator-font-path: '../fonts/'   !default;
 
 $gutter:                30px         !default;
 $gutter-sm:             20px         !default;
@@ -41,6 +39,16 @@ $input--line-height:    20px         !default;
 $textarea--height:      140px        !default;
 $textarea--padding:     10px         !default;
 $textarea--line-height: 20px         !default;
+
+$select--height:        40px         !default;
+$select--padding:       10px         !default;
+$select--line-height:   20px         !default;
+$select--handle-size:   20px         !default;
+$select--handle-icon:   12px         !default;
+
+$dropdown--height:      210px        !default;
+$dropdown--padding:     10px         !default;
+$dropdown--line-height: 20px         !default;
 
 $icon-color: #888888 !default;
 
