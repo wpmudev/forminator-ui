@@ -17,6 +17,13 @@
 	.forminator-description {
 		display: flex;
 		line-height: 1.5em;
+
+		span {
+			min-width: 80px;
+			margin-right: 0;
+			margin-left: auto;
+			text-align: right;
+		}
 	}
 
 	.forminator-error-message {
