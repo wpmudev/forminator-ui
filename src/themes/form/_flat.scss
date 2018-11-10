@@ -1,4 +1,4 @@
-/* Form */
+// DESIGN: Flat
 .forminator-custom-form.forminator-design--flat {
 	padding-top: 0;
 	padding-right: 0;
@@ -8,104 +8,187 @@
 	border-style: none;
 	border-color: transparent;
 	border-radius: 0;
-}
 
-/* ELEMENT: Label */
-.forminator-custom-form.forminator-design--flat .forminator-label {
-	color: #777771;
-	font-size: 12px;
-	font-family: inherit;
-	font-weight: 500;
-}
+	// ELEMENT: Label
+	.forminator-label {
+		color: $label-color;
+		font-size: $label-font-size;
+		font-family: $label-font-family;
+		font-weight: $label-font-weight;
 
-/* ELEMENT: Description */
-.forminator-custom-form.forminator-design--flat .forminator-description {
-	color: #6D6D6D;
-	font-size: 12px;
-	font-family: inherit;
-	font-weight: 400;
-}
+		.forminator-required {
+			color: $label-color-required;
+		}
+	}
 
-/* ELEMENT: Error Message */
-.forminator-custom-form.forminator-design--flat .forminator-error-message {
-	background-color: #F9E4E8;
-	color: #E04562;
-	font-size: 12px;
-	font-family: inherit;
-	font-weight: 500;
-}
+	// ELEMENT: Description
+	.forminator-description {
+		color: $description-color;
+		font-size: $description-font-size;
+		font-family: $description-font-family;
+		font-weight: $description-font-weight;
+	}
 
-/* ELEMENT: Section Title */
-.forminator-custom-form.forminator-design--flat .forminator-title {
-	color: #333333;
-	font-size: 45px;
-	font-weight: normal;
-	font-family: inherit;
-	text-align: left;
-}
+	// ELEMENT: Error Message
+	.forminator-error-message {
+		background-color: $error-background;
+		color: $error-color;
+		font-size: $error-font-size;
+		font-family: $error-font-family;
+		font-weight: $error-font-weight;
+	}
 
-/* ELEMENT: Section Subtitle */
-.forminator-custom-form.forminator-design--flat .forminator-subtitle {
-	color: #333333;
-	font-size: 18px;
-	font-weight: normal;
-	font-family: inherit;
-	text-align: left;
-}
+	// ELEMENT: Section Title
+	.forminator-title {
+		color: $title-color;
+		font-size: $title-font-size;
+		font-weight: $title-font-weight;
+		font-family: $title-font-family;
+		text-align: $title-position;
+	}
 
-/* ELEMENT: Section Border */
-.forminator-custom-form.forminator-design--flat .forminator-border {
-	border-top-width: 1px;
-	border-top-style: solid;
-	border-top-color: #E9E9E9;
-}
+	// ELEMENT: Section Subtitle
+	.forminator-subtitle {
+		color: $subtitle-color;
+		font-size: $subtitle-font-size;
+		font-weight: $subtitle-font-weight;
+		font-family: $subtitle-font-family;
+		text-align: $subtitle-position;
+	}
 
-/* ELEMENT: Input */
-.forminator-custom-form.forminator-design--flat .forminator-input {
-	background-color: #EDEDED;
-	color: #000000;
-	font-size: 16px;
-	font-family: inherit;
-	font-weight: normal;
-}
+	// ELEMENT: Section Border
+	.forminator-border {
+		border-top-width: 1px;
+		border-top-style: solid;
+		border-top-color: #E9E9E9;
+	}
 
-.forminator-custom-form.forminator-design--flat .forminator-input::placeholder {
-	color: #AAAAAA;
-}
+	// ELEMENT: Input
+	.forminator-input {
+		background-color: $input-static--background;
+		color: $input-color;
+		font-size: $input-font-size;
+		font-family: $input-font-family;
+		font-weight: $input-font-weight;
 
-.forminator-custom-form.forminator-design--flat .forminator-is_hover .forminator-input {
-	background-color: #E6E6E6;
-}
+		// ELEMENT: Placeholder
+		&::placeholder {
+			color: $input-placeholder;
+		}
+	}
 
-.forminator-custom-form.forminator-design--flat .forminator-is_active .forminator-input {
-	background-color: #E6E6E6;
-}
+	// ELEMENT: Textarea
+	.forminator-textarea {
+		background-color: $textarea-static--background;
+		color: $textarea-color;
+		font-size: $textarea-font-size;
+		font-family: $textarea-font-family;
+		font-weight: $textarea-font-weight;
 
-.forminator-custom-form.forminator-design--flat .forminator-has_error .forminator-input {
-	box-shadow: inset 2px 0 0 0 #E04562;
-}
+		// ELEMENT: Placeholder
+		&::placeholder {
+			color: $input-placeholder;
+		}
+	}
 
-/* ELEMENT: Textarea */
-.forminator-custom-form.forminator-design--flat .forminator-textarea {
-	background-color: #EDEDED;
-	color: #000;
-	font-size: 16px;
-	font-family: inherit;
-	font-weight: normal;
-}
+	// ELEMENT: Select
+	.forminator-select-container {
 
-.forminator-custom-form.forminator-design--flat .forminator-textarea::placeholder {
-	color: #AAAAAA;
-}
+		.forminator-select-list {
 
-.forminator-custom-form.forminator-design--flat .forminator-is_hover .forminator-textarea {
-	background-color: #E6E6E6;
-}
+			.forminator-value {
+				background-color: $select-static--background;
+				color: $select-color;
+				font-size: $select-font-size;
+				font-family: $select-font-family;
+				font-weight: $select-font-weight;
+			}
 
-.forminator-custom-form.forminator-design--flat .forminator-is_active .forminator-textarea {
-	background-color: #E6E6E6;
-}
+			.forminator-dropdown-list {
+				background-color: $dropdown-static--background;
+				color: $dropdown-static--color;
+				font-size: $dropdown-font-size;
+				font-family: $dropdown-font-family;
+				font-weight: $dropdown-font-weight;
 
-.forminator-custom-form.forminator-design--flat .forminator-has_error .forminator-textarea {
-	box-shadow: inset 2px 0 0 0 #E04562;
+				li:hover {
+					background-color: $dropdown-hover--background;
+					color: $dropdown-hover--color;
+				}
+
+				li:active,
+				li.current {
+					background-color: $dropdown-active--background;
+					color: $dropdown-active--color;
+				}
+			}
+		}
+	}
+
+	// ============================================================
+	// STATE: Hover
+	.forminator-is_hover {
+
+		// ELEMENT: Input
+		.forminator-input {
+			background-color: $input-hover--background;
+		}
+
+		// ELEMENT: Textarea
+		.forminator-textarea {
+			background-color: $textarea-hover--background;
+		}
+
+		// ELEMENT: Select
+		.forminator-select-container {
+
+			.forminator-select-list {
+
+				.forminator-value {
+					background-color: $select-hover--background;
+				}
+			}
+		}
+	}
+
+	// ============================================================
+	// STATE: Active
+	.forminator-is_active {
+
+		// ELEMENT: Input
+		.forminator-input {
+			background-color: $input-active--background;
+		}
+
+		// ELEMENT: Textarea
+		.forminator-textarea {
+			background-color: $textarea-active--background;
+		}
+
+		// ELEMENT: Select
+		.forminator-select-container {
+
+			.forminator-select-list {
+
+				.forminator-value {
+					background-color: $select-active--background;
+				}
+			}
+		}
+	}
+
+	// ============================================================
+	// STATE: Error
+	.forminator-has_error {
+
+		// ELEMENT: Input
+		.forminator-input {
+			box-shadow: inset 2px 0 0 0 $input-error--border;
+		}
+
+		// ELEMENT: Textarea
+		.forminator-textarea {
+			box-shadow: inset 2px 0 0 0 $input-error--border;
+		}
+	}
 }
