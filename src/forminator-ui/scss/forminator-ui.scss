@@ -13,9 +13,11 @@
 @import "functions";
 @import "colors";
 @import "mixins";
-@import "../../../node_modules/@wpmudev/shared-ui/scss/icons.scss";
+@import "icons";
 @import "grid";
 @import "section";
 @import "label";
 @import "input";
 @import "textarea";
+@import "select";
+@import "accessibility";
