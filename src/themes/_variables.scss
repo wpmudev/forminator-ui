@@ -1,0 +1,138 @@
+// FUNCTION: Palette
+@function palette($palette, $tone: 'default') {
+	@return map-get( map-get($palettes, $palette), $tone );
+}
+
+// Palette
+$palettes: (
+	mono: (
+		black: #000000,
+		white: #FFFFFF
+	),
+	gray: (
+		default: #888888,
+		light: #EDEDED,
+		dark: #333333
+	),
+	silver: (
+		default: #DDDDDD,
+		light: #E6E6E6,
+		dark: #777771
+	),
+	red: (
+		default: #E04562,
+		light: #F9E4E8
+	),
+	green: (
+		default: #1ABCA1,
+		dark: #159C85
+	),
+	blue: (
+		default: #17A8E3
+	)
+);
+
+// ============================================================
+// ELEMENT: Title
+$title-color:       palette(gray, dark);
+$title-font-size:   45px;
+$title-font-weight: 500;
+$title-font-family: inherit;
+$title-position:    left;
+
+// ============================================================
+// ELEMENT: Subtitle
+$subtitle-color:       palette(gray, dark);
+$subtitle-font-size:   18px;
+$subtitle-font-weight: 500;
+$subtitle-font-family: inherit;
+$subtitle-position:    left;
+
+// ============================================================
+// ELEMENT: Label
+$label-color:          palette(silver, dark);
+$label-color-required: palette(red, default);
+
+$label-font-size:   12px;
+$label-font-family: inherit;
+$label-font-weight: 500;
+
+// ============================================================
+// ELEMENT: Description
+$description-color:       palette(silver, dark);
+$description-font-size:   12px;
+$description-font-family: inherit;
+$description-font-weight: 400;
+
+// ============================================================
+// ELEMENT: Error Message
+$error-background: palette(red, light);
+$error-color:      palette(red, default);
+
+$error-font-size:   12px;
+$error-font-family: inherit;
+$error-font-weight: 500;
+
+// ============================================================
+// ELEMENT: Input
+$input-color:              palette(mono, black);
+$input-placeholder:        palette(gray, default);
+$input-font-size:          16px;
+$input-font-family:        inherit;
+$input-font-weight:        400;
+
+$input-static--background: palette(gray, light);
+$input-hover--background:  palette(silver, light);
+$input-active--background: palette(silver, light);
+
+$input-static--border:     palette(silver, dark);
+$input-hover--border:      palette(blue, default);
+$input-active--border:     palette(blue, default);
+$input-error--border:      palette(red, default);
+
+// ============================================================
+// ELEMENT: Textarea
+$textarea-color:              palette(mono, black);
+$textarea-placeholder:        palette(gray, default);
+$textarea-font-size:          16px;
+$textarea-font-family:        inherit;
+$textarea-font-weight:        400;
+
+$textarea-static--background: palette(gray, light);
+$textarea-hover--background:  palette(silver, light);
+$textarea-active--background: palette(silver, light);
+
+$textarea-static--border:     palette(silver, dark);
+$textarea-hover--border:      palette(blue, default);
+$textarea-active--border:     palette(blue, default);
+$textarea-error--border:      palette(red, default);
+
+// ============================================================
+// ELEMENT: Select
+$select-color:              palette(mono, black);
+$select-font-size:          16px;
+$select-font-family:        inherit;
+$select-font-weight:        400;
+
+$select-static--background: palette(gray, light);
+$select-hover--background:  palette(silver, light);
+$select-active--background: palette(silver, light);
+
+$select-static--border:     palette(silver, dark);
+$select-hover--border:      palette(blue, default);
+$select-active--border:     palette(blue, default);
+
+// ============================================================
+// ELEMENT: Dropdown
+$dropdown-border:             palette(blue, default);
+$dropdown-font-size:          16px;
+$dropdown-font-family:        inherit;
+$dropdown-font-weight:        400;
+
+$dropdown-static--background: palette(silver, light);
+$dropdown-hover--background:  palette(silver, default);
+$dropdown-active--background: palette(blue, default);
+
+$dropdown-static--color:      palette(silver, dark);
+$dropdown-hover--color:       palette(mono, black);
+$dropdown-active--color:      palette(mono, white);
