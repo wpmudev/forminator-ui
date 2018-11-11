@@ -1,4 +1,4 @@
-/* Form */
+// DESIGN: Material
 .forminator-custom-form.forminator-design--material {
 	padding-top: 0;
 	padding-right: 0;
@@ -8,117 +8,224 @@
 	border-style: none;
 	border-color: transparent;
 	border-radius: 0;
-}
 
-/* ELEMENT: Label */
-.forminator-custom-form.forminator-design--material .forminator-is_filled .forminator-label:not([class*="forminator-floating-"]) {
-	color: #777771;
-	font-size: 12px;
-	font-weight: 500;
-}
+	// ELEMENT: Label
+	.forminator-label {
 
-.forminator-custom-form.forminator-design--material [class*="forminator-floating-"] {
-	color: #AAAAAA;
-	font-size: 16px;
-	font-family: inherit;
-	font-weight: normal;
-}
+		&[class*="forminator-floating-"] {
+			color: $input-placeholder;
+			font-size: $input-font-size;
+			font-family: $input-font-family;
+			font-weight: $input-font-weight;
 
-.forminator-custom-form.forminator-design--material .forminator-is_active [class*="forminator-floating-"] {
-	color: #17A8E3;
-	font-size: 12px;
-	font-weight: 500;
-}
+			.forminator-required {
+				color: $input-placeholder;
+			}
+		}
 
-.forminator-custom-form.forminator-design--material .forminator-is_filled [class*="forminator-floating-"] {
-	color: #777771;
-	font-size: 12px;
-	font-weight: 500;
-}
+		&:not([class*="forminator-floating-"]) {
+			color: $label-color;
+			font-size: $label-font-size;
+			font-family: $label-font-family;
+			font-weight: $label-font-weight;
 
-.forminator-custom-form.forminator-design--material .forminator-has_error.forminator-is_active [class*="forminator-floating-"] {
-	color: #E04562;
-}
+			.forminator-required {
+				color: $label-color-required;
+			}
+		}
+	}
 
-/* ELEMENT: Description */
-.forminator-custom-form.forminator-design--material .forminator-description {
-	color: #6D6D6D;
-	font-size: 12px;
-	font-family: inherit;
-	font-weight: 400;
-}
+	// ELEMENT: Description
+	.forminator-description {
+		color: $description-color;
+		font-size: $description-font-size;
+		font-family: $description-font-family;
+		font-weight: $description-font-weight;
+	}
 
-/* ELEMENT: Error Message */
-.forminator-custom-form.forminator-design--material .forminator-error-message {
-	color: #E04562;
-	font-size: 12px;
-	font-family: inherit;
-	font-weight: 500;
-}
+	// ELEMENT: Error Message
+	.forminator-error-message {
+		color: $error-color;
+		font-size: $error-font-size;
+		font-family: $error-font-family;
+		font-weight: $error-font-weight;
+	}
 
-/* ELEMENT: Section Title */
-.forminator-custom-form.forminator-design--material .forminator-title {
-	color: #333333;
-	font-size: 45px;
-	font-weight: normal;
-	font-family: inherit;
-	text-align: left;
-}
+	// ELEMENT: Section Title
+	.forminator-title {
+		color: $title-color;
+		font-size: $title-font-size;
+		font-weight: $title-font-weight;
+		font-family: $title-font-family;
+		text-align: $title-position;
+	}
 
-/* ELEMENT: Section Subtitle */
-.forminator-custom-form.forminator-design--material .forminator-subtitle {
-	color: #333333;
-	font-size: 18px;
-	font-weight: normal;
-	font-family: inherit;
-	text-align: left;
-}
+	// ELEMENT: Section Subtitle
+	.forminator-subtitle {
+		color: $subtitle-color;
+		font-size: $subtitle-font-size;
+		font-weight: $subtitle-font-weight;
+		font-family: $subtitle-font-family;
+		text-align: $subtitle-position;
+	}
 
-/* ELEMENT: Section Border */
-.forminator-custom-form.forminator-design--material .forminator-border {
-	border-top-width: 1px;
-	border-top-style: solid;
-	border-top-color: #E9E9E9;
-}
+	// ELEMENT: Section Border
+	.forminator-border {
+		border-top-width: 1px;
+		border-top-style: solid;
+		border-top-color: #E9E9E9;
+	}
 
-/* ELEMENT: Input */
-.forminator-custom-form.forminator-design--material .forminator-input {
-	border-color: #777771;
-	color: #000000;
-	font-size: 16px;
-	font-family: inherit;
-	font-weight: normal;
-}
+	// ELEMENT: Input
+	.forminator-input {
+		border-color: $input-static--border;
+		color: $input-color;
+		font-size: $input-font-size;
+		font-family: $input-font-family;
+		font-weight: $input-font-weight;
 
-.forminator-custom-form.forminator-design--material .forminator-input::placeholder {
-	color: #AAAAAA;
-}
+		&::placeholder {
+			color: $input-placeholder;
+		}
 
-.forminator-custom-form.forminator-design--material .forminator-input--wrap:after {
-	background-color: #17A8E3;
-}
+		// ELEMENT: Wrapper
+		&--wrap:after {
+			background-color: $input-hover--border;
+		}
+	}
 
-.forminator-custom-form.forminator-design--material .forminator-has_error .forminator-input--wrap:after {
-	background-color: #E04562;
-}
+	// ELEMENT: Textarea
+	.forminator-textarea {
+		border-color: $textarea-static--border;
+		color: $textarea-color;
+		font-size: $textarea-font-size;
+		font-family: $textarea-font-family;
+		font-weight: $textarea-font-weight;
 
-/* ELEMENT: Textarea */
-.forminator-custom-form.forminator-design--material .forminator-textarea {
-	border-color: #777771;
-	color: #000000;
-	font-size: 16px;
-	font-family: inherit;
-	font-weight: normal;
-}
+		&::placeholder {
+			color: $textarea-placeholder;
+		}
 
-.forminator-custom-form.forminator-design--material .forminator-textarea::placeholder {
-	color: #AAAAAA;
-}
+		// ELEMENT: Wrapper
+		&--wrap:after {
+			border-color: $textarea-hover--border;
+		}
+	}
 
-.forminator-custom-form.forminator-design--material .forminator-textarea--wrap:after {
-	border-color: #17A8E3;
-}
+	// ============================================================
+	// STATE: Filled
+	.forminator-is_filled {
 
-.forminator-custom-form.forminator-design--material .forminator-has_error .forminator-textarea--wrap:after {
-	border-color: #E04562;
+		// ELEMENT: Label
+		.forminator-label {
+
+			&[class*="forminator-floating-"] {
+				color: $label-color;
+				font-size: $label-font-size;
+				font-family: $label-font-family;
+				font-weight: $label-font-weight;
+
+				.forminator-required {
+					color: $label-color-required;
+				}
+			}
+		}
+
+		// ==================================================
+		// STATE: Active
+		&.forminator-is_active {}
+
+		// ==================================================
+		// STATE: Error
+		&.forminator-has_error {
+
+			// ELEMENT: Label
+			.forminator-label {
+				color: $label-color-required;
+
+				.forminator-required {
+					color: $label-color-required;
+				}
+			}
+		}
+	}
+
+	// ============================================================
+	// STATE: Hover
+	.forminator-is_hover {}
+
+	// ============================================================
+	// STATE: Active
+	.forminator-is_active {
+
+		// ELEMENT: Label
+		.forminator-label {
+
+			&[class*="forminator-floating-"] {
+				color: $label-color;
+				font-size: $label-font-size;
+				font-family: $label-font-family;
+				font-weight: $label-font-weight;
+
+				.forminator-required {
+					color: $label-color-required;
+				}
+			}
+		}
+
+		// ELEMENT: Input
+		.forminator-input {
+
+			// ELEMENT: Wrapper
+			&--wrap:after {
+				background-color: $input-active--border;
+			}
+		}
+
+		// ELEMENT: Textarea
+		.forminator-textarea {
+
+			// ELEMENT: Wrapper
+			&--wrap:after {
+				border-color: $textarea-active--border;
+			}
+		}
+
+		// ==================================================
+		// STATE: Error
+		&.forminator-has_error {
+
+			// ELEMENT: Label
+			.forminator-label {
+				color: $label-color-required;
+
+				.forminator-required {
+					color: $label-color-required;
+				}
+			}
+		}
+	}
+
+	// ============================================================
+	// STATE: Error
+	.forminator-has_error {
+
+		// ELEMENT: Input
+		.forminator-input {
+
+			// ELEMENT: Wrapper
+			&--wrap:after {
+				background-color: $input-error--border;
+			}
+		}
+
+		// ELEMENT: Textarea
+		.forminator-textarea {
+
+			// ELEMENT: Wrapper
+			&--wrap:after {
+				border-color: $textarea-error--border;
+			}
+		}
+	}
 }
