@@ -12,8 +12,10 @@
 		$options.removeClass( 'active' );
 		$option.addClass( 'active' );
 
-		$content.removeClass( 'active' );
-		$current.addClass( 'active' );
+		if ( $parent.find( '.options-content .option[data-option]' ).length ) {
+			$content.removeClass( 'active' );
+			$current.addClass( 'active' );
+		}
 
 		e.preventDefault();
 		e.stopPropagation();
