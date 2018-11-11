@@ -79,22 +79,70 @@
 			if ( $isValid && $isSelect ) {
 				$form.append( '<div class="forminator-row">' + $tplSelect + '</div>' );
 			}
-
-			// Apply changes for Material UI
-			if ( ( typeof $form.data( 'design' ) !== undefined ) && ( 'material' === $form.data( 'design' ) ) ) {
-
-				if ( $form.find( '.forminator-input' ).length ) {
-					$form.find( '.forminator-label' ).addClass( 'forminator-floating--input' );
-					$form.find( '.forminator-input' ).wrap( '<div class="forminator-input--wrap" />' );
-				}
-
-				if ( $form.find( '.forminator-textarea' ).length ) {
-					$form.find( '.forminator-label' ).addClass( 'forminator-floating--textarea' );
-					$form.find( '.forminator-textarea' ).wrap( '<div class="forminator-textarea--wrap" />' );
-				}
-			}
 		});
 
+	});
+
+	$( 'body' ).on( 'click', '.design-samples .options-menu .option', function( e ) {
+
+		var $option  = $( this ),
+			$value   = $option.find( 'input' ).val(),
+			$parent  = $option.closest( '.options' ),
+			$form    = $parent.find( '.forminator-custom-form' ),
+			$element = $form.data( 'element' )
+			;
+
+		var $designs = [
+			'default',
+			'flat',
+			'bold',
+			'material'
+		];
+
+		var $elements = [
+			'input',
+			'textarea'
+		];
+
+		// Reset
+		$.each( $designs, function( index, $design ) {
+			$form.removeClass( 'forminator-design--' + $design );
+		});
+
+		$form.addClass( 'forminator-design--' + $value );
+
+		// MATERIAL UI: Mount
+		if ( 'material' === $value ) {
+
+			$.each( $elements, function( index, $field ) {
+
+				var $wrapper = 'forminator-' + $field + '--wrap',
+					$label   = 'forminator-floating--' + $field
+					;
+
+				if ( $field === $element && ! $form.find( '.' + $wrapper ).length ) {
+					$form.find( '.forminator-label' ).addClass( $label );
+					$form.find( '.forminator-' + $field ).wrap( '<div class="' + $wrapper + '" />' );
+				}
+			});
+		}
+
+		// MATERIAL UI: Unmount
+		if ( 'material' !== $value ) {
+
+			$.each( $elements, function( index, $field ) {
+
+				var $object  = $form.find( '.forminator-' + $field ),
+					$wrapper = 'forminator-' + $field + '--wrap',
+					$label   = 'forminator-floating--' + $field
+					;
+
+				if ( $field === $element && $object.parent().hasClass( $wrapper ) ) {
+					$form.find( '.forminator-label' ).removeClass( $label );
+					$object.unwrap();
+				}
+			});
+		}
 	});
 
 }( jQuery ) );
