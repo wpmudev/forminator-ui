@@ -221,11 +221,9 @@
 			}
 
 			.forminator-dropdown-list {
-				margin: -#{$default--border-width} 0 0;
-				border-width: 0 $default--border-width $default--border-width $default--border-width;
-				border-style: $default--border-style;
-				border-bottom-right-radius: $default--border-radius;
-				border-bottom-left-radius: $default--border-radius;
+				margin: 2px 0 0;
+				border: 0;
+				border-radius: 0;
 
 				li {
 					padding: $dropdown--padding #{$dropdown--padding - ($default--border-width * 2)};
@@ -237,11 +235,7 @@
 
 			.forminator-select-list {
 
-				.forminator-value {
-					border-bottom-color: transparent !important;
-					border-bottom-right-radius: 0;
-					border-bottom-left-radius: 0;
-				}
+				.forminator-value {}
 			}
 		}
 	}
