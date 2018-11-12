@@ -92,7 +92,7 @@
 		padding: #{30px - $material--border-width} #{$input--padding - $material--border-width} #{$input--padding - $material--border-width};
 		border-width: $material--border-width;
 		border-style: $material--border-style;
-		border-radius: $material--textarea-border-radius;
+		border-radius: $material--border-radius;
 	}
 
 	.forminator-textarea--wrap {
@@ -109,7 +109,7 @@
 			left: 0;
 			border-width: #{$material--border-width * 2};
 			border-style: $material--border-style;
-			border-radius: $material--textarea-border-radius;
+			border-radius: $material--border-radius;
 			box-sizing: border-box;
 			@include opacity(0);
 			transition: $transition--ease;
