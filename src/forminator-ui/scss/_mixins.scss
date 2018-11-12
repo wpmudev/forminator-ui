@@ -4,7 +4,7 @@
 // 1. BODY CLASS
 // 2. OPACITY
 // 3. BREAKPOINTS
-// 4. NOTIFICATIONS
+// 4. ANIMATIONS
 // =============================================
 
 // =============================================
@@ -23,6 +23,6 @@
 @import "mixins/breakpoints";
 
 // =============================================
-// 4. NOTIFICATIONS
+// 4. ANIMATIONS
 
-// @import "mixins/notifications";
+@import "mixins/animations";

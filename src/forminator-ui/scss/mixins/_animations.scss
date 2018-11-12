@@ -1,0 +1,14 @@
+@keyframes click-animation {
+	0% {
+		transform: translate(-50%, -50%) scale(1);
+		@include opacity(0.2);
+	}
+	50% {
+		transform: translate(-50%, -50%) scale(2);
+		@include opacity(0.1);
+	}
+	100% {
+		transform: translate(-50%, -50%) scale(0);
+		@include opacity(0);
+	}
+}
