@@ -112,6 +112,36 @@
 		}
 	}
 
+	// ELEMENT: Select
+	.forminator-select-container {
+
+		.forminator-select-list {
+
+			.forminator-value {
+				border-color: $select-static--border;
+			}
+
+			.forminator-dropdown-list {
+				background-color: $dropdown-static--background;
+				color: $dropdown-static--color;
+				font-size: $dropdown-font-size;
+				font-family: $dropdown-font-family;
+				font-weight: $dropdown-font-weight;
+
+				li:hover {
+					background-color: $dropdown-hover--background;
+					color: $dropdown-hover--color;
+				}
+
+				li:active,
+				li.current {
+					background-color: $dropdown-active--background;
+					color: $dropdown-active--color;
+				}
+			}
+		}
+	}
+
 	// ============================================================
 	// STATE: Filled
 	.forminator-is_filled {
@@ -132,10 +162,6 @@
 		}
 
 		// ==================================================
-		// STATE: Active
-		&.forminator-is_active {}
-
-		// ==================================================
 		// STATE: Error
 		&.forminator-has_error {
 
@@ -152,7 +178,22 @@
 
 	// ============================================================
 	// STATE: Hover
-	.forminator-is_hover {}
+	.forminator-is_hover {
+
+		// ELEMENT: Select
+		.forminator-select-container {
+
+			.forminator-select-list {
+
+				.forminator-value {
+					
+					&:before {
+						background-color: $select-hover--border;
+					}
+				}
+			}
+		}
+	}
 
 	// ============================================================
 	// STATE: Active
@@ -188,6 +229,20 @@
 			// ELEMENT: Wrapper
 			&--wrap:after {
 				border-color: $textarea-active--border;
+			}
+		}
+
+		// ELEMENT: Select
+		.forminator-select-container {
+
+			.forminator-select-list {
+
+				.forminator-value {
+					
+					&:before {
+						background-color: $select-active--border;
+					}
+				}
 			}
 		}
 

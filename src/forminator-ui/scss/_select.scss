@@ -207,35 +207,56 @@
 		.forminator-select-list {
 
 			.forminator-value {
+				position: relative;
 				padding-top: $select--padding;
-				padding-right: #{($select--padding * 2) + $select--handle-size};
+				padding-right: #{$select--padding + $select--handle-size};
 				padding-bottom: #{$select--padding - $material--border-width};
 				padding-left: 0;
 				border-width: 0 0 $material--border-width 0;
 				border-style: $material--border-style;
 				border-radius: 0;
+
+				&:before {
+					content: " ";
+					height: 2px;
+					display: block;
+					position: absolute;
+					right: 50%;
+					bottom: -#{$material--border-width};
+					left: 50%;
+					box-sizing: border-box;
+					transition: 0.2s linear;
+				}
 			}
 
 			.forminator-dropdown-handle {
-				right: $select--padding;
+				right: 0;
 			}
 
 			.forminator-dropdown-list {
 				margin: 2px 0 0;
 				border: 0;
 				border-radius: 0;
+				box-shadow: $material--dropdown-shadow;
 
 				li {
 					padding: $dropdown--padding #{$dropdown--padding - ($default--border-width * 2)};
 				}
 			}
 		}
+	}
 
-		&.forminator-is_open {
+	.forminator-is_hover,
+	.forminator-is_active {
+
+		.forminator-select-container {
 
 			.forminator-select-list {
 
-				.forminator-value {}
+				.forminator-value:before {
+					right: 0;
+					left: 0;
+				}
 			}
 		}
 	}
