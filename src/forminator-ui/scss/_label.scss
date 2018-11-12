@@ -11,7 +11,12 @@
 	}
 
 	.forminator-label {
+		cursor: default;
 		line-height: 1.7em;
+
+		&[for] {
+			cursor: pointer;
+		}
 	}
 
 	.forminator-description {
