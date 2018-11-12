@@ -129,6 +129,48 @@
 		}
 	}
 
+	// ELEMENT: Radio
+	.forminator-radio {
+
+		input:checked {
+
+			+ span[aria-hidden] {
+				border-color: $radio-checked--border;
+				background-color: $radio-checked--background;
+			}
+		}
+
+		span[aria-hidden] {
+			border-color: $radio-static--border;
+			background-color: $radio-static--background;
+
+			&:before {
+				background-color: $radio-icon;
+			}
+		}
+	}
+
+	// ELEMENT: Checkbox
+	.forminator-checkbox {
+
+		input:checked {
+
+			+ span[aria-hidden] {
+				border-color: $radio-checked--border;
+				background-color: $radio-checked--background;
+			}
+		}
+
+		span[aria-hidden] {
+			border-color: $radio-static--border;
+			background-color: $radio-static--background;
+
+			&:before {
+				color: $radio-icon;
+			}
+		}
+	}
+
 	// ============================================================
 	// STATE: Hover
 	.forminator-is_hover {
@@ -199,6 +241,40 @@
 		// ELEMENT: Textarea
 		.forminator-textarea {
 			border-color: $textarea-error--border;
+		}
+
+		// ELEMENT: Radio
+		.forminator-radio {
+
+			input:checked {
+
+				+ span[aria-hidden] {
+					border-color: $radio-error--border;
+					background-color: $radio-error--background;
+				}
+			}
+
+			span[aria-hidden] {
+				border-color: $radio-error--border;
+				background-color: $radio-error--background;
+			}
+		}
+
+		// ELEMENT: Checkbox
+		.forminator-checkbox {
+
+			input:checked {
+
+				+ span[aria-hidden] {
+					border-color: $radio-error--border;
+					background-color: $radio-error--background;
+				}
+			}
+
+			span[aria-hidden] {
+				border-color: $radio-error--border;
+				background-color: $radio-error--background;
+			}
 		}
 	}
 }

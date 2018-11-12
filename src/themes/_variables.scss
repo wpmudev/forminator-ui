@@ -136,3 +136,15 @@ $dropdown-active--background: palette(blue, default);
 $dropdown-static--color:      palette(silver, dark);
 $dropdown-hover--color:       palette(mono, black);
 $dropdown-active--color:      palette(mono, white);
+
+// ============================================================
+// ELEMENT: Radio
+$radio-icon:                palette(blue, default);
+
+$radio-static--border:      palette(silver, dark);
+$radio-checked--border:     palette(blue, default);
+$radio-error--border:       palette(red, default);
+
+$radio-static--background:  palette(gray, light);
+$radio-checked--background: palette(gray, light);
+$radio-error--background:   palette(red, light);

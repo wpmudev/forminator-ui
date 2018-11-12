@@ -50,6 +50,9 @@ $dropdown--height:      210px        !default;
 $dropdown--padding:     10px         !default;
 $dropdown--line-height: 20px         !default;
 
+$radio--size:           20px         !default;
+$radio--icon-size:      12px         !default;
+
 $icon-color: #888888 !default;
 
 // =============================================
@@ -69,9 +72,8 @@ $bold--border-style: solid !default;
 
 // =============================================
 // 6. DESIGN: MATERIAL
-$material--border-width:           1px   !default;
-$material--border-style:           solid !default;
+$material--border-width:    1px   !default;
+$material--border-style:    solid !default;
+$material--border-radius:   2px   !default;
 
-$material--textarea-border-radius: 2px   !default;
-
-$material--dropdown-shadow:        0 3px 8px 0 rgba(0, 0, 0, 0.3);
+$material--dropdown-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.3);

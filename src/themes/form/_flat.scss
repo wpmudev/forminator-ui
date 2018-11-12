@@ -125,6 +125,44 @@
 		}
 	}
 
+	// ELEMENT: Radio
+	.forminator-radio {
+
+		input:checked {
+
+			+ span[aria-hidden] {
+				background-color: $radio-checked--background;
+			}
+		}
+
+		span[aria-hidden] {
+			background-color: $radio-static--background;
+
+			&:before {
+				background-color: $radio-icon;
+			}
+		}
+	}
+
+	// ELEMENT: Checkbox
+	.forminator-checkbox {
+
+		input:checked {
+
+			+ span[aria-hidden] {
+				background-color: $radio-static--background;
+			}
+		}
+
+		span[aria-hidden] {
+			background-color: $radio-static--background;
+
+			&:before {
+				color: $radio-icon;
+			}
+		}
+	}
+
 	// ============================================================
 	// STATE: Hover
 	.forminator-is_hover {
@@ -189,6 +227,36 @@
 		// ELEMENT: Textarea
 		.forminator-textarea {
 			box-shadow: inset 2px 0 0 0 $input-error--border;
+		}
+
+		// ELEMENT: Radio
+		.forminator-radio {
+
+			input:checked {
+
+				+ span[aria-hidden] {
+					background-color: $radio-error--background;
+				}
+			}
+
+			span[aria-hidden] {
+				background-color: $radio-error--background;
+			}
+		}
+
+		// ELEMENT: Checkbox
+		.forminator-checkbox {
+
+			input:checked {
+
+				+ span[aria-hidden] {
+					background-color: $radio-error--background;
+				}
+			}
+
+			span[aria-hidden] {
+				background-color: $radio-error--background;
+			}
 		}
 	}
 }
