@@ -7,23 +7,34 @@
 			var $form       = $( this ),
 				$isValid    = ( true === $form.data( 'sample' ) ),
 				$isInput    = ( 'input' === $form.data( 'element' ) ),
-				$isTextarea = ( 'textarea' === $form.data( 'element' ) ),
-				$isSelect   = ( 'select' === $form.data( 'element' ) )
+				$isTextarea = ( 'textarea' === $form.data( 'element' ) )
 				;
 
-			var $tplInput    = $( '#forminator-form-element-tpl--input' ).html(),
-				$tplTextarea = $( '#forminator-form-element-tpl--textarea' ).html(),
-				$tplSelect   = $( '#forminator-form-element-tpl--select' ).html()
-				;
+			var $isElement = [
+				'input',
+				'textarea',
+				'select',
+				'radio',
+				'checkbox'
+			];
 
 			// Get form design
 			if ( typeof $form.data( 'design' ) !== undefined ) {
 				$form.addClass( 'forminator-design--' + $form.data( 'design' ) );
 			}
 
+			// Get template
+			$.each( $isElement, function( index, $element ) {
+
+				var $template = $( '#forminator-form-element-tpl--' + $element ).html();
+
+				if ( $isValid && ( $element === $form.data( 'element' ) ) ) {
+					$form.append( '<div class="forminator-row">' + $template + '</div>' );
+				}
+			});
+
 			// SAMPLE: Input field
 			if ( $isValid && $isInput ) {
-				$form.append( '<div class="forminator-row">' + $tplInput + '</div>' );
 
 				// Validation (on focus)
 				$form.find( '.forminator-input' ).blur( function( e ) {
@@ -50,7 +61,6 @@
 
 			// SAMPLE: Textarea field
 			if ( $isValid && $isTextarea ) {
-				$form.append( '<div class="forminator-row">' + $tplTextarea + '</div>' );
 
 				// Validation (on focus)
 				$form.find( '.forminator-textarea' ).blur( function( e ) {
@@ -73,11 +83,6 @@
 					e.stopPropagation();
 
 				});
-			}
-
-			// SAMPLE: Select field
-			if ( $isValid && $isSelect ) {
-				$form.append( '<div class="forminator-row">' + $tplSelect + '</div>' );
 			}
 		});
 
