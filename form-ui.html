@@ -240,35 +240,35 @@
 
 										<div class="options-menu">
 
-											<label for="form-default--input" class="option active">
+											<label for="form-default--textarea" class="option active">
 												<input type="radio"
-													name="form-element--input"
+													name="form-element--textarea"
 													value="default"
-													id="form-default--input" />
+													id="form-default--textarea" />
 												Default
 											</label>
 
-											<label for="form-flat--input" class="option">
+											<label for="form-flat--textarea" class="option">
 												<input type="radio"
-													name="form-element--input"
+													name="form-element--textarea"
 													value="flat"
-													id="form-flat--input" />
+													id="form-flat--textarea" />
 												Flat
 											</label>
 
-											<label for="form-bold--input" class="option">
+											<label for="form-bold--textarea" class="option">
 												<input type="radio"
-													name="form-element--input"
+													name="form-element--textarea"
 													value="bold"
-													id="form-bold--input" />
+													id="form-bold--textarea" />
 												Bold
 											</label>
 
-											<label for="form-material--input" class="option">
+											<label for="form-material--textarea" class="option">
 												<input type="radio"
-													name="form-element--input"
+													name="form-element--textarea"
 													value="material"
-													id="form-material--input" />
+													id="form-material--textarea" />
 												Material
 											</label>
 
@@ -302,35 +302,35 @@
 
 										<div class="options-menu">
 
-											<label for="form-default--input" class="option active">
+											<label for="form-default--select" class="option active">
 												<input type="radio"
-													name="form-element--input"
+													name="form-element--select"
 													value="default"
-													id="form-default--input" />
+													id="form-default--select" />
 												Default
 											</label>
 
-											<label for="form-flat--input" class="option">
+											<label for="form-flat--select" class="option">
 												<input type="radio"
-													name="form-element--input"
+													name="form-element--select"
 													value="flat"
-													id="form-flat--input" />
+													id="form-flat--select" />
 												Flat
 											</label>
 
-											<label for="form-bold--input" class="option">
+											<label for="form-bold--select" class="option">
 												<input type="radio"
-													name="form-element--input"
+													name="form-element--select"
 													value="bold"
-													id="form-bold--input" />
+													id="form-bold--select" />
 												Bold
 											</label>
 
-											<label for="form-material--input" class="option">
+											<label for="form-material--select" class="option">
 												<input type="radio"
-													name="form-element--input"
+													name="form-element--select"
 													value="material"
-													id="form-material--input" />
+													id="form-material--select" />
 												Material
 											</label>
 
@@ -341,6 +341,68 @@
 											<div class="option active">
 
 												<form class="forminator-custom-form" data-sample="true" data-element="select" data-design="default"></form>
+
+											</div>
+
+										</div>
+
+									</div>
+
+								</div>
+
+							</div>
+
+							<div class="block">
+
+								<div class="block-side">
+									<span class="block-label dark">Radio Options</span>
+								</div>
+
+								<div class="block-content">
+
+									<div class="options design-samples">
+
+										<div class="options-menu">
+
+											<label for="form-default--radio" class="option active">
+												<input type="radio"
+													name="form-element--radio"
+													value="default"
+													id="form-default--radio" />
+												Default
+											</label>
+
+											<label for="form-flat--radio" class="option">
+												<input type="radio"
+													name="form-element--radio"
+													value="flat"
+													id="form-flat--radio" />
+												Flat
+											</label>
+
+											<label for="form-bold--radio" class="option">
+												<input type="radio"
+													name="form-element--radio"
+													value="bold"
+													id="form-bold--radio" />
+												Bold
+											</label>
+
+											<label for="form-material--radio" class="option">
+												<input type="radio"
+													name="form-element--radio"
+													value="material"
+													id="form-material--radio" />
+												Material
+											</label>
+
+										</div>
+
+										<div class="options-content">
+
+											<div class="option active">
+
+												<form class="forminator-custom-form" data-sample="true" data-element="radio" data-design="default"></form>
 
 											</div>
 
@@ -440,6 +502,51 @@
 						<option>Option 9</option>
 						<option>Option 10</option>
 					</select>
+					<span class="forminator-error-message">This field is required.</span>
+					<span class="forminator-description">Description for select field.</span>
+				</div>
+			</div>
+
+		</script>
+
+		<!-- ELEMENT: Radio -->
+		<script id="forminator-form-element-tpl--radio" type="text/html">
+
+			<div class="forminator-col">
+				<div class="forminator-field">
+					<label class="forminator-label">Field label <span class="forminator-required">*</span></label>
+					<label for="radio-option-1"
+						class="forminator-radio">
+						<input type="radio"
+							name="radio-options"
+							id="radio-option-1" />
+						<span aria-hidden="true"></span>
+						<span>Option 1</span>
+					</label>
+					<label for="radio-option-2"
+						class="forminator-radio">
+						<input type="radio"
+							name="radio-options"
+							id="radio-option-2" />
+						<span aria-hidden="true"></span>
+						<span>Option 2</span>
+					</label>
+					<label for="radio-option-3"
+						class="forminator-radio">
+						<input type="radio"
+							name="radio-options"
+							id="radio-option-3" />
+						<span aria-hidden="true"></span>
+						<span>Option 3</span>
+					</label>
+					<label for="radio-option-4"
+						class="forminator-radio">
+						<input type="radio"
+							name="radio-options"
+							id="radio-option-4" />
+						<span aria-hidden="true"></span>
+						<span>Option 4</span>
+					</label>
 					<span class="forminator-error-message">This field is required.</span>
 					<span class="forminator-description">Description for select field.</span>
 				</div>
