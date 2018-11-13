@@ -163,6 +163,13 @@
 				background-color: $radio-checked--border;
 			}
 		}
+
+		span:not([aria-hidden]) {
+			color: $radio-font-color;
+			font-size: $radio-font-size;
+			font-family: $radio-font-family;
+			font-weight: $radio-font-weight;
+		}
 	}
 
 	// ELEMENT: Checkbox
@@ -184,6 +191,35 @@
 
 			&:after {
 				background-color: $radio-checked--border;
+			}
+		}
+
+		span:not([aria-hidden]) {
+			color: $radio-font-color;
+			font-size: $radio-font-size;
+			font-family: $radio-font-family;
+			font-weight: $radio-font-weight;
+		}
+	}
+
+	// ELEMENT: Multi Select
+	.forminator-multiselect {
+
+		.forminator-option {
+			border-color: $multiselect-static--border;
+			color: $multiselect-static--color;
+			font-size: $multiselect-font-size;
+			font-family: $multiselect-font-family;
+			font-weight: $multiselect-font-weight;
+
+			&:hover {
+				border-color: $multiselect-hover--border;
+				color: $multiselect-hover--color;
+			}
+
+			&.forminator-is_checked {
+				border-color: $multiselect-active--border;
+				color: $multiselect-active--color-alt;
 			}
 		}
 	}
@@ -364,6 +400,14 @@
 				&:after {
 					background-color: $radio-error--border;
 				}
+			}
+		}
+
+		// ELEMENT: Multi Select
+		.forminator-multiselect {
+
+			.forminator-option {
+				border-color: $multiselect-error--border;
 			}
 		}
 	}
