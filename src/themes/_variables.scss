@@ -1,9 +1,9 @@
-// FUNCTION: Palette
 @function palette($palette, $tone: 'default') {
 	@return map-get( map-get($palettes, $palette), $tone );
 }
 
-// Palette
+// ============================================================
+// Default colors palette
 $palettes: (
 	mono: (
 		light: #FFFFFF,
@@ -173,3 +173,30 @@ $multiselect-static--color:      palette(silver, dark);
 $multiselect-hover--color:       palette(mono, dark);
 $multiselect-active--color:      palette(mono, light);
 $multiselect-active--color-alt:  palette(blue, default);
+
+// ============================================================
+// ELEMENT: File Upload
+$upload-text--color:               palette(silver, dark);
+$upload-text--font-size:           12px;
+$upload-text--font-family:         inherit;
+$upload-text--font-weight:         500;
+
+$upload-button--font-size:         14px;
+$upload-button--font-family:       inherit;
+$upload-button--font-weight:       500;
+
+$upload-button-static--background: palette(green, default);
+$upload-button-hover--background:  palette(green, dark);
+$upload-button-active--background: palette(green, dark);
+
+$upload-button-static--color:      palette(mono, light);
+$upload-button-hover--color:       palette(mono, light);
+$upload-button-active--color:      palette(mono, light);
+
+$upload-delete-static--background: transparent;
+$upload-delete-hover--background:  palette(red, light);
+$upload-delete-active--background: palette(red, light);
+
+$upload-delete-static--color:      palette(red, default);
+$upload-delete-hover--color:       palette(red, default);
+$upload-delete-active--color:      palette(red, default);

@@ -208,6 +208,50 @@
 		}
 	}
 
+	// ELEMENT: File Upload
+	.forminator-file-upload {
+
+		> span {
+			color: $upload-text--color;
+			font-size: $upload-text--font-size;
+			font-family: $upload-text--font-family;
+			font-weight: $upload-text--font-weight;
+		}
+
+		.forminator-button-upload {
+			background-color: $upload-button-static--background;
+			color: $upload-button-static--color;
+			font-size: $upload-button--font-size;
+			font-family: $upload-button--font-family;
+			font-weight: $upload-button--font-weight;
+
+			&:hover {
+				background-color: $upload-button-hover--background;
+				color: $upload-button-hover--color;
+			}
+
+			&:active {
+				background-color: $upload-button-active--background;
+				color: $upload-button-active--color;
+			}
+		}
+
+		.forminator-button-delete {
+			background-color: $upload-delete-static--background;
+			color: $upload-delete-static--color;
+
+			&:hover {
+				background-color: $upload-delete-hover--background;
+				color: $upload-delete-hover--color;
+			}
+
+			&:active {
+				background-color: $upload-delete-active--background;
+				color: $upload-delete-active--color;
+			}
+		}
+	}
+
 	// ============================================================
 	// STATE: Hover
 	.forminator-is_hover {

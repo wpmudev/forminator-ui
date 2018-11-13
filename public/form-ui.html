@@ -543,6 +543,69 @@
 
 							</div>
 
+							<!-- ELEMENT: File Upload -->
+							<div class="block">
+
+								<div class="block-side">
+									<span class="block-label dark">File Upload</span>
+								</div>
+
+								<div class="block-content">
+
+									<div class="options design-samples">
+
+										<div class="options-menu">
+
+											<label for="form-default--fileupload" class="option active">
+												<input type="radio"
+													name="form-element--fileupload"
+													value="default"
+													id="form-default--fileupload" />
+												Default
+											</label>
+
+											<label for="form-flat--fileupload" class="option">
+												<input type="radio"
+													name="form-element--fileupload"
+													value="flat"
+													id="form-flat--fileupload" />
+												Flat
+											</label>
+
+											<label for="form-bold--fileupload" class="option">
+												<input type="radio"
+													name="form-element--fileupload"
+													value="bold"
+													id="form-bold--fileupload" />
+												Bold
+											</label>
+
+											<label for="form-material--fileupload" class="option">
+												<input type="radio"
+													name="form-element--fileupload"
+													value="material"
+													id="form-material--fileupload" />
+												Material
+											</label>
+
+										</div>
+
+										<div class="options-content">
+
+											<div class="option active">
+
+												<form class="forminator-custom-form" data-sample="true" data-element="fileupload" data-design="default"></form>
+
+											</div>
+
+										</div>
+
+									</div>
+
+								</div>
+
+							</div>
+
 						</div>
 
 					</div>
@@ -787,6 +850,32 @@
 					</div>
 					<span class="forminator-error-message">This field is required.</span>
 					<span class="forminator-description">Description for select field.</span>
+				</div>
+			</div>
+
+		</script>
+
+		<!-- ELEMENT: File Upload -->
+		<script id="forminator-form-element-tpl--fileupload" type="text/html">
+
+			<div class="forminator-col">
+				<div class="forminator-field">
+					<label class="forminator-label">Field label <span class="forminator-required">*</span></label>
+					<div class="forminator-file-upload">
+						<input type="file"
+							readonly="readonly" />
+						<button class="forminator-button-upload">
+							<span>Choose File</span>
+							<span aria-hidden="true"></span>
+						</button>
+						<span>No file chosen</span>
+						<button class="forminator-button-delete">
+							<i class="forminator-icon-cross-close" aria-hidden="true"></i>
+							<span class="forminator-screen-reader-only">Delete uploaded file</span>
+						</button>
+					</div>
+					<span class="forminator-error-message">Please, upload a valid file.</span>
+					<span class="forminator-description">Description for upload field.</span>
 				</div>
 			</div>
 
