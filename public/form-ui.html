@@ -165,11 +165,11 @@
 						<!-- TAB: Basic Elements -->
 						<div class="tab-content" data-tab="basics">
 
+							<!-- ELEMENT: Input -->
 							<div class="block">
 
 								<div class="block-side">
 									<span class="block-label dark">Input</span>
-									<span class="description">This element is used on several fields, like: text, name, email, number, address, time, etc.</span>
 								</div>
 
 								<div class="block-content">
@@ -228,6 +228,7 @@
 
 							</div>
 
+							<!-- ELEMENT: Textarea -->
 							<div class="block">
 
 								<div class="block-side">
@@ -290,6 +291,7 @@
 
 							</div>
 
+							<!-- ELEMENT: Select -->
 							<div class="block">
 
 								<div class="block-side">
@@ -352,6 +354,7 @@
 
 							</div>
 
+							<!-- ELEMENT: Radio -->
 							<div class="block">
 
 								<div class="block-side">
@@ -414,6 +417,7 @@
 
 							</div>
 
+							<!-- ELEMENT: Checkbox -->
 							<div class="block">
 
 								<div class="block-side">
@@ -465,6 +469,69 @@
 											<div class="option active">
 
 												<form class="forminator-custom-form" data-sample="true" data-element="checkbox" data-design="default"></form>
+
+											</div>
+
+										</div>
+
+									</div>
+
+								</div>
+
+							</div>
+
+							<!-- ELEMENT: Multi Select -->
+							<div class="block">
+
+								<div class="block-side">
+									<span class="block-label dark">Multi Select</span>
+								</div>
+
+								<div class="block-content">
+
+									<div class="options design-samples">
+
+										<div class="options-menu">
+
+											<label for="form-default--multiselect" class="option active">
+												<input type="radio"
+													name="form-element--multiselect"
+													value="default"
+													id="form-default--multiselect" />
+												Default
+											</label>
+
+											<label for="form-flat--multiselect" class="option">
+												<input type="radio"
+													name="form-element--multiselect"
+													value="flat"
+													id="form-flat--multiselect" />
+												Flat
+											</label>
+
+											<label for="form-bold--multiselect" class="option">
+												<input type="radio"
+													name="form-element--multiselect"
+													value="bold"
+													id="form-bold--multiselect" />
+												Bold
+											</label>
+
+											<label for="form-material--multiselect" class="option">
+												<input type="radio"
+													name="form-element--multiselect"
+													value="material"
+													id="form-material--multiselect" />
+												Material
+											</label>
+
+										</div>
+
+										<div class="options-content">
+
+											<div class="option active">
+
+												<form class="forminator-custom-form" data-sample="true" data-element="multiselect" data-design="default"></form>
 
 											</div>
 
@@ -654,6 +721,70 @@
 						<span aria-hidden="true"></span>
 						<span>Option 4</span>
 					</label>
+					<span class="forminator-error-message">This field is required.</span>
+					<span class="forminator-description">Description for select field.</span>
+				</div>
+			</div>
+
+		</script>
+
+		<!-- ELEMENT: Multi Select -->
+		<script id="forminator-form-element-tpl--multiselect" type="text/html">
+
+			<div class="forminator-col">
+				<div class="forminator-field forminator-is_required">
+					<label class="forminator-label">Field label <span class="forminator-required">*</span></label>
+					<div class="forminator-multiselect">
+						<label for="multi-option-1"
+							class="forminator-option">
+							<input type="checkbox"
+								name="multi-options"
+								id="multi-option-1" />
+							Option 1
+						</label>
+						<label for="multi-option-2"
+							class="forminator-option">
+							<input type="checkbox"
+								name="multi-options"
+								id="multi-option-2" />
+							Option 2
+						</label>
+						<label for="multi-option-3"
+							class="forminator-option">
+							<input type="checkbox"
+								name="multi-options"
+								id="multi-option-3" />
+							Option 3
+						</label>
+						<label for="multi-option-4"
+							class="forminator-option">
+							<input type="checkbox"
+								name="multi-options"
+								id="multi-option-4" />
+							Option 4
+						</label>
+						<label for="multi-option-5"
+							class="forminator-option">
+							<input type="checkbox"
+								name="multi-options"
+								id="multi-option-5" />
+							Option 5
+						</label>
+						<label for="multi-option-6"
+							class="forminator-option">
+							<input type="checkbox"
+								name="multi-options"
+								id="multi-option-6" />
+							Option 6
+						</label>
+						<label for="multi-option-7"
+							class="forminator-option">
+							<input type="checkbox"
+								name="multi-options"
+								id="multi-option-7" />
+							Option 7
+						</label>
+					</div>
 					<span class="forminator-error-message">This field is required.</span>
 					<span class="forminator-description">Description for select field.</span>
 				</div>
