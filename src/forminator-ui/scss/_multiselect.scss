@@ -1,0 +1,103 @@
+@include body-class(custom-form) {
+
+	.forminator-multiselect {
+		width: 100%;
+		display: block;
+
+		.forminator-option {
+			cursor: pointer;
+			display: block;
+			line-height: $dropdown--line-height;
+			transition: $transition--ease;
+
+			input {
+				@extend %forminator-screen-reader-only;
+			}
+		}
+	}
+
+	&.forminator-design--default,
+	&.forminator-design--flat,
+	&.forminator-design--bold {
+
+		.forminator-multiselect {
+			max-height: $dropdown--height;
+			overflow-x: hidden;
+			overflow-y: auto;
+
+			.forminator-option {
+				margin: #{$dropdown--padding / 2} 0;
+				padding: $dropdown--padding;
+
+				&:first-child {
+					margin-top: 0;
+				}
+
+				&:last-child {
+					margin-bottom: 0;
+				}
+			}
+		}
+	}
+}
+
+@include body-class(custom-form, default) {
+
+	.forminator-multiselect {
+		padding: #{($dropdown--padding / 2) - $default--border-width};
+		border-width: $default--border-width;
+		border-style: $default--border-style;
+		border-radius: $default--border-radius;
+
+		.forminator-option {
+
+			&:first-child {
+				border-top-right-radius: $default--border-radius;
+				border-top-left-radius: $default--border-radius;
+			}
+
+			&:last-child {
+				border-bottom-right-radius: $default--border-radius;
+				border-bottom-left-radius: $default--border-radius;
+			}
+		}
+	}
+}
+
+@include body-class(custom-form, flat) {
+
+	.forminator-multiselect {
+		padding: #{$dropdown--padding / 2};
+	}
+}
+
+@include body-class(custom-form, bold) {
+
+	.forminator-multiselect {
+		padding: #{$dropdown--padding / 2};
+		border-width: $bold--border-width;
+		border-style: $bold--border-style;
+	}
+}
+
+@include body-class(custom-form, material) {
+
+	.forminator-multiselect {
+
+		.forminator-option {
+			margin: #{$dropdown--padding / 2} 0;
+			padding: #{$dropdown--padding - ($material--border-width * 2)};
+			border-width: #{$material--border-width * 2};
+			border-style: $material--border-style;
+			border-radius: $material--border-radius;
+
+			&:first-child {
+				margin-top: 0;
+			}
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+}
