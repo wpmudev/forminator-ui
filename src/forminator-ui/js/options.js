@@ -13,7 +13,7 @@
 		$( '.forminator-is_required' ).each( function() {
 
 			var $field   = $( this ),
-				$options = $field.find( '.forminator-radio, .forminator-checkbox' )
+				$options = $field.find( '.forminator-radio, .forminator-checkbox, .forminator-multiselect .forminator-option' )
 				;
 
 			if ( $options.length && ! $options.hasClass( 'forminator-is_checked' ).length ) {
@@ -23,7 +23,7 @@
 			}
 		});
 
-		$( 'body' ).on( 'click', '.forminator-radio input, .forminator-checkbox input', function( e ) {
+		$( 'body' ).on( 'click', '.forminator-radio input, .forminator-checkbox input, .forminator-multiselect .forminator-option input', function( e ) {
 
 			var $option  = $( this ),
 				$parent  = $option.parent(),
