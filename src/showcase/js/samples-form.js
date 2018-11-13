@@ -15,7 +15,8 @@
 				'textarea',
 				'select',
 				'radio',
-				'checkbox'
+				'checkbox',
+				'multiselect'
 			];
 
 			// Get form design
