@@ -118,7 +118,6 @@ gulp.task( 'styles:themes', function() {
 			.on( 'error', sass.logError )
 		)
 		.pipe( autoprefixer( browserslist ) )
-		.pipe( gulp.dest( public.css ) )
 		.pipe( cleanCSS() )
 		.pipe( rename({
 			suffix: '.min'
@@ -137,7 +136,6 @@ gulp.task( 'styles:forminator', function() {
 			.on( 'error', sass.logError )
 		)
 		.pipe( autoprefixer( browserslist ) )
-		.pipe( gulp.dest( public.css ) )
 		.pipe( cleanCSS() )
 		.pipe( rename({
 			suffix: '.min'
@@ -174,7 +172,6 @@ gulp.task( 'styles:showcase', function() {
 			.on( 'error', sass.logError )
 		)
 		.pipe( autoprefixer( browserslist ) )
-		.pipe( gulp.dest( public.css ) )
 		.pipe( cleanCSS() )
 		.pipe( rename({
 			suffix: '.min'
