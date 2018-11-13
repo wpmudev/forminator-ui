@@ -36,7 +36,7 @@
 				$radios.removeClass( 'forminator-is_checked' );
 				$parent.addClass( 'forminator-is_checked' );
 
-				if ( $field.hasClass( 'forminator-has_error' ) ) {
+				if ( $field.hasClass( 'forminator-is_required' ) && $field.hasClass( 'forminator-has_error' ) ) {
 					$field.removeClass( 'forminator-has_error' );
 				}
 			}
@@ -49,10 +49,13 @@
 					$parent.addClass( 'forminator-is_checked' );
 				}
 
-				if ( $field.find( '.forminator-is_checked' ).length ) {
-					$field.removeClass( 'forminator-has_error' );
-				} else {
-					$field.addClass( 'forminator-has_error' );
+				if ( $field.hasClass( 'forminator-is_required' ) ) {
+
+					if ( $field.find( '.forminator-is_checked' ).length ) {
+						$field.removeClass( 'forminator-has_error' );
+					} else {
+						$field.addClass( 'forminator-has_error' );
+					}
 				}
 			}
 
