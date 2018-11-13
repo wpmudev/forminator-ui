@@ -28,8 +28,7 @@
 			var $option  = $( this ),
 				$parent  = $option.parent(),
 				$field   = $option.closest( '.forminator-field' ),
-				$radios  = $field.find( '.forminator-radio' ),
-				$checked = $field.find( '.forminator-is_checked' )
+				$radios  = $field.find( '.forminator-radio' )
 				;
 
 			if ( 'radio' === $option.attr( 'type' ) ) {
