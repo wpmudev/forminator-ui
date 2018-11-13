@@ -8,7 +8,7 @@
 		window.FUI = {};
 	}
 
-	FUI.fieldStates = function() {
+	FUI.fuiInputs = function() {
 
 		$( '.forminator-input, .forminator-textarea' ).each( function() {
 
@@ -51,7 +51,7 @@
 	};
 
 	$( 'body' ).ready( function() {
-		FUI.fieldStates();
+		FUI.fuiInputs();
 	});
 
 }( jQuery ) );
