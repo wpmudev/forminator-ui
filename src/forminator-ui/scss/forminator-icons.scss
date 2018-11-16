@@ -1,0 +1,15 @@
+// Variables
+@import "variables";
+
+// Call custom font
+@font-face {
+	font-family: $font--icons;
+	src: url('#{$forminator-font-path}wpmudev-plugin-icons.eot?#{$forminator-version}');
+	src: url('#{$forminator-font-path}wpmudev-plugin-icons.eot?#{$forminator-version}') format('embedded-opentype'),
+		 url('#{$forminator-font-path}wpmudev-plugin-icons.ttf?#{$forminator-version}') format('truetype'),
+		 url('#{$forminator-font-path}wpmudev-plugin-icons.woff?#{$forminator-version}') format('woff'),
+		 url('#{$forminator-font-path}wpmudev-plugin-icons.woff2?#{$forminator-version}') format('woff2'),
+		 url('#{$forminator-font-path}wpmudev-plugin-icons.svg?#{$forminator-version}') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
