@@ -59,6 +59,22 @@ $radio--size:           20px         !default;
 $radio--icon-size:      12px         !default;
 
 // =============================================
+// 3. MAP: List of icons
+$icons: (
+	calendar: "\220f",
+	check: "\3a9",
+	check-tick: "\5f",
+	chevron-up: "\2dd",
+	chevron-down: "\131",
+	close: "\29",
+	cross-close: "\2b",
+	social-facebook: "\66",
+	social-twitter: "\74",
+	social-linkedin: "\69",
+	social-google-plus: "\67",
+);
+
+// =============================================
 // 3. DESIGN: DEFAULT
 
 $default--border-width:  1px   !default;
