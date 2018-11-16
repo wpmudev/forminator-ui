@@ -1,28 +1,5 @@
-// =============================================
-// MIXINS MENU
-//
-// 1. BODY CLASS
-// 2. OPACITY
-// 3. BREAKPOINTS
-// 4. ANIMATIONS
-// =============================================
-
-// =============================================
-// 1. BODY CLASS
-
 @import "mixins/body-class";
-
-// =============================================
-// 2. OPACITY
-
 @import "mixins/opacity";
-
-// =============================================
-// 3. BREAKPOINTS
-
 @import "mixins/breakpoints";
-
-// =============================================
-// 4. ANIMATIONS
-
 @import "mixins/animations";
+@import "mixins/icons";
