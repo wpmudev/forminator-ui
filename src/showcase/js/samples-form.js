@@ -17,7 +17,8 @@
 				'radio',
 				'checkbox',
 				'multiselect',
-				'fileupload'
+				'fileupload',
+				'submit'
 			];
 
 			// Get form design
