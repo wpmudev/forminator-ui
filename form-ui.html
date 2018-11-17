@@ -40,6 +40,8 @@
 					<ul class="tabs-menu">
 						<li class="tab-menu"><button class="active" data-tab="grid">The Grid</button></li>
 						<li class="tab-menu"><button data-tab="basics">Basic Elements</button></li>
+						<li class="tab-menu"><button data-tab="complex">Complex Elements</button></li>
+						<li class="tab-menu"><button data-tab="samples">Sample Form</button></li>
 					</ul>
 
 					<div class="tabs-content">
@@ -544,6 +546,74 @@
 
 							</div>
 
+							<!-- ELEMENT: Buttons -->
+							<div class="block">
+
+								<div class="block-side">
+									<span class="block-label dark">Button</span>
+								</div>
+
+								<div class="block-content">
+
+									<div class="options design-samples">
+
+										<div class="options-menu">
+
+											<label for="form-default--button" class="option active">
+												<input type="radio"
+													name="form-element--button"
+													value="default"
+													id="form-default--button" />
+												Default
+											</label>
+
+											<label for="form-flat--button" class="option">
+												<input type="radio"
+													name="form-element--button"
+													value="flat"
+													id="form-flat--button" />
+												Flat
+											</label>
+
+											<label for="form-bold--button" class="option">
+												<input type="radio"
+													name="form-element--button"
+													value="bold"
+													id="form-bold--button" />
+												Bold
+											</label>
+
+											<label for="form-material--button" class="option">
+												<input type="radio"
+													name="form-element--button"
+													value="material"
+													id="form-material--button" />
+												Material
+											</label>
+
+										</div>
+
+										<div class="options-content">
+
+											<div class="option active">
+
+												<form class="forminator-custom-form" data-sample="true" data-element="submit" data-design="default"></form>
+
+											</div>
+
+										</div>
+
+									</div>
+
+								</div>
+
+							</div>
+
+						</div>
+
+						<!-- TAB: Complex Elements -->
+						<div class="tab-content" data-tab="complex">
+
 							<!-- ELEMENT: File Upload -->
 							<div class="block">
 
@@ -856,6 +926,20 @@
 
 		</script>
 
+		<!-- ELEMENT: Submit -->
+		<script id="forminator-form-element-tpl--submit" type="text/html">
+
+			<div class="forminator-col">
+				<div class="forminator-field">
+					<button class="forminator-button forminator-button-submit">
+						<span>Submit</span>
+						<span aria-hidden="true"></span>
+					</button>
+				</div>
+			</div>
+
+		</script>
+
 		<!-- ELEMENT: File Upload -->
 		<script id="forminator-form-element-tpl--fileupload" type="text/html">
 
@@ -865,7 +949,7 @@
 					<div class="forminator-file-upload">
 						<input type="file"
 							readonly="readonly" />
-						<button class="forminator-button-upload">
+						<button class="forminator-button forminator-button-upload">
 							<span>Choose File</span>
 							<span aria-hidden="true"></span>
 						</button>
