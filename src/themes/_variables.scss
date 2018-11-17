@@ -175,6 +175,20 @@ $multiselect-active--color:      palette(mono, light);
 $multiselect-active--color-alt:  palette(blue, default);
 
 // ============================================================
+// ELEMENT: Submit Button
+$submit-font-size:          14px;
+$submit-font-family:        inherit;
+$submit-font-weight:        500;
+
+$submit-static--background: palette(blue, default);
+$submit-hover--background:  palette(blue, dark);
+$submit-active--background: palette(blue, dark);
+
+$submit-static--color:      palette(mono, light);
+$submit-hover--color:       palette(mono, light);
+$submit-active--color:      palette(mono, light);
+
+// ============================================================
 // ELEMENT: File Upload
 $upload-text--color:               palette(silver, dark);
 $upload-text--font-size:           12px;
