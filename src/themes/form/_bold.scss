@@ -252,6 +252,25 @@
 		}
 	}
 
+	// ELEMENT: Submit Button
+	.forminator-button-submit {
+		background-color: $submit-static--background;
+		color: $submit-static--color;
+		font-size: $submit-font-size;
+		font-family: $submit-font-family;
+		font-weight: $submit-font-weight;
+
+		&:hover {
+			background-color: $submit-hover--background;
+			color: $submit-hover--color;
+		}
+
+		&:active {
+			background-color: $submit-active--background;
+			color: $submit-active--color;
+		}
+	}
+
 	// ============================================================
 	// STATE: Hover
 	.forminator-is_hover {
