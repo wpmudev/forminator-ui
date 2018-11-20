@@ -357,6 +357,69 @@
 
 							</div>
 
+							<!-- ELEMENT: Select2 -->
+							<div class="block">
+
+								<div class="block-side">
+									<span class="block-label dark">Select2</span>
+								</div>
+
+								<div class="block-content">
+
+									<div class="options design-samples">
+
+										<div class="options-menu">
+
+											<label for="form-default--select2" class="option active">
+												<input type="radio"
+													name="form-element--select2"
+													value="default"
+													id="form-default--select2" />
+												Default
+											</label>
+
+											<label for="form-flat--select2" class="option">
+												<input type="radio"
+													name="form-element--select2"
+													value="flat"
+													id="form-flat--select2" />
+												Flat
+											</label>
+
+											<label for="form-bold--select2" class="option">
+												<input type="radio"
+													name="form-element--select2"
+													value="bold"
+													id="form-bold--select2" />
+												Bold
+											</label>
+
+											<label for="form-material--select2" class="option">
+												<input type="radio"
+													name="form-element--select2"
+													value="material"
+													id="form-material--select2" />
+												Material
+											</label>
+
+										</div>
+
+										<div class="options-content">
+
+											<div class="option active">
+
+												<form class="forminator-custom-form" data-sample="true" data-element="select2" data-design="default"></form>
+
+											</div>
+
+										</div>
+
+									</div>
+
+								</div>
+
+							</div>
+
 							<!-- ELEMENT: Radio -->
 							<div class="block">
 
@@ -679,6 +742,32 @@
 
 						</div>
 
+						<!-- TAB: Sample Form -->
+						<div class="tab-content" data-tab="samples">
+
+							<span class="block-label dark">Basic Contact Form</span>
+							<span class="description">This is a simple contact form with a hidden field.</span>
+
+							<form class="forminator-custom-form forminator-design--default">
+
+								<div class="forminator-row">
+
+									<div class="forminator-col">
+										<div class="forminator-field">
+											<label class="forminator-label">First Name <span class="forminator-required">*</span></label>
+											<input placeholder="Placeholder"
+												class="forminator-input" />
+											<span class="forminator-error-message">This field is required.</span>
+											<span class="forminator-description">Description for input field.</span>
+										</div>
+									</div>
+
+								</div>
+
+							</form>
+
+						</div>
+
 					</div>
 
 				</div>
@@ -754,6 +843,31 @@
 					<label class="forminator-label">Field label <span class="forminator-required">*</span></label>
 					<select placeholder="Placeholder"
 						class="forminator-select">
+						<option>Option 1</option>
+						<option>Option 2</option>
+						<option>Option 3</option>
+						<option>Option 4</option>
+						<option>Option 5</option>
+						<option>Option 6</option>
+						<option>Option 7</option>
+						<option>Option 8</option>
+						<option>Option 9</option>
+						<option>Option 10</option>
+					</select>
+					<span class="forminator-error-message">This field is required.</span>
+					<span class="forminator-description">Description for select field.</span>
+				</div>
+			</div>
+
+		</script>
+
+		<!-- ELEMENT: Select2 -->
+		<script id="forminator-form-element-tpl--select2" type="text/html">
+
+			<div class="forminator-col">
+				<div class="forminator-field">
+					<label class="forminator-label">Field label <span class="forminator-required">*</span></label>
+					<select class="forminator-select2">
 						<option>Option 1</option>
 						<option>Option 2</option>
 						<option>Option 3</option>
