@@ -25,9 +25,18 @@
 
 			$.each( $themes, function( index, $theme ) {
 
+				var $dir;
+
 				if ( $element.hasClass( 'forminator-design--' + $theme ) && $select.length ) {
 
+					if ( true === $select.data( 'rtl-support' ) ) {
+						$dir = 'rtl';
+					} else {
+						$dir = 'ltr';
+					}
+
 					$select.FUIselect2({
+						dir: $dir,
 						dropdownCssClass: 'forminator-dropdown--' + $theme
 					});
 				}
