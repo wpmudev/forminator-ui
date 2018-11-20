@@ -26,7 +26,8 @@
 			$.each( $themes, function( index, $theme ) {
 
 				var $dir,
-					$language = 'en'
+					$language = 'en',
+					$placeholder = null
 					;
 
 				if ( $element.hasClass( 'forminator-design--' + $theme ) && $select.length ) {
@@ -35,6 +36,12 @@
 						$dir = 'rtl';
 					} else {
 						$dir = 'ltr';
+					}
+
+					if ( '' !== $select.data( 'placeholder' ) ) {
+						$placeholder = $select.data( 'placeholder' );
+					} else {
+						$placeholder = null;
 					}
 
 					if ( '' !== $select.data( 'language' ) ) {
@@ -46,6 +53,7 @@
 					$select.FUIselect2({
 						dir: $dir,
 						language: $language,
+						placeholder: $placeholder,
 						dropdownCssClass: 'forminator-dropdown--' + $theme
 					});
 				}
