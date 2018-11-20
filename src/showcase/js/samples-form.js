@@ -14,6 +14,7 @@
 				'input',
 				'textarea',
 				'select',
+				'select2',
 				'radio',
 				'checkbox',
 				'multiselect',
