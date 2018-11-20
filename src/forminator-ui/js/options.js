@@ -3,7 +3,7 @@
 	// Enable strict mode.
 	'use strict';
 
-	// Define global SUI object if it doesn't exist.
+	// Define global FUI object if it doesn't exist.
 	if ( 'object' !== typeof window.FUI ) {
 		window.FUI = {};
 	}
