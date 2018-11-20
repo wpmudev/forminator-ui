@@ -113,6 +113,7 @@ $select-color:              palette(mono, dark);
 $select-font-size:          16px;
 $select-font-family:        inherit;
 $select-font-weight:        400;
+$select-placeholder:        palette(gray, default);
 
 $select-static--background: palette(gray, light);
 $select-hover--background:  palette(silver, light);
@@ -136,6 +137,13 @@ $dropdown-active--background: palette(blue, default);
 $dropdown-static--color:      palette(silver, dark);
 $dropdown-hover--color:       palette(mono, dark);
 $dropdown-active--color:      palette(mono, light);
+
+$dropdown-input--border:      palette(blue, default);
+$dropdown-input--background:  palette(mono, light);
+$dropdown-input--color:       palette(silver, dark);
+$dropdown-input--font-size:   16px;
+$dropdown-input--font-family: inherit;
+$dropdown-input--font-weight: 400;
 
 // ============================================================
 // ELEMENT: Radio
