@@ -4532,6 +4532,51 @@
                 }
             };
 		});
+		
+		S2.define('select2/i18n/es',[],function () {
+            // Spanish
+            return {
+                errorLoading: function () {
+                    return 'Los resultados no se pudieron cargar.';
+                },
+                inputTooLong: function (args) {
+                    var overChars = args.input.length - args.maximum;
+
+                    var message = 'Por favor, borrar ' + overChars + ' caracteres';
+
+                    if (overChars != 1) {
+                        message += 's';
+                    }
+
+                    return message;
+                },
+                inputTooShort: function (args) {
+                    var remainingChars = args.minimum - args.input.length;
+
+                    var message = 'Por favor, ingresar ' + remainingChars + ' o más caracteres';
+
+                    return message;
+                },
+                loadingMore: function () {
+                    return 'Cargando más resultados…';
+                },
+                maximumSelected: function (args) {
+                    var message = 'Solo puedes seleccionar ' + args.maximum + ' items';
+
+                    if (args.maximum != 1) {
+                        message += 's';
+                    }
+
+                    return message;
+                },
+                noResults: function () {
+                    return 'No se encontraron resultados';
+                },
+                searching: function () {
+                    return 'Buscando…';
+                }
+            };
+        });
 
         S2.define('select2/defaults',[
             'jquery',
