@@ -25,7 +25,9 @@
 
 			$.each( $themes, function( index, $theme ) {
 
-				var $dir;
+				var $dir,
+					$language = 'en'
+					;
 
 				if ( $element.hasClass( 'forminator-design--' + $theme ) && $select.length ) {
 
@@ -35,8 +37,15 @@
 						$dir = 'ltr';
 					}
 
+					if ( '' !== $select.data( 'language' ) ) {
+						$language = $select.data( 'language' );
+					} else {
+						$language = 'en';
+					}
+
 					$select.FUIselect2({
 						dir: $dir,
+						language: $language,
 						dropdownCssClass: 'forminator-dropdown--' + $theme
 					});
 				}
