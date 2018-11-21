@@ -406,9 +406,27 @@
 
 										<div class="options-content">
 
-											<div class="option active">
+											<div class="option active" data-option="default">
 
 												<form class="forminator-custom-form" data-sample="true" data-element="select2" data-design="default"></form>
+
+											</div>
+
+											<div class="option" data-option="flat">
+
+												<form class="forminator-custom-form" data-sample="true" data-element="select2" data-design="flat"></form>
+
+											</div>
+
+											<div class="option" data-option="bold">
+
+												<form class="forminator-custom-form" data-sample="true" data-element="select2" data-design="bold"></form>
+
+											</div>
+
+											<div class="option" data-option="material">
+
+												<form class="forminator-custom-form" data-sample="true" data-element="select2" data-design="material"></form>
 
 											</div>
 
@@ -867,8 +885,11 @@
 			<div class="forminator-col">
 				<div class="forminator-field">
 					<label class="forminator-label">Field label <span class="forminator-required">*</span></label>
-					<select placeholder="Placeholder"
-						class="forminator-select2">
+					<select class="forminator-select2"
+						data-rtl-support="false"
+						data-language="es"
+						data-placeholder="Placeholder">
+						<option></option>
 						<option>Option 1</option>
 						<option>Option 2</option>
 						<option>Option 3</option>
