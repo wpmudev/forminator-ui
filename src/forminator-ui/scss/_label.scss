@@ -82,11 +82,16 @@
 	.forminator-floating--input {
 		transform: translateY(30px);
 
-		+ .forminator-input--wrap {
+		+ .forminator-input--wrap,
+		+ .forminator-input-with-icon {
 
 			.forminator-input::placeholder {
 				@include opacity(0);
 			}
+		}
+
+		&.forminator-has_icon {
+			padding-left: #{$icon-size + $input--padding};
 		}
 	}
 
@@ -96,7 +101,8 @@
 		.forminator-floating--input {
 			transform: translateY(0);
 
-			+ .forminator-input--wrap {
+			+ .forminator-input--wrap,
+			+ .forminator-input-with-icon {
 
 				.forminator-input::placeholder {
 					@include opacity(1);
