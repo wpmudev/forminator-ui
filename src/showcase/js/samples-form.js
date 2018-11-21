@@ -6,12 +6,13 @@
 
 			var $form       = $( this ),
 				$isValid    = ( true === $form.data( 'sample' ) ),
-				$isInput    = ( 'input' === $form.data( 'element' ) ),
+				$isInput    = ( 'input' === $form.data( 'element' ) || 'input-with-icon' === $form.data( 'element' ) ),
 				$isTextarea = ( 'textarea' === $form.data( 'element' ) )
 				;
 
 			var $isElement = [
 				'input',
+				'input-with-icon',
 				'textarea',
 				'select',
 				'select2',
@@ -134,6 +135,11 @@
 					$form.find( '.forminator-' + $field ).wrap( '<div class="' + $wrapper + '" />' );
 				}
 			});
+
+			if ( 'input-with-icon' === $element && ! $form.find( '.forminator-input--wrap' ).length ) {
+				$form.find( '.forminator-label' ).addClass( 'forminator-floating--input forminator-has_icon' );
+				$form.find( '.forminator-input' ).wrap( '<div class="forminator-input--wrap" />' );
+			}
 		}
 
 		// MATERIAL UI: Unmount
