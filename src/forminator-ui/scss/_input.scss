@@ -47,6 +47,19 @@
 			}
 		}
 	}
+
+	.forminator-input-with-icon {
+
+		[class*="forminator-icon-"] {
+			display: block;
+			font-size: $icon-size;
+			transition: $transition--ease;
+
+			&:before {
+				color: inherit;
+			}
+		}
+	}
 }
 
 // =============================================
@@ -59,6 +72,21 @@
 		border-style: $default--border-style;
 		border-radius: $default--border-radius;
 	}
+
+	.forminator-input-with-icon {
+		position: relative;
+
+		[class*="forminator-icon-"] {
+			position: absolute;
+			top: 50%;
+			left: $input--padding;
+			transform: translateY(-50%);
+		}
+
+		.forminator-input {
+			padding-left: #{($input--padding - $default--border-width) + $input--padding + $icon-size};
+		}
+	}
 }
 
 // =============================================
@@ -69,6 +97,21 @@
 		padding: #{($input--height - $input--line-height) / 2} $input--padding;
 		border: 0;
 		border-radius: 0;
+	}
+
+	.forminator-input-with-icon {
+		position: relative;
+
+		[class*="forminator-icon-"] {
+			position: absolute;
+			top: 50%;
+			left: $input--padding;
+			transform: translateY(-50%);
+		}
+
+		.forminator-input {
+			padding-left: #{($input--padding * 2) + $icon-size};
+		}
 	}
 }
 
@@ -81,6 +124,21 @@
 		border-width: $bold--border-width;
 		border-style: $bold--border-style;
 		border-radius: 0;
+	}
+
+	.forminator-input-with-icon {
+		position: relative;
+
+		[class*="forminator-icon-"] {
+			position: absolute;
+			top: 50%;
+			left: $input--padding;
+			transform: translateY(-50%);
+		}
+
+		.forminator-input {
+			padding-left: #{($input--padding - $bold--border-width) + $input--padding + $icon-size};
+		}
 	}
 }
 
@@ -124,6 +182,31 @@
 				right: 0;
 				left: 0;
 			}
+		}
+	}
+
+	.forminator-input-with-icon {
+		display: flex;
+		align-items: center;
+
+		[class*="forminator-icon-"] {
+
+			&:first-child {
+				margin-right: $input--padding;
+			}
+
+			&:last-child {
+				margin-left: $input--padding;
+			}
+		}
+
+		.forminator-input--wrap {
+			display: block;
+			flex: 1;
+		}
+
+		~ span {
+			padding-left: #{$icon-size + $input--padding};
 		}
 	}
 }
