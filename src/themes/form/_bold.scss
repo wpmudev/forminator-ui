@@ -107,6 +107,13 @@
 				font-weight: $select-font-weight;
 			}
 
+			.forminator-dropdown-handle {
+
+				[class*="forminator-icon-"] {
+					color: $select-icon-color;
+				}
+			}
+
 			.forminator-dropdown-list {
 				border-color: $dropdown-border;
 				background-color: $dropdown-static--background;
@@ -149,9 +156,17 @@
 					}
 				}
 
+				.select2-selection__arrow:before {
+					color: $select-icon-color;
+				}
+
 				&:hover {
 					border-color: $select-hover--border;
 					background-color: $select-hover--background;
+
+					.select2-selection__arrow:before {
+						color: $select-hover--border;
+					}
 				}
 			}
 
@@ -160,6 +175,10 @@
 				.select2-selection--single {
 					border-color: $select-active--border;
 					background-color: $select-active--background;
+				}
+
+				.select2-selection__arrow:before {
+					color: $select-active--border;
 				}
 			}
 		}
@@ -332,6 +351,13 @@
 					border-color: $select-hover--border;
 					background-color: $select-hover--background;
 				}
+
+				.forminator-dropdown-handle {
+
+					[class*="forminator-icon-"] {
+						color: $select-hover--border;
+					}
+				}
 			}
 		}
 	}
@@ -360,6 +386,13 @@
 				.forminator-value {
 					border-color: $select-active--border;
 					background-color: $select-active--background;
+				}
+
+				.forminator-dropdown-handle {
+
+					[class*="forminator-icon-"] {
+						color: $select-active--border;
+					}
 				}
 			}
 		}
