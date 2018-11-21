@@ -231,6 +231,69 @@
 
 							</div>
 
+							<!-- ELEMENT: Input With Icon -->
+							<div class="block">
+
+								<div class="block-side">
+									<span class="block-label dark">Input With Icon</span>
+								</div>
+
+								<div class="block-content">
+
+									<div class="options design-samples">
+
+										<div class="options-menu">
+
+											<label for="form-default--input-with-icon" class="option active">
+												<input type="radio"
+													name="form-element--input-with-icon"
+													value="default"
+													id="form-default--input-with-icon" />
+												Default
+											</label>
+
+											<label for="form-flat--input-with-icon" class="option">
+												<input type="radio"
+													name="form-element--input-with-icon"
+													value="flat"
+													id="form-flat--input-with-icon" />
+												Flat
+											</label>
+
+											<label for="form-bold--input-with-icon" class="option">
+												<input type="radio"
+													name="form-element--input-with-icon"
+													value="bold"
+													id="form-bold--input-with-icon" />
+												Bold
+											</label>
+
+											<label for="form-material--input-with-icon" class="option">
+												<input type="radio"
+													name="form-element--input-with-icon"
+													value="material"
+													id="form-material--input-with-icon" />
+												Material
+											</label>
+
+										</div>
+
+										<div class="options-content">
+
+											<div class="option active">
+
+												<form class="forminator-custom-form" data-sample="true" data-element="input-with-icon" data-design="default"></form>
+
+											</div>
+
+										</div>
+
+									</div>
+
+								</div>
+
+							</div>
+
 							<!-- ELEMENT: Textarea -->
 							<div class="block">
 
@@ -832,6 +895,24 @@
 					<label class="forminator-label">Field label <span class="forminator-required">*</span></label>
 					<input placeholder="Placeholder"
 						class="forminator-input" />
+					<span class="forminator-error-message">This field is required.</span>
+					<span class="forminator-description">Description for input field.</span>
+				</div>
+			</div>
+
+		</script>
+
+		<!-- ELEMENT: Input With Icon -->
+		<script id="forminator-form-element-tpl--input-with-icon" type="text/html">
+
+			<div class="forminator-col">
+				<div class="forminator-field">
+					<label class="forminator-label">Field label <span class="forminator-required">*</span></label>
+					<div class="forminator-input-with-icon">
+						<i class="forminator-icon-calendar" aria-hidden="true"></i>
+						<input placeholder="Placeholder"
+							class="forminator-input" />
+					</div>
 					<span class="forminator-error-message">This field is required.</span>
 					<span class="forminator-description">Description for input field.</span>
 				</div>
