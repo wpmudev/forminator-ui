@@ -76,6 +76,13 @@
 		&::placeholder {
 			color: $input-placeholder;
 		}
+
+		&-with-icon {
+
+			[class*="forminator-icon-"] {
+				color: $input-icon-color;
+			}
+		}
 	}
 
 	// ELEMENT: Textarea
@@ -370,6 +377,13 @@
 		.forminator-input {
 			border-color: $input-active--border;
 			background-color: $input-active--background;
+
+			&-with-icon {
+
+				[class*="forminator-icon-"] {
+					color: $input-active--border;
+				}
+			}
 		}
 
 		// ELEMENT: Textarea
@@ -405,6 +419,13 @@
 		// ELEMENT: Input
 		.forminator-input {
 			border-color: $input-error--border;
+
+			&-with-icon {
+
+				[class*="forminator-icon-"] {
+					color: $input-error--border;
+				}
+			}
 		}
 
 		// ELEMENT: Textarea
