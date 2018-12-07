@@ -522,3 +522,24 @@
 		}
 	}
 }
+
+// ELEMENT: Calendar
+.ui-datepicker {
+
+	&.forminator-calendar--default {
+		border-color: $calendar--border;
+		background-color: $calendar--background;
+
+		.ui-datepicker-header {
+
+			.ui-datepicker-title select {
+				border-color: $calendar-select--border;
+				background-color: $calendar-select--background;
+				color: $calendar-select--color;
+				font-size: $calendar-select--font-size;
+				font-family: $calendar-select--font-family;
+				font-weight: $calendar-select--font-weight;
+			}
+		}
+	}
+}
