@@ -238,3 +238,18 @@ $calendar-select--color:       palette(silver, darker);
 $calendar-select--font-size:   14px;
 $calendar-select--font-family: inherit;
 $calendar-select--font-weight: 400;
+
+$calendar-arrow--background:   palette(blue, default);
+$calendar-arrow--color:        palette(mono, light);
+
+$calendar-thead--color:       palette(gray, dark);
+$calendar-thead--font-size:   14px;
+$calendar-thead--font-family: inherit;
+$calendar-thead--font-weight: 500;
+
+$calendar-tbody--color:       palette(silver, darker);
+$calendar-tbody--font-size:   14px;
+$calendar-tbody--font-family: inherit;
+$calendar-tbody--font-weight: 400;
+
+$calendar-tbody--current-color: palette(blue, default);
