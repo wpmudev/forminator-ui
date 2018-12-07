@@ -40,7 +40,6 @@
 					<ul class="tabs-menu">
 						<li class="tab-menu"><button class="active" data-tab="grid">The Grid</button></li>
 						<li class="tab-menu"><button data-tab="basics">Basic Elements</button></li>
-						<li class="tab-menu"><button data-tab="complex">Complex Elements</button></li>
 						<li class="tab-menu"><button data-tab="samples">Sample Form</button></li>
 					</ul>
 
@@ -753,11 +752,6 @@
 
 							</div>
 
-						</div>
-
-						<!-- TAB: Complex Elements -->
-						<div class="tab-content" data-tab="complex">
-
 							<!-- ELEMENT: File Upload -->
 							<div class="block">
 
@@ -821,6 +815,117 @@
 
 							</div>
 
+							<!-- ELEMENT: Calendar -->
+							<div class="block">
+
+								<div class="block-side">
+									<span class="block-label dark">Calendar</span>
+								</div>
+
+								<div class="block-content">
+
+									<div class="options design-samples">
+
+										<div class="options-menu">
+
+											<label for="form-default--calendar" class="option active">
+												<input type="radio"
+													name="form-element--calendar"
+													value="default"
+													id="form-default--calendar" />
+												Default
+											</label>
+
+											<label for="form-flat--calendar" class="option">
+												<input type="radio"
+													name="form-element--calendar"
+													value="flat"
+													id="form-flat--calendar" />
+												Flat
+											</label>
+
+											<label for="form-bold--calendar" class="option">
+												<input type="radio"
+													name="form-element--calendar"
+													value="bold"
+													id="form-bold--calendar" />
+												Bold
+											</label>
+
+											<label for="form-material--calendar" class="option">
+												<input type="radio"
+													name="form-element--calendar"
+													value="material"
+													id="form-material--calendar" />
+												Material
+											</label>
+
+										</div>
+
+										<div class="options-content">
+
+											<div class="option active" data-option="default">
+
+												<form class="forminator-custom-form forminator-design--default">
+
+													<div class="forminator-row">
+
+														<div class="forminator-col">
+
+															<div class="forminator-field forminator-is_required">
+
+																<label class="forminator-label">Field label</label>
+
+																<div class="forminator-input-with-icon">
+
+																	<i class="forminator-icon-calendar" aria-hidden="true"></i>
+
+																	<input type="text"
+																		placeholder="Placeholder"
+																		class="forminator-input forminator-date" />
+
+																</div>
+
+																<span class="forminator-error-message">This field is required.</span>
+
+																<span class="forminator-description">Description for date field.</span>
+
+															</div>
+
+														</div>
+
+													</div>
+
+												</form>
+
+											</div>
+
+											<div class="option" data-option="flat">
+
+												calendar flat
+
+											</div>
+
+											<div class="option" data-option="bold">
+
+												calendar bold
+
+											</div>
+
+											<div class="option" data-option="material">
+
+												calendar material
+
+											</div>
+
+										</div>
+
+									</div>
+
+								</div>
+
+							</div>
+
 						</div>
 
 						<!-- TAB: Sample Form -->
@@ -858,6 +963,7 @@
 		</div>
 
 		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 		<script type="text/javascript" src="assets/js/showcase-ui.min.js"></script>
 		<script type="text/javascript" src="assets/js/forminator-ui.min.js"></script>
