@@ -22,10 +22,12 @@
 		"gulp-replace": "^1.0.0",
 		"gulp-sass": "^4.0.2",
 		"gulp-uglify": "^3.0.1",
+		"gulp-uglify-es": "^1.0.4",
 		"gulp-watch": "^5.0.1",
 		"pump": "^3.0.0"
 	},
 	"eslintIgnore": [
+		"Gulpfile.js",
 		"select2.full.js"
 	],
 	"scripts": {
