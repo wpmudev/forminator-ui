@@ -1,7 +1,6 @@
 .ui-datepicker {
 
 	&[class*="forminator-calendar--"] {
-		margin: 2px 0;
 
 		&, * {
 			box-sizing: border-box;
@@ -43,6 +42,7 @@
 			.ui-datepicker-next {
 				width: $calendar--select-height;
 				height: $calendar--select-height;
+				cursor: pointer;
 				display: flex;
 				align-items: center;
 				justify-content: center;
@@ -53,6 +53,7 @@
 
 				@include icon(before) {
 					display: block;
+					color: inherit;
 					font-size: $calendar--icon-size;
 				}
 
@@ -90,7 +91,6 @@
 							display: block;
 							margin: 0;
 							padding: 0;
-							line-height: $calendar--days-size;
 							text-align: center;
 						}
 
@@ -170,6 +170,7 @@
 
 						span, a {
 							border-radius: $default--border-radius;
+							line-height: #{$calendar--days-size - ($default--border-width * 2)};
 						}
 
 						&.ui-datepicker-today {
