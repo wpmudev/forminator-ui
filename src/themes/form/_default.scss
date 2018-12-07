@@ -540,6 +540,37 @@
 				font-family: $calendar-select--font-family;
 				font-weight: $calendar-select--font-weight;
 			}
+
+			.ui-datepicker-prev,
+			.ui-datepicker-next {
+				background-color: $calendar-arrow--background;
+				color: $calendar-arrow--color;
+			}
+		}
+
+		.ui-datepicker-calendar {
+
+			thead th span {
+				color: $calendar-thead--color;
+				font-size: $calendar-thead--font-size;
+				font-family: $calendar-thead--font-family;
+				font-weight: $calendar-thead--font-weight;
+			}
+
+			tbody td {
+
+				a.ui-state-default {
+					color: $calendar-tbody--color;
+					font-size: $calendar-tbody--font-size;
+					font-family: $calendar-tbody--font-family;
+					font-weight: $calendar-tbody--font-weight;
+
+					&.ui-state-highlight {
+						border-color: $calendar-tbody--current-color;
+						color: $calendar-tbody--current-color;
+					}
+				}
+			}
 		}
 	}
 }
