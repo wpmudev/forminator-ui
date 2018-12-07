@@ -160,4 +160,56 @@
 		}
 	});
 
+	$( 'body' ).ready( function() {
+
+		var $calClass;
+
+		var $themes = [
+			'bold',
+			'flat',
+			'default',
+			'material'
+		];
+
+		$.each( $themes, function( index, $theme ) {
+
+			if ( $( '.forminator-date' ).closest( '.forminator-custom-form' ).hasClass( 'forminator-design--' + $theme ) ) {
+				$calClass = 'forminator-calendar--' + $theme;
+			}
+		});
+
+		if ( $( '.forminator-input' ).hasClass( 'forminator-date' ) ) {
+
+			$( '.forminator-date' ).datepicker({
+				beforeShow: function( input, inst ) {
+					( inst.dpDiv ).addClass( $calClass );
+				},
+				changeMonth: true,
+				changeYear: true
+			});
+
+			// Validation (on focus)
+			$( '.forminator-date' ).blur( function( e ) {
+
+				if ( '' === $( this ).val().trim() ) {
+					$( this ).closest( '.forminator-field' ).addClass( 'forminator-has_error' );
+				}
+
+				e.stopPropagation();
+
+			});
+
+			// Validation (on change)
+			$( '.forminator-date' ).change( function( e ) {
+
+				if ( '' === $( this ).val().trim() ) {
+					$( this ).closest( '.forminator-field' ).addClass( 'forminator-has_error' );
+				}
+
+				e.stopPropagation();
+
+			});
+		}
+	});
+
 }( jQuery ) );
