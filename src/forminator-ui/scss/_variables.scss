@@ -55,6 +55,11 @@ $dropdown--line-height: 20px         !default;
 $button--line-height:   20px         !default;
 $button--icon-size:     14px         !default;
 
+$calendar--padding:       10px       !default;
+$calendar--icon-size:     14px       !default;
+$calendar--select-height: 30px       !default;
+$calendar--days-size:     30px       !default;
+
 $icon-color: #888888 !default;
 $icon-size:  16px !default;
 
@@ -68,7 +73,9 @@ $icons: (
 	check: "\3a9",
 	check-tick: "\5f",
 	chevron-up: "\2dd",
+	chevron-right: "\2dc",
 	chevron-down: "\131",
+	chevron-left: "\d3",
 	close: "\29",
 	cross-close: "\2b",
 	social-facebook: "\66",
