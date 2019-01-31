@@ -173,7 +173,7 @@ gulp.task( 'browser-sync', function() {
 	browserSync.init({
 		injectChanges: true,
 		server: {
-			baseDir: showcase.output.main
+			baseDir: './'
 		}
 	});
 });
