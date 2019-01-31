@@ -145,6 +145,10 @@ showcase.watch.assetsFonts = [
 	showcase.source.assets + 'fonts/*'
 ];
 
+showcase.watch.assetsImages = [
+	showcase.source.assets + 'images/*'
+];
+
 showcase.watch.html = [
 	showcase.source.main + '*.html',
 	showcase.source.templates + '**/*.html'
@@ -364,11 +368,21 @@ gulp.task( 'public:assets:fonts', function() {
 		;
 });
 
+// Copy assets – images
+gulp.task( 'public:assets:images', function() {
+
+	gulp.src( showcase.watch.assetsImages )
+		.pipe( gulp.dest( showcase.output.main + 'assets/images/' ) )
+		.pipe( browserSync.stream() )
+		;
+});
+
 // Copy assets
 gulp.task( 'public:assets', [
 	'public:assets:css',
 	'public:assets:js',
-	'public:assets:fonts'
+	'public:assets:fonts',
+	'public:assets:images'
 ]);
 
 // Build public
