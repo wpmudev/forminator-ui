@@ -1,14 +1,22 @@
 {
 	"name": "forminator-ui",
-	"version": "1.6.0",
+	"version": "1.7.0",
 	"private": true,
 	"author": "WPMU DEV",
+	"contributors": [
+		{
+			"name": "Leighton Sapir",
+			"email": "leigh@incsub.com",
+			"url": "https://iamleigh.com/"
+		}
+	],
 	"homepage": "https://wpmudev.github.io/forminator-ui",
-	"eslintConfig": {
-		"extends": "wordpress"
+	"repository": {
+		"type": "git",
+		"url": "git@github.com:wpmudev/forminator-ui.git"
 	},
 	"devDependencies": {
-		"@wpmudev/shared-ui": "2.3.9",
+		"@wpmudev/shared-ui": "^2.3.16",
 		"browser-sync": "^2.26.3",
 		"eslint-config-wordpress": "^2.0.0",
 		"fs": "0.0.1-security",
@@ -18,6 +26,8 @@
 		"gulp-clean-css": "^3.10.0",
 		"gulp-concat": "^2.6.1",
 		"gulp-eslint": "^5.0.0",
+		"gulp-header": "^2.0.7",
+		"gulp-htmlmin": "^5.0.1",
 		"gulp-rename": "^1.4.0",
 		"gulp-replace": "^1.0.0",
 		"gulp-sass": "^4.0.2",
@@ -26,13 +36,28 @@
 		"gulp-watch": "^5.0.1",
 		"pump": "^3.0.0"
 	},
+	"eslintConfig": {
+		"extends": "wordpress",
+		"parserOptions": {
+			"sourceType": "module",
+			"ecmaVersion": 2018
+		},
+		"env": {
+			"es6": true
+		}
+	},
 	"eslintIgnore": [
-		"Gulpfile.js",
-		"select2.full.js"
+		"library/js/select2.full.js",
+		"assets/js/public.min.js",
+		"assets/js/forminator-ui.min.js"
 	],
 	"scripts": {
-		"start": "gulp start",
-		"deploy": "gh-pages -d public"
-	},
-	"dependencies": {}
+		"start": "gulp development",
+		"library": "gulp library:build",
+		"public": "gulp public:build",
+		"cleanup": "rm -rf node_modules/gh-pages/.cache",
+		"deploy:library": "npm run library && npm run cleanup && gh-pages -b master -d ./build/library",
+		"deploy:public": "npm run public && npm run cleanup && gh-pages -b gh-pages -d ./build/public",
+		"deploy": "npm run deploy:library && npm run deploy:public"
+	}
 }
