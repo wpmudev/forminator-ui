@@ -1,14 +1,29 @@
 @include body-class() {
 
-	section {
-		display: block;
+	.showcase-section {
+		border-bottom: 1px solid palette(silver, soft);
 
-		@include media(max-width, md) {
-			padding: $gutter-md;
+		.showcase-title {
+
+			@include media(min-width, md) {
+				margin: 0 0 #{$sui-gutter-md / 2};
+				padding: 0 0 #{$sui-gutter-md / 2};
+			}
+
+			@include media(min-width, md) {
+				margin: 0 0 #{$sui-gutter / 2};
+				padding: 0 0 #{$sui-gutter / 2};
+			}
 		}
 
 		@include media(min-width, md) {
-			padding: $gutter;
+			margin: 0 0 $sui-gutter-md;
+			padding: 0 0 $sui-gutter-md;
+		}
+
+		@include media(min-width, md) {
+			margin: 0 0 $sui-gutter;
+			padding: 0 0 $sui-gutter;
 		}
 	}
 }
