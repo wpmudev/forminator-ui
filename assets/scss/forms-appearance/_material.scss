@@ -1,0 +1,615 @@
+// DESIGN: Material
+.forminator-custom-form.forminator-design--material {
+	padding-top: 0;
+	padding-right: 0;
+	padding-bottom: 0;
+	padding-left: 0;
+	border-width: 0;
+	border-style: none;
+	border-color: transparent;
+	border-radius: 0;
+
+	// ELEMENT: Label
+	.forminator-label {
+
+		&[class*="forminator-floating-"] {
+			color: $input-placeholder;
+			font-size: $input-font-size;
+			font-family: $input-font-family;
+			font-weight: $input-font-weight;
+
+			.forminator-required {
+				color: $input-placeholder;
+			}
+		}
+
+		&:not([class*="forminator-floating-"]) {
+			color: $label-color;
+			font-size: $label-font-size;
+			font-family: $label-font-family;
+			font-weight: $label-font-weight;
+
+			.forminator-required {
+				color: $label-color-required;
+			}
+		}
+	}
+
+	// ELEMENT: Description
+	.forminator-description {
+		color: $description-color;
+		font-size: $description-font-size;
+		font-family: $description-font-family;
+		font-weight: $description-font-weight;
+	}
+
+	// ELEMENT: Error Message
+	.forminator-error-message {
+		color: $error-color;
+		font-size: $error-font-size;
+		font-family: $error-font-family;
+		font-weight: $error-font-weight;
+	}
+
+	// ELEMENT: Section Title
+	.forminator-title {
+		color: $title-color;
+		font-size: $title-font-size;
+		font-weight: $title-font-weight;
+		font-family: $title-font-family;
+		text-align: $title-position;
+	}
+
+	// ELEMENT: Section Subtitle
+	.forminator-subtitle {
+		color: $subtitle-color;
+		font-size: $subtitle-font-size;
+		font-weight: $subtitle-font-weight;
+		font-family: $subtitle-font-family;
+		text-align: $subtitle-position;
+	}
+
+	// ELEMENT: Section Border
+	.forminator-border {
+		border-top-width: 1px;
+		border-top-style: solid;
+		border-top-color: #E9E9E9;
+	}
+
+	// ELEMENT: Input
+	.forminator-input {
+		border-color: $input-static--border;
+		color: $input-color;
+		font-size: $input-font-size;
+		font-family: $input-font-family;
+		font-weight: $input-font-weight;
+
+		&::placeholder {
+			color: $input-placeholder;
+		}
+
+		// ELEMENT: Wrapper
+		&--wrap:after {
+			background-color: $input-hover--border;
+		}
+
+		&-with-icon {
+
+			[class*="forminator-icon-"] {
+				color: $input-icon-color;
+			}
+		}
+	}
+
+	// ELEMENT: Textarea
+	.forminator-textarea {
+		border-color: $textarea-static--border;
+		color: $textarea-color;
+		font-size: $textarea-font-size;
+		font-family: $textarea-font-family;
+		font-weight: $textarea-font-weight;
+
+		&::placeholder {
+			color: $textarea-placeholder;
+		}
+
+		// ELEMENT: Wrapper
+		&--wrap:after {
+			border-color: $textarea-hover--border;
+		}
+	}
+
+	// ELEMENT: Select
+	.forminator-select-container {
+
+		.forminator-select-list {
+
+			.forminator-value {
+				border-color: $select-static--border;
+			}
+
+			.forminator-dropdown-handle {
+
+				[class*="forminator-icon-"] {
+					color: $select-icon-color;
+				}
+			}
+
+			.forminator-dropdown-list {
+				background-color: $dropdown-static--background;
+				color: $dropdown-static--color;
+				font-size: $dropdown-font-size;
+				font-family: $dropdown-font-family;
+				font-weight: $dropdown-font-weight;
+
+				li:hover {
+					background-color: $dropdown-hover--background;
+					color: $dropdown-hover--color;
+				}
+
+				li:active,
+				li.current {
+					background-color: $dropdown-active--background;
+					color: $dropdown-active--color;
+				}
+			}
+		}
+	}
+
+	// ELEMENT: Select2
+	.forminator-select2 {
+
+		+ .select2-container--default {
+
+			.select2-selection--single {
+				border-color: $select-static--border;
+
+				.select2-selection__rendered {
+					color: $select-color;
+					font-size: $select-font-size;
+					font-family: $select-font-family;
+					font-weight: $select-font-weight;
+
+					.select2-selection__placeholder {
+						color: $select-placeholder;
+					}
+				}
+
+				.select2-selection__arrow:before {
+					color: $select-icon-color;
+				}
+
+				&:before {
+					background-color: $select-hover--border;
+				}
+
+				&:hover {
+
+					.select2-selection__arrow:before {
+						color: $select-hover--border;
+					}
+				}
+			}
+
+			&.select2-container--open {
+
+				.select2-selection--single {
+
+					&:before {
+						background-color: $select-active--border;
+					}
+
+					.select2-selection__arrow:before {
+						color: $select-active--border;
+					}
+				}
+			}
+		}
+	}
+
+	// ELEMENT: Radio
+	.forminator-radio {
+
+		input:checked {
+
+			+ span[aria-hidden] {
+				border-color: $radio-checked--border;
+			}
+		}
+
+		span[aria-hidden] {
+			border-color: $radio-static--border;
+
+			&:before {
+				background-color: $radio-icon;
+			}
+
+			&:after {
+				background-color: $radio-checked--border;
+			}
+		}
+
+		span:not([aria-hidden]) {
+			color: $radio-font-color;
+			font-size: $radio-font-size;
+			font-family: $radio-font-family;
+			font-weight: $radio-font-weight;
+		}
+	}
+
+	// ELEMENT: Checkbox
+	.forminator-checkbox {
+
+		input:checked {
+
+			+ span[aria-hidden] {
+				border-color: $radio-checked--border;
+			}
+		}
+
+		span[aria-hidden] {
+			border-color: $radio-static--border;
+
+			&:before {
+				color: $radio-icon;
+			}
+
+			&:after {
+				background-color: $radio-checked--border;
+			}
+		}
+
+		span:not([aria-hidden]) {
+			color: $radio-font-color;
+			font-size: $radio-font-size;
+			font-family: $radio-font-family;
+			font-weight: $radio-font-weight;
+		}
+	}
+
+	// ELEMENT: Multi Select
+	.forminator-multiselect {
+
+		.forminator-option {
+			border-color: $multiselect-static--border;
+			color: $multiselect-static--color;
+			font-size: $multiselect-font-size;
+			font-family: $multiselect-font-family;
+			font-weight: $multiselect-font-weight;
+
+			&:hover {
+				border-color: $multiselect-hover--border;
+				color: $multiselect-hover--color;
+			}
+
+			&.forminator-is_checked {
+				border-color: $multiselect-active--border;
+				color: $multiselect-active--color-alt;
+			}
+		}
+	}
+
+	// ELEMENT: File Upload
+	.forminator-file-upload {
+
+		> span {
+			color: $upload-text--color;
+			font-size: $upload-text--font-size;
+			font-family: $upload-text--font-family;
+			font-weight: $upload-text--font-weight;
+		}
+
+		.forminator-button-upload {
+			background-color: $upload-button-static--background;
+			color: $upload-button-static--color;
+			font-size: $upload-button--font-size;
+			font-family: $upload-button--font-family;
+			font-weight: $upload-button--font-weight;
+
+			&:hover {
+				color: $upload-button-hover--color;
+			}
+
+			&:active {
+				color: $upload-button-active--color;
+			}
+		}
+
+		.forminator-button-delete {
+			background-color: $upload-delete-static--background;
+			color: $upload-delete-static--color;
+
+			&:hover {
+				background-color: $upload-delete-hover--background;
+				color: $upload-delete-hover--color;
+			}
+
+			&:active {
+				background-color: $upload-delete-active--background;
+				color: $upload-delete-active--color;
+			}
+		}
+	}
+
+	// ELEMENT: Submit Button
+	.forminator-button-submit {
+		background-color: $submit-static--background;
+		color: $submit-static--color;
+		font-size: $submit-font-size;
+		font-family: $submit-font-family;
+		font-weight: $submit-font-weight;
+
+		&:hover {
+			background-color: $submit-hover--background;
+			color: $submit-hover--color;
+		}
+
+		&:active {
+			background-color: $submit-active--background;
+			color: $submit-active--color;
+		}
+	}
+
+	// ============================================================
+	// STATE: Filled
+	.forminator-is_filled {
+
+		// ELEMENT: Label
+		.forminator-label {
+
+			&[class*="forminator-floating-"] {
+				color: $label-color;
+				font-size: $label-font-size;
+				font-family: $label-font-family;
+				font-weight: $label-font-weight;
+
+				.forminator-required {
+					color: $label-color-required;
+				}
+			}
+		}
+
+		// ==================================================
+		// STATE: Error
+		&.forminator-has_error {
+
+			// ELEMENT: Label
+			.forminator-label {
+				color: $label-color-required;
+
+				.forminator-required {
+					color: $label-color-required;
+				}
+			}
+		}
+	}
+
+	// ============================================================
+	// STATE: Hover
+	.forminator-is_hover {
+
+		// ELEMENT: Select
+		.forminator-select-container {
+
+			.forminator-select-list {
+
+				.forminator-value {
+					
+					&:before {
+						background-color: $select-hover--border;
+					}
+				}
+
+				.forminator-dropdown-handle {
+
+					[class*="forminator-icon-"] {
+						color: $select-hover--border;
+					}
+				}
+			}
+		}
+	}
+
+	// ============================================================
+	// STATE: Active
+	.forminator-is_active {
+
+		// ELEMENT: Label
+		.forminator-label {
+
+			&[class*="forminator-floating-"] {
+				color: $label-color;
+				font-size: $label-font-size;
+				font-family: $label-font-family;
+				font-weight: $label-font-weight;
+
+				.forminator-required {
+					color: $label-color-required;
+				}
+			}
+		}
+
+		// ELEMENT: Input
+		.forminator-input {
+
+			// ELEMENT: Wrapper
+			&--wrap:after {
+				background-color: $input-active--border;
+			}
+
+			&-with-icon {
+
+				[class*="forminator-icon-"] {
+					color: $input-active--border;
+				}
+			}
+		}
+
+		// ELEMENT: Textarea
+		.forminator-textarea {
+
+			// ELEMENT: Wrapper
+			&--wrap:after {
+				border-color: $textarea-active--border;
+			}
+		}
+
+		// ELEMENT: Select
+		.forminator-select-container {
+
+			.forminator-select-list {
+
+				.forminator-value {
+					
+					&:before {
+						background-color: $select-active--border;
+					}
+				}
+
+				.forminator-dropdown-handle {
+
+					[class*="forminator-icon-"] {
+						color: $select-active--border;
+					}
+				}
+			}
+		}
+
+		// ==================================================
+		// STATE: Error
+		&.forminator-has_error {
+
+			// ELEMENT: Label
+			.forminator-label {
+				color: $label-color-required;
+
+				.forminator-required {
+					color: $label-color-required;
+				}
+			}
+		}
+	}
+
+	// ============================================================
+	// STATE: Error
+	.forminator-has_error {
+
+		// ELEMENT: Input
+		.forminator-input {
+
+			// ELEMENT: Wrapper
+			&--wrap:after {
+				background-color: $input-error--border;
+			}
+
+			&-with-icon {
+
+				[class*="forminator-icon-"] {
+					color: $input-error--border;
+				}
+			}
+		}
+
+		// ELEMENT: Textarea
+		.forminator-textarea {
+
+			// ELEMENT: Wrapper
+			&--wrap:after {
+				border-color: $textarea-error--border;
+			}
+		}
+
+		// ELEMENT: Radio
+		.forminator-radio {
+
+			input:checked {
+
+				+ span[aria-hidden] {
+					border-color: $radio-error--border;
+				}
+			}
+
+			span[aria-hidden] {
+				border-color: $radio-error--border;
+
+				&:after {
+					background-color: $radio-error--border;
+				}
+			}
+		}
+
+		// ELEMENT: Checkbox
+		.forminator-checkbox {
+
+			input:checked {
+
+				+ span[aria-hidden] {
+					border-color: $radio-error--border;
+				}
+			}
+
+			span[aria-hidden] {
+				border-color: $radio-error--border;
+
+				&:after {
+					background-color: $radio-error--border;
+				}
+			}
+		}
+
+		// ELEMENT: Multi Select
+		.forminator-multiselect {
+
+			.forminator-option {
+				border-color: $multiselect-error--border;
+			}
+		}
+	}
+}
+
+// ELEMENT: Select2 Dropdown
+.select2-container {
+
+	.forminator-dropdown--material {
+		background-color: $dropdown-static--background;
+
+		.select2-search {
+
+			input {
+				font-size: $dropdown-input--font-size;
+				font-family: $dropdown-input--font-family;
+				font-weight: $dropdown-input--font-weight;
+
+				&,
+				&:hover,
+				&:focus {
+					background-color: $dropdown-input--background;
+					color: $dropdown-input--color;
+				}
+			}
+		}
+	
+		.select2-results {
+	
+			.select2-results__options {
+	
+				.select2-results__option {
+					color: $dropdown-static--color;
+					font-size: $dropdown-font-size;
+					font-family: $dropdown-font-family;
+					font-weight: $dropdown-font-weight;
+
+					&.select2-results__option--highlighted {
+						background-color: $dropdown-hover--background;
+						color: $dropdown-hover--color;
+					}
+
+					&[aria-selected="true"] {
+						background-color: $dropdown-active--background;
+						color: $dropdown-active--color;
+					}
+				}
+			}
+		}
+	}
+}

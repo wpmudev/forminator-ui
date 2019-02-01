@@ -1,0 +1,576 @@
+// DESIGN: Default
+.forminator-custom-form.forminator-design--default {
+	padding-top: 0;
+	padding-right: 0;
+	padding-bottom: 0;
+	padding-left: 0;
+	border-width: 0;
+	border-style: none;
+	border-color: transparent;
+	border-radius: 0;
+
+	// ELEMENT: Label
+	.forminator-label {
+		color: $label-color;
+		font-size: $label-font-size;
+		font-family: $label-font-family;
+		font-weight: $label-font-weight;
+
+		.forminator-required {
+			color: $label-color-required;
+		}
+	}
+
+	// ELEMENT: Description
+	.forminator-description {
+		color: $description-color;
+		font-size: $description-font-size;
+		font-family: $description-font-family;
+		font-weight: $description-font-weight;
+	}
+
+	// ELEMENT: Error Message
+	.forminator-error-message {
+		background-color: $error-background;
+		color: $error-color;
+		font-size: $error-font-size;
+		font-family: $error-font-family;
+		font-weight: $error-font-weight;
+	}
+
+	// ELEMENT: Section Title
+	.forminator-title {
+		color: $title-color;
+		font-size: $title-font-size;
+		font-weight: $title-font-weight;
+		font-family: $title-font-family;
+		text-align: $title-position;
+	}
+
+	// ELEMENT: Section Subtitle
+	.forminator-subtitle {
+		color: $subtitle-color;
+		font-size: $subtitle-font-size;
+		font-weight: $subtitle-font-weight;
+		font-family: $subtitle-font-family;
+		text-align: $subtitle-position;
+	}
+
+	// ELEMENT: Section Border
+	.forminator-border {
+		border-top-width: 1px;
+		border-top-style: solid;
+		border-top-color: #E9E9E9;
+	}
+
+	// ELEMENT: Input
+	.forminator-input {
+		border-color: $input-static--border;
+		background-color: $input-static--background;
+		color: $input-color;
+		font-size: $input-font-size;
+		font-family: $input-font-family;
+		font-weight: $input-font-weight;
+
+		// ELEMENT: Placeholder
+		&::placeholder {
+			color: $input-placeholder;
+		}
+
+		&-with-icon {
+
+			[class*="forminator-icon-"] {
+				color: $input-icon-color;
+			}
+		}
+	}
+
+	// ELEMENT: Textarea
+	.forminator-textarea {
+		border-color: $textarea-static--border;
+		background-color: $textarea-static--background;
+		color: $textarea-color;
+		font-size: $textarea-font-size;
+		font-family: $textarea-font-family;
+		font-weight: $textarea-font-weight;
+
+		// ELEMENT: Placeholder
+		&::placeholder {
+			color: $input-placeholder;
+		}
+	}
+
+	// ELEMENT: Select
+	.forminator-select-container {
+
+		.forminator-select-list {
+
+			.forminator-value {
+				border-color: $select-static--border;
+				background-color: $select-static--background;
+				color: $select-color;
+				font-size: $select-font-size;
+				font-family: $select-font-family;
+				font-weight: $select-font-weight;
+			}
+
+			.forminator-dropdown-handle {
+
+				[class*="forminator-icon-"] {
+					color: $select-icon-color;
+				}
+			}
+
+			.forminator-dropdown-list {
+				border-color: $dropdown-border;
+				background-color: $dropdown-static--background;
+				color: $dropdown-static--color;
+				font-size: $dropdown-font-size;
+				font-family: $dropdown-font-family;
+				font-weight: $dropdown-font-weight;
+
+				li:hover {
+					background-color: $dropdown-hover--background;
+					color: $dropdown-hover--color;
+				}
+
+				li:active,
+				li.current {
+					background-color: $dropdown-active--background;
+					color: $dropdown-active--color;
+				}
+			}
+		}
+	}
+
+	// ELEMENT: Select2
+	.forminator-select2 {
+
+		+ .select2-container--default {
+
+			.select2-selection--single {
+				border-color: $select-static--border;
+				background-color: $select-static--background;
+
+				.select2-selection__rendered {
+					color: $select-color;
+					font-size: $select-font-size;
+					font-family: $select-font-family;
+					font-weight: $select-font-weight;
+
+					.select2-selection__placeholder {
+						color: $select-placeholder;
+					}
+				}
+
+				.select2-selection__arrow:before {
+					color: $select-icon-color;
+				}
+
+				&:hover {
+					border-color: $select-hover--border;
+					background-color: $select-hover--background;
+
+					.select2-selection__arrow:before {
+						color: $select-hover--border;
+					}
+				}
+			}
+
+			&.select2-container--open {
+
+				.select2-selection--single {
+					border-color: $select-active--border;
+					background-color: $select-active--background;
+
+					.select2-selection__arrow:before {
+						color: $select-active--border;
+					}
+				}
+			}
+		}
+	}
+
+	// ELEMENT: Radio
+	.forminator-radio {
+
+		input:checked {
+
+			+ span[aria-hidden] {
+				border-color: $radio-checked--border;
+				background-color: $radio-checked--background;
+			}
+		}
+
+		span[aria-hidden] {
+			border-color: $radio-static--border;
+			background-color: $radio-static--background;
+
+			&:before {
+				background-color: $radio-icon;
+			}
+		}
+
+		span:not([aria-hidden]) {
+			color: $radio-font-color;
+			font-size: $radio-font-size;
+			font-family: $radio-font-family;
+			font-weight: $radio-font-weight;
+		}
+	}
+
+	// ELEMENT: Checkbox
+	.forminator-checkbox {
+
+		input:checked {
+
+			+ span[aria-hidden] {
+				border-color: $radio-checked--border;
+				background-color: $radio-checked--background;
+			}
+		}
+
+		span[aria-hidden] {
+			border-color: $radio-static--border;
+			background-color: $radio-static--background;
+
+			&:before {
+				color: $radio-icon;
+			}
+		}
+
+		span:not([aria-hidden]) {
+			color: $radio-font-color;
+			font-size: $radio-font-size;
+			font-family: $radio-font-family;
+			font-weight: $radio-font-weight;
+		}
+	}
+
+	// ELEMENT: Multi Select
+	.forminator-multiselect {
+		border-color: $multiselect-static--border;
+		background-color: $multiselect-static--background;
+
+		.forminator-option {
+			color: $multiselect-static--color;
+			font-size: $multiselect-font-size;
+			font-family: $multiselect-font-family;
+			font-weight: $multiselect-font-weight;
+
+			&:hover {
+				background-color: $multiselect-hover--background;
+				color: $multiselect-hover--color;
+			}
+
+			&.forminator-is_checked {
+				background-color: $multiselect-active--background;
+				color: $multiselect-active--color;
+			}
+		}
+	}
+
+	// ELEMENT: File Upload
+	.forminator-file-upload {
+
+		> span {
+			color: $upload-text--color;
+			font-size: $upload-text--font-size;
+			font-family: $upload-text--font-family;
+			font-weight: $upload-text--font-weight;
+		}
+
+		.forminator-button-upload {
+			background-color: $upload-button-static--background;
+			color: $upload-button-static--color;
+			font-size: $upload-button--font-size;
+			font-family: $upload-button--font-family;
+			font-weight: $upload-button--font-weight;
+
+			&:hover {
+				background-color: $upload-button-hover--background;
+				color: $upload-button-hover--color;
+			}
+
+			&:active {
+				background-color: $upload-button-active--background;
+				color: $upload-button-active--color;
+			}
+		}
+
+		.forminator-button-delete {
+			background-color: $upload-delete-static--background;
+			color: $upload-delete-static--color;
+
+			&:hover {
+				background-color: $upload-delete-hover--background;
+				color: $upload-delete-hover--color;
+			}
+
+			&:active {
+				background-color: $upload-delete-active--background;
+				color: $upload-delete-active--color;
+			}
+		}
+	}
+
+	// ELEMENT: Submit Button
+	.forminator-button-submit {
+		background-color: $submit-static--background;
+		color: $submit-static--color;
+		font-size: $submit-font-size;
+		font-family: $submit-font-family;
+		font-weight: $submit-font-weight;
+
+		&:hover {
+			background-color: $submit-hover--background;
+			color: $submit-hover--color;
+		}
+
+		&:active {
+			background-color: $submit-active--background;
+			color: $submit-active--color;
+		}
+	}
+
+	// ============================================================
+	// STATE: Hover
+	.forminator-is_hover {
+
+		// ELEMENT: Input
+		.forminator-input {
+			border-color: $input-hover--border;
+			background-color: $input-hover--background;
+		}
+
+		// ELEMENT: Textarea
+		.forminator-textarea {
+			border-color: $textarea-hover--border;
+			background-color: $textarea-hover--background;
+		}
+
+		// ELEMENT: Select
+		.forminator-select-container {
+
+			.forminator-select-list {
+
+				.forminator-value {
+					border-color: $select-hover--border;
+					background-color: $select-hover--background;
+				}
+
+				.forminator-dropdown-handle {
+
+					[class*="forminator-icon-"] {
+						color: $select-hover--border;
+					}
+				}
+			}
+		}
+	}
+
+	// ============================================================
+	// STATE: Active
+	.forminator-is_active {
+
+		// ELEMENT: Input
+		.forminator-input {
+			border-color: $input-active--border;
+			background-color: $input-active--background;
+
+			&-with-icon {
+
+				[class*="forminator-icon-"] {
+					color: $input-active--border;
+				}
+			}
+		}
+
+		// ELEMENT: Textarea
+		.forminator-textarea {
+			border-color: $textarea-active--border;
+			background-color: $textarea-active--background;
+		}
+
+		// ELEMENT: Select
+		.forminator-select-container {
+
+			.forminator-select-list {
+
+				.forminator-value {
+					border-color: $select-active--border;
+					background-color: $select-active--background;
+				}
+
+				.forminator-dropdown-handle {
+
+					[class*="forminator-icon-"] {
+						color: $select-active--border;
+					}
+				}
+			}
+		}
+	}
+
+	// ============================================================
+	// STATE: Error
+	.forminator-has_error {
+
+		// ELEMENT: Input
+		.forminator-input {
+			border-color: $input-error--border;
+
+			&-with-icon {
+
+				[class*="forminator-icon-"] {
+					color: $input-error--border;
+				}
+			}
+		}
+
+		// ELEMENT: Textarea
+		.forminator-textarea {
+			border-color: $textarea-error--border;
+		}
+
+		// ELEMENT: Radio
+		.forminator-radio {
+
+			input:checked {
+
+				+ span[aria-hidden] {
+					border-color: $radio-error--border;
+					background-color: $radio-error--background;
+				}
+			}
+
+			span[aria-hidden] {
+				border-color: $radio-error--border;
+				background-color: $radio-error--background;
+			}
+		}
+
+		// ELEMENT: Checkbox
+		.forminator-checkbox {
+
+			input:checked {
+
+				+ span[aria-hidden] {
+					border-color: $radio-error--border;
+					background-color: $radio-error--background;
+				}
+			}
+
+			span[aria-hidden] {
+				border-color: $radio-error--border;
+				background-color: $radio-error--background;
+			}
+		}
+
+		// ELEMENT: Multi Select
+		.forminator-multiselect {
+			border-color: $multiselect-error--border;
+		}
+	}
+}
+
+// ELEMENT: Select2 Dropdown
+.select2-container {
+
+	.forminator-dropdown--default {
+		border-color: $dropdown-border;
+		background-color: $dropdown-static--background;
+
+		.select2-search {
+
+			input {
+				font-size: $dropdown-input--font-size;
+				font-family: $dropdown-input--font-family;
+				font-weight: $dropdown-input--font-weight;
+
+				&,
+				&:hover,
+				&:focus {
+					border-color: $dropdown-input--border;
+					background-color: $dropdown-input--background;
+					color: $dropdown-input--color;
+				}
+			}
+		}
+	
+		.select2-results {
+	
+			.select2-results__options {
+	
+				.select2-results__option {
+					color: $dropdown-static--color;
+					font-size: $dropdown-font-size;
+					font-family: $dropdown-font-family;
+					font-weight: $dropdown-font-weight;
+
+					&.select2-results__option--highlighted {
+						background-color: $dropdown-hover--background;
+						color: $dropdown-hover--color;
+					}
+
+					&[aria-selected="true"] {
+						background-color: $dropdown-active--background;
+						color: $dropdown-active--color;
+					}
+				}
+			}
+		}
+	}
+}
+
+// ELEMENT: Calendar
+.ui-datepicker {
+
+	&.forminator-calendar--default {
+		border-color: $calendar--border;
+		background-color: $calendar--background;
+
+		.ui-datepicker-header {
+
+			.ui-datepicker-title select {
+				border-color: $calendar-select--border;
+				background-color: $calendar-select--background;
+				color: $calendar-select--color;
+				font-size: $calendar-select--font-size;
+				font-family: $calendar-select--font-family;
+				font-weight: $calendar-select--font-weight;
+			}
+
+			.ui-datepicker-prev,
+			.ui-datepicker-next {
+				background-color: $calendar-arrow--background;
+				color: $calendar-arrow--color;
+			}
+		}
+
+		.ui-datepicker-calendar {
+
+			thead th span {
+				color: $calendar-thead--color;
+				font-size: $calendar-thead--font-size;
+				font-family: $calendar-thead--font-family;
+				font-weight: $calendar-thead--font-weight;
+			}
+
+			tbody td {
+
+				a.ui-state-default {
+					color: $calendar-tbody--color;
+					font-size: $calendar-tbody--font-size;
+					font-family: $calendar-tbody--font-family;
+					font-weight: $calendar-tbody--font-weight;
+
+					&.ui-state-highlight {
+						border-color: $calendar-tbody--current-color;
+						color: $calendar-tbody--current-color;
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,255 @@
+@function palette($palette, $tone: 'default') {
+	@return map-get( map-get($palettes, $palette), $tone );
+}
+
+// ============================================================
+// Default colors palette
+$palettes: (
+	mono: (
+		light: #FFFFFF,
+		dark: #000000
+	),
+	gray: (
+		default: #888888,
+		light: #EDEDED,
+		dark: #333333
+	),
+	silver: (
+		default: #DDDDDD,
+		light: #E6E6E6,
+		dark: #BBBBBB,
+		darker: #777771
+	),
+	red: (
+		default: #E04562,
+		light: #F9E4E8
+	),
+	green: (
+		default: #1ABCA1,
+		dark: #159C85
+	),
+	blue: (
+		default: #17A8E3,
+		dark: #1289BA
+	)
+);
+
+// ============================================================
+// ELEMENT: Title
+$title-color:       palette(gray, dark);
+$title-font-size:   45px;
+$title-font-weight: 500;
+$title-font-family: inherit;
+$title-position:    left;
+
+// ============================================================
+// ELEMENT: Subtitle
+$subtitle-color:       palette(gray, dark);
+$subtitle-font-size:   18px;
+$subtitle-font-weight: 500;
+$subtitle-font-family: inherit;
+$subtitle-position:    left;
+
+// ============================================================
+// ELEMENT: Label
+$label-color:          palette(silver, darker);
+$label-color-required: palette(red, default);
+
+$label-font-size:   12px;
+$label-font-family: inherit;
+$label-font-weight: 500;
+
+// ============================================================
+// ELEMENT: Description
+$description-color:       palette(silver, darker);
+$description-font-size:   12px;
+$description-font-family: inherit;
+$description-font-weight: 400;
+
+// ============================================================
+// ELEMENT: Error Message
+$error-background: palette(red, light);
+$error-color:      palette(red, default);
+
+$error-font-size:   12px;
+$error-font-family: inherit;
+$error-font-weight: 500;
+
+// ============================================================
+// ELEMENT: Input
+$input-color:              palette(mono, dark);
+$input-placeholder:        palette(gray, default);
+$input-font-size:          16px;
+$input-font-family:        inherit;
+$input-font-weight:        400;
+$input-icon-color:         palette(silver, darker);
+
+$input-static--background: palette(gray, light);
+$input-hover--background:  palette(silver, light);
+$input-active--background: palette(silver, light);
+
+$input-static--border:     palette(silver, darker);
+$input-hover--border:      palette(blue, default);
+$input-active--border:     palette(blue, default);
+$input-error--border:      palette(red, default);
+
+// ============================================================
+// ELEMENT: Textarea
+$textarea-color:              palette(mono, dark);
+$textarea-placeholder:        palette(gray, default);
+$textarea-font-size:          16px;
+$textarea-font-family:        inherit;
+$textarea-font-weight:        400;
+
+$textarea-static--background: palette(gray, light);
+$textarea-hover--background:  palette(silver, light);
+$textarea-active--background: palette(silver, light);
+
+$textarea-static--border:     palette(silver, darker);
+$textarea-hover--border:      palette(blue, default);
+$textarea-active--border:     palette(blue, default);
+$textarea-error--border:      palette(red, default);
+
+// ============================================================
+// ELEMENT: Select
+$select-color:              palette(mono, dark);
+$select-font-size:          16px;
+$select-font-family:        inherit;
+$select-font-weight:        400;
+$select-placeholder:        palette(gray, default);
+$select-icon-color:         palette(silver, darker);
+
+$select-static--background: palette(gray, light);
+$select-hover--background:  palette(silver, light);
+$select-active--background: palette(silver, light);
+
+$select-static--border:     palette(silver, darker);
+$select-hover--border:      palette(blue, default);
+$select-active--border:     palette(blue, default);
+
+// ============================================================
+// ELEMENT: Dropdown
+$dropdown-border:             palette(blue, default);
+$dropdown-font-size:          16px;
+$dropdown-font-family:        inherit;
+$dropdown-font-weight:        400;
+
+$dropdown-static--background: palette(silver, light);
+$dropdown-hover--background:  palette(silver, default);
+$dropdown-active--background: palette(blue, default);
+
+$dropdown-static--color:      palette(silver, darker);
+$dropdown-hover--color:       palette(mono, dark);
+$dropdown-active--color:      palette(mono, light);
+
+$dropdown-input--border:      palette(blue, default);
+$dropdown-input--background:  palette(mono, light);
+$dropdown-input--color:       palette(silver, darker);
+$dropdown-input--font-size:   16px;
+$dropdown-input--font-family: inherit;
+$dropdown-input--font-weight: 400;
+
+// ============================================================
+// ELEMENT: Radio
+$radio-icon:                palette(blue, default);
+$radio-font-color:          palette(mono, dark);
+$radio-font-size:           16px;
+$radio-font-family:         inherit;
+$radio-font-weight:         400;
+
+$radio-static--border:      palette(silver, darker);
+$radio-checked--border:     palette(blue, default);
+$radio-error--border:       palette(red, default);
+
+$radio-static--background:  palette(gray, light);
+$radio-checked--background: palette(gray, light);
+$radio-error--background:   palette(red, light);
+
+// ============================================================
+// ELEMENT: Multi Select
+$multiselect-font-size:          16px;
+$multiselect-font-family:        inherit;
+$multiselect-font-weight:        400;
+
+$multiselect-static--border:     palette(silver, darker);
+$multiselect-hover--border:      palette(mono, dark);
+$multiselect-active--border:     palette(blue, default);
+$multiselect-error--border:      palette(red, default);
+
+$multiselect-static--background: palette(silver, light);
+$multiselect-hover--background:  palette(silver, default);
+$multiselect-active--background: palette(blue, default);
+$multiselect-error--background:  palette(red, light);
+
+$multiselect-static--color:      palette(silver, darker);
+$multiselect-hover--color:       palette(mono, dark);
+$multiselect-active--color:      palette(mono, light);
+$multiselect-active--color-alt:  palette(blue, default);
+
+// ============================================================
+// ELEMENT: Submit Button
+$submit-font-size:          14px;
+$submit-font-family:        inherit;
+$submit-font-weight:        500;
+
+$submit-static--background: palette(blue, default);
+$submit-hover--background:  palette(blue, dark);
+$submit-active--background: palette(blue, dark);
+
+$submit-static--color:      palette(mono, light);
+$submit-hover--color:       palette(mono, light);
+$submit-active--color:      palette(mono, light);
+
+// ============================================================
+// ELEMENT: File Upload
+$upload-text--color:               palette(silver, darker);
+$upload-text--font-size:           12px;
+$upload-text--font-family:         inherit;
+$upload-text--font-weight:         500;
+
+$upload-button--font-size:         14px;
+$upload-button--font-family:       inherit;
+$upload-button--font-weight:       500;
+
+$upload-button-static--background: palette(green, default);
+$upload-button-hover--background:  palette(green, dark);
+$upload-button-active--background: palette(green, dark);
+
+$upload-button-static--color:      palette(mono, light);
+$upload-button-hover--color:       palette(mono, light);
+$upload-button-active--color:      palette(mono, light);
+
+$upload-delete-static--background: transparent;
+$upload-delete-hover--background:  palette(red, light);
+$upload-delete-active--background: palette(red, light);
+
+$upload-delete-static--color:      palette(red, default);
+$upload-delete-hover--color:       palette(red, default);
+$upload-delete-active--color:      palette(red, default);
+
+// ============================================================
+// ELEMENT: Calendar
+$calendar--border:             palette(blue, default);
+$calendar--background:         palette(silver, light);
+
+$calendar-select--border:      palette(silver, dark);
+$calendar-select--background:  palette(mono, light);
+$calendar-select--color:       palette(silver, darker);
+$calendar-select--font-size:   14px;
+$calendar-select--font-family: inherit;
+$calendar-select--font-weight: 400;
+
+$calendar-arrow--background:   palette(blue, default);
+$calendar-arrow--color:        palette(mono, light);
+
+$calendar-thead--color:       palette(gray, dark);
+$calendar-thead--font-size:   14px;
+$calendar-thead--font-family: inherit;
+$calendar-thead--font-weight: 500;
+
+$calendar-tbody--color:       palette(silver, darker);
+$calendar-tbody--font-size:   14px;
+$calendar-tbody--font-family: inherit;
+$calendar-tbody--font-weight: 400;
+
+$calendar-tbody--current-color: palette(blue, default);
