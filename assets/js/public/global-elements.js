@@ -56,8 +56,24 @@
 						// Load element
 						formDiv.find( '.forminator-row' ).load( 'templates/form-elements/field-' + formField + '.html', function() {
 
-							// Inputs state classes
+							select = $( this ).find( '.forminator-select' );
+
+							// Inputs
 							FUI.inputs();
+
+							// Select
+							if ( select.length ) {
+
+								select.each( function() {
+									FUI.select( this );
+								});
+							}
+
+							// Select2
+							FUI.select2();
+
+							// Options
+							FUI.fuiOptions();
 
 						});
 					});
