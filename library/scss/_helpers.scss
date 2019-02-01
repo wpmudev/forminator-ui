@@ -1,0 +1,61 @@
+// =============================================
+// VARIABLES MENU
+//
+// 1. RESET TEXT
+// 2. TRUNCATE TEXT
+// 3. SCREEN READER TEXT
+// 4. ICONS FONT
+// =============================================
+
+// =============================================
+// 1. RESET TEXT
+%fui-text-reset {
+	font-variant-ligatures: none;
+	-webkit-font-variant-ligatures: none;
+	text-rendering: optimizeLegibility;
+	-moz-osx-font-smoothing: grayscale;
+	font-smoothing: antialiased;
+	-webkit-font-smoothing: antialiased;
+	text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
+}
+
+// =============================================
+// 2. TRUNCATE TEXT
+%fui-text-truncate {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+// =============================================
+// 3. SCREEN READER TEXT
+%fui-screen-reader {
+	border: 0;
+	clip: rect(1px, 1px, 1px, 1px);
+	clip-path: inset(50%);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute !important;
+	width: 1px;
+	word-wrap: normal !important;
+}
+
+// =============================================
+// 4. ICONS FONT
+%fui-icons {
+	speak: none;
+	display: inline-block;
+	color: inherit;
+	font-family: $fui-font--icon !important;
+	font-size: 1em;
+	line-height: 1em;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
