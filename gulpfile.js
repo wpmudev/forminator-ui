@@ -407,10 +407,19 @@ gulp.task( 'public:watch', function() {
 	gulp.watch( showcase.watch.styles, [ 'public:styles' ]);
 
 	// Watch scripts
-	gulp.watch( showcase.watch.styles, [ 'public:scripts' ]);
+	gulp.watch( showcase.watch.scripts, [ 'public:scripts' ]);
 
-	// Watch assets
-	gulp.watch( showcase.watch.assets, [ 'public:assets' ]);
+	// Watch assets – styles
+	gulp.watch( showcase.watch.assetsCss, [ 'public:assets:css' ]);
+
+	// Watch assets – scripts
+	gulp.watch( showcase.watch.assetsJs, [ 'public:assets:js' ]);
+
+	// Watch assets – fonts
+	gulp.watch( showcase.watch.assetsFonts, [ 'public:assets:fonts' ]);
+
+	// Watch assets – images
+	gulp.watch( showcase.watch.assetsImages, [ 'public:assets:images' ]);
 
 	// Watch for HTML changes
 	gulp.watch( showcase.watch.pages ).on( 'change', browserSync.reload );
