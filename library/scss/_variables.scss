@@ -1,8 +1,8 @@
 // =============================================
 // VARIABLES MENU
 //
-// 1. BREAKPOINTS
-// 2. BASIC VARIABLES
+// 1. BASIC VARIABLES
+// 2. BREAKPOINTS
 // 3. DESIGN: DEFAULT
 // 4. DESIGN: FLAT
 // 5. DESIGN: BOLD
@@ -10,26 +10,17 @@
 // =============================================
 
 // =============================================
-// 1. BREAKPOINTS
+// 1. BASIC VARIABLES
 
-$fui-breakpoints: (
-	sm: 783px,
-	md: 961px,
-	lg: 1201px
-) !default;
+$fui-version:    '1.7.0'                 !default;
+$fui-font-path:  '../fonts/'             !default;
 
-// =============================================
-// 2. BASIC VARIABLES
-
-$forminator-version:   '1.6.0'       !default;
-$forminator-font-path: '../fonts/'   !default;
+$fui-font--icon: "forminator-icons-font" !default;
 
 $gutter:                30px         !default;
 $gutter-sm:             20px         !default;
 $gutter-enclosed:       14px         !default;
 $gutter-enclosed-sm:    8px          !default;
-
-$font--icons:           'forminator' !default;
 
 $transition--ease:      0.2s ease    !default;
 $transition--linear:    0.2s linear  !default;
@@ -67,22 +58,26 @@ $radio--size:           20px         !default;
 $radio--icon-size:      12px         !default;
 
 // =============================================
-// 3. MAP: List of icons
+// 2. BREAKPOINTS
+
+$fui-breakpoints: (
+	sm: 783px,
+	md: 961px,
+	lg: 1201px
+) !default;
+
+// =============================================
+// 3. ICONS LIST
+
 $icons: (
-	calendar: "\220f",
-	check: "\3a9",
-	check-tick: "\5f",
-	chevron-up: "\2dd",
-	chevron-right: "\2dc",
-	chevron-down: "\131",
-	chevron-left: "\d3",
-	close: "\29",
-	cross-close: "\2b",
-	social-facebook: "\66",
-	social-twitter: "\74",
-	social-linkedin: "\69",
-	social-google-plus: "\67",
-);
+	close:         "\e900",
+	check:         "\e901",
+	calendar:      "\e902",
+	chevron-up:    "\e903",
+	chevron-down:  "\e904",
+	chevron-left:  "\e905",
+	chevron-right: "\e906",
+) !default;
 
 // =============================================
 // 3. DESIGN: DEFAULT
