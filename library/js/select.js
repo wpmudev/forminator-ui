@@ -1,6 +1,6 @@
 ( function( $ ) {
 
-	FUI.fuiSelect = function( el ) {
+	FUI.select = function( el ) {
 
 		var $select = $( el ),
 			$wrap,
@@ -212,7 +212,7 @@
 	$( 'body' ).ready( function() {
 
 		$( '.forminator-select' ).each( function() {
-			FUI.fuiSelect( this );
+			FUI.select( this );
 		});
 	});
 
