@@ -8,7 +8,7 @@
 		window.FUI = {};
 	}
 
-	FUI.fuiSelect2 = function() {
+	FUI.select2 = function() {
 
 		$( '.forminator-custom-form' ).each( function() {
 
@@ -62,7 +62,7 @@
 	};
 
 	$( 'body' ).ready( function() {
-		FUI.fuiSelect2();
+		FUI.select2();
 	});
 
 }( jQuery ) );
