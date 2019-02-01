@@ -1,24 +1,93 @@
-@include body-class() {
+@include body-class(true) {
 
-	header {
+	.showcase-header {
+		width: 100%;
+		height: auto;
+		display: block;
+		position: fixed;
+		top: 0;
+		left: 0;
+		margin: 0;
+		padding: 0;
+		border: 0;
 
-		+ section {
+		.sui-tag,
+		.sui-button-icon {
+			flex: 0 0 auto;
+		}
 
-			@include media(max-width, md) {
-				padding-top: 0;
-			}
+		.showcase-topbar {
+			height: 60px;
+			display: flex;
+			align-items: center;
+			padding: 10px $page-gutter;
+			background-color: #17A8E3;
 
-			@include media(min-width, md) {
-				padding-top: 0;
+			ul {
+				display: flex;
+				flex: 1;
+				align-items: center;
+				margin: 0;
+
+				&, li {
+					padding: 0;
+					border: 0;
+					list-style: none;
+				}
+
+				li {
+					display: block;
+					margin: 0 5px;
+					line-height: 30px;
+
+					a {
+						display: block;
+						padding: 0 10px;
+						border-radius: $border-radius;
+						transition: $transition;
+
+						&,
+						&:hover,
+						&:active,
+						&:visited {
+							color: $white;
+
+							[class*="sui-icon-"] {
+								font-size: 16px;
+
+								&:before {
+									color: inherit;
+								}
+							}
+						}
+
+						&:hover,
+						&:active {
+							background-color: rgba(255, 255, 255, 0.2);
+						}
+					}
+
+					&.current {
+
+						a {
+							pointer-events: none;
+							background-color: rgba(255, 255, 255, 0.2);
+						}
+					}
+
+					&:first-child {
+						margin-left: 0;
+					}
+
+					&:last-child {
+						margin-right: 0;
+					}
+				}
 			}
 		}
 
-		@include media(max-width, md) {
-			padding: $gutter-md;
-		}
-
-		@include media(min-width, md) {
-			padding: $gutter;
+		+ .showcase-content {
+			padding-top: #{$page-gutter + 60px};
 		}
 	}
 }
