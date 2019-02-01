@@ -1,14 +1,15 @@
-@import 'variables';
-@import 'mixins';
-@import 'reset';
-@import 'accessibility';
-@import 'typography';
-@import 'utilities';
-@import 'navigation-main';
-@import 'navigation-side';
-@import 'section';
-@import 'header';
-@import 'tabs';
-@import 'options';
-@import 'block';
-@import 'form';
+// SUI Fonts Path
+$sui-font-path: '../fonts/';
+
+// Import original SUI styles
+@import "../../node_modules/@wpmudev/shared-ui/scss/shared-ui.scss";
+
+@import "variables";
+@import "helpers";
+@import "reset";
+@import "typography";
+@import "buttons";
+@import "page";
+@import "header";
+@import "banner";
+@import "section";
