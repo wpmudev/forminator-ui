@@ -1,70 +1,8 @@
-// =============================================
-// VARIABLES MENU
-//
-// 1. FONT FAMILY
-// 2. BREAKPOINTS
-// 3. BASIC VARIABLES
-// 4. MAIN NAVIGATION
-// 5. SIDE NAVIGATION
-// 6. TABS
-// 7. OPTIONS
-// =============================================
-
-// =============================================
-// 1. FONT FAMILY
-@import url( 'https://fonts.googleapis.com/css?family=Roboto:400,500' );
-@import url( 'https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700' );
-
+$page-gutter: 40px;
+$page-size: 800px;
 $font: 'Roboto', sans-serif;
-$font--alt: 'Roboto Condensed', 'Roboto', sans-serif;
-
-// =============================================
-// 2. BREAKPOINTS
-$breakpoints: (
-	sm: 783px,
-	md: 961px,
-	lg: 1201px
-) !default;
-
-// =============================================
-// 3. BASIC VARIABLES
-$gutter:    30px;
-$gutter-md: 20px;
-
-$site-background: #F1F1F1;
-
-$border-radius: 4px;
-
-// =============================================
-// 4. MAIN NAVIGATION (_navigation-main.scss)
-$mainnav-background: #282C34;
-$mainnav-color:      #FFFFFF;
-$mainnav-burger:     #FFFFFF;
-
-// =============================================
-// 5. SIDE NAVIGATION (_navigation-side.scss)
-$sidenav-size: 220px;
-$sidenav-item-hover: rgba(255, 255, 255, 0.1);
-
-// =============================================
-// 6. TABS (_tabs.scss)
-$tabs-menu--background:         transparent;
-$tabs-menu--color:              #666666;
-$tabs-menu--current-background: #E6E6E6;
-$tabs-menu--current-color:      #333333;
-
-// =============================================
-// 7. OPTIONS (_options.scss)
-$option--background: #F8F8F8;
-$option--color:      #666666;
-
-$option--current-background: #E1F6FF;
-$option--current-color:      #17A8E3;
-
-// =============================================
-// 8. FORM (_form.scss)
-$input-border-color:  #DDDDDD;
-$input-border-radius: 4px;
-$input-background:    #FFFFFF;
-$input-color:         #666666;
-$input-shadow:        0 0 2px 0 rgba(0, 0, 0, 0.2);
+$color-text: #4D4D4D;
+$color-title: #333333;
+$nav-background: #38454E;
+$nav-color: #ADB5B7;
+$nav-current: #38C5B5;
