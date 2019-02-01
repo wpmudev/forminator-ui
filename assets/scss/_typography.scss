@@ -1,38 +1,10 @@
-@include body-class() {
+@include body-class(true) {
 
-	h1 {
-		margin: 0;
-		color: #333;
-		font: bold 32px/40px $font--alt;
-		text-align: left;
-	}
+	.showcase-title {
+		line-height: 26px;
 
-	h2 {
-		margin: 0;
-		color: #333;
-		font: bold 22px/30px $font--alt;
-		text-align: left;
-	}
-
-	p {
-		color: #666;
-		font: 400 15px/30px $font;
-		text-align: left;
-	}
-
-	.description {
-		display: block;
-		color: #666;
-		font: 400 13px/18px $font;
-	}
-
-	.block-label {
-		display: block;
-		color: #666666;
-		font: 500 15px/22px $font;
-
-		&.dark {
-			color: #333333;
+		.sui-tag {
+			vertical-align: middle;
 		}
 	}
 }
