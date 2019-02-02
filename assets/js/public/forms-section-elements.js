@@ -8,25 +8,6 @@
 			'quizzes'
 		];
 
-		const headerDiv = $( '.showcase-header' );
-		const headerTpl = 'templates/global-header.html';
-
-		const footerDiv = $( '.showcase-footer' );
-		const footerTpl = 'templates/global-footer.html';
-
-		// Load global header
-		headerDiv.load( headerTpl, function() {
-
-			$.each( pages, function( index, page ) {
-
-				// Assign "current" class
-				if (  -1 < window.location.href.indexOf( page ) ) {
-					$( '#page-' + page ).addClass( 'current' );
-				}
-			});
-		});
-
-		// Load page sections
 		$.each( pages, function( index, page ) {
 
 			// Load section: "Elements"
@@ -80,9 +61,6 @@
 				}
 			});
 		});
-
-		// Load global footer
-		footerDiv.load( footerTpl );
 
 	});
 
