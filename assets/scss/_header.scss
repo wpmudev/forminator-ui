@@ -17,7 +17,15 @@
 			flex: 0 0 auto;
 		}
 
-		.showcase-topbar {
+		.sui-button-icon {
+
+			&.open {
+				background-color: $white;
+				color: palette(gray, dark);
+			}
+		}
+
+		.showcase-topnav {
 			height: 60px;
 			display: flex;
 			align-items: center;
@@ -84,6 +92,109 @@
 						margin-right: 0;
 					}
 				}
+			}
+		}
+
+		.showcase-sidenav {
+			width: 280px;
+			display: block;
+			position: fixed;
+			top: 60px;
+			bottom: 0;
+			left: 0;
+			border-width: 0 1px 0 0;
+			border-style: solid;
+			border-color: palette(silver, soft);
+			background-color: $white;
+			box-shadow: 2px 1px 10px rgba(0,0,0,0.1);
+			transform: translateX(-280px);
+			transition: 0.2s linear;
+
+			.nav-title {
+				display: block;
+				padding: #{$sui-gutter / 2} $sui-gutter;
+				background-color: palette(blue, light);
+				color: palette(gray, dark);
+				font: 500 15px/30px $font;
+				letter-spacing: $font--letter-spacing;
+			}
+
+			ul {
+				border: 0;
+
+				&, li {
+					display: block;
+					margin: 0;
+					padding: 0;
+					list-style: none;
+				}
+
+				li {
+					border: 0;
+
+					a, button {
+						cursor: pointer;
+						display: block;
+						padding: 10px $sui-gutter;
+						font: 500 15px/30px $font;
+						text-align: left;
+						transition: $transition;
+
+						&,
+						&:hover,
+						&:active,
+						&:visited {
+							outline: none;
+							box-shadow: none;
+						}
+
+						&,
+						&:visited {
+							background-color: $white;
+							color: palette(gray, default);
+						}
+
+						&:hover,
+						&:active {
+							background-color: palette(silver, soft);
+							color: palette(gray, dark);
+						}
+					}
+
+					button {
+						width: 100%;
+						border: 0;
+					}
+
+					.child-link {
+						padding-left: #{$sui-gutter * 2};
+					}
+
+					ul {
+						display: none;
+					}
+
+					&.current {
+
+						.parent-link {
+							background-color: palette(silver, soft);
+							color: palette(gray, dark);
+						}
+
+						ul {
+							display: block;
+
+							li.current button {
+								background-color: palette(silver, soft);
+								color: palette(gray, dark);
+							}
+						}
+					}
+				}
+			}
+
+			&.open {
+				transform: translateX(0);
 			}
 		}
 
