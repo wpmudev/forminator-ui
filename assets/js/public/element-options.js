@@ -3,7 +3,10 @@
 	$( 'body' ).ready( function() {
 
 		// Check if page exists
-		if (  -1 < window.location.href.indexOf( 'accessibility' ) ) {
+		if (
+			-1 < window.location.href.indexOf( 'form' ) ||
+			-1 < window.location.href.indexOf( 'accessibility' )
+		) {
 
 			// Load form
 			$( '.forminator-custom-form' ).each( function() {
@@ -25,12 +28,8 @@
 						colDiv.load( 'templates/form-elements/field-' + colField + '.html', function() {
 
 							const column = $( this );
-							const parent = column.closest( '.forminator-custom-form' );
-							const input = column.find( '.forminator-input' );
 							const select = column.find( '.forminator-select' );
 							const select2 = column.find( '.forminator-select2' );
-							const radio = column.find( '.forminator-radio' );
-							const checkbox = column.find( '.forminator-checkbox' );
 
 							// Remove duplicated element
 							column.find( '> .forminator-col' ).unwrap();
