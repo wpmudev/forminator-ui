@@ -1,25 +1,63 @@
 ( function( $ ) {
 
-	$( 'body' ).on( 'click', '.options-menu .option', function( e ) {
+	$( 'body' ).ready( function() {
 
-		var $option  = $( this ),
-			$parent  = $option.closest( '.options' ),
-			$options = $parent.find( '.options-menu .option' ),
-			$content = $parent.find( '.options-content .option' ),
-			$current = $parent.find( '.options-content .option[data-option="' + $option.find( 'input' ).val() + '"]' )
-			;
+		// Check if page exists
+		if (  -1 < window.location.href.indexOf( 'accessibility' ) ) {
 
-		$options.removeClass( 'active' );
-		$option.addClass( 'active' );
+			// Load form
+			$( '.forminator-custom-form' ).each( function() {
 
-		if ( $parent.find( '.options-content .option[data-option]' ).length ) {
-			$content.removeClass( 'active' );
-			$current.addClass( 'active' );
+				const formDiv = $( this );
+				const formCol = formDiv.find( '.forminator-col' );
+
+				// Form design class
+				formDiv.addClass( 'forminator-design--' + formDiv.data( 'design' ) );
+
+				// Load elements to sample form
+				formCol.each( function() {
+
+					const colDiv = $( this );
+					const colField = colDiv.data( 'field' );
+
+					if ( colDiv.attr( 'data-field' ) && '' !== colDiv.attr( 'data-field' ) ) {
+
+						colDiv.load( 'templates/form-elements/field-' + colField + '.html', function() {
+
+							const column = $( this );
+							const parent = column.closest( '.forminator-custom-form' );
+							const input = column.find( '.forminator-input' );
+							const select = column.find( '.forminator-select' );
+							const select2 = column.find( '.forminator-select2' );
+							const radio = column.find( '.forminator-radio' );
+							const checkbox = column.find( '.forminator-checkbox' );
+
+							// Remove duplicated element
+							column.find( '> .forminator-col' ).unwrap();
+
+							// Load inputs function
+							FUI.inputs();
+
+							// Load select function
+							if ( select.length ) {
+
+								select.each( function() {
+									FUI.select( this );
+								});
+							}
+
+							// Load select2 function
+							if ( select2.length ) {
+								FUI.select2();
+							}
+
+							// Load radio and checkbox function
+							FUI.fuiOptions();
+						});
+					}
+				});
+			});
 		}
-
-		e.preventDefault();
-		e.stopPropagation();
-
 	});
 
 }( jQuery ) );
