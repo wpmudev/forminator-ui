@@ -12,54 +12,56 @@
 		const headerTpl = 'templates/global-header.html';
 
 		// Load global header
-		headerDiv.load( headerTpl, function() {
+		if ( ! headerDiv.hasClass( 'no-js' ) ) {
 
-			const header = $( this );
-			const navChild = header.find( '.child-link' );
-			const sideBtn = header.find( '#showcase-open-sidenav' );
+			headerDiv.load( headerTpl, function() {
 
-			$.each( pages, function( index, page ) {
+				const header = $( this );
+				const navChild = header.find( '.child-link' );
+				const sideBtn = header.find( '#showcase-open-sidenav' );
 
-				if (  -1 < window.location.href.indexOf( page ) ) {
+				$.each( pages, function( index, page ) {
 
-					// Top navigation
-					header.find( '.page-nav-' + page ).addClass( 'current' );
+					if (  -1 < window.location.href.indexOf( page ) ) {
 
-					// Side navigation
-					navChild.on( 'click', function( e ) {
+						// Top navigation
+						header.find( '.page-nav-' + page ).addClass( 'current' );
 
-						button = $( this );
-						section = button.data( 'section' );
-						parent = button.closest( 'ul' );
-						content = $( '.showcase-content' );
+						// Side navigation
+						navChild.on( 'click', function( e ) {
 
-						content.find( '.page-section' ).hide();
-						content.find( '#page-' + page + '-section--' + section ).show();
+							button = $( this );
+							section = button.data( 'section' );
+							parent = button.closest( 'ul' );
+							content = $( '.showcase-content' );
 
-						parent.find( 'li' ).removeClass( 'current' );
-						button.parent().addClass( 'current' );
+							content.find( '.page-section' ).hide();
+							content.find( '#page-' + page + '-section--' + section ).show();
 
-						e.preventDefault();
-						e.stopPropagation();
+							parent.find( 'li' ).removeClass( 'current' );
+							button.parent().addClass( 'current' );
 
-					});
-				}
+							e.preventDefault();
+							e.stopPropagation();
+
+						});
+					}
+				});
+
+				sideBtn.on( 'click', function( e ) {
+
+					const button = $( this );
+					const sidenav = $( '.showcase-sidenav' );
+
+					button.toggleClass( 'open' );
+					sidenav.toggleClass( 'open' );
+
+					e.stopPropagation();
+					e.preventDefault();
+
+				});
 			});
-
-			sideBtn.on( 'click', function( e ) {
-
-				const button = $( this );
-				const sidenav = $( '.showcase-sidenav' );
-
-				button.toggleClass( 'open' );
-				sidenav.toggleClass( 'open' );
-
-				e.stopPropagation();
-				e.preventDefault();
-
-			});
-		});
-
+		}
 	});
 
 }( jQuery ) );
