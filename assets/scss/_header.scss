@@ -93,6 +93,19 @@
 					}
 				}
 			}
+
+			.showcase-topnav-title {
+				display: flex;
+				align-items: center;
+				flex: 1;
+				font: 500 15px/30px $font;
+				letter-spacing: $font--letter-spacing;
+				color: $white;
+
+				.sui-tag {
+					margin-left: 10px;
+				}
+			}
 		}
 
 		.showcase-sidenav {
