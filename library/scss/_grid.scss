@@ -127,5 +127,13 @@
 				}
 			}
 		}
+
+		// SPACING: Custom
+		&.forminator-custom {
+
+			.forminator-row {
+				flex-wrap: wrap;
+			}
+		}
 	}
 }
