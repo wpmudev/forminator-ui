@@ -1,6 +1,7 @@
 @include body-class(custom-form) {
 
 	.forminator-title {
+		display: block;
 		margin: 0;
 		line-height: 1em;
 
@@ -10,6 +11,7 @@
 	}
 
 	.forminator-subtitle {
+		display: block;
 		margin: 0;
 		line-height: 1.4em;
 	}
