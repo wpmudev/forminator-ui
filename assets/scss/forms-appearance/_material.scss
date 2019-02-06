@@ -9,6 +9,34 @@
 	border-color: transparent;
 	border-radius: 0;
 
+	// ELEMENT: Response
+	.forminator-response-message {
+
+		&.forminator-error {
+			box-shadow: inset 4px 0 0 0 $error-response-border, 1px 1px 4px rgba(0,0,0,0.3);
+			color: $error-response-color;
+
+			p {
+				color: $error-response-color;
+				font-size: $error-response-font-size;
+				font-weight: $error-response-font-weight;
+				font-family: $error-response-font-family;
+			}
+		}
+
+		&.forminator-success {
+			box-shadow: inset 4px 0 0 0 $success-response-border, 1px 1px 4px rgba(0,0,0,0.3);
+			color: $success-response-color;
+
+			p {
+				color: $success-response-color;
+				font-size: $success-response-font-size;
+				font-weight: $success-response-font-weight;
+				font-family: $success-response-font-family;
+			}
+		}
+	}
+
 	// ELEMENT: Label
 	.forminator-label {
 
@@ -394,7 +422,7 @@
 			.forminator-select-list {
 
 				.forminator-value {
-					
+
 					&:before {
 						background-color: $select-hover--border;
 					}
@@ -460,7 +488,7 @@
 			.forminator-select-list {
 
 				.forminator-value {
-					
+
 					&:before {
 						background-color: $select-active--border;
 					}
@@ -588,11 +616,11 @@
 				}
 			}
 		}
-	
+
 		.select2-results {
-	
+
 			.select2-results__options {
-	
+
 				.select2-results__option {
 					color: $dropdown-static--color;
 					font-size: $dropdown-font-size;

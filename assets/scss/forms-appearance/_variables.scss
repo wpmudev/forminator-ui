@@ -26,6 +26,7 @@ $palettes: (
 	),
 	green: (
 		default: #1ABCA1,
+		light: #BCEEE6,
 		dark: #159C85
 	),
 	blue: (
@@ -33,6 +34,24 @@ $palettes: (
 		dark: #1289BA
 	)
 );
+
+// ============================================================
+// ELEMENT: Success Response
+$success-response-border:      palette(green, default);
+$success-response-background:  palette(green, light);
+$success-response-color:       palette(gray, dark);
+$success-response-font-size:   15px;
+$success-response-font-weight: 400;
+$success-response-font-family: inherit;
+
+// ============================================================
+// ELEMENT: Error Response
+$error-response-border:      palette(red, default);
+$error-response-background:  palette(red, light);
+$error-response-color:       palette(gray, dark);
+$error-response-font-size:   15px;
+$error-response-font-weight: 400;
+$error-response-font-family: inherit;
 
 // ============================================================
 // ELEMENT: Title

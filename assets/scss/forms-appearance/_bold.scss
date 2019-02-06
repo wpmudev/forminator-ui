@@ -9,6 +9,36 @@
 	border-color: transparent;
 	border-radius: 0;
 
+	// ELEMENT: Response
+	.forminator-response-message {
+
+		&.forminator-error {
+			background-color: $error-response-background;
+			box-shadow: inset 4px 0 0 0 $error-response-border;
+			color: $error-response-color;
+
+			p {
+				color: $error-response-color;
+				font-size: $error-response-font-size;
+				font-weight: $error-response-font-weight;
+				font-family: $error-response-font-family;
+			}
+		}
+
+		&.forminator-success {
+			background-color: $success-response-background;
+			box-shadow: inset 4px 0 0 0 $success-response-border;
+			color: $success-response-color;
+
+			p {
+				color: $success-response-color;
+				font-size: $success-response-font-size;
+				font-weight: $success-response-font-weight;
+				font-family: $success-response-font-family;
+			}
+		}
+	}
+
 	// ELEMENT: Label
 	.forminator-label {
 		color: $label-color;
@@ -497,11 +527,11 @@
 				}
 			}
 		}
-	
+
 		.select2-results {
-	
+
 			.select2-results__options {
-	
+
 				.select2-results__option {
 					color: $dropdown-static--color;
 					font-size: $dropdown-font-size;
