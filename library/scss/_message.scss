@@ -1,0 +1,86 @@
+@include body-class(custom-form) {
+
+	.forminator-response-message {
+
+		p {
+			margin: 0;
+			padding: 0;
+			border: 0;
+			line-height: 20px;
+			letter-spacing: 0;
+
+			&:not(:last-child) {
+				margin-bottom: 10px;
+			}
+		}
+
+		&:focus {
+			outline: none;
+			box-shadow: none;
+		}
+
+		&[aria-hidden="true"] {
+			display: none;
+		}
+
+		&.forminator-show {
+			display: block;
+		}
+
+		&.forminator-accessible {
+			@extend %forminator-screen-reader-only;
+		}
+
+		@include media(max-width, sm) {
+			margin: 0 0 $gutter-sm;
+		}
+
+		@include media(min-width, sm) {
+			margin: 0 0 $gutter;
+		}
+	}
+}
+
+// =============================================
+// DESIGN: Default
+@include body-class(custom-form, default) {
+
+	.forminator-response-message {
+		padding: 15px 20px 15px 22px;
+		border-radius: $default--border-radius;
+		text-align: left;
+	}
+}
+
+// =============================================
+// DESIGN: Flat
+@include body-class(custom-form, flat) {
+
+	.forminator-response-message {
+		padding: 15px 10px;
+		text-align: center;
+	}
+}
+
+// =============================================
+// DESIGN: Bold
+@include body-class(custom-form, bold) {
+
+	.forminator-response-message {
+		padding: 15px 20px 15px 22px;
+		text-align: left;
+	}
+}
+
+// =============================================
+// DESIGN: Material
+@include body-class(custom-form, material) {
+
+	.forminator-response-message {
+		padding: 15px 20px 15px 22px;
+		border-radius: $material--border-radius;
+		background-color: #FFF;
+		box-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+		text-align: left;
+	}
+}
