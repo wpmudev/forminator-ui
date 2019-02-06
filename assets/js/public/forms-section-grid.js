@@ -70,7 +70,7 @@
 					form.removeClass( 'forminator-enclosed' );
 
 					// Apply correct grid class to form
-					if ( 'default' !== value ) {
+					if ( 'open' !== value ) {
 						form.addClass( 'forminator-' + value );
 					}
 
