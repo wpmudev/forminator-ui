@@ -1,6 +1,6 @@
 <div class="forminator-col">
 
-	<div class="forminator-field">
+	<div class="forminator-field forminator-is_required">
 
 		<label for="field-name-single" class="forminator-label">Full Name <span class="forminator-required">*</span></label>
 
@@ -9,11 +9,12 @@
 			placeholder="E.g. John Doe"
 			id="field-name-single"
 			class="forminator-input"
+			aria-required="true"
 		/>
 
-		<span class="forminator-error-message">This field is required.</span>
+		<span class="forminator-error-message" aria-hidden="true">This field is required.</span>
 
-		<span class="forminator-description">Optional description for name field.</span>
+		<span class="forminator-description" aria-describedby="field-name-single">Optional description for name field.</span>
 
 	</div>
 
