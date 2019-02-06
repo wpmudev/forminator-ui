@@ -719,14 +719,14 @@
 			'</div>';
 
 			$select.wrap( '<div class="forminator-select-container">' );
-			$select.hide();
+			$select.addClass( 'forminator-screen-reader-only' );
 
 			if ( ! $select.is( 'select' ) ) {
 				return;
 			}
 
 			$wrap   = $select.parent();
-			$list   = $( '<div class="forminator-select-list"></div>' ).appendTo( $wrap );
+			$list   = $( '<div class="forminator-select-list" aria-hidden="true"></div>' ).appendTo( $wrap );
 			$value  = $( '<div class="forminator-value"></div>' ).appendTo( $list );
 			$handle = $( $handler ).appendTo( $list );
 			$items  = $( '<ul class="forminator-dropdown-list"></ul>' ).appendTo( $list );
@@ -908,13 +908,6 @@
 		return this;
 
 	};
-
-	$( 'body' ).ready( function() {
-
-		$( '.forminator-select' ).each( function() {
-			FUI.select( this );
-		});
-	});
 
 }( jQuery ) );
 
