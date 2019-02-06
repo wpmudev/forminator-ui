@@ -5,6 +5,528 @@
  */
 ( function( $ ) {
 
+	'use strict';
+
+	// Define global FUI object if it doesn't exist.
+	if ( 'object' !== typeof window.FUI ) {
+		window.FUI = {};
+	}
+
+	FUI.formLoad = function( el ) {
+
+		const form = $( el );
+		const message = form.find( '.forminator-response-message' );
+
+		if ( ! form.is( '.forminator-custom-form' ) ) {
+			return;
+		}
+
+		function reset() {
+
+			// Hide response message
+			message.removeClass( 'forminator-show' );
+			message.removeClass( 'forminator-accessible' );
+
+			// Make sure response message
+			// is not accessible by screen readers
+			message.attr( 'aria-hidden', 'true' );
+
+		}
+
+		function formId() {
+
+			const attrId = form.attr( 'data-id' );
+			const dataId = form.data( 'id' );
+
+			if ( attrId.length && '' !== attrId ) {
+				form.addClass( 'forminator-form-' + dataId );
+			}
+		}
+
+		function formDesign() {
+
+			const attrDesign = form.attr( 'data-design' );
+			const dataDesign = form.data( 'design' );
+
+			if ( attrDesign && '' !== attrDesign ) {
+				form.addClass( 'forminator-design--' + dataDesign );
+			} else {
+				form.addClass( 'forminator-design--none' );
+			}
+		}
+
+		function formGrid() {
+
+			const attrGrid = form.attr( 'data-grid' );
+			const dataGrid = form.data( 'grid' );
+
+			// Reset
+			form.removeClass( 'forminator-custom' );
+			form.removeClass( 'forminator-enclosed' );
+
+			// Assign class
+			if ( attrGrid && '' !== attrGrid ) {
+
+				if ( 'open' !== attrGrid ) {
+					form.addClass( 'forminator-' + dataGrid );
+				}
+			}
+		}
+
+		function init() {
+
+			// Reset
+			reset();
+
+			// Form unique id
+			formId();
+
+			// Form design class
+			formDesign();
+
+			// Form grid class
+			formGrid();
+		}
+
+		init();
+
+		return this;
+	};
+
+}( jQuery ) );
+
+( function( $ ) {
+
+	'use strict';
+
+	// Define global FUI object if it doesn't exist.
+	if ( 'object' !== typeof window.FUI ) {
+		window.FUI = {};
+	}
+
+	FUI.formSimulation = function( el ) {
+
+		const submit = $( el );
+		const form = submit.closest( 'form' );
+		const response = form.find( '.forminator-response-message' );
+
+		let message = '';
+
+		if ( ! form.is( '.forminator-custom-form' ) ) {
+			return;
+		}
+
+		function validateReset() {
+
+			message = '';
+
+			// Empty response
+			response.html( message );
+
+			// Hide response
+			response.removeClass( 'forminator-show' );
+			response.removeClass( 'forminator-accessible' );
+
+			// Clear out response type
+			response.removeClass( 'forminator-error' );
+			response.removeClass( 'forminator-success' );
+
+			// Hide response for screen readers
+			response.attr( 'aria-hidden', 'true' );
+			response.removeAttr( 'aria-live' );
+			response.removeAttr( 'tabindex' );
+
+			// Remove error class from fields
+			form.find( '.forminator-field' ).removeClass( 'forminator-has_error' );
+
+		}
+
+		function validateError() {
+
+			// Show response
+			response.addClass( 'forminator-accessible' );
+
+			// Show response for screen readers
+			response.removeAttr( 'aria-hidden' );
+			response.attr( 'aria-live', 'assertive' );
+			response.attr( 'tabindex', '-1' );
+
+			// Focus message
+			response.focus();
+
+		}
+
+		function validateSuccess() {
+
+			message = '<p>Form was submitted successfully.</p>';
+
+			// Print message
+			response.html( message );
+
+			// Show response
+			response.addClass( 'forminator-success' );
+			response.addClass( 'forminator-show' );
+
+			// Show response for screen readers
+			response.removeAttr( 'aria-hidden' );
+			response.attr( 'aria-live', 'assertive' );
+			response.attr( 'tabindex', '-1' );
+
+			// Focus message
+			response.focus();
+
+		}
+
+		function validateInput() {
+
+			const input = form.find( '.forminator-input' );
+
+			input.each( function() {
+
+				const current = $( this );
+				const inputField = current.closest( '.forminator-field' );
+				const inputLabel = inputField.find( '.forminator-label' );
+
+				if ( inputField.hasClass( 'forminator-is_required' ) && '' === current.val() ) {
+
+					inputField.addClass( 'forminator-has_error' );
+
+					if ( inputLabel.length ) {
+						message += '<li>' + inputLabel.text() + ' needs to be filled.</li>';
+					} else {
+						message += '<li>' + current.attr( 'id' ) + ' needs to be filled.</li>';
+					}
+				}
+			});
+
+			// Print message
+			response.html( message );
+		}
+
+		function validateTextarea() {
+
+			const textarea = form.find( '.forminator-textarea' );
+
+			textarea.each( function() {
+
+				const current = $( this );
+				const textareaField = current.closest( '.forminator-field' );
+				const textareaLabel = textareaField.find( '.forminator-label' );
+
+				if ( textareaField.hasClass( 'forminator-is_required' ) && '' === current.val() ) {
+
+					textareaField.addClass( 'forminator-has_error' );
+
+					if ( textareaLabel.length ) {
+						message += '<li>' + textareaLabel.text() + ' needs to be filled.</li>';
+					} else {
+						message += '<li>' + current.attr( 'id' ) + ' needs to be filled.</li>';
+					}
+				}
+			});
+
+			// Print message
+			response.html( message );
+		}
+
+		function validation() {
+
+			const input = form.find( '.forminator-input' );
+			const inputField = input.closest( '.forminator-field' );
+
+			const textarea = form.find( '.forminator-textarea' );
+			const textareaField = textarea.closest( '.forminator-field' );
+
+			// Reset - Hide message
+			validateReset();
+
+			if (
+				( inputField.hasClass( 'forminator-is_required' ) && '' === input.val() ) ||
+				( textareaField.hasClass( 'forminator-is_required' ) && '' === textarea.val() )
+			) {
+
+				validateInput();
+				validateTextarea();
+
+				validateError();
+
+			} else {
+
+				validateSuccess();
+
+			}
+		}
+
+		function init() {
+
+			submit.click( function( e ) {
+
+				validation();
+
+				e.preventDefault();
+				e.stopPropagation();
+
+				return false;
+
+			});
+		}
+
+		init();
+
+		return this;
+	};
+
+	/*
+	FUI.formSimulation = function( el ) {
+
+		const form = $( el );
+		const response = form.find( '.forminator-response-message' );
+		const submit = form.find( '.forminator-button-submit' );
+
+		if ( ! form.is( '.forminator-custom-form' ) ) {
+			return;
+		}
+
+		function error() {
+
+			let message = '';
+
+			const input = form.find( '.forminator-input' );
+			const textarea = form.find( '.forminator-textarea' );
+			const radio = form.find( '.forminator-field-radio' );
+			const checkbox = form.find( '.forminator-field-checkbox' );
+			const multiselect = form.find( '.forminator-multiselect' );
+
+			message += '<p>There was an error sending your message. These fields need some attention:</p>';
+			message += '<ul role="list">';
+
+			input.each( function() {
+
+				const current = $( this );
+				const inputField = current.closest( '.forminator-field' );
+				const inputLabel = inputField.find( '.forminator-label' );
+
+				if ( inputField.hasClass( 'forminator-is_required' ) && '' === current.val() ) {
+
+					if ( inputLabel.length ) {
+						message += '<li>' + inputLabel.text() + ' is a required field and needs to be filled.</li>';
+					} else {
+						message += '<li>' + current.attr( 'id' ) + ' is a required field and needs to be filled.</li>';
+					}
+				}
+			});
+
+			textarea.each( function() {
+
+				const current = $( this );
+				const textareaField = current.closest( '.forminator-field' );
+				const textareaLabel = textareaField.find( '.forminator-label' );
+
+				if ( textareaField.hasClass( 'forminator-is_required' ) && '' === current.val() ) {
+
+					if ( textareaLabel.length ) {
+						message += '<li>' + textareaLabel.text() + ' needs to be filled out.</li>';
+					} else {
+						message += '<li>' + current.attr( 'id' ) + ' needs to be filled out.</li>';
+					}
+				}
+			});
+
+			radio.each( function() {
+
+				const current = $( this );
+				const radiosLabel = current.find( '.forminator-label' );
+				const radios = current.find( '.forminator-radio input' ).map( function() {
+					return this.id;
+				}).get();
+
+				if ( current.hasClass( 'forminator-is_required' ) && 0 === current.find( 'input:checked' ).length ) {
+
+					if ( radiosLabel.length ) {
+						message += '<li>' + radiosLabel.text() + ' needs an option to be selected.</li>';
+					} else {
+						message += '<li>You must select one of these options: ' + radios.join( ',' ) + '</li>';
+					}
+				}
+			});
+
+			checkbox.each( function() {
+
+				const current = $( this );
+				const checkboxLabel = current.find( '.forminator-label' );
+				const checks = current.find( '.forminator-checkbox input' ).map( function() {
+					return this.id;
+				}).get();
+
+				if ( current.hasClass( 'forminator-is_required' ) && 0 === current.find( 'input:checked' ).length ) {
+
+					if ( checkboxLabel.length ) {
+						message += '<li>' + checkboxLabel.text() + ' needs at least one option selected.</li>';
+					} else {
+						message += '<li>You must select at lease one of these options: ' + checks.join( ',' ) + '</li>';
+					}
+				}
+			});
+
+			multiselect.each( function() {
+
+				const current = $( this );
+				const selectField = current.closest( '.forminator-field' );
+				const selectLabel = selectField.find( '.forminator-label' );
+				const options = current.find( '.forminator-option input' ).map( function() {
+					return this.id;
+				}).get();
+
+				if ( selectField.hasClass( 'forminator-is_required' ) && 0 === current.find( 'input:checked' ).length ) {
+
+					if ( selectLabel.length ) {
+						message += '<li>' + selectLabel.text() + ' needs at least one option selected.</li>';
+					} else {
+						message += '<li>You must select at lease one of these options: ' + options.join( ',' ) + '</li>';
+					}
+				}
+			});
+
+			message += '</ul>';
+
+			// Print error message
+			response.html( message );
+
+			// Visually hide message
+			response.removeClass( 'forminator-show' );
+
+			// Show message for screen readers only
+			response.addClass( 'forminator-accessible' );
+			response.removeAttr( 'aria-hidden' );
+			response.attr( 'aria-live', 'assertive' );
+			response.attr( 'tabindex', '-1' );
+
+			// Focus message
+			response.focus();
+
+		}
+
+		function success() {
+
+			const message = '<p>The form was submitted successfully.</p>';
+
+			// Print success message
+			response.html( message );
+
+			// Show message
+			response.addClass( 'forminator-show' );
+			response.removeAttr( 'aria-hidden' );
+			response.attr( 'aria-live', 'assertive' );
+			response.attr( 'tabindex', '-1' );
+
+			// Focus message
+			response.focus();
+
+			// Disable form
+			form.prop( 'disabled', true );
+
+			setTimeout( function() {
+
+				// Enable form
+				form.prop( 'disabled', false );
+
+				// Hide message
+				response.removeClass( 'forminator-show' );
+				response.attr( 'aria-hidden', 'true' );
+				response.removeAttr( 'aria-live' );
+				response.removeAttr( 'tabindex' );
+
+				// Clear success message
+				response.empty();
+
+				// Focus form
+				form.focus();
+
+			}, 1000 );
+		}
+
+		function validate() {
+
+			const input = form.find( '.forminator-is_required .forminator-input' );
+			const textarea = form.find( '.forminator-is_required .forminator-textarea' );
+			const radio = form.find( '.forminator-is_required .forminator-radio' );
+			const checkbox = form.find( '.forminator-is_required .forminator-checkbox' );
+			const multiselect = form.find( '.forminator-is_required .forminator-multiselect .forminator-option' );
+
+			if (
+				'' !== input.val() &&
+				'' !== textarea.val() &&
+				0 !== radio.find( 'input:checked' ).length &&
+				0 !== checkbox.find( 'input:checked' ).length &&
+				0 !== multiselect.find( 'input:checked' ).length
+			) {
+				success();
+			} else {
+				error();
+			}
+		}
+
+		// Main function
+		function init() {
+
+			submit.on( 'click', function( e ) {
+
+				FUI.formSubmit( submit );
+
+				validate();
+
+				e.stopPropagation();
+				e.preventDefault();
+
+				return false;
+
+			});
+		}
+
+		init();
+
+		return this;
+	};
+	*/
+
+}( jQuery ) );
+
+( function( $ ) {
+
+	'use strict';
+
+	// Define global FUI object if it doesn't exist.
+	if ( 'object' !== typeof window.FUI ) {
+		window.FUI = {};
+	}
+
+	FUI.formSubmit = function( el ) {
+
+		const button = $( el );
+		const form = button.closest( '.forminator-custom-form' );
+
+		if ( ! button.is( '.forminator-button-submit' ) || ! form[0] || ! form.length ) {
+			return;
+		}
+
+		function init() {
+
+			button.addClass( 'forminator-button-onload' );
+
+			setTimeout( function() {
+				button.removeClass( 'forminator-button-onload' );
+			}, 1000 );
+		}
+
+		init();
+
+		return this;
+	};
+
+}( jQuery ) );
+
+( function( $ ) {
+
 	// Enable strict mode.
 	'use strict';
 
@@ -13,51 +535,81 @@
 		window.FUI = {};
 	}
 
-	FUI.inputs = function() {
+	FUI.inputStates = function( el ) {
 
-		$( '.forminator-input, .forminator-textarea' ).each( function() {
+		const input = $( el );
 
-			var $element = $( this ),
-				$field = $element.closest( '.forminator-field' )
-				;
+		if ( ! input.is( 'input' ) ) {
+			return;
+		}
 
-			$element.mouseover( function( e ) {
-				$field.addClass( 'forminator-is_hover' );
+		function hover( element ) {
+
+			const getInput = $( element );
+			const getField = getInput.closest( '.forminator-field' );
+
+			getInput.mouseover( function( e ) {
+				getField.addClass( 'forminator-is_hover' );
 				e.stopPropagation();
 			}).mouseout( function( e ) {
-				$field.removeClass( 'forminator-is_hover' );
+				getField.removeClass( 'forminator-is_hover' );
 				e.stopPropagation();
 			});
+		}
 
-			$element.focus( function( e ) {
-				$field.addClass( 'forminator-is_active' );
+		function focused( element ) {
+
+			const getInput = $( element );
+			const getField = getInput.closest( '.forminator-field' );
+
+			getInput.focus( function( e ) {
+				getField.addClass( 'forminator-is_active' );
 				e.stopPropagation();
 			}).blur( function( e ) {
-				$field.removeClass( 'forminator-is_active' );
+				getField.removeClass( 'forminator-is_active' );
 				e.stopPropagation();
 			});
+		}
 
-			$element.change( function( e ) {
+		function filled( element ) {
 
-				if ( '' !== $element.val().trim() ) {
-					$field.addClass( 'forminator-is_filled' );
+			const getInput = $( element );
+			const getField = getInput.closest( '.forminator-field' );
+
+			// On input load
+			getInput.on( 'load', function() {
+
+				if ( '' !== getInput.val().trim() ) {
+					getField.addClass( 'forminator-is_filled' );
+				}
+			});
+
+			// On input changes
+			getInput.on( 'change', function() {
+
+				if ( '' !== getInput.val().trim() ) {
+					getField.addClass( 'forminator-is_filled' );
 				} else {
-					$field.removeClass( 'forminator-is_filled' );
+					getField.removeClass( 'forminator-is_filled' );
 				}
+			});
+		}
 
-				if ( '' !== $element.val().trim() && $field.hasClass( 'forminator-has_error' ) ) {
-					$field.removeClass( 'forminator-has_error' );
-				}
+		function init() {
 
-				e.stopPropagation();
+			input.each( function() {
+
+				hover( this );
+				focused( this );
+				filled( this );
 
 			});
-		});
-	};
+		}
 
-	$( 'body' ).ready( function() {
-		FUI.inputs();
-	});
+		init();
+
+		return this;
+	};
 
 }( jQuery ) );
 
@@ -71,64 +623,78 @@
 		window.FUI = {};
 	}
 
-	FUI.fuiOptions = function() {
+	FUI.checkboxStates = function( el ) {
 
-		$( '.forminator-is_required' ).each( function() {
+		const label = $( el );
+		const input = label.find( 'input' );
 
-			var $field   = $( this ),
-				$options = $field.find( '.forminator-radio, .forminator-checkbox, .forminator-multiselect .forminator-option' )
-				;
+		if ( ! label.is( 'label' ) || 'checkbox' !== input.attr( 'type' ) ) {
+			return;
+		}
 
-			if ( $options.length && ! $options.hasClass( 'forminator-is_checked' ).length ) {
-				$field.addClass( 'forminator-has_error' );
-			} else {
-				$field.removeClass( 'forminator-has_error' );
-			}
-		});
+		function init() {
 
-		$( 'body' ).on( 'click', '.forminator-radio input, .forminator-checkbox input, .forminator-multiselect .forminator-option input', function( e ) {
+			input.each( function() {
 
-			var $option  = $( this ),
-				$parent  = $option.parent(),
-				$field   = $option.closest( '.forminator-field' ),
-				$radios  = $field.find( '.forminator-radio' )
-				;
+				$( this ).on( 'click', function() {
 
-			if ( 'radio' === $option.attr( 'type' ) ) {
-				$radios.removeClass( 'forminator-is_checked' );
-				$parent.addClass( 'forminator-is_checked' );
+					const checkInput = $( this );
+					const checkLabel = checkInput.parent();
 
-				if ( $field.hasClass( 'forminator-is_required' ) && $field.hasClass( 'forminator-has_error' ) ) {
-					$field.removeClass( 'forminator-has_error' );
-				}
-			}
-
-			if ( 'checkbox' === $option.attr( 'type' ) ) {
-
-				if ( $parent.hasClass( 'forminator-is_checked' ) ) {
-					$parent.removeClass( 'forminator-is_checked' );
-				} else {
-					$parent.addClass( 'forminator-is_checked' );
-				}
-
-				if ( $field.hasClass( 'forminator-is_required' ) ) {
-
-					if ( $field.find( '.forminator-is_checked' ).length ) {
-						$field.removeClass( 'forminator-has_error' );
+					if ( checkLabel.is( '.forminator-is_checked' ) ) {
+						checkLabel.removeClass( 'forminator-is_checked' );
 					} else {
-						$field.addClass( 'forminator-has_error' );
+						checkLabel.addClass( 'forminator-is_checked' );
 					}
-				}
-			}
+				});
+			});
+		}
 
-			e.stopPropagation();
+		init();
 
-		});
+		return this;
 	};
 
-	$( 'body' ).ready( function() {
-		FUI.fuiOptions();
-	});
+	FUI.radioStates = function( el ) {
+
+		const label = $( el );
+		const input = label.find( 'input' );
+
+		if ( ! label.is( 'label' ) || 'radio' !== input.attr( 'type' ) ) {
+			return;
+		}
+
+		function init() {
+
+			input.each( function() {
+
+				$( this ).on( 'click', function() {
+
+					const radioInput = $( this );
+					const radioLabel = radioInput.parent();
+
+					const radioField = radioLabel.closest( '.forminator-field' );
+					const radioOptions = radioField.find( '.forminator-radio' );
+
+					// Remove checked attribute
+					radioOptions.find( 'input' ).removeAttr( 'checked' );
+
+					// Remove checked class
+					radioOptions.removeClass( 'forminator-is_checked' );
+
+					// Assign checked attribute
+					radioInput.attr( 'checked', 'checked' );
+
+					// Assign checked class
+					radioLabel.addClass( 'forminator-is_checked' );
+				});
+			});
+		}
+
+		init();
+
+		return this;
+	};
 
 }( jQuery ) );
 
@@ -6994,6 +7560,94 @@
 	$( 'body' ).ready( function() {
 		FUI.select2();
 	});
+
+}( jQuery ) );
+
+( function( $ ) {
+
+	// Enable strict mode.
+	'use strict';
+
+	// Define global SUI object if it doesn't exist.
+	if ( 'object' !== typeof window.FUI ) {
+		window.FUI = {};
+	}
+
+	FUI.textareaStates = function( el ) {
+
+		const textarea = $( el );
+
+		if ( ! textarea.is( 'textarea' ) ) {
+			return;
+		}
+
+		function hover( element ) {
+
+			const getTextarea = $( element );
+			const getField = getTextarea.closest( '.forminator-field' );
+
+			getTextarea.mouseover( function( e ) {
+				getField.addClass( 'forminator-is_hover' );
+				e.stopPropagation();
+			}).mouseout( function( e ) {
+				getField.removeClass( 'forminator-is_hover' );
+				e.stopPropagation();
+			});
+		}
+
+		function focused( element ) {
+
+			const getTextarea = $( element );
+			const getField = getTextarea.closest( '.forminator-field' );
+
+			getTextarea.focus( function( e ) {
+				getField.addClass( 'forminator-is_active' );
+				e.stopPropagation();
+			}).blur( function( e ) {
+				getField.removeClass( 'forminator-is_active' );
+				e.stopPropagation();
+			});
+		}
+
+		function filled( element ) {
+
+			const getTextarea = $( element );
+			const getField = getTextarea.closest( '.forminator-field' );
+
+			// On textarea load
+			getTextarea.on( 'load', function() {
+
+				if ( '' !== getTextarea.val().trim() ) {
+					getField.addClass( 'forminator-is_filled' );
+				}
+			});
+
+			// On textarea changes
+			getTextarea.on( 'change', function() {
+
+				if ( '' !== getTextarea.val().trim() ) {
+					getField.addClass( 'forminator-is_filled' );
+				} else {
+					getField.removeClass( 'forminator-is_filled' );
+				}
+			});
+		}
+
+		function init() {
+
+			textarea.each( function() {
+
+				hover( this );
+				focused( this );
+				filled( this );
+
+			});
+		}
+
+		init();
+
+		return this;
+	};
 
 }( jQuery ) );
 
