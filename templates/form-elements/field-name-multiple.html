@@ -27,17 +27,19 @@
 
 			<div class="forminator-field forminator-is_required">
 
-				<label class="forminator-label">First Name <span class="forminator-required">*</span></label>
+				<label for="field-first-name" class="forminator-label">First Name <span class="forminator-required">*</span></label>
 
 				<input
 					type="text"
 					placeholder="E.g. John"
+					id="field-first-name"
 					class="forminator-input"
+					aria-required="true"
 				/>
 
-				<span class="forminator-error-message">This field is required.</span>
+				<span class="forminator-error-message" aria-hidden="true">This field is required.</span>
 
-				<span class="forminator-description">Optional description for first name field.</span>
+				<span class="forminator-description" aria-describedby="field-first-name">Optional description for first name field.</span>
 
 			</div>
 
@@ -51,17 +53,19 @@
 
 			<div class="forminator-field forminator-is_required">
 
-				<label class="forminator-label">Middle Name <span class="forminator-required">*</span></label>
+				<label for="field-middle-name" class="forminator-label">Middle Name <span class="forminator-required">*</span></label>
 
 				<input
 					type="text"
 					placeholder="E.g. Smith"
+					id="field-middle-name"
 					class="forminator-input"
+					aria-required="true"
 				/>
 
-				<span class="forminator-error-message">This field is required.</span>
+				<span class="forminator-error-message" aria-hidden="true">This field is required.</span>
 
-				<span class="forminator-description">Optional description for middle name field.</span>
+				<span class="forminator-description" aria-describedby="field-middle-name">Optional description for middle name field.</span>
 
 			</div>
 
@@ -71,17 +75,19 @@
 
 			<div class="forminator-field forminator-is_required">
 
-				<label class="forminator-label">Last Name <span class="forminator-required">*</span></label>
+				<label for="field-last-name" class="forminator-label">Last Name <span class="forminator-required">*</span></label>
 
 				<input
 					type="text"
 					placeholder="E.g. Doe"
+					id="field-last-name"
 					class="forminator-input"
+					aria-required="true"
 				/>
 
-				<span class="forminator-error-message">This field is required.</span>
+				<span class="forminator-error-message" aria-hidden="true">This field is required.</span>
 
-				<span class="forminator-description">Optional description for last name field.</span>
+				<span class="forminator-description" aria-describedby="field-middle-name">Optional description for last name field.</span>
 
 			</div>
 
