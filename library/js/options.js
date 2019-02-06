@@ -8,63 +8,77 @@
 		window.FUI = {};
 	}
 
-	FUI.fuiOptions = function() {
+	FUI.checkboxStates = function( el ) {
 
-		$( '.forminator-is_required' ).each( function() {
+		const label = $( el );
+		const input = label.find( 'input' );
 
-			var $field   = $( this ),
-				$options = $field.find( '.forminator-radio, .forminator-checkbox, .forminator-multiselect .forminator-option' )
-				;
+		if ( ! label.is( 'label' ) || 'checkbox' !== input.attr( 'type' ) ) {
+			return;
+		}
 
-			if ( $options.length && ! $options.hasClass( 'forminator-is_checked' ).length ) {
-				$field.addClass( 'forminator-has_error' );
-			} else {
-				$field.removeClass( 'forminator-has_error' );
-			}
-		});
+		function init() {
 
-		$( 'body' ).on( 'click', '.forminator-radio input, .forminator-checkbox input, .forminator-multiselect .forminator-option input', function( e ) {
+			input.each( function() {
 
-			var $option  = $( this ),
-				$parent  = $option.parent(),
-				$field   = $option.closest( '.forminator-field' ),
-				$radios  = $field.find( '.forminator-radio' )
-				;
+				$( this ).on( 'click', function() {
 
-			if ( 'radio' === $option.attr( 'type' ) ) {
-				$radios.removeClass( 'forminator-is_checked' );
-				$parent.addClass( 'forminator-is_checked' );
+					const checkInput = $( this );
+					const checkLabel = checkInput.parent();
 
-				if ( $field.hasClass( 'forminator-is_required' ) && $field.hasClass( 'forminator-has_error' ) ) {
-					$field.removeClass( 'forminator-has_error' );
-				}
-			}
-
-			if ( 'checkbox' === $option.attr( 'type' ) ) {
-
-				if ( $parent.hasClass( 'forminator-is_checked' ) ) {
-					$parent.removeClass( 'forminator-is_checked' );
-				} else {
-					$parent.addClass( 'forminator-is_checked' );
-				}
-
-				if ( $field.hasClass( 'forminator-is_required' ) ) {
-
-					if ( $field.find( '.forminator-is_checked' ).length ) {
-						$field.removeClass( 'forminator-has_error' );
+					if ( checkLabel.is( '.forminator-is_checked' ) ) {
+						checkLabel.removeClass( 'forminator-is_checked' );
 					} else {
-						$field.addClass( 'forminator-has_error' );
+						checkLabel.addClass( 'forminator-is_checked' );
 					}
-				}
-			}
+				});
+			});
+		}
 
-			e.stopPropagation();
+		init();
 
-		});
+		return this;
 	};
 
-	$( 'body' ).ready( function() {
-		FUI.fuiOptions();
-	});
+	FUI.radioStates = function( el ) {
+
+		const label = $( el );
+		const input = label.find( 'input' );
+
+		if ( ! label.is( 'label' ) || 'radio' !== input.attr( 'type' ) ) {
+			return;
+		}
+
+		function init() {
+
+			input.each( function() {
+
+				$( this ).on( 'click', function() {
+
+					const radioInput = $( this );
+					const radioLabel = radioInput.parent();
+
+					const radioField = radioLabel.closest( '.forminator-field' );
+					const radioOptions = radioField.find( '.forminator-radio' );
+
+					// Remove checked attribute
+					radioOptions.find( 'input' ).removeAttr( 'checked' );
+
+					// Remove checked class
+					radioOptions.removeClass( 'forminator-is_checked' );
+
+					// Assign checked attribute
+					radioInput.attr( 'checked', 'checked' );
+
+					// Assign checked class
+					radioLabel.addClass( 'forminator-is_checked' );
+				});
+			});
+		}
+
+		init();
+
+		return this;
+	};
 
 }( jQuery ) );
