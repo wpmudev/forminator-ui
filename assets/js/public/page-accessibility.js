@@ -242,6 +242,7 @@
 							// Load radio and checkbox function
 							FUI.radioStates( radio );
 							FUI.checkboxStates( checkbox );
+							FUI.multiSelectStates( multiselect );
 
 							// Form simulation
 							if ( submit.length ) {
