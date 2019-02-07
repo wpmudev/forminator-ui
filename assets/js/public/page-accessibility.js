@@ -83,12 +83,61 @@
 			}
 		}
 
+		function requiredCheckbox( col ) {
+
+			const column = $( col );
+			const field = column.find( '.forminator-field' );
+			const checkbox = column.find( '.forminator-checkbox' );
+			const label = column.find( '.forminator-label' );
+			const text = label.text();
+
+			checkbox.each( function() {
+				$( this ).find( 'input' ).attr( 'aria-required', 'true' );
+			});
+
+			if ( checkbox.length ) {
+
+				field.addClass( 'forminator-is_required' );
+				field.attr( 'aria-required', 'true' );
+
+				if ( label.length ) {
+					label.html( text + ' ' + required );
+				}
+			}
+		}
+
+		function requiredMultiSelect( col ) {
+
+			const column = $( col );
+			const field = column.find( '.forminator-field' );
+			const mutliselect = column.find( '.forminator-multiselect' );
+			const checkbox = column.find( '.forminator-option' );
+			const label = column.find( '.forminator-label' );
+			const text = label.text();
+
+			if ( mutliselect.length ) {
+
+				checkbox.each( function() {
+					$( this ).find( 'input' ).attr( 'aria-required', 'true' );
+				});
+
+				field.addClass( 'forminator-is_required' );
+				field.attr( 'aria-required', 'true' );
+
+				if ( label.length ) {
+					label.html( text + ' ' + required );
+				}
+			}
+		}
+
 		function init() {
 
 			if ( true === column.data( 'required' ) ) {
 				requiredInput( column );
 				requiredTextarea( column );
 				requiredRadio( column );
+				requiredCheckbox( column );
+				requiredMultiSelect( column );
 			}
 		}
 
@@ -96,6 +145,31 @@
 
 		return this;
 
+	};
+
+	SHOWCASE.conditionSample = function( el ) {
+
+		const column = $( el );
+		const row = column.closest( '.forminator-row' );
+		const form = column.closest( 'form' );
+		const checkbox = form.find( '.forminator-checkbox input[value="one"]' );
+
+		if ( true === column.data( 'conditional' ) ) {
+
+			row.hide();
+			row.attr( 'aria-hidden', 'true' );
+
+			checkbox.on( 'click', function() {
+
+				if ( $( this ).is( ':checked' ) ) {
+					row.show();
+					row.removeAttr( 'aria-hidden' );
+				} else {
+					row.hide();
+					row.attr( 'aria-hidden' );
+				}
+			});
+		}
 	};
 
 	$( 'body' ).ready( function() {
@@ -122,19 +196,29 @@
 						colDiv.load( 'templates/form-elements/field-' + colField + '.html', function() {
 
 							const column = $( this );
+							const columnUnwrapped = column.find( '> .forminator-col' );
 							const input = column.find( '.forminator-input' );
 							const radio = column.find( '.forminator-radio' );
 							const checkbox = column.find( '.forminator-checkbox' );
+							const multiselect = column.find( '.forminator-multiselect' );
 							const textarea = column.find( '.forminator-textarea' );
 							const select = column.find( '.forminator-select' );
 							const select2 = column.find( '.forminator-select2' );
 							const submit = column.find( '.forminator-button-submit' );
 
-							// Input required attributes
+							// Required settings
 							SHOWCASE.requiredSettings( column );
 
+							// Hidden field
+							if ( true === column.data( 'conditional' ) ) {
+								columnUnwrapped.attr( 'data-conditional', 'true' );
+							}
+
+							// Hide column
+							SHOWCASE.conditionSample( columnUnwrapped );
+
 							// Remove duplicated element
-							column.find( '> .forminator-col' ).unwrap();
+							columnUnwrapped.unwrap();
 
 							// Load input states
 							FUI.inputStates( input );
