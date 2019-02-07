@@ -133,7 +133,6 @@
 
 			// Hide response for screen readers
 			response.attr( 'aria-hidden', 'true' );
-			response.removeAttr( 'aria-live' );
 			response.removeAttr( 'tabindex' );
 
 			// Remove error class from fields
@@ -148,7 +147,6 @@
 
 			// Show response for screen readers
 			response.removeAttr( 'aria-hidden' );
-			response.attr( 'aria-live', 'assertive' );
 			response.attr( 'tabindex', '-1' );
 
 			// Focus message
@@ -169,7 +167,6 @@
 
 			// Show response for screen readers
 			response.removeAttr( 'aria-hidden' );
-			response.attr( 'aria-live', 'assertive' );
 			response.attr( 'tabindex', '-1' );
 
 			// Focus message
@@ -233,16 +230,22 @@
 
 			const input = form.find( '.forminator-input' );
 			const inputField = input.closest( '.forminator-field' );
+			const inputRequired = input.closest( '.forminator-field.forminator-is_required' );
+			const inputFilled = inputRequired.find( '.forminator-input' ).filter( function() {
+				return !! this.value;
+			});
 
 			const textarea = form.find( '.forminator-textarea' );
 			const textareaField = textarea.closest( '.forminator-field' );
+			const textareaRequired = textarea.closest( '.forminator-field.forminator-is_required' );
+			const textareaFilled = textareaRequired.find( '.forminator-textarea' ).val();
 
 			// Reset - Hide message
 			validateReset();
 
 			if (
-				( inputField.hasClass( 'forminator-is_required' ) && '' === input.val() ) ||
-				( textareaField.hasClass( 'forminator-is_required' ) && '' === textarea.val() )
+				inputField.hasClass( 'forminator-is_required' ) && inputFilled.length !== inputRequired.length ||
+				textareaField.hasClass( 'forminator-is_required' ) && '' === textareaFilled.length
 			) {
 
 				validateInput();
