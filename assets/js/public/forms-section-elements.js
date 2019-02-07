@@ -37,12 +37,21 @@
 						// Load element
 						formDiv.find( '.forminator-row' ).load( 'templates/form-elements/field-' + formField + '.html', function() {
 
-							select = $( this ).find( '.forminator-select' );
+							const input = $( this ).find( '.forminator-input' );
+							const radio = $( this ).find( '.forminator-radio' );
+							const checkbox = $( this ).find( '.forminator-checkbox' );
+							const multiselect = $( this ).find( '.forminator-multiselect' );
+							const textarea = $( this ).find( '.forminator-textarea' );
+							const select = $( this ).find( '.forminator-select' );
+							const select2 = $( this ).find( '.forminator-select2' );
 
-							// Inputs
-							FUI.inputs();
+							// Load input states
+							FUI.inputStates( input );
 
-							// Select
+							// Load textarea states
+							FUI.textareaStates( textarea );
+
+							// Load select function
 							if ( select.length ) {
 
 								select.each( function() {
@@ -50,11 +59,15 @@
 								});
 							}
 
-							// Select2
-							FUI.select2();
+							// Load select2 function
+							if ( select2.length ) {
+								FUI.select2();
+							}
 
-							// Options
-							FUI.fuiOptions();
+							// Load radio and checkbox function
+							FUI.radioStates( radio );
+							FUI.checkboxStates( checkbox );
+							FUI.multiSelectStates( multiselect );
 
 						});
 					});
