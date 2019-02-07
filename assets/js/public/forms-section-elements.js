@@ -18,8 +18,14 @@
 				const form = accordion.find( '.forminator-custom-form' );
 
 				// SUI Accordion
-				accordion.each( function() {
-					SUI.suiAccordion( this );
+				SUI.suiAccordion( this );
+
+				// SUI Code Snippet
+				SUI.suiCodeSnippet();
+
+				// Initialize highlight js for demo code blocks.
+				$( '.demo-code-block .sui-code-snippet' ).each( function( i, block ) {
+					hljs.highlightBlock( block );
 				});
 
 				// Load Form Elements
