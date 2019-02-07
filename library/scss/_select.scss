@@ -45,6 +45,7 @@
 				overflow-y: auto;
 				display: none;
 				position: absolute;
+				z-index: 10;
 				top: 100%;
 				left: 0;
 				padding: #{$dropdown--padding / 2} 0;
