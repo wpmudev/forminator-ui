@@ -198,8 +198,8 @@
 
 			$selectID = $select.attr( 'id' );
 
-			if ( $selectID ) {
-				$( 'label[for="' + selectID + '"]' ).on( 'click', stateOpen );
+			if ( '' !== $selectID ) {
+				$( 'label[for="' + $selectID + '"]' ).on( 'click', stateOpen );
 			}
 		}
 
