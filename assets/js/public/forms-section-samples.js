@@ -42,18 +42,24 @@
 
 									const parent = $( this ).closest( '.forminator-custom-form' );
 									const field = $( this ).find( '> .forminator-field' );
-									const select = $( this ).find( '.forminator-select' );
-									const select2 = $( this ).find( '.forminator-select2' );
+									const input = $( this ).find( '.forminator-input' );
 									const radio = $( this ).find( '.forminator-radio' );
 									const checkbox = $( this ).find( '.forminator-checkbox' );
+									const multiselect = $( this ).find( '.forminator-multiselect' );
+									const textarea = $( this ).find( '.forminator-textarea' );
+									const select = $( this ).find( '.forminator-select' );
+									const select2 = $( this ).find( '.forminator-select2' );
 
 									// Remove duplicated element
 									field.unwrap();
 
-									// Inputs
-									FUI.inputs();
+									// Load input states
+									FUI.inputStates( input );
 
-									// Select
+									// Load textarea states
+									FUI.textareaStates( textarea );
+
+									// Load select function
 									if ( select.length ) {
 
 										select.each( function() {
@@ -61,13 +67,15 @@
 										});
 									}
 
-									// Select2
+									// Load select2 function
 									if ( select2.length ) {
 										FUI.select2();
 									}
 
-									// Options
-									FUI.fuiOptions();
+									// Load radio and checkbox function
+									FUI.radioStates( radio );
+									FUI.checkboxStates( checkbox );
+									FUI.multiSelectStates( multiselect );
 
 									// Assign unique ID to checkbox
 									if ( 'checkbox' === $( this ).data( 'field' ) ) {
