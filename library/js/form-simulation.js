@@ -129,6 +129,65 @@
 			response.html( message );
 		}
 
+		function validateRadio() {
+
+			const radioField = form.find( '.forminator-field-radio' );
+
+			radioField.each( function() {
+
+				const field = $( this );
+				const label = field.find( '.forminator-label' );
+				const radio = field.find( '.forminator-radio' );
+				const options = radio.find( 'input' ).map( function() {
+					return this.id;
+				}).get();
+
+				if ( field.hasClass( 'forminator-is_required' ) && 0 === radio.find( 'input:checked' ).length ) {
+
+					field.addClass( 'forminator-has_error' );
+
+					if ( label.length ) {
+						message += '<li>' + label.text() + ' needs at least one option selected.</li>';
+					} else {
+						message += '<li>You must select at lease one of these options: ' + options.join( ',' ) + '</li>';
+					}
+				}
+			});
+
+			// Print message
+			response.html( message );
+		}
+
+		function validateMultiSelect() {
+
+			const multiselect = form.find( '.forminator-multiselect' );
+
+			multiselect.each( function() {
+
+				const current = $( this );
+				const field = current.closest( '.forminator-field' );
+				const label = field.find( '.forminator-label' );
+				const options = current.find( '.forminator-option' );
+				const optionsMap = options.find( 'input' ).map( function() {
+					return this.id;
+				}).get();
+
+				if ( field.hasClass( 'forminator-is_required' ) && 0 === options.find( 'input:checked' ).length ) {
+
+					field.addClass( 'forminator-has_error' );
+
+					if ( label.length ) {
+						message += '<li>' + label.text() + ' needs at least one option selected.</li>';
+					} else {
+						message += '<li>You must select at lease one of these options: ' + optionsMap.join( ',' ) + '</li>';
+					}
+				}
+			});
+
+			// Print message
+			response.html( message );
+		}
+
 		function validation() {
 
 			const input = form.find( '.forminator-input' );
@@ -143,16 +202,29 @@
 			const textareaRequired = textarea.closest( '.forminator-field.forminator-is_required' );
 			const textareaFilled = textareaRequired.find( '.forminator-textarea' ).val();
 
+			const radioField = form.find( '.forminator-field-radio' );
+			const radioRequired = form.find( '.forminator-field-radio.forminator-is_required' );
+			const radioSelected = radioRequired.find( 'input:checked' );
+
+			const multiselect = form.find( '.forminator-multiselect' );
+			const multiselectField = multiselect.closest( '.forminator-field' );
+			const multiselectRequired = multiselect.closest( '.forminator-field.forminator-is_required' );
+			const multiselectSelected = multiselectRequired.find( 'input:checked' );
+
 			// Reset - Hide message
 			validateReset();
 
 			if (
-				inputField.hasClass( 'forminator-is_required' ) && inputFilled.length !== inputRequired.length ||
-				textareaField.hasClass( 'forminator-is_required' ) && '' === textareaFilled.length
+				( inputField.hasClass( 'forminator-is_required' ) && inputFilled.length !== inputRequired.length ) ||
+				( textareaField.hasClass( 'forminator-is_required' ) && '' === textareaFilled.length ) ||
+				( radioField.hasClass( 'forminator-is_required' ) && 0 === radioSelected.length ) ||
+				( multiselectField.hasClass( 'forminator-is_required' ) && 0 === multiselectSelected.length )
 			) {
 
 				validateInput();
 				validateTextarea();
+				validateRadio();
+				validateMultiSelect();
 
 				validateError();
 
