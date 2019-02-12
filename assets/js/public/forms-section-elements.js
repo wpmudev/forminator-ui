@@ -20,9 +20,6 @@
 				// SUI Accordion
 				SUI.suiAccordion( this );
 
-				// SUI Code Snippet
-				SUI.suiCodeSnippet();
-
 				// Initialize highlight js for demo code blocks.
 				$( '.demo-code-block .sui-code-snippet' ).each( function( i, block ) {
 					hljs.highlightBlock( block );
@@ -33,15 +30,16 @@
 
 					form.each( function() {
 
-						const formDiv = $( this );
-						const formDesign = formDiv.data( 'design' );
-						const formField = formDiv.data( 'field' );
+						const column = $( this ).find( '.forminator-col' );
+
+						// Assign unique id
+						$( this ).addClass( 'forminator-custom-form-' + $( this ).data( 'id' ) );
 
 						// Assign theme/design to form
-						formDiv.addClass( 'forminator-design--' + formDesign );
+						$( this ).addClass( 'forminator-design--' + $( this ).data( 'design' ) );
 
 						// Load element
-						formDiv.find( '.forminator-row' ).load( 'templates/form-elements/field-' + formField + '.html', function() {
+						column.load( 'templates/form-elements/field-' + column.data( 'field' ) + '.html', function() {
 
 							const input = $( this ).find( '.forminator-input' );
 							const radio = $( this ).find( '.forminator-radio' );
@@ -50,6 +48,12 @@
 							const textarea = $( this ).find( '.forminator-textarea' );
 							const select = $( this ).find( '.forminator-select' );
 							const select2 = $( this ).find( '.forminator-select2' );
+
+							// Unique id
+							SHOWCASE.uniqueFormField( this );
+
+							// Required settings
+							SHOWCASE.requiredFormField( this );
 
 							// Load input states
 							FUI.inputStates( input );
