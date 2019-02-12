@@ -1,19 +1,15 @@
-<div class="forminator-col">
+<div class="forminator-field">
 
-	<div class="forminator-field">
+	<label for="field-textarea" class="forminator-label">Message</label>
 
-		<label for="field-textarea" class="forminator-label">Textarea <span class="forminator-required">*</span></label>
+	<textarea
+		placeholder="Enter your message..."
+		id="field-textarea"
+		class="forminator-textarea"
+	></textarea>
 
-		<textarea
-			placeholder="Enter your message..."
-			id="field-textarea"
-			class="forminator-textarea"
-		></textarea>
+	<span class="forminator-error-message" aria-hidden="true">This field is required.</span>
 
-		<span class="forminator-error-message" aria-hidden="true">This field is required.</span>
-
-		<span class="forminator-description" aria-describedby="field-textarea">Optional description for textarea field. <span>0 / 180</span></span>
-
-	</div>
+	<span class="forminator-description" aria-describedby="field-textarea">Optional description for textarea field. <span>0 / 180</span></span>
 
 </div>
