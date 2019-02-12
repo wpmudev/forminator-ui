@@ -24,85 +24,45 @@
 
 				<div class="sui-box-body">
 
-					<div class="sui-form-field">
+					<div
+						class="forminator-custom-form"
+						data-id="11"
+						data-design="default"
+					>
 
-						<div class="forminator-custom-form" data-design="default" data-field="name-single">
+						<div class="forminator-row">
 
-							<div class="forminator-row"></div>
-
-						</div>
-
-					</div>
-
-					<div class="sui-form-field">
-
-						<span class="sui-label">Regular Markup</span>
-
-						<div class="demo-code-block">
-
-							<pre class="sui-code-snippet hljs html">
-&lt;div class=&quot;forminator-col&quot;&gt;
-
-	&lt;div class=&quot;forminator-field&quot;&gt;
-
-		&lt;label for=&quot;field-name-single&quot; class=&quot;forminator-label&quot;&gt;Full Name&lt;/label&gt;
-
-		&lt;input
-			type=&quot;text&quot;
-			placeholder=&quot;E.g. John Doe&quot;
-			id=&quot;field-name-single&quot;
-			class=&quot;forminator-input&quot;
-		/&gt;
-
-		&lt;span class=&quot;forminator-description&quot; aria-describedby=&quot;field-name-single&quot;&gt;
-			Field description goes here.
-		&lt;/span&gt;
-
-	&lt;/div&gt;
-
-&lt;/div&gt;
-							</pre>
+							<div
+								class="forminator-col"
+								data-field="name-single"
+								data-required="false"
+							></div>
 
 						</div>
 
 					</div>
 
-					<div class="sui-form-field">
+				</div>
 
-						<span class="sui-label">Required Markup</span>
+			</div>
 
-						<div class="demo-code-block">
+			<div class="sui-box">
 
-							<pre class="sui-code-snippet hljs html">
-&lt;div class=&quot;forminator-col&quot;&gt;
+				<div class="sui-box-body">
 
-	&lt;div class=&quot;forminator-field forminator-is_required&quot;&gt;
+					<div
+						class="forminator-custom-form"
+						data-id="12"
+						data-design="default"
+					>
 
-		&lt;label for=&quot;field-name-single&quot; class=&quot;forminator-label&quot;&gt;
-			Full Name
-			&lt;span class=&quot;forminator-required&quot;&gt;*&lt;/span&gt;
-		&lt;/label&gt;
+						<div class="forminator-row">
 
-		&lt;input
-			type=&quot;text&quot;
-			placeholder=&quot;E.g. John Doe&quot;
-			id=&quot;field-name-single&quot;
-			class=&quot;forminator-input&quot;
-			aria-required=&quot;true&quot;
-		/&gt;
-
-		&lt;span class=&quot;forminator-error-message&quot; aria-hidden=&quot;true&quot;&gt;
-			Required error message goes here.
-		&lt;/span&gt;
-
-		&lt;span class=&quot;forminator-description&quot; aria-describedby=&quot;field-name-single&quot;&gt;
-			Field description goes here.
-		&lt;/span&gt;
-
-	&lt;/div&gt;
-
-&lt;/div&gt;
-							</pre>
+							<div
+								class="forminator-col"
+								data-field="name-single"
+								data-required="true"
+							></div>
 
 						</div>
 
@@ -138,243 +98,45 @@
 
 				<div class="sui-box-body">
 
-					<div class="sui-form-field">
+					<div
+						class="forminator-custom-form"
+						data-id="21"
+						data-design="default"
+					>
 
-						<div class="forminator-custom-form" data-design="default" data-field="name-multiple">
+						<div class="forminator-row">
 
-							<div class="forminator-row"></div>
-
-						</div>
-
-					</div>
-
-					<div class="sui-form-field">
-
-						<span class="sui-label">Regular Markup</span>
-
-						<div class="demo-code-block">
-
-							<pre class="sui-code-snippet hljs html">
-&lt;div class=&quot;forminator-col&quot;&gt;
-
-	&lt;!-- Top row contains prefix and first name --&gt;
-	&lt;div class=&quot;forminator-row&quot;&gt;
-
-		&lt;div class=&quot;forminator-col&quot;&gt;
-
-			&lt;div class=&quot;forminator-field&quot;&gt;
-
-				&lt;label for=&quot;field-prefix&quot; class=&quot;forminator-label&quot;&gt;Prefix&lt;/label&gt;
-
-				&lt;select id=&quot;field-prefix&quot; class=&quot;forminator-select&quot;&gt;
-					&lt;option&gt;Mr.&lt;/option&gt;
-					&lt;option&gt;Mrs.&lt;/option&gt;
-					&lt;option&gt;Ms.&lt;/option&gt;
-					&lt;option&gt;Miss&lt;/option&gt;
-					&lt;option&gt;Dr.&lt;/option&gt;
-					&lt;option&gt;Prof.&lt;/option&gt;
-				&lt;/select&gt;
-
-				&lt;span class=&quot;forminator-description&quot;&gt;Optional description for prefix field.&lt;/span&gt;
-
-			&lt;/div&gt;
-
-		&lt;/div&gt;
-
-		&lt;div class=&quot;forminator-col&quot;&gt;
-
-			&lt;div class=&quot;forminator-field&quot;&gt;
-
-				&lt;label for=&quot;field-first-name&quot; class=&quot;forminator-label&quot;&gt;First Name&lt;/label&gt;
-
-				&lt;input
-					type=&quot;text&quot;
-					placeholder=&quot;E.g. John&quot;
-					id=&quot;field-first-name&quot;
-					class=&quot;forminator-input&quot;
-				/&gt;
-
-				&lt;span class=&quot;forminator-error-message&quot; aria-hidden=&quot;true&quot;&gt;This field is required.&lt;/span&gt;
-
-				&lt;span class=&quot;forminator-description&quot; aria-describedby=&quot;field-first-name&quot;&gt;Optional description for first name field.&lt;/span&gt;
-
-			&lt;/div&gt;
-
-		&lt;/div&gt;
-
-	&lt;/div&gt;
-
-	&lt;!-- Bottom row contains middle and last name --&gt;
-	&lt;div class=&quot;forminator-row&quot;&gt;
-
-		&lt;div class=&quot;forminator-col&quot;&gt;
-
-			&lt;div class=&quot;forminator-field&quot;&gt;
-
-				&lt;label for=&quot;field-middle-name&quot; class=&quot;forminator-label&quot;&gt;Middle Name&lt;/label&gt;
-
-				&lt;input
-					type=&quot;text&quot;
-					placeholder=&quot;E.g. Smith&quot;
-					id=&quot;field-middle-name&quot;
-					class=&quot;forminator-input&quot;
-				/&gt;
-
-				&lt;span class=&quot;forminator-error-message&quot; aria-hidden=&quot;true&quot;&gt;This field is required.&lt;/span&gt;
-
-				&lt;span class=&quot;forminator-description&quot; aria-describedby=&quot;field-middle-name&quot;&gt;Optional description for middle name field.&lt;/span&gt;
-
-			&lt;/div&gt;
-
-		&lt;/div&gt;
-
-		&lt;div class=&quot;forminator-col&quot;&gt;
-
-			&lt;div class=&quot;forminator-field&quot;&gt;
-
-				&lt;label for=&quot;field-last-name&quot; class=&quot;forminator-label&quot;&gt;Last Name&lt;/label&gt;
-
-				&lt;input
-					type=&quot;text&quot;
-					placeholder=&quot;E.g. Doe&quot;
-					id=&quot;field-last-name&quot;
-					class=&quot;forminator-input&quot;
-				/&gt;
-
-				&lt;span class=&quot;forminator-error-message&quot; aria-hidden=&quot;true&quot;&gt;This field is required.&lt;/span&gt;
-
-				&lt;span class=&quot;forminator-description&quot; aria-describedby=&quot;field-middle-name&quot;&gt;Optional description for last name field.&lt;/span&gt;
-
-			&lt;/div&gt;
-
-		&lt;/div&gt;
-
-	&lt;/div&gt;
-
-&lt;/div&gt;
-							</pre>
+							<div
+								class="forminator-col"
+								data-field="name-multiple"
+								data-required="false"
+							></div>
 
 						</div>
 
 					</div>
 
-					<div class="sui-form-field">
+				</div>
 
-						<span class="sui-label">Required Markup</span>
+			</div>
 
-						<div class="demo-code-block">
+			<div class="sui-box">
 
-							<pre class="sui-code-snippet hljs html">
-&lt;div class=&quot;forminator-col&quot;&gt;
+				<div class="sui-box-body">
 
-	&lt;!-- Top row contains prefix and first name --&gt;
-	&lt;div class=&quot;forminator-row&quot;&gt;
+					<div
+						class="forminator-custom-form"
+						data-id="22"
+						data-design="default"
+					>
 
-		&lt;div class=&quot;forminator-col&quot;&gt;
+						<div class="forminator-row">
 
-			&lt;div class=&quot;forminator-field&quot;&gt;
-
-				&lt;label for=&quot;field-prefix&quot; class=&quot;forminator-label&quot;&gt;Prefix&lt;/label&gt;
-
-				&lt;select id=&quot;field-prefix&quot; class=&quot;forminator-select&quot;&gt;
-					&lt;option&gt;Mr.&lt;/option&gt;
-					&lt;option&gt;Mrs.&lt;/option&gt;
-					&lt;option&gt;Ms.&lt;/option&gt;
-					&lt;option&gt;Miss&lt;/option&gt;
-					&lt;option&gt;Dr.&lt;/option&gt;
-					&lt;option&gt;Prof.&lt;/option&gt;
-				&lt;/select&gt;
-
-				&lt;span class=&quot;forminator-description&quot;&gt;Optional description for prefix field.&lt;/span&gt;
-
-			&lt;/div&gt;
-
-		&lt;/div&gt;
-
-		&lt;div class=&quot;forminator-col&quot;&gt;
-
-			&lt;div class=&quot;forminator-field forminator-is_required&quot;&gt;
-
-				&lt;label for=&quot;field-first-name&quot; class=&quot;forminator-label&quot;&gt;
-					First Name
-					&lt;span class=&quot;forminator-required&quot;&gt;*&lt;/span&gt;
-				&lt;/label&gt;
-
-				&lt;input
-					type=&quot;text&quot;
-					placeholder=&quot;E.g. John&quot;
-					id=&quot;field-first-name&quot;
-					class=&quot;forminator-input&quot;
-					aria-required=&quot;true&quot;
-				/&gt;
-
-				&lt;span class=&quot;forminator-error-message&quot; aria-hidden=&quot;true&quot;&gt;This field is required.&lt;/span&gt;
-
-				&lt;span class=&quot;forminator-description&quot; aria-describedby=&quot;field-first-name&quot;&gt;Optional description for first name field.&lt;/span&gt;
-
-			&lt;/div&gt;
-
-		&lt;/div&gt;
-
-	&lt;/div&gt;
-
-	&lt;!-- Bottom row contains middle and last name --&gt;
-	&lt;div class=&quot;forminator-row&quot;&gt;
-
-		&lt;div class=&quot;forminator-col&quot;&gt;
-
-			&lt;div class=&quot;forminator-field forminator-is_required&quot;&gt;
-
-				&lt;label for=&quot;field-middle-name&quot; class=&quot;forminator-label&quot;&gt;
-					Middle Name
-					&lt;span class=&quot;forminator-required&quot;&gt;*&lt;/span&gt;
-				&lt;/label&gt;
-
-				&lt;input
-					type=&quot;text&quot;
-					placeholder=&quot;E.g. Smith&quot;
-					id=&quot;field-middle-name&quot;
-					class=&quot;forminator-input&quot;
-					aria-required=&quot;true&quot;
-				/&gt;
-
-				&lt;span class=&quot;forminator-error-message&quot; aria-hidden=&quot;true&quot;&gt;This field is required.&lt;/span&gt;
-
-				&lt;span class=&quot;forminator-description&quot; aria-describedby=&quot;field-middle-name&quot;&gt;Optional description for middle name field.&lt;/span&gt;
-
-			&lt;/div&gt;
-
-		&lt;/div&gt;
-
-		&lt;div class=&quot;forminator-col&quot;&gt;
-
-			&lt;div class=&quot;forminator-field forminator-is_required&quot;&gt;
-
-				&lt;label for=&quot;field-last-name&quot; class=&quot;forminator-label&quot;&gt;
-					Last Name
-					&lt;span class=&quot;forminator-required&quot;&gt;*&lt;/span&gt;
-				&lt;/label&gt;
-
-				&lt;input
-					type=&quot;text&quot;
-					placeholder=&quot;E.g. Doe&quot;
-					id=&quot;field-last-name&quot;
-					class=&quot;forminator-input&quot;
-					aria-required=&quot;true&quot;
-				/&gt;
-
-				&lt;span class=&quot;forminator-error-message&quot; aria-hidden=&quot;true&quot;&gt;This field is required.&lt;/span&gt;
-
-				&lt;span class=&quot;forminator-description&quot; aria-describedby=&quot;field-middle-name&quot;&gt;Optional description for last name field.&lt;/span&gt;
-
-			&lt;/div&gt;
-
-		&lt;/div&gt;
-
-	&lt;/div&gt;
-
-&lt;/div&gt;
-							</pre>
+							<div
+								class="forminator-col"
+								data-field="name-multiple"
+								data-required="true"
+							></div>
 
 						</div>
 
@@ -410,86 +172,45 @@
 
 				<div class="sui-box-body">
 
-					<div class="sui-form-field">
+					<div
+						class="forminator-custom-form"
+						data-id="31"
+						data-design="default"
+					>
 
-						<div class="forminator-custom-form" data-design="default" data-field="email">
+						<div class="forminator-row">
 
-							<div class="forminator-row"></div>
-
-						</div>
-
-					</div>
-
-					<div class="sui-form-field">
-
-						<span class="sui-label">Regular Markup</span>
-
-						<div class="demo-code-block">
-
-							<pre class="sui-code-snippet hljs html">
-&lt;div class=&quot;forminator-col&quot;&gt;
-
-	&lt;div class=&quot;forminator-field&quot;&gt;
-
-		&lt;label for=&quot;field-email&quot; class=&quot;forminator-label&quot;&gt;Email Address&lt;/label&gt;
-
-		&lt;input
-			type=&quot;email&quot;
-			placeholder=&quot;E.g. john@doe.com&quot;
-			id=&quot;field-email&quot;
-			class=&quot;forminator-input&quot;
-			aria-required=&quot;true&quot;
-		/&gt;
-
-		&lt;span class=&quot;forminator-description&quot; aria-describedby=&quot;field-email&quot;&gt;
-			Field description goes here.
-		&lt;/span&gt;
-
-	&lt;/div&gt;
-
-&lt;/div&gt;
-							</pre>
+							<div
+								class="forminator-col"
+								data-field="email"
+								data-required="false"
+							></div>
 
 						</div>
 
 					</div>
 
-					<div class="sui-form-field">
+				</div>
 
-						<span class="sui-label">Required Markup</span>
+			</div>
 
-						<div class="demo-code-block">
+			<div class="sui-box">
 
-							<pre class="sui-code-snippet hljs html">
-&lt;div class=&quot;forminator-col&quot;&gt;
+				<div class="sui-box-body">
 
-	&lt;div class=&quot;forminator-field forminator-is_required&quot;&gt;
+					<div
+						class="forminator-custom-form"
+						data-id="32"
+						data-design="default"
+					>
 
-		&lt;label for=&quot;field-email&quot; class=&quot;forminator-label&quot;&gt;
-			Email Address
-			&lt;span class=&quot;forminator-required&quot;&gt;*&lt;/span&gt;
-		&lt;/label&gt;
+						<div class="forminator-row">
 
-		&lt;input
-			type=&quot;email&quot;
-			placeholder=&quot;E.g. john@doe.com&quot;
-			id=&quot;field-email&quot;
-			class=&quot;forminator-input&quot;
-			aria-required=&quot;true&quot;
-		/&gt;
-
-		&lt;span class=&quot;forminator-error-message&quot; aria-hidden=&quot;true&quot;&gt;
-			Required error message goes here.
-		&lt;/span&gt;
-
-		&lt;span class=&quot;forminator-description&quot; aria-describedby=&quot;field-email&quot;&gt;
-			Field description goes here.
-		&lt;/span&gt;
-
-	&lt;/div&gt;
-
-&lt;/div&gt;
-							</pre>
+							<div
+								class="forminator-col"
+								data-field="email"
+								data-required="true"
+							></div>
 
 						</div>
 
@@ -525,86 +246,45 @@
 
 				<div class="sui-box-body">
 
-					<div class="sui-form-field">
+					<div
+						class="forminator-custom-form"
+						data-id="41"
+						data-design="default"
+					>
 
-						<div class="forminator-custom-form" data-design="default" data-field="phone">
+						<div class="forminator-row">
 
-							<div class="forminator-row"></div>
-
-						</div>
-
-					</div>
-
-					<div class="sui-form-field">
-
-						<span class="sui-label">Regular Markup</span>
-
-						<div class="demo-code-block">
-
-							<pre class="sui-code-snippet hljs html">
-&lt;div class=&quot;forminator-col&quot;&gt;
-
-	&lt;div class=&quot;forminator-field&quot;&gt;
-
-		&lt;label for=&quot;field-phone&quot; class=&quot;forminator-label&quot;&gt;Phone&lt;/label&gt;
-
-		&lt;input
-			type=&quot;text&quot;
-			placeholder=&quot;E.g. +1 3004005000&quot;
-			id=&quot;field-phone&quot;
-			class=&quot;forminator-input&quot;
-			aria-required=&quot;true&quot;
-		/&gt;
-
-		&lt;span class=&quot;forminator-description&quot; aria-describedby=&quot;field-phone&quot;&gt;
-			Field description goes here.
-		&lt;/span&gt;
-
-	&lt;/div&gt;
-
-&lt;/div&gt;
-							</pre>
+							<div
+								class="forminator-col"
+								data-field="phone"
+								data-required="false"
+							></div>
 
 						</div>
 
 					</div>
 
-					<div class="sui-form-field">
+				</div>
 
-						<span class="sui-label">Required Markup</span>
+			</div>
 
-						<div class="demo-code-block">
+			<div class="sui-box">
 
-							<pre class="sui-code-snippet hljs html">
-&lt;div class=&quot;forminator-col&quot;&gt;
+				<div class="sui-box-body">
 
-	&lt;div class=&quot;forminator-field forminator-is_required&quot;&gt;
+					<div
+						class="forminator-custom-form"
+						data-id="42"
+						data-design="default"
+					>
 
-		&lt;label for=&quot;field-phone&quot; class=&quot;forminator-label&quot;&gt;
-			Phone
-			&lt;span class=&quot;forminator-required&quot;&gt;*&lt;/span&gt;
-		&lt;/label&gt;
+						<div class="forminator-row">
 
-		&lt;input
-			type=&quot;text&quot;
-			placeholder=&quot;E.g. +1 3004005000&quot;
-			id=&quot;field-phone&quot;
-			class=&quot;forminator-input&quot;
-			aria-required=&quot;true&quot;
-		/&gt;
-
-		&lt;span class=&quot;forminator-error-message&quot; aria-hidden=&quot;true&quot;&gt;
-			Required error message goes here.
-		&lt;/span&gt;
-
-		&lt;span class=&quot;forminator-description&quot; aria-describedby=&quot;field-phone&quot;&gt;
-			Field description goes here.
-		&lt;/span&gt;
-
-	&lt;/div&gt;
-
-&lt;/div&gt;
-							</pre>
+							<div
+								class="forminator-col"
+								data-field="phone"
+								data-required="true"
+							></div>
 
 						</div>
 
@@ -638,15 +318,49 @@
 
 			<div class="sui-box">
 
-				<div class="sui-box-header">
-					<h2 class="sui-box-title">Example</h2>
+				<div class="sui-box-body">
+
+					<div
+						class="forminator-custom-form"
+						data-id="51"
+						data-design="default"
+					>
+
+						<div class="forminator-row">
+
+							<div
+								class="forminator-col"
+								data-field="address"
+								data-required="false"
+							></div>
+
+						</div>
+
+					</div>
+
 				</div>
+
+			</div>
+
+			<div class="sui-box">
 
 				<div class="sui-box-body">
 
-					<div class="forminator-custom-form" data-design="default" data-field="address">
+					<div
+						class="forminator-custom-form"
+						data-id="52"
+						data-design="default"
+					>
 
-						<div class="forminator-row"></div>
+						<div class="forminator-row">
+
+							<div
+								class="forminator-col"
+								data-field="address"
+								data-required="true"
+							></div>
+
+						</div>
 
 					</div>
 
@@ -678,15 +392,49 @@
 
 			<div class="sui-box">
 
-				<div class="sui-box-header">
-					<h2 class="sui-box-title">Example</h2>
+				<div class="sui-box-body">
+
+					<div
+						class="forminator-custom-form"
+						data-id="61"
+						data-design="default"
+					>
+
+						<div class="forminator-row">
+
+							<div
+								class="forminator-col"
+								data-field="website"
+								data-required="false"
+							></div>
+
+						</div>
+
+					</div>
+
 				</div>
+
+			</div>
+
+			<div class="sui-box">
 
 				<div class="sui-box-body">
 
-					<div class="forminator-custom-form" data-design="default" data-field="website">
+					<div
+						class="forminator-custom-form"
+						data-id="62"
+						data-design="default"
+					>
 
-						<div class="forminator-row"></div>
+						<div class="forminator-row">
+
+							<div
+								class="forminator-col"
+								data-field="website"
+								data-required="true"
+							></div>
+
+						</div>
 
 					</div>
 
@@ -718,15 +466,49 @@
 
 			<div class="sui-box">
 
-				<div class="sui-box-header">
-					<h2 class="sui-box-title">Example</h2>
+				<div class="sui-box-body">
+
+					<div
+						class="forminator-custom-form"
+						data-id="71"
+						data-design="default"
+					>
+
+						<div class="forminator-row">
+
+							<div
+								class="forminator-col"
+								data-field="input"
+								data-required="false"
+							></div>
+
+						</div>
+
+					</div>
+
 				</div>
+
+			</div>
+
+			<div class="sui-box">
 
 				<div class="sui-box-body">
 
-					<div class="forminator-custom-form" data-design="default" data-field="input">
+					<div
+						class="forminator-custom-form"
+						data-id="72"
+						data-design="default"
+					>
 
-						<div class="forminator-row"></div>
+						<div class="forminator-row">
+
+							<div
+								class="forminator-col"
+								data-field="input"
+								data-required="true"
+							></div>
+
+						</div>
 
 					</div>
 
@@ -758,15 +540,49 @@
 
 			<div class="sui-box">
 
-				<div class="sui-box-header">
-					<h2 class="sui-box-title">Example</h2>
+				<div class="sui-box-body">
+
+					<div
+						class="forminator-custom-form"
+						data-id="81"
+						data-design="default"
+					>
+
+						<div class="forminator-row">
+
+							<div
+								class="forminator-col"
+								data-field="textarea"
+								data-required="false"
+							></div>
+
+						</div>
+
+					</div>
+
 				</div>
+
+			</div>
+
+			<div class="sui-box">
 
 				<div class="sui-box-body">
 
-					<div class="forminator-custom-form" data-design="default" data-field="textarea">
+					<div
+						class="forminator-custom-form"
+						data-id="82"
+						data-design="default"
+					>
 
-						<div class="forminator-row"></div>
+						<div class="forminator-row">
+
+							<div
+								class="forminator-col"
+								data-field="textarea"
+								data-required="true"
+							></div>
+
+						</div>
 
 					</div>
 
@@ -798,15 +614,49 @@
 
 			<div class="sui-box">
 
-				<div class="sui-box-header">
-					<h2 class="sui-box-title">Example</h2>
+				<div class="sui-box-body">
+
+					<div
+						class="forminator-custom-form"
+						data-id="91"
+						data-design="default"
+					>
+
+						<div class="forminator-row">
+
+							<div
+								class="forminator-col"
+								data-field="number"
+								data-required="false"
+							></div>
+
+						</div>
+
+					</div>
+
 				</div>
+
+			</div>
+
+			<div class="sui-box">
 
 				<div class="sui-box-body">
 
-					<div class="forminator-custom-form" data-design="default" data-field="number">
+					<div
+						class="forminator-custom-form"
+						data-id="92"
+						data-design="default"
+					>
 
-						<div class="forminator-row"></div>
+						<div class="forminator-row">
+
+							<div
+								class="forminator-col"
+								data-field="number"
+								data-required="true"
+							></div>
+
+						</div>
 
 					</div>
 
@@ -838,15 +688,49 @@
 
 			<div class="sui-box">
 
-				<div class="sui-box-header">
-					<h2 class="sui-box-title">Example</h2>
+				<div class="sui-box-body">
+
+					<div
+						class="forminator-custom-form"
+						data-id="101"
+						data-design="default"
+					>
+
+						<div class="forminator-row">
+
+							<div
+								class="forminator-col"
+								data-field="radio"
+								data-required="false"
+							></div>
+
+						</div>
+
+					</div>
+
 				</div>
+
+			</div>
+
+			<div class="sui-box">
 
 				<div class="sui-box-body">
 
-					<div class="forminator-custom-form" data-design="default" data-field="radio">
+					<div
+						class="forminator-custom-form"
+						data-id="102"
+						data-design="default"
+					>
 
-						<div class="forminator-row"></div>
+						<div class="forminator-row">
+
+							<div
+								class="forminator-col"
+								data-field="radio"
+								data-required="true"
+							></div>
+
+						</div>
 
 					</div>
 
@@ -878,15 +762,49 @@
 
 			<div class="sui-box">
 
-				<div class="sui-box-header">
-					<h2 class="sui-box-title">Example</h2>
+				<div class="sui-box-body">
+
+					<div
+						class="forminator-custom-form"
+						data-id="111"
+						data-design="default"
+					>
+
+						<div class="forminator-row">
+
+							<div
+								class="forminator-col"
+								data-field="checkbox"
+								data-required="false"
+							></div>
+
+						</div>
+
+					</div>
+
 				</div>
+
+			</div>
+
+			<div class="sui-box">
 
 				<div class="sui-box-body">
 
-					<div class="forminator-custom-form" data-design="default" data-field="checkbox">
+					<div
+						class="forminator-custom-form"
+						data-id="112"
+						data-design="default"
+					>
 
-						<div class="forminator-row"></div>
+						<div class="forminator-row">
+
+							<div
+								class="forminator-col"
+								data-field="checkbox"
+								data-required="true"
+							></div>
+
+						</div>
 
 					</div>
 
@@ -918,39 +836,23 @@
 
 			<div class="sui-box">
 
-				<div class="sui-box-header">
-					<h2 class="sui-box-title">Example</h2>
-					<div class="sui-actions-left">
-						<span class="sui-tag">Single Field</span>
-					</div>
-				</div>
-
 				<div class="sui-box-body">
 
-					<div class="forminator-custom-form" data-design="default" data-field="select-single">
+					<div
+						class="forminator-custom-form"
+						data-id="121"
+						data-design="default"
+					>
 
-						<div class="forminator-row"></div>
+						<div class="forminator-row">
 
-					</div>
+							<div
+								class="forminator-col"
+								data-field="select-single"
+								data-required="false"
+							></div>
 
-				</div>
-
-			</div>
-
-			<div class="sui-box">
-
-				<div class="sui-box-header">
-					<h2 class="sui-box-title">Example</h2>
-					<div class="sui-actions-left">
-						<span class="sui-tag">Multiple Field</span>
-					</div>
-				</div>
-
-				<div class="sui-box-body">
-
-					<div class="forminator-custom-form" data-design="default" data-field="select-multiple">
-
-						<div class="forminator-row"></div>
+						</div>
 
 					</div>
 
