@@ -7,146 +7,6 @@
 		window.SHOWCASE = {};
 	}
 
-	SHOWCASE.requiredSettings = function( el ) {
-
-		const column = $( el );
-		const required = '<span class="forminator-required">*</span>';
-
-		if ( ! column.is( '.forminator-col' ) ) {
-			return;
-		}
-
-		function requiredInput( col ) {
-
-			const column = $( col );
-			const input = column.find( '.forminator-input' );
-
-			input.each( function() {
-
-				const field = $( this ).closest( '.forminator-field' );
-				const label = field.find( '.forminator-label' );
-				const text = label.text();
-
-				$( this ).attr( 'aria-required', 'true' );
-
-				if ( label.length ) {
-					label.html( text + ' ' + required );
-				}
-
-				field.addClass( 'forminator-is_required' );
-			});
-
-		}
-
-		function requiredTextarea( col ) {
-
-			const column = $( col );
-			const textarea = column.find( '.forminator-textarea' );
-
-			textarea.each( function() {
-
-				const field = $( this ).closest( '.forminator-field' );
-				const label = field.find( '.forminator-label' );
-				const text = label.text();
-
-				$( this ).attr( 'aria-required', 'true' );
-
-				if ( label.length ) {
-					label.html( text + ' ' + required );
-				}
-
-				field.addClass( 'forminator-is_required' );
-			});
-
-		}
-
-		function requiredRadio( col ) {
-
-			const column = $( col );
-			const field = column.find( '.forminator-field' );
-			const radio = column.find( '.forminator-radio' );
-			const label = column.find( '.forminator-label' );
-			const text = label.text();
-
-			radio.each( function() {
-				$( this ).find( 'input' ).attr( 'aria-required', 'true' );
-			});
-
-			if ( radio.length ) {
-
-				field.addClass( 'forminator-is_required' );
-				field.attr( 'aria-required', 'true' );
-
-				if ( label.length ) {
-					label.html( text + ' ' + required );
-				}
-			}
-		}
-
-		function requiredCheckbox( col ) {
-
-			const column = $( col );
-			const field = column.find( '.forminator-field' );
-			const checkbox = column.find( '.forminator-checkbox' );
-			const label = column.find( '.forminator-label' );
-			const text = label.text();
-
-			checkbox.each( function() {
-				$( this ).find( 'input' ).attr( 'aria-required', 'true' );
-			});
-
-			if ( checkbox.length ) {
-
-				field.addClass( 'forminator-is_required' );
-				field.attr( 'aria-required', 'true' );
-
-				if ( label.length ) {
-					label.html( text + ' ' + required );
-				}
-			}
-		}
-
-		function requiredMultiSelect( col ) {
-
-			const column = $( col );
-			const field = column.find( '.forminator-field' );
-			const mutliselect = column.find( '.forminator-multiselect' );
-			const checkbox = column.find( '.forminator-option' );
-			const label = column.find( '.forminator-label' );
-			const text = label.text();
-
-			if ( mutliselect.length ) {
-
-				checkbox.each( function() {
-					$( this ).find( 'input' ).attr( 'aria-required', 'true' );
-				});
-
-				field.addClass( 'forminator-is_required' );
-				field.attr( 'aria-required', 'true' );
-
-				if ( label.length ) {
-					label.html( text + ' ' + required );
-				}
-			}
-		}
-
-		function init() {
-
-			if ( true === column.data( 'required' ) ) {
-				requiredInput( column );
-				requiredTextarea( column );
-				requiredRadio( column );
-				requiredCheckbox( column );
-				requiredMultiSelect( column );
-			}
-		}
-
-		init();
-
-		return this;
-
-	};
-
 	SHOWCASE.conditionSample = function( el ) {
 
 		const column = $( el );
@@ -207,7 +67,7 @@
 							const submit = column.find( '.forminator-button-submit' );
 
 							// Required settings
-							SHOWCASE.requiredSettings( column );
+							SHOWCASE.requiredFormField( column );
 
 							// Hidden field
 							if ( true === column.data( 'conditional' ) ) {
@@ -216,9 +76,6 @@
 
 							// Hide column
 							SHOWCASE.conditionSample( columnUnwrapped );
-
-							// Remove duplicated element
-							columnUnwrapped.unwrap();
 
 							// Load input states
 							FUI.inputStates( input );
