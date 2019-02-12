@@ -1,0 +1,9 @@
+@include body-class(custom-form) {
+
+	.forminator-timepicker {
+
+		.forminator-row {
+			align-items: flex-end;
+		}
+	}
+}
