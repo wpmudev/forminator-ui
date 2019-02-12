@@ -408,15 +408,90 @@
 
 			<div class="sui-box">
 
-				<div class="sui-box-header">
-					<h2 class="sui-box-title">Example</h2>
-				</div>
-
 				<div class="sui-box-body">
 
-					<div class="forminator-custom-form" data-design="default" data-field="email">
+					<div class="sui-form-field">
 
-						<div class="forminator-row"></div>
+						<div class="forminator-custom-form" data-design="default" data-field="email">
+
+							<div class="forminator-row"></div>
+
+						</div>
+
+					</div>
+
+					<div class="sui-form-field">
+
+						<span class="sui-label">Regular Markup</span>
+
+						<div class="demo-code-block">
+
+							<pre class="sui-code-snippet hljs html">
+&lt;div class=&quot;forminator-col&quot;&gt;
+
+	&lt;div class=&quot;forminator-field&quot;&gt;
+
+		&lt;label for=&quot;field-email&quot; class=&quot;forminator-label&quot;&gt;Email Address&lt;/label&gt;
+
+		&lt;input
+			type=&quot;email&quot;
+			placeholder=&quot;E.g. john@doe.com&quot;
+			id=&quot;field-email&quot;
+			class=&quot;forminator-input&quot;
+			aria-required="true"
+		/&gt;
+
+		&lt;span class=&quot;forminator-description&quot; aria-describedby=&quot;field-email&quot;&gt;
+			Field description goes here.
+		&lt;/span&gt;
+
+	&lt;/div&gt;
+
+&lt;/div&gt;
+							</pre>
+
+						</div>
+
+					</div>
+
+					<div class="sui-form-field">
+
+						<span class="sui-label">Required Markup</span>
+
+						<div class="demo-code-block">
+
+							<pre class="sui-code-snippet hljs html">
+&lt;div class=&quot;forminator-col&quot;&gt;
+
+	&lt;div class=&quot;forminator-field forminator-is_required&quot;&gt;
+
+		&lt;label for=&quot;field-email&quot; class=&quot;forminator-label&quot;&gt;
+			Email Address
+			&lt;span class=&quot;forminator-required&quot;&gt;*&lt;/span&gt;
+		&lt;/label&gt;
+
+		&lt;input
+			type=&quot;email&quot;
+			placeholder=&quot;E.g. john@doe.com&quot;
+			id=&quot;field-email&quot;
+			class=&quot;forminator-input&quot;
+			aria-required=&quot;true&quot;
+		/&gt;
+
+		&lt;span class=&quot;forminator-error-message&quot; aria-hidden=&quot;true&quot;&gt;
+			Required error message goes here.
+		&lt;/span&gt;
+
+		&lt;span class=&quot;forminator-description&quot; aria-describedby=&quot;field-email&quot;&gt;
+			Field description goes here.
+		&lt;/span&gt;
+
+	&lt;/div&gt;
+
+&lt;/div&gt;
+							</pre>
+
+						</div>
 
 					</div>
 
