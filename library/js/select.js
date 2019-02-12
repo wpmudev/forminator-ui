@@ -18,6 +18,7 @@
 			'</div>';
 
 			$select.wrap( '<div class="forminator-select-container">' );
+			$select.addClass( 'forminator-screen-reader-only' );
 
 			if ( ! $select.is( 'select' ) ) {
 				return;
