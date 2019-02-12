@@ -1,20 +1,17 @@
-<div class="forminator-col">
+<div class="forminator-field">
 
-	<div class="forminator-field">
+	<label for="forminator-field-phone" class="forminator-label">Phone Number</label>
 
-		<label class="forminator-label">Phone Number <span class="forminator-required">*</span></label>
+	<input
+		type="text"
+		placeholder="E.g. +1 3004005000"
+		id="forminator-field-phone"
+		class="forminator-input"
+		data-validation="none"
+	/>
 
-		<input
-			type="text"
-			placeholder="E.g. +1 3004005000"
-			class="forminator-input"
-			data-validation="national"
-		/>
+	<span class="forminator-error-message" aria-hidden="true">This field is required.</span>
 
-		<span class="forminator-error-message">This field is required.</span>
-
-		<span class="forminator-description">Optional description for phone field.</span>
-
-	</div>
+	<span class="forminator-description" aria-describedby="forminator-field-phone">Optional description for phone field.</span>
 
 </div>
