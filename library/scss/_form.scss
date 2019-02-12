@@ -1,0 +1,32 @@
+@include body-class(custom-form) {
+
+	&:first-child {
+
+		@include media(max-width, sm) {
+			margin-top: 0;
+		}
+
+		@include media(min-width, sm) {
+			margin-top: 0;
+		}
+	}
+
+	&:last-child {
+
+		@include media(max-width, sm) {
+			margin-bottom: 0;
+		}
+
+		@include media(min-width, sm) {
+			margin-bottom: 0;
+		}
+	}
+
+	@include media(max-width, sm) {
+		margin: $gutter-sm 0;
+	}
+
+	@include media(min-width, sm) {
+		margin: $gutter 0;
+	}
+}
