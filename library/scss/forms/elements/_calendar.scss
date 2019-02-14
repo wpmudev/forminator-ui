@@ -4,7 +4,7 @@
 
 		&, * {
 			box-sizing: border-box;
-			@extend %forminator-text-reset;
+			@extend %text-reset;
 		}
 
 		.ui-datepicker-header {
@@ -58,7 +58,7 @@
 				}
 
 				span {
-					@extend %forminator-screen-reader-only;
+					@extend %screen-readers;
 				}
 			}
 

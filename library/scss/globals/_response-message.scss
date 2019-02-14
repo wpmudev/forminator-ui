@@ -28,7 +28,7 @@
 		}
 
 		&.forminator-accessible {
-			@extend %forminator-screen-reader-only;
+			@extend %screen-readers;
 		}
 
 		@include media(max-width, sm) {

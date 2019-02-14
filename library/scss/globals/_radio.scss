@@ -5,7 +5,7 @@
 	margin: 5px 0;
 
 	input {
-		@extend %forminator-screen-reader-only;
+		@extend %screen-readers;
 
 		&:checked {
 

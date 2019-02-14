@@ -1,4 +1,4 @@
-%forminator-text-reset {
+%text-reset {
 	font-variant-ligatures: none;
 	-webkit-font-variant-ligatures: none;
 	text-rendering: optimizeLegibility;
@@ -6,18 +6,4 @@
 	font-smoothing: antialiased;
 	-webkit-font-smoothing: antialiased;
 	text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
-}
-
-%forminator-truncate-text {
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
-}
-
-@include body-class(true) {
-
-	&, * {
-		box-sizing: border-box;
-		@extend %forminator-text-reset;
-	}
 }

@@ -5,14 +5,14 @@
 		align-items: center;
 
 		input[type="file"] {
-			@extend %forminator-screen-reader-only;
+			@extend %screen-readers;
 		}
 
 		> span {
 			overflow: hidden;
 			display: block;
 			flex: 0 1 auto;
-			@extend %forminator-truncate-text;
+			@extend %text-truncate;
 
 			&:not(:last-child) {
 				margin-right: 10px;

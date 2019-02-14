@@ -12,10 +12,11 @@
 // =============================================
 // 1. BASIC VARIABLES
 
-$fui-version:    '1.7.0'                 !default;
-$fui-font-path:  '../fonts/'             !default;
+$version:    '1.7.0'                 !default;
+$path-fonts: '../fonts/'             !default;
 
-$fui-font--icon: "forminator-icons-font" !default;
+$font:       inherit                 !default;
+$font--icon: "forminator-icons-font" !default;
 
 $gutter:                30px         !default;
 $gutter-sm:             20px         !default;
@@ -28,6 +29,11 @@ $transition--linear:    0.2s linear  !default;
 $input--height:         40px         !default;
 $input--padding:        10px         !default;
 $input--line-height:    20px         !default;
+$input: (
+	min-height:  40px,
+	padding:     10px,
+	line-height: 1.5em,
+) !default;
 
 $textarea--height:      140px        !default;
 $textarea--padding:     10px         !default;
@@ -86,13 +92,31 @@ $default--border-width:  1px   !default;
 $default--border-style:  solid !default;
 $default--border-radius: 2px   !default;
 
+$default: (
+	border-width:  1px,
+	border-style:  solid,
+	border-radius: 2px
+) !default;
+
 // =============================================
 // 4. DESIGN: FLAT
+
+$flat: (
+	border-width:  0,
+	border-style:  none,
+	border-radius: 0
+) !default;
 
 // =============================================
 // 5. DESIGN: BOLD
 $bold--border-width: 3px   !default;
 $bold--border-style: solid !default;
+
+$bold: (
+	border-width:  3px,
+	border-style:  solid,
+	border-radius: 0
+) !default;
 
 // =============================================
 // 6. DESIGN: MATERIAL
@@ -101,3 +125,9 @@ $material--border-style:    solid !default;
 $material--border-radius:   2px   !default;
 
 $material--dropdown-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.3);
+
+$material: (
+	border-width:  1px,
+	border-style:  solid,
+	border-radius: 2px
+) !default;

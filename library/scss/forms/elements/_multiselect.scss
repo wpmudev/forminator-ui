@@ -11,7 +11,7 @@
 			transition: $transition--ease;
 
 			input {
-				@extend %forminator-screen-reader-only;
+				@extend %screen-readers;
 			}
 		}
 	}

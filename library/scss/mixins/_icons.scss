@@ -4,19 +4,16 @@
 		$position: 'before, &:after';
 	}
 
-	// Either a :before or :after pseudo-element, or both, defaulting to :before.
 	&:#{$position} {
 
 		@if $icon {
-			// A particular icon has been specified.
 			content: "#{map-get($icons, $icon)}";
 		}
 
 		@if $styles {
-			@extend %fui-icons;
+			@extend %icon-styles;
 		}
 
-		// Include any extra rules supplied for the pseudo-element.
 		@content;
 	}
 }

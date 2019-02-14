@@ -1,25 +1,40 @@
+@charset "UTF-8";
+
 @import "variables";
-@import "helpers";
-@import "mixins";
-@import "mixin-icon";
+
+// Helpers
+@import "helpers/icon-styles";
+
+// Mixins
+@import "mixins/body-class";
+@import "mixins/opacity";
+@import "mixins/animations";
+@import "mixins/icons";
 
 @at-root {
 
 	@font-face {
-		font-family: $fui-font--icon;
+		font-family: $font--icon;
 		font-weight: normal;
 		font-style: normal;
-		src: url('#{$fui-font-path}forminator-icons-font.eot');
+		src: url('#{$path-fonts}forminator-icons-font.eot');
 		src: local('forminator-icons-font'),
-			 url('#{$fui-font-path}forminator-icons-font.eot?#iefix') format('embedded-opentype'),
-			 url('#{$fui-font-path}forminator-icons-font.woff2') format('woff2'),
-			 url('#{$fui-font-path}forminator-icons-font.woff') format('woff'),
-			 url('#{$fui-font-path}forminator-icons-font.ttf') format('truetype'),
-			 url('#{$fui-font-path}forminator-icons-font.svg?#forminator-icons-font') format('svg');
+			 url('#{$path-fonts}forminator-icons-font.eot?#iefix') format('embedded-opentype'),
+			 url('#{$path-fonts}forminator-icons-font.woff2') format('woff2'),
+			 url('#{$path-fonts}forminator-icons-font.woff') format('woff'),
+			 url('#{$path-fonts}forminator-icons-font.ttf') format('truetype'),
+			 url('#{$path-fonts}forminator-icons-font.svg?#forminator-icons-font') format('svg');
 	}
 }
 
 @include body-class(true) {
+
+	.forminator-loading {
+
+		&:before {
+			animation: spin 1.3s linear infinite;
+		}
+	}
 
 	[class*="forminator-icon-"] {
 		@include icon(both);

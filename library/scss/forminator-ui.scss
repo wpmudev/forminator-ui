@@ -1,27 +1,10 @@
 @charset "UTF-8";
 
-@import "variables";
-@import "functions";
-@import "colors";
-@import "mixins";
-@import "mixin-icon";
-@import "helpers";
-@import "reset";
-@import "grid";
-@import "accessibility";
-@import "form";
-@import "section";
-@import "field";
-@import "label";
-@import "input";
-@import "textarea";
-@import "select";
-@import "select2";
-@import "select2-dropdown";
-@import "radio";
-@import "multiselect";
-@import "buttons";
-@import "file-upload";
-@import "calendar";
-@import "message";
-@import "timepicker";
+// Forms UI
+@import "forminator-forms";
+
+// Polls UI
+@import "forminator-polls";
+
+// Quizzes UI
+@import "forminator-quizzes";

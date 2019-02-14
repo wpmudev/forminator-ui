@@ -1,0 +1,6 @@
+@include body-class(true) {
+
+	.forminator-screen-reader-only {
+		@extend %screen-readers;
+	}
+}

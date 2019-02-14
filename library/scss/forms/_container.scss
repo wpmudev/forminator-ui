@@ -1,4 +1,6 @@
 @include body-class(custom-form) {
+	box-sizing: border-box;
+	@extend %text-reset;
 
 	&:first-child {
 
