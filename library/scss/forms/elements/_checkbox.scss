@@ -1,0 +1,144 @@
+@include body-class(custom-form) {
+
+	.forminator-checkbox {
+		cursor: default;
+		pointer-events: none;
+		display: flex;
+		margin: 5px 0;
+
+		input {
+			@extend %screen-readers;
+
+			&:checked {
+
+				+ span[aria-hidden]:before {
+					@include opacity(1);
+				}
+			}
+		}
+
+		span {
+			cursor: pointer;
+			pointer-events: all;
+			display: block;
+		}
+
+		span[aria-hidden] {
+			width: map-get($checkbox, size);
+			height: map-get($checkbox, size);
+			flex: 0 0 map-get($checkbox, size);
+			position: relative;
+
+			@include icon(before, check) {
+				@include opacity(0);
+				display: block;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				color: map-get($icon, color);
+				font-size: map-get($checkbox, icon);
+				transform: translate(-50%, -50%);
+				transition: map-get($transition, ease);
+			}
+
+			+ span {
+				margin-left: 10px;
+			}
+		}
+
+		span:not([aria-hidden]) {
+			flex: 0 1 auto;
+			line-height: 20px;
+		}
+
+		&:first-child {
+			margin-top: 0;
+		}
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
+
+@include body-class(custom-form, default) {
+
+	.forminator-checkbox {
+
+		span[aria-hidden] {
+			border-width: map-get($border-width, default);
+			border-style: map-get($border-style, default);
+			border-radius: map-get($border-radius, default);
+		}
+	}
+}
+
+@include body-class(custom-form, flat) {
+
+	.forminator-checkbox {
+
+		span[aria-hidden] {
+			border-width: map-get($border-width, flat);
+			border-style: map-get($border-style, flat);
+			border-radius: map-get($border-radius, flat);
+		}
+	}
+}
+
+@include body-class(custom-form, bold) {
+
+	.forminator-checkbox {
+
+		span[aria-hidden] {
+			border-width: map-get($border-width, bold);
+			border-style: map-get($border-style, bold);
+			border-radius: map-get($border-radius, bold);
+		}
+	}
+}
+
+@include body-class(custom-form, material) {
+
+	.forminator-checkbox {
+
+		input {
+
+			&:checked {
+
+				+ span[aria-hidden]:after {
+					@include opacity(1);
+				}
+
+				&:focus {
+
+					+ span[aria-hidden]:after {
+						animation-name: click-animation;
+					}
+				}
+			}
+		}
+
+		span[aria-hidden] {
+			position: relative;
+			border-width: #{map-get($border-width, material) * 2};
+			border-style: map-get($border-style, material);
+			border-radius: map-get($border-radius, material);
+
+			&:after {
+				content: " ";
+				@include opacity(0);
+				width: map-get($checkbox, size);
+				height: map-get($checkbox, size);
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				border-radius: 100%;
+				transform: translate(-50%, -50%) scale(0);
+				transform-origin: center;
+				transform-style: preserve-3d;
+				animation-duration: 0.6s;
+				animation-fill-mode: both;
+			}
+		}
+	}
+}
