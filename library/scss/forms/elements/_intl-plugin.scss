@@ -37,6 +37,20 @@ $int-flag-size: 20px;
 					right: auto;
 					margin: 0;
 				}
+
+				&:hover,
+				&:focus,
+				&:active {
+					outline: none;
+					box-shadow: none;
+				}
+			}
+
+			&:hover,
+			&:focus,
+			&:active {
+				outline: none;
+				box-shadow: none;
 			}
 		}
 
