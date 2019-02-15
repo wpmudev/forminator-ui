@@ -1,0 +1,67 @@
+$int-flag-size: 20px;
+
+@include body-class(custom-form) {}
+
+@include body-class(custom-form, default) {
+
+	.intl-tel-input {
+		display: block;
+
+		.flag-container {
+			padding: map-get($border-width, default);
+
+			.selected-flag {
+				width: auto;
+				display: flex;
+				align-items: center;
+				margin: 0;
+				padding: 0 map-get($input, padding);
+
+				.iti-flag {
+					display: block;
+					position: relative;
+					top: auto;
+					bottom: auto;
+					margin: 0;
+					padding: 0;
+
+					+ .iti-arrow {
+						margin-left: #{map-get($input, padding) / 2};
+					}
+				}
+
+				.iti-arrow {
+					display: block;
+					position: relative;
+					top: auto;
+					right: auto;
+					margin: 0;
+				}
+			}
+		}
+
+		&.allow-dropdown {
+
+			.forminator-input {
+				padding-left: #{($int-flag-size + (map-get($input, padding) * 2)) + (map-get($input, padding) + map-get($border-width, default))};
+			}
+		}
+
+		&:not(.allow-dropdown) {
+
+			.flag-container {
+				pointer-events: none;
+			}
+
+			.forminator-input {
+				padding-right: #{($int-flag-size + (map-get($input, padding) * 2)) + (map-get($input, padding) + map-get($border-width, default))};
+			}
+		}
+	}
+}
+
+@include body-class(custom-form, flat) {}
+
+@include body-class(custom-form, bold) {}
+
+@include body-class(custom-form, material) {}
