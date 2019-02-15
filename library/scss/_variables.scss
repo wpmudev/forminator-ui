@@ -26,14 +26,82 @@ $gutter-enclosed-sm:    8px          !default;
 $transition--ease:      0.2s ease    !default;
 $transition--linear:    0.2s linear  !default;
 
-$input--height:         40px         !default;
+$transition: (
+	ease:   0.2s ease,
+	linear: 0.2s linear,
+) !default;
+
+$border-width: (
+	default:  1px,
+	flat:     0,
+	bold:     3px,
+	material: 1px,
+) !default;
+
+$border-style: (
+	default:  solid,
+	flat:     none,
+	bold:     solid,
+	material: solid,
+) !default;
+
+$border-radius: (
+	default:  2px,
+	flat:     0,
+	bold:     0,
+	material: 2px,
+) !default;
+
+$input: (
+	padding:     10px,
+	line-height: 1.3em,
+) !default;
+
+$radio: (
+	size: 20px,
+) !default;
+
+$checkbox: (
+	size: 20px,
+	icon: 12px,
+) !default;
+
+$select: (
+	padding:     10px,
+	line-height: 1.3em,
+	handle-size: 20px,
+	handle-icon: 12px,
+) !default;
+
+$dropdown: (
+	max-height:  210px,
+	padding:     10px,
+	line-height: 1.3em,
+) !default;
+
+$calendar: (
+	padding:     10px,
+	arrows-size: 14px,
+	select-size: 30px,
+	cell-size:   30px,
+) !default;
+
+$button: (
+	line-height: 1.45em,
+	icon-size:   14px,
+) !default;
+
+$icon: (
+	color: inherit,
+	size:  16px,
+) !default;
+
+
+
+
+
 $input--padding:        10px         !default;
 $input--line-height:    20px         !default;
-$input: (
-	min-height:  40px,
-	padding:     10px,
-	line-height: 1.5em,
-) !default;
 
 $textarea--height:      140px        !default;
 $textarea--padding:     10px         !default;
@@ -51,17 +119,6 @@ $dropdown--line-height: 20px         !default;
 
 $button--line-height:   20px         !default;
 $button--icon-size:     14px         !default;
-
-$calendar--padding:       10px       !default;
-$calendar--icon-size:     14px       !default;
-$calendar--select-height: 30px       !default;
-$calendar--days-size:     30px       !default;
-
-$icon-color: #888888 !default;
-$icon-size:  16px !default;
-
-$radio--size:           20px         !default;
-$radio--icon-size:      12px         !default;
 
 // =============================================
 // 2. BREAKPOINTS
