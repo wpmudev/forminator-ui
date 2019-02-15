@@ -1,15 +1,19 @@
-@include body-class(custom-form) {
+@include body-class() {
 
 	.forminator-input {
 		width: 100%;
-		height: $input--height;
+		min-width: unset;
+		max-width: unset;
+		height: auto;
+		min-height: unset;
+		max-height: unset;
 		display: block;
 		margin: 0;
 		padding: 0;
 		background-image: unset;
-		line-height: $input--line-height;
-		transition: $transition--ease;
-	
+		line-height: map-get($input, line-height);
+		transition: map-get($transition, ease);
+
 		&,
 		&:hover,
 		&:focus,
@@ -25,23 +29,23 @@
 			border-color: inherit;
 			background-color: inherit;
 		}
-	
+
 		&:disabled {
 			pointer-events: none;
 			border-style: dotted;
-	
+
 			&:-moz-placeholder {
 				@include opacity(0.4);
 			}
-		
+
 			&::-moz-placeholder {
 				@include opacity(0.4);
 			}
-	
+
 			&:-ms-input-placeholder {
 				@include opacity(0.4);
 			}
-	
+
 			&::-webkit-input-placeholder {
 				@include opacity(0.4);
 			}
@@ -52,8 +56,8 @@
 
 		[class*="forminator-icon-"] {
 			display: block;
-			font-size: $icon-size;
-			transition: $transition--ease;
+			font-size: map-get($icon, size);
+			transition: map-get($transition, ease);
 
 			&:before {
 				color: inherit;
@@ -67,10 +71,10 @@
 @include body-class(custom-form, default) {
 
 	.forminator-input {
-		padding: #{($input--height - ($default--border-width * 2) - $input--line-height) / 2} #{$input--padding - $default--border-width};
-		border-width: $default--border-width;
-		border-style: $default--border-style;
-		border-radius: $default--border-radius;
+		padding: #{map-get($input, padding) - map-get($border-width, default)};
+		border-width: map-get($border-width, default);
+		border-style: map-get($border-style, default);
+		border-radius: map-get($border-radius, default);
 	}
 
 	.forminator-input-with-icon {
@@ -79,12 +83,12 @@
 		[class*="forminator-icon-"] {
 			position: absolute;
 			top: 50%;
-			left: $input--padding;
+			left: map-get($input, padding);
 			transform: translateY(-50%);
 		}
 
 		.forminator-input {
-			padding-left: #{($input--padding - $default--border-width) + $input--padding + $icon-size};
+			padding-left: #{(map-get($input, padding) - map-get($border-width, default)) + map-get($input, padding) + map-get($icon, size)};
 		}
 	}
 }
@@ -94,9 +98,10 @@
 @include body-class(custom-form, flat) {
 
 	.forminator-input {
-		padding: #{($input--height - $input--line-height) / 2} $input--padding;
-		border: 0;
-		border-radius: 0;
+		padding: map-get($input, padding);
+		border-width: map-get($border-width, flat);
+		border-style: map-get($border-style, flat);
+		border-radius: map-get($border-radius, flat);
 	}
 
 	.forminator-input-with-icon {
@@ -105,12 +110,12 @@
 		[class*="forminator-icon-"] {
 			position: absolute;
 			top: 50%;
-			left: $input--padding;
+			left: map-get($input, padding);
 			transform: translateY(-50%);
 		}
 
 		.forminator-input {
-			padding-left: #{($input--padding * 2) + $icon-size};
+			padding-left: #{(map-get($input, padding) * 2) + map-get($icon, size)};
 		}
 	}
 }
@@ -120,10 +125,10 @@
 @include body-class(custom-form, bold) {
 
 	.forminator-input {
-		padding: #{($input--height - ($bold--border-width * 2) - $input--line-height) / 2} 7px;
-		border-width: $bold--border-width;
-		border-style: $bold--border-style;
-		border-radius: 0;
+		padding: #{map-get($input, padding) - map-get($border-width, bold)};
+		border-width: map-get($border-width, bold);
+		border-style: map-get($border-style, bold);
+		border-radius: map-get($border-radius, material);
 	}
 
 	.forminator-input-with-icon {
@@ -132,12 +137,12 @@
 		[class*="forminator-icon-"] {
 			position: absolute;
 			top: 50%;
-			left: $input--padding;
+			left: map-get($input, padding);
 			transform: translateY(-50%);
 		}
 
 		.forminator-input {
-			padding-left: #{($input--padding - $bold--border-width) + $input--padding + $icon-size};
+			padding-left: #{(map-get($input, padding) - map-get($border-width, bold)) + map-get($input, padding) + map-get($icon, size)};
 		}
 	}
 }
@@ -147,10 +152,10 @@
 @include body-class(custom-form, material) {
 
 	.forminator-input {
-		padding: $input--padding 0 #{$input--padding - $material--border-width};
+		padding: map-get($input, padding) 0 #{map-get($input, padding) - map-get($border-width, material)};
 		border-width: 0;
-		border-bottom-width: $material--border-width;
-		border-style: $material--border-style;
+		border-bottom-width: map-get($border-width, material);
+		border-style: map-get($border-style, material);
 		border-radius: 0;
 		background-color: transparent;
 	}
@@ -161,14 +166,14 @@
 
 		&:after {
 			content: " ";
-			height: 2px;
+			height: map-get($border-width, material);
 			display: block;
 			position: absolute;
 			right: 50%;
 			bottom: 0;
 			left: 50%;
 			box-sizing: border-box;
-			transition: 0.2s linear;
+			transition: map-get($transition, linear);
 		}
 	}
 
@@ -192,11 +197,11 @@
 		[class*="forminator-icon-"] {
 
 			&:first-child {
-				margin-right: $input--padding;
+				margin-right: map-get($input, padding);
 			}
 
 			&:last-child {
-				margin-left: $input--padding;
+				margin-left: map-get($input, padding);
 			}
 		}
 
@@ -206,7 +211,7 @@
 		}
 
 		~ span {
-			padding-left: #{$icon-size + $input--padding};
+			padding-left: #{map-get($icon, size) + map-get($input, padding)};
 		}
 	}
 }
