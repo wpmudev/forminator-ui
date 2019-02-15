@@ -1,163 +1,118 @@
-%forminator-radio {
-	cursor: default;
-	pointer-events: none;
-	display: flex;
-	margin: 5px 0;
+@include body-class(not-quiz) {
 
-	input {
-		@extend %screen-readers;
+	.forminator-radio {
+		cursor: default;
+		pointer-events: none;
+		display: flex;
+		margin: 5px 0;
 
-		&:checked {
+		input {
+			@extend %screen-readers;
 
-			+ span[aria-hidden]:before {
-				@include opacity(1);
+			&:checked {
+
+				+ span[aria-hidden]:before {
+					@include opacity(1);
+				}
 			}
 		}
-	}
 
-	span {
-		cursor: pointer;
-		pointer-events: all;
-		display: block;
-	}
-
-	span[aria-hidden] {
-		width: $radio--size;
-		height: $radio--size;
-		flex: 0 0 $radio--size;
-		position: relative;
-
-		&:before {
-			content: " ";
-			@include opacity(0);
+		span {
+			cursor: pointer;
+			pointer-events: all;
 			display: block;
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			transform: translate(-50%, -50%);
-			transition: $transition--ease;
 		}
-
-		+ span {
-			margin-left: 10px;
-		}
-	}
-
-	span:not([aria-hidden]) {
-		flex: 0 1 auto;
-		line-height: $radio--size;
-	}
-
-	&:first-child {
-		margin-top: 0;
-	}
-
-	&:last-child {
-		margin-bottom: 0;
-	}
-}
-
-@include body-class(custom-form) {
-
-	.forminator-radio,
-	.forminator-checkbox {
-		@extend %forminator-radio;
-	}
-
-	.forminator-radio {
 
 		span[aria-hidden] {
-			border-radius: 100%;
+			width: map-get($radio, size);
+			height: map-get($radio, size);
+			flex: 0 0 map-get($radio, size);
+			position: relative;
+			border-radius: #{map-get($radio, size) * 2};
 
 			&:before {
+				content: " ";
+				@include opacity(0);
+				display: block;
+				position: absolute;
+				top: 50%;
+				left: 50%;
 				border-radius: 100%;
+				transform: translate(-50%, -50%);
+				transition: map-get($transition, ease);
+			}
+
+			+ span {
+				margin-left: 10px;
 			}
 		}
-	}
 
-	.forminator-checkbox {
+		span:not([aria-hidden]) {
+			flex: 0 1 auto;
+			line-height: 20px;
+		}
 
-		span[aria-hidden] {
+		&:first-child {
+			margin-top: 0;
+		}
 
-			@include icon(before, check) {
-				color: inherit;
-				font-size: $radio--icon-size;
-			}
+		&:last-child {
+			margin-bottom: 0;
 		}
 	}
 }
 
-@include body-class(custom-form, default) {
-
-	.forminator-radio,
-	.forminator-checkbox {
-
-		span[aria-hidden] {
-			border-width: $default--border-width;
-			border-style: $default--border-style;
-		}
-	}
+@include body-class(not-quiz, default) {
 
 	.forminator-radio {
 
 		span[aria-hidden] {
+			border-width: map-get($border-width, default);
+			border-style: map-get($border-style, default);
 
 			&:before {
-				width: #{$radio--size / 2};
-				height: #{$radio--size / 2};
+				width: #{map-get($radio, size) / 2};
+				height: #{map-get($radio, size) / 2};
 			}
-		}
-	}
-
-	.forminator-checkbox {
-
-		span[aria-hidden] {
-			border-radius: $default--border-radius;
 		}
 	}
 }
 
-@include body-class(custom-form, flat) {
+@include body-class(not-quiz, flat) {
 
 	.forminator-radio {
 
 		span[aria-hidden] {
+			border-width: map-get($border-width, flat);
+			border-style: map-get($border-style, flat);
 
 			&:before {
-				width: #{$radio--size / 2};
-				height: #{$radio--size / 2};
+				width: #{map-get($radio, size) / 2};
+				height: #{map-get($radio, size) / 2};
 			}
 		}
 	}
 }
 
-@include body-class(custom-form, bold) {
-
-	.forminator-radio,
-	.forminator-checkbox {
-
-		span[aria-hidden] {
-			border-width: $bold--border-width;
-			border-style: $bold--border-style;
-		}
-	}
+@include body-class(not-quiz, bold) {
 
 	.forminator-radio {
 
 		span[aria-hidden] {
+			border-width: map-get($border-width, bold);
+			border-style: map-get($border-style, bold);
 
 			&:before {
-				width: #{($radio--size / 2) - 2px};
-				height: #{($radio--size / 2) - 2px};
+				width: #{(map-get($radio, size) / 2) - map-get($border-width, bold)};
+				height: #{(map-get($radio, size) / 2) - map-get($border-width, bold)};
 			}
 		}
 	}
 }
 
-@include body-class(custom-form, material) {
+@include body-class(not-quiz, material) {
 
-	.forminator-radio,
-	.forminator-checkbox {
+	.forminator-radio {
 
 		input {
 
@@ -178,14 +133,19 @@
 
 		span[aria-hidden] {
 			position: relative;
-			border-width: #{$material--border-width * 2};
-			border-style: $material--border-style;
+			border-width: #{map-get($border-width, material) * 2};
+			border-style: map-get($border-style, material);
+
+			&:before {
+				width: #{map-get($radio, size) / 2};
+				height: #{map-get($radio, size) / 2};
+			}
 
 			&:after {
 				content: " ";
 				@include opacity(0);
-				width: $radio--size;
-				height: $radio--size;
+				width: map-get($radio, size);
+				height: map-get($radio, size);
 				position: absolute;
 				top: 50%;
 				left: 50%;
@@ -196,24 +156,6 @@
 				animation-duration: 0.6s;
 				animation-fill-mode: both;
 			}
-		}
-	}
-
-	.forminator-radio {
-
-		span[aria-hidden] {
-
-			&:before {
-				width: #{$radio--size / 2};
-				height: #{$radio--size / 2};
-			}
-		}
-	}
-
-	.forminator-checkbox {
-
-		span[aria-hidden] {
-			border-radius: $material--border-radius;
 		}
 	}
 }
