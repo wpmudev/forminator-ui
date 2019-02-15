@@ -1,16 +1,18 @@
-@include body-class(true) {
+@include body-class() {
 
 	.forminator-button {
 		width: auto;
 		min-width: 100px;
+		max-width: unset;
 		height: auto;
 		min-height: unset;
+		max-height: unset;
 		cursor: pointer;
 		display: inline-block;
 		margin: 0 10px 0 0;
 		border: 0;
 		background-image: unset;
-		line-height: $button--line-height;
+		line-height: map-get($button, line-height);
 		text-align: center;
 		transition: $transition--ease;
 
@@ -27,38 +29,38 @@
 	}
 }
 
-@include body-class(custom-form, default) {
+@include body-class(all, default) {
 
 	.forminator-button {
 		padding: 10px;
-		border-radius: $default--border-radius;
+		border-radius: map-get($border-radius, default);
 	}
 }
 
-@include body-class(custom-form, flat) {
+@include body-class(all, flat) {
 
 	.forminator-button {
 		padding: 10px;
-		border-radius: 0;
+		border-radius: map-get($border-radius, flat);
 	}
 }
 
-@include body-class(custom-form, bold) {
+@include body-class(all, bold) {
 
 	.forminator-button {
 		min-width: 120px;
 		padding: 13px 15px;
-		border-radius: 0;
+		border-radius: map-get($border-radius, bold);
 	}
 }
 
-@include body-class(custom-form, material) {
+@include body-class(all, material) {
 
 	.forminator-button {
 		overflow: hidden;
 		position: relative;
 		padding: 10px;
-		border-radius: $material--border-radius;
+		border-radius: map-get($border-radius, material);
 
 		span {
 			display: block;
