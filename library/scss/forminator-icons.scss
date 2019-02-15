@@ -6,7 +6,6 @@
 @import "helpers/icon-styles";
 
 // Mixins
-@import "mixins/body-class";
 @import "mixins/opacity";
 @import "mixins/animations";
 @import "mixins/icons";
@@ -27,7 +26,9 @@
 	}
 }
 
-@include body-class(true) {
+.forminator-custom-form,
+.forminator-poll,
+.forminator-quiz {
 
 	.forminator-loading {
 
