@@ -1,4 +1,4 @@
-@include body-class(custom-form) {
+@include body-class(not-quiz) {
 
 	.forminator-label,
 	.forminator-error-message {
@@ -44,29 +44,31 @@
 	}
 }
 
-@include body-class(custom-form, default) {
+@include body-class(not-quiz, default) {
 
 	.forminator-error-message {
 		padding: 2px 10px;
-		border-radius: $default--border-radius;
+		border-radius: map-get($border-radius, default);
 	}
 }
 
-@include body-class(custom-form, flat) {
+@include body-class(not-quiz, flat) {
 
 	.forminator-error-message {
 		padding: 2px 10px;
+		border-radius: map-get($border-radius, flat);
 	}
 }
 
-@include body-class(custom-form, bold) {
+@include body-class(not-quiz, bold) {
 
 	.forminator-error-message {
 		padding: 2px 10px;
+		border-radius: map-get($border-radius, bold);
 	}
 }
 
-@include body-class(custom-form, material) {
+@include body-class(not-quiz, material) {
 
 	.forminator-label {
 		line-height: 20px;
@@ -74,7 +76,7 @@
 
 	[class*="forminator-floating-"] {
 		pointer-events: none;
-		transition: $transition--linear;
+		transition: map-get($transition, linear);
 	}
 
 	// ******************************
@@ -91,7 +93,7 @@
 		}
 
 		&.forminator-has_icon {
-			padding-left: #{$icon-size + $input--padding};
+			padding-left: #{map-get($icon, size) + map-get($input, padding)};
 		}
 	}
 
@@ -116,7 +118,7 @@
 	.forminator-floating--textarea {
 		position: relative;
 		z-index: 1;
-		padding: #{$input--padding - $material--border-width} 0 0 #{$input--padding - $material--border-width};
+		padding: #{map-get($input, padding) - map-get($border-width, material)} 0 0 #{map-get($input, padding) - map-get($border-width, material)};
 		transform: translateY(30px);
 
 		+ .forminator-textarea--wrap {
