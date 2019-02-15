@@ -1,4 +1,4 @@
-@include body-class(custom-form) {
+@include body-class() {
 
 	.forminator-response-message {
 
@@ -6,7 +6,7 @@
 			margin: 0;
 			padding: 0;
 			border: 0;
-			line-height: 20px;
+			line-height: 1.3em;
 			letter-spacing: 0;
 
 			&:not(:last-child) {
@@ -14,7 +14,10 @@
 			}
 		}
 
-		&:focus {
+		&,
+		&:focus,
+		&:hover,
+		&:active {
 			outline: none;
 			box-shadow: none;
 		}
@@ -43,42 +46,44 @@
 
 // =============================================
 // DESIGN: Default
-@include body-class(custom-form, default) {
+@include body-class(all, default) {
 
 	.forminator-response-message {
 		padding: 15px 20px 15px 22px;
-		border-radius: $default--border-radius;
+		border-radius: map-get($border-radius, default);
 		text-align: left;
 	}
 }
 
 // =============================================
 // DESIGN: Flat
-@include body-class(custom-form, flat) {
+@include body-class(all, flat) {
 
 	.forminator-response-message {
 		padding: 15px 10px;
+		border-radius: map-get($border-radius, flat);
 		text-align: center;
 	}
 }
 
 // =============================================
 // DESIGN: Bold
-@include body-class(custom-form, bold) {
+@include body-class(all, bold) {
 
 	.forminator-response-message {
 		padding: 15px 20px 15px 22px;
+		border-radius: map-get($border-radius, bold);
 		text-align: left;
 	}
 }
 
 // =============================================
 // DESIGN: Material
-@include body-class(custom-form, material) {
+@include body-class(all, material) {
 
 	.forminator-response-message {
 		padding: 15px 20px 15px 22px;
-		border-radius: $material--border-radius;
+		border-radius: map-get($border-radius, material);
 		background-color: #FFF;
 		box-shadow: 1px 1px 4px rgba(0,0,0,0.3);
 		text-align: left;
