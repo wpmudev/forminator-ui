@@ -1,5 +1,5 @@
 // =============================================
-// There are two way for using this mixin. You
+// There are two ways for using this mixin. You
 // can display module class only or module class
 // with module theme. For both cases follow this:
 //
@@ -10,14 +10,44 @@
 //    @include body-class(quiz, flat) { ... }
 // =============================================
 
-@mixin body-class($module-type, $module-theme: null) {
+@mixin body-class($module-type: all, $module-theme: null) {
 
-	@if ($module-type == true) {
+	@if ($module-type == all) {
 
 		.forminator-custom-form,
 		.forminator-poll,
 		.forminator-quiz {
-			@content;
+
+			&.forminator-design--default,
+			&.forminator-design--flat,
+			&.forminator-design--bold,
+			&.forminator-design--material {
+				@content;
+			}
+		}
+	}
+
+	@else if ($module-type == not-quiz) {
+
+		.forminator-custom-form,
+		.forminator-poll {
+
+			@if ($module-theme == null) {
+
+				&.forminator-design--default,
+				&.forminator-design--flat,
+				&.forminator-design--bold,
+				&.forminator-design--material {
+					@content;
+				}
+			}
+
+			@else {
+
+				&.forminator-design--#{$module-theme} {
+					@content;
+				}
+			}
 		}
 	}
 
@@ -26,10 +56,16 @@
 		@if ($module-theme == null) {
 
 			.forminator-#{$module-type} {
-				@content;
+
+				&.forminator-design--default,
+				&.forminator-design--flat,
+				&.forminator-design--bold,
+				&.forminator-design--material {
+					@content;
+				}
 			}
 		} @else {
-	
+
 			.forminator-#{$module-type}.forminator-design--#{$module-theme} {
 				@content;
 			}
