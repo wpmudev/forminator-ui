@@ -28,7 +28,7 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		font-size: $button--icon-size;
+		font-size: map-get($button, icon-size);
 
 		[class*=forminator-icon-] {
 			display: block;
@@ -46,7 +46,7 @@
 	.forminator-button-delete {
 		width: 30px;
 		height: 30px;
-		border-radius: $default--border-radius;
+		border-radius: map-get($border-radius, default);
 	}
 }
 
@@ -55,7 +55,7 @@
 	.forminator-button-delete {
 		width: 20px;
 		height: 20px;
-		border-radius: 40px;
+		border-radius: 100%;
 	}
 }
 
@@ -64,7 +64,7 @@
 	.forminator-button-delete {
 		width: 30px;
 		height: 30px;
-		border-radius: 60px;
+		border-radius: 100%;
 	}
 }
 
@@ -73,6 +73,6 @@
 	.forminator-button-delete {
 		width: 30px;
 		height: 30px;
-		border-radius: $default--border-radius;
+		border-radius: #{map-get($border-radius, material) * 2};
 	}
 }
