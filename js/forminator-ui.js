@@ -7420,6 +7420,7 @@
 		$( '.forminator-custom-form' ).each( function() {
 
 			var $element = $( this ),
+				$formid  = $element.data( 'form-id' ),
 				$select  = $element.find( '.forminator-select2' )
 				;
 
@@ -7461,7 +7462,7 @@
 						dir: $dir,
 						language: $language,
 						placeholder: $placeholder,
-						dropdownCssClass: 'forminator-dropdown--' + $theme
+						dropdownCssClass: 'forminator-custom-form-' + $formid + ' forminator-dropdown--' + $theme
 					});
 				}
 			});
