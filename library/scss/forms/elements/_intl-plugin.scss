@@ -4,7 +4,7 @@ $int-flag-size: 20px;
 
 @include body-class(custom-form, default) {
 
-	.intl-tel-input {
+	.forminator-phone {
 		display: block;
 
 		.flag-container {
