@@ -14,15 +14,28 @@
 
 	@if ($module-type == all) {
 
-		.forminator-custom-form,
-		.forminator-poll,
-		.forminator-quiz {
+		@if ($module-theme == null) {
 
-			&.forminator-design--default,
-			&.forminator-design--flat,
-			&.forminator-design--bold,
-			&.forminator-design--material {
-				@content;
+			.forminator-custom-form,
+			.forminator-poll,
+			.forminator-quiz {
+
+				&.forminator-design--default,
+				&.forminator-design--flat,
+				&.forminator-design--bold,
+				&.forminator-design--material {
+					@content;
+				}
+			}
+		} @else {
+
+			.forminator-custom-form,
+			.forminator-poll,
+			.forminator-quiz {
+
+				&.forminator-design--#{$module-theme} {
+					@content;
+				}
 			}
 		}
 	}
