@@ -9,6 +9,11 @@
 			&:not(:last-child) {
 				margin-bottom: $gutter-sm;
 			}
+
+			&:focus {
+				outline: none;
+				box-shadow: none;
+			}
 		}
 
 		// ELEMENT: Column
@@ -16,6 +21,11 @@
 
 			&:not(:last-child) {
 				margin-bottom: $gutter-sm;
+			}
+
+			&:focus {
+				outline: none;
+				box-shadow: none;
 			}
 		}
 	}
