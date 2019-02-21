@@ -1,0 +1,170 @@
+@include body-class(custom-form) {
+
+	.forminator-pagination {
+
+		// ELEMENT: Content
+		&-content {
+			display: none;
+			visibility: hidden;
+
+			&:focus {
+				outline: none;
+				box-shadow: none;
+			}
+
+			&.forminator-show {
+				display: block;
+				visibility: visible;
+			}
+
+			@include media(min-width, sm) {
+				margin: 0 0 $gutter;
+			}
+		}
+
+		// ELEMENT: Footer
+		&-footer {
+
+			@include media(min-width, sm) {
+				display: flex;
+				justify-content: space-between;
+			}
+		}
+
+		// ELEMENT: Steps
+		&-steps {
+			display: block;
+			margin: 0 0 $gutter-sm;
+
+			.forminator-break {
+				display: block;
+				position: relative;
+
+				&:before {
+					content: " ";
+					width: 100%;
+					display: block;
+					position: absolute;
+					left: 0;
+					transition: map-get($transition, linear);
+				}
+
+				&:first-child,
+				&:last-child {
+					display: none;
+
+					@include media(min-width, sm) {
+						display: block;
+					}
+				}
+
+				@include media(min-width, sm) {
+					width: auto;
+					flex: 1;
+				}
+			}
+
+			.forminator-step {
+				display: flex;
+				flex-direction: row-reverse;
+				justify-content: flex-end;
+				align-items: center;
+
+				.forminator-step-label {
+					display: block;
+					flex: 0 0 auto;
+					line-height: 1.6em;
+
+					+ .forminator-step-dot {
+						margin-right: 5px;
+
+						@include media(min-width, sm) {
+							margin-top: 5px;
+							margin-right: 0;
+						}
+					}
+
+					@include media(min-width, sm) {
+						flex: 0 0 auto;
+						text-align: center;
+					}
+				}
+
+				.forminator-step-dot {
+					flex: 0 0 auto;
+				}
+
+				&.forminator-current {
+
+					~ .forminator-break {
+
+						&:before {
+							width: 0;
+						}
+					}
+				}
+
+				@include media(min-width, sm) {
+					flex: 0 0 auto;
+					flex-direction: column;
+					justify-content: unset;
+				}
+			}
+
+			@include media(min-width, sm) {
+				display: flex;
+				flex-direction: row;
+				align-items: flex-end;
+				margin-bottom: $gutter;
+			}
+		}
+
+		// ELEMENT: Progress
+		&-progress {}
+	}
+}
+
+@include body-class(custom-form, default) {
+
+	.forminator-pagination {
+
+		// ELEMENT: Steps
+		&-steps {
+
+			.forminator-break {
+				width: map-get($border-width, default);
+				height: #{15px * 2};
+				margin: 0 #{(15px - map-get($border-width, default)) / 2};
+
+				&:before {
+					top: -#{map-get($border-width, default)};
+					height: #{map-get($border-width, default) * 3};
+				}
+
+				@include media(min-width, sm) {
+					height: map-get($border-width, default);
+					margin: #{(15px - map-get($border-width, default)) / 2} 0;
+				}
+			}
+
+			.forminator-step {
+				height: 15px;
+
+				.forminator-step-dot {
+					width: 15px;
+					height: 15px;
+					display: block;
+					flex: 0 0 auto;
+					border-width: map-get($border-width, default);
+					border-style: map-get($border-style, default);
+					border-radius: 20px;
+				}
+
+				@include media(min-width, sm) {
+					width: 15px;
+					height: auto;
+				}
+			}
+		}
+	}
+}
