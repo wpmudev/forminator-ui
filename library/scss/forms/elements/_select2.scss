@@ -1,6 +1,6 @@
 @import url("https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css");
 
-@include body-class(custom-form) {
+@include body-class(custom-form, all, false) {
 
 	.forminator-select2 {
 		display: none;
@@ -79,7 +79,7 @@
 	}
 }
 
-@include body-class(custom-form, default) {
+@include body-class(custom-form, default, false) {
 
 	.forminator-select2 {
 
@@ -121,7 +121,7 @@
 	}
 }
 
-@include body-class(custom-form, flat) {
+@include body-class(custom-form, flat, false) {
 
 	.forminator-select2 {
 
@@ -137,7 +137,7 @@
 	}
 }
 
-@include body-class(custom-form, bold) {
+@include body-class(custom-form, bold, false) {
 
 	.forminator-select2 {
 
@@ -175,7 +175,7 @@
 	}
 }
 
-@include body-class(custom-form, material) {
+@include body-class(custom-form, material, false) {
 
 	.forminator-select2 {
 
