@@ -1,4 +1,4 @@
-@include body-class(custom-form) {
+@include body-class(custom-form, all, false) {
 
 	.forminator-title,
 	.forminator-subtitle {
@@ -34,28 +34,30 @@
 		min-height: unset;
 		max-height: unset;
 		display: block;
-		margin: 0;
+		margin: $gutter-sm 0 0;
 		padding: 0;
 		border: 0;
 		background-image: unset;
 		background-color: transparent;
 
 		&:first-child {
+			margin-top: 0;
+		}
+	}
+}
 
-			@include media(max-width, md) {
-				margin-top: 0;
-			}
+@include body-class(custom-form, all, true) {
 
-			@include media(min-width, md) {
+	.forminator-border {
+
+		&:first-child {
+
+			@include media(min-width, sm) {
 				margin-top: 0;
 			}
 		}
 
-		@include media(max-width, md) {
-			margin-top: $gutter-sm;
-		}
-
-		@include media(min-width, md) {
+		@include media(min-width, sm) {
 			margin-top: $gutter;
 		}
 	}
