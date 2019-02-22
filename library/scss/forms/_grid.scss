@@ -56,7 +56,7 @@
 	// ELEMENT: Row
 	.forminator-row {
 
-		@include media(min-width, md) {
+		@include media(min-width, sm) {
 			display: flex;
 		}
 	}
@@ -66,12 +66,12 @@
 
 		&:not(:last-child) {
 
-			@include media(min-width, md) {
+			@include media(min-width, sm) {
 				margin-bottom: 0;
 			}
 		}
 
-		@include media(min-width, md) {
+		@include media(min-width, sm) {
 			flex: 1;
 		}
 	}
@@ -84,12 +84,12 @@
 
 			&:not(:last-child) {
 
-				@include media(min-width, md) {
+				@include media(min-width, sm) {
 					margin-bottom: $gutter;
 				}
 			}
 
-			@include media(min-width, md) {
+			@include media(min-width, sm) {
 				margin-right: -#{$gutter / 2};
 				margin-left: -#{$gutter / 2};
 			}
@@ -100,12 +100,12 @@
 
 			&:not(:last-child) {
 
-				@include media(min-width, md) {
+				@include media(min-width, sm) {
 					margin-bottom: 0;
 				}
 			}
 
-			@include media(min-width, md) {
+			@include media(min-width, sm) {
 				padding: 0 #{$gutter / 2};
 			}
 		}
@@ -119,12 +119,12 @@
 
 			&:not(:last-child) {
 
-				@include media(min-width, md) {
+				@include media(min-width, sm) {
 					margin-bottom: $gutter-enclosed;
 				}
 			}
 
-			@include media(min-width, md) {
+			@include media(min-width, sm) {
 				margin-right: -#{$gutter-enclosed / 2};
 				margin-left: -#{$gutter-enclosed / 2};
 			}
@@ -133,7 +133,7 @@
 		// ELEMENT: Column
 		.forminator-col {
 
-			@include media(min-width, md) {
+			@include media(min-width, sm) {
 				padding: 0 #{$gutter-enclosed / 2};
 			}
 		}
@@ -144,7 +144,7 @@
 
 		.forminator-row {
 
-			@include media(min-width, md) {
+			@include media(min-width, sm) {
 				flex-wrap: wrap;
 			}
 		}
