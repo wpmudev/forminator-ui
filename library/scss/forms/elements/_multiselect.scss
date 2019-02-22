@@ -1,4 +1,4 @@
-@include body-class(custom-form) {
+@include body-class(custom-form, all, false) {
 
 	.forminator-multiselect {
 		width: 100%;
@@ -15,34 +15,36 @@
 			}
 		}
 	}
+}
 
-	&.forminator-design--default,
-	&.forminator-design--flat,
-	&.forminator-design--bold {
+// =============================================
+// DESIGN: All except material
+@include body-class(custom-form, default flat bold, false) {
 
-		.forminator-multiselect {
-			height: auto;
-			max-height: map-get($dropdown, max-height);
-			overflow-x: hidden;
-			overflow-y: auto;
+	.forminator-multiselect {
+		height: auto;
+		max-height: map-get($dropdown, max-height);
+		overflow-x: hidden;
+		overflow-y: auto;
 
-			.forminator-option {
-				margin: #{map-get($dropdown, padding) / 2} 0;
-				padding: map-get($dropdown, padding);
+		.forminator-option {
+			margin: #{map-get($dropdown, padding) / 2} 0;
+			padding: map-get($dropdown, padding);
 
-				&:first-child {
-					margin-top: 0;
-				}
+			&:first-child {
+				margin-top: 0;
+			}
 
-				&:last-child {
-					margin-bottom: 0;
-				}
+			&:last-child {
+				margin-bottom: 0;
 			}
 		}
 	}
 }
 
-@include body-class(custom-form, default) {
+// =============================================
+// DESIGN: Default
+@include body-class(custom-form, default, false) {
 
 	.forminator-multiselect {
 		padding: #{(map-get($dropdown, padding) / 2) - map-get($border-width, default)};
@@ -65,7 +67,9 @@
 	}
 }
 
-@include body-class(custom-form, flat) {
+// =============================================
+// DESIGN: Flat
+@include body-class(custom-form, flat, false) {
 
 	.forminator-multiselect {
 		padding: #{map-get($dropdown, padding) / 2};
@@ -75,7 +79,9 @@
 	}
 }
 
-@include body-class(custom-form, bold) {
+// =============================================
+// DESIGN: Bold
+@include body-class(custom-form, bold, false) {
 
 	.forminator-multiselect {
 		padding: #{map-get($dropdown, padding) / 2};
@@ -85,7 +91,9 @@
 	}
 }
 
-@include body-class(custom-form, material) {
+// =============================================
+// DESIGN: Material
+@include body-class(custom-form, material, false) {
 
 	.forminator-multiselect {
 
