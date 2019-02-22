@@ -48,6 +48,8 @@
 	}
 }
 
+// =============================================
+// DESIGN: Default
 @include body-class(custom-form, default, false) {
 
 	.forminator-pagination-progress {
@@ -63,6 +65,8 @@
 	}
 }
 
+// =============================================
+// DESIGN: Flat
 @include body-class(custom-form, flat, false) {
 
 	.forminator-pagination-progress {
@@ -77,6 +81,8 @@
 	}
 }
 
+// =============================================
+// DESIGN: Bold
 @include body-class(custom-form, bold, false) {
 
 	.forminator-pagination-progress {
@@ -91,6 +97,8 @@
 	}
 }
 
+// =============================================
+// DESIGN: Material
 @include body-class(custom-form, material, false) {
 
 	.forminator-pagination-progress {
