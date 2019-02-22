@@ -32,6 +32,80 @@
 		}
 	};
 
+	SHOWCASE.paginationFooter = function( el ) {
+
+		const form = $( el ).closest( 'form' );
+		const footer = $( el );
+		const content = form.find( '.forminator-pagination-content' );
+		const btnBack = footer.find( '.forminator-button-back' );
+		const btnNext = footer.find( '.forminator-button-next' );
+
+		if ( ! footer.is( '.forminator-pagination-footer' ) || ! form.is( '.forminator-custom-form' ) ) {
+			return;
+		}
+
+		function nextPage( element ) {
+
+			const button = $( element );
+
+			button.on( 'click', function( e ) {
+
+				const currPage = content.find( '> li.forminator-current' );
+				const nextPage = currPage.next();
+
+				nextPage.addClass( 'forminator-current' );
+				currPage.removeClass( 'forminator-current' );
+
+				btnBack.removeAttr( 'disabled' );
+				btnBack.removeAttr( 'aria-hidden' );
+
+				if ( content.find( '> li' ).length === nextPage.data( 'step' ) ) {
+					$( this ).attr( 'disabled', true );
+					$( this ).attr( 'aria-hidden', true );
+				}
+
+				e.preventDefault();
+				e.stopPropagation();
+
+			});
+		}
+
+		function backPage( element ) {
+
+			const button = $( element );
+
+			button.on( 'click', function( e ) {
+
+				const currPage = content.find( '> li.forminator-current' );
+				const prevPage = currPage.prev();
+
+				prevPage.addClass( 'forminator-current' );
+				currPage.removeClass( 'forminator-current' );
+
+				btnNext.removeAttr( 'disabled' );
+				btnNext.removeAttr( 'aria-hidden' );
+
+				if ( 1 === prevPage.data( 'step' ) ) {
+					$( this ).attr( 'disabled', true );
+					$( this ).attr( 'aria-hidden', true );
+				}
+
+				e.preventDefault();
+				e.stopPropagation();
+
+			});
+		}
+
+		function init() {
+			nextPage( btnNext );
+			backPage( btnBack );
+		}
+
+		init();
+
+		return this;
+	};
+
 	$( 'body' ).ready( function() {
 
 		// Check if page exists
@@ -42,6 +116,7 @@
 
 				const formDiv = $( this );
 				const formCol = formDiv.find( '.forminator-col' );
+				const pagFooter = formDiv.find( '.forminator-pagination-footer' );
 
 				FUI.formLoad( formDiv );
 
@@ -108,6 +183,10 @@
 						});
 					}
 				});
+
+				if ( pagFooter.length ) {
+					SHOWCASE.paginationFooter( pagFooter );
+				}
 			});
 		}
 	});
