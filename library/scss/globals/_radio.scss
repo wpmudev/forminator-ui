@@ -1,4 +1,4 @@
-@include body-class(not-quiz) {
+@include body-class(custom-form poll, all, false) {
 
 	.forminator-radio {
 		cursor: default;
@@ -62,7 +62,9 @@
 	}
 }
 
-@include body-class(not-quiz, default) {
+// =============================================
+// DESIGN: Default
+@include body-class(custom-form poll, default, false) {
 
 	.forminator-radio {
 
@@ -78,7 +80,9 @@
 	}
 }
 
-@include body-class(not-quiz, flat) {
+// =============================================
+// DESIGN: Flat
+@include body-class(custom-form poll, flat, false) {
 
 	.forminator-radio {
 
@@ -94,7 +98,9 @@
 	}
 }
 
-@include body-class(not-quiz, bold) {
+// =============================================
+// DESIGN: Bold
+@include body-class(custom-form poll, bold, false) {
 
 	.forminator-radio {
 
@@ -110,7 +116,9 @@
 	}
 }
 
-@include body-class(not-quiz, material) {
+// =============================================
+// DESIGN: Material
+@include body-class(custom-form poll, material, false) {
 
 	.forminator-radio {
 
