@@ -18,9 +18,16 @@
 
 		&,
 		&:hover,
+		&:focus,
 		&:active {
 			outline: none;
 			box-shadow: none;
+		}
+
+		&:disabled {
+			@include opacity(0.5);
+			user-select: none;
+			pointer-events: none;
 		}
 
 		&:last-child {
