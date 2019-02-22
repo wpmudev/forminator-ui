@@ -36,6 +36,8 @@
 	}
 }
 
+// =============================================
+// DESIGN: Default
 @include body-class(all, default, false) {
 
 	.forminator-button {
@@ -44,6 +46,8 @@
 	}
 }
 
+// =============================================
+// DESIGN: Flat
 @include body-class(all, flat, false) {
 
 	.forminator-button {
@@ -52,6 +56,8 @@
 	}
 }
 
+// =============================================
+// DESIGN: Bold
 @include body-class(all, bold, false) {
 
 	.forminator-button {
@@ -61,6 +67,8 @@
 	}
 }
 
+// =============================================
+// DESIGN: Material
 @include body-class(all, material, false) {
 
 	.forminator-button {
