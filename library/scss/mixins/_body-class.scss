@@ -38,7 +38,9 @@
 					}
 				}
 			}
-		} @else {
+		}
+
+		@else {
 
 			.forminator-custom-form,
 			.forminator-poll,
@@ -113,35 +115,16 @@
 
 	@else {
 
-		@if ($module-theme == all) {
+		@each $type in $module-type {
 
-			.forminator-#{$module-type} {
+			.forminator-#{$type} {
 
-				&.forminator-design--default,
-				&.forminator-design--flat,
-				&.forminator-design--bold,
-				&.forminator-design--material {
+				@if ($module-theme == all) {
 
-					@if ($mobile == true) {
-
-						&:not(.forminator-size--small) {
-							@content;
-						}
-
-					} @else {
-
-						@content;
-
-					}
-				}
-			}
-		} @else {
-
-			.forminator-#{$module-type} {
-
-				@each $theme in $module-theme {
-
-					&.forminator-design--#{$theme} {
+					&.forminator-design--default,
+					&.forminator-design--flat,
+					&.forminator-design--bold,
+					&.forminator-design--material {
 
 						@if ($mobile == true) {
 
@@ -153,6 +136,27 @@
 
 							@content;
 
+						}
+					}
+				}
+
+				@else {
+
+					@each $theme in $module-theme {
+
+						&.forminator-design--#{$theme} {
+
+							@if ($mobile == true) {
+
+								&:not(.forminator-size--small) {
+									@content;
+								}
+
+							} @else {
+
+								@content;
+
+							}
 						}
 					}
 				}
