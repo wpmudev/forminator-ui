@@ -1,8 +1,10 @@
 $int-flag-size: 20px;
 
-@include body-class(custom-form) {}
+@include body-class(custom-form, all, false) {}
 
-@include body-class(custom-form, default) {
+// =============================================
+// DESIGN: Default
+@include body-class(custom-form, default, false) {
 
 	.forminator-phone {
 		display: block;
@@ -74,8 +76,14 @@ $int-flag-size: 20px;
 	}
 }
 
-@include body-class(custom-form, flat) {}
+// =============================================
+// DESIGN: Flat
+@include body-class(custom-form, flat, false) {}
 
-@include body-class(custom-form, bold) {}
+// =============================================
+// DESIGN: Bold
+@include body-class(custom-form, bold, false) {}
 
-@include body-class(custom-form, material) {}
+// =============================================
+// DESIGN: Material
+@include body-class(custom-form, material, false) {}
