@@ -162,10 +162,6 @@
 								font-weight: 600;
 							}
 						}
-
-						&.ui-datepicker-unselectable {
-							cursor: not-allowed;
-						}
 					}
 				}
 			}
@@ -272,6 +268,23 @@
 							border-style: map-get($border-style, default);
 							border-radius: map-get($border-radius, default);
 							line-height: #{map-get($calendar, cell-size) - (map-get($border-width, default) * 2) - 4px};
+						}
+
+						&.ui-state-disabled,
+						&.ui-datepicker-unselectable {
+
+							a, span {
+								cursor: not-allowed;
+								user-select: none;
+								@include opacity(0.3);
+							}
+
+							&.ui-datepicker-other-month {
+
+								a, span {
+									cursor: default;
+								}
+							}
 						}
 					}
 				}
