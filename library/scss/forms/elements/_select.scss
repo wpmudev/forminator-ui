@@ -1,4 +1,4 @@
-@include body-class(custom-form) {
+@include body-class(custom-form, all, false) {
 
 	.forminator-select-container {
 		display: block;
@@ -85,7 +85,9 @@
 	}
 }
 
-@include body-class(custom-form, default) {
+// =============================================
+// DESIGN: Default
+@include body-class(custom-form, default, false) {
 
 	.forminator-select-container {
 
@@ -132,7 +134,9 @@
 	}
 }
 
-@include body-class(custom-form, flat) {
+// =============================================
+// DESIGN: Flat
+@include body-class(custom-form, flat, false) {
 
 	.forminator-select-container {
 
@@ -159,7 +163,9 @@
 	}
 }
 
-@include body-class(custom-form, bold) {
+// =============================================
+// DESIGN: Bold
+@include body-class(custom-form, bold, false) {
 
 	.forminator-select-container {
 
@@ -202,7 +208,9 @@
 	}
 }
 
-@include body-class(custom-form, material) {
+// =============================================
+// DESIGN: Material
+@include body-class(custom-form, material, false) {
 
 	.forminator-select-container {
 
