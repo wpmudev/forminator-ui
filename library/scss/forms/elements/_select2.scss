@@ -79,6 +79,8 @@
 	}
 }
 
+// =============================================
+// DESIGN: Default
 @include body-class(custom-form, default, false) {
 
 	.forminator-select2 {
@@ -121,6 +123,8 @@
 	}
 }
 
+// =============================================
+// DESIGN: Flat
 @include body-class(custom-form, flat, false) {
 
 	.forminator-select2 {
@@ -137,6 +141,8 @@
 	}
 }
 
+// =============================================
+// DESIGN: Bold
 @include body-class(custom-form, bold, false) {
 
 	.forminator-select2 {
@@ -175,6 +181,8 @@
 	}
 }
 
+// =============================================
+// DESIGN: Material
 @include body-class(custom-form, material, false) {
 
 	.forminator-select2 {
