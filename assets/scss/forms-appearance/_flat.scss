@@ -349,6 +349,66 @@
 		}
 	}
 
+	// ELEMENT: Pagination Steps
+	.forminator-pagination-steps {
+
+		.forminator-break {
+			background-color: #777771;
+
+			&:before {
+				background-color: #17A8E3;
+			}
+		}
+
+		.forminator-step {
+
+			.forminator-step-label {
+				color: #17A8E3;
+				font-size: 12px;
+				font-family: inherit;
+				font-weight: 500;
+			}
+
+			.forminator-step-dot {
+				background-color: #17A8E3;
+			}
+
+			&.forminator-current {
+
+				~ .forminator-step {
+
+					.forminator-step-label {
+						color: #777771;
+					}
+
+					.forminator-step-dot {
+						background-color: #777771;
+					}
+				}
+			}
+		}
+	}
+
+	// ELEMENT: Pagination Buttons
+	.forminator-button-back,
+	.forminator-button-next {
+		background-color: $submit-static--background;
+		color: $submit-static--color;
+		font-size: $submit-font-size;
+		font-family: $submit-font-family;
+		font-weight: $submit-font-weight;
+
+		&:hover {
+			background-color: $submit-hover--background;
+			color: $submit-hover--color;
+		}
+
+		&:active {
+			background-color: $submit-active--background;
+			color: $submit-active--color;
+		}
+	}
+
 	// ============================================================
 	// STATE: Hover
 	.forminator-is_hover {
