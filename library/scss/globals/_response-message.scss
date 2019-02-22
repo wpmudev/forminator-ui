@@ -1,6 +1,7 @@
-@include body-class() {
+@include body-class(all, all, false) {
 
 	.forminator-response-message {
+		margin: 0 0 $gutter-sm;
 
 		p {
 			margin: 0;
@@ -33,13 +34,15 @@
 		&.forminator-accessible {
 			@extend %screen-readers;
 		}
+	}
+}
 
-		@include media(max-width, sm) {
-			margin: 0 0 $gutter-sm;
-		}
+@include body-class(all, all, true) {
+
+	.forminator-response-message {
 
 		@include media(min-width, sm) {
-			margin: 0 0 $gutter;
+			margin-bottom: $gutter;
 		}
 	}
 }
