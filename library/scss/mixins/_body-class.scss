@@ -10,7 +10,7 @@
 //    @include body-class(quiz, flat) { ... }
 // =============================================
 
-@mixin body-class($module-type: all, $module-theme: all, $mobile: false) {
+@mixin body-class($module-type: all, $module-theme: all, $desktop: false) {
 
 	@if ($module-type == all) {
 
@@ -25,7 +25,7 @@
 				&.forminator-design--bold,
 				&.forminator-design--material {
 
-					@if ($mobile == true) {
+					@if ($desktop == true) {
 
 						&:not(.forminator-size--small) {
 							@content;
@@ -50,7 +50,7 @@
 
 					&.forminator-design--#{$theme} {
 
-						@if ($mobile == true) {
+						@if ($desktop == true) {
 
 							&:not(.forminator-size--small) {
 								@content;
@@ -61,52 +61,6 @@
 							@content;
 
 						}
-					}
-				}
-			}
-		}
-	}
-
-	@else if ($module-type == not-quiz) {
-
-		.forminator-custom-form,
-		.forminator-poll {
-
-			@if ($module-theme == all) {
-
-				&.forminator-design--default,
-				&.forminator-design--flat,
-				&.forminator-design--bold,
-				&.forminator-design--material {
-
-					@if ($mobile == true) {
-
-						&:not(.forminator-size--small) {
-							@content;
-						}
-
-					} @else {
-
-						@content;
-
-					}
-				}
-			}
-
-			@else {
-
-				&.forminator-design--#{$module-theme} {
-
-					@if ($mobile == true) {
-
-						&:not(.forminator-size--small) {
-							@content;
-						}
-
-					} @else {
-
-						@content;
-
 					}
 				}
 			}
@@ -126,7 +80,7 @@
 					&.forminator-design--bold,
 					&.forminator-design--material {
 
-						@if ($mobile == true) {
+						@if ($desktop == true) {
 
 							&:not(.forminator-size--small) {
 								@content;
@@ -146,7 +100,7 @@
 
 						&.forminator-design--#{$theme} {
 
-							@if ($mobile == true) {
+							@if ($desktop == true) {
 
 								&:not(.forminator-size--small) {
 									@content;
