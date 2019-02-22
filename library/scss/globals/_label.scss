@@ -1,4 +1,4 @@
-@include body-class(not-quiz) {
+@include body-class(custom-form poll, all, false) {
 
 	.forminator-label,
 	.forminator-error-message {
@@ -44,7 +44,9 @@
 	}
 }
 
-@include body-class(not-quiz, default) {
+// =============================================
+// DESIGN: Default
+@include body-class(custom-form poll, default, false) {
 
 	.forminator-error-message {
 		padding: 2px 10px;
@@ -52,7 +54,9 @@
 	}
 }
 
-@include body-class(not-quiz, flat) {
+// =============================================
+// DESIGN: Flat
+@include body-class(custom-form poll, flat, false) {
 
 	.forminator-error-message {
 		padding: 2px 10px;
@@ -60,7 +64,9 @@
 	}
 }
 
-@include body-class(not-quiz, bold) {
+// =============================================
+// DESIGN: Bold
+@include body-class(custom-form poll, bold, false) {
 
 	.forminator-error-message {
 		padding: 2px 10px;
@@ -68,7 +74,9 @@
 	}
 }
 
-@include body-class(not-quiz, material) {
+// =============================================
+// DESIGN: Material
+@include body-class(custom-form poll, material, false) {
 
 	.forminator-label {
 		line-height: 20px;
