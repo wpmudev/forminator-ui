@@ -26,6 +26,7 @@
 		padding: 0;
 		border: 0;
 		display: flex;
+		flex: 0 0 auto;
 		align-items: center;
 		justify-content: center;
 		font-size: map-get($button, icon-size);
