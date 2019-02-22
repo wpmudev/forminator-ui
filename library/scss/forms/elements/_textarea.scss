@@ -1,4 +1,4 @@
-@include body-class(custom-form) {
+@include body-class(custom-form, all, false) {
 
 	.forminator-textarea {
 		width: 100%;
@@ -29,19 +29,19 @@
 		&:disabled {
 			pointer-events: none;
 			border-style: dotted;
-	
+
 			&:-moz-placeholder {
 				@include opacity(0.4);
 			}
-		
+
 			&::-moz-placeholder {
 				@include opacity(0.4);
 			}
-	
+
 			&:-ms-input-placeholder {
 				@include opacity(0.4);
 			}
-	
+
 			&::-webkit-input-placeholder {
 				@include opacity(0.4);
 			}
@@ -51,7 +51,7 @@
 
 // =============================================
 // DESIGN: Default
-@include body-class(custom-form, default) {
+@include body-class(custom-form, default, false) {
 
 	.forminator-textarea {
 		padding: #{$textarea--padding - $default--border-width};
@@ -63,7 +63,7 @@
 
 // =============================================
 // DESIGN: Flat
-@include body-class(custom-form, flat) {
+@include body-class(custom-form, flat, false) {
 
 	.forminator-textarea {
 		padding: $textarea--padding;
@@ -74,7 +74,7 @@
 
 // =============================================
 // DESIGN: Bold
-@include body-class(custom-form, bold) {
+@include body-class(custom-form, bold, false) {
 
 	.forminator-textarea {
 		padding: #{$textarea--padding - $bold--border-width};
@@ -86,7 +86,7 @@
 
 // =============================================
 // DESIGN: Material
-@include body-class(custom-form, material) {
+@include body-class(custom-form, material, false) {
 
 	.forminator-textarea {
 		padding: #{30px - $material--border-width} #{$input--padding - $material--border-width} #{$input--padding - $material--border-width};
