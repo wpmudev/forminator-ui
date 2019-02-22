@@ -1,4 +1,4 @@
-@include body-class() {
+@include body-class(custom-form poll, all, false) {
 
 	.forminator-input {
 		width: 100%;
@@ -86,7 +86,7 @@
 
 // =============================================
 // DESIGN: Default
-@include body-class(custom-form, default) {
+@include body-class(custom-form poll, default, false) {
 
 	.forminator-input {
 		padding: #{map-get($input, padding) - map-get($border-width, default)};
@@ -113,7 +113,7 @@
 
 // =============================================
 // DESIGN: Flat
-@include body-class(custom-form, flat) {
+@include body-class(custom-form poll, flat, false) {
 
 	.forminator-input {
 		padding: map-get($input, padding);
@@ -140,7 +140,7 @@
 
 // =============================================
 // DESIGN: Bold
-@include body-class(custom-form, bold) {
+@include body-class(custom-form poll, bold, false) {
 
 	.forminator-input {
 		padding: #{map-get($input, padding) - map-get($border-width, bold)};
@@ -167,7 +167,7 @@
 
 // =============================================
 // DESIGN: Material
-@include body-class(custom-form, material) {
+@include body-class(custom-form poll, material, false) {
 
 	.forminator-input {
 		padding: map-get($input, padding) 0 #{map-get($input, padding) - map-get($border-width, material)};
