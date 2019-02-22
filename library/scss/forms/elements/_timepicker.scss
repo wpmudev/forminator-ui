@@ -1,9 +1,12 @@
-@include body-class(custom-form) {
+@include body-class(custom-form, all, true) {
 
 	.forminator-timepicker {
 
 		.forminator-row {
-			align-items: flex-end;
+
+			@include media(min-width, sm) {
+				align-items: flex-end;
+			}
 		}
 	}
 }
