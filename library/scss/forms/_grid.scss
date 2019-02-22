@@ -1,4 +1,4 @@
-@include body-class(custom-form, all, false) {
+@include body-class(custom-form, default flat bold material none, false) {
 
 	// SPACING: Default
 	&:not(.forminator-enclosed):not(.forminator-custom) {
@@ -51,7 +51,7 @@
 	}
 }
 
-@include body-class(custom-form, all, true) {
+@include body-class(custom-form, default flat bold material none, true) {
 
 	// ELEMENT: Row
 	.forminator-row {
