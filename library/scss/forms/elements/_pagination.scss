@@ -1,9 +1,21 @@
-@include body-class(custom-form) {
+@include body-class(custom-form, all, false) {
 
-	.forminator-pagination {
+	.forminator-pagination-content {
+		display: block;
 
-		// ELEMENT: Content
-		&-content {
+		&, li {
+			margin: 0;
+			padding: 0;
+			border: 0;
+			list-style: none;
+
+			&:before,
+			&:after {
+				content: unset;
+			}
+		}
+
+		li {
 			display: none;
 			visibility: hidden;
 
@@ -12,159 +24,56 @@
 				box-shadow: none;
 			}
 
-			&.forminator-show {
+			&.forminator-current {
 				display: block;
 				visibility: visible;
 			}
-
-			@include media(min-width, sm) {
-				margin: 0 0 $gutter;
-			}
 		}
+	}
 
-		// ELEMENT: Footer
-		&-footer {
+	.forminator-pagination-footer {
+		display: block;
+		margin: $gutter-sm 0 0;
 
-			@include media(min-width, sm) {
-				display: flex;
-				justify-content: space-between;
-			}
-		}
-
-		// ELEMENT: Steps
-		&-steps {
+		.forminator-button {
+			width: 100%;
 			display: block;
-			margin: 0 0 $gutter-sm;
+			margin-right: 0;
+			margin-bottom: $gutter-sm;
 
-			.forminator-break {
-				display: block;
-				position: relative;
-
-				&:before {
-					content: " ";
-					width: 100%;
-					display: block;
-					position: absolute;
-					left: 0;
-					transition: map-get($transition, linear);
-				}
-
-				&:first-child,
-				&:last-child {
-					display: none;
-
-					@include media(min-width, sm) {
-						display: block;
-					}
-				}
-
-				@include media(min-width, sm) {
-					width: auto;
-					flex: 1;
-				}
-			}
-
-			.forminator-step {
-				display: flex;
-				flex-direction: row-reverse;
-				justify-content: flex-end;
-				align-items: center;
-
-				.forminator-step-label {
-					display: block;
-					flex: 0 0 auto;
-					line-height: 1.6em;
-
-					+ .forminator-step-dot {
-						margin-right: 5px;
-
-						@include media(min-width, sm) {
-							margin-top: 5px;
-							margin-right: 0;
-						}
-					}
-
-					@include media(min-width, sm) {
-						flex: 0 0 auto;
-						text-align: center;
-					}
-				}
-
-				.forminator-step-dot {
-					flex: 0 0 auto;
-				}
-
-				&.forminator-current {
-
-					~ .forminator-break {
-
-						&:before {
-							width: 0;
-						}
-					}
-				}
-
-				@include media(min-width, sm) {
-					flex: 0 0 auto;
-					flex-direction: column;
-					justify-content: unset;
-				}
-			}
-
-			@include media(min-width, sm) {
-				display: flex;
-				flex-direction: row;
-				align-items: flex-end;
-				margin-bottom: $gutter;
+			&:last-child {
+				margin-bottom: 0;
 			}
 		}
-
-		// ELEMENT: Progress
-		&-progress {}
 	}
 }
 
-@include body-class(custom-form, default) {
+@include body-class(custom-form, all, true) {
 
-	.forminator-pagination {
+	.forminator-pagination-footer {
 
-		// ELEMENT: Steps
-		&-steps {
+		.forminator-button {
 
-			.forminator-break {
-				width: map-get($border-width, default);
-				height: #{15px * 2};
-				margin: 0 #{(15px - map-get($border-width, default)) / 2};
-
-				&:before {
-					top: -#{map-get($border-width, default)};
-					height: #{map-get($border-width, default) * 3};
-				}
+			&:last-child {
 
 				@include media(min-width, sm) {
-					height: map-get($border-width, default);
-					margin: #{(15px - map-get($border-width, default)) / 2} 0;
+					margin-right: 0;
 				}
 			}
 
-			.forminator-step {
-				height: 15px;
-
-				.forminator-step-dot {
-					width: 15px;
-					height: 15px;
-					display: block;
-					flex: 0 0 auto;
-					border-width: map-get($border-width, default);
-					border-style: map-get($border-style, default);
-					border-radius: 20px;
-				}
-
-				@include media(min-width, sm) {
-					width: 15px;
-					height: auto;
-				}
+			@include media(min-width, sm) {
+				width: auto;
+				flex: 0 0 auto;
+				margin-right: #{$gutter / 2};
+				margin-bottom: 0;
 			}
+		}
+
+		@include media(min-width, sm) {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			margin: $gutter 0 0;
 		}
 	}
 }
