@@ -49,7 +49,7 @@
 
 // =============================================
 // DESIGN: Default
-@include body-class(all, default) {
+@include body-class(all, default, false) {
 
 	.forminator-response-message {
 		padding: 15px 20px 15px 22px;
@@ -60,7 +60,7 @@
 
 // =============================================
 // DESIGN: Flat
-@include body-class(all, flat) {
+@include body-class(all, flat, false) {
 
 	.forminator-response-message {
 		padding: 15px 10px;
@@ -71,7 +71,7 @@
 
 // =============================================
 // DESIGN: Bold
-@include body-class(all, bold) {
+@include body-class(all, bold, false) {
 
 	.forminator-response-message {
 		padding: 15px 20px 15px 22px;
@@ -82,7 +82,7 @@
 
 // =============================================
 // DESIGN: Material
-@include body-class(all, material) {
+@include body-class(all, material, false) {
 
 	.forminator-response-message {
 		padding: 15px 20px 15px 22px;
