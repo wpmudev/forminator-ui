@@ -1,13 +1,21 @@
-@include body-class(custom-form) {
+@include body-class(custom-form, all, false) {
 	width: 100%;
+	margin: $gutter 0;
 	box-sizing: border-box;
 	@extend %text-reset;
 
 	&:first-child {
+		margin-top: 0;
+	}
 
-		@include media(max-width, sm) {
-			margin-top: 0;
-		}
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+@include body-class(custom-form, all, true) {
+
+	&:first-child {
 
 		@include media(min-width, sm) {
 			margin-top: 0;
@@ -16,17 +24,9 @@
 
 	&:last-child {
 
-		@include media(max-width, sm) {
-			margin-bottom: 0;
-		}
-
 		@include media(min-width, sm) {
 			margin-bottom: 0;
 		}
-	}
-
-	@include media(max-width, sm) {
-		margin: $gutter-sm 0;
 	}
 
 	@include media(min-width, sm) {
