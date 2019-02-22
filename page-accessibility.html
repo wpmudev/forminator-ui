@@ -49,25 +49,25 @@
 						id="sample-form"
 						class="forminator-custom-form"
 						data-id="62"
-						data-design="default"
+						data-design="material"
 						role="form"
 					>
 
 						<div class="forminator-response-message" aria-hidden="true"></div>
 
 						<!-- PAGINATION: Steps -->
-						<div class="forminator-pagination-steps" aria-hidden="true">
+						<div class="forminator-pagination-steps" style="display: none;" aria-hidden="true">
 
 							<div class="forminator-break"></div>
 
-							<div class="forminator-step forminator-current">
+							<div class="forminator-step">
 								<span class="forminator-step-label">Information</span>
 								<span class="forminator-step-dot"></span>
 							</div>
 
 							<div class="forminator-break"></div>
 
-							<div class="forminator-step">
+							<div class="forminator-step forminator-current">
 								<span class="forminator-step-label">Services</span>
 								<span class="forminator-step-dot"></span>
 							</div>
@@ -83,108 +83,123 @@
 
 						</div>
 
-						<!-- PAGINATION: Step 1 -->
-						<div
-							class="forminator-pagination-content forminator-show"
-							data-step="1"
-							data-label="Information"
-							tabindex="-1"
-						>
+						<!-- PAGINATION: Progress -->
+						<div class="forminator-pagination-progress" aria-hidden="true">
 
-							<!-- FIELD: Section -->
-							<div class="forminator-row">
 
-								<div class="forminator-col">
-
-									<span class="forminator-title">Personal Information</span>
-
-								</div>
-
-							</div>
-
-							<!-- FIELD: Name -->
-							<div class="forminator-row">
-								<div class="forminator-col" data-field="name-multiple" data-required="true"></div>
-							</div>
-
-							<!-- FIELD: Email -->
-							<div class="forminator-row">
-								<div class="forminator-col" data-field="email" data-required="true"></div>
-							</div>
 
 						</div>
 
-						<!-- PAGINATION: Step 2 -->
-						<div
-							class="forminator-pagination-content"
-							data-step="2"
-							data-label="Services"
-							aria-hidden="true"
-						>
+						<ol class="forminator-pagination-content">
 
-							<!-- FIELD: Section -->
-							<div class="forminator-row">
+							<!-- PAGINATION: Step 1 -->
+							<li
+								class="forminator-pagination-content forminator-current"
+								data-step="1"
+								data-label="Information"
+								tabindex="-1"
+							>
 
-								<div class="forminator-col">
+								<!-- FIELD: Section -->
+								<div class="forminator-row">
 
-									<div class="forminator-section">
-										<span class="forminator-title">Pick Services</span>
+									<div class="forminator-col">
+
+										<span class="forminator-title">Personal Information</span>
+
 									</div>
 
 								</div>
 
-							</div>
+								<!-- FIELD: Name -->
+								<div class="forminator-row">
+									<div class="forminator-col" data-field="name-multiple" data-required="true"></div>
+								</div>
 
-							<!-- FIELD: Checkbox & Radio -->
-							<div class="forminator-row">
-								<div class="forminator-col" data-field="checkbox" data-condition="checkbox-option-1"></div>
-								<div class="forminator-col" data-field="radio" data-required="true"></div>
-							</div>
+								<!-- FIELD: Email -->
+								<div class="forminator-row">
+									<div class="forminator-col" data-field="email" data-required="true"></div>
+								</div>
 
-							<!-- FIELD: Multi Select -->
-							<div class="forminator-row">
-								<div class="forminator-col" data-field="select-multiple" data-required="true" data-conditional="true"></div>
-							</div>
+							</li>
 
-						</div>
+							<!-- PAGINATION: Step 2 -->
+							<li
+								class="forminator-pagination-content"
+								data-step="2"
+								data-label="Services"
+								aria-hidden="true"
+							>
 
-						<!-- PAGINATION: Step 3 -->
-						<div
-							class="forminator-pagination-content"
-							data-step="3"
-							data-label="Extras"
-							aria-hidden="true"
-						>
+								<!-- FIELD: Section -->
+								<div class="forminator-row">
 
-							<!-- FIELD: Section -->
-							<div class="forminator-row">
+									<div class="forminator-col">
 
-								<div class="forminator-col">
+										<div class="forminator-section">
+											<span class="forminator-title">Pick Services</span>
+										</div>
 
-									<div class="forminator-section">
-										<span class="forminator-title">Extra Information</span>
 									</div>
 
 								</div>
 
-							</div>
+								<!-- FIELD: Checkbox & Radio -->
+								<div class="forminator-row">
+									<div class="forminator-col" data-field="checkbox" data-condition="checkbox-option-1"></div>
+									<div class="forminator-col" data-field="radio" data-required="true"></div>
+								</div>
 
-							<!-- FIELD: Textarea -->
-							<div class="forminator-row">
-								<div class="forminator-col" data-field="textarea"></div>
-							</div>
+								<!-- FIELD: Multi Select -->
+								<div class="forminator-row">
+									<div class="forminator-col" data-field="select-multiple" data-required="true" data-conditional="true"></div>
+								</div>
 
-						</div>
+							</li>
+
+							<!-- PAGINATION: Step 3 -->
+							<li
+								class="forminator-pagination-content"
+								data-step="3"
+								data-label="Extras"
+								aria-hidden="true"
+							>
+
+								<!-- FIELD: Section -->
+								<div class="forminator-row">
+
+									<div class="forminator-col">
+
+										<div class="forminator-section">
+											<span class="forminator-title">Extra Information</span>
+										</div>
+
+									</div>
+
+								</div>
+
+								<!-- FIELD: Textarea -->
+								<div class="forminator-row">
+									<div class="forminator-col" data-field="textarea"></div>
+								</div>
+
+							</li>
+
+						</ol>
 
 						<!-- PAGINATION: Footer -->
 						<div class="forminator-pagination-footer">
 
-							<button class="forminator-button forminator-button-back">
+							<button
+								class="forminator-button forminator-button-back"
+								aria-hidden="true"
+								disabled
+							>
 								<span>Back</span>
 								<span aria-hidden="true"></span>
 							</button>
 
-							<button class="forminator-button forminator-button-next">
+							<button class="forminator-button forminator-button-next" data-label-submit="Submit">
 								<span>Next</span>
 								<span aria-hidden="true"></span>
 							</button>
