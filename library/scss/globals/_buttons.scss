@@ -1,4 +1,4 @@
-@include body-class() {
+@include body-class(all, all, false) {
 
 	.forminator-button {
 		width: auto;
@@ -36,7 +36,7 @@
 	}
 }
 
-@include body-class(all, default) {
+@include body-class(all, default, false) {
 
 	.forminator-button {
 		padding: 10px;
@@ -44,7 +44,7 @@
 	}
 }
 
-@include body-class(all, flat) {
+@include body-class(all, flat, false) {
 
 	.forminator-button {
 		padding: 10px;
@@ -52,7 +52,7 @@
 	}
 }
 
-@include body-class(all, bold) {
+@include body-class(all, bold, false) {
 
 	.forminator-button {
 		min-width: 120px;
@@ -61,7 +61,7 @@
 	}
 }
 
-@include body-class(all, material) {
+@include body-class(all, material, false) {
 
 	.forminator-button {
 		overflow: hidden;
