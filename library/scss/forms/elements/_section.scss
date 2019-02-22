@@ -42,7 +42,7 @@
 
 		&:first-child {
 
-			@include media(max-height, md) {
+			@include media(max-width, md) {
 				margin-top: 0;
 			}
 
