@@ -1,4 +1,4 @@
-@include body-class(custom-form) {
+@include body-class(custom-form, all, false) {
 
 	.forminator-file-upload {
 		display: flex;
@@ -41,7 +41,9 @@
 	}
 }
 
-@include body-class(custom-form, default) {
+// =============================================
+// DESIGN: Default
+@include body-class(custom-form, default, false) {
 
 	.forminator-button-delete {
 		width: 30px;
@@ -50,7 +52,9 @@
 	}
 }
 
-@include body-class(custom-form, flat) {
+// =============================================
+// DESIGN: Flat
+@include body-class(custom-form, flat, false) {
 
 	.forminator-button-delete {
 		width: 20px;
@@ -59,7 +63,9 @@
 	}
 }
 
-@include body-class(custom-form, bold) {
+// =============================================
+// DESIGN: Bold
+@include body-class(custom-form, bold, false) {
 
 	.forminator-button-delete {
 		width: 30px;
@@ -68,7 +74,9 @@
 	}
 }
 
-@include body-class(custom-form, material) {
+// =============================================
+// DESIGN: Material
+@include body-class(custom-form, material, false) {
 
 	.forminator-button-delete {
 		width: 30px;
