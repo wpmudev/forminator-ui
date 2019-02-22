@@ -10,11 +10,11 @@
 //    @include body-class(quiz, flat) { ... }
 // =============================================
 
-@mixin body-class($module-type: all, $module-theme: null) {
+@mixin body-class($module-type: all, $module-theme: all, $mobile: false) {
 
 	@if ($module-type == all) {
 
-		@if ($module-theme == null) {
+		@if ($module-theme == all) {
 
 			.forminator-custom-form,
 			.forminator-poll,
@@ -24,7 +24,18 @@
 				&.forminator-design--flat,
 				&.forminator-design--bold,
 				&.forminator-design--material {
-					@content;
+
+					@if ($mobile == true) {
+
+						&:not(.forminator-size--small) {
+							@content;
+						}
+
+					} @else {
+
+						@content;
+
+					}
 				}
 			}
 		} @else {
@@ -33,8 +44,22 @@
 			.forminator-poll,
 			.forminator-quiz {
 
-				&.forminator-design--#{$module-theme} {
-					@content;
+				@each $theme in $module-theme {
+
+					&.forminator-design--#{$theme} {
+
+						@if ($mobile == true) {
+
+							&:not(.forminator-size--small) {
+								@content;
+							}
+
+						} @else {
+
+							@content;
+
+						}
+					}
 				}
 			}
 		}
@@ -45,20 +70,42 @@
 		.forminator-custom-form,
 		.forminator-poll {
 
-			@if ($module-theme == null) {
+			@if ($module-theme == all) {
 
 				&.forminator-design--default,
 				&.forminator-design--flat,
 				&.forminator-design--bold,
 				&.forminator-design--material {
-					@content;
+
+					@if ($mobile == true) {
+
+						&:not(.forminator-size--small) {
+							@content;
+						}
+
+					} @else {
+
+						@content;
+
+					}
 				}
 			}
 
 			@else {
 
 				&.forminator-design--#{$module-theme} {
-					@content;
+
+					@if ($mobile == true) {
+
+						&:not(.forminator-size--small) {
+							@content;
+						}
+
+					} @else {
+
+						@content;
+
+					}
 				}
 			}
 		}
@@ -66,7 +113,7 @@
 
 	@else {
 
-		@if ($module-theme == null) {
+		@if ($module-theme == all) {
 
 			.forminator-#{$module-type} {
 
@@ -74,13 +121,41 @@
 				&.forminator-design--flat,
 				&.forminator-design--bold,
 				&.forminator-design--material {
-					@content;
+
+					@if ($mobile == true) {
+
+						&:not(.forminator-size--small) {
+							@content;
+						}
+
+					} @else {
+
+						@content;
+
+					}
 				}
 			}
 		} @else {
 
-			.forminator-#{$module-type}.forminator-design--#{$module-theme} {
-				@content;
+			.forminator-#{$module-type} {
+
+				@each $theme in $module-theme {
+
+					&.forminator-design--#{$theme} {
+
+						@if ($mobile == true) {
+
+							&:not(.forminator-size--small) {
+								@content;
+							}
+
+						} @else {
+
+							@content;
+
+						}
+					}
+				}
 			}
 		}
 	}
