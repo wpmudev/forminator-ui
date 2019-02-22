@@ -1,0 +1,416 @@
+@include body-class(custom-form, default flat bold, false) {
+
+	.forminator-pagination-steps {
+		display: block;
+		margin: 0 0 $gutter-sm;
+
+		.forminator-break {
+			display: block;
+			position: relative;
+			z-index: -1;
+
+			&:before {
+				content: " ";
+				height: 100%;
+				display: block;
+				position: absolute;
+				top: 0;
+				transition: map-get($transition, linear);
+			}
+
+			&:first-child,
+			&:last-child {
+				display: none;
+			}
+		}
+
+		.forminator-step {
+			display: flex;
+			flex-direction: row-reverse;
+			justify-content: flex-end;
+			align-items: center;
+
+			.forminator-step-label {
+				overflow: hidden;
+				display: block;
+				flex: 1;
+				line-height: 1.6em;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+
+				+ .forminator-step-dot {
+					margin-right: 5px;
+				}
+			}
+
+			.forminator-step-dot {
+				display: block;
+			}
+
+			&.forminator-current {
+
+				~ .forminator-break {
+
+					&:before {
+						height: 0;
+					}
+				}
+			}
+		}
+	}
+}
+
+@include body-class(custom-form, default flat bold, true) {
+
+	.forminator-pagination-steps {
+
+		.forminator-break {
+
+			&:before {
+
+				@include media(min-width, sm) {
+					width: 100%;
+					left: 0;
+				}
+			}
+
+			&:first-child,
+			&:last-child {
+
+				@include media(min-width, sm) {
+					display: block;
+				}
+			}
+
+			@include media(min-width, sm) {
+				width: auto;
+				flex: 1;
+			}
+		}
+
+		.forminator-step {
+
+			.forminator-step-label {
+
+				+ .forminator-step-dot {
+
+					@include media(min-width, sm) {
+						margin-top: 5px;
+						margin-right: 0;
+					}
+				}
+
+				@include media(min-width, sm) {
+					overflow: unset;
+					text-align: center;
+					text-overflow: unset;
+					white-space: normal;
+				}
+			}
+
+			&.forminator-current {
+
+				~ .forminator-break {
+
+					&:before {
+
+						@include media(min-width, sm) {
+							width: 0;
+						}
+					}
+				}
+			}
+
+			@include media(min-width, sm) {
+				flex: 0 0 auto;
+				flex-direction: column;
+				justify-content: unset;
+			}
+		}
+
+		@include media(min-width, sm) {
+			display: flex;
+			flex-direction: row;
+			align-items: flex-end;
+			margin-bottom: $gutter;
+		}
+	}
+}
+
+@include body-class(custom-form, default, false) {
+
+	.forminator-pagination-steps {
+
+		.forminator-break {
+			width: map-get($border-width, default);
+			height: #{map-get($pagination-dot, default) * 2};
+			margin: 0 #{(map-get($pagination-dot, default) - map-get($border-width, default)) / 2};
+
+			&:before {
+				width: #{map-get($border-width, default) * 3};
+				left: -#{map-get($border-width, default)};
+			}
+		}
+
+		.forminator-step {
+			height: map-get($pagination-dot, default);
+
+			.forminator-step-dot {
+				width: map-get($pagination-dot, default);
+				height: map-get($pagination-dot, default);
+				flex: 0 0 map-get($pagination-dot, default);
+				border-width: map-get($border-width, default);
+				border-style: map-get($border-style, default);
+				border-radius: #{map-get($pagination-dot, default) * 2};
+			}
+		}
+	}
+}
+
+@include body-class(custom-form, default, true) {
+
+	.forminator-pagination-steps {
+
+		.forminator-break {
+
+			&:before {
+
+				@include media(min-width, sm) {
+					height: #{map-get($border-width, default) * 3};
+					top: -#{map-get($border-width, default)};
+				}
+			}
+
+			@include media(min-width, sm) {
+				height: map-get($border-width, default);
+				margin: #{(map-get($pagination-dot, default) - map-get($border-width, default)) / 2} 0;
+			}
+		}
+
+		.forminator-step {
+
+			@include media(min-width, sm) {
+				width: map-get($pagination-dot, default);
+				height: auto;
+			}
+		}
+	}
+}
+
+@include body-class(custom-form, flat, false) {
+
+	.forminator-pagination-steps {
+
+		.forminator-break {
+			width: 1px;
+			height: #{map-get($pagination-dot, flat) * 2};
+			margin: 0 #{map-get($pagination-dot, flat) / 2};
+
+			&:before {
+				width: 3px;
+				left: -1px;
+			}
+		}
+
+		.forminator-step {
+			height: map-get($pagination-dot, flat);
+
+			.forminator-step-dot {
+				width: map-get($pagination-dot, flat);
+				height: map-get($pagination-dot, flat);
+				flex: 0 0 map-get($pagination-dot, flat);
+				border-width: map-get($border-width, flat);
+				border-style: map-get($border-style, flat);
+				border-radius: #{map-get($pagination-dot, flat) * 2};
+				transform: scale(1.3);
+				transform-origin: center;
+				transition: map-get($transition, linear);
+			}
+
+			&.forminator-current {
+
+				~ .forminator-step {
+
+					.forminator-step-dot {
+						transform: scale(1);
+					}
+				}
+			}
+		}
+	}
+}
+
+@include body-class(custom-form, flat, true) {
+
+	.forminator-pagination-steps {
+
+		.forminator-break {
+
+			&:before {
+
+				@include media(min-width, sm) {
+					height: 3px;
+					top: -1px;
+				}
+			}
+
+			@include media(min-width, sm) {
+				height: 1px;
+				margin: #{map-get($pagination-dot, flat) / 2} 0;
+			}
+		}
+
+		.forminator-step {
+
+			@include media(min-width, sm) {
+				width: map-get($pagination-dot, flat);
+				height: auto;
+			}
+		}
+	}
+}
+
+@include body-class(custom-form, bold, false) {
+
+	.forminator-pagination-steps {
+
+		.forminator-break {
+			width: map-get($border-width, bold);
+			height: #{map-get($pagination-dot, bold) * 2};
+			margin: 0 #{(map-get($pagination-dot, bold) - map-get($border-width, bold)) / 2};
+
+			&:before {
+				content: unset;
+			}
+		}
+
+		.forminator-step {
+			height: map-get($pagination-dot, bold);
+
+			.forminator-step-dot {
+				width: map-get($pagination-dot, bold);
+				height: map-get($pagination-dot, bold);
+				flex: 0 0 map-get($pagination-dot, bold);
+				border-width: map-get($border-width, bold);
+				border-style: map-get($border-style, bold);
+				border-radius: #{map-get($pagination-dot, bold) * 2};
+			}
+		}
+	}
+}
+
+@include body-class(custom-form, bold, true) {
+
+	.forminator-pagination-steps {
+
+		.forminator-break {
+
+			@include media(min-width, sm) {
+				height: map-get($border-width, bold);
+				margin: #{(map-get($pagination-dot, bold) - map-get($border-width, bold)) / 2} 0;
+			}
+		}
+
+		.forminator-step {
+
+			@include media(min-width, sm) {
+				width: map-get($pagination-dot, bold);
+				height: auto;
+			}
+		}
+	}
+}
+
+@include body-class(custom-form, material, false) {
+
+	.forminator-pagination-steps {
+		counter-reset: pagination-steps;
+		margin: 0 0 $gutter-sm;
+
+		.forminator-break {
+			width: map-get($border-width, material);
+			height: map-get($pagination-dot, material);
+			margin: 0 #{(map-get($pagination-dot, material) - map-get($border-width, material)) / 2};
+
+			&:first-child,
+			&:last-child {
+				display: none;
+			}
+		}
+
+		.forminator-step {
+			height: map-get($pagination-dot, material);
+			display: flex;
+			flex-direction: row-reverse;
+			justify-content: flex-end;
+			align-items: center;
+
+			.forminator-step-label {
+				overflow: hidden;
+				display: block;
+				flex: 1;
+				line-height: 1.6em;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+
+				+ .forminator-step-dot {
+					margin-right: 5px;
+				}
+			}
+
+			.forminator-step-dot {
+				width: map-get($pagination-dot, material);
+				height: map-get($pagination-dot, material);
+				border-radius: #{map-get($pagination-dot, material) * 2};
+
+				&:before {
+					display: block;
+					content: counter(pagination-steps);
+					counter-increment: pagination-steps;
+					line-height: map-get($pagination-dot, material);
+					text-align: center;
+				}
+			}
+		}
+	}
+}
+
+@include body-class(custom-form, material, true) {
+
+	.forminator-pagination-steps {
+
+		.forminator-break {
+
+			@include media(min-width, sm) {
+				width: auto;
+				min-width: map-get($pagination-dot, material);
+				height: map-get($border-width, material);
+				flex: 1;
+				margin: 0 #{$gutter / 2};
+			}
+		}
+
+		.forminator-step {
+
+			.forminator-step-label {
+
+				@include media(min-width, sm) {
+					overflow: unset;
+					text-overflow: unset;
+					white-space: normal;
+				}
+			}
+
+			@include media(min-width, sm) {
+				height: auto;
+				flex: 0 1 auto;
+			}
+		}
+
+		@include media(min-width, sm) {
+			display: flex;
+			align-items: center;
+			margin-bottom: $gutter;
+		}
+	}
+}
