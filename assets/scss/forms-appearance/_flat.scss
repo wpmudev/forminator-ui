@@ -389,6 +389,25 @@
 		}
 	}
 
+	// ELEMENT: Pagination Progress
+	.forminator-pagination-progress {
+
+		.forminator-progress-label {
+			color: #777771;
+			font-size: 12px;
+			font-family: inherit;
+			font-weight: 500;
+		}
+
+		.forminator-progress-bar {
+			background-color: #E6E6E6;
+
+			span {
+				background-color: #17A8E3;
+			}
+		}
+	}
+
 	// ELEMENT: Pagination Buttons
 	.forminator-button-back,
 	.forminator-button-next {
