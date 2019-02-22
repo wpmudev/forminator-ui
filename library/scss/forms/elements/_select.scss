@@ -12,6 +12,7 @@
 				cursor: pointer;
 				display: block;
 				line-height: $select--line-height;
+				@extend %text-truncate;
 				transition: $transition--ease;
 			}
 
