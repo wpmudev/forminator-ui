@@ -1,0 +1,64 @@
+@include body-class(custom-form, all, true) {
+
+	.forminator-col-3,
+	.forminator-col-4 {
+
+		.forminator-name {
+
+			&[data-multiple="true"] {
+
+				@include media(min-width, sm) {
+					display: block;
+				}
+			}
+		}
+	}
+
+	// SPACING: Default
+	&:not(.forminator-enclosed):not(.forminator-custom) {
+
+		.forminator-col-3,
+		.forminator-col-4 {
+
+			.forminator-name {
+
+				&[data-multiple="true"] {
+
+					.forminator-col {
+
+						&:not(:last-child) {
+
+							@include media(min-width, sm) {
+								margin-bottom: $gutter;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	// SPACING: Enclosed
+	&.forminator-enclosed {
+
+		.forminator-col-3,
+		.forminator-col-4 {
+
+			.forminator-name {
+
+				&[data-multiple="true"] {
+
+					.forminator-col {
+
+						&:not(:last-child) {
+
+							@include media(min-width, sm) {
+								margin-bottom: $gutter-enclosed;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
