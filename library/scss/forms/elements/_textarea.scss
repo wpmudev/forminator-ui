@@ -3,6 +3,7 @@
 	.forminator-textarea {
 		width: 100%;
 		min-height: $textarea--height;
+		resize: vertical;
 		display: block;
 		margin: 0;
 		padding: 0;
