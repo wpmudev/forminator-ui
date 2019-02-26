@@ -77,6 +77,21 @@
 		}
 	}
 
+	// ELEMENT: Multiple Columns
+	.forminator-col-3,
+	.forminator-col-4 {
+
+		.forminator-row {
+
+			&[data-multiple="true"] {
+
+				@include media(min-width, sm) {
+					display: block;
+				}
+			}
+		}
+	}
+
 	// SPACING: Default
 	&:not(.forminator-enclosed):not(.forminator-custom) {
 
@@ -110,6 +125,27 @@
 				padding: 0 #{$gutter / 2};
 			}
 		}
+
+		// ELEMENT: Multiple Columns
+		.forminator-col-3,
+		.forminator-col-4 {
+
+			.forminator-row {
+
+				&[data-multiple="true"] {
+
+					.forminator-col {
+
+						&:not(:last-child) {
+
+							@include media(min-width, sm) {
+								margin-bottom: $gutter;
+							}
+						}
+					}
+				}
+			}
+		}
 	}
 
 	// SPACING: Enclosed
@@ -136,6 +172,27 @@
 
 			@include media(min-width, sm) {
 				padding: 0 #{$gutter-enclosed / 2};
+			}
+		}
+
+		// ELEMENT: Multiple Columns
+		.forminator-col-3,
+		.forminator-col-4 {
+
+			.forminator-row {
+
+				&[data-multiple="true"] {
+
+					.forminator-col {
+
+						&:not(:last-child) {
+
+							@include media(min-width, sm) {
+								margin-bottom: $gutter-enclosed;
+							}
+						}
+					}
+				}
 			}
 		}
 	}
