@@ -1,21 +1,25 @@
-@include body-class(all, all, false) {
+@include body-class(custom-form, default flat bold material none, false) {
 
-	@each $screen, $size in $fui-breakpoints {
+	.forminator-hide-until-sm {
 
-		.forminator-hide-until-#{$screen} {
-
-			@include media(max-width, $screen) {
-				visibility: none !important;
-				user-select: none !important;
-				display: none !important;
-			}
+		@include media(max-width, sm) {
+			display: none !important;
 		}
+	}
 
-		.forminator-hide-after-#{$screen} {
+	.forminator-hide-after-sm {
 
-			@include media(min-width, $screen) {
-				visibility: none !important;
-				user-select: none !important;
+		@include media(min-width, sm) {
+			display: none !important;
+		}
+	}
+
+	&.forminator-size--small {
+
+		.forminator-col-3,
+		.forminator-col-4 {
+
+			.forminator-hide-until-sm {
 				display: none !important;
 			}
 		}
