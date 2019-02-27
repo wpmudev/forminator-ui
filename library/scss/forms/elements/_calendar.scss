@@ -187,6 +187,23 @@
 
 					td {
 						font-size: 13px;
+
+						&.ui-state-disabled,
+						&.ui-datepicker-unselectable {
+
+							a, span {
+								cursor: not-allowed;
+								user-select: none;
+								@include opacity(0.3);
+							}
+
+							&.ui-datepicker-other-month {
+
+								a, span {
+									cursor: default;
+								}
+							}
+						}
 					}
 				}
 			}
@@ -197,6 +214,7 @@
 		}
 	}
 
+	// DESIGN: Default
 	&.forminator-calendar--default {
 
 		&:before {
@@ -209,7 +227,7 @@
 			padding: #{10px - map-get($border-width, default)};
 
 			.ui-corner-all {
-				border-radius: map-get($border-radius, material);
+				border-radius: map-get($border-radius, default);
 			}
 
 			.ui-datepicker-title {
@@ -269,23 +287,6 @@
 							border-radius: map-get($border-radius, default);
 							line-height: #{map-get($calendar, cell-size) - (map-get($border-width, default) * 2) - 4px};
 						}
-
-						&.ui-state-disabled,
-						&.ui-datepicker-unselectable {
-
-							a, span {
-								cursor: not-allowed;
-								user-select: none;
-								@include opacity(0.3);
-							}
-
-							&.ui-datepicker-other-month {
-
-								a, span {
-									cursor: default;
-								}
-							}
-						}
 					}
 				}
 			}
@@ -299,6 +300,93 @@
 
 						th, td {
 							padding-bottom: #{15px - map-get($border-width, default)};
+						}
+					}
+				}
+			}
+		}
+	}
+
+	// DESIGN: Flat
+	&.forminator-calendar--flat {
+
+		.ui-datepicker-header {
+			padding: #{10px - map-get($border-width, flat)};
+
+			.ui-corner-all {
+				border-radius: 100%;
+			}
+
+			.ui-datepicker-title {
+
+				select {
+					border-width: map-get($border-width, flat);
+					border-style: map-get($border-style, flat);
+					border-radius: map-get($border-radius, flat);
+					padding: 0 #{10px - map-get($border-width, flat)};
+					line-height: #{map-get($calendar, select-size) - map-get($border-width, flat)};
+				}
+			}
+		}
+
+		.ui-datepicker-calendar {
+
+			thead,
+			tbody {
+
+				tr {
+
+					th, td {
+
+						&:first-child {
+							padding-left: #{15px - map-get($border-width, flat)};
+						}
+
+						&:last-child {
+							padding-right: #{15px - map-get($border-width, flat)};
+						}
+					}
+				}
+			}
+
+			thead {
+
+				tr {
+
+					th {
+
+						span {
+							line-height: 1.4em;
+						}
+					}
+				}
+			}
+
+			tbody {
+
+				tr {
+
+					td {
+
+						a, span {
+							border-width: map-get($border-width, flat);
+							border-style: map-get($border-style, flat);
+							border-radius: map-get($border-radius, flat);
+							line-height: #{map-get($calendar, cell-size) - (map-get($border-width, flat) * 2) - 4px};
+						}
+					}
+				}
+			}
+
+			&:last-child {
+
+				thead:last-child,
+				tbody:last-child {
+
+					tr:last-child {
+
+						th, td {
+							padding-bottom: #{15px - map-get($border-width, flat)};
 						}
 					}
 				}
