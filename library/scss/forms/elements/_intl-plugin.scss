@@ -1,16 +1,11 @@
 $int-flag-size: 20px;
 
-@include body-class(custom-form, all, false) {}
-
-// =============================================
-// DESIGN: Default
-@include body-class(custom-form, default, false) {
+@include body-class(custom-form, all, false) {
 
 	.forminator-phone {
 		display: block;
 
 		.flag-container {
-			padding: map-get($border-width, default);
 
 			.selected-flag {
 				width: auto;
@@ -56,6 +51,25 @@ $int-flag-size: 20px;
 			}
 		}
 
+		&:not(.allow-dropdown) {
+
+			.flag-container {
+				pointer-events: none;
+			}
+		}
+	}
+}
+
+// =============================================
+// DESIGN: Default
+@include body-class(custom-form, default, false) {
+
+	.forminator-phone {
+
+		.flag-container {
+			padding: map-get($border-width, default);
+		}
+
 		&.allow-dropdown {
 
 			.forminator-input {
@@ -64,10 +78,6 @@ $int-flag-size: 20px;
 		}
 
 		&:not(.allow-dropdown) {
-
-			.flag-container {
-				pointer-events: none;
-			}
 
 			.forminator-input {
 				padding-right: #{($int-flag-size + (map-get($input, padding) * 2)) + (map-get($input, padding) + map-get($border-width, default))};
@@ -78,11 +88,55 @@ $int-flag-size: 20px;
 
 // =============================================
 // DESIGN: Flat
-@include body-class(custom-form, flat, false) {}
+@include body-class(custom-form, flat, false) {
+
+	.forminator-phone {
+
+		.flag-container {
+			padding: map-get($border-width, flat);
+		}
+
+		&.allow-dropdown {
+
+			.forminator-input {
+				padding-left: #{($int-flag-size + (map-get($input, padding) * 2)) + (map-get($input, padding) + map-get($border-width, flat))};
+			}
+		}
+
+		&:not(.allow-dropdown) {
+
+			.forminator-input {
+				padding-right: #{($int-flag-size + (map-get($input, padding) * 2)) + (map-get($input, padding) + map-get($border-width, flat))};
+			}
+		}
+	}
+}
 
 // =============================================
 // DESIGN: Bold
-@include body-class(custom-form, bold, false) {}
+@include body-class(custom-form, bold, false) {
+
+	.forminator-phone {
+
+		.flag-container {
+			padding: map-get($border-width, bold);
+		}
+
+		&.allow-dropdown {
+
+			.forminator-input {
+				padding-left: #{($int-flag-size + (map-get($input, padding) * 2)) + (map-get($input, padding) + map-get($border-width, bold))};
+			}
+		}
+
+		&:not(.allow-dropdown) {
+
+			.forminator-input {
+				padding-right: #{($int-flag-size + (map-get($input, padding) * 2)) + (map-get($input, padding) + map-get($border-width, bold))};
+			}
+		}
+	}
+}
 
 // =============================================
 // DESIGN: Material
