@@ -1,0 +1,23 @@
+@include body-class(all, all, false) {
+
+	@each $screen, $size in $hui-breakpoints {
+
+		.forminator-hide-until-#{$screen} {
+
+			@include media(max-width, $screen) {
+				visibility: none !important;
+				user-select: none !important;
+				display: none !important;
+			}
+		}
+
+		.forminator-hide-after-#{$screen} {
+
+			@include media(min-width, $screen) {
+				visibility: none !important;
+				user-select: none !important;
+				display: none !important;
+			}
+		}
+	}
+}
