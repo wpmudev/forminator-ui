@@ -1,6 +1,6 @@
 @include body-class(all, all, false) {
 
-	@each $screen, $size in $hui-breakpoints {
+	@each $screen, $size in $fui-breakpoints {
 
 		.forminator-hide-until-#{$screen} {
 
