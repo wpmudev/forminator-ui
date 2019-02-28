@@ -175,6 +175,8 @@
 				selectItem( $option, false );
 				handleValue();
 
+				$select.valid();
+
 			});
 
 			$handle.on( 'click', stateToggle );
