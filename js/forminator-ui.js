@@ -706,8 +706,6 @@
 					selectItem( $option, false );
 					handleValue();
 
-					$select.valid();
-
 				});
 			});
 		}
@@ -834,6 +832,8 @@
 
 				selectItem( $option, false );
 				handleValue();
+
+				$select.valid();
 
 			});
 
