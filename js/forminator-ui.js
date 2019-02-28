@@ -7554,7 +7554,7 @@
 		function init() {
 
 			// Wrap Element
-			if ( ! input.parent().hasClass( 'forminator-input--wrap' ) ) {
+			if ( ! textarea.parent().hasClass( 'forminator-input--wrap' ) ) {
 				textarea.wrap( '<div class="forminator-textarea--wrap"></div>' );
 			}
 
