@@ -45,8 +45,6 @@
 
 					var $option = $( ev.target );
 
-					$select.valid();
-
 					selectItem( $option, false );
 					handleValue();
 
@@ -171,8 +169,6 @@
 			$items.find( 'li' ).on( 'click', function onItemClick( ev ) {
 
 				var $option = $( ev.target );
-
-				$select.valid();
 
 				selectItem( $option, false );
 				handleValue();
