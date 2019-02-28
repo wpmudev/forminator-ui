@@ -91,8 +91,12 @@
 			var $val = $select[0].$value;
 
 			// If option is link, navigate to it
-			if ( $val.match( '^https?:\/\/|#' ) ) {
-				window.location.href = $val;
+			if ( 'undefined' !== typeof $val ) {
+
+				// If option is link, navigate to it
+				if ( $val.match( '^https?:\/\/|#' ) ) {
+					window.location.href = $val;
+				}
 			}
 		}
 
@@ -167,6 +171,8 @@
 			$items.find( 'li' ).on( 'click', function onItemClick( ev ) {
 
 				var $option = $( ev.target );
+
+				$select.valid();
 
 				selectItem( $option, false );
 				handleValue();
