@@ -176,6 +176,24 @@
 							FUI.checkboxStates( checkbox );
 							FUI.multiSelectStates( multiselect );
 
+							// Load "Material" design wrappers
+							if ( 'material' === column.closest( '.forminator-custom-form' ).attr( 'data-design' ) ) {
+
+								if ( input.length ) {
+
+									input.each( function() {
+										FUI.inputMaterial( this );
+									});
+								}
+
+								if ( textarea.length ) {
+
+									textarea.each( function() {
+										FUI.textareaMaterial( this );
+									});
+								}
+							}
+
 							// Form simulation
 							if ( submit.length ) {
 								FUI.formSimulation( submit );
