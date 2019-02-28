@@ -19,6 +19,10 @@
 			return;
 		}
 
+		if ( textarea.parent().hasClass( 'forminator-textarea--wrap' ) ) {
+			return;
+		}
+
 		function init() {
 
 			// Wrap Element

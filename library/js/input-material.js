@@ -19,6 +19,10 @@
 			return;
 		}
 
+		if ( input.parent().hasClass( 'forminator-input--wrap' ) ) {
+			return;
+		}
+
 		function init() {
 
 			// Wrap Element
