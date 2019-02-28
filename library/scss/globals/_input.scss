@@ -184,7 +184,7 @@
 
 		&:after {
 			content: " ";
-			height: map-get($border-width, material);
+			height: #{map-get($border-width, material) * 2};
 			display: block;
 			position: absolute;
 			right: 50%;
