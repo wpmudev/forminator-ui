@@ -29,6 +29,7 @@
 
 		.ui-datepicker-header {
 			display: block;
+			padding: 10px;
 
 			.ui-corner-all {
 				width: map-get($calendar, select-size);
@@ -224,7 +225,6 @@
 		}
 
 		.ui-datepicker-header {
-			padding: #{10px - map-get($border-width, default)};
 
 			.ui-corner-all {
 				border-radius: map-get($border-radius, default);
@@ -237,7 +237,7 @@
 					border-style: map-get($border-style, default);
 					border-radius: map-get($border-radius, default);
 					padding: 0 #{10px - map-get($border-width, default)};
-					line-height: #{map-get($calendar, select-size) - map-get($border-width, default)};
+					line-height: #{map-get($calendar, select-size) - (map-get($border-width, default) * 2)};
 				}
 			}
 		}
@@ -311,7 +311,6 @@
 	&.forminator-calendar--flat {
 
 		.ui-datepicker-header {
-			padding: #{10px - map-get($border-width, flat)};
 
 			.ui-corner-all {
 				border-radius: 100%;
@@ -324,7 +323,7 @@
 					border-style: map-get($border-style, flat);
 					border-radius: map-get($border-radius, flat);
 					padding: 0 #{10px - map-get($border-width, flat)};
-					line-height: #{map-get($calendar, select-size) - map-get($border-width, flat)};
+					line-height: map-get($calendar, select-size);
 				}
 			}
 		}
@@ -404,7 +403,6 @@
 		}
 
 		.ui-datepicker-header {
-			padding: #{10px - map-get($border-width, bold)};
 
 			.ui-corner-all {
 				border-radius: map-get($border-radius, bold);
@@ -417,7 +415,7 @@
 					border-style: map-get($border-style, bold);
 					border-radius: map-get($border-radius, bold);
 					padding: 0 #{10px - map-get($border-width, bold)};
-					line-height: #{map-get($calendar, select-size) - map-get($border-width, bold)};
+					line-height: #{map-get($calendar, select-size) - (map-get($border-width, bold) * 2)};
 				}
 			}
 		}
