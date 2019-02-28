@@ -828,6 +828,8 @@
 
 				var $option = $( ev.target );
 
+				$select.valid();
+
 				selectItem( $option, false );
 				handleValue();
 
