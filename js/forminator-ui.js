@@ -706,6 +706,8 @@
 					selectItem( $option, false );
 					handleValue();
 
+					$select.valid();
+
 				});
 			});
 		}
