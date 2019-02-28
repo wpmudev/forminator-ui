@@ -455,13 +455,15 @@
 		function init() {
 
 			// Wrap Element
-			if ( input.parent().hasClass( 'forminator-input--wrap' ) ) {
+			if ( ! input.parent().hasClass( 'forminator-input--wrap' ) ) {
 				input.wrap( '<div class="forminator-input--wrap"></div>' );
+				console.log( 'wrapping' );
 			}
 
 			// Wrap Label
 			if ( label.length ) {
 				label.addClass( 'forminator-floating--input' );
+				console.log( 'floating' );
 			}
 		}
 
@@ -7552,7 +7554,7 @@
 		function init() {
 
 			// Wrap Element
-			if ( input.parent().hasClass( 'forminator-input--wrap' ) ) {
+			if ( ! input.parent().hasClass( 'forminator-input--wrap' ) ) {
 				textarea.wrap( '<div class="forminator-textarea--wrap"></div>' );
 			}
 
