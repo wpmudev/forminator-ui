@@ -146,7 +146,7 @@
 		padding: #{map-get($input, padding) - map-get($border-width, bold)};
 		border-width: map-get($border-width, bold);
 		border-style: map-get($border-style, bold);
-		border-radius: map-get($border-radius, material);
+		border-radius: map-get($border-radius, bold);
 	}
 
 	.forminator-input-with-icon {
