@@ -452,6 +452,10 @@
 			return;
 		}
 
+		if ( input.parent().hasClass( 'forminator-input--wrap' ) ) {
+			return;
+		}
+
 		function init() {
 
 			// Wrap Element
@@ -7540,6 +7544,10 @@
 		const form  = textarea.closest( 'form' );
 
 		if ( ! textarea.is( 'textarea' ) && ! form.is( '.forminator-custom-form' ) ) {
+			return;
+		}
+
+		if ( textarea.parent().hasClass( 'forminator-textarea--wrap' ) ) {
 			return;
 		}
 
