@@ -65,6 +65,54 @@
 		}
 	}
 
+	.forminator-input-with-phone {
+
+		.flag-container {
+
+			.selected-flag {
+				width: auto;
+				display: flex;
+				align-items: center;
+				margin: 0;
+
+				.iti-flag {
+					display: block;
+					position: relative;
+					top: auto;
+					bottom: auto;
+					margin: 0;
+					padding: 0;
+
+					+ .iti-arrow {
+						margin-left: #{map-get($input, padding) / 2};
+					}
+				}
+
+				.iti-arrow {
+					display: block;
+					position: relative;
+					top: auto;
+					right: auto;
+					margin: 0;
+				}
+
+				&:hover,
+				&:focus,
+				&:active {
+					outline: none;
+					box-shadow: none;
+				}
+			}
+
+			&:hover,
+			&:focus,
+			&:active {
+				outline: none;
+				box-shadow: none;
+			}
+		}
+	}
+
 	.forminator-input-with-suffix {
 		position: relative;
 
@@ -80,6 +128,19 @@
 			padding: 0 map-get($input, padding);
 			transform: translateY(-50%);
 			line-height: 1.4em;
+		}
+	}
+}
+
+@include body-class(custom-form poll, default flat bold, false) {
+
+	.forminator-input-with-phone {
+
+		.flag-container {
+
+			.selected-flag {
+				padding: 0 map-get($input, padding);
+			}
 		}
 	}
 }
@@ -208,11 +269,20 @@
 		}
 	}
 
-	.forminator-input-with-icon {
+	[class*="forminator-input-with-"] {
 		display: flex;
 		align-items: center;
 
+		.forminator-input--wrap {
+			display: block;
+			flex: 1;
+		}
+	}
+
+	.forminator-input-with-icon {
+
 		[class*="forminator-icon-"] {
+			flex: 0 0 auto;
 
 			&:first-child {
 				margin-right: map-get($input, padding);
@@ -223,13 +293,40 @@
 			}
 		}
 
-		.forminator-input--wrap {
-			display: block;
-			flex: 1;
+		~ span {
+			padding-left: #{map-get($icon, size) + map-get($input, padding)};
+		}
+	}
+
+	.forminator-input-with-phone {
+		position: unset;
+
+		.flag-container {
+			flex: 0 0 auto;
+			position: relative;
+			padding: 0;
+
+			.selected-flag {
+				padding: map-get($input, padding) 0 #{map-get($input, padding) - map-get($border-width, material)};
+				background-color: transparent !important;
+			}
+
+			&:first-child {
+				margin-right: map-get($input, padding);
+			}
+
+			&:last-child {
+				margin-left: map-get($input, padding);
+			}
+		}
+
+		.forminator-input {
+			padding-right: 0;
+			padding-left: 0;
 		}
 
 		~ span {
-			padding-left: #{map-get($icon, size) + map-get($input, padding)};
+			padding-left: #{$int-flag-size + map-get($input, padding)};
 		}
 	}
 }
