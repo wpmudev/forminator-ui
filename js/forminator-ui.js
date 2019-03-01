@@ -7571,13 +7571,13 @@
 			// Wrap Element
 			if ( ! textarea.parent().hasClass( 'forminator-textarea--wrap' ) ) {
 				textarea.wrap( '<div class="forminator-textarea--wrap"></div>' );
-				console.log( 'run1' );
+				console.log( 'Wrap element: ' + textarea.attr( 'id' ) ); // TEST
 			}
 
 			// Wrap Label
 			if ( label.length ) {
 				label.addClass( 'forminator-floating--textarea' );
-				console.log( 'run2' );
+				console.log( 'Label: ' + label.attr( 'for' ) ); // TEST
 			}
 		}
 
