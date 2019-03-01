@@ -472,7 +472,12 @@
 
 				// Add phone class (if applies)
 				if ( field.find( '.forminator-input-with-phone' ).length ) {
+
 					label.addClass( 'forminator-has_phone' );
+
+					if ( input.find( '.intl-tel-input' ).hasClass( 'allow-dropdown' ) ) {
+						label.addClass( 'allow-dropdown' );
+					}
 				}
 			}
 		}
