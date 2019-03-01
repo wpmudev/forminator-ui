@@ -7569,13 +7569,15 @@
 		function init() {
 
 			// Wrap Element
-			if ( ! textarea.parent().hasClass( 'forminator-input--wrap' ) ) {
+			if ( ! textarea.parent().hasClass( 'forminator-textarea--wrap' ) ) {
 				textarea.wrap( '<div class="forminator-textarea--wrap"></div>' );
+				console.log( 'run1' );
 			}
 
 			// Wrap Label
 			if ( label.length ) {
 				label.addClass( 'forminator-floating--textarea' );
+				console.log( 'run2' );
 			}
 		}
 
