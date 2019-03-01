@@ -36,6 +36,16 @@
 				if ( field.find( '.forminator-input-with-icon' ).length ) {
 					label.addClass( 'forminator-has_icon' );
 				}
+
+				// Add phone class (if applies)
+				if ( field.find( '.forminator-input-with-phone' ).length ) {
+
+					label.addClass( 'forminator-has_phone' );
+
+					if ( field.find( '.intl-tel-input' ).hasClass( 'allow-dropdown' ) ) {
+						label.addClass( 'allow-dropdown' );
+					}
+				}
 			}
 		}
 
