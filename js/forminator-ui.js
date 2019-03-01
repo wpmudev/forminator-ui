@@ -465,12 +465,13 @@
 				// Add floating class
 				label.addClass( 'forminator-floating--input' );
 
+				// Add icon class (if applies)
 				if ( field.find( '.forminator-input-with-icon' ).length ) {
-
-					// Add icon class (if applies)
 					label.addClass( 'forminator-has_icon' );
+				}
 
-					// Add phone class (if applies)
+				// Add phone class (if applies)
+				if ( field.find( '.forminator-input-with-phone' ).length ) {
 					label.addClass( 'forminator-has_phone' );
 				}
 			}
