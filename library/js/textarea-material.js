@@ -26,7 +26,9 @@
 		function init() {
 
 			// Wrap Element
-			textarea.wrap( '<div class="forminator-textarea--wrap"></div>' );
+			if ( ! textarea.parent().hasClass( 'forminator-input--wrap' ) ) {
+				textarea.wrap( '<div class="forminator-textarea--wrap"></div>' );
+			}
 
 			// Wrap Label
 			if ( label.length ) {
