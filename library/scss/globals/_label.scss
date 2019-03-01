@@ -95,7 +95,9 @@
 		transform: translateY(30px);
 
 		+ .forminator-input--wrap,
-		+ .forminator-input-with-icon {
+		+ .forminator-input-with-icon,
+		+ .forminator-input-with-phone,
+		+ .forminator-input-with-suffix {
 
 			.forminator-input {
 
@@ -124,6 +126,17 @@
 		&.forminator-has_icon {
 			padding-left: #{map-get($icon, size) + map-get($input, padding)};
 		}
+
+		&.forminator-has_phone {
+
+			&.allow-dropdown {
+				padding-left: #{$int-flag-size + map-get($input, padding) + 11px};
+			}
+
+			&:not(.allow-dropdown) {
+				padding-left: #{$int-flag-size + map-get($input, padding)};
+			}
+		}
 	}
 
 	.forminator-is_active,
@@ -133,7 +146,9 @@
 			transform: translateY(0);
 
 			+ .forminator-input--wrap,
-			+ .forminator-input-with-icon {
+			+ .forminator-input-with-icon,
+			+ .forminator-input-with-phone,
+			+ .forminator-input-with-suffix {
 
 				.forminator-input {
 
@@ -161,16 +176,24 @@
 		}
 	}
 
+	.forminator-is_filled {
+
+		.forminator-floating--input {
+			padding-left: 0 !important;
+		}
+	}
+
 	// ******************************
 	// INPUT: Floating textarea
 	.forminator-floating--textarea {
-		position: relative;
+		width: 100%;
+		max-height: $textarea--height;
+		overflow-y: hidden;
+		position: absolute;
 		z-index: 1;
-		padding: #{map-get($input, padding) - map-get($border-width, material)} 0 0 #{map-get($input, padding) - map-get($border-width, material)};
-		transform: translateY(30px);
+		padding: map-get($input, padding);
 
 		+ .forminator-textarea--wrap {
-			margin-top: -20px;
 
 			.forminator-textarea {
 
@@ -201,7 +224,7 @@
 	.forminator-is_filled {
 
 		.forminator-floating--textarea {
-			transform: translateY(10px);
+			padding-top: map-get($input, padding) !important;
 
 			+ .forminator-textarea--wrap {
 
