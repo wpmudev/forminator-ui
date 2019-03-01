@@ -7575,7 +7575,16 @@
 
 			// Wrap Label
 			if ( label.length ) {
+
+				// Add floating class
 				label.addClass( 'forminator-floating--textarea' );
+
+				// Align textarea
+				if ( textarea.parent().hasClass( 'forminator-textarea--wrap' ) ) {
+					textarea.parent().css({
+						'margin-top': '-' + label.outerHeight()
+					});
+				}
 			}
 		}
 
