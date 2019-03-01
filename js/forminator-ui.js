@@ -7581,9 +7581,7 @@
 
 				// Align textarea
 				if ( textarea.parent().hasClass( 'forminator-textarea--wrap' ) ) {
-					textarea.parent().css({
-						'margin-top': '-' + label.outerHeight()
-					});
+					textarea.parent().css( 'margin-top', '-' + label.outerHeight() + 'px' );
 				}
 			}
 		}
