@@ -26,13 +26,35 @@
 		function init() {
 
 			// Wrap Element
-			if ( ! textarea.parent().hasClass( 'forminator-input--wrap' ) ) {
+			if ( ! textarea.parent().hasClass( 'forminator-textarea--wrap' ) ) {
 				textarea.wrap( '<div class="forminator-textarea--wrap"></div>' );
 			}
 
 			// Wrap Label
 			if ( label.length ) {
+
+				const labelHeight  = label.height();
+				const labelPadding = 9;
+				const labelMath    = labelHeight + labelPadding;
+
+				// Add floating class
 				label.addClass( 'forminator-floating--textarea' );
+
+				// Align textarea
+				field.css({
+					'position': 'relative'
+				});
+
+				if ( ! field.hasClass( 'forminator-is_filled' ) || ! field.hasClass( 'forminator-is_active' ) ) {
+
+					label.css({
+						'padding-top': labelMath + 'px'
+					});
+				}
+
+				textarea.css({
+					'padding-top': labelMath + 'px'
+				});
 			}
 		}
 
