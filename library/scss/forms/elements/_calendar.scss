@@ -488,6 +488,103 @@
 			}
 		}
 	}
+
+	// DESIGN: Material
+	&.forminator-calendar--material {
+
+		&:before {
+			border-width: 0;
+			border-style: none;
+			border-radius: map-get($border-radius, material);
+		}
+
+		.ui-datepicker-header {
+
+			.ui-corner-all {
+				border-radius: 0;
+				background-color: transparent;
+			}
+
+			.ui-datepicker-title {
+
+				select {
+					border-width: 0;
+					border-style: none;
+					border-radius: 0;
+					padding: 0 10px;
+					line-height: map-get($calendar, select-size);
+				}
+			}
+
+			+ .ui-datepicker-calendar {
+				margin-top: 10px;
+			}
+		}
+
+		.ui-datepicker-calendar {
+
+			thead,
+			tbody {
+
+				tr {
+
+					th, td {
+
+						&:first-child {
+							padding-left: #{15px - map-get($border-width, material)};
+						}
+
+						&:last-child {
+							padding-right: #{15px - map-get($border-width, material)};
+						}
+					}
+				}
+			}
+
+			thead {
+
+				tr {
+
+					th {
+
+						span {
+							line-height: 1.4em;
+						}
+					}
+				}
+			}
+
+			tbody {
+
+				tr {
+
+					td {
+
+						a, span {
+							border-width: map-get($border-width, material);
+							border-style: map-get($border-style, material);
+							border-radius: 100%;
+							line-height: #{map-get($calendar, cell-size) - (map-get($border-width, material) * 2) - 4px};
+						}
+					}
+				}
+			}
+
+			&:last-child {
+
+				thead:last-child,
+				tbody:last-child {
+
+					tr:last-child {
+
+						th, td {
+							padding-bottom: #{15px - map-get($border-width, material)};
+						}
+					}
+				}
+			}
+		}
+	}
 }
 
 /*
