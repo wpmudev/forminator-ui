@@ -7576,15 +7576,28 @@
 			// Wrap Label
 			if ( label.length ) {
 
+				const labelHeight  = label.outerHeight();
+				const labelPadding = 9;
+				const labelMath    = labelHeight + labelPadding;
+
 				// Add floating class
 				label.addClass( 'forminator-floating--textarea' );
 
 				// Align textarea
-				field.find( '.forminator-textarea--wrap' ).css({
-					'margin-top': '-' + label.outerHeight() + 'px'
+				field.css({
+					'position': 'relative'
 				});
 
-				console.log( '-' + label.outerHeight() + 'px' ); // TEST
+				if ( ! field.hasClass( 'forminator-is_filled' ) || ! field.hasClass( 'forminator-is_active' ) ) {
+
+					label.css({
+						'padding-top': labelMath + 'px'
+					});
+				}
+
+				textarea.css({
+					'padding-top': labelMath + 'px'
+				});
 			}
 		}
 
