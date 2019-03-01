@@ -50,12 +50,9 @@
 			const getField = getInput.closest( '.forminator-field' );
 
 			// On input load
-			getInput.on( 'load', function() {
-
-				if ( '' !== getInput.val().trim() ) {
-					getField.addClass( 'forminator-is_filled' );
-				}
-			});
+			if ( '' !== getInput.val().trim() ) {
+				getField.addClass( 'forminator-is_filled' );
+			}
 
 			// On input changes
 			getInput.on( 'change', function() {
