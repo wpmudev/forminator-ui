@@ -457,13 +457,18 @@
 			// Wrap Element
 			if ( ! input.parent().hasClass( 'forminator-input--wrap' ) ) {
 				input.wrap( '<div class="forminator-input--wrap"></div>' );
-				console.log( 'wrapping' );
 			}
 
 			// Wrap Label
 			if ( label.length ) {
+
+				// Add floating class
 				label.addClass( 'forminator-floating--input' );
-				console.log( 'floating' );
+
+				// Add icon class (if applies)
+				if ( field.find( '.forminator-input-with-icon' ).length ) {
+					label.addClass( 'forminator-has_icon' );
+				}
 			}
 		}
 
