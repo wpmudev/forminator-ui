@@ -221,19 +221,22 @@
 				position: relative;
 				padding-top: $select--padding;
 				padding-right: #{$select--padding + $select--handle-size};
-				padding-bottom: #{$select--padding - $material--border-width};
+				padding-bottom: $select--padding;
 				padding-left: 0;
-				border-width: 0 0 $material--border-width 0;
-				border-style: $material--border-style;
+				border-width: 0;
+				border-style: none;
 				border-radius: 0;
+				box-shadow: inset 0 -#{$material--border-width} 0 0 transparent;
+				line-height: 1.3em;
 
 				&:before {
 					content: " ";
 					height: 2px;
 					display: block;
 					position: absolute;
+					z-index: 1;
 					right: 50%;
-					bottom: -#{$material--border-width};
+					bottom: 0;
 					left: 50%;
 					box-sizing: border-box;
 					transition: 0.2s linear;
