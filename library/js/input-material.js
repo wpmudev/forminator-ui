@@ -19,18 +19,23 @@
 			return;
 		}
 
-		if ( input.parent().hasClass( 'forminator-input--wrap' ) ) {
-			return;
-		}
-
 		function init() {
 
 			// Wrap Element
-			input.wrap( '<div class="forminator-input--wrap"></div>' );
+			if ( ! input.parent().hasClass( 'forminator-input--wrap' ) ) {
+				input.wrap( '<div class="forminator-input--wrap"></div>' );
+			}
 
 			// Wrap Label
 			if ( label.length ) {
+
+				// Add floating class
 				label.addClass( 'forminator-floating--input' );
+
+				// Add icon class (if applies)
+				if ( field.find( '.forminator-input-with-icon' ).length ) {
+					label.addClass( 'forminator-has_icon' );
+				}
 			}
 		}
 
