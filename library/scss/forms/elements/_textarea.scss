@@ -90,10 +90,11 @@
 @include body-class(custom-form, material, false) {
 
 	.forminator-textarea {
-		padding: #{30px - $material--border-width} #{$input--padding - $material--border-width} #{$input--padding - $material--border-width};
+		padding: 0 #{$input--padding - $material--border-width} #{$input--padding - $material--border-width};
 		border-width: $material--border-width;
 		border-style: $material--border-style;
 		border-radius: $material--border-radius;
+		line-height: 20px;
 	}
 
 	.forminator-textarea--wrap {
@@ -106,6 +107,7 @@
 			user-select: none;
 			pointer-events: none;
 			position: absolute;
+			z-index: 1;
 			top: 0;
 			left: 0;
 			border-width: #{$material--border-width * 2};
