@@ -175,7 +175,7 @@
 		border-bottom-width: map-get($border-width, material);
 		border-style: map-get($border-style, material);
 		border-radius: 0;
-		background-color: transparent;
+		background-color: transparent !important;
 	}
 
 	.forminator-input--wrap {
