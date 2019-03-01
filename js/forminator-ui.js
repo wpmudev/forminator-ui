@@ -7583,6 +7583,8 @@
 				field.find( '.forminator-textarea--wrap' ).css({
 					'margin-top': '-' + label.outerHeight() + 'px'
 				});
+
+				console.log( '-' + label.outerHeight() + 'px' ); // TEST
 			}
 		}
 
