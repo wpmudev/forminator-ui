@@ -475,7 +475,7 @@
 
 					label.addClass( 'forminator-has_phone' );
 
-					if ( input.find( '.intl-tel-input' ).hasClass( 'allow-dropdown' ) ) {
+					if ( field.find( '.intl-tel-input' ).hasClass( 'allow-dropdown' ) ) {
 						label.addClass( 'allow-dropdown' );
 					}
 				}
