@@ -12,7 +12,7 @@
 		const form = $( el );
 		const message = form.find( '.forminator-response-message' );
 
-		if ( ! form.is( '.forminator-custom-form' ) ) {
+		if ( ! form.is( '.forminator-ui' ) && ! form.is( '.forminator-custom-form' ) ) {
 			return;
 		}
 

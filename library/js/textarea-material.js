@@ -15,7 +15,10 @@
 		const label = field.find( '.forminator-label' );
 		const form  = textarea.closest( 'form' );
 
-		if ( ! textarea.is( 'textarea' ) && ! form.is( '.forminator-custom-form' ) ) {
+		if (
+			! textarea.is( 'textarea' ) &&
+			( ! form.is( '.forminator-ui' ) && ! form.is( '.forminator-custom-form' ) )
+		) {
 			return;
 		}
 

@@ -11,8 +11,12 @@
 	FUI.textareaStates = function( el ) {
 
 		const textarea = $( el );
+		const form  = textarea.closest( 'form' );
 
-		if ( ! textarea.is( 'textarea' ) ) {
+		if (
+			! textarea.is( 'textarea' ) &&
+			( ! form.is( '.forminator-ui' ) && ! form.is( '.forminator-custom-form' ) )
+		) {
 			return;
 		}
 

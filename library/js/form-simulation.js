@@ -15,7 +15,7 @@
 
 		let message = '';
 
-		if ( ! form.is( '.forminator-custom-form' ) ) {
+		if ( ! form.is( '.forminator-ui' ) && ! form.is( '.forminator-custom-form' ) ) {
 			return;
 		}
 

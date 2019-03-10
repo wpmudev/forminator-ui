@@ -15,7 +15,13 @@
 		const label = field.find( '.forminator-label' );
 		const form  = input.closest( 'form' );
 
-		if ( ! input.is( 'input' ) && ! form.is( '.forminator-custom-form' ) ) {
+		if (
+			! input.is( 'input' ) &&
+			(
+				( ! form.is( '.forminator-poll' ) ) ||
+				( ! form.is( '.forminator-ui' ) && ! form.is( '.forminator-custom-form' ) )
+			)
+		) {
 			return;
 		}
 

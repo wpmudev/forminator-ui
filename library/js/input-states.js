@@ -11,8 +11,15 @@
 	FUI.inputStates = function( el ) {
 
 		const input = $( el );
+		const form  = input.closest( 'form' );
 
-		if ( ! input.is( 'input' ) ) {
+		if (
+			! input.is( 'input' ) &&
+			(
+				( ! form.is( '.forminator-poll' ) ) ||
+				( ! form.is( '.forminator-ui' ) && ! form.is( '.forminator-custom-form' ) )
+			)
+		) {
 			return;
 		}
 
