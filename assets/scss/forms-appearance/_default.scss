@@ -263,10 +263,7 @@
 		span[aria-hidden] {
 			border-color: $radio-static--border;
 			background-color: $radio-static--background;
-
-			&:before {
-				color: $radio-icon;
-			}
+			color: $radio-icon;
 		}
 
 		span:not([aria-hidden]) {
