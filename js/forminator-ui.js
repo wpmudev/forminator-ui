@@ -61,7 +61,7 @@
 		const form = $( el );
 		const message = form.find( '.forminator-response-message' );
 
-		if ( ! form.is( '.forminator-custom-form' ) ) {
+		if ( ! form.is( '.forminator-ui' ) && ! form.is( '.forminator-custom-form' ) ) {
 			return;
 		}
 
@@ -156,7 +156,7 @@
 
 		let message = '';
 
-		if ( ! form.is( '.forminator-custom-form' ) ) {
+		if ( ! form.is( '.forminator-ui' ) && ! form.is( '.forminator-custom-form' ) ) {
 			return;
 		}
 
@@ -448,7 +448,13 @@
 		const label = field.find( '.forminator-label' );
 		const form  = input.closest( 'form' );
 
-		if ( ! input.is( 'input' ) && ! form.is( '.forminator-custom-form' ) ) {
+		if (
+			! input.is( 'input' ) &&
+			(
+				( ! form.is( '.forminator-poll' ) ) ||
+				( ! form.is( '.forminator-ui' ) && ! form.is( '.forminator-custom-form' ) )
+			)
+		) {
 			return;
 		}
 
@@ -502,8 +508,15 @@
 	FUI.inputStates = function( el ) {
 
 		const input = $( el );
+		const form  = input.closest( 'form' );
 
-		if ( ! input.is( 'input' ) ) {
+		if (
+			! input.is( 'input' ) &&
+			(
+				( ! form.is( '.forminator-poll' ) ) ||
+				( ! form.is( '.forminator-ui' ) && ! form.is( '.forminator-custom-form' ) )
+			)
+		) {
 			return;
 		}
 
@@ -7555,7 +7568,10 @@
 		const label = field.find( '.forminator-label' );
 		const form  = textarea.closest( 'form' );
 
-		if ( ! textarea.is( 'textarea' ) && ! form.is( '.forminator-custom-form' ) ) {
+		if (
+			! textarea.is( 'textarea' ) &&
+			( ! form.is( '.forminator-ui' ) && ! form.is( '.forminator-custom-form' ) )
+		) {
 			return;
 		}
 
@@ -7618,8 +7634,12 @@
 	FUI.textareaStates = function( el ) {
 
 		const textarea = $( el );
+		const form  = textarea.closest( 'form' );
 
-		if ( ! textarea.is( 'textarea' ) ) {
+		if (
+			! textarea.is( 'textarea' ) &&
+			( ! form.is( '.forminator-ui' ) && ! form.is( '.forminator-custom-form' ) )
+		) {
 			return;
 		}
 
