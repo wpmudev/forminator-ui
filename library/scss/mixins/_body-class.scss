@@ -12,68 +12,15 @@
 
 @mixin body-class($module-type: all, $module-theme: all, $desktop: false) {
 
-	@if ($module-type == all) {
+	.forminator-ui {
 
-		@if ($module-theme == all) {
+		@if ($module-type == all) {
 
-			.forminator-custom-form,
-			.forminator-poll,
-			.forminator-quiz {
+			@if ($module-theme == all) {
 
-				&.forminator-design--default,
-				&.forminator-design--flat,
-				&.forminator-design--bold,
-				&.forminator-design--material {
-
-					@if ($desktop == true) {
-
-						&:not(.forminator-size--small) {
-							@content;
-						}
-
-					} @else {
-
-						@content;
-
-					}
-				}
-			}
-		}
-
-		@else {
-
-			.forminator-custom-form,
-			.forminator-poll,
-			.forminator-quiz {
-
-				@each $theme in $module-theme {
-
-					&.forminator-design--#{$theme} {
-
-						@if ($desktop == true) {
-
-							&:not(.forminator-size--small) {
-								@content;
-							}
-
-						} @else {
-
-							@content;
-
-						}
-					}
-				}
-			}
-		}
-	}
-
-	@else {
-
-		@each $type in $module-type {
-
-			.forminator-#{$type} {
-
-				@if ($module-theme == all) {
+				&.forminator-custom-form,
+				&.forminator-poll,
+				&.forminator-quiz {
 
 					&.forminator-design--default,
 					&.forminator-design--flat,
@@ -93,8 +40,13 @@
 						}
 					}
 				}
+			}
 
-				@else {
+			@else {
+
+				&.forminator-custom-form,
+				&.forminator-poll,
+				&.forminator-quiz {
 
 					@each $theme in $module-theme {
 
@@ -110,6 +62,57 @@
 
 								@content;
 
+							}
+						}
+					}
+				}
+			}
+		}
+
+		@else {
+
+			@each $type in $module-type {
+
+				&.forminator-#{$type} {
+
+					@if ($module-theme == all) {
+
+						&.forminator-design--default,
+						&.forminator-design--flat,
+						&.forminator-design--bold,
+						&.forminator-design--material {
+
+							@if ($desktop == true) {
+
+								&:not(.forminator-size--small) {
+									@content;
+								}
+
+							} @else {
+
+								@content;
+
+							}
+						}
+					}
+
+					@else {
+
+						@each $theme in $module-theme {
+
+							&.forminator-design--#{$theme} {
+
+								@if ($desktop == true) {
+
+									&:not(.forminator-size--small) {
+										@content;
+									}
+
+								} @else {
+
+									@content;
+
+								}
 							}
 						}
 					}
