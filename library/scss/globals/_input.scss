@@ -23,13 +23,6 @@
 			box-shadow: none;
 		}
 
-		&:hover,
-		&:focus,
-		&:active {
-			border-color: inherit;
-			background-color: inherit;
-		}
-
 		&:disabled {
 			pointer-events: none;
 			border-style: dotted;
