@@ -2,6 +2,7 @@
 
 	.forminator-response-message {
 		margin: 0 0 $gutter-sm;
+		text-align: left;
 
 		p {
 			margin: 0;
@@ -54,7 +55,6 @@
 	.forminator-response-message {
 		padding: 15px 20px 15px 22px;
 		border-radius: map-get($border-radius, default);
-		text-align: left;
 	}
 }
 
@@ -65,7 +65,6 @@
 	.forminator-response-message {
 		padding: 15px 10px;
 		border-radius: map-get($border-radius, flat);
-		text-align: center;
 	}
 }
 
@@ -76,7 +75,6 @@
 	.forminator-response-message {
 		padding: 15px 20px 15px 22px;
 		border-radius: map-get($border-radius, bold);
-		text-align: left;
 	}
 }
 
@@ -89,6 +87,5 @@
 		border-radius: map-get($border-radius, material);
 		background-color: #FFF;
 		box-shadow: 1px 1px 4px rgba(0,0,0,0.3);
-		text-align: left;
 	}
 }
