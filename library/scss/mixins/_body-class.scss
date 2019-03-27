@@ -12,7 +12,8 @@
 
 @mixin body-class($module-type: all, $module-theme: all, $desktop: false) {
 
-	.forminator-ui {
+	.forminator-ui,
+	.et-db #et-boc .et_pb_module .forminator-ui {
 
 		@if ($module-type == all) {
 
