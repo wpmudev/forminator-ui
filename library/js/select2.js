@@ -56,6 +56,8 @@
 						language: $language,
 						placeholder: $placeholder,
 						dropdownCssClass: 'forminator-custom-form-' + $formid + ' forminator-dropdown--' + $theme
+					}).on('select2:opening', function() {
+					    $select.data('select2').$dropdown.find( ':input.select2-search__field' ).attr( 'placeholder', $placeholder );
 					});
 				}
 			});
