@@ -1,5 +1,8 @@
 'use strict';
 
+// Import `src` and `dest` from gulp for use in the task.
+const { src, dest } = require( 'gulp' );
+
 /**
  * Supported Packages
  * List here all dependencies necessary to run required tasks.
@@ -10,6 +13,7 @@
 const fs           = require( 'fs' );
 const pump         = require( 'pump' );
 const gulp         = require( 'gulp' );
+const babel        = require( 'gulp-babel' );
 const autoprefixer = require( 'gulp-autoprefixer' );
 const cleanCSS     = require( 'gulp-clean-css' );
 const concat       = require( 'gulp-concat' );
@@ -232,6 +236,13 @@ gulp.task( 'library:scripts', function( cb ) {
 		eslint(),
 		eslint.format(),
 		eslint.failAfterError(),
+		babel({
+			presets: [
+				[ '@babel/env', {
+					modules: false
+				} ]
+			]
+		}),
 		concat( 'forminator-ui.js' ),
 		header( banner ),
 		gulp.dest( library.output.scripts ),
@@ -331,6 +342,13 @@ gulp.task( 'public:scripts', function( cb ) {
 		eslint(),
 		eslint.format(),
 		eslint.failAfterError(),
+		babel({
+			presets: [
+				[ '@babel/env', {
+					modules: false
+				} ]
+			]
+		}),
 		concat( 'public.js' ),
 		uglify(),
 		rename({
