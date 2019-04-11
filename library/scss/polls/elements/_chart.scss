@@ -1,0 +1,25 @@
+@include body-class(polls, all, false) {
+
+	.forminator-chart {
+		width: 100%;
+		margin: $gutter-sm 0;
+
+		&:first-child {
+			margin-top: 0;
+		}
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
+
+@include body-class(polls, all, true) {
+
+	.forminator-chart {
+
+		@include media(min-width, sm) {
+			margin: $gutter 0;
+		}
+	}
+}

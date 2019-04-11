@@ -1,0 +1,28 @@
+@include body-class(polls, all, false) {
+
+	.forminator-question,
+	.forminator-description {
+		display: block;
+		margin: 5px 0 0;
+		padding: 0;
+		border: 0;
+		letter-spacing: 0;
+
+		&:before,
+		&:after {
+			content: none;
+		}
+
+		&:first-child {
+			margin-top: 0;
+		}
+	}
+
+	.forminator-question {
+		line-height: 1.6em;
+	}
+
+	.forminator-description {
+		line-height: 1.6em;
+	}
+}
