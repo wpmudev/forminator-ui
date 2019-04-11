@@ -1,0 +1,116 @@
+.forminator-polls.forminator-design--default {
+	padding-top: 0;
+	padding-right: 0;
+	padding-bottom: 0;
+	padding-left: 0;
+	border-width: 0;
+	border-style: none;
+	border-color: transparent;
+	border-radius: 0;
+
+	// ELEMENT: Poll Question
+	.forminator-question {
+		color: $question-color;
+		font-size: $question-font-size;
+		font-family: $question-font-family;
+		font-weight: $question-font-weight;
+	}
+
+	// ELEMENT: Poll Description
+	.forminator-description {
+		color: $description-color;
+		font-size: $description-font-size;
+		font-family: $description-font-family;
+		font-weight: $description-font-weight;
+	}
+
+	// ELEMENT: Input
+	.forminator-input {
+		border-color: $input-static--border;
+		background-color: $input-static--background;
+		color: $input-color;
+		font-size: $input-font-size;
+		font-family: $input-font-family;
+		font-weight: $input-font-weight;
+
+		// ELEMENT: Placeholder
+		&::placeholder {
+			color: $input-placeholder;
+		}
+
+		&-with-icon {
+
+			[class*="forminator-icon-"] {
+				color: $input-icon-color;
+			}
+		}
+	}
+
+	// ELEMENT: Radio
+	.forminator-radio {
+
+		input:checked {
+
+			+ span[aria-hidden] {
+				border-color: $radio-checked--border;
+				background-color: $radio-checked--background;
+			}
+		}
+
+		span[aria-hidden] {
+			border-color: $radio-static--border;
+			background-color: $radio-static--background;
+
+			&:before {
+				background-color: $radio-icon;
+			}
+		}
+
+		span:not([aria-hidden]) {
+			color: $radio-font-color;
+			font-size: $radio-font-size;
+			font-family: $radio-font-family;
+			font-weight: $radio-font-weight;
+		}
+	}
+
+	// ELEMENT: Submit Button
+	.forminator-button-submit {
+		background-color: $submit-static--background;
+		color: $submit-static--color;
+		font-size: $submit-font-size;
+		font-family: $submit-font-family;
+		font-weight: $submit-font-weight;
+
+		&:hover {
+			background-color: $submit-hover--background;
+			color: $submit-hover--color;
+		}
+
+		&:active {
+			background-color: $submit-active--background;
+			color: $submit-active--color;
+		}
+	}
+
+	// ELEMENT: Link
+	.forminator-link {
+		font-size: $links-font-size;
+		font-family: $links-font-family;
+		font-weight: $links-font-weight;
+
+		&,
+		&:visited {
+			color: $links-static--color;
+		}
+
+		&:hover,
+		&:focus {
+			color: $links-static--color;
+		}
+
+		&:active {
+			color: $links-static--color;
+		}
+	}
+}
