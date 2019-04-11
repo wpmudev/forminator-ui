@@ -138,10 +138,41 @@
 		</div>
 
 		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript" src="assets/js/Chart.min.js"></script>
 
 		<script type="text/javascript" src="assets/js/shared-ui.min.js"></script>
 		<script type="text/javascript" src="assets/js/forminator-ui.min.js"></script>
 		<script type="text/javascript" src="assets/js/public.min.js"></script>
+
+		<script>
+
+			var randomScalingFactor = function() {
+				return Math.round( Math.random() * 100 );
+			};
+
+			var uniqueId = '.forminator-poll-1-chart';
+
+			var answerLabels = [
+				'Hustle',
+				'Branda',
+				'Snapshot',
+				'SmartCrawl',
+				'Hummingbird',
+				'Forminator',
+			];
+
+			var answerVotes = [
+				randomScalingFactor(), // Hustle
+				randomScalingFactor(), // Branda
+				randomScalingFactor(), // Snapshot
+				randomScalingFactor(), // SmartCrawl
+				randomScalingFactor(), // Hummingbird
+				randomScalingFactor(), // Forminator
+			];
+
+			FUI.pollChart( uniqueId, answerLabels, answerVotes, 'bar' );
+
+		</script>
 
 	</body>
 
