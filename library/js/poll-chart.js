@@ -8,7 +8,7 @@
 		window.FUI = {};
 	}
 
-	FUI.pollChart = function( pollChart, answerLabels, answerVotes, chartType = 'horizontalBar' ) {
+	FUI.pollChart = function( pollChart, pollData, chartType = 'horizontalBar' ) {
 
 		let chart = $( pollChart );
 
@@ -16,67 +16,21 @@
 			chartType = 'horizontalBar';
 		}
 
-		// Chart Data
-		const chartData = {
-			labels: answerLabels,
-			datasets: [ {
-				data: answerVotes,
-				backgroundColor: [
-					'rgba(255, 99, 132, 0.2)',
-					'rgba(54, 162, 235, 0.2)',
-					'rgba(153, 102, 255, 0.2)',
-					'rgba(255, 206, 86, 0.2)',
-					'rgba(75, 192, 192, 0.2)',
-					'rgba(255, 159, 64, 0.2)'
-				],
-				borderWidth: 0
-			} ]
-		};
-
-		// Chart Options
-		const chartOptions = {
-			legend: {
-				display: false // Remove legend
-			},
-			tooltips: {
-
-				// Label
-				titleFontColor: '#FFFFFF',
-				titleFontFamily: '\'Helvetica Neue\', \'Helvetica\', \'Arial\', sans-serif',
-				titleFontSize: 13,
-				titleFontStyle: 'bold',
-				titleMarginBottom: 10,
-
-				// Number of Votes
-				bodyFontColor: '#FFFFFF',
-				bodyFontFamily: '\'Helvetica Neue\', \'Helvetica\', \'Arial\', sans-serif',
-				bodyFontSize: 12,
-				bodyFontStyle: 'normal'
-			},
-			scales: {
-				xAxes: [ {
-					labelMaxWidth: 3,
-					labelWrap: true
-				} ],
-				yAxes: [ {
-					ticks: {
-						beginAtZero: true
-					}
-				} ]
-			}
-		};
+		if ( undefined === pollData || 0 === pollData.length ) {
+			return;
+		}
 
 		function formatLabel( str, maxwidth ) {
 
-			const sections = [];
-			const words = str.split( ' ' );
-			const temp = '';
+			let sections = [];
+			let words = str.split( ' ' );
+			let temp = '';
 
 			words.forEach( function( item, index ) {
 
 				if ( 0 < temp.length ) {
 
-					const concat = temp + ' ' + item;
+					let concat = temp + ' ' + item;
 
 					if ( concat.length > maxwidth ) {
 						sections.push( temp );
@@ -109,6 +63,71 @@
 		}
 
 		function init() {
+
+			let answerLabels = [];
+			let answerVotes = [];
+			let answerColors = [];
+
+			for ( let row of pollData ) {
+
+				// Get answer text
+				answerLabels.push(
+					formatLabel( row[0], 10 ) // Get first key
+				);
+
+				// Get answer votes
+				answerVotes.push(
+					row[1] // Get second key
+				);
+
+				// Get answer color
+				answerColors.push(
+					row[2] // Get third key
+				);
+			}
+
+			// Chart Data
+			const chartData = {
+				labels: answerLabels,
+				datasets: [ {
+					data: answerVotes,
+					backgroundColor: answerColors,
+					borderWidth: 0
+				} ]
+			};
+
+			// Chart Options
+			const chartOptions = {
+				legend: {
+					display: false // Remove legend
+				},
+				tooltips: {
+
+					// Label
+					titleFontColor: '#FFFFFF',
+					titleFontFamily: '\'Helvetica Neue\', \'Helvetica\', \'Arial\', sans-serif',
+					titleFontSize: 13,
+					titleFontStyle: 'bold',
+					titleMarginBottom: 10,
+
+					// Number of Votes
+					bodyFontColor: '#FFFFFF',
+					bodyFontFamily: '\'Helvetica Neue\', \'Helvetica\', \'Arial\', sans-serif',
+					bodyFontSize: 12,
+					bodyFontStyle: 'normal'
+				},
+				scales: {
+					xAxes: [ {
+						labelMaxWidth: 3,
+						labelWrap: true
+					} ],
+					yAxes: [ {
+						ticks: {
+							beginAtZero: true
+						}
+					} ]
+				}
+			};
 
 			chart.each( function() {
 
