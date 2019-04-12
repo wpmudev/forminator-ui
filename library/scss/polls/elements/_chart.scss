@@ -2,24 +2,19 @@
 
 	.forminator-chart {
 		width: 100%;
-		margin: $gutter-sm 0;
+		margin: 0;
 
-		&:first-child {
-			margin-top: 0;
+		&,
+		&:hover,
+		&:focus,
+		&:active {
+			outline: none;
+			box-shadow: none;
+			text-decoration: none;
 		}
 
-		&:last-child {
-			margin-bottom: 0;
-		}
-	}
-}
-
-@include body-class(polls, all, true) {
-
-	.forminator-chart {
-
-		@include media(min-width, sm) {
-			margin: $gutter 0;
+		&:not(.forminator-show) {
+			display: none !important;
 		}
 	}
 }
