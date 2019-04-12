@@ -15,9 +15,8 @@
 
 			form = $( this );
 
-			const btnSubmit  = form.find( '.forminator-button-submit' );
-			const btnResults = form.find( '.forminator-link' );
-			const btnBack  = form.find( '.forminator-button-back' );
+			const btnBlue  = form.find( '.forminator-button' );
+			const btnLink = form.find( '.forminator-link' );
 
 			// Load radio and checkbox function
 			FUI.radioStates( form.find( '.forminator-radio' ) );
@@ -36,8 +35,8 @@
 
 				// Hide error response
 				response.removeClass( 'forminator-show' );
+				response.removeClass( 'forminator-error' );
 				response.removeClass( 'forminator-success' );
-				response.removeClass( 'forminator-accessible' );
 
 				// Hide response for screen readers
 				response.removeAttr( 'tabindex' );
@@ -78,7 +77,8 @@
 				field.addClass( 'forminator-has_error' );
 
 				// Show error message
-				response.addClass( 'forminator-accessible' );
+				response.addClass( 'forminator-error' );
+				response.addClass( 'forminator-show' );
 
 				// Show response for screen readers
 				response.removeAttr( 'aria-hidden' );
@@ -90,7 +90,7 @@
 			}
 
 			// DEMO: Submit vote
-			btnSubmit.on( 'click', function( e ) {
+			btnBlue.on( 'click', function( e ) {
 
 				form = $( this ).closest( '.forminator-polls' );
 
@@ -98,57 +98,60 @@
 				const link = form.find( '.forminator-link' );
 				const field = form.find( '.forminator-field' );
 
-				if ( field.find( '.forminator-radio input:checked' ).length ) {
+				if ( button.hasClass( 'forminator-button-submit' ) ) {
 
-					// Clean response message
-					responseClean( form );
+					if ( field.find( '.forminator-radio input:checked' ).length ) {
 
-					// Button loading animation
-					button.addClass( 'forminator-onload' );
+						// Clean response message
+						responseClean( form );
 
-					// Disable "view results" link
-					link.addClass( 'forminator-disabled' );
+						// Button loading animation
+						button.addClass( 'forminator-onload' );
 
-					setTimeout( function() {
+						// Disable "view results" link
+						link.addClass( 'forminator-disabled' );
 
-						// Success message
-						responseSuccess( form );
+						setTimeout( function() {
 
-						// Remove checked option
-						field.find( '.forminator-radio' ).removeClass( 'forminator-is_checked' );
-						field.find( '.forminator-radio input' ).prop( 'checked', false );
+							// Success message
+							responseSuccess( form );
 
-						// Remove loading animation
-						button.removeClass( 'forminator-onload' );
+							// Remove checked option
+							field.find( '.forminator-radio' ).removeClass( 'forminator-is_checked' );
+							field.find( '.forminator-radio input' ).prop( 'checked', false );
 
-						// Enable "view results" link
-						link.removeClass( 'forminator-disabled' );
+							// Remove loading animation
+							button.removeClass( 'forminator-onload' );
 
-					}, 1500 );
+							// Enable "view results" link
+							link.removeClass( 'forminator-disabled' );
 
-				} else {
+						}, 1500 );
 
-					// Clean response message
-					responseClean( form );
+					} else {
 
-					// Button loading animation
-					button.addClass( 'forminator-onload' );
+						// Clean response message
+						responseClean( form );
 
-					// Disable "view results" link
-					link.addClass( 'forminator-disabled' );
+						// Button loading animation
+						button.addClass( 'forminator-onload' );
 
-					setTimeout( function() {
+						// Disable "view results" link
+						link.addClass( 'forminator-disabled' );
 
-						// Error message
-						responseError( form );
+						setTimeout( function() {
 
-						// Remove loading animation
-						button.removeClass( 'forminator-onload' );
+							// Error message
+							responseError( form );
 
-						// Enable "view results" link
-						link.removeClass( 'forminator-disabled' );
+							// Remove loading animation
+							button.removeClass( 'forminator-onload' );
 
-					}, 1500 );
+							// Enable "view results" link
+							link.removeClass( 'forminator-disabled' );
+
+						}, 1500 );
+					}
 				}
 
 				e.preventDefault();
@@ -156,13 +159,13 @@
 			});
 
 			// DEMO: View results
-			btnResults.on( 'click', function( e ) {
+			btnLink.on( 'click', function( e ) {
 
 				form = $( this ).closest( '.forminator-polls' );
 
+				const button = form.find( '.forminator-button' );
 				const field = form.find( '.forminator-field' );
 				const chart = form.find( '.forminator-chart' );
-				const button = form.find( '.forminator-button' );
 				const link = form.find( '.forminator-link' );
 
 				// Hide poll form
@@ -191,36 +194,40 @@
 			});
 
 			// DEMO: Back to Results
-			btnBack.on( 'click', function( e ) {
+			btnBlue.on( 'click', function( e ) {
 
 				form = $( this ).closest( '.forminator-polls' );
 
+				const button = form.find( '.forminator-button' );
 				const field = form.find( '.forminator-field' );
 				const chart = form.find( '.forminator-chart' );
-				const button = form.find( '.forminator-button' );
 				const link = form.find( '.forminator-link' );
 
-				// Hide chart
-				chart.removeClass( 'forminator-show' );
-				chart.removeAttr( 'tabindex' );
-				chart.attr( 'aria-hidden', 'true' );
+				if ( button.hasClass( 'forminator-button-back' ) ) {
 
-				// Show poll form
-				field.show();
-				field.removeAttr( 'aria-hidden' );
-				field.attr( 'tabindex', '-1' );
+					// Hide chart
+					chart.removeClass( 'forminator-show' );
+					chart.removeAttr( 'tabindex' );
+					chart.attr( 'aria-hidden', 'true' );
 
-				// Focus poll form
-				field.focus();
+					// Show poll form
+					field.show();
+					field.removeAttr( 'aria-hidden' );
+					field.attr( 'tabindex', '-1' );
 
-				// Replace "back" with "submit" button
-				button.removeClass( 'forminator-button-back' );
-				button.addClass( 'forminator-button-submit' );
-				button.find( 'span' ).text( 'Submit' );
+					// Focus poll form
+					field.focus();
 
-				// Show "view results" link
-				link.show();
-				link.removeAttr( 'aria-hidden' );
+					// Replace "back" with "submit" button
+					button.removeClass( 'forminator-button-back' );
+					button.addClass( 'forminator-button-submit' );
+					button.find( 'span' ).text( 'Submit' );
+
+					// Show "view results" link
+					link.show();
+					link.removeAttr( 'aria-hidden' );
+
+				}
 
 				e.preventDefault();
 
