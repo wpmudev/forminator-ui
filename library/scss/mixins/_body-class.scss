@@ -20,7 +20,7 @@
 			@if ($module-theme == all) {
 
 				&.forminator-custom-form,
-				&.forminator-polls,
+				&.forminator-poll,
 				&.forminator-quiz {
 
 					&.forminator-design--default,
@@ -46,7 +46,7 @@
 			@else {
 
 				&.forminator-custom-form,
-				&.forminator-polls,
+				&.forminator-poll,
 				&.forminator-quiz {
 
 					@each $theme in $module-theme {

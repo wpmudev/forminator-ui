@@ -1,4 +1,4 @@
-@include body-class(custom-form polls, all, false) {
+@include body-class(custom-form poll, all, false) {
 
 	.forminator-radio {
 		cursor: default;
@@ -64,7 +64,7 @@
 
 // =============================================
 // DESIGN: Default
-@include body-class(custom-form polls, default, false) {
+@include body-class(custom-form poll, default, false) {
 
 	.forminator-radio {
 
@@ -82,7 +82,7 @@
 
 // =============================================
 // DESIGN: Flat
-@include body-class(custom-form polls, flat, false) {
+@include body-class(custom-form poll, flat, false) {
 
 	.forminator-radio {
 
@@ -100,7 +100,7 @@
 
 // =============================================
 // DESIGN: Bold
-@include body-class(custom-form polls, bold, false) {
+@include body-class(custom-form poll, bold, false) {
 
 	.forminator-radio {
 
@@ -118,7 +118,7 @@
 
 // =============================================
 // DESIGN: Material
-@include body-class(custom-form polls, material, false) {
+@include body-class(custom-form poll, material, false) {
 
 	.forminator-radio {
 

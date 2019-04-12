@@ -9,7 +9,7 @@
 
 	SHOWCASE.demoPoll = function() {
 
-		let form = $( '.forminator-ui.forminator-polls' );
+		let form = $( '.forminator-ui.forminator-poll' );
 
 		form.each( function() {
 
@@ -92,7 +92,7 @@
 			// DEMO: Submit vote
 			btnBlue.on( 'click', function( e ) {
 
-				form = $( this ).closest( '.forminator-polls' );
+				form = $( this ).closest( '.forminator-poll' );
 
 				const button = $( this );
 				const link = form.find( '.forminator-link' );
@@ -161,7 +161,7 @@
 			// DEMO: View results
 			btnLink.on( 'click', function( e ) {
 
-				form = $( this ).closest( '.forminator-polls' );
+				form = $( this ).closest( '.forminator-poll' );
 
 				const button = form.find( '.forminator-button' );
 				const field = form.find( '.forminator-field' );
@@ -196,7 +196,7 @@
 			// DEMO: Back to Results
 			btnBlue.on( 'click', function( e ) {
 
-				form = $( this ).closest( '.forminator-polls' );
+				form = $( this ).closest( '.forminator-poll' );
 
 				const button = form.find( '.forminator-button' );
 				const field = form.find( '.forminator-field' );

@@ -1,4 +1,4 @@
-@include body-class(custom-form polls, all, false) {
+@include body-class(custom-form poll, all, false) {
 
 	.forminator-label,
 	.forminator-error-message {
@@ -48,7 +48,7 @@
 
 // =============================================
 // DESIGN: Default
-@include body-class(custom-form polls, default, false) {
+@include body-class(custom-form poll, default, false) {
 
 	.forminator-error-message {
 		padding: 2px 10px;
@@ -58,7 +58,7 @@
 
 // =============================================
 // DESIGN: Flat
-@include body-class(custom-form polls, flat, false) {
+@include body-class(custom-form poll, flat, false) {
 
 	.forminator-error-message {
 		padding: 2px 10px;
@@ -68,7 +68,7 @@
 
 // =============================================
 // DESIGN: Bold
-@include body-class(custom-form polls, bold, false) {
+@include body-class(custom-form poll, bold, false) {
 
 	.forminator-error-message {
 		padding: 2px 10px;
@@ -78,7 +78,7 @@
 
 // =============================================
 // DESIGN: Material
-@include body-class(custom-form polls, material, false) {
+@include body-class(custom-form poll, material, false) {
 
 	.forminator-label {
 		line-height: 20px;

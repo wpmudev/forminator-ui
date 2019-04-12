@@ -1,4 +1,4 @@
-@include body-class(polls, all, false) {
+@include body-class(poll, all, false) {
 	width: 100%;
 	margin: $gutter 0;
 	box-sizing: border-box;
@@ -39,7 +39,7 @@
 	}
 }
 
-@include body-class(polls, all, true) {
+@include body-class(poll, all, true) {
 
 	.forminator-poll-header {
 
