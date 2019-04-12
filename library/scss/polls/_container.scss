@@ -4,15 +4,29 @@
 	box-sizing: border-box;
 	@extend %text-reset;
 
-	.forminator-poll-footer {
-		margin: $gutter-sm 0;
+	.forminator-poll-header {
 
-		&:first-child {
-			margin-top: 0;
+		+ .forminator-poll-body,
+		+ .forminator-poll-footer {
+			margin-top: $gutter-sm;
+		}
+	}
+
+	.forminator-poll-body {
+
+		.forminator-field {
+			margin: 0;
+			padding: 0;
+			border: 0;
+
+			&:focus {
+				outline: none;
+				box-shadow: none;
+			}
 		}
 
-		&:last-child {
-			margin-bottom: 0;
+		+ .forminator-poll-footer {
+			margin-top: $gutter-sm;
 		}
 	}
 
@@ -27,24 +41,24 @@
 
 @include body-class(polls, all, true) {
 
-	.forminator-poll-footer {
+	.forminator-poll-header {
 
-		&:first-child {
-
-			@include media(min-width, sm) {
-				margin-top: 0;
-			}
-		}
-
-		&:last-child {
+		+ .forminator-poll-body,
+		+ .forminator-poll-footer {
 
 			@include media(min-width, sm) {
-				margin-bottom: 0;
+				margin-top: $gutter;
 			}
 		}
+	}
 
-		@include media(min-width, sm) {
-			margin: $gutter 0;
+	.forminator-poll-body {
+
+		+ .forminator-poll-footer {
+
+			@include media(min-width, sm) {
+				margin-top: $gutter;
+			}
 		}
 	}
 
