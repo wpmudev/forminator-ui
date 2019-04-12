@@ -509,6 +509,154 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     window.FUI = {};
   }
 
+  FUI.pollChart = function (pollChart, pollData) {
+    var chartType = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'horizontalBar';
+    var chart = $(pollChart);
+
+    if ('bar' === chartType) {
+      chartType = 'horizontalBar';
+    }
+
+    if (undefined === pollData || 0 === pollData.length) {
+      return;
+    }
+
+    function formatLabel(str, maxwidth) {
+      var sections = [];
+      var words = str.split(' ');
+      var temp = '';
+      words.forEach(function (item, index) {
+        if (0 < temp.length) {
+          var concat = temp + ' ' + item;
+
+          if (concat.length > maxwidth) {
+            sections.push(temp);
+            temp = '';
+          } else {
+            if (index == words.length - 1) {
+              sections.push(concat);
+              return;
+            } else {
+              temp = concat;
+              return;
+            }
+          }
+        }
+
+        if (index == words.length - 1) {
+          sections.push(item);
+          return;
+        }
+
+        if (item.length < maxwidth) {
+          temp = item;
+        } else {
+          sections.push(item);
+        }
+      });
+      return sections;
+    }
+
+    function init() {
+      var answerLabels = [];
+      var answerVotes = [];
+      var answerColors = [];
+      var _iteratorNormalCompletion = true;
+      var _didIteratorError = false;
+      var _iteratorError = undefined;
+
+      try {
+        for (var _iterator = pollData[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+          var row = _step.value;
+          // Get answer text
+          answerLabels.push(formatLabel(row[0], 20) // Get first key
+          ); // Get answer votes
+
+          answerVotes.push(row[1] // Get second key
+          ); // Get answer color
+
+          answerColors.push(row[2] // Get third key
+          );
+        } // Chart Data
+
+      } catch (err) {
+        _didIteratorError = true;
+        _iteratorError = err;
+      } finally {
+        try {
+          if (!_iteratorNormalCompletion && _iterator["return"] != null) {
+            _iterator["return"]();
+          }
+        } finally {
+          if (_didIteratorError) {
+            throw _iteratorError;
+          }
+        }
+      }
+
+      var chartData = {
+        labels: answerLabels,
+        datasets: [{
+          data: answerVotes,
+          backgroundColor: answerColors,
+          borderWidth: 0
+        }]
+      }; // Chart Options
+
+      var chartOptions = {
+        legend: {
+          display: false // Remove legend
+
+        },
+        tooltips: {
+          // Label
+          titleFontColor: '#FFFFFF',
+          titleFontFamily: '\'Helvetica Neue\', \'Helvetica\', \'Arial\', sans-serif',
+          titleFontSize: 13,
+          titleFontStyle: 'bold',
+          titleMarginBottom: 10,
+          // Number of Votes
+          bodyFontColor: '#FFFFFF',
+          bodyFontFamily: '\'Helvetica Neue\', \'Helvetica\', \'Arial\', sans-serif',
+          bodyFontSize: 12,
+          bodyFontStyle: 'normal'
+        },
+        scales: {
+          xAxes: [{
+            labelMaxWidth: 3,
+            labelWrap: true
+          }],
+          yAxes: [{
+            ticks: {
+              beginAtZero: true
+            }
+          }]
+        }
+      };
+      chart.each(function () {
+        chart = $(this);
+        new Chart(chart, {
+          type: chartType,
+          data: chartData,
+          options: chartOptions
+        });
+      });
+    }
+
+    init();
+    return this;
+  };
+})(jQuery);
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+(function ($) {
+  // Enable strict mode.
+  'use strict'; // Define global FUI object if it doesn't exist.
+
+  if ('object' !== _typeof(window.FUI)) {
+    window.FUI = {};
+  }
+
   FUI.radioStates = function (el) {
     var label = $(el);
     var input = label.find('input');
