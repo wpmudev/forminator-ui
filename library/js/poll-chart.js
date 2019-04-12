@@ -72,7 +72,7 @@
 
 				// Get answer text
 				answerLabels.push(
-					formatLabel( row[0], 10 ) // Get first key
+					formatLabel( row[0], 20 ) // Get first key
 				);
 
 				// Get answer votes
