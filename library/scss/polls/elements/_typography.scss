@@ -3,7 +3,7 @@
 	.forminator-question,
 	.forminator-description {
 		display: block;
-		margin: 5px 0 0;
+		margin: 0 0 5px;
 		padding: 0;
 		border: 0;
 		letter-spacing: 0;
@@ -13,8 +13,8 @@
 			content: none;
 		}
 
-		&:first-child {
-			margin-top: 0;
+		&:last-child {
+			margin-bottom: 0;
 		}
 	}
 
