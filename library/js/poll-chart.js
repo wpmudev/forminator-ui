@@ -8,7 +8,7 @@
 		window.FUI = {};
 	}
 
-	FUI.pollChart = function( pollChart, pollData, chartType = 'horizontalBar' ) {
+	FUI.pollChart = function( pollChart, pollData, chartType = 'horizontalBar', chartExtras = '' ) {
 
 		let chart = $( pollChart );
 
@@ -72,9 +72,17 @@
 			for ( let row of pollData ) {
 
 				// Get answer text
-				answerLabels.push(
-					formatLabel( row[0], 20 ) // Get first key
-				);
+				if ( 'pie' === chartType ) {
+
+					answerLabels.push(
+						row[0] // Get first key
+					);
+				} else {
+
+					answerLabels.push(
+						formatLabel( row[0], 20 ) // Get first key
+					);
+				}
 
 				// Get answer votes
 				answerVotes.push(
@@ -85,6 +93,14 @@
 				answerColors.push(
 					row[2] // Get third key
 				);
+			}
+
+			// Chart Extras
+			if ( '' === chartExtras ) {
+
+				chartExtras = [
+					'vote(s)'
+				];
 			}
 
 			// Chart Data
@@ -104,6 +120,42 @@
 					position: 'top'
 				},
 				tooltips: {
+					callbacks: {
+						title: function( tooltipItems, data ) {
+
+							var title = '';
+
+							if ( 'pie' !== chartType ) {
+								title = tooltipItems[0].yLabel;
+							}
+
+							return title;
+
+						},
+						label: function( tooltipItem, data ) {
+
+							var label = data.datasets[tooltipItem.datasetIndex].label || '';
+
+							if ( 'pie' === chartType ) {
+
+								label = data.labels[tooltipItem.index] + ': ' + data.datasets[0].data[tooltipItem.index];
+
+							} else {
+
+								if ( label ) {
+									label += '';
+								}
+
+								label += ( 'pie' === chartType ) ? Math.round( tooltipItem.yLabel * 100 ) / 100 : Math.round( tooltipItem.xLabel * 100 ) / 100;
+
+							}
+
+							label += ' ' + chartExtras[0];
+
+							return label;
+
+						}
+					},
 					titleFontColor: '#FFFFFF',
 					titleFontFamily: '\'Helvetica Neue\', \'Helvetica\', \'Arial\', sans-serif',
 					titleFontSize: 13,
