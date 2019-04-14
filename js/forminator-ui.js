@@ -558,6 +558,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     }
 
     function init() {
+      // Poll Data
       var answerLabels = [];
       var answerVotes = [];
       var answerColors = [];
@@ -605,17 +606,15 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
       var chartOptions = {
         legend: {
-          display: false // Remove legend
-
+          display: 'pie' === chartType ? true : false,
+          position: 'top'
         },
         tooltips: {
-          // Label
           titleFontColor: '#FFFFFF',
           titleFontFamily: '\'Helvetica Neue\', \'Helvetica\', \'Arial\', sans-serif',
           titleFontSize: 13,
           titleFontStyle: 'bold',
           titleMarginBottom: 10,
-          // Number of Votes
           bodyFontColor: '#FFFFFF',
           bodyFontFamily: '\'Helvetica Neue\', \'Helvetica\', \'Arial\', sans-serif',
           bodyFontSize: 12,
@@ -623,10 +622,10 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         },
         scales: {
           xAxes: [{
-            labelMaxWidth: 3,
-            labelWrap: true
+            display: 'pie' === chartType ? false : true
           }],
           yAxes: [{
+            display: 'pie' === chartType ? false : true,
             ticks: {
               beginAtZero: true
             }
@@ -635,6 +634,11 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       };
       chart.each(function () {
         chart = $(this);
+
+        Chart.Legend.prototype.afterFit = function () {
+          this.height = 'pie' === chartType ? this.height + 20 : this.height;
+        };
+
         new Chart(chart, {
           type: chartType,
           data: chartData,
