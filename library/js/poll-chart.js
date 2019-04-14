@@ -64,6 +64,7 @@
 
 		function init() {
 
+			// Poll Data
 			let answerLabels = [];
 			let answerVotes = [];
 			let answerColors = [];
@@ -99,18 +100,15 @@
 			// Chart Options
 			const chartOptions = {
 				legend: {
-					display: false // Remove legend
+					display: ( 'pie' === chartType ) ? true : false,
+					position: 'top'
 				},
 				tooltips: {
-
-					// Label
 					titleFontColor: '#FFFFFF',
 					titleFontFamily: '\'Helvetica Neue\', \'Helvetica\', \'Arial\', sans-serif',
 					titleFontSize: 13,
 					titleFontStyle: 'bold',
 					titleMarginBottom: 10,
-
-					// Number of Votes
 					bodyFontColor: '#FFFFFF',
 					bodyFontFamily: '\'Helvetica Neue\', \'Helvetica\', \'Arial\', sans-serif',
 					bodyFontSize: 12,
@@ -118,10 +116,10 @@
 				},
 				scales: {
 					xAxes: [ {
-						labelMaxWidth: 3,
-						labelWrap: true
+						display: ( 'pie' === chartType ) ? false : true
 					} ],
 					yAxes: [ {
+						display: ( 'pie' === chartType ) ? false : true,
 						ticks: {
 							beginAtZero: true
 						}
@@ -132,6 +130,10 @@
 			chart.each( function() {
 
 				chart = $( this );
+
+				Chart.Legend.prototype.afterFit = function() {
+					this.height = ( 'pie' === chartType ) ? this.height + 20 : this.height;
+				};
 
 				new Chart( chart, {
 					type: chartType,
