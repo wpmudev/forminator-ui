@@ -622,7 +622,10 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         },
         scales: {
           xAxes: [{
-            display: 'pie' === chartType ? false : true
+            display: 'pie' === chartType ? false : true,
+            ticks: {
+              beginAtZero: true
+            }
           }],
           yAxes: [{
             display: 'pie' === chartType ? false : true,
