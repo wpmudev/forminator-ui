@@ -49,7 +49,7 @@
 
 								<div class="forminator-poll-header">
 
-									<span class="forminator-question">Poll title</span>
+									<span class="forminator-question">Poll title - Bars chart</span>
 
 									<span class="forminator-description">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Curabitur blandit tempus porttitor. Nullam id dolor id nibh ultricies vehicula ut id elit.</span>
 
@@ -128,6 +128,95 @@
 
 							</form>
 
+							<form
+								id="forminator-poll-2"
+								class="forminator-ui forminator-poll forminator-design--default"
+								data-design="default"
+							>
+
+								<div class="forminator-response-message" aria-hidden="true"></div>
+
+								<div class="forminator-poll-header">
+
+									<span class="forminator-question">Poll title - Pie chart</span>
+
+									<span class="forminator-description">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Curabitur blandit tempus porttitor. Nullam id dolor id nibh ultricies vehicula ut id elit.</span>
+
+								</div>
+
+								<div class="forminator-poll-body">
+
+									<fieldset class="forminator-field forminator-is_required">
+
+										<label for="forminator-poll-2-option-1" class="forminator-radio">
+											<input
+												type="radio"
+												name="forminator-poll-2-options-1"
+												value="one"
+												id="forminator-poll-2-option-1"
+											/>
+											<span aria-hidden="true"></span>
+											<span>Option 1</span>
+										</label>
+
+										<label for="forminator-poll-2-option-2" class="forminator-radio">
+											<input
+												type="radio"
+												name="forminator-poll-2-options-1"
+												value="two"
+												id="forminator-poll-2-option-2"
+											/>
+											<span aria-hidden="true"></span>
+											<span>Option 2</span>
+										</label>
+
+										<label for="forminator-poll-2-option-3" class="forminator-radio">
+											<input
+												type="radio"
+												name="forminator-poll-2-options-1"
+												value="three"
+												id="forminator-poll-2-option-3"
+											/>
+											<span aria-hidden="true"></span>
+											<span>Option 3</span>
+										</label>
+
+										<label for="forminator-poll-2-option-4" class="forminator-radio">
+											<input
+												type="radio"
+												name="forminator-poll-2-options-1"
+												value="four"
+												id="forminator-poll-2-option-4"
+											/>
+											<span aria-hidden="true"></span>
+											<span>Option 4</span>
+										</label>
+
+									</fieldset>
+
+									<canvas
+										class="forminator-chart forminator-poll-2-chart"
+										role="img"
+										aria-hidden="true"
+									>
+										<p>Fallback text</p>
+									</canvas>
+
+								</div>
+
+								<div class="forminator-poll-footer">
+
+									<button class="forminator-button forminator-button-submit">
+										<span>Submit</span>
+										<i class="forminator-icon-loader forminator-loading" aria-hidden="true"></i>
+									</button>
+
+									<a href="#" class="forminator-link">View Results</a>
+
+								</div>
+
+							</form>
+
 						</div>
 
 					</div>
@@ -154,7 +243,8 @@
 				return Math.round( Math.random() * 100 );
 			};
 
-			var element = '.forminator-poll-1-chart';
+			var chartBar = '.forminator-poll-1-chart';
+			var chartPie = '.forminator-poll-2-chart';
 
 			var pollData = [
 				[ 'Hustle', randomScalingFactor(), 'rgba(255, 99, 132, 0.2)' ],
@@ -165,7 +255,8 @@
 				[ 'Forminator', randomScalingFactor(), 'rgba(255, 159, 64, 0.2)' ]
 			];
 
-			FUI.pollChart( element, pollData );
+			FUI.pollChart( chartBar, pollData, 'bar' );
+			FUI.pollChart( chartPie, pollData, 'pie' );
 
 		</script>
 
