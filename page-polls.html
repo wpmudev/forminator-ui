@@ -247,16 +247,20 @@
 			var chartPie = '.forminator-poll-2-chart';
 
 			var pollData = [
-				[ 'Hustle', randomScalingFactor(), 'rgba(255, 99, 132, 0.2)' ],
-				[ 'Branda', randomScalingFactor(), 'rgba(54, 162, 235, 0.2)' ],
-				[ 'Snapshot', randomScalingFactor(), 'rgba(153, 102, 255, 0.2)' ],
-				[ 'SmartCrawl', randomScalingFactor(), 'rgba(255, 206, 86, 0.2)' ],
-				[ 'Hummingbird', randomScalingFactor(), 'rgba(75, 192, 192, 0.2)' ],
-				[ 'Forminator', randomScalingFactor(), 'rgba(255, 159, 64, 0.2)' ]
+				[ 'SmartCrawl', randomScalingFactor(), 'rgba(255, 99, 132, 0.2)' ],
+				[ 'Forminator', randomScalingFactor(), 'rgba(54, 162, 235, 0.2)' ],
+				[ 'Branda', randomScalingFactor(), 'rgba(153, 102, 255, 0.2)' ],
+				[ 'Hummingbird', randomScalingFactor(), 'rgba(255, 206, 86, 0.2)' ],
+				[ 'Hustle', randomScalingFactor(), 'rgba(75, 192, 192, 0.2)' ],
+				[ 'Snapshot', randomScalingFactor(), 'rgba(255, 159, 64, 0.2)' ]
 			];
 
-			FUI.pollChart( chartBar, pollData, 'bar' );
-			FUI.pollChart( chartPie, pollData, 'pie' );
+			var chartExtras = [
+				'vote(s)'
+			];
+
+			FUI.pollChart( chartBar, pollData, 'bar', chartExtras );
+			FUI.pollChart( chartPie, pollData, 'pie', chartExtras );
 
 		</script>
 
