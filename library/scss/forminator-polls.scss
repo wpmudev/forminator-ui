@@ -15,15 +15,6 @@
 @import "helpers/icon-styles";
 @import "helpers/screen-readers";
 
-// Global elements
-@import "globals/accessibility";
-@import "globals/hidden";
-@import "globals/label";
-@import "globals/input";
-@import "globals/radio";
-@import "globals/buttons";
-@import "globals/response-message";
-
 // Poll elements
 @import "polls/container";
 @import "polls/elements/typography";
