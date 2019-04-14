@@ -116,7 +116,10 @@
 				},
 				scales: {
 					xAxes: [ {
-						display: ( 'pie' === chartType ) ? false : true
+						display: ( 'pie' === chartType ) ? false : true,
+						ticks: {
+							beginAtZero: true
+						}
 					} ],
 					yAxes: [ {
 						display: ( 'pie' === chartType ) ? false : true,
