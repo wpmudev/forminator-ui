@@ -116,8 +116,7 @@
 			// Chart Options
 			const chartOptions = {
 				legend: {
-					display: ( 'pie' === chartType ) ? true : false,
-					position: 'top'
+					display: false
 				},
 				tooltips: {
 					callbacks: {
@@ -185,10 +184,6 @@
 			chart.each( function() {
 
 				chart = $( this );
-
-				Chart.Legend.prototype.afterFit = function() {
-					this.height = ( 'pie' === chartType ) ? this.height + 20 : this.height;
-				};
 
 				new Chart( chart, {
 					type: chartType,
