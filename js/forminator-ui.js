@@ -619,8 +619,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
       var chartOptions = {
         legend: {
-          display: 'pie' === chartType ? true : false,
-          position: 'top'
+          display: false
         },
         tooltips: {
           callbacks: {
@@ -677,16 +676,23 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       };
       chart.each(function () {
         chart = $(this);
-
-        Chart.Legend.prototype.afterFit = function () {
-          this.height = 'pie' === chartType ? this.height + 20 : this.height;
-        };
-
         new Chart(chart, {
           type: chartType,
           data: chartData,
           options: chartOptions
         });
+
+        if ('pie' === chartType) {
+          // Wrap the chart
+          chart.wrap('<div class="forminator-chart-wrapper" aria-hidden="true" />');
+          console.log(chart.parent()); // Insert legend wrapper
+
+          chart.parent().prepend('<ul class="forminator-chart-legend"></ul>'); // Insert legend items
+
+          pollData.forEach(function (entry) {
+            chart.parent().find('.forminator-chart-legend').append('<li><span class="forminator-chart-legend--color" style="background-color: ' + entry[2] + '" aria-hidden="true"></span><strong>' + entry[0] + ':</strong> ' + entry[1] + ' ' + chartExtras[0] + '</li>');
+          });
+        }
       });
     }
 
