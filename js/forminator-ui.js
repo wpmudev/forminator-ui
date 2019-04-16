@@ -604,7 +604,9 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       }
 
       if ('' === chartExtras) {
-        chartExtras = ['vote(s)'];
+        chartExtras = ['vote(s)', // custom labdel (string)
+        true // vote count (bool)
+        ];
       } // Chart Data
 
 
@@ -672,6 +674,18 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
               beginAtZero: true
             }
           }]
+        },
+        plugins: {
+          datalabels: {
+            display: 'pie' === chartType ? false : chartExtras[1],
+            align: 'end',
+            anchor: 'start',
+            textAlign: 'center',
+            color: '#333333',
+            formatter: function formatter(value) {
+              return value + ' ' + chartExtras[0];
+            }
+          }
         }
       };
       chart.each(function () {
@@ -679,13 +693,13 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         new Chart(chart, {
           type: chartType,
           data: chartData,
+          plugins: [ChartDataLabels],
           options: chartOptions
         });
 
         if ('pie' === chartType) {
           // Wrap the chart
-          chart.wrap('<div class="forminator-chart-wrapper" aria-hidden="true" />');
-          console.log(chart.parent()); // Insert legend wrapper
+          chart.wrap('<div class="forminator-chart-wrapper" aria-hidden="true" />'); // Insert legend wrapper
 
           chart.parent().prepend('<ul class="forminator-chart-legend"></ul>'); // Insert legend items
 
