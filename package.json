@@ -21,6 +21,7 @@
 		"@wpmudev/shared-ui": "^2.3.16",
 		"browser-sync": "^2.26.3",
 		"chart.js": "^2.8.0",
+		"chartjs-plugin-datalabels": "^0.6.0",
 		"eslint-config-wordpress": "^2.0.0",
 		"fs": "0.0.1-security",
 		"gh-pages": "^2.0.1",

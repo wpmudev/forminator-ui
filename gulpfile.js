@@ -209,7 +209,10 @@ gulp.task( 'library:fonts', function() {
 // Copy ChartJS
 gulp.task( 'library:chartjs', function() {
 
-	gulp.src( './node_modules/chart.js/dist/Chart.min.js' )
+	gulp.src([
+			'./node_modules/chart.js/dist/Chart.min.js',
+			'./node_modules/chartjs-plugin-datalabels/dist/chartjs-plugin-datalabels.min.js'
+		])
 		.pipe( gulp.dest( showcase.output.scripts ) )
 		.pipe( browserSync.stream() )
 		;
