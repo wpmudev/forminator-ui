@@ -99,7 +99,8 @@
 			if ( '' === chartExtras ) {
 
 				chartExtras = [
-					'vote(s)'
+					'vote(s)', // custom labdel (string)
+					true // vote count (bool)
 				];
 			}
 
@@ -178,6 +179,18 @@
 							beginAtZero: true
 						}
 					} ]
+				},
+				plugins: {
+					datalabels: {
+						display: ( 'pie' === chartType ) ? false : chartExtras[1],
+						align: 'end',
+						anchor: 'start',
+						textAlign: 'center',
+						color: '#333333',
+						formatter: function( value ) {
+							return value + ' ' + chartExtras[0];
+						}
+					}
 				}
 			};
 
@@ -188,8 +201,29 @@
 				new Chart( chart, {
 					type: chartType,
 					data: chartData,
+					plugins: [
+						ChartDataLabels
+					],
 					options: chartOptions
 				});
+
+				if ( 'pie' === chartType ) {
+
+					// Wrap the chart
+					chart.wrap( '<div class="forminator-chart-wrapper" aria-hidden="true" />' );
+
+					// Insert legend wrapper
+					chart.parent().prepend(
+						'<ul class="forminator-chart-legend"></ul>'
+					);
+
+					// Insert legend items
+					pollData.forEach( function( entry ) {
+						chart.parent().find( '.forminator-chart-legend' ).append(
+							'<li><span class="forminator-chart-legend--color" style="background-color: ' + entry[2] + '" aria-hidden="true"></span><strong>' + entry[0] + ':</strong> ' + entry[1] + ' ' + chartExtras[0] + '</li>'
+						);
+					});
+				}
 			});
 		}
 
