@@ -163,22 +163,40 @@
 
 				form = $( this ).closest( '.forminator-poll' );
 
-				const button = form.find( '.forminator-button' );
-				const field = form.find( '.forminator-field' );
-				const chart = form.find( '.forminator-chart' );
-				const link = form.find( '.forminator-link' );
+				const button  = form.find( '.forminator-button' );
+				const field   = form.find( '.forminator-field' );
+				const chart   = form.find( '.forminator-chart' );
+				const wrapper = chart.closest( '.forminator-poll-body' ).find( '.forminator-chart-wrapper' );
+				const link    = form.find( '.forminator-link' );
 
 				// Hide poll form
 				field.hide();
 				field.attr( 'aria-hidden', 'true' );
 
-				// Show chart
-				chart.addClass( 'forminator-show' );
-				chart.removeAttr( 'aria-hidden' );
-				chart.attr( 'tabindex', '-1' );
+				if ( wrapper.length ) {
 
-				// Focus chart
-				chart.focus();
+					// Show chart wrapper
+					wrapper.addClass( 'forminator-show' );
+					wrapper.removeAttr( 'aria-hidden' );
+					wrapper.attr( 'tabindex', '-1' );
+
+					chart.addClass( 'forminator-show' );
+					chart.removeAttr( 'aria-hidden' );
+
+					// Focus chart
+					wrapper.focus();
+
+				} else {
+
+					// Show chart
+					chart.addClass( 'forminator-show' );
+					chart.removeAttr( 'aria-hidden' );
+					chart.attr( 'tabindex', '-1' );
+
+					// Focus chart
+					chart.focus();
+
+				}
 
 				// Replace "submit" with "back" button
 				button.removeClass( 'forminator-button-submit' );
@@ -201,14 +219,29 @@
 				const button = form.find( '.forminator-button' );
 				const field = form.find( '.forminator-field' );
 				const chart = form.find( '.forminator-chart' );
+				const wrapper = chart.closest( '.forminator-poll-body' ).find( '.forminator-chart-wrapper' );
 				const link = form.find( '.forminator-link' );
 
 				if ( button.hasClass( 'forminator-button-back' ) ) {
 
-					// Hide chart
-					chart.removeClass( 'forminator-show' );
-					chart.removeAttr( 'tabindex' );
-					chart.attr( 'aria-hidden', 'true' );
+					if ( wrapper.length ) {
+
+						// Hide chart
+						wrapper.removeClass( 'forminator-show' );
+						wrapper.removeAttr( 'tabindex' );
+						wrapper.attr( 'aria-hidden', 'true' );
+
+						chart.removeClass( 'forminator-show' );
+						chart.attr( 'aria-hidden', 'true' );
+
+					} else {
+
+						// Hide chart
+						chart.removeClass( 'forminator-show' );
+						chart.removeAttr( 'tabindex' );
+						chart.attr( 'aria-hidden', 'true' );
+
+					}
 
 					// Show poll form
 					field.show();
