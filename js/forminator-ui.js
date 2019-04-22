@@ -603,10 +603,19 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         }
       }
 
+      var extras = {};
+      extras.votesLabel = 'vote(s)';
+      extras.votesOnPoll = false;
+      extras.basicColors = ['#E5E5E5', // [0] Grid lines color
+      '#777771', // [1] Axis labels color
+      '#333333' // [2] On-chart label (bars)
+      ];
+      extras.tooltipsBasic = ['#333333', // [0] Background color
+      '#FFFFFF' // [1] Text color
+      ];
+
       if ('' === chartExtras) {
-        chartExtras = ['vote(s)', // custom labdel (string)
-        true // vote count (bool)
-        ];
+        chartExtras = [extras.votesLabel, extras.votesOnPoll, extras.basicColors, extras.tooltipsBasic];
       } // Chart Data
 
 
@@ -651,12 +660,13 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
               return label;
             }
           },
-          titleFontColor: '#FFFFFF',
+          backgroundColor: chartExtras[3][0],
+          titleFontColor: chartExtras[3][1],
           titleFontFamily: '\'Helvetica Neue\', \'Helvetica\', \'Arial\', sans-serif',
           titleFontSize: 13,
           titleFontStyle: 'bold',
           titleMarginBottom: 10,
-          bodyFontColor: '#FFFFFF',
+          bodyFontColor: chartExtras[3][1],
           bodyFontFamily: '\'Helvetica Neue\', \'Helvetica\', \'Arial\', sans-serif',
           bodyFontSize: 12,
           bodyFontStyle: 'normal'
@@ -665,13 +675,21 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
           xAxes: [{
             display: 'pie' === chartType ? false : true,
             ticks: {
+              fontColor: chartExtras[2][1],
               beginAtZero: true
+            },
+            gridLines: {
+              color: chartExtras[2][0]
             }
           }],
           yAxes: [{
             display: 'pie' === chartType ? false : true,
             ticks: {
+              fontColor: chartExtras[2][1],
               beginAtZero: true
+            },
+            gridLines: {
+              color: chartExtras[2][0]
             }
           }]
         },
@@ -681,7 +699,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
             align: 'end',
             anchor: 'start',
             textAlign: 'center',
-            color: '#333333',
+            color: chartExtras[2][2],
             formatter: function formatter(value) {
               return value + ' ' + chartExtras[0];
             }
@@ -704,7 +722,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
           chart.parent().prepend('<ul class="forminator-chart-legend"></ul>'); // Insert legend items
 
           pollData.forEach(function (entry) {
-            chart.parent().find('.forminator-chart-legend').append('<li><span class="forminator-chart-legend--color" style="background-color: ' + entry[2] + '" aria-hidden="true"></span><strong>' + entry[0] + ':</strong> ' + entry[1] + ' ' + chartExtras[0] + '</li>');
+            chart.parent().find('.forminator-chart-legend').append('<li>' + '<span class="forminator-chart-legend--color" style="background-color: ' + entry[2] + '" aria-hidden="true"></span>' + '<strong>' + entry[0] + ':</strong> ' + entry[1] + ' ' + chartExtras[0] + '</li>');
           });
         }
       });
