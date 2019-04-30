@@ -18,7 +18,7 @@
 	"devDependencies": {
 		"@babel/core": "^7.4.3",
 		"@babel/preset-env": "^7.4.3",
-		"@wpmudev/shared-ui": "^2.3.16",
+		"@wpmudev/shared-ui": "^2.3.23",
 		"browser-sync": "^2.26.3",
 		"chart.js": "^2.8.0",
 		"chartjs-plugin-datalabels": "^0.6.0",
