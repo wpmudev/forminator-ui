@@ -206,18 +206,6 @@ gulp.task( 'library:fonts', function() {
 		;
 });
 
-// Copy ChartJS
-gulp.task( 'library:chartjs', function() {
-
-	gulp.src([
-			'./node_modules/chart.js/dist/Chart.min.js',
-			'./node_modules/chartjs-plugin-datalabels/dist/chartjs-plugin-datalabels.min.js'
-		])
-		.pipe( gulp.dest( showcase.output.scripts ) )
-		.pipe( browserSync.stream() )
-		;
-});
-
 // Build styles
 gulp.task( 'library:styles', function() {
 
@@ -273,7 +261,6 @@ gulp.task( 'library:scripts', function( cb ) {
 gulp.task( 'library:build', [
 	'library:files',
 	'library:fonts',
-	'library:chartjs',
 	'library:scripts',
 	'library:styles'
 ]);
@@ -286,9 +273,6 @@ gulp.task( 'library:watch', function() {
 
 	// Watch fonts
 	gulp.watch( library.watch.fonts, [ 'library:fonts' ]);
-
-	// Watch ChartJS
-	gulp.watch( library.watch.fonts, [ 'library:chartjs' ]);
 
 	// Watch styles
 	gulp.watch( library.watch.styles, [ 'library:styles' ]);
