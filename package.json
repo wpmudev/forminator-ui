@@ -18,7 +18,7 @@
 	"devDependencies": {
 		"@babel/core": "^7.4.3",
 		"@babel/preset-env": "^7.4.3",
-		"@wpmudev/shared-ui": "^2.3.16",
+		"@wpmudev/shared-ui": "^2.3.23",
 		"browser-sync": "^2.26.3",
 		"eslint-config-wordpress": "^2.0.0",
 		"fs": "0.0.1-security",
