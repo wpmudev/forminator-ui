@@ -1,0 +1,228 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css");
+
+@include body-class(custom-form, all, false) {
+
+	.forminator-select2 {
+		display: none;
+		visibility: hidden;
+
+		+ .select2-container {
+			width: 100% !important;
+			display: block;
+
+			&, * {
+				outline: none;
+			}
+
+			.selection {
+				cursor: pointer;
+				display: block;
+
+				.select2-selection {
+					display: flex;
+					transition: $transition--ease;
+
+					.select2-selection__rendered {
+						display: block;
+						flex: 1;
+						margin-right: $select--padding;
+						padding-right: 0;
+						padding-left: 0;
+						line-height: $select--line-height;
+					}
+
+					.select2-selection__arrow {
+						width: $select--handle-size;
+						height: $select--handle-size;
+						display: flex;
+						flex: 0 0 $select--handle-size;
+						align-items: center;
+						justify-content: center;
+						position: unset;
+						top: auto;
+						right: auto;
+
+						@include icon(before, chevron-down) {
+							display: block;
+							font-size: $select--handle-icon;
+							transition: $transition--linear;
+						}
+
+						b {
+							display: none;
+						}
+					}
+				}
+			}
+
+			&--default {
+
+				.select2-selection--single {
+					height: auto;
+				}
+			}
+
+			// STATUS: Open
+			&--open {
+
+				.selection {
+
+					.select2-selection {
+
+						.select2-selection__arrow:before {
+							transform: rotate(180deg);
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+// =============================================
+// DESIGN: Default
+@include body-class(custom-form, default, false) {
+
+	.forminator-select2 {
+
+		+ .select2-container--default {
+
+			.select2-selection--single {
+				padding-top: #{($select--height - ($select--line-height + ($default--border-width * 2))) / 2};
+				padding-right: #{$select--padding - $default--border-width};
+				padding-bottom: #{($select--height - ($select--line-height + ($default--border-width * 2))) / 2};
+				padding-left: #{$select--padding - $default--border-width};
+				border-width: $default--border-width;
+				border-style: $default--border-style;
+				border-radius: $default--border-radius;
+			}
+
+			&.select2-container--open {
+
+				// POSITION: Top
+				&.select2-container--above {
+
+					.select2-selection--single {
+						border-top-color: transparent !important;
+						border-top-left-radius: 0;
+						border-top-right-radius: 0;
+					}
+				}
+
+				// POSITION: Bottom
+				&.select2-container--below {
+
+					.select2-selection--single {
+						border-bottom-color: transparent !important;
+						border-bottom-right-radius: 0;
+						border-bottom-left-radius: 0;
+					}
+				}
+			}
+		}
+	}
+}
+
+// =============================================
+// DESIGN: Flat
+@include body-class(custom-form, flat, false) {
+
+	.forminator-select2 {
+
+		+ .select2-container--default {
+
+			.select2-selection--single {
+				padding: $select--padding;
+				border-width: 0;
+				border-style: none;
+				border-radius: 0;
+			}
+		}
+	}
+}
+
+// =============================================
+// DESIGN: Bold
+@include body-class(custom-form, bold, false) {
+
+	.forminator-select2 {
+
+		+ .select2-container--default {
+
+			.select2-selection--single {
+				padding-top: #{($select--height - ($select--line-height + ($bold--border-width * 2))) / 2};
+				padding-right: #{$select--padding - $bold--border-width};
+				padding-bottom: #{($select--height - ($select--line-height + ($bold--border-width * 2))) / 2};
+				padding-left: #{$select--padding - $bold--border-width};
+				border-width: $bold--border-width;
+				border-style: $bold--border-style;
+				border-radius: 0;
+			}
+
+			&.select2-container--open {
+
+				// POSITION: Top
+				&.select2-container--above {
+
+					.select2-selection--single {
+						border-top-color: transparent !important;
+					}
+				}
+
+				// POSITION: Bottom
+				&.select2-container--below {
+
+					.select2-selection--single {
+						border-bottom-color: transparent !important;
+					}
+				}
+			}
+		}
+	}
+}
+
+// =============================================
+// DESIGN: Material
+@include body-class(custom-form, material, false) {
+
+	.forminator-select2 {
+
+		+ .select2-container--default {
+
+			&, * {
+				background-color: transparent;
+			}
+
+			.select2-selection--single {
+				padding-top: $select--padding;
+				padding-right: 0;
+				padding-bottom: #{$select--padding - $material--border-width};
+				padding-left: 0;
+				border-width: 0 0 $material--border-width 0;
+				border-style: $material--border-style;
+				border-radius: 0;
+
+				&:before {
+					content: " ";
+					height: 2px;
+					display: block;
+					position: absolute;
+					right: 50%;
+					bottom: 0;
+					left: 50%;
+					box-sizing: border-box;
+					transition: 0.2s linear;
+				}
+			}
+
+			&:hover,
+			&.select2-container--open {
+
+				.select2-selection--single:before {
+					right: 0;
+					left: 0;
+				}
+			}
+		}
+	}
+}

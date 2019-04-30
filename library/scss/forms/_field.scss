@@ -1,0 +1,13 @@
+@include body-class(custom-form, all, false) {
+
+	.forminator-field {
+		margin: 0;
+		padding: 0;
+		border: 0;
+
+		&:focus {
+			outline: none;
+			box-shadow: none;
+		}
+	}
+}

@@ -1,0 +1,114 @@
+@include body-class(custom-form, all, false) {
+
+	.forminator-pagination-progress {
+		display: flex;
+		align-items: center;
+		margin: 0 0 $gutter-sm;
+
+		.forminator-progress-label {
+			display: block;
+			flex: 0 0 auto;
+			line-height: 2.2em;
+
+			+ .forminator-progress-bar {
+				margin-left: #{$gutter-sm / 2};
+			}
+		}
+
+		.forminator-progress-bar {
+			overflow: hidden;
+			display: block;
+			flex: 1;
+			position: relative;
+
+			span {
+				display: block;
+			}
+		}
+	}
+}
+
+@include body-class(custom-form, all, true) {
+
+	.forminator-pagination-progress {
+
+		.forminator-progress-label {
+
+			+ .forminator-progress-bar {
+
+				@include media(min-width, sm) {
+					margin-left: #{$gutter / 2};
+				}
+			}
+		}
+
+		@include media(min-width, sm) {
+			margin-bottom: $gutter;
+		}
+	}
+}
+
+// =============================================
+// DESIGN: Default
+@include body-class(custom-form, default, false) {
+
+	.forminator-pagination-progress {
+
+		.forminator-progress-bar {
+			height: map-get($pagination-bar, default);
+			border-radius: map-get($pagination-bar, default);
+
+			span {
+				height: map-get($pagination-bar, default);
+			}
+		}
+	}
+}
+
+// =============================================
+// DESIGN: Flat
+@include body-class(custom-form, flat, false) {
+
+	.forminator-pagination-progress {
+
+		.forminator-progress-bar {
+			height: map-get($pagination-bar, flat);
+
+			span {
+				height: map-get($pagination-bar, flat);
+			}
+		}
+	}
+}
+
+// =============================================
+// DESIGN: Bold
+@include body-class(custom-form, bold, false) {
+
+	.forminator-pagination-progress {
+
+		.forminator-progress-bar {
+			height: map-get($pagination-bar, bold);
+
+			span {
+				height: map-get($pagination-bar, bold);
+			}
+		}
+	}
+}
+
+// =============================================
+// DESIGN: Material
+@include body-class(custom-form, material, false) {
+
+	.forminator-pagination-progress {
+
+		.forminator-progress-bar {
+			height: map-get($pagination-bar, material);
+
+			span {
+				height: map-get($pagination-bar, material);
+			}
+		}
+	}
+}

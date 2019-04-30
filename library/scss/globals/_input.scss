@@ -1,0 +1,325 @@
+@include body-class(custom-form poll, all, false) {
+
+	.forminator-input {
+		width: 100%;
+		min-width: unset;
+		max-width: unset;
+		height: auto;
+		min-height: unset;
+		max-height: unset;
+		display: block;
+		margin: 0;
+		padding: 0;
+		background-image: unset;
+		line-height: map-get($input, line-height);
+		transition: map-get($transition, ease);
+
+		&,
+		&:hover,
+		&:focus,
+		&:active,
+		&:disabled {
+			outline: none;
+			box-shadow: none;
+		}
+
+		&:disabled {
+			pointer-events: none;
+			border-style: dotted;
+
+			&:-moz-placeholder {
+				@include opacity(0.4);
+			}
+
+			&::-moz-placeholder {
+				@include opacity(0.4);
+			}
+
+			&:-ms-input-placeholder {
+				@include opacity(0.4);
+			}
+
+			&::-webkit-input-placeholder {
+				@include opacity(0.4);
+			}
+		}
+	}
+
+	.forminator-input-with-icon {
+
+		[class*="forminator-icon-"] {
+			display: block;
+			font-size: map-get($icon, size);
+			transition: map-get($transition, ease);
+
+			&:before {
+				color: inherit;
+			}
+		}
+	}
+
+	.forminator-input-with-phone {
+
+		.flag-container {
+
+			.selected-flag {
+				width: auto;
+				display: flex;
+				align-items: center;
+				margin: 0;
+
+				.iti-flag {
+					display: block;
+					position: relative;
+					top: auto;
+					bottom: auto;
+					margin: 0;
+					padding: 0;
+
+					+ .iti-arrow {
+						margin-left: #{map-get($input, padding) / 2};
+					}
+				}
+
+				.iti-arrow {
+					display: block;
+					position: relative;
+					top: auto;
+					right: auto;
+					margin: 0;
+				}
+
+				&:hover,
+				&:focus,
+				&:active {
+					outline: none;
+					box-shadow: none;
+				}
+			}
+
+			&:hover,
+			&:focus,
+			&:active {
+				outline: none;
+				box-shadow: none;
+			}
+		}
+	}
+
+	.forminator-input-with-suffix {
+		position: relative;
+
+		.forminator-input {
+			padding-right: 60px;
+		}
+
+		.forminator-suffix {
+			display: block;
+			position: absolute;
+			top: 50%;
+			right: 0;
+			padding: 0 map-get($input, padding);
+			transform: translateY(-50%);
+			line-height: 1.4em;
+		}
+	}
+}
+
+@include body-class(custom-form poll, default flat bold, false) {
+
+	.forminator-input-with-phone {
+
+		.flag-container {
+
+			.selected-flag {
+				padding: 0 map-get($input, padding);
+			}
+		}
+	}
+}
+
+// =============================================
+// DESIGN: Default
+@include body-class(custom-form poll, default, false) {
+
+	.forminator-input {
+		padding: #{map-get($input, padding) - map-get($border-width, default)};
+		border-width: map-get($border-width, default);
+		border-style: map-get($border-style, default);
+		border-radius: map-get($border-radius, default);
+	}
+
+	.forminator-input-with-icon {
+		position: relative;
+
+		[class*="forminator-icon-"] {
+			position: absolute;
+			top: 50%;
+			left: map-get($input, padding);
+			transform: translateY(-50%);
+		}
+
+		.forminator-input {
+			padding-left: #{(map-get($input, padding) - map-get($border-width, default)) + map-get($input, padding) + map-get($icon, size)};
+		}
+	}
+}
+
+// =============================================
+// DESIGN: Flat
+@include body-class(custom-form poll, flat, false) {
+
+	.forminator-input {
+		padding: map-get($input, padding);
+		border-width: map-get($border-width, flat);
+		border-style: map-get($border-style, flat);
+		border-radius: map-get($border-radius, flat);
+	}
+
+	.forminator-input-with-icon {
+		position: relative;
+
+		[class*="forminator-icon-"] {
+			position: absolute;
+			top: 50%;
+			left: map-get($input, padding);
+			transform: translateY(-50%);
+		}
+
+		.forminator-input {
+			padding-left: #{(map-get($input, padding) * 2) + map-get($icon, size)};
+		}
+	}
+}
+
+// =============================================
+// DESIGN: Bold
+@include body-class(custom-form poll, bold, false) {
+
+	.forminator-input {
+		padding: #{map-get($input, padding) - map-get($border-width, bold)};
+		border-width: map-get($border-width, bold);
+		border-style: map-get($border-style, bold);
+		border-radius: map-get($border-radius, bold);
+	}
+
+	.forminator-input-with-icon {
+		position: relative;
+
+		[class*="forminator-icon-"] {
+			position: absolute;
+			top: 50%;
+			left: map-get($input, padding);
+			transform: translateY(-50%);
+		}
+
+		.forminator-input {
+			padding-left: #{(map-get($input, padding) - map-get($border-width, bold)) + map-get($input, padding) + map-get($icon, size)};
+		}
+	}
+}
+
+// =============================================
+// DESIGN: Material
+@include body-class(custom-form poll, material, false) {
+
+	.forminator-input {
+		padding: map-get($input, padding) 0 #{map-get($input, padding) - map-get($border-width, material)};
+		border-width: 0;
+		border-bottom-width: map-get($border-width, material);
+		border-style: map-get($border-style, material);
+		border-radius: 0;
+		background-color: transparent !important;
+	}
+
+	.forminator-input--wrap {
+		display: block;
+		position: relative;
+
+		&:after {
+			content: " ";
+			height: #{map-get($border-width, material) * 2};
+			display: block;
+			position: absolute;
+			right: 50%;
+			bottom: 0;
+			left: 50%;
+			box-sizing: border-box;
+			transition: map-get($transition, linear);
+		}
+	}
+
+	.forminator-field {
+
+		&.forminator-is_hover,
+		&.forminator-is_active,
+		&.forminator-has_error {
+
+			.forminator-input--wrap:after {
+				right: 0;
+				left: 0;
+			}
+		}
+	}
+
+	[class*="forminator-input-with-"] {
+		display: flex;
+		align-items: center;
+
+		.forminator-input--wrap {
+			display: block;
+			flex: 1;
+		}
+	}
+
+	.forminator-input-with-icon {
+
+		[class*="forminator-icon-"] {
+			flex: 0 0 auto;
+
+			&:first-child {
+				margin-right: map-get($input, padding);
+			}
+
+			&:last-child {
+				margin-left: map-get($input, padding);
+			}
+		}
+
+		~ span {
+			padding-left: #{map-get($icon, size) + map-get($input, padding)};
+		}
+	}
+
+	.forminator-input-with-phone {
+		position: unset;
+
+		.flag-container {
+			flex: 0 0 auto;
+			position: relative;
+			padding: 0;
+
+			.selected-flag {
+				padding: map-get($input, padding) 0 #{map-get($input, padding) - map-get($border-width, material)};
+				background-color: transparent !important;
+			}
+
+			&:first-child {
+				margin-right: map-get($input, padding);
+			}
+
+			&:last-child {
+				margin-left: map-get($input, padding);
+			}
+		}
+
+		.forminator-input {
+			padding-right: 0;
+			padding-left: 0;
+		}
+
+		~ span {
+			padding-left: #{$int-flag-size + map-get($input, padding)};
+		}
+	}
+}

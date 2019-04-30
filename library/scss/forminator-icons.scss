@@ -1,0 +1,50 @@
+@charset "UTF-8";
+
+@import "variables";
+
+// Helpers
+@import "helpers/icon-styles";
+
+// Mixins
+@import "mixins/opacity";
+@import "mixins/animations";
+@import "mixins/icons";
+
+@at-root {
+
+	@font-face {
+		font-family: $font--icon;
+		font-weight: normal;
+		font-style: normal;
+		src: url('#{$path-fonts}forminator-icons-font.eot');
+		src: local('forminator-icons-font'),
+			 url('#{$path-fonts}forminator-icons-font.eot?#iefix') format('embedded-opentype'),
+			 url('#{$path-fonts}forminator-icons-font.woff2') format('woff2'),
+			 url('#{$path-fonts}forminator-icons-font.woff') format('woff'),
+			 url('#{$path-fonts}forminator-icons-font.ttf') format('truetype'),
+			 url('#{$path-fonts}forminator-icons-font.svg?#forminator-icons-font') format('svg');
+	}
+}
+
+.forminator-custom-form,
+.forminator-poll,
+.forminator-quiz {
+
+	.forminator-loading {
+
+		&:before {
+			animation: spin 1.3s linear infinite;
+		}
+	}
+
+	[class*="forminator-icon-"] {
+		@include icon(both);
+	}
+
+	@each $name, $char in $icons {
+
+		.forminator-icon-#{$name}:before {
+			content: $char;
+		}
+	}
+}

@@ -1,0 +1,104 @@
+@include body-class(true) {
+
+	.demo-code-block {
+
+		pre {
+			background: #002F3E;
+			color: #ffffff;
+			border: 0;
+			border-radius: 4px;
+			font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+		}
+
+		[data-clipboard-target] {
+			background-color: rgba(255, 255, 255, .1);
+		}
+
+		[data-clipboard-target]:hover,
+		[data-clipboard-target]:focus {
+			background-color: rgba(255, 255, 255, .2);
+		}
+
+		.hljs {
+			background: #002F3E;
+			color: #ffffff;
+		}
+
+		+ .demo-info-block {
+			margin-top: -1em;
+		}
+	}
+
+	.hljs {
+
+		.hljs-built_in,
+		.hljs-selector-tag,
+		.hljs-section,
+		.hljs-link {
+			color: #8be9fd;
+		}
+
+		.hljs-subst,
+		.hljs-tag {
+			color: #dddddd;
+		}
+
+		.hljs-title {
+			color: #17A8E3;
+		}
+
+		.hljs-meta,
+		.hljs-name,
+		.hljs-type,
+		.hljs-attr,
+		.hljs-symbol,
+		.hljs-bullet,
+		.hljs-keyword,
+		.hljs-addition,
+		.hljs-variable,
+		.hljs-template-tag,
+		.hljs-template-variable {
+			color: #FECF2F;
+		}
+
+		.hljs-string {
+			color: #D1F1EA;
+		}
+
+		.hljs-name {
+			color: #17A8E3;
+		}
+
+		.hljs-comment,
+		.hljs-quote,
+		.hljs-deletion {
+			color: #888888;
+		}
+
+		.hljs-keyword,
+		.hljs-selector-tag,
+		.hljs-literal,
+		.hljs-title,
+		.hljs-section,
+		.hljs-doctag,
+		.hljs-type,
+		.hljs-name,
+		.hljs-strong {
+			font-weight: bold;
+		}
+
+		.hljs-literal,
+		.hljs-number {
+			color: #bd93f9;
+		}
+
+		.hljs-emphasis,
+		.hljs-attr {
+			font-style: italic;
+		}
+
+		&.php .hljs-string {
+			color: #00B297;
+		}
+	}
+}

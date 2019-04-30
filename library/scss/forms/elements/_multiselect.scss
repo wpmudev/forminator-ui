@@ -1,0 +1,116 @@
+@include body-class(custom-form, all, false) {
+
+	.forminator-multiselect {
+		width: 100%;
+		display: block;
+
+		.forminator-option {
+			cursor: pointer;
+			display: block;
+			line-height: map-get($dropdown, line-height);
+			transition: map-get($transition, ease);
+
+			input {
+				@extend %screen-readers;
+			}
+		}
+	}
+}
+
+// =============================================
+// DESIGN: All except material
+@include body-class(custom-form, default flat bold, false) {
+
+	.forminator-multiselect {
+		height: auto;
+		max-height: map-get($dropdown, max-height);
+		overflow-x: hidden;
+		overflow-y: auto;
+
+		.forminator-option {
+			margin: #{map-get($dropdown, padding) / 2} 0;
+			padding: map-get($dropdown, padding);
+
+			&:first-child {
+				margin-top: 0;
+			}
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+}
+
+// =============================================
+// DESIGN: Default
+@include body-class(custom-form, default, false) {
+
+	.forminator-multiselect {
+		padding: #{(map-get($dropdown, padding) / 2) - map-get($border-width, default)};
+		border-width: map-get($border-width, default);
+		border-style: map-get($border-style, default);
+		border-radius: map-get($border-radius, default);
+
+		.forminator-option {
+
+			&:first-child {
+				border-top-right-radius: map-get($border-radius, default);
+				border-top-left-radius: map-get($border-radius, default);
+			}
+
+			&:last-child {
+				border-bottom-right-radius: map-get($border-radius, default);
+				border-bottom-left-radius: map-get($border-radius, default);
+			}
+		}
+	}
+}
+
+// =============================================
+// DESIGN: Flat
+@include body-class(custom-form, flat, false) {
+
+	.forminator-multiselect {
+		padding: #{map-get($dropdown, padding) / 2};
+		border-width: map-get($border-width, flat);
+		border-style: map-get($border-style, flat);
+		border-radius: map-get($border-radius, flat);
+	}
+}
+
+// =============================================
+// DESIGN: Bold
+@include body-class(custom-form, bold, false) {
+
+	.forminator-multiselect {
+		padding: #{map-get($dropdown, padding) / 2};
+		border-width: map-get($border-width, bold);
+		border-style: map-get($border-style, bold);
+		border-radius: map-get($border-radius, bold);
+	}
+}
+
+// =============================================
+// DESIGN: Material
+@include body-class(custom-form, material, false) {
+
+	.forminator-multiselect {
+
+		.forminator-option {
+			margin: #{map-get($dropdown, padding) / 2} 0;
+			padding: #{map-get($dropdown, padding) - (map-get($border-width, material) * 2)};
+			border-width: #{map-get($border-width, material) * 2};
+			border-style: map-get($border-style, material);
+			border-radius: map-get($border-radius, material);
+
+			&:first-child {
+				margin-top: 0;
+			}
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+}

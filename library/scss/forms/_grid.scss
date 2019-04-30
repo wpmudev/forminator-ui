@@ -1,0 +1,210 @@
+@include body-class(custom-form, default flat bold material none, false) {
+
+	// SPACING: Default
+	&:not(.forminator-enclosed):not(.forminator-custom) {
+
+		// ELEMENT: Row
+		.forminator-row {
+
+			&:not(:last-child) {
+				margin-bottom: $gutter-sm;
+			}
+
+			&:focus {
+				outline: none;
+				box-shadow: none;
+			}
+		}
+
+		// ELEMENT: Column
+		.forminator-col {
+
+			&:not(:last-child) {
+				margin-bottom: $gutter-sm;
+			}
+
+			&:focus {
+				outline: none;
+				box-shadow: none;
+			}
+		}
+	}
+
+	// SPACING: Enclosed
+	&.forminator-enclosed {
+
+		// ELEMENT: Row
+		.forminator-row {
+
+			&:not(:last-child) {
+				margin-bottom: $gutter-enclosed-sm;
+			}
+		}
+
+		// ELEMENT: Column
+		.forminator-col {
+
+			&:not(:last-child) {
+				margin-bottom: $gutter-enclosed-sm;
+			}
+		}
+	}
+}
+
+@include body-class(custom-form, default flat bold material none, true) {
+
+	// ELEMENT: Row
+	.forminator-row {
+
+		@include media(min-width, sm) {
+			display: flex;
+		}
+	}
+
+	// ELEMENT: Column
+	.forminator-col {
+
+		&:not(:last-child) {
+
+			@include media(min-width, sm) {
+				margin-bottom: 0;
+			}
+		}
+
+		@include media(min-width, sm) {
+			min-width: 0;
+			flex: 1;
+		}
+	}
+
+	// ELEMENT: Multiple Columns
+	.forminator-col-3,
+	.forminator-col-4 {
+
+		.forminator-row {
+
+			&[data-multiple="true"] {
+
+				@include media(min-width, sm) {
+					display: block;
+				}
+			}
+		}
+	}
+
+	// SPACING: Default
+	&:not(.forminator-enclosed):not(.forminator-custom) {
+
+		// ELEMENT: Row
+		.forminator-row {
+
+			&:not(:last-child) {
+
+				@include media(min-width, sm) {
+					margin-bottom: $gutter;
+				}
+			}
+
+			@include media(min-width, sm) {
+				margin-right: -#{$gutter / 2};
+				margin-left: -#{$gutter / 2};
+			}
+		}
+
+		// ELEMENT: Column
+		.forminator-col {
+
+			&:not(:last-child) {
+
+				@include media(min-width, sm) {
+					margin-bottom: 0;
+				}
+			}
+
+			@include media(min-width, sm) {
+				padding: 0 #{$gutter / 2};
+			}
+		}
+
+		// ELEMENT: Multiple Columns
+		.forminator-col-3,
+		.forminator-col-4 {
+
+			.forminator-row {
+
+				&[data-multiple="true"] {
+
+					.forminator-col {
+
+						&:not(:last-child) {
+
+							@include media(min-width, sm) {
+								margin-bottom: $gutter;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	// SPACING: Enclosed
+	&.forminator-enclosed {
+
+		// ELEMENT: Row
+		.forminator-row {
+
+			&:not(:last-child) {
+
+				@include media(min-width, sm) {
+					margin-bottom: $gutter-enclosed;
+				}
+			}
+
+			@include media(min-width, sm) {
+				margin-right: -#{$gutter-enclosed / 2};
+				margin-left: -#{$gutter-enclosed / 2};
+			}
+		}
+
+		// ELEMENT: Column
+		.forminator-col {
+
+			@include media(min-width, sm) {
+				padding: 0 #{$gutter-enclosed / 2};
+			}
+		}
+
+		// ELEMENT: Multiple Columns
+		.forminator-col-3,
+		.forminator-col-4 {
+
+			.forminator-row {
+
+				&[data-multiple="true"] {
+
+					.forminator-col {
+
+						&:not(:last-child) {
+
+							@include media(min-width, sm) {
+								margin-bottom: $gutter-enclosed;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	// SPACING: Custom
+	&.forminator-custom {
+
+		.forminator-row {
+
+			@include media(min-width, sm) {
+				flex-wrap: wrap;
+			}
+		}
+	}
+}
