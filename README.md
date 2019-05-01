@@ -1,11 +1,13 @@
-## Available Scripts
+# Forminator UI
 
-In the project directory, you can run:
+For internal use in [WPMU DEV](https://wpmudev.org/) plugins.
 
-### `npm run start`
+### Usage
 
-Runs the website in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+See our [showcase](https://wpmudev.github.io/forminator-ui/).
 
-The page will reload if you make edits.<br>
-You will also see any js and css errors in the console.
+### Contributing
+
+Please read through our [contributing guidelines](https://github.com/wpmudev/forminator-ui/blob/development/CONTRIBUTING.md).
+
+**Remember:** Pull Requests will be approved **only** if have their changes listed on `CHANGELOG.md` file.
