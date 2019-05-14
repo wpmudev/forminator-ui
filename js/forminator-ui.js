@@ -4682,7 +4682,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       // English
       return {
         errorLoading: function errorLoading() {
-          return 'The results could not be loaded.';
+          return ForminatorFront.select2.loaded_error;
         },
         inputTooLong: function inputTooLong(args) {
           var overChars = args.input.length - args.maximum;
@@ -4700,7 +4700,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
           return message;
         },
         loadingMore: function loadingMore() {
-          return 'Loading more results…';
+          return ForminatorFront.select2.load_more;
         },
         maximumSelected: function maximumSelected(args) {
           var message = 'You can only select ' + args.maximum + ' item';
@@ -4712,10 +4712,10 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
           return message;
         },
         noResults: function noResults() {
-          return 'No results found';
+          return ForminatorFront.select2.no_result_found;
         },
         searching: function searching() {
-          return 'Searching…';
+          return ForminatorFront.select2.searching;
         }
       };
     });

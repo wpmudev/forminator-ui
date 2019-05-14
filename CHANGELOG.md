@@ -1,3 +1,7 @@
+v1.0.1-beta.1
+- [Fix] Forms UI: Localise Select2 strings.
+
+
 v1.0.0
 - [New] Forminator icons font.
 - [New] Forms UI: Default design styles.
