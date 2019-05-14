@@ -4492,7 +4492,7 @@
 			// English
 			return {
 				errorLoading: function () {
-					return 'The results could not be loaded.';
+					return ForminatorFront.select2.loaded_error;
 				},
 				inputTooLong: function (args) {
 					var overChars = args.input.length - args.maximum;
@@ -4513,7 +4513,7 @@
 					return message;
 				},
 				loadingMore: function () {
-					return 'Loading more results…';
+					return ForminatorFront.select2.load_more;
 				},
 				maximumSelected: function (args) {
 					var message = 'You can only select ' + args.maximum + ' item';
@@ -4525,14 +4525,14 @@
 					return message;
 				},
 				noResults: function () {
-					return 'No results found';
+					return ForminatorFront.select2.no_result_found;
 				},
 				searching: function () {
-					return 'Searching…';
+					return ForminatorFront.select2.searching;
 				}
 			};
 		});
-		
+
 		S2.define('select2/i18n/es',[],function () {
 			// Spanish
 			return {
