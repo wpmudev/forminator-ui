@@ -7,5 +7,13 @@
 		display: block;
 		position: relative;
 		margin: #{$gutter-sm / 2} auto;
+
+		&:first-child {
+			margin-top: 0;
+		}
+
+		&:last-child {
+			margin-bottom: 0;
+		}
 	}
 }
