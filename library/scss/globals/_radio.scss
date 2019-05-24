@@ -52,12 +52,26 @@
 			line-height: 20px;
 		}
 
-		&:first-child {
-			margin-top: 0;
+		// VARIATION: Inline
+		&.forminator-radio-inline {
+			display: inline-flex;
+			margin-right: 10px;
+
+			&:last-of-type {
+				margin-right: 0;
+			}
 		}
 
-		&:last-child {
-			margin-bottom: 0;
+		// VARIATION: Stacked
+		&:not(.forminator-radio-inline) {
+
+			&:first-child {
+				margin-top: 0;
+			}
+
+			&:last-child {
+				margin-bottom: 0;
+			}
 		}
 	}
 }
