@@ -1,7 +1,9 @@
 v1.0.1-beta.1
-- [Enhance] Create a new file for global styles.
-- [Enhance] Forms UI: Move grid styles to a separate file.
+- [New]     Forms UI: Inline radio options.
+- [New]     Forms UI: Inline checkbox options.
 - [Fix]     Forms UI: Localise Select2 strings.
+- [Enhance] Forms UI: Move grid styles to a separate file.
+- [Enhance] Create a new file for global styles.
 
 
 v1.0.0
