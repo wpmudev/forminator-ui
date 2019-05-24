@@ -1,4 +1,5 @@
 v1.0.1-beta.1
+- [Enhance] Move global styles to a different file.
 - [Fix] Forms UI: Localise Select2 strings.
 
 
