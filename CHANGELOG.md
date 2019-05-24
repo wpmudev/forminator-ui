@@ -1,6 +1,7 @@
 v1.0.1-beta.1
-- [Enhance] Move global styles to a different file.
-- [Fix] Forms UI: Localise Select2 strings.
+- [Enhance] Create a new file for global styles.
+- [Enhance] Forms UI: Move grid styles to a separate file.
+- [Fix]     Forms UI: Localise Select2 strings.
 
 
 v1.0.0
