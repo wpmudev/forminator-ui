@@ -2,6 +2,8 @@ v1.0.1-beta.1
 - [New]     Forms UI: Inline radio options.
 - [New]     Forms UI: Inline checkbox options.
 - [Fix]     Forms UI: Localise Select2 strings.
+- [Fix]     Forms UI: Radio button selection kicks you to the top.
+- [Fix]     Forms UI: Checkbox button selection kicks you to the top.
 - [Enhance] Forms UI: Move grid styles to a separate file.
 - [Enhance] Create a new file for global styles.
 
