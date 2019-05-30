@@ -1,4 +1,4 @@
-v1.0.1-beta.1
+v1.0.1-beta.2
 - [New]     Forms UI: Inline radio options.
 - [New]     Forms UI: Inline checkbox options.
 - [Fix]     Forms UI: Localise Select2 strings.
