@@ -55,7 +55,9 @@
 		// VARIATION: Inline
 		&.forminator-checkbox-inline {
 			display: inline-flex;
+			vertical-align: middle;
 			margin-right: 20px;
+			margin-bottom: 0;
 
 			&:last-of-type {
 				margin-right: 0;
