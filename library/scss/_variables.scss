@@ -12,7 +12,7 @@
 // =============================================
 // 1. BASIC VARIABLES
 
-$version:    '1.7.0'                 !default;
+$version:    '1.0.1'                 !default;
 $path-fonts: '../fonts/'             !default;
 
 $font:       inherit                 !default;
@@ -156,6 +156,7 @@ $icons: (
 	chevron-down:  "\e904",
 	chevron-left:  "\e905",
 	chevron-right: "\e906",
+	loader:        "\e907",
 ) !default;
 
 // =============================================
