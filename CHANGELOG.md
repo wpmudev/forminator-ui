@@ -1,6 +1,8 @@
 v1.0.1-beta.2
+- [New]     Update icon font file to latest.
 - [New]     Forms UI: Inline radio options.
 - [New]     Forms UI: Inline checkbox options.
+- [New]     Forms UI: Loading response message.
 - [Fix]     Forms UI: Localise Select2 strings.
 - [Fix]     Forms UI: Radio button selection kicks you to the top.
 - [Fix]     Forms UI: Checkbox button selection kicks you to the top.
