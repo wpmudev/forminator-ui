@@ -2,10 +2,15 @@
 
 @import "variables";
 
+// Helpers
+@import "helpers/icon-styles";
+
 // Mixins
 @import "mixins/body-class";
-@import "mixins/opacity";
 @import "mixins/breakpoints";
+@import "mixins/opacity";
+@import "mixins/animations";
+@import "mixins/icons";
 
 // Helpers
 @import "helpers/screen-readers";
