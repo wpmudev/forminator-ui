@@ -1,0 +1,6 @@
+@include body-class(all, all, false) {
+
+	fieldset {
+		line-height: 1; // FIX: Make sure themes don't add extra unnecessary spacing to inline elements
+	}
+}
