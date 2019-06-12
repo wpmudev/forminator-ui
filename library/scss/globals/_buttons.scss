@@ -33,6 +33,12 @@
 		&:last-child {
 			margin-right: 0;
 		}
+
+		// PayPal Button
+		&-paypal {
+			position: relative;
+			z-index: 1;
+		}
 	}
 }
 
