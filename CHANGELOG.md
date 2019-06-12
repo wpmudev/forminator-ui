@@ -6,6 +6,7 @@ v1.0.1-beta.2
 - [Fix]     Forms UI: Localise Select2 strings.
 - [Fix]     Forms UI: Radio button selection kicks you to the top.
 - [Fix]     Forms UI: Checkbox button selection kicks you to the top.
+- [Fix]     Forms UI: PayPal button overfloats calendar and other dropdown elements.
 - [Enhance] Forms UI: Move grid styles to a separate file.
 - [Enhance] Create a new file for global styles.
 
