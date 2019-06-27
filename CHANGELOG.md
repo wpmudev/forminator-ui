@@ -1,4 +1,4 @@
-v1.0.1-beta.3
+v1.0.1-beta.4
 - [New]     Update icon font file to latest.
 - [New]     Forms UI: Inline radio options.
 - [New]     Forms UI: Inline checkbox options.
