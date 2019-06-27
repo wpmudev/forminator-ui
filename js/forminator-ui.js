@@ -6463,6 +6463,10 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       return;
     }
 
+    if (textarea.hasClass('wp-editor-area')) {
+      return;
+    }
+
     if (textarea.parent().hasClass('forminator-textarea--wrap')) {
       return;
     }
