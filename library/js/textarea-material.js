@@ -22,6 +22,10 @@
 			return;
 		}
 
+		if ( textarea.hasClass( 'wp-editor-area' ) ) {
+			return;
+		}
+
 		if ( textarea.parent().hasClass( 'forminator-textarea--wrap' ) ) {
 			return;
 		}

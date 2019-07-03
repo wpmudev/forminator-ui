@@ -15,6 +15,18 @@
 
 @include body-class(custom-form, all, true) {
 
+	&.forminator-fields-disabled {
+
+		> *:not(.forminator-response-message) {
+			@include opacity(0.5);
+			pointer-events: none;
+
+			* {
+				pointer-events: none;
+			}
+		}
+	}
+
 	&:first-child {
 
 		@include media(min-width, sm) {

@@ -1,3 +1,18 @@
+v1.0.1-beta.4
+- [New]     Update icon font file to latest.
+- [New]     Forms UI: Inline radio options.
+- [New]     Forms UI: Inline checkbox options.
+- [New]     Forms UI: Loading response message.
+- [New]     Forms UI: Disable fields mask.
+- [Fix]     Forms UI: Localise Select2 strings.
+- [Fix]     Forms UI: Radio button selection kicks you to the top.
+- [Fix]     Forms UI: Checkbox button selection kicks you to the top.
+- [Fix]     Forms UI: PayPal button overfloats calendar and other dropdown elements.
+- [Fix]     Forms UI: Prevent material floating label on post content field.
+- [Enhance] Forms UI: Move grid styles to a separate file.
+- [Enhance] Create a new file for global styles.
+
+
 v1.0.0
 - [New] Forminator icons font.
 - [New] Forms UI: Default design styles.

@@ -66,6 +66,17 @@
 		&:last-child {
 			margin-right: 0;
 		}
+
+		// PayPal Button
+		&-paypal {
+			display: block;
+			position: relative;
+			z-index: 1;
+
+			> .paypal-buttons {
+				display: block !important;
+			}
+		}
 	}
 }
 

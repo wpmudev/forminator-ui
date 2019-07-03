@@ -16,13 +16,13 @@
 		font-family: $font--icon;
 		font-weight: normal;
 		font-style: normal;
-		src: url('#{$path-fonts}forminator-icons-font.eot');
+		src: url('#{$path-fonts}forminator-icons-font.eot?#{$version}');
 		src: local('forminator-icons-font'),
-			 url('#{$path-fonts}forminator-icons-font.eot?#iefix') format('embedded-opentype'),
-			 url('#{$path-fonts}forminator-icons-font.woff2') format('woff2'),
-			 url('#{$path-fonts}forminator-icons-font.woff') format('woff'),
-			 url('#{$path-fonts}forminator-icons-font.ttf') format('truetype'),
-			 url('#{$path-fonts}forminator-icons-font.svg?#forminator-icons-font') format('svg');
+			 url('#{$path-fonts}forminator-icons-font.eot?#{$version}#iefix') format('embedded-opentype'),
+			 url('#{$path-fonts}forminator-icons-font.woff2?#{$version}') format('woff2'),
+			 url('#{$path-fonts}forminator-icons-font.woff?#{$version}') format('woff'),
+			 url('#{$path-fonts}forminator-icons-font.ttf?#{$version}') format('truetype'),
+			 url('#{$path-fonts}forminator-icons-font.svg?#{$version}##{$font--icon}') format('svg');
 	}
 }
 

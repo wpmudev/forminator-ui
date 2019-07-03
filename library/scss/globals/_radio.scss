@@ -4,6 +4,7 @@
 		cursor: default;
 		pointer-events: none;
 		display: flex;
+		position: relative;
 		margin: 5px 0;
 
 		input {
@@ -52,12 +53,28 @@
 			line-height: 20px;
 		}
 
-		&:first-child {
-			margin-top: 0;
+		// VARIATION: Inline
+		&.forminator-radio-inline {
+			display: inline-flex;
+			vertical-align: middle;
+			margin-right: 20px;
+			margin-bottom: 0;
+
+			&:last-of-type {
+				margin-right: 0;
+			}
 		}
 
-		&:last-child {
-			margin-bottom: 0;
+		// VARIATION: Stacked
+		&:not(.forminator-radio-inline) {
+
+			&:first-child {
+				margin-top: 0;
+			}
+
+			&:last-child {
+				margin-bottom: 0;
+			}
 		}
 	}
 }

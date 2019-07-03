@@ -24,8 +24,24 @@
 			box-shadow: none;
 		}
 
+		&:last-child {
+			margin-bottom: 0;
+		}
+
 		&[aria-hidden="true"] {
 			display: none;
+		}
+
+		&.forminator-loading {
+			position: relative;
+			padding-left: #{($gutter-sm * 2) + 6px};
+
+			@include icon(before, loader, true) {
+				position: absolute;
+				top: 17px;
+				left: $gutter-sm;
+				font-size: 16px;
+			}
 		}
 
 		&.forminator-show {
@@ -41,6 +57,13 @@
 @include body-class(all, all, true) {
 
 	.forminator-response-message {
+
+		&:last-child {
+
+			@include media(min-width, sm) {
+				margin-bottom: 0;
+			}
+		}
 
 		@include media(min-width, sm) {
 			margin-bottom: $gutter;

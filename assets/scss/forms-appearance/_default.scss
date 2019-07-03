@@ -37,6 +37,18 @@
 				font-family: $success-response-font-family;
 			}
 		}
+
+		&.forminator-loading {
+			background-color: #F8F8F8;
+			color: #666666;
+
+			p {
+				color: #666666;
+				font-size: $success-response-font-size;
+				font-weight: $success-response-font-weight;
+				font-family: $success-response-font-family;
+			}
+		}
 	}
 
 	// ELEMENT: Label
