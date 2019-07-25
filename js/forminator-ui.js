@@ -701,13 +701,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
             textAlign: 'center',
             color: chartExtras[2][2],
             formatter: function formatter(value) {
-              var chartText = '';
-
-              if ('' !== chartExtras[0]) {
-                chartText = value + ' ' + chartExtras[0];
-              }
-
-              return chartText;
+              return value + ' ' + chartExtras[0];
             }
           }
         }
