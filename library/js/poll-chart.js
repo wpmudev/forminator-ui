@@ -213,7 +213,14 @@
 						textAlign: 'center',
 						color: chartExtras[2][2],
 						formatter: function( value ) {
-							return value + ' ' + chartExtras[0];
+
+							let chartText = '';
+
+							if ( '' !== chartExtras[0]) {
+								chartText = value + ' ' + chartExtras[0];
+							}
+
+							return chartText;
 						}
 					}
 				}
