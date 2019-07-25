@@ -1,3 +1,6 @@
+v1.1.0-beta.1
+- [New] Polls UI.
+
 v1.0.1
 - [New]     Update icon font file to latest.
 - [New]     Forms UI: Inline radio options.
