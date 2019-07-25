@@ -633,7 +633,6 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
           display: false
         },
         tooltips: {
-          enabled: false,
           callbacks: {
             title: function title(tooltipItems, data) {
               var title = '';
@@ -702,7 +701,13 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
             textAlign: 'center',
             color: chartExtras[2][2],
             formatter: function formatter(value) {
-              return value + ' ' + chartExtras[0];
+              var chartText = '';
+
+              if ('' !== chartExtras[0]) {
+                chartText = value + ' ' + chartExtras[0];
+              }
+
+              return chartText;
             }
           }
         }
