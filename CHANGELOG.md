@@ -1,4 +1,4 @@
-v1.1.0-beta.1
+v1.1.0
 - [New] Polls UI.
 
 v1.0.1
