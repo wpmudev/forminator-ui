@@ -17,7 +17,8 @@
 
 	&.forminator-fields-disabled {
 
-		> *:not(.forminator-response-message) {
+		> .forminator-pagination > *,
+		> *:not(.forminator-response-message):not(.forminator-pagination) {
 			@include opacity(0.5);
 			pointer-events: none;
 
