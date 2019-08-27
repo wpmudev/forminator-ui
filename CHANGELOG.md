@@ -1,5 +1,11 @@
+v1.1.1-beta.2
+- [Fix] Forms UI: Material floating label for Stripe card field.
+- [Fix] Forms UI: Disabled fields class not working with paginated forms.
+
+
 v1.1.0
 - [New] Polls UI.
+
 
 v1.0.1
 - [New]     Update icon font file to latest.
