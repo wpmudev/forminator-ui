@@ -1,0 +1,70 @@
+.forminator-quiz.forminator-design--default {
+
+	.forminator-quiz--title {
+		color: #000;
+		font-size: 36px;
+		font-weight: bold;
+	}
+
+	.forminator-quiz--description {
+
+		&, p {
+			color: #000;
+			font-size: 16px;
+			font-weight: 400;
+		}
+	}
+
+	.forminator-question {
+
+		.forminator-legend {
+			color: #000;
+			font-size: 16px;
+			font-weight: bold;
+		}
+
+		&:not(.forminator-last) {
+
+			&:after {
+				background-color: #E0E0E0;
+			}
+		}
+	}
+
+	.forminator-answer {
+
+		input[type="radio"],
+		input[type="checkbox"] {
+
+			&:checked + .forminator-answer--design {
+				border-color: #17A8E3;
+				background-color: #F3FBFE;
+
+				.forminator-answer--status {
+					border-color: #17A8E3;
+				}
+			}
+		}
+
+		.forminator-answer--design {
+			border-color: #EBEDEB;
+			background-color: #FAFAFA;
+
+			.forminator-answer--status {
+				border-color: #EBEDEB;
+				background-color: #FFF;
+			}
+
+			.forminator-answer--name {
+				color: #888;
+				font-size: 14px;
+				font-weight: 500;
+			}
+
+			&:hover {
+				border-color: #17A8E3;
+				background-color: #F3FBFE;
+			}
+		}
+	}
+}

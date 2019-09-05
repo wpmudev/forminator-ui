@@ -1,0 +1,60 @@
+@include body-class(quiz, all, false) {
+
+	.forminator-quiz {
+
+		// ELEMENT: Title.
+		&--title {
+			margin: 0 0 $gutter-sm;
+			padding: 0;
+			border: 0;
+			line-height: 1.18em;
+
+			&:before,
+			&:after {
+				content: unset;
+				display: none;
+			}
+		}
+
+		// ELEMENT: Description.
+		&--description {
+			margin: 0 0 $gutter-sm;
+			padding: 0;
+			border: 0;
+
+			&, p {
+				line-height: 1.5em;
+
+				strong {
+					font-weight: bold;
+				}
+			}
+		}
+
+		// ELEMENT: Image.
+		&--image {
+			width: auto;
+			min-width: 1px;
+			max-width: 100%;
+			height: auto;
+			min-height: 1px;
+			max-height: 100%;
+			float: none;
+			display: block;
+			position: relative;
+			margin: $gutter-sm 0;
+			padding: 0;
+			border: 0;
+
+			&[data-align="center"] {
+				margin-right: auto;
+				margin-left: auto;
+			}
+
+			&[data-align="right"] {
+				margin-right: 0;
+				margin-left: auto;
+			}
+		}
+	}
+}

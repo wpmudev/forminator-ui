@@ -1,0 +1,148 @@
+$img-width: 80px;
+$check-width: 30px;
+
+@include body-class(quiz, all, false) {
+
+	.forminator-answer {
+		user-select: none;
+		-webkit-tap-highlight-color: transparent;
+		pointer-events: none;
+		display: block;
+		position: relative;
+
+		input[type="radio"],
+		input[type="checkbox"] {
+			@extend %screen-readers;
+		}
+
+		.forminator-answer--design {
+			cursor: pointer;
+			pointer-events: all;
+			display: flex;
+			flex-wrap: nowrap;
+			flex-direction: row;
+			transition: $transition--ease;
+
+			.forminator-answer--image {
+				width: $img-width;
+				height: $img-width;
+				display: block;
+				flex: 0 0 auto;
+				background-repeat: no-repeat;
+				background-position: center;
+				background-size: cover;
+
+				span {
+					@extend %screen-readers;
+				}
+
+				+ .forminator-answer--status {
+					margin-top: #{($img-width - $check-width) / 2};
+					margin-bottom: #{($img-width - $check-width) / 2};
+					margin-left: 10px;
+				}
+			}
+
+			.forminator-answer--status {
+				width: $check-width;
+				height: $check-width;
+				display: block;
+				flex: 0 0 auto;
+				transition: $transition--ease;
+
+				+ .forminator-answer--name {
+					margin-left: 10px;
+				}
+			}
+
+			.forminator-answer--name {
+				min-width: 1px;
+				display: block;
+				flex: 1;
+				line-height: 1.75em;
+				align-self: center;
+			}
+		}
+
+		&:focus {
+			outline: none;
+			box-shadow: none;
+		}
+	}
+}
+
+@include body-class(quiz, all, true) {
+
+	// LAYOUT: Grid.
+	&.forminator-quiz--grid {
+
+		.forminator-answer {
+
+			.forminator-answer--design {
+
+				.forminator-answer--image {
+
+					~ [class*="forminator-answer-"] {
+
+						@include media(min-width, sm) {
+							margin-top: 10px;
+						}
+					}
+
+					+ .forminator-answer--status {
+
+						@include media(min-width, sm) {
+							margin-left: 0;
+						}
+					}
+
+					@include media(min-width, sm) {
+						width: 100%;
+						height: #{($img-width * 2) + 10px};
+						flex: 0 0 auto;
+					}
+				}
+
+				.forminator-answer--status {
+
+					@include media(min-width, sm) {
+						margin-bottom: 0;
+					}
+				}
+
+				@include media(min-width, sm) {
+					flex-wrap: wrap;
+				}
+			}
+		}
+	}
+}
+
+// DESIGN: Default.
+@include body-class(quiz, default, false) {
+
+	.forminator-answer {
+
+		.forminator-answer--status {
+			border-width: map-get($border-width, default);
+			border-style: map-get($border-style, default);
+			border-radius: map-get($border-radius, default);
+		}
+
+		.forminator-answer--design {
+			padding: #{10px - map-get($border-width, default)};
+			border-width: map-get($border-width, default);
+			border-style: map-get($border-style, default);
+			border-radius: map-get($border-radius, default);
+		}
+	}
+}
+
+// DESIGN: Flat.
+@include body-class(quiz, flat, false);
+
+// DESIGN: Bold.
+@include body-class(quiz, bold, false);
+
+// DESIGN: Material.
+@include body-class(quiz, material, false);
