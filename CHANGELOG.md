@@ -1,4 +1,7 @@
-v1.1.1-beta.2
+v1.2.0
+- [New] Quizzes UI.
+
+v1.1.1
 - [Fix] Forms UI: Material floating label for Stripe card field.
 - [Fix] Forms UI: Disabled fields class not working with paginated forms.
 
