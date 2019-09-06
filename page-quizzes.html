@@ -45,7 +45,7 @@
 								<p>This is quiz description. Aenean lacinia bibendum nulla sed consectetur. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Nullam id dolor id nibh ultricies vehicula ut id elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Nulla vitae elit libero, a pharetra augue.</p>
 							</div>
 
-							<div tabindex="0" role="radiogroup" class="forminator-question" aria-labelledby="question-legend-1" aria-required="true">
+							<div tabindex="0" role="radiogroup" class="forminator-question" aria-labelledby="question-legend-1" aria-describedby="question-result-1" aria-required="true">
 
 								<span id="question-legend-1" class="forminator-legend">What temperature does water boil at?</span>
 
@@ -53,7 +53,7 @@
 									<img src="assets/images/boiling-water.jpg" alt="Teapot with boiling water" aria-hidden="true" />
 								</figure>
 
-								<label for="question-1-1" class="forminator-answer">
+								<label for="question-1-1" class="forminator-answer forminator-only--text">
 									<input
 										type="radio"
 										name="question-1"
@@ -66,7 +66,7 @@
 									</span>
 								</label>
 
-								<label for="question-1-2" class="forminator-answer">
+								<label for="question-1-2" class="forminator-answer forminator-only--text">
 									<input
 										type="radio"
 										name="question-1"
@@ -79,7 +79,7 @@
 									</span>
 								</label>
 
-								<label for="question-1-3" class="forminator-answer">
+								<label for="question-1-3" class="forminator-answer forminator-only--text">
 									<input
 										type="radio"
 										name="question-1"
@@ -92,9 +92,11 @@
 									</span>
 								</label>
 
+								<span id="question-result-1" class="forminator-question--result">Wrong! It was 100C, sorry...</span>
+
 							</div>
 
-							<div tabindex="0" role="radiogroup" class="forminator-question" aria-labelledby="question-legend-2" aria-required="true">
+							<div tabindex="0" role="radiogroup" class="forminator-question" aria-labelledby="question-legend-2" aria-describedby="question-result-2" aria-required="true">
 
 								<span id="question-legend-2" class="forminator-legend">What artist said he would eat his wife when she died?</span>
 
@@ -140,13 +142,15 @@
 									</span>
 								</label>
 
+								<span id="question-result-2" class="forminator-question--result"></span>
+
 							</div>
 
-							<div tabindex="0" role="radiogroup" class="forminator-question forminator-last" aria-labelledby="question-legend-3" aria-required="true">
+							<div tabindex="0" role="radiogroup" class="forminator-question forminator-last" aria-labelledby="question-legend-3" aria-describedby="question-result-3" aria-required="true">
 
 								<span id="question-legend-3" class="forminator-legend">What did the crocodile swallow in Peter Pan?</span>
 
-								<label for="question-3-1" class="forminator-answer">
+								<label for="question-3-1" class="forminator-answer forminator-only--image">
 									<input
 										type="radio"
 										name="question-3"
@@ -161,7 +165,7 @@
 									</span>
 								</label>
 
-								<label for="question-3-2" class="forminator-answer">
+								<label for="question-3-2" class="forminator-answer forminator-only--image">
 									<input
 										type="radio"
 										name="question-3"
@@ -176,7 +180,7 @@
 									</span>
 								</label>
 
-								<label for="question-3-3" class="forminator-answer">
+								<label for="question-3-3" class="forminator-answer forminator-only--image">
 									<input
 										type="radio"
 										name="question-3"
@@ -191,9 +195,43 @@
 									</span>
 								</label>
 
+								<span id="question-result-3" class="forminator-question--result"></span>
+
 							</div>
 
-							<div class="forminator-quiz--result"></div>
+							<div class="forminator-quiz--result">
+
+								<!-- <button class="forminator-button">Ready to send</button> -->
+
+								<div tabindex="0" role="alert" class="forminator-quiz--summary" data-align="left">
+									<p>You got 2/3 correct!</p>
+								</div>
+
+								<div class="forminator-quiz--social">
+									<p class="forminator-social--text">Share your results</p>
+									<ul class="forminator-social--icons">
+										<li class="forminator-social--icon">
+											<a href="#">
+												<i class="forminator-icon-calendar" aria-hidden="true"></i>
+												<span class="forminator-screen-reader-only">Share your results on Facebook</span>
+											</a>
+										</li>
+										<li class="forminator-social--icon">
+											<a href="#">
+												<i class="forminator-icon-calendar" aria-hidden="true"></i>
+												<span class="forminator-screen-reader-only">Share your results on Twitter</span>
+											</a>
+										</li>
+										<li class="forminator-social--icon">
+											<a href="#">
+												<i class="forminator-icon-calendar" aria-hidden="true"></i>
+												<span class="forminator-screen-reader-only">Share your results on Linkedin</span>
+											</a>
+										</li>
+									</ul>
+								</div>
+
+							</div>
 
 						</form>
 
