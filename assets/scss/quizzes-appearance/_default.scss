@@ -1,4 +1,7 @@
-.forminator-quiz.forminator-design--default {
+.forminator-quiz.forminator-design--default,
+.forminator-quiz.forminator-design--flat,
+.forminator-quiz.forminator-design--bold,
+.forminator-quiz.forminator-design--material {
 
 	.forminator-quiz--title {
 		color: #000;
@@ -15,11 +18,51 @@
 		}
 	}
 
+	.forminator-quiz--result,
+	.forminator-quiz--social {
+		border-top-color: #E0E0E0;;
+	}
+
+	.forminator-quiz--summary {
+
+		&, p, ul, ol, li {
+			color: #000;
+			font-weight: 400;
+		}
+
+		&, p {
+			font-size: 36px;
+		}
+
+		ul, ol, li {
+			font-size: 30px;
+		}
+	}
+
+	.forminator-quiz--social {
+
+		.forminator-social--text {
+			color: #000;
+			font-size: 24px;
+			font-weight: 400;
+		}
+
+		.forminator-social--icon {
+			font-size: 36px;
+		}
+	}
+
 	.forminator-question {
 
 		.forminator-legend {
 			color: #000;
 			font-size: 16px;
+			font-weight: bold;
+		}
+
+		.forminator-question--result {
+			color: #777771;
+			font-size: 13px;
 			font-weight: bold;
 		}
 
@@ -30,6 +73,18 @@
 			}
 		}
 	}
+
+	.forminator-button {
+		background-color: #17A8E3;
+		color: #FFFFFF;
+		font-size: 14px;
+		font-weight: 500;
+	}
+}
+
+.forminator-quiz.forminator-design--default,
+.forminator-quiz.forminator-design--flat,
+.forminator-quiz.forminator-design--bold {
 
 	.forminator-answer {
 
@@ -63,6 +118,46 @@
 
 			&:hover {
 				border-color: #17A8E3;
+				background-color: #F3FBFE;
+			}
+		}
+	}
+}
+
+.forminator-quiz.forminator-design--material {
+
+	.forminator-answer {
+
+		input[type="radio"],
+		input[type="checkbox"] {
+
+			&:checked,
+			&[checked] {
+
+				+ .forminator-answer--design {
+					background-color: #F3FBFE;
+
+					.forminator-answer--status {
+						border-color: #17A8E3;
+					}
+				}
+			}
+		}
+
+		.forminator-answer--design {
+			background-color: #FAFAFA;
+
+			.forminator-answer--status {
+				border-color: #EBEDEB;
+			}
+
+			.forminator-answer--name {
+				color: #888;
+				font-size: 14px;
+				font-weight: 500;
+			}
+
+			&:hover {
 				background-color: #F3FBFE;
 			}
 		}
