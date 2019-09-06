@@ -1,3 +1,9 @@
+$social: (
+	facebook: #0084BF,
+	twitter:  #4A90E2,
+	linkedin: #0084BF,
+) !default;
+
 @include body-class(quiz, all, false) {
 
 	.forminator-quiz {
@@ -54,6 +60,98 @@
 			&[data-align="right"] {
 				margin-right: 0;
 				margin-left: auto;
+			}
+		}
+
+		// SECTION: Footer.
+		&--result {
+			border-top-width: 1px;
+			border-top-style: solid;
+		}
+
+		// SECTION: Summary.
+		&--summary {
+
+			p, ul, ol {
+				margin: 22px 0;
+
+				&:first-child {
+					margin-top: 0;
+				}
+
+				&:last-child {
+					margin-bottom: 0;
+				}
+			}
+
+			&, p {
+				line-height: 1.19em;
+			}
+
+			ul, ol, li {
+				line-height: 1.4em;
+			}
+
+			li {
+				margin: 10px 0;
+
+				&:first-child {
+					margin-top: 0;
+				}
+
+				&:last-child {
+					margin-bottom: 0;
+				}
+			}
+
+			&[data-align="center"] {
+				text-align: center;
+			}
+
+			&[data-align="right"] {
+				text-align: right;
+			}
+		}
+
+		// SECTION: Social.
+		&--social {
+			border-top-width: 1px;
+			border-top-style: solid;
+
+			.forminator-social--text {
+				margin: 0 0 $gutter-sm;
+				line-height: 1.35em;
+			}
+
+			.forminator-social--icons {
+				display: flex;
+				flex-wrap: wrap;
+				flex-direction: row;
+				margin: 0 -#{$gutter-sm / 2};
+				padding: 0;
+
+				&, li {
+					list-style: none;
+				}
+
+				li {
+					padding: 0 #{$gutter-sm / 2};
+
+					a {
+						display: block;
+
+						[class*="forminator-icon-"] {
+							display: block;
+						}
+
+						@each $name, $color in $social {
+
+							.forminator-icon-social-#{$name} {
+								color: $color;
+							}
+						}
+					}
+				}
 			}
 		}
 	}
