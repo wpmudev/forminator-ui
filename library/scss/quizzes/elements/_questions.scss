@@ -28,6 +28,11 @@
 			}
 		}
 
+		.forminator-question--result {
+			display: block;
+			line-height: 1.9em;
+		}
+
 		&:not(.forminator-last) {
 
 			&:after {
@@ -67,6 +72,16 @@
 		.forminator-answer {
 			margin-top: #{$gutter-sm / 2};
 		}
+
+		.forminator-question--result {
+			margin: #{$gutter-sm / 2} 0 0;
+		}
+
+		.forminator-quiz--result,
+		.forminator-quiz--social {
+			margin-top: $gutter-sm;
+			padding-top: $gutter-sm;
+		}
 	}
 
 	// SPACING: Enclosed.
@@ -89,6 +104,16 @@
 
 		.forminator-answer {
 			margin-top: #{$gutter-enclosed-sm / 2};
+		}
+
+		.forminator-question--result {
+			margin: #{$gutter-enclosed-sm / 2} 0 0;
+		}
+
+		.forminator-quiz--result,
+		.forminator-quiz--social {
+			margin-top: $gutter-enclosed-sm;
+			padding-top: $gutter-enclosed-sm;
 		}
 	}
 }
@@ -131,6 +156,22 @@
 					margin-top: #{$gutter / 2};
 				}
 			}
+
+			.forminator-question--result {
+
+				@include media(min-width, sm) {
+					margin-top: #{$gutter / 2};
+				}
+			}
+
+			.forminator-quiz--result,
+			.forminator-quiz--social {
+
+				@include media(min-width, sm) {
+					margin-top: $gutter;
+					padding-top: $gutter;
+				}
+			}
 		}
 
 		// SPACING: Enclosed.
@@ -166,6 +207,22 @@
 					margin-top: #{$gutter-enclosed / 2};
 				}
 			}
+
+			.forminator-question--result {
+
+				@include media(min-width, sm) {
+					margin-top: #{$gutter-enclosed / 2};
+				}
+			}
+
+			.forminator-quiz--result,
+			.forminator-quiz--social {
+
+				@include media(min-width, sm) {
+					margin-top: $gutter-enclosed;
+					padding-top: $gutter-enclosed;
+				}
+			}
 		}
 	}
 
@@ -198,6 +255,13 @@
 			@include media(min-width, sm) {
 				flex: 0 0 100%;
 				margin-bottom: 0;
+			}
+		}
+
+		.forminator-question--result {
+
+			@include media(min-width, sm) {
+				flex: 0 0 100%;
 			}
 		}
 
@@ -263,6 +327,23 @@
 					padding: 0 #{$gutter / 4};
 				}
 			}
+
+			.forminator-question--result {
+
+				@include media(min-width, sm) {
+					margin-top: #{$gutter / 2};
+					padding: 0 #{$gutter / 4};
+				}
+			}
+
+			.forminator-quiz--result,
+			.forminator-quiz--social {
+
+				@include media(min-width, sm) {
+					margin-top: $gutter;
+					padding-top: $gutter;
+				}
+			}
 		}
 
 		// SPACING: Enclosed.
@@ -305,6 +386,23 @@
 				@include media(min-width, sm) {
 					margin-top: #{$gutter-enclosed / 2};
 					padding: 0 #{$gutter-enclosed / 4};
+				}
+			}
+
+			.forminator-question--result {
+
+				@include media(min-width, sm) {
+					margin-top: #{$gutter-enclosed / 2};
+					padding: 0 #{$gutter-enclosed / 4};
+				}
+			}
+
+			.forminator-quiz--result,
+			.forminator-quiz--social {
+
+				@include media(min-width, sm) {
+					margin-top: $gutter-enclosed;
+					padding-top: $gutter-enclosed;
 				}
 			}
 		}
