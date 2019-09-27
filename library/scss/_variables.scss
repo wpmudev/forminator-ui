@@ -149,14 +149,19 @@ $fui-breakpoints: (
 // 3. ICONS LIST
 
 $icons: (
-	close:         "\e900",
-	check:         "\e901",
-	calendar:      "\e902",
-	chevron-up:    "\e903",
-	chevron-down:  "\e904",
-	chevron-left:  "\e905",
-	chevron-right: "\e906",
-	loader:        "\e907",
+	close:           "\e900",
+	check:           "\e901",
+	calendar:        "\e902",
+	chevron-up:      "\e903",
+	chevron-down:    "\e904",
+	chevron-left:    "\e905",
+	chevron-right:   "\e906",
+	loader:          "\e907",
+	cancel:          "\e908",
+	refresh:         "\e909",
+	social-facebook: "\e90a",
+	social-linkedin: "\e90b",
+	social-twitter:  "\e90c",
 ) !default;
 
 // =============================================
