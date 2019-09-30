@@ -49,19 +49,26 @@
 
 								<span id="question-legend-1" class="forminator-legend">What temperature does water boil at?</span>
 
-								<figure class="forminator-image">
-									<img src="assets/images/boiling-water.jpg" alt="Teapot with boiling water" aria-hidden="true" />
-								</figure>
+								<img
+									src="assets/images/boiling-water.jpg"
+									alt="Teapot with boiling water"
+									class="forminator-image"
+									aria-hidden="true"
+								/>
 
-								<label for="question-1-1" class="forminator-answer forminator-only--text">
+								<label for="question-1-1" class="forminator-answer forminator-only--text forminator-is_correct">
 									<input
 										type="radio"
 										name="question-1"
 										id="question-1-1"
 										aria-labelledby="question-label-1-1"
+										checked="checked"
+										disabled="disabled"
 									/>
 									<span id="question-label-1-1" class="forminator-answer--design" aria-hidden="true">
-										<span class="forminator-answer--status"></span>
+										<span class="forminator-answer--status">
+											<i class="forminator-icon-cancel"></i>
+										</span>
 										<span class="forminator-answer--name">100C</span>
 									</span>
 								</label>
@@ -72,6 +79,7 @@
 										name="question-1"
 										id="question-1-2"
 										aria-labelledby="question-label-1-2"
+										disabled="disabled"
 									/>
 									<span id="question-label-1-2" class="forminator-answer--design" aria-hidden="true">
 										<span class="forminator-answer--status"></span>
@@ -85,6 +93,7 @@
 										name="question-1"
 										id="question-1-3"
 										aria-labelledby="question-label-1-3"
+										disabled="disabled"
 									/>
 									<span id="question-label-1-3" class="forminator-answer--design" aria-hidden="true">
 										<span class="forminator-answer--status"></span>
@@ -92,7 +101,7 @@
 									</span>
 								</label>
 
-								<span id="question-result-1" class="forminator-question--result">Wrong! It was 100C, sorry...</span>
+								<span id="question-result-1" class="forminator-question--result">Correct! It was 100C.</span>
 
 							</div>
 
@@ -203,32 +212,35 @@
 
 								<!-- <button class="forminator-button">Ready to send</button> -->
 
-								<div tabindex="0" role="alert" class="forminator-quiz--summary" data-align="left">
+								<div role="alert" class="forminator-quiz--summary" data-align="left">
 									<p>You got 2/3 correct!</p>
 								</div>
 
 								<div class="forminator-quiz--social">
+
 									<p class="forminator-social--text">Share your results</p>
+
 									<ul class="forminator-social--icons">
 										<li class="forminator-social--icon">
 											<a href="#">
-												<i class="forminator-icon-calendar" aria-hidden="true"></i>
+												<i class="forminator-icon-social-facebook" aria-hidden="true"></i>
 												<span class="forminator-screen-reader-only">Share your results on Facebook</span>
 											</a>
 										</li>
 										<li class="forminator-social--icon">
 											<a href="#">
-												<i class="forminator-icon-calendar" aria-hidden="true"></i>
+												<i class="forminator-icon-social-twitter" aria-hidden="true"></i>
 												<span class="forminator-screen-reader-only">Share your results on Twitter</span>
 											</a>
 										</li>
 										<li class="forminator-social--icon">
 											<a href="#">
-												<i class="forminator-icon-calendar" aria-hidden="true"></i>
+												<i class="forminator-icon-social-linkedin" aria-hidden="true"></i>
 												<span class="forminator-screen-reader-only">Share your results on Linkedin</span>
 											</a>
 										</li>
 									</ul>
+
 								</div>
 
 							</div>
