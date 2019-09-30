@@ -58,8 +58,20 @@ $quiz: (
 			.forminator-answer--status {
 				width: map-get($quiz, checkbox);
 				height: map-get($quiz, checkbox);
-				display: block;
+				display: flex;
+				align-items: center;
+				justify-content: center;
 				transition: $transition--ease;
+
+				[class*="forminator-icon-"] {
+					display: block;
+					font-size: 12px;
+					line-height: 12px;
+
+					&:before {
+						display: block;
+					}
+				}
 			}
 
 			.forminator-answer--name {
