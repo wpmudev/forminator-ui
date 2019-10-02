@@ -1,3 +1,7 @@
+v1.1.2
+- [Fix] [Element] Select2: Stop requesting base styles from external sources.
+
+
 v1.1.1
 - [Fix] Forms UI: Material floating label for Stripe card field.
 - [Fix] Forms UI: Disabled fields class not working with paginated forms.
