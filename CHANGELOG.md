@@ -1,6 +1,11 @@
+v1.2.0
+- [New] Quizzes UI.
+- [New] Update icon font file to latest.
+- [Fix] Ensure icons font remain visible during webfont load.
+
+
 v1.1.2
 - [Fix] [Element] Select2: Stop requesting base styles from external sources.
-
 
 v1.1.1
 - [Fix] Forms UI: Material floating label for Stripe card field.
