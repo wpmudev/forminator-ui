@@ -87,6 +87,67 @@ $quiz: (
 			box-shadow: none;
 		}
 	}
+
+	// QUESTION TYPE: Personality.
+	.forminator-question[data-question-type="personality"] {
+
+		.forminator-answer {
+
+			input[type="radio"],
+			input[type="checkbox"] {
+
+				&:checked + .forminator-answer--design {
+
+					.forminator-answer--status {
+
+						[class*="forminator-icon-"] {
+							@include opacity(1);
+						}
+					}
+				}
+			}
+
+			.forminator-answer--design {
+
+				.forminator-answer--status {
+
+					[class*="forminator-icon-"] {
+						@include opacity(0);
+					}
+				}
+			}
+		}
+	}
+
+	// LAYOUT: List.
+	&.forminator-quiz--list {
+
+		// ALIGNMENT: Center.
+		&[data-alignment="center"] {
+
+			.forminator-answer {
+
+				// STATE: Only image.
+				&.forminator-only--image {
+					margin-right: auto;
+					margin-left: auto;
+				}
+			}
+		}
+
+		// ALIGNMENT: Right.
+		&[data-alignment="right"] {
+
+			.forminator-answer {
+
+				// STATE: Only image.
+				&.forminator-only--image {
+					margin-right: 0;
+					margin-left: auto;
+				}
+			}
+		}
+	}
 }
 
 @include body-class(quiz, all, true) {
