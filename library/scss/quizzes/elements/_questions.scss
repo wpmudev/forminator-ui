@@ -1,4 +1,4 @@
-@include body-class(quiz, all, false) {
+@include body-class(quiz, default flat bold material none, false) {
 
 	.forminator-question {
 
@@ -10,18 +10,30 @@
 		}
 
 		.forminator-image {
-			width: auto;
-			max-width: 100%;
-			height: auto;
+			width: 100%;
 			display: block;
 			margin: 0;
 			padding: 0;
 			border: 0;
+
+			img {
+				width: auto;
+				max-width: 100%;
+				height: auto;
+				display: block;
+				margin: 0;
+				padding: 0;
+				border: 0;
+			}
 		}
 
 		.forminator-question--result {
-			display: block;
+			display: none;
 			line-height: 1.9em;
+
+			&.forminator-show {
+				display: block;
+			}
 		}
 
 		&:not(.forminator-last) {
@@ -107,9 +119,49 @@
 			padding-top: $gutter-enclosed-sm;
 		}
 	}
+
+	// ALIGNMENT: Center.
+	&[data-alignment="center"] {
+
+		.forminator-legend {
+			text-align: center;
+		}
+
+		.forminator-image {
+
+			img {
+				margin-right: auto;
+				margin-left: auto;
+			}
+		}
+
+		.forminator-question--result {
+			text-align: center;
+		}
+	}
+
+	// ALIGNMENT: Right.
+	&[data-alignment="right"] {
+
+		.forminator-legend {
+			text-align: right;
+		}
+
+		.forminator-image {
+
+			img {
+				margin-right: 0;
+				margin-left: auto;
+			}
+		}
+
+		.forminator-question--result {
+			text-align: right;
+		}
+	}
 }
 
-@include body-class(quiz, all, true) {
+@include body-class(quiz, default flat bold material none, true) {
 
 	// LAYOUT: List.
 	&.forminator-quiz--list {
@@ -265,6 +317,28 @@
 					@include media(min-width, sm) {
 						flex: 0 0 #{100% / $i};
 					}
+				}
+			}
+		}
+
+		// ALIGNMENT: Center.
+		&[data-alignment="center"] {
+
+			.forminator-question {
+
+				@include media(min-width, sm) {
+					justify-content: center;
+				}
+			}
+		}
+
+		// ALIGNMENT: Right.
+		&[data-alignment="right"] {
+
+			.forminator-question {
+
+				@include media(min-width, sm) {
+					justify-content: flex-end;
 				}
 			}
 		}
