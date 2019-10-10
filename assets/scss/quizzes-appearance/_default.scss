@@ -20,7 +20,7 @@
 
 	.forminator-quiz--result,
 	.forminator-quiz--social {
-		border-top-color: #E0E0E0;;
+		border-top-color: #E0E0E0;
 	}
 
 	.forminator-quiz--summary {
@@ -119,6 +119,54 @@
 			&:hover {
 				border-color: #17A8E3;
 				background-color: #F3FBFE;
+			}
+		}
+
+		&.forminator-is_correct {
+
+			input[type="radio"],
+			input[type="checkbox"] {
+
+				&:checked + .forminator-answer--design {
+					border-color: #0BC30B;
+					background-color: #F4FCF2;
+
+					.forminator-answer--status {
+						border-color: #0BC30B;
+						background-color: #0BC30B;
+					}
+				}
+			}
+
+			.forminator-answer--status {
+
+				[class*="forminator-icon-"] {
+					color: #FFF;
+				}
+			}
+		}
+
+		&.forminator-is_incorrect {
+
+			input[type="radio"],
+			input[type="checkbox"] {
+
+				&:checked + .forminator-answer--design {
+					border-color: #DA0000;
+					background-color: #FDF2F2;
+
+					.forminator-answer--status {
+						border-color: #DA0000;
+						background-color: #DA0000;
+					}
+				}
+			}
+
+			.forminator-answer--status {
+
+				[class*="forminator-icon-"] {
+					color: #FFF;
+				}
 			}
 		}
 	}
