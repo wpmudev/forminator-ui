@@ -62,22 +62,16 @@ $social: (
 			margin: $gutter-sm 0;
 			padding: 0;
 			border: 0;
-
-			&[data-align="center"] {
-				margin-right: auto;
-				margin-left: auto;
-			}
-
-			&[data-align="right"] {
-				margin-right: 0;
-				margin-left: auto;
-			}
 		}
 
 		// SECTION: Footer.
 		&--result {
 			border-top-width: 1px;
 			border-top-style: solid;
+
+			.forminator-button {
+				margin: 0;
+			}
 		}
 
 		// SECTION: Summary.
@@ -162,6 +156,82 @@ $social: (
 							}
 						}
 					}
+				}
+			}
+		}
+	}
+
+	// ALIGNMENT: Center.
+	&[data-alignment="center"] {
+		margin-right: auto;
+		margin-left: auto;
+
+		.forminator-quiz {
+
+			// ELEMENT: Title.
+			&--title {
+				text-align: center;
+			}
+
+			// ELEMENT: Description.
+			&--description {
+				text-align: center;
+			}
+
+			// ELEMENT: Image.
+			&--image {
+				margin-right: auto;
+				margin-left: auto;
+			}
+
+			// SECTION: Footer.
+			&--result {
+				text-align: center;
+			}
+
+			// ELEMENT: Social.
+			&--social {
+
+				.forminator-social--icons {
+					justify-content: center;
+				}
+			}
+		}
+	}
+
+	// ALIGNMENT: Right.
+	&[data-alignment="right"] {
+		margin-right: 0;
+		margin-left: auto;
+
+		.forminator-quiz {
+
+			// ELEMENT: Title.
+			&--title {
+				text-align: right;
+			}
+
+			// ELEMENT: Description.
+			&--description {
+				text-align: right;
+			}
+
+			// ELEMENT: Image.
+			&--image {
+				margin-right: 0;
+				margin-left: auto;
+			}
+
+			// SECTION: Footer.
+			&--result {
+				text-align: right;
+			}
+
+			// ELEMENT: Social.
+			&--social {
+
+				.forminator-social--icons {
+					justify-content: flex-end;
 				}
 			}
 		}
