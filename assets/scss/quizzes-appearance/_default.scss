@@ -211,3 +211,45 @@
 		}
 	}
 }
+
+.forminator-quiz.forminator-design--default {
+
+	.forminator-quiz--result {
+
+		.forminator-result {
+			border-color: #EBEDEB;
+			background-color: #FAFAFA;
+
+			.forminator-result--info {
+
+				.forminator-result--quiz-name {
+					color: #888888;
+					font-size: 14px;
+					font-weight: 700;
+				}
+			}
+
+			.forminator-result--content {
+
+				.forminator-result--text {
+					background-color: #EBEDEB;
+				}
+
+				.forminator-result--title {
+					color: #000000;
+					font-size: 16px;
+					font-weight: 500;
+				}
+
+				.forminator-result--description {
+
+					&, p {
+						color: #000000;
+						font-size: 14px;
+						font-weight: 400;
+					}
+				}
+			}
+		}
+	}
+}
