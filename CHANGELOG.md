@@ -1,3 +1,7 @@
+v1.1.3
+- [Fix] Forms UI: Reduce assets file size.
+
+
 v1.1.2
 - [Fix] [Element] Select2: Stop requesting base styles from external sources.
 
