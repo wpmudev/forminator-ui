@@ -6,10 +6,10 @@
 @import "mixins/body-class";
 @import "mixins/breakpoints";
 
-@include body-class(custom-form, default flat bold material none, false) {
+@include form-class(custom-form, no-theme, false) {
 
 	// SPACING: Default
-	&:not(.forminator-enclosed):not(.forminator-custom) {
+	&[data-grid="open"] {
 
 		// ELEMENT: Row
 		.forminator-row {
@@ -39,7 +39,7 @@
 	}
 
 	// SPACING: Enclosed
-	&.forminator-enclosed {
+	&[data-grid="enclosed"] {
 
 		// ELEMENT: Row
 		.forminator-row {
@@ -59,7 +59,7 @@
 	}
 }
 
-@include body-class(custom-form, default flat bold material none, true) {
+@include form-class(custom-form, no-theme, true) {
 
 	// ELEMENT: Row
 	.forminator-row {
@@ -101,7 +101,7 @@
 	}
 
 	// SPACING: Default
-	&:not(.forminator-enclosed):not(.forminator-custom) {
+	&[data-grid="open"] {
 
 		// ELEMENT: Row
 		.forminator-row {
@@ -157,7 +157,7 @@
 	}
 
 	// SPACING: Enclosed
-	&.forminator-enclosed {
+	&[data-grid="enclosed"] {
 
 		// ELEMENT: Row
 		.forminator-row {
@@ -201,17 +201,6 @@
 						}
 					}
 				}
-			}
-		}
-	}
-
-	// SPACING: Custom
-	&.forminator-custom {
-
-		.forminator-row {
-
-			@include media(min-width, sm) {
-				flex-wrap: wrap;
 			}
 		}
 	}
