@@ -1,0 +1,11 @@
+@import "./pagination/core";
+@import "./pagination/steps";
+@import "./pagination/progress";
+
+@mixin component-pagination($form-type: no-type, $form-theme: no-theme) {
+
+	@include pagination-core($form-type, $form-theme);
+	@include pagination-steps($form-type, $form-theme);
+	@include pagination-progress($form-type, $form-theme);
+
+}

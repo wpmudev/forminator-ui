@@ -1,0 +1,72 @@
+@mixin component-multiselect($form-type: no-type, $form-theme: no-theme) {
+
+	@include form-class($form-type, $form-theme, false) {
+
+		.forminator-multiselect {
+			width: 100%;
+			@if ('material' != $form-theme) {
+				height: auto;
+				max-height: map-get($dropdown, max-height);
+				overflow-x: hidden;
+				overflow-y: auto;
+			}
+			display: block;
+			@if ('default' == $form-theme) {
+				padding: #{(map-get($dropdown, padding) / 2) - map-get($border-width, default)};
+				border-width: map-get($border-width, default);
+				border-style: map-get($border-style, default);
+				border-radius: map-get($border-radius, default);
+			}
+			@if ('flat' == $form-theme) {
+				padding: #{map-get($dropdown, padding) / 2};
+				border-width: map-get($border-width, flat);
+				border-style: map-get($border-style, flat);
+				border-radius: map-get($border-radius, flat);
+			}
+			@if ('bold' == $form-theme) {
+				padding: #{map-get($dropdown, padding) / 2};
+				border-width: map-get($border-width, bold);
+				border-style: map-get($border-style, bold);
+				border-radius: map-get($border-radius, bold);
+			}
+
+			.forminator-option {
+				cursor: pointer;
+				display: block;
+				@if ('default' == $form-theme) {
+					margin: #{map-get($dropdown, padding) / 2} 0;
+					padding: map-get($dropdown, padding);
+				}
+				@if ('material' == $form-theme) {
+					margin: #{map-get($dropdown, padding) / 2} 0;
+					padding: #{map-get($dropdown, padding) - (map-get($border-width, material) * 2)};
+					border-width: #{map-get($border-width, material) * 2};
+					border-style: map-get($border-style, material);
+					border-radius: map-get($border-radius, material);
+				}
+				line-height: map-get($dropdown, line-height);
+				transition: map-get($transition, ease);
+
+				input {
+					@extend %screen-readers;
+				}
+
+				&:first-child {
+					margin-top: 0;
+					@if ('default' == $form-theme) {
+						border-top-right-radius: map-get($border-radius, default);
+						border-top-left-radius: map-get($border-radius, default);
+					}
+				}
+
+				&:last-child {
+					margin-bottom: 0;
+					@if ('default' == $form-theme) {
+						border-bottom-right-radius: map-get($border-radius, default);
+						border-bottom-left-radius: map-get($border-radius, default);
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,178 @@
+@mixin component-label-floating($form-type: no-type, $form-theme: no-theme) {
+
+	@if ('material' == $form-theme) {
+
+		@include form-class($form-type, $form-theme, false) {
+
+			[class*="forminator-floating-"] {
+				pointer-events: none;
+				transition: map-get($transition, linear);
+			}
+
+			// ******************************
+			// INPUT: Floating label
+			.forminator-floating--input {
+				transform: translateY(30px);
+
+				+ .forminator-input--wrap,
+				+ .forminator-input-with-icon,
+				+ .forminator-input-with-phone,
+				+ .forminator-input-with-suffix {
+
+					.forminator-input {
+
+						&::placeholder {
+							@include opacity(0);
+						}
+
+						&:-moz-placeholder {
+							@include opacity(0);
+						}
+
+						&::-moz-placeholder {
+							@include opacity(0);
+						}
+
+						&:-ms-input-placeholder {
+							@include opacity(0);
+						}
+
+						&::-webkit-input-placeholder {
+							@include opacity(0);
+						}
+					}
+				}
+
+				&.forminator-has_icon {
+					padding-left: #{map-get($icon, size) + map-get($input, padding)};
+				}
+
+				&.forminator-has_phone {
+
+					&.allow-dropdown {
+						padding-left: #{$int-flag-size + map-get($input, padding) + 11px};
+					}
+
+					&:not(.allow-dropdown) {
+						padding-left: #{$int-flag-size + map-get($input, padding)};
+					}
+				}
+			}
+
+			.forminator-is_active,
+			.forminator-is_filled {
+
+				.forminator-floating--input {
+					transform: translateY(0);
+
+					+ .forminator-input--wrap,
+					+ .forminator-input-with-icon,
+					+ .forminator-input-with-phone,
+					+ .forminator-input-with-suffix {
+
+						.forminator-input {
+
+							&::placeholder {
+								@include opacity(1);
+							}
+
+							&:-moz-placeholder {
+								@include opacity(1);
+							}
+
+							&::-moz-placeholder {
+								@include opacity(1);
+							}
+
+							&:-ms-input-placeholder {
+								@include opacity(1);
+							}
+
+							&::-webkit-input-placeholder {
+								@include opacity(1);
+							}
+						}
+					}
+				}
+			}
+
+			.forminator-is_filled {
+
+				.forminator-floating--input {
+					padding-left: 0 !important;
+				}
+			}
+
+			// ******************************
+			// INPUT: Floating textarea
+			.forminator-floating--textarea {
+				width: 100%;
+				max-height: $textarea--height;
+				overflow-y: hidden;
+				position: absolute;
+				z-index: 1;
+				padding: map-get($input, padding);
+
+				+ .forminator-textarea--wrap {
+
+					.forminator-textarea {
+
+						&::placeholder {
+							@include opacity(0);
+						}
+
+						&:-moz-placeholder {
+							@include opacity(0);
+						}
+
+						&::-moz-placeholder {
+							@include opacity(0);
+						}
+
+						&:-ms-input-placeholder {
+							@include opacity(0);
+						}
+
+						&::-webkit-input-placeholder {
+							@include opacity(0);
+						}
+					}
+				}
+			}
+
+			.forminator-is_active,
+			.forminator-is_filled {
+
+				.forminator-floating--textarea {
+					padding-top: map-get($input, padding) !important;
+
+					+ .forminator-textarea--wrap {
+
+						.forminator-textarea {
+
+							&::placeholder {
+								@include opacity(1);
+							}
+
+							&:-moz-placeholder {
+								@include opacity(1);
+							}
+
+							&::-moz-placeholder {
+								@include opacity(1);
+							}
+
+							&:-ms-input-placeholder {
+								@include opacity(1);
+							}
+
+							&::-webkit-input-placeholder {
+								@include opacity(1);
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,15 @@
+@mixin component-paypal($form-type: no-type, $form-theme: no-theme) {
+
+	@include form-class($form-type, $form-theme, false) {
+
+		.forminator-button-paypal {
+			display: block;
+			position: relative;
+			z-index: 1;
+
+			> .paypal-buttons {
+				display: block !important;
+			}
+		}
+	}
+}

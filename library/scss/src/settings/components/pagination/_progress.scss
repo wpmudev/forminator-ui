@@ -1,0 +1,79 @@
+@mixin pagination-progress($form-type: no-type, $form-theme: no-theme) {
+
+	@include form-class($form-type, $form-theme, false) {
+
+		.forminator-pagination-progress {
+			display: flex;
+			align-items: center;
+			margin: 0 0 $gutter-sm;
+
+			.forminator-progress-label {
+				display: block;
+				flex: 0 0 auto;
+				line-height: 2.2em;
+
+				+ .forminator-progress-bar {
+					margin-left: #{$gutter-sm / 2};
+				}
+			}
+
+			.forminator-progress-bar {
+				@if ('default' == $form-theme) {
+					height: map-get($pagination-bar, default);
+				}
+				@if ('flat' == $form-theme) {
+					height: map-get($pagination-bar, flat);
+				}
+				@if ('bold' == $form-theme) {
+					height: map-get($pagination-bar, bold);
+				}
+				@if ('material' == $form-theme) {
+					height: map-get($pagination-bar, material);
+				}
+				overflow: hidden;
+				display: block;
+				flex: 1;
+				position: relative;
+				@if ('default' == $form-theme) {
+					border-radius: map-get($pagination-bar, default);
+				}
+
+				span {
+					@if ('default' == $form-theme) {
+						height: map-get($pagination-bar, default);
+					}
+					@if ('flat' == $form-theme) {
+						height: map-get($pagination-bar, flat);
+					}
+					@if ('bold' == $form-theme) {
+						height: map-get($pagination-bar, bold);
+					}
+					@if ('material' == $form-theme) {
+						height: map-get($pagination-bar, material);
+					}
+					display: block;
+				}
+			}
+		}
+	}
+
+	@include form-class($form-type, $form-theme, true) {
+
+		.forminator-pagination-progress {
+
+			.forminator-progress-label {
+
+				+ .forminator-progress-bar {
+
+					@include media(min-width, sm) {
+						margin-left: #{$gutter / 2};
+					}
+				}
+			}
+
+			@include media(min-width, sm) {
+				margin-bottom: $gutter;
+			}
+		}
+	}
+}
