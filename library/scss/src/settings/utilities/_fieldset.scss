@@ -1,0 +1,12 @@
+@mixin utility-fieldset($form-type: no-type, $form-theme: no-theme) {
+
+	@include form-class($form-type, $form-theme, false) {
+
+		// FIX:
+		// Make sure themes don't add unnecessary
+		// extra spacing to inline elements.
+		fieldset {
+			line-height: 1;
+		}
+	}
+}
