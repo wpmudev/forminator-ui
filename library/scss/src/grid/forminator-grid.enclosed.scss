@@ -1,25 +1,20 @@
 @charset "UTF-8";
 
-@import "variables";
+@import "../../variables";
 
 // Mixins
-@import "mixins/body-class";
-@import "mixins/breakpoints";
+@import "../../mixins/body-class";
+@import "../../mixins/breakpoints";
 
 @include form-class(custom-form, no-theme, false) {
 
-	&[data-grid="open"] {
+	&[data-grid="enclosed"] {
 
 		// ELEMENT: Row
 		.forminator-row {
 
 			&:not(:last-child) {
-				margin-bottom: $gutter-sm;
-			}
-
-			&:focus {
-				outline: none;
-				box-shadow: none;
+				margin-bottom: $gutter-enclosed-sm;
 			}
 		}
 
@@ -27,12 +22,7 @@
 		.forminator-col {
 
 			&:not(:last-child) {
-				margin-bottom: $gutter-sm;
-			}
-
-			&:focus {
-				outline: none;
-				box-shadow: none;
+				margin-bottom: $gutter-enclosed-sm;
 			}
 		}
 	}
@@ -40,7 +30,7 @@
 
 @include form-class(custom-form, no-theme, true) {
 
-	&[data-grid="open"] {
+	&[data-grid="enclosed"] {
 
 		// ELEMENT: Row
 		.forminator-row {
@@ -48,14 +38,14 @@
 			&:not(:last-child) {
 
 				@include media(min-width, sm) {
-					margin-bottom: $gutter;
+					margin-bottom: $gutter-enclosed;
 				}
 			}
 
 			@include media(min-width, sm) {
 				display: flex;
-				margin-right: -#{$gutter / 2};
-				margin-left: -#{$gutter / 2};
+				margin-right: -#{$gutter-enclosed / 2};
+				margin-left: -#{$gutter-enclosed / 2};
 			}
 		}
 
@@ -72,7 +62,7 @@
 			@include media(min-width, sm) {
 				min-width: 0;
 				flex: 1;
-				padding: 0 #{$gutter / 2};
+				padding: 0 #{$gutter-enclosed / 2};
 			}
 		}
 
@@ -89,7 +79,7 @@
 						&:not(:last-child) {
 
 							@include media(min-width, sm) {
-								margin-bottom: $gutter;
+								margin-bottom: $gutter-enclosed;
 							}
 						}
 					}
