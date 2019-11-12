@@ -2,6 +2,10 @@
 
 	.select2-container {
 
+		&, span {
+			display: block;
+		}
+
 		[class*="forminator-dropdown-"] {
 
 			.select2-search {
