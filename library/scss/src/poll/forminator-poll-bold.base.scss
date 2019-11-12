@@ -1,0 +1,37 @@
+@charset "UTF-8";
+
+@import "../../variables";
+
+$form-type: poll;
+$form-theme: bold;
+
+// Helpers.
+@import "../../helpers/text-reset";
+@import "../../helpers/screen-readers";
+@import "../../helpers/icon-styles";
+
+// Mixins.
+@import "../../mixins/breakpoints";
+@import "../../mixins/body-class";
+@import "../../mixins/icons";
+@import "../../mixins/opacity";
+
+// Containers.
+@import "../settings/containers/poll";
+
+// Call Containers.
+@include container-poll(#{$form-theme});
+
+// Components.
+@import "../settings/components/response";
+@import "../settings/components/radio";
+@import "../settings/components/button";
+@import "../settings/components/poll/typography";
+@import "../settings/components/poll/image";
+
+// Call Components.
+@include component-response(#{$form-type}, #{$form-theme});
+@include component-radio(#{$form-type}, #{$form-theme});
+@include component-button(#{$form-type}, #{$form-theme});
+@include component-typography(#{$form-theme});
+@include component-image(#{$form-theme});
