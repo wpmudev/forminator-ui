@@ -56,6 +56,31 @@
 			}
 		}
 
+		// STATE: Partial Disabled.
+		&.forminator-partial-disabled {
+
+			.forminator-row:not(.forminator-paypal-row) {
+				cursor: not-allowed;
+
+				.forminator-col {
+					@include opacity(0.5);
+				}
+
+				.forminator-col,
+				.forminator-col * {
+					pointer-events: none;
+				}
+			}
+
+			.forminator-pagination-footer {
+
+				.forminator-button:not(.forminator-button-submit) {
+					@include opacity(0.5);
+					pointer-events: none;
+				}
+			}
+		}
+
 		@include media(min-width, sm) {
 			margin: $gutter 0;
 		}

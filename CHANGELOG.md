@@ -1,5 +1,6 @@
 v1.1.3
 - [Fix] Forms UI: Reduce assets file size.
+- [New] Forms UI: Partial disabled state (class).
 
 
 v1.1.2
