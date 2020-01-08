@@ -1,0 +1,39 @@
+@mixin component-timepicker($form-type: no-type, $form-theme: no-theme) {
+
+	@include form-class($form-type, $form-theme, true) {
+
+		.forminator-timepicker {
+
+			.forminator-row {
+
+				@include media(min-width, sm) {
+					align-items: flex-end;
+				}
+			}
+		}
+
+		.forminator-col {
+
+			&:not(.forminator-col-3):not(.forminator-col-4) {
+
+				.forminator-timepicker,
+				.forminator-date-input {
+
+					.forminator-error-message {
+
+						@include media(min-width, sm) {
+							display: none;
+						}
+					}
+
+					~ .forminator-error-message {
+
+						@include media(min-width, sm) {
+							display: block;
+						}
+					}
+				}
+			}
+		}
+	}
+}

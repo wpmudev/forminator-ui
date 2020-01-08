@@ -1,0 +1,95 @@
+@mixin component-response($form-type: no-type, $form-theme: no-theme) {
+
+	@include form-class($form-type, $form-theme, false) {
+
+		.forminator-response-message {
+			margin: 0 0 $gutter-sm;
+			@if ('default' == $form-theme) {
+				padding: 15px 20px 15px 22px;
+				border-radius: map-get($border-radius, default);
+			}
+			@if ('flat' == $form-theme) {
+				padding: 15px 10px;
+				border-radius: map-get($border-radius, flat);
+			}
+			@if ('bold' == $form-theme) {
+				padding: 15px 20px 15px 22px;
+				border-radius: map-get($border-radius, bold);
+			}
+			@if ('material' == $form-theme) {
+				padding: 15px 20px 15px 22px;
+				border-radius: map-get($border-radius, material);
+				background-color: #FFF;
+				box-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+			}
+			text-align: left;
+
+			p {
+				margin: 0;
+				padding: 0;
+				border: 0;
+				line-height: 1.3em;
+				letter-spacing: 0;
+
+				&:not(:last-child) {
+					margin-bottom: 10px;
+				}
+			}
+
+			&,
+			&:focus,
+			&:hover,
+			&:active {
+				outline: none;
+				@if ('material' != $form-theme) {
+					box-shadow: none;
+				}
+			}
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+
+			&[aria-hidden="true"] {
+				display: none;
+			}
+
+			&.forminator-loading {
+				position: relative;
+				padding-left: #{($gutter-sm * 2) + 6px};
+
+				@include icon(before, loader, true) {
+					position: absolute;
+					top: 17px;
+					left: $gutter-sm;
+					font-size: 16px;
+				}
+			}
+
+			&.forminator-show {
+				display: block;
+			}
+
+			&.forminator-accessible {
+				@extend %screen-readers;
+			}
+		}
+	}
+
+	@include form-class($form-type, $form-theme, true) {
+
+		.forminator-response-message {
+
+			&:last-child {
+
+				@include media(min-width, sm) {
+					margin-bottom: 0;
+				}
+			}
+
+			@include media(min-width, sm) {
+				margin-bottom: $gutter;
+			}
+		}
+	}
+}

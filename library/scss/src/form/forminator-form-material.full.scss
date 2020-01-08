@@ -1,0 +1,43 @@
+@charset "UTF-8";
+
+@import "../../variables";
+
+$form-type: custom-form;
+$form-theme: material;
+
+// Helpers.
+@import "../../helpers/text-reset";
+@import "../../helpers/text-truncate";
+@import "../../helpers/icon-styles";
+@import "../../helpers/screen-readers";
+
+// Mixins.
+@import "../../mixins/body-class";
+@import "../../mixins/breakpoints";
+@import "../../mixins/opacity";
+@import "../../mixins/icons";
+
+// Components.
+@import "../settings/components/input-with-icon";
+@import "../settings/components/input-with-suffix";
+@import "../settings/components/phone";
+@import "../settings/components/upload";
+@import "../settings/components/multiselect";
+@import "../settings/components/calendar";
+@import "../settings/components/timepicker";
+@import "../settings/components/paypal";
+@import "../settings/components/stripe";
+@import "../settings/components/select2";
+@import "../settings/components/select2-dropdown";
+
+@include component-input-with-icon(#{$form-type}, #{$form-theme});
+@include component-input-with-suffix(#{$form-type}, #{$form-theme});
+@include component-phone(#{$form-type}, #{$form-theme});
+@include component-upload(#{$form-type}, #{$form-theme});
+@include component-multiselect(#{$form-type}, #{$form-theme});
+@include component-calendar(#{$form-type}, #{$form-theme});
+@include component-timepicker(#{$form-type}, #{$form-theme});
+@include component-select2(#{$form-type}, #{$form-theme});
+@include component-dropdown2(#{$form-type}, #{$form-theme});
+@include component-paypal(#{$form-type}, #{$form-theme});
+@include component-stripe(#{$form-type}, #{$form-theme});

@@ -1,0 +1,43 @@
+@mixin component-stripe($form-type: no-type, $form-theme: no-theme) {
+
+	@if ('material' == $form-theme) {
+
+		@include form-class($form-type, $form-theme, false) {
+
+			.forminator-input--stripe {
+
+				.StripeElement {
+					padding: 10px 0 9px;
+					border: 1px solid transparent;
+					border-radius: 0;
+					transition: map-get($transition, ease);
+
+					&:after {
+						content: " ";
+						height: 1px;
+						display: block;
+						position: absolute;
+						right: 0;
+						bottom: 0;
+						left: 0;
+					}
+				}
+
+				&:not(.forminator--no_label) {
+
+					.StripeElement {
+
+						iframe {
+							@include opacity(0);
+						}
+					}
+				}
+
+				&:hover:after {
+					left: 0;
+					right: 0;
+				}
+			}
+		}
+	}
+}

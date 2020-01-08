@@ -122,3 +122,203 @@
 		}
 	}
 }
+
+// =============================================
+// 1. $module-type:
+//     - all
+//     - no-type
+//     - custom-form
+//     - poll
+//     - quiz
+//
+// 2. $module-theme:
+//    - all
+//    - no-theme
+//    - default
+//    - flat
+//    - bold
+//    - material
+//
+// 3. $desktop:
+//    - true
+//    - false
+// =============================================
+@mixin form-class($module-type: no-type, $module-theme: no-theme, $desktop: false) {
+
+	.forminator-ui,
+	.et-db #et-boc .et_pb_module .forminator-ui {
+
+		@if ($module-type == no-type) {
+
+			@if ($module-theme == no-theme) {
+
+				@if ($desktop == true) {
+
+					&:not(.forminator-size--small) {
+						@content;
+					}
+				}
+
+				@else {
+					@content;
+				}
+			}
+
+			@else if ($module-theme == all) {
+
+				&:not([data-design="none"]) {
+
+					@if ($desktop == true) {
+
+						&:not(.forminator-size--small) {
+							@content;
+						}
+					}
+
+					@else {
+						@content;
+					}
+				}
+			}
+
+			@else {
+
+				@each $theme in $module-theme {
+
+					&[data-design="#{$theme}"] {
+
+						@if ($desktop == true) {
+
+							&:not(.forminator-size--small) {
+								@content;
+							}
+						}
+
+						@else {
+							@content;
+						}
+					}
+				}
+			}
+		}
+
+		@else if ($module-type == all) {
+
+			&.forminator-custom-form,
+			&.forminator-poll,
+			&.forminator-quiz {
+
+				@if ($module-theme == no-theme) {
+
+					@if ($desktop == true) {
+
+						&:not(.forminator-size--small) {
+							@content;
+						}
+					}
+
+					@else {
+						@content;
+					}
+				}
+
+				@else if ($module-theme == all) {
+
+					&:not([data-design="none"]) {
+
+						@if ($desktop == true) {
+
+							&:not(.forminator-size--small) {
+								@content;
+							}
+						}
+
+						@else {
+							@content;
+						}
+					}
+				}
+
+				@else {
+
+					@each $theme in $module-theme {
+
+						&[data-design="#{$theme}"] {
+
+							@if ($desktop == true) {
+
+								&:not(.forminator-size--small) {
+									@content;
+								}
+							}
+
+							@else {
+								@content;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		@else {
+
+			@each $type in $module-type {
+
+				&.forminator-#{$type} {
+
+					@if ($module-theme == no-theme) {
+
+						@if ($desktop == true) {
+
+							&:not(.forminator-size--small) {
+								@content;
+							}
+						}
+
+						@else {
+							@content;
+						}
+					}
+
+					@else if ($module-theme == all) {
+
+						&:not([data-design="none"]) {
+
+							@if ($desktop == true) {
+
+								&:not(.forminator-size--small) {
+									@content;
+								}
+							}
+
+							@else {
+								@content;
+							}
+						}
+					}
+
+					@else {
+
+						@each $theme in $module-theme {
+
+							&[data-design="#{$theme}"] {
+
+								@if ($desktop == true) {
+
+									&:not(.forminator-size--small) {
+										@content;
+									}
+								}
+
+								@else {
+									@content;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

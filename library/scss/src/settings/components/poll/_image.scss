@@ -1,0 +1,22 @@
+@mixin component-image($form-theme: no-theme) {
+
+	@include form-class(poll, $form-theme, false) {
+
+		.forminator-image {
+			width: auto;
+			height: auto;
+			max-width: 100%;
+			display: block;
+			position: relative;
+			margin: #{$gutter-sm / 2} auto;
+
+			&:first-child {
+				margin-top: 0;
+			}
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+}
