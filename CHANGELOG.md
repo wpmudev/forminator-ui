@@ -3,6 +3,7 @@ v1.2.0
 - [New] Update icon font file to latest.
 - [Fix] Ensure icons font remain visible during webfont load.
 - [Fix] [Element] Response Message: Text goes outside the container.
+- [Fix] [Element] Pagination Steps: Step label broken words.
 
 
 v1.1.3
