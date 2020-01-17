@@ -1,6 +1,6 @@
 {
 	"name": "forminator-ui",
-	"version": "1.1.3",
+	"version": "1.2.0",
 	"private": true,
 	"author": "WPMU DEV",
 	"contributors": [
@@ -62,7 +62,8 @@
 		"clean:modules": "rm -rf ./node_modules/ && rm -rf ./package-lock.json",
 		"clean:ghpages": "rm -rf node_modules/gh-pages/.cache",
 		"release:library": "npm run build:library && npm run clean:ghpages && gh-pages -b master -d ./build/library",
-		"release:showcase": "npm run clean:modules && npm install && npm run build:showcase && npm run clean:ghpages && gh-pages -b gh-pages -d ./build/public",
-		"release": "npm run release:library && npm run release:showcase"
+		"release:showcase": "npm run build:showcase && npm run clean:ghpages && gh-pages -b gh-pages -d ./build/public",
+		"release": "npm run release:library && npm run release:showcase",
+		"release:120": "npm run build:library && npm run clean:ghpages && gh-pages -b version/v1.2.0 -d ./build/library"
 	}
 }
