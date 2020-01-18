@@ -1,3 +1,28 @@
+@keyframes fadeScaleIn {
+	0% {
+		opacity: 0;
+	}
+	25% {
+		opacity: 0;
+		transform: translate3d(0,10px,0) scale(0.9);
+	}
+	100% {
+		transform: translate3d(0,0,0) scale(1);
+	}
+}
+
+@keyframes fadeOut {
+	0% {
+		opacity: 1;
+	}
+	75% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+
 @mixin component-authentication($form-type: no-type) {
 
 	@include form-class($form-type, no-theme, false) {
@@ -56,6 +81,14 @@
 						text-decoration: none;
 						text-indent: -9999px;
 					}
+				}
+
+				&.forminator-authentication-fade-in {
+					animation: fadeScaleIn 0.5s ease-in forwards;
+				}
+
+				&.forminator-authentication-fade-out {
+					animation: fadeScaleOut 0.9s ease-in forwards;
 				}
 			}
 
