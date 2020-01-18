@@ -240,7 +240,7 @@
 	 * DOM node to focus when the dialog opens. If not specified, the
 	 * first focusable element in the dialog will receive focus.
 	 */
-	aria.Dialog = function( dialogId, focusAfterClosed, focusFirst ) {
+	aria.Authentication = function( dialogId, focusAfterClosed, focusFirst ) {
 
 		this.dialogNode = document.getElementById( dialogId );
 
@@ -289,7 +289,7 @@
 		} else if ( 'object' === typeof focusAfterClosed ) {
 			this.focusAfterClosed = focusAfterClosed;
 		} else {
-			throw new Error( 'the focusAfterClosed parameter is required for the aria.Dialog constructor.' );
+			throw new Error( 'the focusAfterClosed parameter is required for the aria.Authentication constructor.' );
 		}
 
 		if ( 'string' === typeof focusFirst ) {
@@ -321,8 +321,8 @@
 
 		this.addListeners();
 		aria.OpenDialogList.push( this );
-		this.dialogNode.classList.add( 'forminator-content-fade-in' ); // make visible
-		this.dialogNode.classList.remove( 'forminator-content-fade-out' );
+		this.dialogNode.classList.add( 'forminator-authentication-fade-in' ); // make visible
+		this.dialogNode.classList.remove( 'forminator-authentication-fade-out' );
 
 		if ( this.focusFirst ) {
 			this.focusFirst.focus();
@@ -339,9 +339,9 @@
 	 * restore listeners of a parent dialog if one was open under the one that
 	 * just closed, and sets focus on the element specified for focusAfterClosed.
 	 */
-	aria.Dialog.prototype.close = function() {
+	aria.Authentication.prototype.close = function() {
 
-		var self = this;
+		let self = this;
 
 		aria.OpenDialogList.pop();
 		this.removeListeners();
@@ -366,15 +366,15 @@
 		}
 	}; // end close.
 
-	aria.Dialog.prototype.addListeners = function() {
+	aria.Authentication.prototype.addListeners = function() {
 		document.addEventListener( 'focus', this.trapFocus, true );
 	}; // end addListeners.
 
-	aria.Dialog.prototype.removeListeners = function() {
+	aria.Authentication.prototype.removeListeners = function() {
 		document.removeEventListener( 'focus', this.trapFocus, true );
 	}; // end removeListeners.
 
-	aria.Dialog.prototype.trapFocus = function( event ) {
+	aria.Authentication.prototype.trapFocus = function( event ) {
 
 		if ( aria.Utils.IgnoreUtilFocusChanges ) {
 			return;
@@ -397,11 +397,11 @@
 	}; // end trapFocus.
 
 	FUI.openAuthentication = function( dialogId, focusAfterClosed, focusFirst ) {
-		var dialog = new aria.Dialog( dialogId, focusAfterClosed, focusFirst );
+		let dialog = new aria.Authentication( dialogId, focusAfterClosed, focusFirst );
 	}; // end openAuthentication.
 
-	SUI.closeAuthentication = function() {
-		var topDialog = aria.getCurrentDialog();
+	FUI.closeAuthentication = function() {
+		let topDialog = aria.getCurrentDialog();
 		topDialog.close();
 	}; // end closeAuthentication.
 
