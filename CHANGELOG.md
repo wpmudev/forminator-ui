@@ -1,3 +1,7 @@
+v1.1.4
+- [Fix] Forms UI: Missing styles for input with icon field on Material UI form.
+
+
 v1.1.3
 - [Fix] Forms UI: Reduce assets file size.
 - [New] Forms UI: Partial disabled state (class).

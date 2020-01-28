@@ -7,6 +7,11 @@
 				position: relative;
 			}
 
+			@else {
+				display: flex;
+				align-items: center;
+			}
+
 			[class*="forminator-icon-"] {
 				display: block;
 				@if ('material' == $form-theme) {
@@ -55,6 +60,11 @@
 			}
 
 			@if ('material' == $form-theme) {
+
+				.forminator-input--wrap {
+					display: block;
+					flex: 1;
+				}
 
 				~ span {
 					padding-left: #{map-get($icon, size) + map-get($input, padding)};
