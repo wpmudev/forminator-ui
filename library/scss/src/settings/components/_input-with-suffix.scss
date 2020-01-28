@@ -4,6 +4,10 @@
 
 		.forminator-input-with-suffix {
 			position: relative;
+			@if ('material' == $form-theme) {
+				display: flex;
+				align-items: center;
+			}
 
 			.forminator-input {
 				padding-right: 60px;
@@ -17,6 +21,14 @@
 				padding: 0 map-get($input, padding);
 				transform: translateY(-50%);
 				line-height: 1.4em;
+			}
+
+			@if ('material' == $form-theme) {
+
+				.forminator-input--wrap {
+					display: block;
+					flex: 1;
+				}
 			}
 		}
 	}
