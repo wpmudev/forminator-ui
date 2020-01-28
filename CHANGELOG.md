@@ -1,5 +1,5 @@
 v1.1.4
-- [Fix] Forms UI: Missing styles for Stripe field on Material UI form.
+- [Fix] Forms UI: Stripe field missing focused and filled styles on Material UI form.
 - [Fix] Forms UI: Missing styles for input with icon field on Material UI form.
 - [Fix] Forms UI: Missing styles for input with suffix field on Material UI form.
 

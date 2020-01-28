@@ -4,6 +4,23 @@
 
 		@include form-class($form-type, $form-theme, false) {
 
+			.forminator-field {
+
+				&.forminator-is_active,
+				&.forminator-is_filled {
+
+					.forminator-input--stripe {
+
+						&:not(.forminator--no_label) {
+
+							.StripeElement iframe {
+								@include opacity(1);
+							}
+						}
+					}
+				}
+			}
+
 			.forminator-input--stripe {
 
 				.StripeElement {
