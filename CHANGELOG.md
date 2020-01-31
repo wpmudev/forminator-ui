@@ -1,3 +1,11 @@
+v1.2.0
+- [New] Quizzes UI.
+- [New] Update icon font file to latest.
+- [Fix] Ensure icons font remain visible during webfont load.
+- [Fix] [Element] Response Message: Text goes outside the container.
+- [Fix] [Element] Pagination Steps: Step label broken words.
+
+
 v1.1.4
 - [Fix] Forms UI: Stripe field missing focused and filled styles on Material UI form.
 - [Fix] Forms UI: Missing styles for input with icon field on Material UI form.

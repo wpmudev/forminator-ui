@@ -1,0 +1,240 @@
+$social: (
+	facebook: #0084BF,
+	twitter:  #4A90E2,
+	linkedin: #0084BF,
+) !default;
+
+@include body-class(quiz, all, false) {
+
+	.forminator-quiz {
+
+		// ELEMENT: Title.
+		&--title {
+			margin: 0 0 $gutter-sm;
+			padding: 0;
+			border: 0;
+			line-height: 1.18em;
+
+			&:before,
+			&:after {
+				content: unset;
+				display: none;
+			}
+		}
+
+		// ELEMENT: Description.
+		&--description {
+			margin: 0 0 $gutter-sm;
+			padding: 0;
+			border: 0;
+
+			&, p {
+				line-height: 1.5em;
+				word-break: break-word;
+
+				strong {
+					font-weight: bold;
+				}
+			}
+
+			p {
+
+				&:first-child {
+					margin-top: 0;
+				}
+
+				&:last-child {
+					margin-bottom: 0;
+				}
+			}
+		}
+
+		// ELEMENT: Image.
+		&--image {
+			width: auto;
+			min-width: 1px;
+			max-width: 100%;
+			height: auto;
+			min-height: 1px;
+			max-height: 100%;
+			float: none;
+			display: block;
+			position: relative;
+			margin: $gutter-sm 0;
+			padding: 0;
+			border: 0;
+		}
+
+		// SECTION: Footer.
+		&--result {
+			border-top-width: 1px;
+			border-top-style: solid;
+
+			.forminator-button {
+				margin: 0;
+			}
+		}
+
+		// SECTION: Summary.
+		&--summary {
+
+			p, ul, ol {
+				margin: 22px 0;
+
+				&:first-child {
+					margin-top: 0;
+				}
+
+				&:last-child {
+					margin-bottom: 0;
+				}
+			}
+
+			&, p {
+				line-height: 1.19em;
+			}
+
+			ul, ol, li {
+				line-height: 1.4em;
+			}
+
+			li {
+				margin: 10px 0;
+
+				&:first-child {
+					margin-top: 0;
+				}
+
+				&:last-child {
+					margin-bottom: 0;
+				}
+			}
+
+			&[data-align="center"] {
+				text-align: center;
+			}
+
+			&[data-align="right"] {
+				text-align: right;
+			}
+		}
+
+		// SECTION: Social.
+		&--social {
+			border-top-width: 1px;
+			border-top-style: solid;
+
+			.forminator-social--text {
+				margin: 0 0 $gutter-sm;
+				line-height: 1.35em;
+			}
+
+			.forminator-social--icons {
+				display: flex;
+				flex-wrap: wrap;
+				flex-direction: row;
+				margin: 0 -#{$gutter-sm / 2};
+				padding: 0;
+
+				&, li {
+					list-style: none;
+				}
+
+				li {
+					padding: 0 #{$gutter-sm / 2};
+
+					a {
+						display: block;
+
+						[class*="forminator-icon-"] {
+							display: block;
+						}
+
+						@each $name, $color in $social {
+
+							.forminator-icon-social-#{$name} {
+								color: $color;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	// ALIGNMENT: Center.
+	&[data-alignment="center"] {
+		margin-right: auto;
+		margin-left: auto;
+
+		.forminator-quiz {
+
+			// ELEMENT: Title.
+			&--title {
+				text-align: center;
+			}
+
+			// ELEMENT: Description.
+			&--description {
+				text-align: center;
+			}
+
+			// ELEMENT: Image.
+			&--image {
+				margin-right: auto;
+				margin-left: auto;
+			}
+
+			// SECTION: Footer.
+			&--result {
+				text-align: center;
+			}
+
+			// ELEMENT: Social.
+			&--social {
+
+				.forminator-social--icons {
+					justify-content: center;
+				}
+			}
+		}
+	}
+
+	// ALIGNMENT: Right.
+	&[data-alignment="right"] {
+		margin-right: 0;
+		margin-left: auto;
+
+		.forminator-quiz {
+
+			// ELEMENT: Title.
+			&--title {
+				text-align: right;
+			}
+
+			// ELEMENT: Description.
+			&--description {
+				text-align: right;
+			}
+
+			// ELEMENT: Image.
+			&--image {
+				margin-right: 0;
+				margin-left: auto;
+			}
+
+			// SECTION: Footer.
+			&--result {
+				text-align: right;
+			}
+
+			// ELEMENT: Social.
+			&--social {
+
+				.forminator-social--icons {
+					justify-content: flex-end;
+				}
+			}
+		}
+	}
+}

@@ -10,6 +10,7 @@
 			border: 0;
 			line-height: 1.3em;
 			letter-spacing: 0;
+			word-break: break-word;
 
 			&:not(:last-child) {
 				margin-bottom: 10px;
