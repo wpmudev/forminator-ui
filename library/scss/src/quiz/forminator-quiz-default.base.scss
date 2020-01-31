@@ -1,0 +1,35 @@
+@charset "UTF-8";
+
+@import "../../variables";
+
+$form-type: quiz;
+$form-theme: default;
+
+// Helpers.
+@import "../../helpers/text-reset";
+@import "../../helpers/text-truncate";
+@import "../../helpers/icon-styles";
+@import "../../helpers/screen-readers";
+
+// Mixins.
+@import "../../mixins/body-class";
+@import "../../mixins/breakpoints";
+@import "../../mixins/opacity";
+@import "../../mixins/icons";
+@import "../../mixins/animations";
+
+// Containers.
+@import "../settings/containers/quiz";
+
+// Call Containers.
+@include container-quiz(#{$form-type}, #{$form-theme});
+
+// Components.
+@import "../settings/components/questions";
+@import "../settings/components/answers";
+@import "../settings/components/results";
+
+// Call Components.
+@include component-questions(#{$form-type}, #{$form-theme});
+@include component-answers(#{$form-type}, #{$form-theme});
+@include component-results(#{$form-type}, #{$form-theme});
