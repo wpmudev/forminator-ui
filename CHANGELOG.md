@@ -4,6 +4,7 @@ v1.2.0
 - [Fix] Ensure icons font remain visible during webfont load.
 - [Fix] [Element] Response Message: Text goes outside the container.
 - [Fix] [Element] Pagination Steps: Step label broken words.
+- [Fix] [Element] Calendar: Increase z-index value.
 
 
 v1.1.4

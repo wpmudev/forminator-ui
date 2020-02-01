@@ -4,6 +4,7 @@
 
 		&.forminator-calendar--#{$form-theme} {
 			width: auto;
+			z-index: 20000000;
 			margin: 0;
 			padding: 1px 0;
 			border: 0;
