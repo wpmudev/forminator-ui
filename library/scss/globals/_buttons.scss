@@ -67,6 +67,44 @@
 			margin-right: 0;
 		}
 
+		&.forminator-button-loader {
+
+			.forminator-icon-loader {
+				display: inline-block;
+				position: initial;
+				top: auto;
+				left: auto;
+				transform: none;
+
+				&:before {
+					display: inline-block;
+				}
+			}
+
+			.forminator-onload-default {
+				display: block;
+			}
+
+			.forminator-onload-loading {
+				display: none;
+			}
+
+			&.forminator-onload {
+
+				span {
+					@include opacity(1);
+				}
+
+				.forminator-onload-default {
+					display: none;
+				}
+
+				.forminator-onload-loading {
+					display: block;
+				}
+			}
+		}
+
 		// PayPal Button
 		&-paypal {
 			display: block;

@@ -1,0 +1,35 @@
+@charset "UTF-8";
+
+@import './forminator-utilities.scss';
+
+// Form basic assets.
+@import './grid/forminator-grid.open.scss';
+@import './grid/forminator-grid.enclosed.scss';
+@import './form/forminator-form-default.base.scss';
+@import './form/forminator-form-default.full.scss';
+@import './form/forminator-form-flat.base.scss';
+@import './form/forminator-form-flat.full.scss';
+@import './form/forminator-form-bold.base.scss';
+@import './form/forminator-form-bold.full.scss';
+@import './form/forminator-form-material.base.scss';
+@import './form/forminator-form-material.full.scss';
+@import './form/forminator-authentication.scss';
+@import './form/select2.scss';
+
+// Poll basic assets.
+@import './poll/forminator-poll-default.base.scss';
+@import './poll/forminator-poll-default.full.scss';
+@import './poll/forminator-poll-flat.base.scss';
+@import './poll/forminator-poll-flat.full.scss';
+@import './poll/forminator-poll-bold.base.scss';
+@import './poll/forminator-poll-bold.full.scss';
+@import './poll/forminator-poll-material.base.scss';
+@import './poll/forminator-poll-material.full.scss';
+@import './chart/forminator-chart.bar.scss';
+@import './chart/forminator-chart.pie.scss';
+
+// Quiz basic assets.
+@import './quiz/forminator-quiz-default.base.scss';
+@import './quiz/forminator-quiz-flat.base.scss';
+@import './quiz/forminator-quiz-bold.base.scss';
+@import './quiz/forminator-quiz-material.base.scss';

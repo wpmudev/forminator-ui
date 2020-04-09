@@ -17,6 +17,7 @@
 		font-family: $font--icon;
 		font-weight: normal;
 		font-style: normal;
+		font-display: swap;
 		src: url('#{$path-fonts}forminator-icons-font.eot?#{$version}');
 		src: local('forminator-icons-font'),
 			 url('#{$path-fonts}forminator-icons-font.eot?#{$version}#iefix') format('embedded-opentype'),

@@ -1,0 +1,485 @@
+$quiz: (
+	image:    170px,
+	image-sm: 80px,
+	spacing:  10px,
+	checkbox: 30px,
+) !default;
+
+@include body-class(quiz, all, false) {
+
+	.forminator-answer {
+		user-select: none;
+		-webkit-tap-highlight-color: transparent;
+		pointer-events: none;
+		display: block;
+		position: relative;
+
+		input[type="radio"],
+		input[type="checkbox"] {
+			@extend %screen-readers;
+
+			&:disabled,
+			&[disabled] {
+
+				&:not(:checked):not([checked]) {
+
+					+ .forminator-answer--design {
+						@include opacity(0.6);
+					}
+				}
+
+				+ .forminator-answer--design {
+					pointer-events: none;
+				}
+			}
+		}
+
+		.forminator-answer--design {
+			cursor: pointer;
+			pointer-events: all;
+			display: flex;
+			flex-wrap: nowrap;
+			flex-direction: row;
+			transition: $transition--ease;
+
+			.forminator-answer--image {
+				width: map-get($quiz, image-sm);
+				height: map-get($quiz, image-sm);
+				display: block;
+				background-repeat: no-repeat;
+				background-position: center;
+				background-size: cover;
+
+				span {
+					@extend %screen-readers;
+				}
+			}
+
+			.forminator-answer--status {
+				width: map-get($quiz, checkbox);
+				height: map-get($quiz, checkbox);
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				transition: $transition--ease;
+
+				[class*="forminator-icon-"] {
+					display: block;
+					font-size: 12px;
+					line-height: 12px;
+
+					&:before {
+						display: block;
+					}
+				}
+			}
+
+			.forminator-answer--name {
+				display: block;
+				line-height: 1.75em;
+				align-self: center;
+			}
+		}
+
+		// STATE: Focus.
+		&:focus {
+			outline: none;
+			box-shadow: none;
+		}
+	}
+
+	// QUESTION TYPE: Personality.
+	.forminator-question[data-question-type="personality"] {
+
+		.forminator-answer {
+
+			input[type="radio"],
+			input[type="checkbox"] {
+
+				&:checked + .forminator-answer--design {
+
+					.forminator-answer--status {
+
+						[class*="forminator-icon-"] {
+							@include opacity(1);
+						}
+					}
+				}
+			}
+
+			.forminator-answer--design {
+
+				.forminator-answer--status {
+
+					[class*="forminator-icon-"] {
+						@include opacity(0);
+					}
+				}
+			}
+		}
+	}
+
+	// LAYOUT: List.
+	&.forminator-quiz--list {
+
+		// ALIGNMENT: Center.
+		&[data-alignment="center"] {
+
+			.forminator-answer {
+
+				// STATE: Only image.
+				&.forminator-only--image {
+					margin-right: auto;
+					margin-left: auto;
+				}
+			}
+		}
+
+		// ALIGNMENT: Right.
+		&[data-alignment="right"] {
+
+			.forminator-answer {
+
+				// STATE: Only image.
+				&.forminator-only--image {
+					margin-right: 0;
+					margin-left: auto;
+				}
+			}
+		}
+	}
+}
+
+@include body-class(quiz, all, true) {
+
+	// LAYOUT: Grid.
+	&.forminator-quiz--grid {
+
+		.forminator-answer {
+
+			.forminator-answer--design {
+
+				.forminator-answer--image {
+
+					@include media(min-width, sm) {
+						width: 100%;
+						height: map-get($quiz, image);
+					}
+				}
+
+				@include media(min-width, sm) {
+					flex-wrap: wrap;
+				}
+			}
+		}
+	}
+}
+
+@include body-class(quiz, default flat bold, false) {
+
+	.forminator-answer {
+
+		.forminator-answer--design {
+
+			.forminator-answer--image {
+				flex: 0 0 auto;
+
+				+ .forminator-answer--status {
+					margin-top: #{(map-get($quiz, image-sm) - map-get($quiz, checkbox)) / 2};
+					margin-bottom: #{(map-get($quiz, image-sm) - map-get($quiz, checkbox)) / 2};
+					margin-left: map-get($quiz, spacing);
+				}
+			}
+
+			.forminator-answer--status {
+				flex: 0 0 auto;
+
+				+ .forminator-answer--name {
+					margin-left: map-get($quiz, spacing);
+				}
+			}
+
+			.forminator-answer--name {
+				min-width: 1px;
+				flex: 1;
+			}
+		}
+
+		// STATE: Only image.
+		&.forminator-only--image {
+			width: #{map-get($quiz, image-sm) + (map-get($quiz, spacing) * 2)};
+
+			.forminator-answer--status,
+			.forminator-answer--name {
+				display: none;
+			}
+		}
+	}
+}
+
+@include body-class(quiz, default flat bold, true) {
+
+	// LAYOUT: Grid.
+	&.forminator-quiz--grid {
+
+		.forminator-answer {
+
+			.forminator-answer--design {
+
+				.forminator-answer--image {
+
+					~ [class*="forminator-answer-"] {
+
+						@include media(min-width, sm) {
+							margin-top: map-get($quiz, spacing);
+						}
+					}
+
+					+ .forminator-answer--status {
+
+						@include media(min-width, sm) {
+							margin-left: 0;
+						}
+					}
+
+					@include media(min-width, sm) {
+						flex: 0 0 auto;
+					}
+				}
+
+				.forminator-answer--status {
+
+					@include media(min-width, sm) {
+						margin-bottom: 0;
+					}
+				}
+			}
+
+			// STATE: Only image.
+			&.forminator-only--image {
+
+				@include media(min-width, sm) {
+					width: 100%;
+				}
+			}
+		}
+	}
+}
+
+// DESIGN: Default.
+@include body-class(quiz, default, false) {
+
+	.forminator-answer {
+
+		.forminator-answer--design {
+			padding: #{map-get($quiz, spacing) - map-get($border-width, default)};
+			border-width: map-get($border-width, default);
+			border-style: map-get($border-style, default);
+			border-radius: map-get($border-radius, default);
+		}
+
+		.forminator-answer--status {
+			border-width: map-get($border-width, default);
+			border-style: map-get($border-style, default);
+			border-radius: map-get($border-radius, default);
+		}
+	}
+}
+
+// DESIGN: Flat.
+@include body-class(quiz, flat, false) {
+
+	.forminator-answer {
+
+		.forminator-answer--design {
+			padding: #{map-get($quiz, spacing) - map-get($border-width, flat)};
+			border-width: map-get($border-width, flat);
+			border-style: map-get($border-style, flat);
+			border-radius: map-get($border-radius, flat);
+		}
+
+		.forminator-answer--status {
+			border-width: map-get($border-width, flat);
+			border-style: map-get($border-style, flat);
+			border-radius: map-get($border-radius, flat);
+		}
+	}
+}
+
+// DESIGN: Bold.
+@include body-class(quiz, bold, false) {
+
+	.forminator-answer {
+
+		.forminator-answer--design {
+			padding: #{map-get($quiz, spacing) - map-get($border-width, bold)};
+			border-width: map-get($border-width, bold);
+			border-style: map-get($border-style, bold);
+			border-radius: map-get($border-radius, bold);
+		}
+
+		.forminator-answer--status {
+			border-width: map-get($border-width, bold);
+			border-style: map-get($border-style, bold);
+			border-radius: map-get($border-radius, bold);
+		}
+	}
+}
+
+// DESIGN: Material.
+@include body-class(quiz, material, false) {
+
+	.forminator-answer {
+
+		input[type="radio"],
+		input[type="checkbox"] {
+
+			&:disabled,
+			&[disabled] {
+
+				&:not(:checked):not([checked]) {
+
+					+ .forminator-answer--design {
+
+						.forminator-answer--image {
+
+							+ .forminator-answer--status {
+								display: none;
+							}
+						}
+					}
+				}
+			}
+
+			&:checked,
+			&[checked] {
+
+				+ .forminator-answer--design {
+					box-shadow: 0 3px 8px 0 rgba(0,0,0,0.3);
+
+					.forminator-answer--image {
+
+						&:before {
+							@include opacity(1);
+						}
+					}
+				}
+			}
+
+		}
+
+		.forminator-answer--design {
+			position: relative;
+			padding: map-get($quiz, spacing);
+			border-width: 0;
+			border-style: none;
+			border-radius: map-get($border-radius, material);
+			box-shadow: 0 1px 1px 0 rgba(0,0,0,0.3);
+
+			.forminator-answer--image {
+				position: relative;
+
+				&:before {
+					content: " ";
+					width: 100%;
+					height: 100%;
+					@include opacity(0);
+					display: block;
+					position: absolute;
+					top: 0;
+					left: 0;
+					background-color: rgba(0,0,0,0.6);
+					transition: $transition--ease;
+				}
+
+				+ .forminator-answer--status {
+					position: absolute;
+				}
+			}
+
+			&:hover {
+				box-shadow: 0 3px 8px 0 rgba(0,0,0,0.3);
+			}
+		}
+
+		.forminator-answer--status {
+			flex: 0 0 auto;
+			border-width: 2px;
+			border-style: map-get($border-style, material);
+			border-radius: map-get($border-radius, material);
+			background-color: transparent !important;
+
+			+ .forminator-answer--name {
+				margin-left: map-get($quiz, spacing);
+			}
+		}
+
+		.forminator-answer--name {
+			min-width: 1px;
+			flex: 1;
+		}
+
+		&.forminator-only--image {
+			width: #{map-get($quiz, image-sm) + (map-get($quiz, spacing) * 2)};
+
+			.forminator-answer--design {
+
+				.forminator-answer--status {
+					top: 50%;
+					left: 50%;
+					margin-top: -#{map-get($quiz, checkbox) / 2};
+					margin-left: -#{map-get($quiz, checkbox) / 2};
+				}
+
+				.forminator-answer--name {
+					display: none;
+				}
+			}
+		}
+
+		&:not([class*="forminator-only-"]) {
+
+			.forminator-answer--design {
+
+				.forminator-answer--status {
+					top: #{((map-get($quiz, image-sm) - map-get($quiz, checkbox)) / 2) + map-get($quiz, spacing)};
+					left: #{((map-get($quiz, image-sm) - map-get($quiz, checkbox)) / 2) + map-get($quiz, spacing)};
+				}
+			}
+		}
+	}
+}
+
+@include body-class(quiz, material, true) {
+
+	// LAYOUT: Grid.
+	&.forminator-quiz--grid {
+
+		.forminator-answer {
+
+			&:not([class*="forminator-only-"]) {
+
+				.forminator-answer--design {
+
+					.forminator-answer--status {
+
+						@include media(min-width, sm) {
+							top: #{map-get($quiz, spacing) * 2};
+							right: #{map-get($quiz, spacing) * 2};
+							left: auto;
+						}
+					}
+				}
+
+				.forminator-answer--name {
+
+					@include media(min-width, sm) {
+						margin-top: #{map-get($quiz, spacing) + 3px};
+						margin-bottom: 3px;
+						margin-left: 0;
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,14 @@
+@charset "UTF-8";
+
+@import "../../variables";
+
+$form-type: custom-form;
+
+// Mixins.
+@import "../../mixins/body-class";
+// @import "../../mixins/breakpoints";
+
+// Components.
+@import "../settings/components/authentication";
+
+@include component-authentication(#{$form-type});
