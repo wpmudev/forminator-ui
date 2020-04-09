@@ -1,3 +1,7 @@
+v1.3.0
+- [Enhance] New icons added to Forminator icons font: warning, reset, file, upload.
+
+
 v1.2.0
 - [New] Quizzes UI.
 - [New] Update icon font file to latest.
