@@ -1,3 +1,8 @@
+v1.4.0
+- [New] Forms UI: Multiple uploads element.
+- [Fix] Icons Font: Latest added icons not showing up.
+
+
 v1.3.0
 - [Enhance] New icons added to Forminator icons font: warning, reset, file, upload.
 
