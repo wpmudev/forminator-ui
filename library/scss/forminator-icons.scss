@@ -37,8 +37,9 @@
 		}
 	}
 
+	[class^="forminator-icon-"],
 	[class*="forminator-icon-"] {
-		@include icon(both);
+		@include icon(before);
 	}
 
 	@each $name, $char in $icons {

@@ -1,15 +1,16 @@
 %icon-styles {
 	speak: none;
-	display: inline-block;
-	color: inherit;
-	font-family: $font--icon !important;
-	font-size: 1em;
-	line-height: 1em;
+	line-height: 1;
+	font-family: $font--icon !important; // Use !important to prevent issues with browser extensions that change fonts.
 	font-style: normal;
 	font-weight: normal;
 	font-variant: normal;
 	text-transform: none;
-	text-rendering: auto;
+	// Enable Ligatures ================
+	letter-spacing: 0;
+	font-feature-settings: "liga" 1;
+	font-variant-ligatures: discretionary-ligatures;
+	// Better Font Rendering ================
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
