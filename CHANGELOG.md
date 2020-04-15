@@ -1,3 +1,8 @@
+v1.5.0
+- [Fix] Icons Font: Recently added icons not showing up.
+- [Enhance] [Element] Multiple Upload: Add styles to flat, bold and material designs.
+
+
 v1.4.0
 - [New] Forms UI: Multiple uploads element.
 - [Fix] Icons Font: Latest added icons not showing up.
