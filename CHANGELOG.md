@@ -1,3 +1,7 @@
+v1.5.1
+- [Fix] Icons Font: Updated font is not uploaded to master branch.
+
+
 v1.5.0
 - [Fix] Icons Font: Recently added icons not showing up.
 - [Enhance] [Element] Multiple Upload: Add styles to flat, bold and material designs.
