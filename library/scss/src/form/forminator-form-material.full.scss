@@ -30,6 +30,7 @@ $form-theme: material;
 @import "../settings/components/stripe";
 @import "../settings/components/select2";
 @import "../settings/components/select2-dropdown";
+@import "../settings/components/e-signature";
 
 @include component-input-with-icon(#{$form-type}, #{$form-theme});
 @include component-input-with-suffix(#{$form-type}, #{$form-theme});
@@ -43,3 +44,4 @@ $form-theme: material;
 @include component-dropdown2(#{$form-type}, #{$form-theme});
 @include component-paypal(#{$form-type}, #{$form-theme});
 @include component-stripe(#{$form-type}, #{$form-theme});
+@include component-signature(#{$form-type}, #{$form-theme});

@@ -1,0 +1,153 @@
+$esign-width: 450px;
+$esign-reset: 20px;
+
+@mixin component-signature($form-type: no-type, $form-theme: no-theme) {
+
+	@include form-class($form-type, $form-theme, false) {
+
+		.forminator-field-signature {
+			@if $form-theme == 'material' {
+				position: relative;
+
+				.forminator-label {
+					width: 100%;
+					position: absolute;
+					pointer-events: none;
+					z-index: 1;
+					top: 0;
+					left: 0;
+					padding: 10px;
+					padding-right: #{$esign-reset + 10px};
+					transition: $transition--ease;
+				}
+			}
+
+			.forminator-signature {
+				max-width: 100%;
+				cursor: crosshair;
+				overflow: hidden;
+				display: block;
+				position: relative;
+				margin: 0;
+				padding: 0;
+				@if $form-theme == 'default' {
+					border-width: 1px;
+					border-radius: 2px;
+				}
+				@else if $form-theme == 'bold' {
+					border-width: 3px;
+				}
+				@else if $form-theme == 'material' {
+					border-width: 1px;
+					border-radius: 2px;
+				}
+				@else if $form-theme == 'flat' {
+					border-width: 0;
+					border-radius: 0;
+				}
+				border-style: solid;
+				background-color: transparent;
+				transition: $transition--ease;
+
+				* {
+					box-sizing: border-box;
+				}
+
+				.forminator-signature--placeholder {
+					@if $form-theme == 'material' {
+						width: 100%;
+						@include opacity(0);
+					}
+					pointer-events: none;
+					display: block;
+					position: absolute;
+					@if $form-theme == 'default' {
+						top: 9px;
+						right: #{$esign-reset + 9px};
+						left: 9px;
+					}
+					@else if $form-theme == 'bold' {
+						top: 7px;
+						right: #{$esign-reset + 7px};
+						left: 7px;
+					}
+					@else if $form-theme == 'material' {
+						top: 0;
+						left: 0;
+						padding: 9px;
+						padding-right: #{$esign-reset + 9px};
+					}
+					@else if $form-theme == 'flat' {
+						top: 10px;
+						right: 10px;
+						left: 10px;
+					}
+					line-height: 1.4;
+					letter-spacing: normal;
+					transition: $transition--ease;
+				}
+
+				.forminator-signature--container {
+
+					// ELEMENT: Reset Button.
+					+ div {
+						width: $esign-reset !important;
+						height: $esign-reset !important;
+						cursor: pointer;
+						overflow: hidden;
+						position: absolute !important;
+						top: 7px;
+						right: 7px;
+						margin: 0 !important;
+						padding: 2px;
+						border: 0;
+
+						img {
+							width: 16px !important;
+							height: 16px !important;
+							float: none !important;
+							display: block;
+						}
+					}
+				}
+			}
+
+			@if $form-theme == 'material' {
+
+				&.forminator-is_hover,
+				&.forminator-is_filled {
+
+					.forminator-label {
+						top: 0 !important;
+					}
+				}
+
+				&.forminator-is_hover {
+
+					&:not(.forminator-is_filled) {
+
+						.forminator-signature {
+
+							.forminator-signature--placeholder {
+								@include opacity(1);
+							}
+						}
+					}
+				}
+			}
+
+			@else {
+
+				&.forminator-is_filled {
+
+					.forminator-signature {
+
+						.forminator-signature--placeholder {
+							@include opacity(0);
+						}
+					}
+				}
+			}
+		}
+	}
+}
