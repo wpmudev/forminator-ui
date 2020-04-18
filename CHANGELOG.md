@@ -1,3 +1,8 @@
+v1.6.0
+- [New] [Element] E-Signature.
+- [Fix] Icons Font: Updated font is not uploaded to master branch.
+
+
 v1.5.1
 - [Fix] Icons Font: Updated font is not uploaded to master branch.
 
