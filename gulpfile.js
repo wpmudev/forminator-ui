@@ -96,7 +96,7 @@ library.watch.scripts = [
 ];
 
 library.watch.styles = [
-	library.source.styles + '**/*.scss'
+	library.source.styles + '**/**/**/*.scss'
 ];
 
 /**

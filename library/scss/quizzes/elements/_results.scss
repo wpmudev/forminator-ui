@@ -22,7 +22,7 @@
 					line-height: 1.75em;
 				}
 
-				.forminator-button-refresh {
+				.forminator-result--retake {
 					width: 40px;
 					min-width: auto;
 					height: 40px;
@@ -39,10 +39,6 @@
 						&:before {
 							display: block;
 						}
-					}
-
-					span {
-						@extend %screen-readers;
 					}
 				}
 
@@ -134,7 +130,7 @@
 					}
 				}
 
-				.forminator-button-refresh {
+				.forminator-result--retake {
 
 					[class*="forminator-icon-"] {
 
@@ -325,7 +321,7 @@
 					}
 				}
 
-				.forminator-button-refresh {
+				.forminator-result--retake {
 					width: auto;
 					min-width: 1px;
 					max-width: 100%;

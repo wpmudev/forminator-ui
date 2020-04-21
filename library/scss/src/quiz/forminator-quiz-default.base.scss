@@ -28,8 +28,10 @@ $form-theme: default;
 @import "../settings/components/questions";
 @import "../settings/components/answers";
 @import "../settings/components/results";
+@import "../settings/components/button";
 
 // Call Components.
 @include component-questions(#{$form-type}, #{$form-theme});
 @include component-answers(#{$form-type}, #{$form-theme});
 @include component-results(#{$form-type}, #{$form-theme});
+@include component-button(#{$form-type}, #{$form-theme});

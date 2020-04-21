@@ -1,3 +1,7 @@
+v1.7.0
+- [Enhance] Quizzes UI: Social share icons color need to be managed on plugin side.
+
+
 v1.6.0
 - [New] [Element] E-Signature.
 - [Fix] Icons Font: Updated font is not uploaded to master branch.
