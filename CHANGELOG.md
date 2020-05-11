@@ -1,3 +1,7 @@
+v1.7.1
+- [Enhance] Remove emtpy file.
+
+
 v1.7.0
 - [Enhance] Quizzes UI: Social share icons color need to be managed on plugin side.
 
