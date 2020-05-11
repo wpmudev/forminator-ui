@@ -1,11 +1,15 @@
+v1.7.3
+- [Fix] Forms UI: Uncaught TypeError: FUI.select2 is not a function.
+
+
 v1.7.2
 - [Fix] Form: Missing select2 JS file.
 
 
 v1.7.1
-- [Enhance] Poll: Create js file with only poll dedicated functions.
-- [Enhance] Form: Create js file with only form dedicated functions.
-- [Enhance] Form: Split custom select2 in its own file.
+- [Enhance] Poll UI: Create js file with only poll dedicated functions.
+- [Enhance] Form UI: Create js file with only form dedicated functions.
+- [Enhance] Form UI: Split custom select2 in its own file.
 - [Enhance] Remove emtpy file.
 
 
