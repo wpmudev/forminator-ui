@@ -1,3 +1,7 @@
+v1.7.3
+- [Fix] Forms UI: Uncaught TypeError: FUI.select2 is not a function.
+
+
 v1.7.2
 - [Fix] Form: Missing select2 JS file.
 

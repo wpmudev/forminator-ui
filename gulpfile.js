@@ -120,6 +120,7 @@ library.watch.scripts.form = [
 	library.source.scripts + 'checkbox-states.js',
 	library.source.scripts + 'multiselect-states.js',
 	library.source.scripts + 'select.js',
+	library.source.scripts + 'select2.js',
 	library.source.scripts + 'authentication.js'
 ];
 
