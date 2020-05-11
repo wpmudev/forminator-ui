@@ -1,3 +1,7 @@
+v1.7.2
+- [Fix] Form: Missing select2 JS file.
+
+
 v1.7.1
 - [Enhance] Poll: Create js file with only poll dedicated functions.
 - [Enhance] Form: Create js file with only form dedicated functions.
