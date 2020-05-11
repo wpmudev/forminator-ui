@@ -553,7 +553,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
       var $element = $(this),
           $formid = $element.data('form-id'),
           $select = $element.find('.forminator-select2');
-      var $themes = ['bold', 'flat', 'default', 'material'];
+      var $themes = ['bold', 'flat', 'default', 'material', 'none'];
       $.each($themes, function (index, $theme) {
         var $dir,
             $language = 'en',

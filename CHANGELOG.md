@@ -1,3 +1,7 @@
+v1.7.4
+- [Fix] Forms UI: Allow select2 for vanilla theme.
+
+
 v1.7.3
 - [Fix] Forms UI: Uncaught TypeError: FUI.select2 is not a function.
 
