@@ -91,8 +91,47 @@ library.watch.fonts = [
 	library.source.fonts + '*'
 ];
 
-library.watch.scripts = [
-	library.source.scripts + '**/*.js'
+library.watch.scripts = {};
+
+library.watch.scripts.all = [
+	library.source.scripts + 'form-load.js',
+	library.source.scripts + 'form-simulation.js',
+	library.source.scripts + 'input-states.js',
+	library.source.scripts + 'input-material.js',
+	library.source.scripts + 'textarea-states.js',
+	library.source.scripts + 'textarea-material.js',
+	library.source.scripts + 'radio-states.js',
+	library.source.scripts + 'checkbox-states.js',
+	library.source.scripts + 'multiselect-states.js',
+	library.source.scripts + 'upload.js',
+	library.source.scripts + 'select.js',
+	library.source.scripts + 'select2.full.js',
+	library.source.scripts + 'authentication.js',
+	library.source.scripts + 'poll-chart.js',
+	library.source.scripts + 'form-submit.js'
+];
+
+library.watch.scripts.form = [
+	library.source.scripts + 'input-states.js',
+	library.source.scripts + 'input-material.js',
+	library.source.scripts + 'textarea-states.js',
+	library.source.scripts + 'textarea-material.js',
+	library.source.scripts + 'radio-states.js',
+	library.source.scripts + 'checkbox-states.js',
+	library.source.scripts + 'multiselect-states.js',
+	library.source.scripts + 'select.js',
+	library.source.scripts + 'authentication.js'
+];
+
+library.watch.scripts.poll = [
+	library.source.scripts + 'input-states.js',
+	library.source.scripts + 'input-material.js',
+	library.source.scripts + 'radio-states.js',
+	library.source.scripts + 'poll-chart.js'
+];
+
+library.watch.scripts.select2 = [
+	library.source.scripts + 'select2.min.js'
 ];
 
 library.watch.styles = [
@@ -229,10 +268,10 @@ gulp.task( 'library:styles', function() {
 });
 
 // Build scripts
-gulp.task( 'library:scripts', function( cb ) {
+gulp.task( 'library:scripts:all', function( cb ) {
 
 	pump([
-		gulp.src( library.watch.scripts ),
+		gulp.src( library.watch.scripts.all ),
 		eslint(),
 		eslint.format(),
 		eslint.failAfterError(),
@@ -257,11 +296,80 @@ gulp.task( 'library:scripts', function( cb ) {
 	], cb );
 });
 
+gulp.task( 'library:scripts:form', function( cb ) {
+
+	pump([
+		gulp.src( library.watch.scripts.form ),
+		eslint(),
+		eslint.format(),
+		eslint.failAfterError(),
+		babel({
+			presets: [
+				[ '@babel/env', {
+					modules: false
+				} ]
+			]
+		}),
+		concat( 'forminator-form.js' ),
+		header( banner ),
+		gulp.dest( library.output.scripts ),
+		uglify(),
+		rename({
+			suffix: '.min'
+		}),
+		header( banner ),
+		gulp.dest( library.output.scripts ),
+		gulp.dest( showcase.output.scripts ),
+		browserSync.stream()
+	], cb );
+});
+
+gulp.task( 'library:scripts:poll', function( cb ) {
+
+	pump([
+		gulp.src( library.watch.scripts.poll ),
+		eslint(),
+		eslint.format(),
+		eslint.failAfterError(),
+		babel({
+			presets: [
+				[ '@babel/env', {
+					modules: false
+				} ]
+			]
+		}),
+		concat( 'forminator-poll.js' ),
+		header( banner ),
+		gulp.dest( library.output.scripts ),
+		uglify(),
+		rename({
+			suffix: '.min'
+		}),
+		header( banner ),
+		gulp.dest( library.output.scripts ),
+		gulp.dest( showcase.output.scripts ),
+		browserSync.stream()
+	], cb );
+});
+
+gulp.task( 'library:scripts:select2', function( cb ) {
+
+	pump([
+		gulp.src( library.watch.scripts.select2 ),
+		gulp.dest( library.output.scripts ),
+		gulp.dest( showcase.output.scripts ),
+		browserSync.stream()
+	], cb );
+});
+
 // Build library
 gulp.task( 'library:build', [
 	'library:files',
 	'library:fonts',
-	'library:scripts',
+	'library:scripts:all',
+	'library:scripts:form',
+	'library:scripts:poll',
+	'library:scripts:select2',
 	'library:styles'
 ]);
 
@@ -278,7 +386,7 @@ gulp.task( 'library:watch', function() {
 	gulp.watch( library.watch.styles, [ 'library:styles' ]);
 
 	// Watch scripts
-	gulp.watch( library.watch.scripts, [ 'library:scripts' ]);
+	gulp.watch( library.watch.scripts.all, [ 'library:scripts:all', 'library:scripts:form', 'library:scripts:poll', 'library:scripts:select2' ]);
 
 });
 
