@@ -21,7 +21,8 @@
 				'bold',
 				'flat',
 				'default',
-				'material'
+				'material',
+				'none'
 			];
 
 			$.each( $themes, function( index, $theme ) {
