@@ -1,3 +1,10 @@
+v1.7.1
+- [Enhance] Poll: Create js file with only poll dedicated functions.
+- [Enhance] Form: Create js file with only form dedicated functions.
+- [Enhance] Form: Split custom select2 in its own file.
+- [Enhance] Remove emtpy file.
+
+
 v1.7.0
 - [Enhance] Quizzes UI: Social share icons color need to be managed on plugin side.
 

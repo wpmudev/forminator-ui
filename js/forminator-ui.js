@@ -5,415 +5,6 @@
  */
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
-(function () {
-  // Enable strict mode.
-  'use strict'; // Define global FUI object if it doesn't exist.
-
-  if ('object' !== _typeof(window.FUI)) {
-    window.FUI = {};
-  }
-  /**
-   * @namespace aria
-   */
-
-
-  var aria = aria || {}; // REF: Key codes.
-
-  aria.KeyCode = {
-    BACKSPACE: 8,
-    TAB: 9,
-    RETURN: 13,
-    ESC: 27,
-    SPACE: 32,
-    PAGE_UP: 33,
-    PAGE_DOWN: 34,
-    END: 35,
-    HOME: 36,
-    LEFT: 37,
-    UP: 38,
-    RIGHT: 39,
-    DOWN: 40,
-    DELETE: 46
-  };
-  aria.Utils = aria.Utils || {}; // UTILS: Remove function.
-
-  aria.Utils.remove = function (item) {
-    if (item.remove && 'function' === typeof item.remove) {
-      return item.remove();
-    }
-
-    if (item.parentNode && item.parentNode.removeChild && 'function' === typeof item.parentNode.removeChild) {
-      return item.parentNode.removeChild(item);
-    }
-
-    return false;
-  }; // UTILS: Verify if element can be focused.
-
-
-  aria.Utils.isFocusable = function (element) {
-    if (0 < element.tabIndex || 0 === element.tabIndex && null !== element.getAttribute('tabIndex')) {
-      return true;
-    }
-
-    if (element.disabled) {
-      return false;
-    }
-
-    switch (element.nodeName) {
-      case 'A':
-        return !!element.href && 'ignore' != element.rel;
-
-      case 'INPUT':
-        return 'hidden' != element.type && 'file' != element.type;
-
-      case 'BUTTON':
-      case 'SELECT':
-      case 'TEXTAREA':
-        return true;
-
-      default:
-        return false;
-    }
-  };
-  /**
-   * Simulate a click event.
-   * @public
-   * @param {Element} element the element to simulate a click on
-   */
-
-
-  aria.Utils.simulateClick = function (element) {
-    // Create our event (with options)
-    var evt = new MouseEvent('click', {
-      bubbles: true,
-      cancelable: true,
-      view: window
-    }); // If cancelled, don't dispatch our event
-
-    var canceled = !element.dispatchEvent(evt);
-  }; // When util functions move focus around, set this true so
-  // the focus listener can ignore the events.
-
-
-  aria.Utils.IgnoreUtilFocusChanges = false;
-  aria.Utils.dialogOpenClass = 'forminator-authentication-enabled';
-  /**
-   * @desc Set focus on descendant nodes until the first
-   * focusable element is found.
-   *
-   * @param element
-   * DOM node for which to find the first focusable descendant.
-   *
-   * @returns
-   * true if a focusable element is found and focus is set.
-   */
-
-  aria.Utils.focusFirstDescendant = function (element) {
-    for (var i = 0; i < element.childNodes.length; i++) {
-      var child = element.childNodes[i];
-
-      if (aria.Utils.attemptFocus(child) || aria.Utils.focusFirstDescendant(child)) {
-        return true;
-      }
-    }
-
-    return false;
-  }; // end focusFirstDescendant.
-
-  /**
-   * @desc Find the last descendant node that is focusable.
-   *
-   * @param element
-   * DOM node for which to find the last focusable descendant.
-   *
-   * @returns
-   * true if a focusable element is found and focus is set.
-   */
-
-
-  aria.Utils.focusLastDescendant = function (element) {
-    for (var i = element.childNodes.length - 1; 0 <= i; i--) {
-      var child = element.childNodes[i];
-
-      if (aria.Utils.attemptFocus(child) || aria.Utils.focusLastDescendant(child)) {
-        return true;
-      }
-    }
-
-    return false;
-  }; // end focusLastDescendant
-
-  /**
-   * @desc Set Attempt to set focus on the current node.
-   *
-   * @param element
-   * The node to attempt to focus on.
-   *
-   * @returns
-   * true if element is focused.
-   */
-
-
-  aria.Utils.attemptFocus = function (element) {
-    if (!aria.Utils.isFocusable(element)) {
-      return false;
-    }
-
-    aria.Utils.IgnoreUtilFocusChanges = true;
-
-    try {
-      element.focus();
-    } catch (e) {}
-
-    aria.Utils.IgnoreUtilFocusChanges = false;
-    return document.activeElement === element;
-  }; // end attemptFocus
-  // Modals can open modals. Keep track of them with this array.
-
-
-  aria.OpenDialogList = aria.OpenDialogList || new Array(0);
-  /**
-   * @returns the last opened dialog (the current dialog)
-   */
-
-  aria.getCurrentDialog = function () {
-    if (aria.OpenDialogList && aria.OpenDialogList.length) {
-      return aria.OpenDialogList[aria.OpenDialogList.length - 1];
-    }
-  };
-
-  aria.closeCurrentDialog = function () {
-    var currentDialog = aria.getCurrentDialog();
-
-    if (currentDialog) {
-      currentDialog.close();
-      return true;
-    }
-
-    return false;
-  };
-
-  aria.handleEscape = function (event) {
-    var key = event.which || event.keyCode;
-
-    if (key === aria.Utils.ESC && aria.closeCurrentDialog()) {
-      event.stopPropagation();
-    }
-  };
-
-  document.addEventListener('keyup', aria.handleEscape);
-  /**
-   * @constructor
-   * @desc Dialog object providing modal focus management.
-   *
-   * Assumptions: The element serving as the dialog container is present in the
-   * DOM and hidden. The dialog container has role='dialog'.
-   *
-   * @param dialogId
-   * The ID of the element serving as the dialog container.
-   *
-   * @param focusAfterClosed
-   * Either the DOM node or the ID of the DOM node to focus when the
-   * dialog closes.
-   *
-   * @param focusFirst
-   * Optional parameter containing either the DOM node or the ID of the
-   * DOM node to focus when the dialog opens. If not specified, the
-   * first focusable element in the dialog will receive focus.
-   */
-
-  aria.Authentication = function (dialogId, focusAfterClosed, focusFirst) {
-    this.dialogNode = document.getElementById(dialogId);
-
-    if (null === this.dialogNode) {
-      throw new Error('No element found with id="' + dialogId + '".');
-    }
-
-    var validRoles = ['dialog', 'alertdialog'];
-    var isDialog = (this.dialogNode.getAttribute('role') || '').trim().split(/\s+/g).some(function (token) {
-      return validRoles.some(function (role) {
-        return token === role;
-      });
-    });
-
-    if (!isDialog) {
-      throw new Error('Dialog() requires a DOM element with ARIA role of dialog or alertdialog.');
-    } // Wrap in an individual backdrop element if one doesn't exist
-    // Native <dialog> elements use the ::backdrop pseudo-element, which
-    // works similarly.
-
-
-    var backdropClass = 'forminator-authentication';
-
-    if (this.dialogNode.parentNode.classList.contains(backdropClass)) {
-      this.backdropNode = this.dialogNode.parentNode;
-    } else {
-      this.backdropNode = document.createElement('div');
-      this.backdropNode.className = backdropClass;
-      this.backdropNode.setAttribute('data-markup', 'new');
-      this.dialogNode.parentNode.insertBefore(this.backdropNode, this.dialogNodev);
-      this.backdropNode.appendChild(this.dialogNode);
-    }
-
-    this.backdropNode.classList.add('forminator-active'); // Disable scroll on the body element
-
-    document.body.parentNode.classList.add(aria.Utils.dialogOpenClass);
-
-    if ('string' === typeof focusAfterClosed) {
-      this.focusAfterClosed = document.getElementById(focusAfterClosed);
-    } else if ('object' === _typeof(focusAfterClosed)) {
-      this.focusAfterClosed = focusAfterClosed;
-    } else {
-      throw new Error('the focusAfterClosed parameter is required for the aria.Authentication constructor.');
-    }
-
-    if ('string' === typeof focusFirst) {
-      this.focusFirst = document.getElementById(focusFirst);
-    } else if ('object' === _typeof(focusFirst)) {
-      this.focusFirst = focusFirst;
-    } else {
-      this.focusFirst = null;
-    } // Bracket the dialog node with two invisible, focusable nodes.
-    // While this dialog is open, we use these to make sure that focus never
-    // leaves the document even if dialogNode is the first or last node.
-
-
-    var preDiv = document.createElement('div');
-    this.preNode = this.dialogNode.parentNode.insertBefore(preDiv, this.dialogNode);
-    this.preNode.tabIndex = 0;
-    var postDiv = document.createElement('div');
-    this.postNode = this.dialogNode.parentNode.insertBefore(postDiv, this.dialogNode.nextSibling);
-    this.postNode.tabIndex = 0; // If this modal is opening on top of one that is already open,
-    // get rid of the document focus listener of the open dialog.
-
-    if (0 < aria.OpenDialogList.length) {
-      aria.getCurrentDialog().removeListeners();
-    }
-
-    this.addListeners();
-    aria.OpenDialogList.push(this);
-    this.dialogNode.classList.add('forminator-authentication-fade-in'); // make visible
-
-    this.dialogNode.classList.remove('forminator-authentication-fade-out');
-
-    if (this.focusFirst) {
-      this.focusFirst.focus();
-    } else {
-      aria.Utils.focusFirstDescendant(this.dialogNode);
-    }
-
-    this.lastFocus = document.activeElement;
-  }; // end Dialog constructor.
-
-  /**
-   * @desc Hides the current top dialog, removes listeners of the top dialog,
-   * restore listeners of a parent dialog if one was open under the one that
-   * just closed, and sets focus on the element specified for focusAfterClosed.
-   */
-
-
-  aria.Authentication.prototype.close = function () {
-    var self = this;
-    aria.OpenDialogList.pop();
-    this.removeListeners();
-    this.preNode.parentNode.removeChild(this.preNode);
-    this.postNode.parentNode.removeChild(this.postNode);
-    this.dialogNode.classList.add('forminator-content-fade-out');
-    this.dialogNode.classList.remove('forminator-content-fade-in');
-    this.focusAfterClosed.focus();
-    setTimeout(function () {
-      self.backdropNode.classList.remove('forminator-active');
-    }, 300); // If a dialog was open underneath this one, restore its listeners.
-
-    if (0 < aria.OpenDialogList.length) {
-      aria.getCurrentDialog().addListeners();
-    } else {
-      document.body.parentNode.classList.remove(aria.Utils.dialogOpenClass);
-    }
-  }; // end close.
-
-
-  aria.Authentication.prototype.addListeners = function () {
-    document.addEventListener('focus', this.trapFocus, true);
-  }; // end addListeners.
-
-
-  aria.Authentication.prototype.removeListeners = function () {
-    document.removeEventListener('focus', this.trapFocus, true);
-  }; // end removeListeners.
-
-
-  aria.Authentication.prototype.trapFocus = function (event) {
-    if (aria.Utils.IgnoreUtilFocusChanges) {
-      return;
-    }
-
-    var currentDialog = aria.getCurrentDialog();
-
-    if (currentDialog.dialogNode.contains(event.target)) {
-      currentDialog.lastFocus = event.target;
-    } else {
-      aria.Utils.focusFirstDescendant(currentDialog.dialogNode);
-
-      if (currentDialog.lastFocus == document.activeElement) {
-        aria.Utils.focusLastDescendant(currentDialog.dialogNode);
-      }
-
-      currentDialog.lastFocus = document.activeElement;
-    }
-  }; // end trapFocus.
-
-
-  FUI.openAuthentication = function (dialogId, focusAfterClosed, focusFirst) {
-    var dialog = new aria.Authentication(dialogId, focusAfterClosed, focusFirst);
-  }; // end openAuthentication.
-
-
-  FUI.closeAuthentication = function () {
-    var topDialog = aria.getCurrentDialog();
-    topDialog.close();
-  }; // end closeAuthentication.
-
-})();
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-(function ($) {
-  // Enable strict mode.
-  'use strict'; // Define global FUI object if it doesn't exist.
-
-  if ('object' !== _typeof(window.FUI)) {
-    window.FUI = {};
-  }
-
-  FUI.checkboxStates = function (el) {
-    var label = $(el);
-    var input = label.find('input');
-
-    if (!label.is('label') || 'checkbox' !== input.attr('type')) {
-      return;
-    }
-
-    function init() {
-      input.each(function () {
-        $(this).on('click', function () {
-          var checkInput = $(this);
-          var checkLabel = checkInput.parent();
-
-          if (checkLabel.is('.forminator-is_checked')) {
-            checkLabel.removeClass('forminator-is_checked');
-          } else {
-            checkLabel.addClass('forminator-is_checked');
-          }
-        });
-      });
-    }
-
-    init();
-    return this;
-  };
-})(jQuery);
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
 (function ($) {
   'use strict'; // Define global FUI object if it doesn't exist.
 
@@ -686,84 +277,6 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 (function ($) {
-  'use strict'; // Define global FUI object if it doesn't exist.
-
-  if ('object' !== _typeof(window.FUI)) {
-    window.FUI = {};
-  }
-
-  FUI.formSubmit = function (el) {
-    var button = $(el);
-    var form = button.closest('.forminator-custom-form');
-
-    if (!button.is('.forminator-button-submit') || !form[0] || !form.length) {
-      return;
-    }
-
-    function init() {
-      button.addClass('forminator-button-onload');
-      setTimeout(function () {
-        button.removeClass('forminator-button-onload');
-      }, 1000);
-    }
-
-    init();
-    return this;
-  };
-})(jQuery);
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-(function ($) {
-  // Enable strict mode.
-  'use strict'; // Define global SUI object if it doesn't exist.
-
-  if ('object' !== _typeof(window.FUI)) {
-    window.FUI = {};
-  }
-
-  FUI.inputMaterial = function (el) {
-    var input = $(el);
-    var field = input.closest('.forminator-field');
-    var label = field.find('.forminator-label');
-    var form = input.closest('form');
-
-    if (!input.is('input') && (!form.is('.forminator-poll') || !form.is('.forminator-ui') && !form.is('.forminator-custom-form'))) {
-      return;
-    }
-
-    function init() {
-      // Wrap Element
-      if (!input.parent().hasClass('forminator-input--wrap')) {
-        input.wrap('<div class="forminator-input--wrap"></div>');
-      } // Wrap Label
-
-
-      if (label.length) {
-        // Add floating class
-        label.addClass('forminator-floating--input'); // Add icon class (if applies)
-
-        if (field.find('.forminator-input-with-icon').length) {
-          label.addClass('forminator-has_icon');
-        } // Add phone class (if applies)
-
-
-        if (field.find('.forminator-input-with-phone').length) {
-          label.addClass('forminator-has_phone');
-
-          if (field.find('.intl-tel-input').hasClass('allow-dropdown')) {
-            label.addClass('allow-dropdown');
-          }
-        }
-      }
-    }
-
-    init();
-    return this;
-  };
-})(jQuery);
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-(function ($) {
   // Enable strict mode.
   'use strict'; // Define global SUI object if it doesn't exist.
 
@@ -837,33 +350,118 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 
 (function ($) {
   // Enable strict mode.
-  'use strict'; // Define global FUI object if it doesn't exist.
+  'use strict'; // Define global SUI object if it doesn't exist.
 
   if ('object' !== _typeof(window.FUI)) {
     window.FUI = {};
   }
 
-  FUI.multiSelectStates = function (el) {
-    var container = $(el);
-    var option = container.find('.forminator-option');
-    var input = option.find('input');
+  FUI.inputMaterial = function (el) {
+    var input = $(el);
+    var field = input.closest('.forminator-field');
+    var label = field.find('.forminator-label');
+    var form = input.closest('form');
 
-    if (!container.is('.forminator-multiselect') || 0 === option.length) {
+    if (!input.is('input') && (!form.is('.forminator-poll') || !form.is('.forminator-ui') && !form.is('.forminator-custom-form'))) {
       return;
     }
 
     function init() {
-      input.each(function () {
-        $(this).on('click', function () {
-          var checkInput = $(this);
-          var checkLabel = checkInput.parent();
+      // Wrap Element
+      if (!input.parent().hasClass('forminator-input--wrap')) {
+        input.wrap('<div class="forminator-input--wrap"></div>');
+      } // Wrap Label
 
-          if (checkLabel.is('.forminator-is_checked')) {
-            checkLabel.removeClass('forminator-is_checked');
-          } else {
-            checkLabel.addClass('forminator-is_checked');
+
+      if (label.length) {
+        // Add floating class
+        label.addClass('forminator-floating--input'); // Add icon class (if applies)
+
+        if (field.find('.forminator-input-with-icon').length) {
+          label.addClass('forminator-has_icon');
+        } // Add phone class (if applies)
+
+
+        if (field.find('.forminator-input-with-phone').length) {
+          label.addClass('forminator-has_phone');
+
+          if (field.find('.intl-tel-input').hasClass('allow-dropdown')) {
+            label.addClass('allow-dropdown');
           }
-        });
+        }
+      }
+    }
+
+    init();
+    return this;
+  };
+})(jQuery);
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+(function ($) {
+  // Enable strict mode.
+  'use strict'; // Define global SUI object if it doesn't exist.
+
+  if ('object' !== _typeof(window.FUI)) {
+    window.FUI = {};
+  }
+
+  FUI.textareaStates = function (el) {
+    var textarea = $(el);
+    var form = textarea.closest('form');
+
+    if (!textarea.is('textarea') && !form.is('.forminator-ui') && !form.is('.forminator-custom-form')) {
+      return;
+    }
+
+    function hover(element) {
+      var getTextarea = $(element);
+      var getField = getTextarea.closest('.forminator-field');
+      getTextarea.mouseover(function (e) {
+        getField.addClass('forminator-is_hover');
+        e.stopPropagation();
+      }).mouseout(function (e) {
+        getField.removeClass('forminator-is_hover');
+        e.stopPropagation();
+      });
+    }
+
+    function focused(element) {
+      var getTextarea = $(element);
+      var getField = getTextarea.closest('.forminator-field');
+      getTextarea.focus(function (e) {
+        getField.addClass('forminator-is_active');
+        e.stopPropagation();
+      }).blur(function (e) {
+        getField.removeClass('forminator-is_active');
+        e.stopPropagation();
+      });
+    }
+
+    function filled(element) {
+      var getTextarea = $(element);
+      var getField = getTextarea.closest('.forminator-field'); // On textarea load
+
+      getTextarea.on('load', function () {
+        if ('' !== getTextarea.val().trim()) {
+          getField.addClass('forminator-is_filled');
+        }
+      }); // On textarea changes
+
+      getTextarea.on('change', function () {
+        if ('' !== getTextarea.val().trim()) {
+          getField.addClass('forminator-is_filled');
+        } else {
+          getField.removeClass('forminator-is_filled');
+        }
+      });
+    }
+
+    function init() {
+      textarea.each(function () {
+        hover(this);
+        focused(this);
+        filled(this);
       });
     }
 
@@ -871,230 +469,62 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
     return this;
   };
 })(jQuery);
-function _createForOfIteratorHelper(o) { if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (o = _unsupportedIterableToArray(o))) { var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var it, normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(n); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 (function ($) {
   // Enable strict mode.
-  'use strict'; // Define global FUI object if it doesn't exist.
+  'use strict'; // Define global SUI object if it doesn't exist.
 
   if ('object' !== _typeof(window.FUI)) {
     window.FUI = {};
   }
 
-  FUI.pollChart = function (pollChart, pollData) {
-    var chartType = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'horizontalBar';
-    var chartExtras = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : '';
-    var chart = $(pollChart);
+  FUI.textareaMaterial = function (el) {
+    var textarea = $(el);
+    var field = textarea.closest('.forminator-field');
+    var label = field.find('.forminator-label');
+    var form = textarea.closest('form');
 
-    if ('bar' === chartType) {
-      chartType = 'horizontalBar';
-    }
-
-    if (undefined === pollData || 0 === pollData.length) {
+    if (!textarea.is('textarea') && !form.is('.forminator-ui') && !form.is('.forminator-custom-form')) {
       return;
     }
 
-    function formatLabel(str, maxwidth) {
-      var sections = [];
-      var words = str.split(' ');
-      var temp = '';
-      words.forEach(function (item, index) {
-        if (0 < temp.length) {
-          var concat = temp + ' ' + item;
+    if (textarea.hasClass('wp-editor-area')) {
+      return;
+    }
 
-          if (concat.length > maxwidth) {
-            sections.push(temp);
-            temp = '';
-          } else {
-            if (index == words.length - 1) {
-              sections.push(concat);
-              return;
-            } else {
-              temp = concat;
-              return;
-            }
-          }
-        }
-
-        if (index == words.length - 1) {
-          sections.push(item);
-          return;
-        }
-
-        if (item.length < maxwidth) {
-          temp = item;
-        } else {
-          sections.push(item);
-        }
-      });
-      return sections;
+    if (textarea.parent().hasClass('forminator-textarea--wrap')) {
+      return;
     }
 
     function init() {
-      // Poll Data
-      var answerLabels = [];
-      var answerVotes = [];
-      var answerColors = [];
-
-      var _iterator = _createForOfIteratorHelper(pollData),
-          _step;
-
-      try {
-        for (_iterator.s(); !(_step = _iterator.n()).done;) {
-          var row = _step.value;
-
-          // Get answer text
-          if ('pie' === chartType) {
-            answerLabels.push(row[0] // Get first key
-            );
-          } else {
-            answerLabels.push(formatLabel(row[0], 20) // Get first key
-            );
-          } // Get answer votes
+      // Wrap Element
+      if (!textarea.parent().hasClass('forminator-textarea--wrap')) {
+        textarea.wrap('<div class="forminator-textarea--wrap"></div>');
+      } // Wrap Label
 
 
-          answerVotes.push(row[1] // Get second key
-          ); // Get answer color
+      if (label.length) {
+        var labelHeight = label.height();
+        var labelPadding = 9;
+        var labelMath = labelHeight + labelPadding; // Add floating class
 
-          answerColors.push(row[2] // Get third key
-          );
-        } // Chart Extras
+        label.addClass('forminator-floating--textarea'); // Align textarea
 
-      } catch (err) {
-        _iterator.e(err);
-      } finally {
-        _iterator.f();
-      }
-
-      var extras = {};
-      extras.votesLabel = 'vote(s)';
-      extras.votesOnPoll = false;
-      extras.basicColors = ['#E5E5E5', // [0] Grid lines color
-      '#777771', // [1] Axis labels color
-      '#333333' // [2] On-chart label (bars)
-      ];
-      extras.tooltipsBasic = ['#333333', // [0] Background color
-      '#FFFFFF' // [1] Text color
-      ];
-
-      if ('' === chartExtras) {
-        chartExtras = [extras.votesLabel, extras.votesOnPoll, extras.basicColors, extras.tooltipsBasic];
-      } // Chart Data
-
-
-      var chartData = {
-        labels: answerLabels,
-        datasets: [{
-          data: answerVotes,
-          backgroundColor: answerColors,
-          borderWidth: 0
-        }]
-      }; // Chart Options
-
-      var chartOptions = {
-        legend: {
-          display: false
-        },
-        tooltips: {
-          callbacks: {
-            title: function title(tooltipItems, data) {
-              var title = '';
-
-              if ('pie' !== chartType) {
-                title = tooltipItems[0].yLabel;
-              }
-
-              return title;
-            },
-            label: function label(tooltipItem, data) {
-              var label = data.datasets[tooltipItem.datasetIndex].label || '';
-
-              if ('pie' === chartType) {
-                label = data.labels[tooltipItem.index] + ': ' + data.datasets[0].data[tooltipItem.index];
-              } else {
-                if (label) {
-                  label += '';
-                }
-
-                label += 'pie' === chartType ? Math.round(tooltipItem.yLabel * 100) / 100 : Math.round(tooltipItem.xLabel * 100) / 100;
-              }
-
-              label += ' ' + chartExtras[0];
-              return label;
-            }
-          },
-          backgroundColor: chartExtras[3][0],
-          titleFontColor: chartExtras[3][1],
-          titleFontFamily: '\'Helvetica Neue\', \'Helvetica\', \'Arial\', sans-serif',
-          titleFontSize: 13,
-          titleFontStyle: 'bold',
-          titleMarginBottom: 10,
-          bodyFontColor: chartExtras[3][1],
-          bodyFontFamily: '\'Helvetica Neue\', \'Helvetica\', \'Arial\', sans-serif',
-          bodyFontSize: 12,
-          bodyFontStyle: 'normal'
-        },
-        scales: {
-          xAxes: [{
-            display: 'pie' === chartType ? false : true,
-            ticks: {
-              fontColor: chartExtras[2][1],
-              beginAtZero: true
-            },
-            gridLines: {
-              color: chartExtras[2][0]
-            }
-          }],
-          yAxes: [{
-            display: 'pie' === chartType ? false : true,
-            ticks: {
-              fontColor: chartExtras[2][1],
-              beginAtZero: true
-            },
-            gridLines: {
-              color: chartExtras[2][0]
-            }
-          }]
-        },
-        plugins: {
-          datalabels: {
-            display: 'pie' === chartType ? false : chartExtras[1],
-            align: 'end',
-            anchor: 'start',
-            textAlign: 'center',
-            color: chartExtras[2][2],
-            formatter: function formatter(value) {
-              return value + ' ' + chartExtras[0];
-            }
-          }
-        }
-      };
-      chart.each(function () {
-        chart = $(this);
-        new Chart(chart, {
-          type: chartType,
-          data: chartData,
-          plugins: [ChartDataLabels],
-          options: chartOptions
+        field.css({
+          'position': 'relative'
         });
 
-        if ('pie' === chartType) {
-          // Wrap the chart
-          chart.wrap('<div class="forminator-chart-wrapper" aria-hidden="true" />'); // Insert legend wrapper
-
-          chart.parent().prepend('<ul class="forminator-chart-legend"></ul>'); // Insert legend items
-
-          pollData.forEach(function (entry) {
-            chart.parent().find('.forminator-chart-legend').append('<li>' + '<span class="forminator-chart-legend--color" style="background-color: ' + entry[2] + '" aria-hidden="true"></span>' + '<strong>' + entry[0] + ':</strong> ' + entry[1] + ' ' + chartExtras[0] + '</li>');
+        if (!field.hasClass('forminator-is_filled') || !field.hasClass('forminator-is_active')) {
+          label.css({
+            'padding-top': labelMath + 'px'
           });
         }
-      });
+
+        textarea.css({
+          'padding-top': labelMath + 'px'
+        });
+      }
     }
 
     init();
@@ -1134,6 +564,81 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
           radioInput.attr('checked', 'checked'); // Assign checked class
 
           radioLabel.addClass('forminator-is_checked');
+        });
+      });
+    }
+
+    init();
+    return this;
+  };
+})(jQuery);
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+(function ($) {
+  // Enable strict mode.
+  'use strict'; // Define global FUI object if it doesn't exist.
+
+  if ('object' !== _typeof(window.FUI)) {
+    window.FUI = {};
+  }
+
+  FUI.checkboxStates = function (el) {
+    var label = $(el);
+    var input = label.find('input');
+
+    if (!label.is('label') || 'checkbox' !== input.attr('type')) {
+      return;
+    }
+
+    function init() {
+      input.each(function () {
+        $(this).on('click', function () {
+          var checkInput = $(this);
+          var checkLabel = checkInput.parent();
+
+          if (checkLabel.is('.forminator-is_checked')) {
+            checkLabel.removeClass('forminator-is_checked');
+          } else {
+            checkLabel.addClass('forminator-is_checked');
+          }
+        });
+      });
+    }
+
+    init();
+    return this;
+  };
+})(jQuery);
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+(function ($) {
+  // Enable strict mode.
+  'use strict'; // Define global FUI object if it doesn't exist.
+
+  if ('object' !== _typeof(window.FUI)) {
+    window.FUI = {};
+  }
+
+  FUI.multiSelectStates = function (el) {
+    var container = $(el);
+    var option = container.find('.forminator-option');
+    var input = option.find('input');
+
+    if (!container.is('.forminator-multiselect') || 0 === option.length) {
+      return;
+    }
+
+    function init() {
+      input.each(function () {
+        $(this).on('click', function () {
+          var checkInput = $(this);
+          var checkLabel = checkInput.parent();
+
+          if (checkLabel.is('.forminator-is_checked')) {
+            checkLabel.removeClass('forminator-is_checked');
+          } else {
+            checkLabel.addClass('forminator-is_checked');
+          }
         });
       });
     }
@@ -6990,117 +6495,600 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 });
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
+(function () {
+  // Enable strict mode.
+  'use strict'; // Define global FUI object if it doesn't exist.
+
+  if ('object' !== _typeof(window.FUI)) {
+    window.FUI = {};
+  }
+  /**
+   * @namespace aria
+   */
+
+
+  var aria = aria || {}; // REF: Key codes.
+
+  aria.KeyCode = {
+    BACKSPACE: 8,
+    TAB: 9,
+    RETURN: 13,
+    ESC: 27,
+    SPACE: 32,
+    PAGE_UP: 33,
+    PAGE_DOWN: 34,
+    END: 35,
+    HOME: 36,
+    LEFT: 37,
+    UP: 38,
+    RIGHT: 39,
+    DOWN: 40,
+    DELETE: 46
+  };
+  aria.Utils = aria.Utils || {}; // UTILS: Remove function.
+
+  aria.Utils.remove = function (item) {
+    if (item.remove && 'function' === typeof item.remove) {
+      return item.remove();
+    }
+
+    if (item.parentNode && item.parentNode.removeChild && 'function' === typeof item.parentNode.removeChild) {
+      return item.parentNode.removeChild(item);
+    }
+
+    return false;
+  }; // UTILS: Verify if element can be focused.
+
+
+  aria.Utils.isFocusable = function (element) {
+    if (0 < element.tabIndex || 0 === element.tabIndex && null !== element.getAttribute('tabIndex')) {
+      return true;
+    }
+
+    if (element.disabled) {
+      return false;
+    }
+
+    switch (element.nodeName) {
+      case 'A':
+        return !!element.href && 'ignore' != element.rel;
+
+      case 'INPUT':
+        return 'hidden' != element.type && 'file' != element.type;
+
+      case 'BUTTON':
+      case 'SELECT':
+      case 'TEXTAREA':
+        return true;
+
+      default:
+        return false;
+    }
+  };
+  /**
+   * Simulate a click event.
+   * @public
+   * @param {Element} element the element to simulate a click on
+   */
+
+
+  aria.Utils.simulateClick = function (element) {
+    // Create our event (with options)
+    var evt = new MouseEvent('click', {
+      bubbles: true,
+      cancelable: true,
+      view: window
+    }); // If cancelled, don't dispatch our event
+
+    var canceled = !element.dispatchEvent(evt);
+  }; // When util functions move focus around, set this true so
+  // the focus listener can ignore the events.
+
+
+  aria.Utils.IgnoreUtilFocusChanges = false;
+  aria.Utils.dialogOpenClass = 'forminator-authentication-enabled';
+  /**
+   * @desc Set focus on descendant nodes until the first
+   * focusable element is found.
+   *
+   * @param element
+   * DOM node for which to find the first focusable descendant.
+   *
+   * @returns
+   * true if a focusable element is found and focus is set.
+   */
+
+  aria.Utils.focusFirstDescendant = function (element) {
+    for (var i = 0; i < element.childNodes.length; i++) {
+      var child = element.childNodes[i];
+
+      if (aria.Utils.attemptFocus(child) || aria.Utils.focusFirstDescendant(child)) {
+        return true;
+      }
+    }
+
+    return false;
+  }; // end focusFirstDescendant.
+
+  /**
+   * @desc Find the last descendant node that is focusable.
+   *
+   * @param element
+   * DOM node for which to find the last focusable descendant.
+   *
+   * @returns
+   * true if a focusable element is found and focus is set.
+   */
+
+
+  aria.Utils.focusLastDescendant = function (element) {
+    for (var i = element.childNodes.length - 1; 0 <= i; i--) {
+      var child = element.childNodes[i];
+
+      if (aria.Utils.attemptFocus(child) || aria.Utils.focusLastDescendant(child)) {
+        return true;
+      }
+    }
+
+    return false;
+  }; // end focusLastDescendant
+
+  /**
+   * @desc Set Attempt to set focus on the current node.
+   *
+   * @param element
+   * The node to attempt to focus on.
+   *
+   * @returns
+   * true if element is focused.
+   */
+
+
+  aria.Utils.attemptFocus = function (element) {
+    if (!aria.Utils.isFocusable(element)) {
+      return false;
+    }
+
+    aria.Utils.IgnoreUtilFocusChanges = true;
+
+    try {
+      element.focus();
+    } catch (e) {}
+
+    aria.Utils.IgnoreUtilFocusChanges = false;
+    return document.activeElement === element;
+  }; // end attemptFocus
+  // Modals can open modals. Keep track of them with this array.
+
+
+  aria.OpenDialogList = aria.OpenDialogList || new Array(0);
+  /**
+   * @returns the last opened dialog (the current dialog)
+   */
+
+  aria.getCurrentDialog = function () {
+    if (aria.OpenDialogList && aria.OpenDialogList.length) {
+      return aria.OpenDialogList[aria.OpenDialogList.length - 1];
+    }
+  };
+
+  aria.closeCurrentDialog = function () {
+    var currentDialog = aria.getCurrentDialog();
+
+    if (currentDialog) {
+      currentDialog.close();
+      return true;
+    }
+
+    return false;
+  };
+
+  aria.handleEscape = function (event) {
+    var key = event.which || event.keyCode;
+
+    if (key === aria.Utils.ESC && aria.closeCurrentDialog()) {
+      event.stopPropagation();
+    }
+  };
+
+  document.addEventListener('keyup', aria.handleEscape);
+  /**
+   * @constructor
+   * @desc Dialog object providing modal focus management.
+   *
+   * Assumptions: The element serving as the dialog container is present in the
+   * DOM and hidden. The dialog container has role='dialog'.
+   *
+   * @param dialogId
+   * The ID of the element serving as the dialog container.
+   *
+   * @param focusAfterClosed
+   * Either the DOM node or the ID of the DOM node to focus when the
+   * dialog closes.
+   *
+   * @param focusFirst
+   * Optional parameter containing either the DOM node or the ID of the
+   * DOM node to focus when the dialog opens. If not specified, the
+   * first focusable element in the dialog will receive focus.
+   */
+
+  aria.Authentication = function (dialogId, focusAfterClosed, focusFirst) {
+    this.dialogNode = document.getElementById(dialogId);
+
+    if (null === this.dialogNode) {
+      throw new Error('No element found with id="' + dialogId + '".');
+    }
+
+    var validRoles = ['dialog', 'alertdialog'];
+    var isDialog = (this.dialogNode.getAttribute('role') || '').trim().split(/\s+/g).some(function (token) {
+      return validRoles.some(function (role) {
+        return token === role;
+      });
+    });
+
+    if (!isDialog) {
+      throw new Error('Dialog() requires a DOM element with ARIA role of dialog or alertdialog.');
+    } // Wrap in an individual backdrop element if one doesn't exist
+    // Native <dialog> elements use the ::backdrop pseudo-element, which
+    // works similarly.
+
+
+    var backdropClass = 'forminator-authentication';
+
+    if (this.dialogNode.parentNode.classList.contains(backdropClass)) {
+      this.backdropNode = this.dialogNode.parentNode;
+    } else {
+      this.backdropNode = document.createElement('div');
+      this.backdropNode.className = backdropClass;
+      this.backdropNode.setAttribute('data-markup', 'new');
+      this.dialogNode.parentNode.insertBefore(this.backdropNode, this.dialogNodev);
+      this.backdropNode.appendChild(this.dialogNode);
+    }
+
+    this.backdropNode.classList.add('forminator-active'); // Disable scroll on the body element
+
+    document.body.parentNode.classList.add(aria.Utils.dialogOpenClass);
+
+    if ('string' === typeof focusAfterClosed) {
+      this.focusAfterClosed = document.getElementById(focusAfterClosed);
+    } else if ('object' === _typeof(focusAfterClosed)) {
+      this.focusAfterClosed = focusAfterClosed;
+    } else {
+      throw new Error('the focusAfterClosed parameter is required for the aria.Authentication constructor.');
+    }
+
+    if ('string' === typeof focusFirst) {
+      this.focusFirst = document.getElementById(focusFirst);
+    } else if ('object' === _typeof(focusFirst)) {
+      this.focusFirst = focusFirst;
+    } else {
+      this.focusFirst = null;
+    } // Bracket the dialog node with two invisible, focusable nodes.
+    // While this dialog is open, we use these to make sure that focus never
+    // leaves the document even if dialogNode is the first or last node.
+
+
+    var preDiv = document.createElement('div');
+    this.preNode = this.dialogNode.parentNode.insertBefore(preDiv, this.dialogNode);
+    this.preNode.tabIndex = 0;
+    var postDiv = document.createElement('div');
+    this.postNode = this.dialogNode.parentNode.insertBefore(postDiv, this.dialogNode.nextSibling);
+    this.postNode.tabIndex = 0; // If this modal is opening on top of one that is already open,
+    // get rid of the document focus listener of the open dialog.
+
+    if (0 < aria.OpenDialogList.length) {
+      aria.getCurrentDialog().removeListeners();
+    }
+
+    this.addListeners();
+    aria.OpenDialogList.push(this);
+    this.dialogNode.classList.add('forminator-authentication-fade-in'); // make visible
+
+    this.dialogNode.classList.remove('forminator-authentication-fade-out');
+
+    if (this.focusFirst) {
+      this.focusFirst.focus();
+    } else {
+      aria.Utils.focusFirstDescendant(this.dialogNode);
+    }
+
+    this.lastFocus = document.activeElement;
+  }; // end Dialog constructor.
+
+  /**
+   * @desc Hides the current top dialog, removes listeners of the top dialog,
+   * restore listeners of a parent dialog if one was open under the one that
+   * just closed, and sets focus on the element specified for focusAfterClosed.
+   */
+
+
+  aria.Authentication.prototype.close = function () {
+    var self = this;
+    aria.OpenDialogList.pop();
+    this.removeListeners();
+    this.preNode.parentNode.removeChild(this.preNode);
+    this.postNode.parentNode.removeChild(this.postNode);
+    this.dialogNode.classList.add('forminator-content-fade-out');
+    this.dialogNode.classList.remove('forminator-content-fade-in');
+    this.focusAfterClosed.focus();
+    setTimeout(function () {
+      self.backdropNode.classList.remove('forminator-active');
+    }, 300); // If a dialog was open underneath this one, restore its listeners.
+
+    if (0 < aria.OpenDialogList.length) {
+      aria.getCurrentDialog().addListeners();
+    } else {
+      document.body.parentNode.classList.remove(aria.Utils.dialogOpenClass);
+    }
+  }; // end close.
+
+
+  aria.Authentication.prototype.addListeners = function () {
+    document.addEventListener('focus', this.trapFocus, true);
+  }; // end addListeners.
+
+
+  aria.Authentication.prototype.removeListeners = function () {
+    document.removeEventListener('focus', this.trapFocus, true);
+  }; // end removeListeners.
+
+
+  aria.Authentication.prototype.trapFocus = function (event) {
+    if (aria.Utils.IgnoreUtilFocusChanges) {
+      return;
+    }
+
+    var currentDialog = aria.getCurrentDialog();
+
+    if (currentDialog.dialogNode.contains(event.target)) {
+      currentDialog.lastFocus = event.target;
+    } else {
+      aria.Utils.focusFirstDescendant(currentDialog.dialogNode);
+
+      if (currentDialog.lastFocus == document.activeElement) {
+        aria.Utils.focusLastDescendant(currentDialog.dialogNode);
+      }
+
+      currentDialog.lastFocus = document.activeElement;
+    }
+  }; // end trapFocus.
+
+
+  FUI.openAuthentication = function (dialogId, focusAfterClosed, focusFirst) {
+    var dialog = new aria.Authentication(dialogId, focusAfterClosed, focusFirst);
+  }; // end openAuthentication.
+
+
+  FUI.closeAuthentication = function () {
+    var topDialog = aria.getCurrentDialog();
+    topDialog.close();
+  }; // end closeAuthentication.
+
+})();
+function _createForOfIteratorHelper(o) { if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (o = _unsupportedIterableToArray(o))) { var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var it, normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(n); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
 (function ($) {
-  // Enable strict mode
+  // Enable strict mode.
   'use strict'; // Define global FUI object if it doesn't exist.
 
   if ('object' !== _typeof(window.FUI)) {
     window.FUI = {};
   }
 
-  FUI.select2 = function () {
-    $('.forminator-custom-form').each(function () {
-      var $element = $(this),
-          $formid = $element.data('form-id'),
-          $select = $element.find('.forminator-select2');
-      var $themes = ['bold', 'flat', 'default', 'material'];
-      $.each($themes, function (index, $theme) {
-        var $dir,
-            $language = 'en',
-            $placeholder = null;
+  FUI.pollChart = function (pollChart, pollData) {
+    var chartType = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'horizontalBar';
+    var chartExtras = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : '';
+    var chart = $(pollChart);
 
-        if ($element.hasClass('forminator-design--' + $theme) && $select.length) {
-          if (true === $select.data('rtl-support')) {
-            $dir = 'rtl';
+    if ('bar' === chartType) {
+      chartType = 'horizontalBar';
+    }
+
+    if (undefined === pollData || 0 === pollData.length) {
+      return;
+    }
+
+    function formatLabel(str, maxwidth) {
+      var sections = [];
+      var words = str.split(' ');
+      var temp = '';
+      words.forEach(function (item, index) {
+        if (0 < temp.length) {
+          var concat = temp + ' ' + item;
+
+          if (concat.length > maxwidth) {
+            sections.push(temp);
+            temp = '';
           } else {
-            $dir = 'ltr';
+            if (index == words.length - 1) {
+              sections.push(concat);
+              return;
+            } else {
+              temp = concat;
+              return;
+            }
           }
+        }
 
-          if ('' !== $select.data('placeholder')) {
-            $placeholder = $select.data('placeholder');
-          } else {
-            $placeholder = null;
-          }
+        if (index == words.length - 1) {
+          sections.push(item);
+          return;
+        }
 
-          if ('' !== $select.data('language')) {
-            $language = $select.data('language');
-          } else {
-            $language = 'en';
-          }
-
-          $select.FUIselect2({
-            dir: $dir,
-            language: $language,
-            placeholder: $placeholder,
-            dropdownCssClass: 'forminator-custom-form-' + $formid + ' forminator-dropdown--' + $theme
-          }).on('select2:opening', function () {
-            $select.data('select2').$dropdown.find(':input.select2-search__field').attr('placeholder', $placeholder);
-          });
+        if (item.length < maxwidth) {
+          temp = item;
+        } else {
+          sections.push(item);
         }
       });
-    });
-  };
-
-  $('body').ready(function () {
-    FUI.select2();
-  });
-})(jQuery);
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-(function ($) {
-  // Enable strict mode.
-  'use strict'; // Define global SUI object if it doesn't exist.
-
-  if ('object' !== _typeof(window.FUI)) {
-    window.FUI = {};
-  }
-
-  FUI.textareaMaterial = function (el) {
-    var textarea = $(el);
-    var field = textarea.closest('.forminator-field');
-    var label = field.find('.forminator-label');
-    var form = textarea.closest('form');
-
-    if (!textarea.is('textarea') && !form.is('.forminator-ui') && !form.is('.forminator-custom-form')) {
-      return;
-    }
-
-    if (textarea.hasClass('wp-editor-area')) {
-      return;
-    }
-
-    if (textarea.parent().hasClass('forminator-textarea--wrap')) {
-      return;
+      return sections;
     }
 
     function init() {
-      // Wrap Element
-      if (!textarea.parent().hasClass('forminator-textarea--wrap')) {
-        textarea.wrap('<div class="forminator-textarea--wrap"></div>');
-      } // Wrap Label
+      // Poll Data
+      var answerLabels = [];
+      var answerVotes = [];
+      var answerColors = [];
+
+      var _iterator = _createForOfIteratorHelper(pollData),
+          _step;
+
+      try {
+        for (_iterator.s(); !(_step = _iterator.n()).done;) {
+          var row = _step.value;
+
+          // Get answer text
+          if ('pie' === chartType) {
+            answerLabels.push(row[0] // Get first key
+            );
+          } else {
+            answerLabels.push(formatLabel(row[0], 20) // Get first key
+            );
+          } // Get answer votes
 
 
-      if (label.length) {
-        var labelHeight = label.height();
-        var labelPadding = 9;
-        var labelMath = labelHeight + labelPadding; // Add floating class
+          answerVotes.push(row[1] // Get second key
+          ); // Get answer color
 
-        label.addClass('forminator-floating--textarea'); // Align textarea
+          answerColors.push(row[2] // Get third key
+          );
+        } // Chart Extras
 
-        field.css({
-          'position': 'relative'
+      } catch (err) {
+        _iterator.e(err);
+      } finally {
+        _iterator.f();
+      }
+
+      var extras = {};
+      extras.votesLabel = 'vote(s)';
+      extras.votesOnPoll = false;
+      extras.basicColors = ['#E5E5E5', // [0] Grid lines color
+      '#777771', // [1] Axis labels color
+      '#333333' // [2] On-chart label (bars)
+      ];
+      extras.tooltipsBasic = ['#333333', // [0] Background color
+      '#FFFFFF' // [1] Text color
+      ];
+
+      if ('' === chartExtras) {
+        chartExtras = [extras.votesLabel, extras.votesOnPoll, extras.basicColors, extras.tooltipsBasic];
+      } // Chart Data
+
+
+      var chartData = {
+        labels: answerLabels,
+        datasets: [{
+          data: answerVotes,
+          backgroundColor: answerColors,
+          borderWidth: 0
+        }]
+      }; // Chart Options
+
+      var chartOptions = {
+        legend: {
+          display: false
+        },
+        tooltips: {
+          callbacks: {
+            title: function title(tooltipItems, data) {
+              var title = '';
+
+              if ('pie' !== chartType) {
+                title = tooltipItems[0].yLabel;
+              }
+
+              return title;
+            },
+            label: function label(tooltipItem, data) {
+              var label = data.datasets[tooltipItem.datasetIndex].label || '';
+
+              if ('pie' === chartType) {
+                label = data.labels[tooltipItem.index] + ': ' + data.datasets[0].data[tooltipItem.index];
+              } else {
+                if (label) {
+                  label += '';
+                }
+
+                label += 'pie' === chartType ? Math.round(tooltipItem.yLabel * 100) / 100 : Math.round(tooltipItem.xLabel * 100) / 100;
+              }
+
+              label += ' ' + chartExtras[0];
+              return label;
+            }
+          },
+          backgroundColor: chartExtras[3][0],
+          titleFontColor: chartExtras[3][1],
+          titleFontFamily: '\'Helvetica Neue\', \'Helvetica\', \'Arial\', sans-serif',
+          titleFontSize: 13,
+          titleFontStyle: 'bold',
+          titleMarginBottom: 10,
+          bodyFontColor: chartExtras[3][1],
+          bodyFontFamily: '\'Helvetica Neue\', \'Helvetica\', \'Arial\', sans-serif',
+          bodyFontSize: 12,
+          bodyFontStyle: 'normal'
+        },
+        scales: {
+          xAxes: [{
+            display: 'pie' === chartType ? false : true,
+            ticks: {
+              fontColor: chartExtras[2][1],
+              beginAtZero: true
+            },
+            gridLines: {
+              color: chartExtras[2][0]
+            }
+          }],
+          yAxes: [{
+            display: 'pie' === chartType ? false : true,
+            ticks: {
+              fontColor: chartExtras[2][1],
+              beginAtZero: true
+            },
+            gridLines: {
+              color: chartExtras[2][0]
+            }
+          }]
+        },
+        plugins: {
+          datalabels: {
+            display: 'pie' === chartType ? false : chartExtras[1],
+            align: 'end',
+            anchor: 'start',
+            textAlign: 'center',
+            color: chartExtras[2][2],
+            formatter: function formatter(value) {
+              return value + ' ' + chartExtras[0];
+            }
+          }
+        }
+      };
+      chart.each(function () {
+        chart = $(this);
+        new Chart(chart, {
+          type: chartType,
+          data: chartData,
+          plugins: [ChartDataLabels],
+          options: chartOptions
         });
 
-        if (!field.hasClass('forminator-is_filled') || !field.hasClass('forminator-is_active')) {
-          label.css({
-            'padding-top': labelMath + 'px'
+        if ('pie' === chartType) {
+          // Wrap the chart
+          chart.wrap('<div class="forminator-chart-wrapper" aria-hidden="true" />'); // Insert legend wrapper
+
+          chart.parent().prepend('<ul class="forminator-chart-legend"></ul>'); // Insert legend items
+
+          pollData.forEach(function (entry) {
+            chart.parent().find('.forminator-chart-legend').append('<li>' + '<span class="forminator-chart-legend--color" style="background-color: ' + entry[2] + '" aria-hidden="true"></span>' + '<strong>' + entry[0] + ':</strong> ' + entry[1] + ' ' + chartExtras[0] + '</li>');
           });
         }
-
-        textarea.css({
-          'padding-top': labelMath + 'px'
-        });
-      }
+      });
     }
 
     init();
@@ -7110,70 +7098,25 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 (function ($) {
-  // Enable strict mode.
-  'use strict'; // Define global SUI object if it doesn't exist.
+  'use strict'; // Define global FUI object if it doesn't exist.
 
   if ('object' !== _typeof(window.FUI)) {
     window.FUI = {};
   }
 
-  FUI.textareaStates = function (el) {
-    var textarea = $(el);
-    var form = textarea.closest('form');
+  FUI.formSubmit = function (el) {
+    var button = $(el);
+    var form = button.closest('.forminator-custom-form');
 
-    if (!textarea.is('textarea') && !form.is('.forminator-ui') && !form.is('.forminator-custom-form')) {
+    if (!button.is('.forminator-button-submit') || !form[0] || !form.length) {
       return;
     }
 
-    function hover(element) {
-      var getTextarea = $(element);
-      var getField = getTextarea.closest('.forminator-field');
-      getTextarea.mouseover(function (e) {
-        getField.addClass('forminator-is_hover');
-        e.stopPropagation();
-      }).mouseout(function (e) {
-        getField.removeClass('forminator-is_hover');
-        e.stopPropagation();
-      });
-    }
-
-    function focused(element) {
-      var getTextarea = $(element);
-      var getField = getTextarea.closest('.forminator-field');
-      getTextarea.focus(function (e) {
-        getField.addClass('forminator-is_active');
-        e.stopPropagation();
-      }).blur(function (e) {
-        getField.removeClass('forminator-is_active');
-        e.stopPropagation();
-      });
-    }
-
-    function filled(element) {
-      var getTextarea = $(element);
-      var getField = getTextarea.closest('.forminator-field'); // On textarea load
-
-      getTextarea.on('load', function () {
-        if ('' !== getTextarea.val().trim()) {
-          getField.addClass('forminator-is_filled');
-        }
-      }); // On textarea changes
-
-      getTextarea.on('change', function () {
-        if ('' !== getTextarea.val().trim()) {
-          getField.addClass('forminator-is_filled');
-        } else {
-          getField.removeClass('forminator-is_filled');
-        }
-      });
-    }
-
     function init() {
-      textarea.each(function () {
-        hover(this);
-        focused(this);
-        filled(this);
-      });
+      button.addClass('forminator-button-onload');
+      setTimeout(function () {
+        button.removeClass('forminator-button-onload');
+      }, 1000);
     }
 
     init();
