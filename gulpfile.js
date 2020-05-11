@@ -131,7 +131,7 @@ library.watch.scripts.poll = [
 ];
 
 library.watch.scripts.select2 = [
-	library.source.scripts + 'select2.min.js'
+	library.source.scripts + 'select2.full.js'
 ];
 
 library.watch.styles = [
