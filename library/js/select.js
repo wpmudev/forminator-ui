@@ -6,6 +6,7 @@
 			$wrap,
 			$handle,
 			$list,
+			$valwrap,
 			$value,
 			$items
 			;
@@ -14,7 +15,7 @@
 		function setupElement() {
 
 			var $handler = '<div class="forminator-dropdown-handle">' +
-				'<i class="forminator-icon-chevron-down"></i>' +
+				'<span class="forminator-icon-chevron-down"></span>' +
 			'</div>';
 
 			$select.wrap( '<div class="forminator-select-container">' );
@@ -24,11 +25,12 @@
 				return;
 			}
 
-			$wrap   = $select.parent();
-			$list   = $( '<div class="forminator-select-list" aria-hidden="true"></div>' ).appendTo( $wrap );
-			$value  = $( '<div class="forminator-value"></div>' ).appendTo( $list );
-			$handle = $( $handler ).appendTo( $list );
-			$items  = $( '<ul class="forminator-dropdown-list"></ul>' ).appendTo( $list );
+			$wrap    = $select.parent();
+			$list    = $( '<div class="forminator-select-list" aria-hidden="true"></div>' ).appendTo( $wrap );
+			$valwrap = $( '<div class="forminator-value-wrapper"></div>' ).appendTo( $list );
+			$value   = $( '<div class="forminator-value"></div>' ).appendTo( $valwrap );
+			$handle  = $( $handler ).appendTo( $valwrap );
+			$items   = $( '<ul class="forminator-dropdown-list"></ul>' ).appendTo( $list );
 
 		}
 

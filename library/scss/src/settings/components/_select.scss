@@ -10,6 +10,10 @@
 				position: relative;
 				display: block;
 
+				.forminator-value-wrapper {
+					position: relative;
+				}
+
 				.forminator-value {
 					cursor: pointer;
 					display: block;
