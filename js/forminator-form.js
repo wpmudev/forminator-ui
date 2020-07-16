@@ -382,11 +382,12 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
         $wrap,
         $handle,
         $list,
+        $valwrap,
         $value,
         $items; // Add the DOM elements to style the select list
 
     function setupElement() {
-      var $handler = '<div class="forminator-dropdown-handle">' + '<i class="forminator-icon-chevron-down"></i>' + '</div>';
+      var $handler = '<div class="forminator-dropdown-handle">' + '<span class="forminator-icon-chevron-down"></span>' + '</div>';
       $select.wrap('<div class="forminator-select-container">');
       $select.addClass('forminator-screen-reader-only');
 
@@ -396,8 +397,9 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 
       $wrap = $select.parent();
       $list = $('<div class="forminator-select-list" aria-hidden="true"></div>').appendTo($wrap);
-      $value = $('<div class="forminator-value"></div>').appendTo($list);
-      $handle = $($handler).appendTo($list);
+      $valwrap = $('<div class="forminator-value-wrapper"></div>').appendTo($list);
+      $value = $('<div class="forminator-value"></div>').appendTo($valwrap);
+      $handle = $($handler).appendTo($valwrap);
       $items = $('<ul class="forminator-dropdown-list"></ul>').appendTo($list);
     } // When changing selection using JS, you need to trigger a 'fui:change' event
     // E.g. $( 'select' ).val( '4' ).trigger( 'fui:change' )
