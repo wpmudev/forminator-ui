@@ -1,6 +1,10 @@
+v1.7.6
+- [Fix] Forms UI: Select dropdown not visualizing when is placed last on paginated form.
+
+
 v1.7.5
 - [Fix] Forms UI: Pagination issues with Divi.
-- [Fix] Forms UI: Select dropdown not visualizing when is placed last on paginated form.
+- [Enhance] Forms UI: Add wrapper to select chosen value.
 
 
 v1.7.4
