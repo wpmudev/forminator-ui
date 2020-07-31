@@ -1,3 +1,7 @@
+v1.7.7
+- [Enhance] Forms UI: Allow input with suffix styles in basic stylesheets.
+
+
 v1.7.6
 - [Fix] Forms UI: Select dropdown not visualizing when is placed last on paginated form.
 
