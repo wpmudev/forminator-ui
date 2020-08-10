@@ -1,3 +1,7 @@
+v1.7.8
+- [Fix] Forms UI: Input with inline prefix and/or suffix.
+
+
 v1.7.6
 - [Fix] Forms UI: Select dropdown not visualizing when is placed last on paginated form.
 
