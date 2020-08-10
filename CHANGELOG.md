@@ -1,6 +1,5 @@
-v1.7.7
-- [New] Forms UI: Input with prefix.
-- [Enhance] Forms UI: Allow input with suffix styles in basic stylesheets.
+v1.7.8
+- [Fix] Forms UI: Input with inline prefix and/or suffix.
 
 
 v1.7.6
