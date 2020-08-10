@@ -2,41 +2,12 @@
 
 	@include form-class($form-type, $form-theme, false) {
 
-		.forminator-input-with-prefix,
 		.forminator-input-with-suffix {
 			position: relative;
 			@if ('material' == $form-theme) {
 				display: flex;
 				align-items: center;
 			}
-
-			@if ('material' == $form-theme) {
-
-				.forminator-input--wrap {
-					display: block;
-					flex: 1;
-				}
-			}
-		}
-
-		.forminator-input-with-prefix {
-
-			.forminator-input {
-				padding-left: 60px;
-			}
-
-			.forminator-prefix {
-				display: block;
-				position: absolute;
-				top: 50%;
-				left: 0;
-				padding: 0 map-get($input, padding);
-				transform: translateY(-50%);
-				line-height: 1.4em;
-			}
-		}
-
-		.forminator-input-with-suffix {
 
 			.forminator-input {
 				padding-right: 60px;
@@ -50,6 +21,14 @@
 				padding: 0 map-get($input, padding);
 				transform: translateY(-50%);
 				line-height: 1.4em;
+			}
+
+			@if ('material' == $form-theme) {
+
+				.forminator-input--wrap {
+					display: block;
+					flex: 1;
+				}
 			}
 		}
 	}
