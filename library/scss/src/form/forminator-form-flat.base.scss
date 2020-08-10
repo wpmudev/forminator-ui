@@ -44,7 +44,6 @@ $form-theme: flat;
 @include component-label-floating(#{$form-type}, #{$form-theme});
 @include component-description(#{$form-type}, #{$form-theme});
 @include component-input(#{$form-type}, #{$form-theme});
-@include component-input-with-suffix(#{$form-type}, #{$form-theme});
 @include component-textarea(#{$form-type}, #{$form-theme});
 @include component-radio(#{$form-type}, #{$form-theme});
 @include component-checkbox(#{$form-type}, #{$form-theme});

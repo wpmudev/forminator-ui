@@ -33,6 +33,7 @@ $form-theme: flat;
 @import "../settings/components/e-signature";
 
 @include component-input-with-icon(#{$form-type}, #{$form-theme});
+@include component-input-with-suffix(#{$form-type}, #{$form-theme});
 @include component-phone(#{$form-type}, #{$form-theme});
 @include component-upload(#{$form-type}, #{$form-theme});
 @include component-multiupload(#{$form-type}, #{$form-theme});
