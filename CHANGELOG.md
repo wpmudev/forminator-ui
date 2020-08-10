@@ -1,5 +1,9 @@
+v1.7.9
+- [Fix] Forms UI: Prefix and suffix not vertical aligning correctly.
+
+
 v1.7.8
-- [Fix] Forms UI: Input with inline prefix and/or suffix.
+- [New] Forms UI: Input with inline prefix and/or suffix.
 
 
 v1.7.6
