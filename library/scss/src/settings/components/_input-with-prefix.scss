@@ -1,0 +1,33 @@
+@mixin component-input-with-prefix($form-type: no-type, $form-theme: no-theme) {
+
+	@include form-class($form-type, $form-theme, false) {
+
+		.forminator-input-with-prefix {
+			display: flex;
+			align-items: center;
+
+			input {
+				display: block;
+				margin: 0;
+				padding: 0;
+				border: 0;
+				background-image: none;
+				background-color: transparent;
+				box-shadow: none;
+			}
+
+			.forminator-prefix,
+			.forminator-suffix {
+				flex: 0 0 auto;
+			}
+
+			.forminator-prefix {
+				margin-right: map-get($input, padding);
+			}
+
+			.forminator-suffix {
+				margin-left: map-get($input, padding);
+			}
+		}
+	}
+}
