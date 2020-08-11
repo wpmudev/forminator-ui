@@ -1,3 +1,7 @@
+v1.7.10
+- [Fix] Forms UI: Improve styles for pagination steps.
+
+
 v1.7.9
 - [Fix] Forms UI: Prefix and suffix not vertical aligning correctly.
 
