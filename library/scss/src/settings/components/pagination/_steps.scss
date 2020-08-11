@@ -74,10 +74,19 @@
 					@if ('bold' == $form-theme) {
 						height: map-get($pagination-dot, bold);
 					}
+					cursor: pointer;
 					display: flex;
 					flex-direction: row-reverse;
 					justify-content: flex-end;
 					align-items: center;
+					margin: 0;
+					padding: 0;
+					border: 0;
+					border-radius: 0;
+					background-color: transparent;
+					box-shadow: none;
+					text-transform: none;
+					text-decoration: none;
 
 					.forminator-step-label {
 						overflow: hidden;
