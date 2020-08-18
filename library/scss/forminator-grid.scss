@@ -14,7 +14,8 @@
 		// ELEMENT: Row
 		.forminator-row {
 
-			&:not(:last-child) {
+			&:not(:last-child),
+			&:not(.forminator-row-last) {
 				margin-bottom: $gutter-sm;
 			}
 
@@ -44,7 +45,8 @@
 		// ELEMENT: Row
 		.forminator-row {
 
-			&:not(:last-child) {
+			&:not(:last-child),
+			&:not(.forminator-row-last) {
 				margin-bottom: $gutter-enclosed-sm;
 			}
 		}
@@ -106,7 +108,8 @@
 		// ELEMENT: Row
 		.forminator-row {
 
-			&:not(:last-child) {
+			&:not(:last-child),
+			&:not(.forminator-row-last) {
 
 				@include media(min-width, sm) {
 					margin-bottom: $gutter;
@@ -162,7 +165,8 @@
 		// ELEMENT: Row
 		.forminator-row {
 
-			&:not(:last-child) {
+			&:not(:last-child),
+			&:not(.forminator-row-last) {
 
 				@include media(min-width, sm) {
 					margin-bottom: $gutter-enclosed;

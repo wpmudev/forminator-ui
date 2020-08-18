@@ -1,3 +1,7 @@
+v1.8.2
+- [Enhance] Forms UI: Add last row class for grid.
+
+
 v1.8.1
 - [Fix] Quiz UI: Missing stylesheets for quiz leads.
 
