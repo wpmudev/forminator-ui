@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+@import "../../variables";
+
+$form-type: quiz-leads;
+$form-theme: bold;
+
+// Helpers.
+@import "../../helpers/text-reset";
+@import "../../helpers/text-truncate";
+@import "../../helpers/screen-readers";
+
+// Mixins.
+@import "../../mixins/body-class";
+@import "../../mixins/breakpoints";
+@import "../../mixins/opacity";
+
+// Containers.
+@import "../settings/containers/leads";
+
+// Call Containers.
+@include container-leads(#{$form-type}, #{$form-theme});

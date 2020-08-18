@@ -1,3 +1,7 @@
+v1.8.1
+- [Fix] Quiz UI: Missing stylesheets for quiz leads.
+
+
 v1.8.0
 - [New] Quiz UI: Styles for quizzes with leads improved markup.
 
