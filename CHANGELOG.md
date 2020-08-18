@@ -1,3 +1,7 @@
+v1.8.0
+- [New] Quiz UI: Styles for quizzes with leads improved markup.
+
+
 v1.7.11
 - [Fix] Forms UI: Material pagination steps styles being overwritten by theme styles.
 
