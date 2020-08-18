@@ -154,19 +154,21 @@
 
 							if ( 'pie' === chartType ) {
 
-								label = data.labels[tooltipItem.index] + ': ' + data.datasets[0].data[tooltipItem.index];
+								label = data.labels[tooltipItem.index];
 
+								if ( true === chartExtras[1]) {
+									label += ': ' + data.datasets[0].data[tooltipItem.index];
+								}
 							} else {
 
-								if ( label ) {
-									label += '';
+								if ( true === chartExtras[1]) {
+									label += Math.round( tooltipItem.xLabel * 100 ) / 100;
 								}
-
-								label += ( 'pie' === chartType ) ? Math.round( tooltipItem.yLabel * 100 ) / 100 : Math.round( tooltipItem.xLabel * 100 ) / 100;
-
 							}
 
-							label += ' ' + chartExtras[0];
+							if ( true === chartExtras[1]) {
+								label += ' ' + chartExtras[0];
+							}
 
 							return label;
 
