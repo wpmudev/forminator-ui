@@ -1,3 +1,8 @@
+v1.8.2
+- [Fix] Polls UI: Votes count hide not working.
+- [Enhance] Forms UI: Add last row class for grid.
+
+
 v1.8.1
 - [Fix] Quiz UI: Missing stylesheets for quiz leads.
 
