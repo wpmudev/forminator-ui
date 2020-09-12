@@ -1,3 +1,8 @@
+v1.8.4
+- [Fix] Get all styles on a single file.
+- [Fix] Forms UI: Input with suffix bad alignment.
+
+
 v1.8.3
 - [Fix] Missing quiz leads styles from full stylesheet.
 
