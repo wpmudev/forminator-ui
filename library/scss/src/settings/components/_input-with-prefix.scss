@@ -4,10 +4,13 @@
 
 		.forminator-input-with-prefix {
 			display: flex;
+			flex-flow: row wrap;
 			align-items: center;
 
 			input {
+				min-width: 50px;
 				display: block;
+				flex: 1;
 				margin: 0;
 				padding: 0;
 				border: 0;
