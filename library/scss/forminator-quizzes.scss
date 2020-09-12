@@ -1,22 +1,15 @@
-@charset "UTF-8";
+// DESIGN: Default.
+@import './src/quiz/forminator-quiz-default.base.scss';
+@import './src/quiz/forminator-quiz-default.leads.scss';
 
-@import "variables";
+// DESIGN: Flat.
+@import './src/quiz/forminator-quiz-flat.base.scss';
+@import './src/quiz/forminator-quiz-flat.leads.scss';
 
-// Mixins
-@import "mixins/body-class";
-@import "mixins/opacity";
-@import "mixins/breakpoints";
-@import "mixins/animations";
-@import "mixins/icons";
+// DESIGN: Bold.
+@import './src/quiz/forminator-quiz-bold.base.scss';
+@import './src/quiz/forminator-quiz-bold.leads.scss';
 
-// Helpers
-@import "helpers/text-reset";
-@import "helpers/text-truncate";
-@import "helpers/icon-styles";
-@import "helpers/screen-readers";
-
-// Quizzes elements
-@import "quizzes/container";
-@import "quizzes/elements/questions";
-@import "quizzes/elements/answers";
-@import "quizzes/elements/results";
+// DESIGN: Material.
+@import './src/quiz/forminator-quiz-material.base.scss';
+@import './src/quiz/forminator-quiz-material.leads.scss';
