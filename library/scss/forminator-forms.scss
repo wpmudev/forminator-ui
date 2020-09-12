@@ -1,35 +1,25 @@
-@charset "UTF-8";
+// Get original select2 default styles.
+@import './src/form/select2.scss';
 
-@import "variables";
+// DESIGN: Default.
+@import './src/form/forminator-form-default.base.scss';
+@import './src/form/forminator-form-default.full.scss';
+@import './src/form/forminator-form-default.pagination.scss';
 
-// Mixins
-@import "mixins/body-class";
-@import "mixins/opacity";
-@import "mixins/breakpoints";
-@import "mixins/animations";
-@import "mixins/icons";
+// DESIGN: Flat.
+@import './src/form/forminator-form-flat.base.scss';
+@import './src/form/forminator-form-flat.full.scss';
+@import './src/form/forminator-form-flat.pagination.scss';
 
-// Helpers
-@import "helpers/text-reset";
-@import "helpers/text-truncate";
-@import "helpers/icon-styles";
-@import "helpers/screen-readers";
+// DESIGN: Bold.
+@import './src/form/forminator-form-bold.base.scss';
+@import './src/form/forminator-form-bold.full.scss';
+@import './src/form/forminator-form-bold.pagination.scss';
 
-// Form elements
-@import "forms/container";
-@import "forms/field";
-@import "forms/elements/section";
-@import "forms/elements/textarea";
-@import "forms/elements/checkbox";
-@import "forms/elements/select";
-@import "forms/elements/select2.full";
-@import "forms/elements/select2";
-@import "forms/elements/select2-dropdown";
-@import "forms/elements/calendar";
-@import "forms/elements/multiselect";
-@import "forms/elements/timepicker";
-@import "forms/elements/file-upload";
-@import "forms/elements/intl-plugin";
-@import "forms/elements/pagination";
-@import "forms/elements/pagination-steps";
-@import "forms/elements/pagination-progress";
+// DESIGN: Material.
+@import './src/form/forminator-form-material.base.scss';
+@import './src/form/forminator-form-material.full.scss';
+@import './src/form/forminator-form-material.pagination.scss';
+
+// FIX: Defender Authentication.
+@import './src/form/forminator-authentication.scss';

@@ -1,23 +1,21 @@
-@charset "UTF-8";
+// DESIGN: Default.
+@import './src/poll/forminator-poll-default.base.scss';
+@import './src/poll/forminator-poll-default.full.scss';
 
-@import "variables";
+// DESIGN: Flat.
+@import './src/poll/forminator-poll-flat.base.scss';
+@import './src/poll/forminator-poll-flat.full.scss';
 
-// Mixins
-@import "mixins/body-class";
-@import "mixins/opacity";
-@import "mixins/breakpoints";
-@import "mixins/animations";
-@import "mixins/icons";
+// DESIGN: Bold.
+@import './src/poll/forminator-poll-bold.base.scss';
+@import './src/poll/forminator-poll-bold.full.scss';
 
-// Helpers
-@import "helpers/text-reset";
-@import "helpers/text-truncate";
-@import "helpers/icon-styles";
-@import "helpers/screen-readers";
+// DESIGN: Material.
+@import './src/poll/forminator-poll-material.base.scss';
+@import './src/poll/forminator-poll-material.full.scss';
 
-// Poll elements
-@import "polls/container";
-@import "polls/elements/typography";
-@import "polls/elements/links";
-@import "polls/elements/image";
-@import "polls/elements/chart";
+// CHART: Bar.
+@import './src/chart/forminator-chart.bar.scss';
+
+// CHART: Pie.
+@import './src/chart/forminator-chart.pie.scss';
