@@ -1,3 +1,7 @@
+v1.8.5
+- [Fix] Quiz UI: Retake button styles have conflicts with WordPress themes.
+
+
 v1.8.4
 - [Fix] Get all styles on a single file.
 - [Fix] Forms UI: Input with suffix bad alignment.
