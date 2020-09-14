@@ -47,12 +47,14 @@
 							width: 40px;
 							min-width: auto;
 							height: 40px;
+							overflow: hidden;
 							display: flex;
 							flex: 0 0 auto;
 							align-self: flex-start;
 							align-items: center;
 							justify-content: center;
 							position: relative;
+							text-transform: none;
 
 							[class*="forminator-icon-"] {
 								display: block;
@@ -158,7 +160,15 @@
 							margin: #{$gutter-sm / 2} 0;
 							padding: 0;
 							border: 0;
-							background-color: rgba(0,0,0,0.1);
+							background: none;
+							background-color: rgba(0,0,0,0.1) !important;
+
+							&:before,
+							&:after {
+								content: "";
+								content: unset;
+								display: none;
+							}
 						}
 
 						.forminator-result--title {
@@ -204,7 +214,15 @@
 							background-color: transparent;
 							background-image: none;
 							line-height: 1.85em;
+							text-decoration: none;
 							text-transform: uppercase;
+
+							&:hover,
+							&:focus,
+							&:active {
+								outline: none;
+								box-shadow: none;
+							}
 						}
 					}
 				}
