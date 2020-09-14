@@ -7092,7 +7092,11 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
           chart.parent().prepend('<ul class="forminator-chart-legend"></ul>'); // Insert legend items
 
           pollData.forEach(function (entry) {
-            chart.parent().find('.forminator-chart-legend').append('<li>' + '<span class="forminator-chart-legend--color" style="background-color: ' + entry[2] + '" aria-hidden="true"></span>' + '<strong>' + entry[0] + ':</strong> ' + entry[1] + ' ' + chartExtras[0] + '</li>');
+            if (true === chartExtras[1]) {
+              chart.parent().find('.forminator-chart-legend').append('<li>' + '<span class="forminator-chart-legend--color" style="background-color: ' + entry[2] + '" aria-hidden="true"></span>' + '<strong>' + entry[0] + ':</strong> ' + entry[1] + ' ' + chartExtras[0] + '</li>');
+            } else {
+              chart.parent().find('.forminator-chart-legend').append('<li>' + '<span class="forminator-chart-legend--color" style="background-color: ' + entry[2] + '" aria-hidden="true"></span>' + '<strong>' + entry[0] + '</strong>' + '</li>');
+            }
           });
         }
       });
