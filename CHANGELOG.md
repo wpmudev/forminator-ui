@@ -1,3 +1,7 @@
+v1.8.6
+- [Fix] Polls UI: Votes count hide not working on pie legend.
+
+
 v1.8.5
 - [Fix] Quiz UI: Retake button styles have conflicts with WordPress themes.
 
