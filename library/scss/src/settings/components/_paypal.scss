@@ -9,6 +9,10 @@
 
 			> .paypal-buttons {
 				display: block !important;
+
+				> iframe {
+					width: 100% !important;
+				}
 			}
 		}
 	}
