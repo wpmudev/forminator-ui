@@ -1,3 +1,7 @@
+v1.8.7
+- [Fix] Forms UI: PayPal field doesn't work properly when using conditionals.
+
+
 v1.8.6
 - [Fix] Polls UI: Votes count hide not working on pie legend.
 
