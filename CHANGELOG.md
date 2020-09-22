@@ -1,3 +1,7 @@
+v1.8.8
+- [Fix] Quiz UI: Retake button wrong styles on small screens.
+
+
 v1.8.7
 - [Fix] Forms UI: PayPal field doesn't work properly when using conditionals.
 
