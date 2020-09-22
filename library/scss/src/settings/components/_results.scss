@@ -47,21 +47,32 @@
 							width: 40px;
 							min-width: auto;
 							height: 40px;
-							overflow: hidden;
 							display: flex;
 							flex: 0 0 auto;
 							align-self: flex-start;
 							align-items: center;
 							justify-content: center;
 							position: relative;
-							text-transform: none;
 
-							[class*="forminator-icon-"] {
+							span[class*="forminator-icon-"] {
 								display: block;
 
 								&:before {
 									display: block;
 								}
+							}
+
+							span:not([class*="forminator-icon-"]) {
+								width: 1px;
+								height: 1px;
+								overflow: hidden;
+								position: absolute;
+								white-space: nowrap;
+								margin: -1px;
+								padding: 0;
+								border: 0;
+								clip: rect(0 0 0 0);
+								clip-path: inset(50%);
 							}
 						}
 
@@ -160,15 +171,7 @@
 							margin: #{$gutter-sm / 2} 0;
 							padding: 0;
 							border: 0;
-							background: none;
-							background-color: rgba(0,0,0,0.1) !important;
-
-							&:before,
-							&:after {
-								content: "";
-								content: unset;
-								display: none;
-							}
+							background-color: rgba(0,0,0,0.1);
 						}
 
 						.forminator-result--title {
@@ -214,15 +217,7 @@
 							background-color: transparent;
 							background-image: none;
 							line-height: 1.85em;
-							text-decoration: none;
 							text-transform: uppercase;
-
-							&:hover,
-							&:focus,
-							&:active {
-								outline: none;
-								box-shadow: none;
-							}
 						}
 					}
 				}
@@ -252,7 +247,7 @@
 
 					.forminator-result--retake {
 
-						[class*="forminator-icon-"] {
+						span[class*="forminator-icon-"] {
 
 							@include media(min-width, sm) {
 
@@ -273,17 +268,18 @@
 							}
 						}
 
-						span {
+						span:not([class*="forminator-icon-"]) {
 
 							@include media(min-width, sm) {
 
 								@if $form-theme == 'default' or $form-theme == 'flat' or $form-theme == 'bold' {
 									width: auto;
 									height: auto;
-									display: inline;
-									position: relative !important;
+									overflow: initial;
+									position: initial;
+									white-space: initial;
 									margin: 0;
-									clip: initial;
+									clip: unset;
 									clip-path: none;
 								}
 							}
