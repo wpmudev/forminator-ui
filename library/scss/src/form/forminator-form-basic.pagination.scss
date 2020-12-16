@@ -1,0 +1,15 @@
+@charset "UTF-8";
+
+@import "../../variables";
+
+$form-type: custom-form;
+$form-theme: basic;
+
+// Mixins.
+@import "../../mixins/breakpoints";
+@import "../../mixins/body-class";
+
+// Components.
+@import "../settings/components/pagination";
+
+@include component-pagination(#{$form-type}, #{$form-theme});
