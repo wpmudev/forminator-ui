@@ -1,3 +1,7 @@
+v1.8.9
+- [Fix] Adding a check if select2 is initialised.
+
+
 v1.8.8
 - [Fix] Quiz UI: Retake button wrong styles on small screens.
 
