@@ -52,14 +52,18 @@
 						$language = 'en';
 					}
 
-					$select.FUIselect2({
-						dir: $dir,
-						language: $language,
-						placeholder: $placeholder,
-						dropdownCssClass: 'forminator-custom-form-' + $formid + ' forminator-dropdown--' + $theme
-					}).on( 'select2:opening', function() {
-						$select.data( 'select2' ).$dropdown.find( ':input.select2-search__field' ).attr( 'placeholder', $placeholder );
-					});
+					if ( 'function' === typeof $select.FUIselect2 ) {
+						$select.FUIselect2({
+							dir: $dir,
+							language: $language,
+							placeholder: $placeholder,
+							dropdownCssClass: 'forminator-custom-form-' + $formid + ' forminator-dropdown--' + $theme
+						}).on( 'select2:opening', function() {
+							$select.data( 'select2' ).$dropdown.find( ':input.select2-search__field' ).attr( 'placeholder', $placeholder );
+						});
+					} else {
+						$select.addClass( 'forminator-select' );
+					}
 				}
 			});
 		});
