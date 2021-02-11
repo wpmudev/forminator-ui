@@ -23,10 +23,11 @@ $esign-reset: 20px;
 			}
 
 			.forminator-signature {
+				width: auto;
 				max-width: 100%;
 				cursor: crosshair;
 				overflow: hidden;
-				display: block;
+				display: inline-block;
 				position: relative;
 				margin: 0;
 				padding: 0;
@@ -88,6 +89,11 @@ $esign-reset: 20px;
 				}
 
 				.forminator-signature--container {
+
+					canvas {
+						outline: none;
+						box-shadow: none;
+					}
 
 					// ELEMENT: Reset Button.
 					+ div {
