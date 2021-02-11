@@ -29,48 +29,50 @@
 
 				var $dir,
 					$language = 'en',
-					$placeholder = null
+					$placeholder = null,
+					$hasSearch = -1
 					;
 
 				if ( $element.hasClass( 'forminator-design--' + $theme ) && $select.length ) {
 
-					if ( true === $select.data( 'rtl-support' ) ) {
-						$dir = 'rtl';
-					} else {
-						$dir = 'ltr';
-					}
+					$select.each( function() {
 
-					if ( '' !== $select.data( 'placeholder' ) ) {
-						$placeholder = $select.data( 'placeholder' );
-					} else {
-						$placeholder = null;
-					}
+						var $select = $( this );
 
-					if ( '' !== $select.data( 'language' ) ) {
-						$language = $select.data( 'language' );
-					} else {
-						$language = 'en';
-					}
+						if ( true === $select.data( 'rtl-support' ) ) {
+							$dir = 'rtl';
+						} else {
+							$dir = 'ltr';
+						}
 
-					if ( 'function' === typeof $select.FUIselect2 ) {
+						if ( '' !== $select.data( 'placeholder' ) ) {
+							$placeholder = $select.data( 'placeholder' );
+						} else {
+							$placeholder = null;
+						}
+
+						if ( '' !== $select.data( 'language' ) ) {
+							$language = $select.data( 'language' );
+						} else {
+							$language = 'en';
+						}
+
+						if ( 'true' === $select.attr( 'data-search' ) ) {
+							$hasSearch = 0;
+						}
+
 						$select.FUIselect2({
 							dir: $dir,
 							language: $language,
 							placeholder: $placeholder,
-							dropdownCssClass: 'forminator-custom-form-' + $formid + ' forminator-dropdown--' + $theme
+							dropdownCssClass: 'forminator-custom-form-' + $formid + ' forminator-dropdown--' + $theme,
+							minimumResultsForSearch: $hasSearch
 						}).on( 'select2:opening', function() {
 							$select.data( 'select2' ).$dropdown.find( ':input.select2-search__field' ).attr( 'placeholder', $placeholder );
 						});
-					} else {
-						$select.addClass( 'forminator-select' );
-					}
+					});
 				}
 			});
 		});
 	};
-
-	$( 'body' ).ready( function() {
-		FUI.select2();
-	});
-
 }( jQuery ) );
