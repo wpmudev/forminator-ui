@@ -123,7 +123,7 @@
 			// POSITION: Top.
 			&.select2-dropdown--above {
 				@if ('default' == $form-theme) {
-					margin-top: #{$default--border-width};
+					margin-top: #{32px + $default--border-width};
 					border-width: $default--border-width $default--border-width 0 $default--border-width;
 					border-radius: $default--border-radius $default--border-radius 0 0;
 
@@ -157,7 +157,7 @@
 			// POSITION: Bottom.
 			&.select2-dropdown--below {
 				@if ('default' == $form-theme) {
-					margin-top: -#{$default--border-width};
+					margin-top: #{30px + $default--border-width};
 					border-width: 0 $default--border-width $default--border-width $default--border-width;
 					border-radius: 0 0 $default--border-radius $default--border-radius;
 
