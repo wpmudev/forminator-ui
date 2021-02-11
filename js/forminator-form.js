@@ -372,170 +372,6 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
     return this;
   };
 })(jQuery);
-(function ($) {
-  FUI.select = function (el) {
-    var $select = $(el),
-        $wrap,
-        $handle,
-        $list,
-        $valwrap,
-        $value,
-        $items; // Add the DOM elements to style the select list
-
-    function setupElement() {
-      var $handler = '<div class="forminator-dropdown-handle">' + '<span class="forminator-icon-chevron-down"></span>' + '</div>';
-      $select.wrap('<div class="forminator-select-container">');
-      $select.addClass('forminator-screen-reader-only');
-
-      if (!$select.is('select')) {
-        return;
-      }
-
-      $wrap = $select.parent();
-      $list = $('<div class="forminator-select-list" aria-hidden="true"></div>').appendTo($wrap);
-      $valwrap = $('<div class="forminator-value-wrapper"></div>').appendTo($list);
-      $value = $('<div class="forminator-value"></div>').appendTo($valwrap);
-      $handle = $($handler).appendTo($valwrap);
-      $items = $('<ul class="forminator-dropdown-list"></ul>').appendTo($list);
-    } // When changing selection using JS, you need to trigger a 'fui:change' event
-    // E.g. $( 'select' ).val( '4' ).trigger( 'fui:change' )
-
-
-    function handleSelectionChange() {
-      $select.on('fui:change', function () {
-        // We need to re-populateList to handle dynamic select options added via JS/ajax
-        populateList();
-        $items.find('li').not('.optgroup-label').on('click', function onItemClick(ev) {
-          var $option = $(ev.target);
-          selectItem($option, false);
-          handleValue();
-        });
-      });
-    } // Add all the options to the new DOM elements
-
-
-    function populateList() {
-      var $children = $select.children();
-      $items.empty();
-      $children.each(function () {
-        var $option = $(this),
-            $item,
-            $label;
-
-        if ('OPTION' === $(this).prop('tagName')) {
-          $item = $('<li></li>').appendTo($items);
-          $item.html($option.text());
-          $item.data('value', $option.val());
-
-          if ($option.val() == $select.val()) {
-            selectItem($item, true);
-          }
-        }
-      });
-    } // Checks the option value for a link
-
-
-    function handleValue() {
-      var $val = $select[0].$value; // If option is link, navigate to it
-
-      if ('undefined' !== typeof $val) {
-        // If option is link, navigate to it
-        if ($val.match('^https?:\/\/|#')) {
-          window.location.href = $val;
-        }
-      }
-    } // Toggle the dropdown state between open/closed
-
-
-    function stateToggle() {
-      if ($wrap.find('select').is(':disabled')) {
-        return;
-      }
-
-      if (!$wrap.hasClass('forminator-is_open')) {
-        stateOpen();
-      } else {
-        stateClose();
-      }
-    } // Close the dropdown list
-
-
-    function stateClose($item) {
-      if (!$item) {
-        $item = $wrap;
-      }
-
-      $item.removeClass('forminator-is_open');
-      $select.closest('.forminator-field').removeClass('forminator-is_active');
-    } // Open the dropdown list
-
-
-    function stateOpen() {
-      $('.forminator-select-container.forminator-is_open').each(function () {
-        stateClose($(this));
-      });
-      $wrap.addClass('forminator-is_open');
-      $select.closest('.forminator-field').addClass('forminator-is_active');
-    } // Visually mark the specified option as "selected"
-
-
-    function selectItem($option, isInit) {
-      isInit = 'undefined' === typeof isInit ? false : isInit;
-      $value.text($option.text());
-      $('.current', $items).removeClass('current');
-      $option.addClass('current');
-      stateClose(); // Also update the select list value.
-
-      $select.val($option.data('value'));
-
-      if (!isInit) {
-        $select.trigger('change');
-      }
-    } // Element constructor
-
-
-    function init() {
-      var $selectID;
-      setupElement();
-      populateList();
-      handleSelectionChange();
-      $items.find('li').on('click', function onItemClick(ev) {
-        var $option = $(ev.target);
-        $select.valid();
-        selectItem($option, false);
-        handleValue();
-        $select.valid();
-      });
-      $handle.on('click', stateToggle);
-      $value.on('click', stateToggle);
-      $select.on('focus', stateOpen);
-      $wrap.mouseover(function (ev) {
-        $wrap.closest('.forminator-field').addClass('forminator-is_hover');
-        ev.stopPropagation();
-      }).mouseout(function (ev) {
-        $wrap.closest('.forminator-field').removeClass('forminator-is_hover');
-        ev.stopPropagation();
-      });
-      $(document).click(function onOutsideClick(ev) {
-        var $select = $(ev.target);
-
-        if ($select.closest('.forminator-select-container').length) {
-          return;
-        }
-
-        stateClose();
-      });
-      $selectID = $select.attr('id');
-
-      if ('' !== $selectID) {
-        $('label[for="' + $selectID + '"]').on('click', stateOpen);
-      }
-    }
-
-    init();
-    return this;
-  };
-})(jQuery);
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 (function ($) {
@@ -555,47 +391,49 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
       $.each($themes, function (index, $theme) {
         var $dir,
             $language = 'en',
-            $placeholder = null;
+            $placeholder = null,
+            $hasSearch = -1;
 
         if ($element.hasClass('forminator-design--' + $theme) && $select.length) {
-          if (true === $select.data('rtl-support')) {
-            $dir = 'rtl';
-          } else {
-            $dir = 'ltr';
-          }
+          $select.each(function () {
+            var $select = $(this);
 
-          if ('' !== $select.data('placeholder')) {
-            $placeholder = $select.data('placeholder');
-          } else {
-            $placeholder = null;
-          }
+            if (true === $select.data('rtl-support')) {
+              $dir = 'rtl';
+            } else {
+              $dir = 'ltr';
+            }
 
-          if ('' !== $select.data('language')) {
-            $language = $select.data('language');
-          } else {
-            $language = 'en';
-          }
+            if ('' !== $select.data('placeholder')) {
+              $placeholder = $select.data('placeholder');
+            } else {
+              $placeholder = null;
+            }
 
-          if ('function' === typeof $select.FUIselect2) {
+            if ('' !== $select.data('language')) {
+              $language = $select.data('language');
+            } else {
+              $language = 'en';
+            }
+
+            if ('true' === $select.attr('data-search')) {
+              $hasSearch = 0;
+            }
+
             $select.FUIselect2({
               dir: $dir,
               language: $language,
               placeholder: $placeholder,
-              dropdownCssClass: 'forminator-custom-form-' + $formid + ' forminator-dropdown--' + $theme
+              dropdownCssClass: 'forminator-custom-form-' + $formid + ' forminator-dropdown--' + $theme,
+              minimumResultsForSearch: $hasSearch
             }).on('select2:opening', function () {
               $select.data('select2').$dropdown.find(':input.select2-search__field').attr('placeholder', $placeholder);
             });
-          } else {
-            $select.addClass('forminator-select');
-          }
+          });
         }
       });
     });
   };
-
-  $('body').ready(function () {
-    FUI.select2();
-  });
 })(jQuery);
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 

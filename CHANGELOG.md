@@ -1,3 +1,11 @@
+v1.8.11
+- [Fix] Forms UI: Multiselect options not having enough padding.
+- [Fix] Forms UI: Remove `FUI.select()` function.
+- [Fix] Forms UI: Select2 dropdown overlaps selected option.
+- [Fix] Forms UI: Select2 only loads first element attributes.
+- [Enhance] Forms UI: Option to enable/disable Select2 search.
+
+
 v1.8.10
 - [Fix] Forms UI: Material textarea label overlaps value when field is part of pagination form.
 - [Fix] Forms UI: Make eSign field looks fine when sizing gets broken if part of pagination form.
