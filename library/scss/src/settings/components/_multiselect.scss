@@ -33,7 +33,7 @@
 			.forminator-option {
 				cursor: pointer;
 				display: block;
-				@if ('default' != $form-theme) {
+				@if ('material' != $form-theme) {
 					margin: #{map-get($dropdown, padding) / 2} 0;
 					padding: map-get($dropdown, padding);
 				}
