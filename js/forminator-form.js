@@ -220,11 +220,10 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 
     if (textarea.hasClass('wp-editor-area')) {
       return;
-    }
+    } // if ( textarea.parent().hasClass( 'forminator-textarea--wrap' ) ) {
+    // 	return;
+    // }
 
-    if (textarea.parent().hasClass('forminator-textarea--wrap')) {
-      return;
-    }
 
     function init() {
       // Wrap Element
