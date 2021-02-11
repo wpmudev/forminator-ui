@@ -1,3 +1,8 @@
+v1.8.10
+- [Fix] Forms UI: Material textarea label overlaps value when field is part of pagination form.
+- [Fix] Forms UI: Make eSign field looks fine when sizing gets broken if part of pagination form.
+
+
 v1.8.9
 - [Fix] Adding a check if select2 is initialised.
 
