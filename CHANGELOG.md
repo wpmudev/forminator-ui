@@ -1,3 +1,7 @@
+v1.8.12
+- [Fix] Forms UI: Minify Select2.
+
+
 v1.8.11
 - [Fix] Forms UI: Multiselect options not having enough padding.
 - [Fix] Forms UI: Remove `FUI.select()` function.
