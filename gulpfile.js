@@ -355,6 +355,18 @@ gulp.task( 'library:scripts:select2', function( cb ) {
 
 	pump([
 		gulp.src( library.watch.scripts.select2 ),
+		babel({
+			presets: [
+				[ '@babel/env', {
+					modules: false
+				} ]
+			]
+		}),
+		concat( 'select2.full.js' ),
+		rename({
+			suffix: '.min'
+		}),
+		uglify(),
 		gulp.dest( library.output.scripts ),
 		gulp.dest( showcase.output.scripts ),
 		browserSync.stream()
