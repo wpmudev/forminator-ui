@@ -1,3 +1,7 @@
+v1.8.13
+- [Fix] Forms UI: reCAPTCHA 3 not showing up with Divi themes.
+
+
 v1.8.12
 - [Fix] Forms UI: Minify Select2.
 
