@@ -37,6 +37,7 @@ $form-theme: default;
 @import "../settings/components/checkbox";
 @import "../settings/components/select";
 @import "../settings/components/button";
+@import "../settings/components/recaptcha";
 
 // Call Components.
 @include component-response(#{$form-type}, #{$form-theme});
@@ -51,3 +52,4 @@ $form-theme: default;
 @include component-checkbox(#{$form-type}, #{$form-theme});
 @include component-select(#{$form-type}, #{$form-theme});
 @include component-button(#{$form-type}, #{$form-theme});
+@include component-recaptcha(#{$form-type}, #{$form-theme});

@@ -1,0 +1,12 @@
+@mixin component-recaptcha($form-type: no-type, $form-theme: no-theme) {
+    
+    @include form-class($form-type, $form-theme, false) {
+
+        .forminator-g-recaptcha {
+
+            .grecaptcha-badge {
+                visibility: visible;
+            }
+        }
+    }
+}
