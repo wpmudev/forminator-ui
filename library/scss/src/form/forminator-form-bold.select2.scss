@@ -1,0 +1,25 @@
+@charset "UTF-8";
+
+@import "../../variables";
+
+$form-type: custom-form;
+$form-theme: bold;
+
+// Helpers.
+@import "../../helpers/text-reset";
+@import "../../helpers/text-truncate";
+@import "../../helpers/icon-styles";
+@import "../../helpers/screen-readers";
+
+// Mixins.
+@import "../../mixins/body-class";
+@import "../../mixins/breakpoints";
+@import "../../mixins/opacity";
+@import "../../mixins/icons";
+
+// Components.
+@import "../settings/components/select2";
+@import "../settings/components/select2-dropdown";
+
+@include component-select2(#{$form-type}, #{$form-theme});
+@include component-dropdown2(#{$form-type}, #{$form-theme});
