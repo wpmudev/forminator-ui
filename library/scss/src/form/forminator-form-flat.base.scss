@@ -35,7 +35,6 @@ $form-theme: flat;
 @import "../settings/components/textarea";
 @import "../settings/components/radio";
 @import "../settings/components/checkbox";
-@import "../settings/components/select";
 @import "../settings/components/button";
 @import "../settings/components/recaptcha";
 
@@ -50,6 +49,5 @@ $form-theme: flat;
 @include component-textarea(#{$form-type}, #{$form-theme});
 @include component-radio(#{$form-type}, #{$form-theme});
 @include component-checkbox(#{$form-type}, #{$form-theme});
-@include component-select(#{$form-type}, #{$form-theme});
 @include component-button(#{$form-type}, #{$form-theme});
 @include component-recaptcha(#{$form-type}, #{$form-theme});
