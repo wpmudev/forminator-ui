@@ -1,3 +1,8 @@
+v1.8.14
+- [Fix] Forms UI: Split Select2 in different stylesheets.
+- [Fix] Forms UI: Remove old select styles.
+
+
 v1.8.13
 - [Fix] Forms UI: reCAPTCHA 3 not showing up with Divi themes.
 
