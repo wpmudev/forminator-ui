@@ -1,3 +1,7 @@
+v1.8.15
+- [Fix] Forms UI: File import not found or unreadable.
+
+
 v1.8.14
 - [Fix] Forms UI: Split Select2 in different stylesheets.
 - [Fix] Forms UI: Remove old select styles.
