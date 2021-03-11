@@ -1,3 +1,8 @@
+v1.9.0
+- [Fix] Forms UI: Change dropdown parent when inside SUI dialog.
+- [Enhance] Forms UI: Upgrade to Select2 4.1.0-rc.0.
+
+
 v1.8.15
 - [Fix] Forms UI: File import not found or unreadable.
 
