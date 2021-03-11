@@ -1,185 +1,223 @@
 @mixin component-dropdown2($form-type: no-type, $form-theme: no-theme) {
 
-	.select2-container {
+	.forminator-select {
 
-		&, span {
+		&.forminator-select-dropdown-container--open {
 			display: block;
-		}
+			margin-top: 33px;
+			z-index: 999;
 
-		[class*="forminator-dropdown-"] {
-
-			.select2-search {
-
-				input {
-					line-height: $input--line-height;
-					transition: $transition--ease;
-
-					&,
-					&:hover,
-					&:focus,
-					&:active {
-						outline: none;
-						box-shadow: none;
-					}
-				}
+			* {
+				box-sizing: border-box;
+				font-variant-ligatures: none;
+				-webkit-font-variant-ligatures: none;
+				text-rendering: optimizeLegibility;
+				-moz-osx-font-smoothing: grayscale;
+				font-smoothing: antialiased;
+				-webkit-font-smoothing: antialiased;
+				text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
 			}
 
-			.select2-results {
+			.forminator-select-dropdown {
+				display: block;
+				margin: 0;
 
-				.select2-results__options {
-					max-height: $dropdown--height;
-					padding: #{$dropdown--padding / 2} 0;
+				// Search input.
+				.select2-search {
+					display: block;
+					margin: 0 0 $dropdown--padding;
+					padding: 0 $dropdown--padding;
 
-					.select2-results__option {
-						line-height: $dropdown--line-height;
-						transition: $transition--ease;
-					}
-				}
-			}
-		}
+					input {
+						width: 100%;
+						max-width: 100%;
+						display: block;
+						margin: 0;
 
-		.forminator-dropdown--#{$form-theme} {
-			@if ('default' == $form-theme) {
-				border-style: $default--border-style;
-			}
-			@if ('flat' == $form-theme) {
-				border-width: 0;
-				border-style: none;
-				border-radius: 0;
-			}
-			@if ('bold' == $form-theme) {
-				border-right-width: $bold--border-width;
-				border-left-width: $bold--border-width;
-				border-style: $bold--border-style;
-				border-radius: 0;
-			}
-			@if ('material' == $form-theme) {
-				border: 0;
-				border-radius: 0;
-				box-shadow: $material--dropdown-shadow;
-			}
-
-			.select2-search {
-				@if ('flat' == $form-theme) {
-					padding: $dropdown--padding;
-				}
-				@if ('bold' == $form-theme) {
-					padding: 0 #{$dropdown--padding - $bold--border-width} #{$dropdown--padding - $bold--border-width};
-				}
-				@if ('material' == $form-theme) {
-					padding: $dropdown--padding;
-				}
-
-				input {
-					@if ('default' == $form-theme) {
-						padding: #{$input--padding - $default--border-width};
-						border-width: $default--border-width;
-						border-style: $default--border-style;
-						border-radius: $default--border-radius;
-					}
-					@if ('flat' == $form-theme) {
-						padding: $input--padding;
-						border-width: 0;
-						border-style: none;
-						border-radius: 0;
-						line-height: $input--line-height;
-					}
-					@if ('bold' == $form-theme) {
-						padding: #{$input--padding - $bold--border-width};
-						border-width: $bold--border-width;
-						border-style: $bold--border-style;
-						border-radius: 0;
-					}
-					@if ('material' == $form-theme) {
-						padding: $input--padding;
-						border-width: 0;
-						border-style: none;
-						border-radius: 0;
-					}
-				}
-			}
-
-			.select2-results {
-
-				.select2-results__options {
-
-					.select2-results__option {
-						@if ('default' == $form-theme) {
-							padding: $dropdown--padding #{$dropdown--padding - ($default--border-width * 2)};
+						&:hover,
+						&:focus {
+							outline: none;
+							box-shadow: none;
 						}
-						@if ('flat' == $form-theme) {
+					}
+
+					&.select2-search--hide {
+						display: none !important;
+					}
+				}
+
+				// Dropdown list.
+				.select2-results {
+					display: block;
+					margin: 0;
+					padding: 0;
+					border: 0;
+
+					.select2-results__options {
+						max-height: 200px;
+						overflow-y: auto;
+						display: block;
+						margin: 0;
+						padding: 0;
+						border: 0;
+						list-style: none;
+
+						.select2-results__option {
+							user-select: none;
+							display: block;
+							margin: 0;
+							border: 0;
+							line-height: 35px;
+							list-style: none;
+
+							&.select2-results__message {
+								position: relative;
+								margin: 0 15px;
+								padding: 15px 20px;
+								border: 0;
+							}
+
+							&:not(.select2-results__option--selected) {
+								cursor: pointer;
+							}
+						}
+					}
+				}
+
+				// DESIGN: Default.
+				&.forminator-dropdown--default {
+					padding: #{$dropdown--padding - $default--border-width} 0;
+					border-width: $default--border-width;
+					border-style: $default--border-style;
+
+					// Search input.
+					.select2-search {
+						margin: 0 0 #{$dropdown--padding - $default--border-width};
+						padding: 0 #{$dropdown--padding - $default--border-width};
+
+						input {
+							padding: #{$dropdown--padding - $default--border-width};
+							border-width: $default--border-width;
+							border-style: $default--border-style;
+							border-radius: 2px;
+						}
+					}
+
+					// Dropdown list.
+					.select2-results {
+
+						.select2-results__options {
+
+							.select2-results__option {
+								padding: #{$dropdown--padding / 2} #{$dropdown--padding - ($default--border-width * 2)};
+
+								&.select2-results__message {
+									border-radius: 2px;
+								}
+							}
+						}
+					}
+				}
+
+				// DESIGN: Flat.
+				&.forminator-dropdown--flat {
+					padding: $dropdown--padding 0;
+					border-width: 0;
+					border-style: none;
+
+					// Search input.
+					.select2-search {
+						margin: 0 0 $dropdown--padding;
+						padding: 0 $dropdown--padding;
+
+						input {
 							padding: $dropdown--padding;
+							border-width: 0;
+							border-style: none;
+							border-radius: 0;
 						}
-						@if ('bold' == $form-theme) {
-							padding: $dropdown--padding #{$dropdown--padding - ($bold--border-width * 2)};
+					}
+
+					// Dropdown list.
+					.select2-results {
+
+						.select2-results__options {
+
+							.select2-results__option {
+								padding: #{$dropdown--padding / 2} $dropdown--padding;
+							}
 						}
-						@if ('material' == $form-theme) {
-							padding: $dropdown--padding #{$dropdown--padding - ($default--border-width * 2)};
+					}
+				}
+
+				// DESIGN: Bold.
+				&.forminator-dropdown--bold {
+					padding: #{$dropdown--padding - $bold--border-width} 0;
+					border-width: $bold--border-width;
+					border-style: $bold--border-style;
+
+					// Search input.
+					.select2-search {
+						margin: 0 0 #{$dropdown--padding - $bold--border-width};
+						padding: 0 #{$dropdown--padding - $bold--border-width};
+
+						input {
+							padding: #{$dropdown--padding - $bold--border-width};
+							border-width: $bold--border-width;
+							border-style: $bold--border-style;
+						}
+					}
+
+					// Dropdown list.
+					.select2-results {
+
+						.select2-results__options {
+
+							.select2-results__option {
+								padding: #{$dropdown--padding / 2} #{$dropdown--padding - ($bold--border-width * 2)};
+							}
+						}
+					}
+				}
+
+				// DESIGN: Material.
+				&.forminator-dropdown--material {
+					padding: $dropdown--padding 0;
+
+					// Search input.
+					.select2-search {
+
+						input {
+							padding: 0 0 $input--padding;
+							border-width: 0;
+							border-bottom-width: 1px;
+							border-style: solid;
+							background: none transparent;
+							background-color: transparent !important;
+						}
+					}
+
+					// Dropdown list.
+					.select2-results {
+
+						.select2-results__options {
+
+							.select2-results__option {
+								padding: #{$dropdown--padding / 2} #{$dropdown--padding - ($default--border-width * 2)};
+							}
 						}
 					}
 				}
 			}
+		}
+	}
 
-			// POSITION: Top.
-			&.select2-dropdown--above {
-				@if ('default' == $form-theme) {
-					margin-top: #{32px + $default--border-width};
-					border-width: $default--border-width $default--border-width 0 $default--border-width;
-					border-radius: $default--border-radius $default--border-radius 0 0;
+	.sui-dialog-content {
 
-					.select2-search {
-						padding: #{$dropdown--padding - $default--border-width};
-					}
-				}
-				@if ('flat' == $form-theme) {
-					margin-top: -2px;
-				}
-				@if ('bold' == $form-theme) {
-					margin-top: #{$bold--border-width};
-					border-top-width: $bold--border-width;
-					border-bottom-width: 0;
+		.forminator-select {
 
-					.select2-search {
-						padding: #{$dropdown--padding - $bold--border-width};
-					}
-				}
-				@if ('material' == $form-theme) {
-					margin-bottom: 4px;
-				}
-
-				@if ('default' == $form-theme) {
-					.select2-search {
-						padding: #{$dropdown--padding - $default--border-width};
-					}
-				}
-			}
-
-			// POSITION: Bottom.
-			&.select2-dropdown--below {
-				@if ('default' == $form-theme) {
-					margin-top: #{30px + $default--border-width};
-					border-width: 0 $default--border-width $default--border-width $default--border-width;
-					border-radius: 0 0 $default--border-radius $default--border-radius;
-
-					.select2-search {
-						padding: 0 #{$dropdown--padding - $default--border-width} #{$dropdown--padding - $default--border-width};
-					}
-				}
-				@if ('flat' == $form-theme) {
-					margin-top: 2px;
-				}
-				@if ('bold' == $form-theme) {
-					margin-top: -#{$bold--border-width};
-					border-top-width: 0;
-					border-bottom-width: $bold--border-width;
-
-					.select2-search {
-						padding: 0 #{$dropdown--padding - $bold--border-width} #{$dropdown--padding - $bold--border-width};
-					}
-				}
-				@if ('material' == $form-theme) {
-					margin-top: 4px;
-				}
+			&.forminator-select-dropdown-container--open {
+				margin-top: 1px;
 			}
 		}
 	}
