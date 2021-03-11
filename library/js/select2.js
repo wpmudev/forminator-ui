@@ -37,7 +37,8 @@
 
 					$select.each( function() {
 
-						var $select = $( this );
+						var $select = $( this ),
+							$parent = $select.closest( '.sui-dialog-content' );
 
 						if ( true === $select.data( 'rtl-support' ) ) {
 							$dir = 'rtl';
@@ -61,12 +62,17 @@
 							$hasSearch = 0;
 						}
 
+						if ( ! $parent.length ) {
+							$parent = $( document.body );
+						}
+
 						$select.FUIselect2({
 							dir: $dir,
 							language: $language,
 							placeholder: $placeholder,
 							dropdownCssClass: 'forminator-custom-form-' + $formid + ' forminator-dropdown--' + $theme,
-							minimumResultsForSearch: $hasSearch
+							minimumResultsForSearch: $hasSearch,
+							dropdownParent: $parent
 						}).on( 'select2:opening', function() {
 							$select.data( 'select2' ).$dropdown.find( ':input.select2-search__field' ).attr( 'placeholder', $placeholder );
 						});
