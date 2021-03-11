@@ -2,198 +2,338 @@
 
 	@include form-class($form-type, $form-theme, false) {
 
-		.forminator-select2 {
-			@extend %screen-readers;
+		select.forminator-select2 {
 
-			+ .select2-container {
-				width: 100% !important;
+			+ .forminator-select {
+				min-width: 100%;
+				max-width: 100%;
 				display: block;
+				text-align: left;
 
-				&, * {
-					outline: none;
-				}
-
+				// STATE: Default.
 				.selection {
-					cursor: pointer;
 					display: block;
 
-					.select2-selection {
-						display: flex;
-						transition: $transition--ease;
+					span[role="combobox"] {
 
-						.select2-selection__rendered {
-							display: block;
-							flex: 1;
-							margin-right: $select--padding;
-							padding-right: 0;
-							padding-left: 0;
-							line-height: $select--line-height;
-						}
-
-						.select2-selection__arrow {
-							width: $select--handle-size;
-							height: $select--handle-size;
+						// TYPE: Single Select.
+						&.select2-selection--single {
+							height: auto;
+							cursor: pointer;
+							user-select: none;
 							display: flex;
-							flex: 0 0 $select--handle-size;
+							flex-flow: row nowrap;
 							align-items: center;
-							justify-content: center;
-							position: unset;
-							top: auto;
-							right: auto;
+							position: relative;
+							margin: 0;
+							padding: 0;
+							@if ('default' == $form-theme) {
+								border-width: $default--border-width;
+								border-style: $default--border-style;
+							}
+							@else if ('flat' == $form-theme) {
+								border-width: 0;
+								border-style: none;
+							}
+							@else if ('bold' == $form-theme) {
+								border-width: $bold--border-width;
+								border-style: $bold--border-style;
+							}
+							@else if ('material' == $form-theme) {
+								border-width: 0;
+								border-bottom-width: 1px;
+								border-style: $material--border-style;
+							}
 
-							@include icon(before, chevron-down) {
+							@if ('material' == $form-theme) {
+								&:before {
+									content: " ";
+									height: 2px;
+									display: block;
+									position: absolute;
+									z-index: 2;
+									right: 50%;
+									bottom: -1px;
+									left: 50%;
+									transition: 0.2s linear;
+								}
+							}
+
+							// Label.
+							.select2-selection__rendered {
+								min-width: 10px;
+								overflow: hidden;
 								display: block;
-								font-size: $select--handle-icon;
-								transition: $transition--linear;
+								flex: 1;
+								@if ('default' == $form-theme) {
+									padding: #{10px - ($default--border-width * 2)} 5px #{10px - ($default--border-width * 2)} 14px;
+								}
+								@else if ('flat' == $form-theme) {
+									padding: 8px 5px 8px 14px;
+								}
+								@else if ('bold' == $form-theme) {
+									padding: #{10px - ($bold--border-width * 2)} 5px #{10px - ($bold--border-width * 2)} 14px;
+								}
+								@else if ('material' == $form-theme) {
+									padding: 8px 5px 8px 0;
+								}
+								text-overflow: ellipsis;
+								white-space: nowrap;
 							}
 
-							b {
-								display: none;
+							// Icon.
+							.select2-selection__arrow {
+								width: auto;
+								height: 38px;
+								display: flex;
+								flex: 0 0 auto;
+								flex-flow: row wrap;
+								align-items: center;
+								position: relative;
+								margin: 0;
+								padding: 0;
+								border: 0;
+
+								[class*="forminator-icon-"] {
+									display: block;
+									margin: 0 auto;
+									font-size: $select--handle-icon;
+									transition: $transition--linear;
+
+									&:before {
+										display: block;
+										color: inherit;
+									}
+								}
 							}
-						}
-					}
-				}
 
-				&--default {
-
-					.select2-selection--single {
-						height: auto;
-					}
-				}
-
-				// STATUS: Open.
-				&--open {
-
-					.selection {
-
-						.select2-selection {
-
-							.select2-selection__arrow:before {
-								transform: rotate(180deg);
+							@if ('material' == $form-theme) {
+								&:hover,
+								&[aria-expanded="true"] {
+									
+									&:before {
+										right: 0;
+										left: 0;
+									}
+								}
 							}
-						}
-					}
-				}
-			}
 
-			+ .select2-container--default {
+							&[aria-expanded="true"] {
 
-				@if ('default' == $form-theme) {
+								// Icon.
+								.select2-selection__arrow {
 
-					.select2-selection--single {
-						padding-top: #{($select--height - ($select--line-height + ($default--border-width * 2))) / 2};
-						padding-right: #{$select--padding - $default--border-width};
-						padding-bottom: #{($select--height - ($select--line-height + ($default--border-width * 2))) / 2};
-						padding-left: #{$select--padding - $default--border-width};
-						border-width: $default--border-width;
-						border-style: $default--border-style;
-						border-radius: $default--border-radius;
-					}
-
-					&.select2-container--open {
-
-						// POSITION: Top
-						&.select2-container--above {
-
-							.select2-selection--single {
-								border-top-color: transparent !important;
-								border-top-left-radius: 0;
-								border-top-right-radius: 0;
-							}
-						}
-
-						// POSITION: Bottom
-						&.select2-container--below {
-
-							.select2-selection--single {
-								border-bottom-color: transparent !important;
-								border-bottom-right-radius: 0;
-								border-bottom-left-radius: 0;
-							}
-						}
-					}
-				}
-
-				@if ('flat' == $form-theme) {
-
-					.select2-selection--single {
-						padding: $select--padding;
-						border-width: 0;
-						border-style: none;
-						border-radius: 0;
-					}
-				}
-
-				@if ('bold' == $form-theme) {
-
-					.select2-selection--single {
-						padding-top: #{($select--height - ($select--line-height + ($bold--border-width * 2))) / 2};
-						padding-right: #{$select--padding - $bold--border-width};
-						padding-bottom: #{($select--height - ($select--line-height + ($bold--border-width * 2))) / 2};
-						padding-left: #{$select--padding - $bold--border-width};
-						border-width: $bold--border-width;
-						border-style: $bold--border-style;
-						border-radius: 0;
-					}
-
-					&.select2-container--open {
-
-						// POSITION: Top
-						&.select2-container--above {
-
-							.select2-selection--single {
-								border-top-color: transparent !important;
+									[class*="forminator-icon-"] {
+										transform: rotate(180deg);
+									}
+								}
 							}
 						}
 
-						// POSITION: Bottom
-						&.select2-container--below {
-
-							.select2-selection--single {
-								border-bottom-color: transparent !important;
-							}
-						}
-					}
-				}
-
-				@if ('material' == $form-theme) {
-
-					&, * {
-						background-color: transparent;
-					}
-
-					.select2-selection--single {
-						padding-top: $select--padding;
-						padding-right: 0;
-						padding-bottom: #{$select--padding - $material--border-width};
-						padding-left: 0;
-						border-width: 0 0 $material--border-width 0;
-						border-style: $material--border-style;
-						border-radius: 0;
-
-						&:before {
-							content: " ";
-							height: 2px;
-							display: block;
-							position: absolute;
-							right: 50%;
-							bottom: 0;
-							left: 50%;
-							box-sizing: border-box;
-							transition: 0.2s linear;
+						&:hover,
+						&:focus {
+							outline: none;
+							box-shadow: none;
 						}
 					}
 
 					&:hover,
-					&.select2-container--open {
-
-						.select2-selection--single:before {
-							right: 0;
-							left: 0;
-						}
+					&:focus {
+						outline: none;
+						box-shadow: none;
 					}
+				}
+
+				&:hover,
+				&:focus {
+					outline: none;
+					box-shadow: none;
 				}
 			}
 		}
+
+		// .forminator-select2 {
+		// 	@extend %screen-readers;
+
+		// 	+ .select2-container {
+		// 		width: 100% !important;
+		// 		display: block;
+
+		// 		&, * {
+		// 			outline: none;
+		// 		}
+
+		// 		.selection {
+		// 			cursor: pointer;
+		// 			display: block;
+
+		// 			.select2-selection {
+		// 				display: flex;
+		// 				transition: $transition--ease;
+
+		// 				.select2-selection__rendered {
+		// 					display: block;
+		// 					flex: 1;
+		// 					margin-right: $select--padding;
+		// 					padding-right: 0;
+		// 					padding-left: 0;
+		// 					line-height: $select--line-height;
+		// 				}
+
+		// 				.select2-selection__arrow {
+		// 					width: $select--handle-size;
+		// 					height: $select--handle-size;
+		// 					display: flex;
+		// 					flex: 0 0 $select--handle-size;
+		// 					align-items: center;
+		// 					justify-content: center;
+		// 					position: unset;
+		// 					top: auto;
+		// 					right: auto;
+		// 				}
+		// 			}
+		// 		}
+
+		// 		&--default {
+
+		// 			.select2-selection--single {
+		// 				height: auto;
+		// 			}
+		// 		}
+
+		// 		// STATUS: Open.
+		// 		&--open {
+
+		// 			.selection {
+
+		// 				.select2-selection {
+
+		// 					.select2-selection__arrow:before {
+		// 						transform: rotate(180deg);
+		// 					}
+		// 				}
+		// 			}
+		// 		}
+		// 	}
+
+		// 	+ .select2-container--default {
+
+		// 		@if ('default' == $form-theme) {
+
+		// 			.select2-selection--single {
+		// 				padding-top: #{($select--height - ($select--line-height + ($default--border-width * 2))) / 2};
+		// 				padding-right: #{$select--padding - $default--border-width};
+		// 				padding-bottom: #{($select--height - ($select--line-height + ($default--border-width * 2))) / 2};
+		// 				padding-left: #{$select--padding - $default--border-width};
+		// 				border-width: $default--border-width;
+		// 				border-style: $default--border-style;
+		// 				border-radius: $default--border-radius;
+		// 			}
+
+		// 			&.select2-container--open {
+
+		// 				// POSITION: Top
+		// 				&.select2-container--above {
+
+		// 					.select2-selection--single {
+		// 						border-top-color: transparent !important;
+		// 						border-top-left-radius: 0;
+		// 						border-top-right-radius: 0;
+		// 					}
+		// 				}
+
+		// 				// POSITION: Bottom
+		// 				&.select2-container--below {
+
+		// 					.select2-selection--single {
+		// 						border-bottom-color: transparent !important;
+		// 						border-bottom-right-radius: 0;
+		// 						border-bottom-left-radius: 0;
+		// 					}
+		// 				}
+		// 			}
+		// 		}
+
+		// 		@if ('flat' == $form-theme) {
+
+		// 			.select2-selection--single {
+		// 				padding: $select--padding;
+		// 				border-width: 0;
+		// 				border-style: none;
+		// 				border-radius: 0;
+		// 			}
+		// 		}
+
+		// 		@if ('bold' == $form-theme) {
+
+		// 			.select2-selection--single {
+		// 				padding-top: #{($select--height - ($select--line-height + ($bold--border-width * 2))) / 2};
+		// 				padding-right: #{$select--padding - $bold--border-width};
+		// 				padding-bottom: #{($select--height - ($select--line-height + ($bold--border-width * 2))) / 2};
+		// 				padding-left: #{$select--padding - $bold--border-width};
+		// 				border-width: $bold--border-width;
+		// 				border-style: $bold--border-style;
+		// 				border-radius: 0;
+		// 			}
+
+		// 			&.select2-container--open {
+
+		// 				// POSITION: Top
+		// 				&.select2-container--above {
+
+		// 					.select2-selection--single {
+		// 						border-top-color: transparent !important;
+		// 					}
+		// 				}
+
+		// 				// POSITION: Bottom
+		// 				&.select2-container--below {
+
+		// 					.select2-selection--single {
+		// 						border-bottom-color: transparent !important;
+		// 					}
+		// 				}
+		// 			}
+		// 		}
+
+		// 		@if ('material' == $form-theme) {
+
+		// 			&, * {
+		// 				background-color: transparent;
+		// 			}
+
+		// 			.select2-selection--single {
+		// 				padding-top: $select--padding;
+		// 				padding-right: 0;
+		// 				padding-bottom: #{$select--padding - $material--border-width};
+		// 				padding-left: 0;
+		// 				border-width: 0 0 $material--border-width 0;
+		// 				border-style: $material--border-style;
+		// 				border-radius: 0;
+
+		// 				&:before {
+		// 					content: " ";
+		// 					height: 2px;
+		// 					display: block;
+		// 					position: absolute;
+		// 					right: 50%;
+		// 					bottom: 0;
+		// 					left: 50%;
+		// 					box-sizing: border-box;
+		// 					transition: 0.2s linear;
+		// 				}
+		// 			}
+
+		// 			&:hover,
+		// 			&.select2-container--open {
+
+		// 				.select2-selection--single:before {
+		// 					right: 0;
+		// 					left: 0;
+		// 				}
+		// 			}
+		// 		}
+		// 	}
+		// }
 	}
 }
