@@ -83,7 +83,12 @@
 
 							// Icon.
 							.select2-selection__arrow {
-								width: auto;
+								@if ('material' == $form-theme) {
+									width: auto;
+								}
+								@else {
+									width: 38px;
+								}
 								height: 38px;
 								display: flex;
 								flex: 0 0 auto;
