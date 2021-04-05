@@ -1,4 +1,7 @@
 v1.9.1
+- fix(select2): Select field has space between dropdown and field.
+
+v1.9.1
 - 🐛 fix(select2): Wrong selection arrow size.
 - 🐛 fix(multiselect): Page jumps when selecting an option.
 
