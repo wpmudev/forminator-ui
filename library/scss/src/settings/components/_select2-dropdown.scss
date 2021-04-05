@@ -1,6 +1,7 @@
 @mixin component-dropdown2($form-type: no-type, $form-theme: no-theme) {
 
-	body.admin-bar .forminator-select.forminator-select-dropdown-container--open {
+	// if admin bar and not a preview.
+	body.admin-bar :not(.sui-box-body)>.forminator-ui .forminator-select.forminator-select-dropdown-container--open {
 		margin-top: 33px;
 	}
 
