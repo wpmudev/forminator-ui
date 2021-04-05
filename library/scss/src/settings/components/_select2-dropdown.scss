@@ -1,10 +1,13 @@
 @mixin component-dropdown2($form-type: no-type, $form-theme: no-theme) {
 
+	body.admin-bar .forminator-select.forminator-select-dropdown-container--open {
+		margin-top: 33px;
+	}
+
 	.forminator-select {
 
 		&.forminator-select-dropdown-container--open {
 			display: block;
-			margin-top: 33px;
 			z-index: 999;
 
 			* {
