@@ -1,4 +1,4 @@
-v1.9.1
+v1.9.2
 - fix(select2): Select field has space between dropdown and field.
 
 v1.9.1
