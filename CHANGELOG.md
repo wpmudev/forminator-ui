@@ -1,3 +1,6 @@
+v1.9.3
+- 🐛 fix(textarea): Text editor shows up on error even if visual editor is selected
+
 v1.9.2
 - fix(select2): Select field has space between dropdown and field.
 

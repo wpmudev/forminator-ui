@@ -103,5 +103,10 @@
 				}
 			}
 		}
+
+		// On Error
+		.forminator-has_error .tmce-active .forminator-textarea.wp-editor-area {
+			display: none;
+		}
 	}
 }
