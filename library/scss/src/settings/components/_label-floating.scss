@@ -94,12 +94,22 @@
 						}
 					}
 				}
+
+				.forminator-input-with-phone {
+
+					.flag-container {
+						top: -20px;
+					}
+				}
 			}
 
 			.forminator-is_filled {
 
 				.forminator-floating--input {
-					padding-left: 0 !important;
+
+					&:not(.forminator-has_phone) {
+						padding-left: 0 !important;
+					}
 				}
 			}
 
