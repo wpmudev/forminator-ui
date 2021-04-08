@@ -1,3 +1,6 @@
+v1.9.4
+- 🐛 fix(phone field): Fix flag selector positioning for phone field when using material style
+
 v1.9.3
 - 🐛 fix(textarea): Text editor shows up on error even if visual editor is selected
 
