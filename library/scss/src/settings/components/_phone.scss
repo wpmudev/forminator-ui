@@ -105,13 +105,14 @@
 			@if ('material' == $form-theme) {
 				//position: unset;
 				display: block;
+				min-height: 40px;
 			}
 
 			.flag-container {
 				@if ('material' == $form-theme) {
 					flex: 0 0 auto;
 					position: absolute;
-					top: 11px;
+					top: 2px;
 					left: 0;
 					padding: 0;
 				}
@@ -189,6 +190,7 @@
 				.forminator-input--wrap {
 					position: absolute;
 					top: 0;
+					width: 100%;
 				}
 			}
 		}
