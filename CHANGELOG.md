@@ -1,3 +1,6 @@
+v1.9.?
+- 🐛 fix(unordered list): Unordered list does not have bullets in admin preview
+
 v1.9.3
 - 🐛 fix(textarea): Text editor shows up on error even if visual editor is selected
 
