@@ -103,18 +103,22 @@
 
 		.forminator-input-with-phone {
 			@if ('material' == $form-theme) {
-				position: unset;
+				//position: unset;
+				display: block;
+				min-height: 40px;
 			}
 
 			.flag-container {
 				@if ('material' == $form-theme) {
 					flex: 0 0 auto;
-					position: relative;
+					position: absolute;
+					top: 2px;
+					left: 0;
 					padding: 0;
 				}
 
 				.selected-flag {
-					width: auto;
+					width: 31px;
 					display: flex;
 					align-items: center;
 					margin: 0;
@@ -159,10 +163,6 @@
 						&:first-child {
 							margin-right: map-get($input, padding);
 						}
-
-						&:last-child {
-							margin-left: map-get($input, padding);
-						}
 					}
 				}
 
@@ -183,6 +183,14 @@
 				&:active {
 					outline: none;
 					box-shadow: none;
+				}
+			}
+
+			@if ('material' == $form-theme) {
+				.forminator-input--wrap {
+					position: absolute;
+					top: 0;
+					width: 100%;
 				}
 			}
 		}
