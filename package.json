@@ -1,0 +1,27 @@
+{
+  "name": "forminator-ui",
+  "version": "1.9.4",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wpmudev/forminator-ui.git"
+  },
+  "keywords": [],
+  "author": "WPMU DEV (https://wpmudev.com/)",
+  "contributors": [
+    {
+      "name": "Leighton Sapir",
+      "email": "2328848+iamleigh@users.noreply.github.com",
+      "url": "https://iamleigh.com/"
+    }
+  ],
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://incsub.atlassian.net/browse/FOR"
+  },
+  "homepage": "https://github.com/wpmudev/forminator-ui#readme"
+}
