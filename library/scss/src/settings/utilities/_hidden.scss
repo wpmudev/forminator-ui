@@ -1,9 +1,0 @@
-@mixin utility-hidden($form-type: no-type, $form-theme: no-theme) {
-
-	@include form-class($form-type, $form-theme, false) {
-
-		.forminator-hidden {
-			display: none !important;
-		}
-	}
-}
