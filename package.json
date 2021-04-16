@@ -32,7 +32,8 @@
     "@storybook/addon-essentials": "^6.2.8",
     "@storybook/addon-links": "^6.2.8",
     "@storybook/html": "^6.2.8",
-    "babel-loader": "^8.2.2"
+    "babel-loader": "^8.2.2",
+    "gulp": "^4.0.2"
   },
   "dependencies": {}
 }
