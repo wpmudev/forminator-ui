@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "build": "gulp styles"
   },
   "repository": {
     "type": "git",
@@ -33,7 +34,12 @@
     "@storybook/addon-links": "^6.2.8",
     "@storybook/html": "^6.2.8",
     "babel-loader": "^8.2.2",
-    "gulp": "^4.0.2"
+    "css-vars-ponyfill": "^2.4.3",
+    "gulp": "^4.0.2",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^4.1.0",
+    "node-sass": "^5.0.0"
   },
   "dependencies": {}
 }
