@@ -1,0 +1,61 @@
+@mixin design-class($material: false) {
+
+    @if $material {
+
+        &[data-design="material"] {
+            @content;
+        }
+    }
+
+    @else {
+
+        &:not([data-design="material"]) {
+            @content;
+        }
+    }
+}
+
+@mixin form-class($divi: false, $material: false) {
+
+    @if $divi {
+
+        .et-db #et-boc .et_pb_module .forminator-ui {
+            @include design-class() {
+                @content;
+            }
+        }
+    }
+
+    @else {
+
+        .forminator-ui {
+            @include design-class() {
+                @content;
+            }
+        }
+    }
+}
+
+// THIS IS A TEST.
+@include form-class(false, false) {
+
+    .forminator-field,
+    .forminator-label,
+    .forminator-input,
+    .forminator-description {
+        display: block;
+    }
+
+    .forminator-label {
+        margin: 0;
+        padding: 0;
+        border: 0;
+    }
+
+    .forminator-input {
+        max-width: 100%;
+        display: block;
+        margin: 0;
+        border-style: solid;
+    }
+}
