@@ -1,3 +1,5 @@
+import "../src/stories/assets/forminator-ui.min.css"; // Get Forminator UI styles.
+import "../src/stories/assets/forminator-material.min.css"; // Get Forminator Material styles.
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
