@@ -1,0 +1,33 @@
+@import './mixins';
+
+@include form-class(false, false) {
+
+    * {
+        box-sizing: border-box;
+    }
+
+    .forminator-field,
+    .forminator-label,
+    .forminator-input,
+    .forminator-description {
+        display: block;
+    }
+
+    .forminator-label {
+        margin: 0 0 5px;
+        padding: 0;
+        border: 0;
+    }
+
+    .forminator-input {
+        width: 100%;
+        max-width: 100%;
+        display: block;
+        margin: 0;
+        border-style: solid;
+    }
+
+    .forminator-description {
+        margin: 5px 0 0;
+    }
+}
