@@ -1,7 +1,11 @@
 import { createInput } from './Input';
 
+import "../assets/css/form-basic.min.css"; // Get Forminator basic styles.
+import "../assets/css/form-ui.min.css"; // Get Forminator UI styles.
+import "../assets/css/form-material.min.css"; // Get Forminator Material styles.
+
 export default {
-    title: 'Form UI/Input',
+    title: 'Form UI/Components/Input',
     argTypes: {
         id: {
             name: 'Field ID',
@@ -34,27 +38,33 @@ export default {
             name: '(Input) Placeholder',
             control: 'text'
         },
-        borderWidth: {
-            name: '(Input) Border Width',
+        design: {
+            name: 'Design',
             control: {
-                type: 'number',
-                min: 0,
-                max: 10
-            }
-        },
-        borderRadius: {
-            name: '(Input) Border Radius',
-            control: {
-                type: 'number',
-                min: 0
+                type: 'inline-radio',
+                options: [
+                    'default',
+                    'flat',
+                    'bold',
+                    'material',
+                    'none'
+                ]
             }
         },
         backgroundColor: {
             name: '(Input) Background Color',
             control: 'color'
         },
+        backgroundColorHover: {
+            name: '(Input) Background Color - Hover',
+            control: 'color'
+        },
         color: {
             name: '(Input) Color',
+            control: 'color'
+        },
+        colorHover: {
+            name: '(Input) Color - Hover',
             control: 'color'
         },
         fontSize: {
@@ -99,7 +109,30 @@ export default {
                 ]
             },
         },
-    },
+        descColor: {
+            name: '(Description) Color',
+            control: 'color'
+        },
+        descFontSize: {
+            name: '(Description) Font Size',
+            control: {
+                type: 'number',
+                min: 0
+            }
+        },
+        descFontWeight: {
+            name: '(Description) Font Weight',
+            control: {
+                type: 'select',
+                options: [
+                    'lighter',
+                    'normal',
+                    'bold',
+                    'bolder',
+                ]
+            },
+        },
+    }
 };
 
 const Template = ({ ...args }) => {
@@ -114,15 +147,19 @@ DefaultDesign.args = {
     label: 'Full Name',
     description: 'Optional description for name field.',
     placeholder: 'E.g. John Doe',
-    borderWidth: 1,
-    borderRadius: 2,
+    design: 'default',
     backgroundColor: '#ededed',
+    backgroundColorHover: '#ededed',
     color: '#000000',
+    colorHover: '#000000',
     fontSize: 16,
     fontWeight: 'normal',
     labelColor: '#777771',
     labelFontSize: 12,
     labelFontWeight: 'normal',
+    descColor: '#777771',
+    descFontSize: 12,
+    descFontWeight: 'normal',
 };
 
 export const FlatDesign = Template.bind({});
@@ -130,8 +167,7 @@ FlatDesign.storyName = 'Flat';
 FlatDesign.args = {
     ...DefaultDesign.args,
     id: 'full-name-flat',
-    borderWidth: 0,
-    borderRadius: 0
+    design: 'flat',
 };
 
 export const BoldDesign = Template.bind({});
@@ -139,8 +175,7 @@ BoldDesign.storyName = 'Bold';
 BoldDesign.args = {
     ...DefaultDesign.args,
     id: 'full-name-bold',
-    borderWidth: 3,
-    borderRadius: 0
+    design: 'bold',
 };
 
 export const MaterialDesign = Template.bind({});
@@ -148,6 +183,19 @@ MaterialDesign.storyName = 'Material';
 MaterialDesign.args = {
     ...DefaultDesign.args,
     id: 'full-name-material',
-    borderWidth: 1,
-    borderRadius: 0
+    design: 'material',
+    backgroundColor: 'transparent',
+    backgroundColorHover: 'transparent',
+    backgroundColorFocus: 'transparent',
+};
+
+export const NoneDesign = Template.bind({});
+NoneDesign.storyName = 'None';
+NoneDesign.args = {
+    id: 'full-name-none',
+    type: 'text',
+    label: 'Full Name',
+    description: 'Optional description for name field.',
+    placeholder: 'E.g. John Doe',
+    design: 'none'
 };

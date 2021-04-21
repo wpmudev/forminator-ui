@@ -4,23 +4,68 @@ export const createInput = ({
     label,
     description,
     placeholder,
-    borderWidth,
-    borderRadius,
+    design,
     backgroundColor,
+    backgroundColorHover,
     color,
     fontSize,
     fontWeight,
     labelColor,
     labelFontSize,
     labelFontWeight,
+    descColor,
+    descFontSize,
+    descFontWeight,
 }) => {
+    const defaults = {};
+    defaults.padding = 10;
+    defaults.border = 0;
+    defaults.borderRadius = 0;
+
+    switch(design) {
+        case 'default':
+            defaults.border = 1;
+            defaults.borderRadius = 2;
+            break;
+
+        case 'bold':
+            defaults.border = 3;
+            break;
+
+        case 'material':
+            defaults.border = 1;
+            break;
+    }
+
+    // Create input.
     const input = document.createElement('input');
     input.setAttribute('type', type);
     input.classList = 'forminator-input';
-    input.style.padding = (10 - borderWidth) + 'px';
-    input.style.borderWidth = borderWidth + 'px';
-    input.style.borderRadius = borderRadius + 'px';
-    input.style.backgroundColor = backgroundColor;
+    switch(design) {
+        case 'default':
+        case 'flat':
+        case 'bold':
+            input.style.padding = (defaults.padding - defaults.border) + 'px';
+            input.style.borderWidth = defaults.border + 'px';
+            input.style.borderRadius = defaults.borderRadius + 'px';
+            input.style.backgroundColor = backgroundColor;
+            input.onmouseover = function() {
+                input.style.backgroundColor = backgroundColorHover;
+            }
+            input.onmouseleave = function() {
+                input.style.backgroundColor = backgroundColor;
+            }
+            break;
+
+        case 'material':
+            input.style.padding = '10px 0';
+            input.style.paddingBottom = (defaults.padding - defaults.border) + 'px';
+            input.style.borderWidth = 0;
+            input.style.borderBottomWidth = defaults.border + 'px';
+            input.style.borderRadius = defaults.borderRadius + 'px';
+            input.style.backgroundColor = 'transparent';
+            break;
+    }
     input.style.color = color;
     input.style.fontSize = fontSize + 'px';
     input.style.fontWeight = fontWeight;
@@ -37,6 +82,9 @@ export const createInput = ({
     const inputDescContent = document.createTextNode(description);
     inputDescWrapper.appendChild(inputDescContent);
     inputDescWrapper.classList = 'forminator-description';
+    inputDescWrapper.style.color = descColor;
+    inputDescWrapper.style.fontSize = descFontSize + 'px';
+    inputDescWrapper.style.fontWeight = descFontWeight;
 
     if ( 'undefined' !== typeof id ) {
         input.setAttribute('id', id );
@@ -74,6 +122,9 @@ export const createInput = ({
     // Create form.
     const form = document.createElement('div');
     form.classList = 'forminator-ui forminator-custom-form';
+    if ( 'none' !== design ) {
+        form.setAttribute('data-design', design);
+    }
     form.appendChild(row);
 
     return form;
