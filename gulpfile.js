@@ -10,7 +10,7 @@ sass.compiler = require('node-sass');
 var paths = {
     styles: {
         source: 'src/scss/**/*.scss',
-        story: 'src/stories/assets/',
+        story: 'src/stories/assets/css/',
         dest: 'dist/css/'
     }
 };
