@@ -1,0 +1,43 @@
+@mixin wrapper-class($divi: false) {
+    @if $divi {
+        .et-db #et-boc .et_pb_module .forminator-ui {
+            @content;
+        }
+    }
+
+    @else if 'both' == $divi {
+        .forminator-ui,
+        .et-db #et-boc .et_pb_module .forminator-ui {
+            @content;
+        }
+    }
+
+    @else {
+        .forminator-ui {
+            @content;
+        }
+    }
+}
+
+@mixin design-class($material: false) {
+
+    @if $material {
+        &[data-design="material"] {
+            @content;
+        }
+    }
+
+    @else {
+        &[data-design] {
+            @content;
+        }
+    }
+}
+
+@mixin form-class($divi: false, $material: false) {
+    @include wrapper-class($divi) {
+        @include design-class($material) {
+            @content;
+        }
+    }
+}
