@@ -1,0 +1,16 @@
+@import './mixins';
+
+@include wrapper-class($divi: false) {
+    * {
+        box-sizing: border-box;
+    }
+
+    .forminator-field,
+    .forminator-label {
+        display: block;
+    }
+
+    .forminator-description {
+        display: flex;
+    }
+}
