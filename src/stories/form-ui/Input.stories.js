@@ -47,6 +47,7 @@ export default {
                     'flat',
                     'bold',
                     'material',
+                    'basic',
                     'none'
                 ]
             }
