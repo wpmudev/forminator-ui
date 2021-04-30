@@ -190,6 +190,17 @@ MaterialDesign.args = {
     backgroundColorFocus: 'transparent',
 };
 
+export const BasicDesign = Template.bind({});
+BasicDesign.storyName = 'Basic';
+BasicDesign.args = {
+    id: 'full-name-basic',
+    type: 'text',
+    label: 'Full Name',
+    description: 'Optional description for name field.',
+    placeholder: 'E.g. John Doe',
+    design: 'basic'
+};
+
 export const NoneDesign = Template.bind({});
 NoneDesign.storyName = 'None';
 NoneDesign.args = {
