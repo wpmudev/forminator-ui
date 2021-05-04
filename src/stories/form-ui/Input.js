@@ -123,6 +123,7 @@ export const createInput = ({
         case 'default':
         case 'flat':
         case 'bold':
+            inputErrorWrapper.style.borderRadius = inputCSS.borderRadius + 'px'; // Border radius needs to match input styles.
             inputErrorWrapper.style.background = errorCSS.background;
             inputErrorWrapper.style.color = errorCSS.color;
             inputErrorWrapper.style.fontSize = errorCSS.fontSize;
