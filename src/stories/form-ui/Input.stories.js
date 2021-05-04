@@ -4,40 +4,23 @@ import "../assets/css/form-basic.min.css"; // Get Forminator basic styles.
 import "../assets/css/form-ui.min.css"; // Get Forminator UI styles.
 import "../assets/css/form-material.min.css"; // Get Forminator Material styles.
 
+const listFontFamily = [
+    'inherit',
+    'cursive',
+    'monospace',
+    'system-ui',
+];
+
+const listFontWeight = [
+    'lighter',
+    'normal',
+    'bold',
+    'bolder'
+];
+
 export default {
     title: 'Form UI/Components/Input',
     argTypes: {
-        id: {
-            name: 'Field ID',
-            type: {
-                name: 'string',
-                required: true
-            },
-            control: 'text'
-        },
-        label: {
-            name: 'Label',
-            control: 'text'
-        },
-        description: {
-            name: 'Description',
-            control: 'text'
-        },
-        type: {
-            name: '(Input) Type',
-            control: {
-                type: 'select',
-                options: [
-                    'text',
-                    'number',
-                    'email'
-                ]
-            },
-        },
-        placeholder: {
-            name: '(Input) Placeholder',
-            control: 'text'
-        },
         design: {
             name: 'Design',
             control: {
@@ -52,86 +35,241 @@ export default {
                 ]
             }
         },
-        backgroundColor: {
-            name: '(Input) Background Color',
-            control: 'color'
+        // id: {
+        //     name: 'Field ID',
+        //     type: {
+        //         name: 'string',
+        //         required: true
+        //     },
+        //     control: 'text'
+        // },
+        label: {
+            name: 'Label',
+            control: 'text'
         },
-        backgroundColorHover: {
-            name: '(Input) Background Color - Hover',
-            control: 'color'
+        placeholder: {
+            name: 'Placeholder',
+            control: 'text'
         },
-        color: {
-            name: '(Input) Color',
-            control: 'color'
+        description: {
+            name: 'Description',
+            control: 'text'
         },
-        colorHover: {
-            name: '(Input) Color - Hover',
-            control: 'color'
-        },
-        fontSize: {
-            name: '(Input) Font Size',
+        errorState: {
+            name: 'Error State',
             control: {
-                type: 'number',
-                min: 0
+                type: 'boolean'
             }
         },
-        fontWeight: {
-            name: '(Input) Font Weight',
-            control: {
-                type: 'select',
-                options: [
-                    'lighter',
-                    'normal',
-                    'bold',
-                    'bolder',
-                ]
-            },
+        errorMessage: {
+            name: 'Error Message',
+            control: 'text'
+        },
+        // Category: Colors.
+        inputBorder: {
+            name: 'Border Color',
+            control: 'color',
+            table: {
+                category: 'Colors',
+                subcategory: 'Input'
+            }
+        },
+        inputBackground: {
+            name: 'Background Color',
+            control: 'color',
+            table: {
+                category: 'Colors',
+                subcategory: 'Input'
+            }
+        },
+        inputBackgroundHover: {
+            name: 'Background Color (Hover)',
+            control: 'color',
+            table: {
+                category: 'Colors',
+                subcategory: 'Input'
+            }
+        },
+        inputColor: {
+            name: 'Value Color',
+            control: 'color',
+            table: {
+                category: 'Colors',
+                subcategory: 'Input'
+            }
+        },
+        inputColorHover: {
+            name: 'Value Color (Hover)',
+            control: 'color',
+            table: {
+                category: 'Colors',
+                subcategory: 'Input'
+            }
         },
         labelColor: {
-            name: '(Label) Color',
-            control: 'color'
+            name: 'Label Color',
+            control: 'color',
+            table: {
+                category: 'Colors',
+                subcategory: 'Fields Basics'
+            }
         },
-        labelFontSize: {
-            name: '(Label) Font Size',
+        descColor: {
+            name: 'Description Color',
+            control: 'color',
+            table: {
+                category: 'Colors',
+                subcategory: 'Fields Basics'
+            }
+        },
+        errorBackground: {
+            name: 'Error Message Background',
+            control: 'color',
+            table: {
+                category: 'Colors',
+                subcategory: 'Fields Basics'
+            }
+        },
+        errorColor: {
+            name: 'Error Message Color',
+            control: 'color',
+            table: {
+                category: 'Colors',
+                subcategory: 'Fields Basics'
+            }
+        },
+        // Category: Fonts.
+        inputFontSize: {
+            name: 'Font Size (in px)',
             control: {
                 type: 'number',
                 min: 0
+            },
+            table: {
+                category: 'Fonts',
+                subcategory: 'Input'
+            }
+        },
+        inputFontFamily: {
+            name: 'Font Family',
+            control: {
+                type: 'select',
+                options: listFontFamily
+            },
+            table: {
+                category: 'Fonts',
+                subcategory: 'Input'
+            }
+        },
+        inputFontWeight: {
+            name: 'Font Weight',
+            control: {
+                type: 'select',
+                options: listFontWeight
+            },
+            table: {
+                category: 'Fonts',
+                subcategory: 'Input'
+            }
+        },
+        labelFontSize: {
+            name: 'Font Size (in px)',
+            control: {
+                type: 'number',
+                min: 0
+            },
+            table: {
+                category: 'Fonts',
+                subcategory: 'Fields Label'
+            }
+        },
+        labelFontFamily: {
+            name: 'Font Family',
+            control: {
+                type: 'select',
+                options: listFontFamily
+            },
+            table: {
+                category: 'Fonts',
+                subcategory: 'Fields Label'
             }
         },
         labelFontWeight: {
-            name: '(Label) Font Weight',
+            name: 'Font Weight',
             control: {
                 type: 'select',
-                options: [
-                    'lighter',
-                    'normal',
-                    'bold',
-                    'bolder',
-                ]
+                options: listFontWeight
             },
-        },
-        descColor: {
-            name: '(Description) Color',
-            control: 'color'
+            table: {
+                category: 'Fonts',
+                subcategory: 'Fields Label'
+            }
         },
         descFontSize: {
-            name: '(Description) Font Size',
+            name: 'Font Size (in px)',
             control: {
                 type: 'number',
                 min: 0
+            },
+            table: {
+                category: 'Fonts',
+                subcategory: 'Fields Description'
+            }
+        },
+        descFontFamily: {
+            name: 'Font Family',
+            control: {
+                type: 'select',
+                options: listFontFamily
+            },
+            table: {
+                category: 'Fonts',
+                subcategory: 'Fields Description'
             }
         },
         descFontWeight: {
-            name: '(Description) Font Weight',
+            name: 'Font Weight',
             control: {
                 type: 'select',
-                options: [
-                    'lighter',
-                    'normal',
-                    'bold',
-                    'bolder',
-                ]
+                options: listFontWeight
             },
+            table: {
+                category: 'Fonts',
+                subcategory: 'Fields Description'
+            }
+        },
+        errorFontSize: {
+            name: 'Font Size (in px)',
+            control: {
+                type: 'number',
+                min: 0
+            },
+            table: {
+                category: 'Fonts',
+                subcategory: 'Fields Error Message'
+            }
+        },
+        errorFontFamily: {
+            name: 'Font Family',
+            control: {
+                type: 'select',
+                options: listFontFamily
+            },
+            table: {
+                category: 'Fonts',
+                subcategory: 'Fields Error Message'
+            }
+        },
+        errorFontWeight: {
+            name: 'Font Weight',
+            control: {
+                type: 'select',
+                options: listFontWeight
+            },
+            table: {
+                category: 'Fonts',
+                subcategory: 'Fields Error Message'
+            }
         },
     }
 };
@@ -143,71 +281,82 @@ const Template = ({ ...args }) => {
 export const DefaultDesign = Template.bind({});
 DefaultDesign.storyName = 'Default';
 DefaultDesign.args = {
-    id: 'full-name-default',
-    type: 'text',
+    // id: 'full-name-default',
     label: 'Full Name',
     description: 'Optional description for name field.',
+    errorState: false,
+    errorMessage: 'This field is required. Please input a valid value.',
     placeholder: 'E.g. John Doe',
     design: 'default',
-    backgroundColor: '#ededed',
-    backgroundColorHover: '#ededed',
-    color: '#000000',
-    colorHover: '#000000',
-    fontSize: 16,
-    fontWeight: 'normal',
+    inputBorder: '#777771',
+    inputBackground: '#ededed',
+    inputBackgroundHover: '#ededed',
+    inputColor: '#000000',
+    inputColorHover: '#000000',
+    inputFontSize: 16,
+    inputFontFamily: 'inherit',
+    inputFontWeight: 'normal',
     labelColor: '#777771',
     labelFontSize: 12,
-    labelFontWeight: 'normal',
+    labelFontFamily: 'inherit',
+    labelFontWeight: 'bold',
     descColor: '#777771',
     descFontSize: 12,
+    descFontFamily: 'inherit',
     descFontWeight: 'normal',
+    errorBackground: '#F9E4E8',
+    errorColor: '#E04562',
+    errorFontSize: 12,
+    errorFontFamily: 'inherit',
+    errorFontWeight: 'normal',
 };
 
-export const FlatDesign = Template.bind({});
-FlatDesign.storyName = 'Flat';
-FlatDesign.args = {
+export const stateError = Template.bind({});
+stateError.storyName = 'Error';
+stateError.args = {
     ...DefaultDesign.args,
-    id: 'full-name-flat',
-    design: 'flat',
+    errorState: true
 };
 
-export const BoldDesign = Template.bind({});
-BoldDesign.storyName = 'Bold';
-BoldDesign.args = {
-    ...DefaultDesign.args,
-    id: 'full-name-bold',
-    design: 'bold',
-};
+// export const FlatDesign = Template.bind({});
+// FlatDesign.storyName = 'Flat';
+// FlatDesign.args = {
+//     ...DefaultDesign.args,
+//     id: 'full-name-flat',
+//     design: 'flat',
+// };
 
-export const MaterialDesign = Template.bind({});
-MaterialDesign.storyName = 'Material';
-MaterialDesign.args = {
-    ...DefaultDesign.args,
-    id: 'full-name-material',
-    design: 'material',
-    backgroundColor: 'transparent',
-    backgroundColorHover: 'transparent',
-    backgroundColorFocus: 'transparent',
-};
+// export const BoldDesign = Template.bind({});
+// BoldDesign.storyName = 'Bold';
+// BoldDesign.args = {
+//     ...DefaultDesign.args,
+//     id: 'full-name-bold',
+//     design: 'bold',
+// };
 
-export const BasicDesign = Template.bind({});
-BasicDesign.storyName = 'Basic';
-BasicDesign.args = {
-    id: 'full-name-basic',
-    type: 'text',
-    label: 'Full Name',
-    description: 'Optional description for name field.',
-    placeholder: 'E.g. John Doe',
-    design: 'basic'
-};
+// export const MaterialDesign = Template.bind({});
+// MaterialDesign.storyName = 'Material';
+// MaterialDesign.args = {
+//     ...DefaultDesign.args,
+//     id: 'full-name-material',
+//     design: 'material',
+//     backgroundColor: 'transparent',
+//     backgroundColorHover: 'transparent',
+//     backgroundColorFocus: 'transparent',
+// };
 
-export const NoneDesign = Template.bind({});
-NoneDesign.storyName = 'None';
-NoneDesign.args = {
-    id: 'full-name-none',
-    type: 'text',
-    label: 'Full Name',
-    description: 'Optional description for name field.',
-    placeholder: 'E.g. John Doe',
-    design: 'none'
-};
+// export const BasicDesign = Template.bind({});
+// BasicDesign.storyName = 'Basic';
+// BasicDesign.args = {
+//     ...DefaultDesign.args,
+//     id: 'full-name-basic',
+//     design: 'basic'
+// };
+
+// export const NoneDesign = Template.bind({});
+// NoneDesign.storyName = 'None';
+// NoneDesign.args = {
+//     ...DefaultDesign.args,
+//     id: 'full-name-none',
+//     design: 'none'
+// };
