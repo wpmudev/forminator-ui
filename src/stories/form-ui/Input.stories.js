@@ -311,28 +311,21 @@ DefaultDesign.args = {
     errorFontWeight: 'normal',
 };
 
-export const stateError = Template.bind({});
-stateError.storyName = 'Error';
-stateError.args = {
+export const FlatDesign = Template.bind({});
+FlatDesign.storyName = 'Flat';
+FlatDesign.args = {
     ...DefaultDesign.args,
-    errorState: true
+    // id: 'full-name-flat',
+    design: 'flat',
 };
 
-// export const FlatDesign = Template.bind({});
-// FlatDesign.storyName = 'Flat';
-// FlatDesign.args = {
-//     ...DefaultDesign.args,
-//     id: 'full-name-flat',
-//     design: 'flat',
-// };
-
-// export const BoldDesign = Template.bind({});
-// BoldDesign.storyName = 'Bold';
-// BoldDesign.args = {
-//     ...DefaultDesign.args,
-//     id: 'full-name-bold',
-//     design: 'bold',
-// };
+export const BoldDesign = Template.bind({});
+BoldDesign.storyName = 'Bold';
+BoldDesign.args = {
+    ...DefaultDesign.args,
+    // id: 'full-name-bold',
+    design: 'bold',
+};
 
 // export const MaterialDesign = Template.bind({});
 // MaterialDesign.storyName = 'Material';
