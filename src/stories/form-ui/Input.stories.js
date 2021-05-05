@@ -80,6 +80,22 @@ export default {
                 subcategory: 'Input'
             }
         },
+        inputBorderHover: {
+            name: 'Border Color (Hover)',
+            control: 'color',
+            table: {
+                category: 'Colors',
+                subcategory: 'Input'
+            }
+        },
+        inputBorderError: {
+            name: 'Border Color (Error)',
+            control: 'color',
+            table: {
+                category: 'Colors',
+                subcategory: 'Input'
+            }
+        },
         inputBackground: {
             name: 'Background Color',
             control: 'color',
@@ -304,8 +320,10 @@ DefaultDesign.args = {
     placeholder: 'E.g. John Doe',
     design: 'default',
     inputBorder: '#777771',
-    inputBackground: '#ededed',
-    inputBackgroundHover: '#ededed',
+    inputBorderHover: '#17A8E3',
+    inputBorderError: '#E04562',
+    inputBackground: '#EDEDED',
+    inputBackgroundHover: '#E6E6E6',
     inputColor: '#000000',
     inputColorHover: '#000000',
     inputFontSize: 16,

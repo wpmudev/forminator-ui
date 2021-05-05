@@ -8,6 +8,7 @@ export const createInput = ({
     placeholder,
     inputBorder,
     inputBorderHover,
+    inputBorderError,
     inputBackground,
     inputBackgroundHover,
     inputColor,
@@ -38,6 +39,7 @@ export const createInput = ({
     inputCSS.borderRadius = 2;
     inputCSS.borderColor = inputBorder;
     inputCSS.borderColorHover = inputBorderHover;
+    inputCSS.borderColorError = inputBorderError;
     inputCSS.background = inputBackground;
     inputCSS.backgroundHover = inputBackgroundHover;
     inputCSS.color = inputColor;
@@ -63,12 +65,30 @@ export const createInput = ({
     input.classList = 'forminator-input';
     switch (design) {
         case 'default':
-        case 'flat':
         case 'bold':
             input.style.padding = (inputCSS.padding - inputCSS.borderWidth) + 'px';
             input.style.borderWidth = inputCSS.borderWidth + 'px';
             input.style.borderRadius = inputCSS.borderRadius + 'px';
-            input.style.borderColor = inputCSS.borderColor;
+            if (errorState) {
+                input.style.borderColor = inputCSS.borderColorError;
+            } else {
+                input.style.borderColor = inputCSS.borderColor;
+            }
+            input.style.background = inputCSS.background;
+            input.style.color = inputCSS.color;
+            input.style.fontSize = inputCSS.fontSize;
+            if ( 'inherit' !== inputCSS.fontFamily ) {
+                input.style.fontFamily = inputCSS.fontFamily;
+            }
+            input.style.fontWeight = inputCSS.fontWeight;
+            break;
+
+        case 'flat':
+            input.style.padding = (inputCSS.padding - inputCSS.borderWidth) + 'px';
+            input.style.borderWidth = inputCSS.borderWidth + 'px';
+            if (errorState) {
+                input.style.boxShadow = 'inset 2px 0 0 0 ' + inputCSS.borderColorError;
+            }
             input.style.background = inputCSS.background;
             input.style.color = inputCSS.color;
             input.style.fontSize = inputCSS.fontSize;
@@ -103,7 +123,7 @@ export const createInput = ({
     // Create label.
     const inputLabelWrapper = document.createElement('label');
     inputLabelWrapper.innerHTML = label;
-    if ( required ) {
+    if (required) {
         inputLabelWrapper.innerHTML += ' ';
         inputLabelWrapper.appendChild(requiredAsterisk);
     }
@@ -176,7 +196,7 @@ export const createInput = ({
     // Create field.
     const field = document.createElement('div');
     field.classList = 'forminator-field';
-    if ( errorState ) {
+    if (errorState) {
         field.classList.add( 'forminator-has_error' );
     }
     if ( 'undefined' !== typeof label && '' !== label ) {
