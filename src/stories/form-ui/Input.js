@@ -2,6 +2,7 @@ export const createInput = ({
     design,
     label,
     description,
+    required,
     errorState,
     errorMessage,
     placeholder,
@@ -15,6 +16,7 @@ export const createInput = ({
     inputFontFamily,
     inputFontWeight,
     labelColor,
+    requiredColor,
     labelFontSize,
     labelFontFamily,
     labelFontWeight,
@@ -81,6 +83,16 @@ export const createInput = ({
         input.setAttribute( 'placeholder', placeholder );
     }
 
+    // REQUIRED: Editable styles.
+    const requiredCSS = {};
+    requiredCSS.color = requiredColor;
+
+    // Create required (asterisk).
+    const requiredAsterisk = document.createElement('span');
+    requiredAsterisk.innerHTML = '*';
+    requiredAsterisk.classList = 'forminator-required';
+    requiredAsterisk.style.color = requiredCSS.color;
+
     // LABEL: Editable styles.
     const labelCSS = {};
     labelCSS.color = labelColor;
@@ -90,8 +102,11 @@ export const createInput = ({
 
     // Create label.
     const inputLabelWrapper = document.createElement('label');
-    const inputLabelContent = document.createTextNode(label);
-    inputLabelWrapper.appendChild(inputLabelContent);
+    inputLabelWrapper.innerHTML = label;
+    if ( required ) {
+        inputLabelWrapper.innerHTML += ' ';
+        inputLabelWrapper.appendChild(requiredAsterisk);
+    }
     inputLabelWrapper.classList = 'forminator-label';
     switch (design) {
         case 'default':
@@ -116,8 +131,7 @@ export const createInput = ({
 
     // Create error message.
     const inputErrorWrapper = document.createElement('span');
-    const inputErrorContent = document.createTextNode(errorMessage);
-    inputErrorWrapper.appendChild(inputErrorContent);
+    inputErrorWrapper.innerHTML = errorMessage;
     inputErrorWrapper.classList = 'forminator-error-message';
     switch (design) {
         case 'default':

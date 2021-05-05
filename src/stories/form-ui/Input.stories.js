@@ -55,6 +55,12 @@ export default {
             name: 'Description',
             control: 'text'
         },
+        required: {
+            name: 'Required',
+            control: {
+                type: 'boolean'
+            }
+        },
         errorState: {
             name: 'Error State',
             control: {
@@ -108,6 +114,14 @@ export default {
         },
         labelColor: {
             name: 'Label Color',
+            control: 'color',
+            table: {
+                category: 'Colors',
+                subcategory: 'Fields Basics'
+            }
+        },
+        requiredColor: {
+            name: 'Required Asterisk',
             control: 'color',
             table: {
                 category: 'Colors',
@@ -284,6 +298,7 @@ DefaultDesign.args = {
     // id: 'full-name-default',
     label: 'Full Name',
     description: 'Optional description for name field.',
+    required: false,
     errorState: false,
     errorMessage: 'This field is required. Please input a valid value.',
     placeholder: 'E.g. John Doe',
@@ -296,6 +311,7 @@ DefaultDesign.args = {
     inputFontSize: 16,
     inputFontFamily: 'inherit',
     inputFontWeight: 'normal',
+    requiredColor: '#E04562',
     labelColor: '#777771',
     labelFontSize: 12,
     labelFontFamily: 'inherit',
