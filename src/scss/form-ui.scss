@@ -1,16 +1,8 @@
 @import './mixins';
 
 @include form-class(false, false) {
-
     * {
         box-sizing: border-box;
-    }
-
-    .forminator-field,
-    .forminator-label,
-    .forminator-input,
-    .forminator-description {
-        display: block;
     }
 
     .forminator-label {
@@ -29,5 +21,11 @@
 
     .forminator-description {
         margin: 5px 0 0;
+    }
+
+    .forminator-error-message {
+        margin: 5px 0 0;
+        padding: 2px 10px;
+        line-height: 2em;
     }
 }
