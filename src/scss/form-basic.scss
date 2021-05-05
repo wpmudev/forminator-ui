@@ -5,12 +5,25 @@
         box-sizing: border-box;
     }
 
-    .forminator-field,
-    .forminator-label {
-        display: block;
+    .forminator-field {
+
+        &, label {
+            display: block;
+        }
     }
 
     .forminator-description {
         display: flex;
+    }
+
+    .forminator-error-message {
+        display: none;
+    }
+
+    .forminator-has_error {
+        
+        .forminator-error-message {
+            display: block;
+        }
     }
 }
