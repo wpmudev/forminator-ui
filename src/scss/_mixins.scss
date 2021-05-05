@@ -22,13 +22,13 @@
 @mixin design-class($material: false) {
 
     @if $material {
-        &[data-design="material"] {
+        &.forminator-material {
             @content;
         }
     }
 
     @else {
-        &[data-design] {
+        &.forminator-styled {
             @content;
         }
     }
