@@ -1,0 +1,48 @@
+@import './mixins';
+@import './breakpoints';
+
+@include wrapper-class($divi: false) {
+    
+    // ELEMENT: Row
+	.forminator-row {
+
+		&:focus {
+			outline: none;
+			box-shadow: none;
+		}
+
+		@include media(min-width, sm) {
+			display: flex;
+            flex-flow: row wrap;
+		}
+	}
+
+    // ELEMENT: Column
+	.forminator-col {
+
+		&:focus {
+			outline: none;
+			box-shadow: none;
+		}
+
+		@include media(min-width, sm) {
+			min-width: 0;
+			flex: 1;
+		}
+	}
+
+    // ELEMENT: Multiple Columns
+	.forminator-col-3,
+	.forminator-col-4 {
+
+		.forminator-row {
+
+			&[data-multiple="true"] {
+
+				@include media(min-width, sm) {
+					display: block;
+				}
+			}
+		}
+	}
+}
