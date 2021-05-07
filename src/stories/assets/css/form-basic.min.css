@@ -1,1 +1,1 @@
-.forminator-ui *{box-sizing:border-box}.forminator-ui .forminator-field,.forminator-ui .forminator-label{display:block}.forminator-ui .forminator-description{display:flex}
+.forminator-ui *{box-sizing:border-box}.forminator-ui .forminator-field,.forminator-ui .forminator-field label{display:block}.forminator-ui .forminator-description{display:flex}.forminator-ui .forminator-error-message{display:none}.forminator-ui .forminator-has_error .forminator-error-message{display:block}
