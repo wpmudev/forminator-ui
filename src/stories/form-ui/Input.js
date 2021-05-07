@@ -222,7 +222,12 @@ export const createInput = ({
 
     // Create form.
     const form = document.createElement('div');
-    form.classList = 'forminator-ui forminator-custom-form';
+    form.classList = 'forminator-custom-form';
+    if ( 'none' === design ) {
+        form.classList.remove('forminator-ui');
+    } else {
+        form.classList.add('forminator-ui');
+    }
     switch (design) {
         case 'default' :
         case 'flat' :
