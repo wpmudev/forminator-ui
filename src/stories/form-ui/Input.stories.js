@@ -22,7 +22,7 @@ export default {
     title: 'Form UI/Components/Input',
     argTypes: {
         design: {
-            name: 'Design',
+            name: 'Form Design',
             control: {
                 type: 'inline-radio',
                 options: [
@@ -35,16 +35,16 @@ export default {
                 ]
             }
         },
-        // id: {
-        //     name: 'Field ID',
-        //     type: {
-        //         name: 'string',
-        //         required: true
-        //     },
-        //     control: 'text'
-        // },
+        id: {
+            name: 'Field ID',
+            type: {
+                name: 'string',
+                required: true
+            },
+            control: 'text'
+        },
         label: {
-            name: 'Label',
+            name: 'Field Label',
             control: 'text'
         },
         placeholder: {
@@ -52,7 +52,7 @@ export default {
             control: 'text'
         },
         description: {
-            name: 'Description',
+            name: 'Field Description',
             control: 'text'
         },
         required: {
@@ -311,7 +311,7 @@ const Template = ({ ...args }) => {
 export const DefaultDesign = Template.bind({});
 DefaultDesign.storyName = 'Default';
 DefaultDesign.args = {
-    // id: 'full-name-default',
+    id: 'full-name-default',
     label: 'Full Name',
     description: 'Optional description for name field.',
     required: false,
@@ -372,18 +372,18 @@ BoldDesign.args = {
 //     backgroundColorFocus: 'transparent',
 // };
 
-// export const BasicDesign = Template.bind({});
-// BasicDesign.storyName = 'Basic';
-// BasicDesign.args = {
-//     ...DefaultDesign.args,
-//     id: 'full-name-basic',
-//     design: 'basic'
-// };
+export const BasicDesign = Template.bind({});
+BasicDesign.storyName = 'Basic';
+BasicDesign.args = {
+    ...DefaultDesign.args,
+    id: 'full-name-basic',
+    design: 'basic'
+};
 
-// export const NoneDesign = Template.bind({});
-// NoneDesign.storyName = 'None';
-// NoneDesign.args = {
-//     ...DefaultDesign.args,
-//     id: 'full-name-none',
-//     design: 'none'
-// };
+export const NoneDesign = Template.bind({});
+NoneDesign.storyName = 'None';
+NoneDesign.args = {
+    ...DefaultDesign.args,
+    id: 'full-name-none',
+    design: 'none'
+};
