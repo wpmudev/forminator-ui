@@ -10,6 +10,12 @@
 //    @include media(max-width, small);
 // =============================================
 
+$fui-breakpoints: (
+	sm: 783px,
+	md: 961px,
+	lg: 1201px
+) !default;
+
 @mixin media($bp-type, $bp-name-1, $bp-name-2: null) {
 
 	@if ($bp-type == min-width) {
