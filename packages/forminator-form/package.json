@@ -12,7 +12,8 @@
     "test": "__tests__"
   },
   "files": [
-    "lib"
+    "js",
+    "scss"
   ],
   "publishConfig": {
     "access": "public"
