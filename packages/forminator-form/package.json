@@ -12,7 +12,7 @@
     }
   ],
   "homepage": "https://github.com/wpmudev/forminator-ui/tree/main/packages/forminator-form#readme",
-  "license": "ISC",
+  "license": "GPL-3.0",
   "main": "lib/forminator-form.js",
   "directories": {
     "js": "js",
