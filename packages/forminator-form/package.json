@@ -9,8 +9,8 @@
   "license": "ISC",
   "main": "lib/forminator-form.js",
   "directories": {
-    "lib": "lib",
-    "test": "__tests__"
+    "js": "js",
+    "scss": "scss"
   },
   "files": [
     "js",
