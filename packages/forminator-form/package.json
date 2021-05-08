@@ -4,7 +4,13 @@
   "version": "0.0.0",
   "description": "Now I’m the model of a modern major general / The venerated Virginian veteran whose men are all / Lining up, to put me up on a pedestal / Writin’ letters to relatives / Embellishin’ my elegance and eloquence / But the elephant is in the room / The truth is in ya face when ya hear the British cannons go / BOOM",
   "keywords": [],
-  "author": "Leighton Sapir <2328848+iamleigh@users.noreply.github.com>",
+  "author": "WPMU DEV (https://wpmudev.org/)",
+  "contributors": [
+    {
+      "name": "Leighton Sapir",
+      "email": "2328848+iamleigh@users.noreply.github.com"
+    }
+  ],
   "homepage": "https://github.com/wpmudev/forminator-ui/tree/main/packages/forminator-form#readme",
   "license": "ISC",
   "main": "lib/forminator-form.js",
