@@ -35,7 +35,7 @@ repo.task( 'styles', function styles( pkg ) {
             suffix: '.min'
         }) )
         .pipe( debug({
-            title: 'unicorn:'
+            title: 'File:'
         }) )
         .pipe( gulp.dest( path.join( pkg.location(), '/dist/css' ) ) )
         .pipe( gulp.dest( path.join( pkg.location(), '/docs/assets/css' ) ) );
