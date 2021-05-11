@@ -7,8 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "start-storybook -p 6006 --no-manager-cache",
     "build-storybook": "build-storybook",
-    "build": "gulp clean && gulp styles",
-    "deploy": "yarn run build && yarn run build-storybook && gh-pages -d storybook-static -b gh-pages -m \"🚀 Update showcase with latest changes.\""
+    "build-styles": "gulp clean && gulp styles",
+    "deploy": "yarn run build-styles && yarn run build-storybook && gh-pages -d storybook-static -b gh-pages -m \"🚀 Update showcase with latest changes.\""
   },
   "repository": {
     "type": "git",
