@@ -28,7 +28,7 @@ repo.task( 'styles', function styles( pkg ) {
     gutil.log( 'Building', pkg.name(), 'package' );
 
     return gulp
-        .src( path.join( pkg.location(), '/lib/scss/**/*.scss' ) )
+        .src( path.join( pkg.location(), '/src/scss/**/*.scss' ) )
         .pipe( sass().on( 'error', sass.logError ) )
         .pipe( cleanCSS() )
         .pipe( rename({
