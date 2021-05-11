@@ -8,6 +8,7 @@ var sass = require('gulp-sass');
 var cleanCSS = require('gulp-clean-css');
 var rename = require('gulp-rename');
 var MonorepoTasks = require('gulp-tasks-monorepo');
+var debug = require('gulp-debug');
 
 sass.compiler = require('node-sass');
 
@@ -32,6 +33,9 @@ repo.task( 'styles', function styles( pkg ) {
         .pipe( cleanCSS() )
         .pipe( rename({
             suffix: '.min'
+        }) )
+        .pipe( debug({
+            title: 'unicorn:'
         }) )
         .pipe( gulp.dest( path.join( pkg.location(), '/dist/css' ) ) )
         .pipe( gulp.dest( path.join( pkg.location(), '/docs/assets/css' ) ) );
