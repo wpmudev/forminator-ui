@@ -1,8 +1,8 @@
 import { createInput } from './components/Input';
 
-// import "../assets/css/form-basic.min.css"; // Get Forminator basic styles.
-// import "../assets/css/form-ui.min.css"; // Get Forminator UI styles.
-// import "../assets/css/form-material.min.css"; // Get Forminator Material styles.
+import "./assets/css/form-basic.min.css"; // Get Forminator basic styles.
+import "./assets/css/form-ui.min.css"; // Get Forminator UI styles.
+import "./assets/css/form-material.min.css"; // Get Forminator Material styles.
 
 const listFontFamily = [
     'inherit',
