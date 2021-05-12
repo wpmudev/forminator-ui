@@ -1,29 +1,30 @@
 @import './mixins';
 
 @include wrapper-class($divi: false) {
-    * {
-        box-sizing: border-box;
-    }
 
-    .forminator-field {
+	* {
+		box-sizing: border-box;
+	}
 
-        &, label {
-            display: block;
-        }
-    }
+	.forminator-field {
 
-    .forminator-description {
-        display: flex;
-    }
+		&, label {
+			display: block;
+		}
+	}
 
-    .forminator-error-message {
-        display: none;
-    }
+	.forminator-description {
+		display: flex;
+	}
 
-    .forminator-has_error {
-        
-        .forminator-error-message {
-            display: block;
-        }
-    }
+	.forminator-error-message {
+		display: none;
+	}
+
+	.forminator-has_error {
+		
+		.forminator-error-message {
+			display: block;
+		}
+	}
 }
