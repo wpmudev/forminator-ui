@@ -21,20 +21,6 @@ const listFontWeight = [
 export default {
     title: 'Form UI/Components/Input',
     argTypes: {
-        design: {
-            name: 'Form Design',
-            control: {
-                type: 'inline-radio',
-                options: [
-                    'default',
-                    'flat',
-                    'bold',
-                    'material',
-                    'basic',
-                    'none'
-                ]
-            }
-        },
         id: {
             name: 'Field ID',
             type: {
@@ -43,33 +29,86 @@ export default {
             },
             control: 'text'
         },
-        label: {
-            name: 'Field Label',
-            control: 'text'
-        },
-        placeholder: {
-            name: 'Placeholder',
-            control: 'text'
-        },
-        description: {
-            name: 'Field Description',
-            control: 'text'
-        },
-        required: {
-            name: 'Required',
+        design: {
+            name: 'Form Design',
+            type: {
+                required: true
+            },
             control: {
-                type: 'boolean'
+                type: 'inline-radio'
+            },
+            options: [
+                'default',
+                'flat',
+                'bold',
+                'material',
+                'basic',
+                'none'
+            ],
+            table: {
+                defaultValue: {
+                    summary: 'default',
+                }
             }
         },
         errorState: {
             name: 'Error State',
             control: {
                 type: 'boolean'
+            },
+            table: {
+                defaultValue: {
+                    summary: false,
+                }
+            }
+        },
+        label: {
+            name: 'Label',
+            type: {
+                required: true
+            },
+            control: 'text',
+            table: {
+                category: 'Field Settings',
+                subcategory: 'Labels'
+            }
+        },
+        placeholder: {
+            name: 'Placeholder',
+            control: 'text',
+            table: {
+                category: 'Field Settings',
+                subcategory: 'Labels'
+            }
+        },
+        description: {
+            name: 'Field Description',
+            control: 'text',
+            table: {
+                category: 'Field Settings',
+                subcategory: 'Labels'
+            }
+        },
+        required: {
+            name: 'Required',
+            control: {
+                type: 'boolean'
+            },
+            table: {
+                category: 'Field Settings',
+                subcategory: 'Settings',
+                defaultValue: {
+                    summary: false,
+                }
             }
         },
         errorMessage: {
             name: 'Error Message',
-            control: 'text'
+            control: 'text',
+            table: {
+                category: 'Field Settings',
+                subcategory: 'Settings'
+            }
         },
         // Category: Colors.
         inputBorder: {
@@ -77,7 +116,10 @@ export default {
             control: 'color',
             table: {
                 category: 'Colors',
-                subcategory: 'Input'
+                subcategory: 'Input',
+                defaultValue: {
+                    summary: '#777771'
+                }
             }
         },
         inputBorderHover: {
@@ -85,7 +127,10 @@ export default {
             control: 'color',
             table: {
                 category: 'Colors',
-                subcategory: 'Input'
+                subcategory: 'Input',
+                defaultValue: {
+                    summary: '#17A8E3'
+                }
             }
         },
         inputBorderError: {
@@ -93,7 +138,10 @@ export default {
             control: 'color',
             table: {
                 category: 'Colors',
-                subcategory: 'Input'
+                subcategory: 'Input',
+                defaultValue: {
+                    summary: '#E04562'
+                }
             }
         },
         inputBackground: {
@@ -101,7 +149,11 @@ export default {
             control: 'color',
             table: {
                 category: 'Colors',
-                subcategory: 'Input'
+                subcategory: 'Input',
+                defaultValue: {
+                    summary: '#777771',
+                    detail: 'You\'re not able to this option with `Material` design.'
+                }
             }
         },
         inputBackgroundHover: {
@@ -109,7 +161,11 @@ export default {
             control: 'color',
             table: {
                 category: 'Colors',
-                subcategory: 'Input'
+                subcategory: 'Input',
+                defaultValue: {
+                    summary: '#E6E6E6',
+                    detail: 'You\'re not able to this option with `Material` design.'
+                }
             }
         },
         inputColor: {
@@ -117,7 +173,10 @@ export default {
             control: 'color',
             table: {
                 category: 'Colors',
-                subcategory: 'Input'
+                subcategory: 'Input',
+                defaultValue: {
+                    summary: '#000000',
+                }
             }
         },
         inputColorHover: {
@@ -125,7 +184,10 @@ export default {
             control: 'color',
             table: {
                 category: 'Colors',
-                subcategory: 'Input'
+                subcategory: 'Input',
+                defaultValue: {
+                    summary: '#000000',
+                }
             }
         },
         labelColor: {
@@ -133,7 +195,10 @@ export default {
             control: 'color',
             table: {
                 category: 'Colors',
-                subcategory: 'Fields Basics'
+                subcategory: 'Fields Basics',
+                defaultValue: {
+                    summary: '#777771',
+                }
             }
         },
         requiredColor: {
@@ -141,7 +206,10 @@ export default {
             control: 'color',
             table: {
                 category: 'Colors',
-                subcategory: 'Fields Basics'
+                subcategory: 'Fields Basics',
+                defaultValue: {
+                    summary: '#E04562',
+                }
             }
         },
         descColor: {
@@ -149,7 +217,10 @@ export default {
             control: 'color',
             table: {
                 category: 'Colors',
-                subcategory: 'Fields Basics'
+                subcategory: 'Fields Basics',
+                defaultValue: {
+                    summary: '#777771',
+                }
             }
         },
         errorBackground: {
@@ -157,7 +228,10 @@ export default {
             control: 'color',
             table: {
                 category: 'Colors',
-                subcategory: 'Fields Basics'
+                subcategory: 'Fields Basics',
+                defaultValue: {
+                    summary: '#F9E4E8',
+                }
             }
         },
         errorColor: {
@@ -165,7 +239,10 @@ export default {
             control: 'color',
             table: {
                 category: 'Colors',
-                subcategory: 'Fields Basics'
+                subcategory: 'Fields Basics',
+                defaultValue: {
+                    summary: '#E04562',
+                }
             }
         },
         // Category: Fonts.
@@ -183,9 +260,9 @@ export default {
         inputFontFamily: {
             name: 'Font Family',
             control: {
-                type: 'select',
-                options: listFontFamily
+                type: 'select'
             },
+            options: listFontFamily,
             table: {
                 category: 'Fonts',
                 subcategory: 'Input'
@@ -194,9 +271,9 @@ export default {
         inputFontWeight: {
             name: 'Font Weight',
             control: {
-                type: 'select',
-                options: listFontWeight
+                type: 'select'
             },
+            options: listFontWeight,
             table: {
                 category: 'Fonts',
                 subcategory: 'Input'
@@ -216,9 +293,9 @@ export default {
         labelFontFamily: {
             name: 'Font Family',
             control: {
-                type: 'select',
-                options: listFontFamily
+                type: 'select'
             },
+            options: listFontFamily,
             table: {
                 category: 'Fonts',
                 subcategory: 'Fields Label'
@@ -227,9 +304,9 @@ export default {
         labelFontWeight: {
             name: 'Font Weight',
             control: {
-                type: 'select',
-                options: listFontWeight
+                type: 'select'
             },
+            options: listFontWeight,
             table: {
                 category: 'Fonts',
                 subcategory: 'Fields Label'
@@ -249,9 +326,9 @@ export default {
         descFontFamily: {
             name: 'Font Family',
             control: {
-                type: 'select',
-                options: listFontFamily
+                type: 'select'
             },
+            options: listFontFamily,
             table: {
                 category: 'Fonts',
                 subcategory: 'Fields Description'
@@ -260,9 +337,9 @@ export default {
         descFontWeight: {
             name: 'Font Weight',
             control: {
-                type: 'select',
-                options: listFontWeight
+                type: 'select'
             },
+            options: listFontWeight,
             table: {
                 category: 'Fonts',
                 subcategory: 'Fields Description'
@@ -282,9 +359,9 @@ export default {
         errorFontFamily: {
             name: 'Font Family',
             control: {
-                type: 'select',
-                options: listFontFamily
+                type: 'select'
             },
+            options: listFontFamily,
             table: {
                 category: 'Fonts',
                 subcategory: 'Fields Error Message'
@@ -293,9 +370,9 @@ export default {
         errorFontWeight: {
             name: 'Font Weight',
             control: {
-                type: 'select',
-                options: listFontWeight
+                type: 'select'
             },
+            options: listFontWeight,
             table: {
                 category: 'Fonts',
                 subcategory: 'Fields Error Message'
@@ -349,7 +426,7 @@ export const FlatDesign = Template.bind({});
 FlatDesign.storyName = 'Flat';
 FlatDesign.args = {
     ...DefaultDesign.args,
-    // id: 'full-name-flat',
+    id: 'full-name-flat',
     design: 'flat',
 };
 
@@ -357,20 +434,19 @@ export const BoldDesign = Template.bind({});
 BoldDesign.storyName = 'Bold';
 BoldDesign.args = {
     ...DefaultDesign.args,
-    // id: 'full-name-bold',
+    id: 'full-name-bold', 
     design: 'bold',
 };
 
-// export const MaterialDesign = Template.bind({});
-// MaterialDesign.storyName = 'Material';
-// MaterialDesign.args = {
-//     ...DefaultDesign.args,
-//     id: 'full-name-material',
-//     design: 'material',
-//     backgroundColor: 'transparent',
-//     backgroundColorHover: 'transparent',
-//     backgroundColorFocus: 'transparent',
-// };
+export const MaterialDesign = Template.bind({});
+MaterialDesign.storyName = 'Material';
+MaterialDesign.args = {
+    ...DefaultDesign.args,
+    id: 'full-name-material',
+    design: 'material',
+    inputBackground: 'transparent',
+    inputBackgroundHover: 'transparent'
+};
 
 export const BasicDesign = Template.bind({});
 BasicDesign.storyName = 'Basic';
