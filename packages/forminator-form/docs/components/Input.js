@@ -1,4 +1,5 @@
 export const createInput = ({
+    id,
     design,
     label,
     description,
@@ -58,11 +59,17 @@ export const createInput = ({
             inputCSS.borderWidth = 3;
             inputCSS.borderRadius = 0;
             break;
+
+        case 'material':
+            inputCSS.borderWidth = 1;
     }
 
     // Create input.
     const input = document.createElement('input');
     input.classList = 'forminator-input';
+    if ( '' !== id || 'undefined' !== typeof id ) {
+        input.setAttribute('id', id );
+    }
     switch (design) {
         case 'default':
         case 'bold':
@@ -90,6 +97,20 @@ export const createInput = ({
                 input.style.boxShadow = 'inset 2px 0 0 0 ' + inputCSS.borderColorError;
             }
             input.style.background = inputCSS.background;
+            input.style.color = inputCSS.color;
+            input.style.fontSize = inputCSS.fontSize;
+            if ( 'inherit' !== inputCSS.fontFamily ) {
+                input.style.fontFamily = inputCSS.fontFamily;
+            }
+            input.style.fontWeight = inputCSS.fontWeight;
+            break;
+
+        case 'material':
+            if (errorState) {
+                input.style.borderColor = inputCSS.borderColorError;
+            } else {
+                input.style.borderColor = inputCSS.borderColor;
+            }
             input.style.color = inputCSS.color;
             input.style.fontSize = inputCSS.fontSize;
             if ( 'inherit' !== inputCSS.fontFamily ) {
@@ -128,6 +149,10 @@ export const createInput = ({
         inputLabelWrapper.appendChild(requiredAsterisk);
     }
     inputLabelWrapper.classList = 'forminator-label';
+    if ( '' !== id || 'undefined' !== typeof id ) {
+        inputLabelWrapper.setAttribute('id', id + '--label');
+        inputLabelWrapper.setAttribute('for', id);
+    }
     switch (design) {
         case 'default':
         case 'flat':
@@ -138,6 +163,33 @@ export const createInput = ({
                 inputLabelWrapper.style.fontFamily = labelCSS.fontFamily;
             }
             inputLabelWrapper.style.fontWeight = labelCSS.fontWeight;
+            break;
+
+        case 'material':
+            inputLabelWrapper.style.color = labelCSS.color;
+            inputLabelWrapper.style.fontSize = labelCSS.fontSize;
+            if ( 'inherit' !== labelCSS.fontFamily ) {
+                inputLabelWrapper.style.fontFamily = labelCSS.fontFamily;
+            }
+            inputLabelWrapper.style.fontWeight = labelCSS.fontWeight;
+
+            // Focus.
+            input.addEventListener('focus', function() {
+                inputLabelWrapper.style.fontSize = inputCSS.fontSize;
+                if ( 'inherit' !== inputCSS.fontFamily ) {
+                    inputLabelWrapper.style.fontFamily = inputCSS.fontFamily;
+                }
+                inputLabelWrapper.style.fontWeight = inputCSS.fontWeight;
+            });
+
+            // Blur.
+            input.addEventListener('blur', function() {
+                inputLabelWrapper.style.fontSize = labelCSS.fontSize;
+                if ( 'inherit' !== labelCSS.fontFamily ) {
+                    inputLabelWrapper.style.fontFamily = labelCSS.fontFamily;
+                }
+                inputLabelWrapper.style.fontWeight = labelCSS.fontWeight;
+            });
             break;
     }
 
@@ -166,6 +218,15 @@ export const createInput = ({
             }
             inputErrorWrapper.style.fontWeight = errorCSS.fontWeight;
             break;
+
+        case 'material':
+            inputErrorWrapper.style.color = errorCSS.color;
+            inputErrorWrapper.style.fontSize = errorCSS.fontSize;
+            if ( 'inherit' !== errorCSS.fontFamily ) {
+                inputErrorWrapper.style.fontFamily = errorCSS.fontFamily;
+            }
+            inputErrorWrapper.style.fontWeight = errorCSS.fontWeight;
+            break;
     }
 
     // DESCRIPTION: Editable styles.
@@ -184,6 +245,7 @@ export const createInput = ({
         case 'default':
         case 'flat':
         case 'bold':
+        case 'material':
             inputDescWrapper.style.color = descCSS.color;
             inputDescWrapper.style.fontSize = descCSS.fontSize;
             if ( 'inherit' !== descCSS.fontFamily ) {
