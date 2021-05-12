@@ -45,6 +45,7 @@
     "gulp-sass": "^4.1.0",
     "gulp-tasks-monorepo": "^0.5.0",
     "gulp-util": "^3.0.8",
+    "jquery": "^3.6.0",
     "lerna": "^4.0.0",
     "node-sass": "^5.0.0",
     "path": "^0.12.7"
