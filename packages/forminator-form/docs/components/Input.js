@@ -1,3 +1,5 @@
+import '../../src/js/input-material';
+
 export const createInput = ({
     id,
     design,
@@ -309,6 +311,11 @@ export const createInput = ({
             break;
     }
     form.appendChild(row);
+
+	// Load material function.
+	if ( 'material' === design ) {
+		FUI.inputMaterial( input );
+	}
 
     return form;
 };
