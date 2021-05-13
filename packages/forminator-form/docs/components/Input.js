@@ -72,6 +72,9 @@ export const createInput = ({
     if ( '' !== id || 'undefined' !== typeof id ) {
         input.setAttribute('id', id );
     }
+	if ( '' !== placeholder || 'undefined' !== typeof placeholder ) {
+        input.setAttribute( 'placeholder', placeholder );
+    }
     switch (design) {
         case 'default':
         case 'bold':
@@ -120,10 +123,6 @@ export const createInput = ({
             }
             input.style.fontWeight = inputCSS.fontWeight;
             break;
-    }
-
-    if ( '' !== placeholder || 'undefined' !== typeof placeholder ) {
-        input.setAttribute( 'placeholder', placeholder );
     }
 
     // REQUIRED: Editable styles.
