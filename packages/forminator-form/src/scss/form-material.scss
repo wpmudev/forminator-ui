@@ -19,23 +19,9 @@
         border: 0;
     }
 
-    .forminator-input {
-        width: 100%;
-        max-width: 100%;
-        display: block;
-        margin: 0;
-        border-top-width: 0 !important;
-        border-right-width: 0 !important;
-        border-left-width: 0 !important;
-        border-style: solid;
-
-        &:focus {
-            outline: none;
-            box-shadow: none;
-        }
-    }
-
     .forminator-description {
         margin: 5px 0 0;
     }
 }
+
+@import './form-material/input';
