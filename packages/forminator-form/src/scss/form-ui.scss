@@ -1,30 +1,11 @@
 @import './mixins';
 
-@include form-class(false, false) {
+@include form-class($divi: true, $material: false) {
 
     .forminator-label {
 		margin: 0 0 5px;
 		padding: 0;
 		border: 0;
-	}
-
-	.forminator-input {
-		width: 100%;
-        min-width: unset;
-		max-width: 100%;
-        height: auto;
-        min-height: unset;
-        max-height: unset;
-		display: block;
-		margin: 0;
-		border-style: solid;
-		line-height: 1.3em;
-        transition: 0.2s ease;
-
-        &:hover,
-        &:focus {
-            outline: none;
-        }
 	}
 
 	.forminator-error-message {
@@ -38,3 +19,5 @@
         line-height: 1.5em;
 	}
 }
+
+@import './form-ui/input';
