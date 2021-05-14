@@ -19,8 +19,10 @@
         border: 0;
     }
 
-    .forminator-description {
+    .forminator-description,
+	.forminator-error-message {
         margin: 5px 0 0;
+		line-height: 1.5em;
     }
 }
 
