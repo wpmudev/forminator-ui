@@ -1,13 +1,7 @@
 @mixin wrapper-class($divi: false) {
     @if $divi {
-        .et-db #et-boc .et_pb_module .forminator-ui {
-            @content;
-        }
-    }
-
-    @else if 'both' == $divi {
         .forminator-ui,
-        .et-db #et-boc .et_pb_module .forminator-ui {
+        #et-boc #forminator-divi .forminator-ui {
             @content;
         }
     }
