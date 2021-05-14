@@ -12,16 +12,16 @@ import '../src/js/input-material';
 
 const listFontFamily = [
     'inherit',
-    'cursive',
-    'monospace',
-    'system-ui',
+	'Roboto',
+	'Poppins',
+	'Newsreader'
 ];
 
 const listFontWeight = [
-    'lighter',
-    'normal',
-    'bold',
-    'bolder'
+    '300',
+    '400',
+    '500',
+    '700'
 ];
 
 export default {
@@ -410,21 +410,21 @@ DefaultDesign.args = {
     inputColor: '#000000',
     inputColorHover: '#000000',
     inputFontSize: 16,
-    inputFontFamily: 'inherit',
+    inputFontFamily: 'Roboto',
     inputFontWeight: 'normal',
     requiredColor: '#E04562',
     labelColor: '#777771',
     labelFontSize: 12,
-    labelFontFamily: 'inherit',
+    labelFontFamily: 'Roboto',
     labelFontWeight: 'bold',
     descColor: '#777771',
     descFontSize: 12,
-    descFontFamily: 'inherit',
+    descFontFamily: 'Roboto',
     descFontWeight: 'normal',
     errorBackground: '#F9E4E8',
     errorColor: '#E04562',
     errorFontSize: 12,
-    errorFontFamily: 'inherit',
+    errorFontFamily: 'Roboto',
     errorFontWeight: 'normal',
 };
 
