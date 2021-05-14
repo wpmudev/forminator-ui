@@ -122,6 +122,38 @@ export const createInput = ({
                 input.style.fontFamily = inputCSS.fontFamily;
             }
             input.style.fontWeight = inputCSS.fontWeight;
+
+			// Mouse over.
+            input.addEventListener('mouseover', function() {
+                if (errorState) {
+					input.style.borderColor = inputCSS.borderColorError;
+				} else {
+					input.style.borderColor = inputCSS.borderColorHover;
+				}
+            });
+
+			// Mouse out.
+			input.addEventListener('mouseout', function() {
+                if (errorState) {
+					input.style.borderColor = inputCSS.borderColorError;
+				} else {
+					input.style.borderColor = inputCSS.borderColor;
+				}
+            });
+
+			// Focus.
+            // input.addEventListener('focus', function() {
+            //     input.style.borderColor = inputCSS.borderColor;
+            // });
+
+            // Blur.
+            // input.addEventListener('blur', function() {
+            //     if (errorState) {
+			// 		input.style.borderColor = inputCSS.borderColorError;
+			// 	} else {
+			// 		input.style.borderColor = inputCSS.borderColor;
+			// 	}
+            // });
             break;
     }
 
@@ -310,6 +342,8 @@ export const createInput = ({
             break;
     }
     form.appendChild(row);
+
+	FUI.inputStates( input );
 
 	// Load material function.
 	if ( 'material' === design ) {
