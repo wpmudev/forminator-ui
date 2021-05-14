@@ -1,6 +1,6 @@
 @import './mixins';
 
-@include form-class(false, true) {
+@include form-class($divi: true, $material: true) {
 
     * {
         box-sizing: border-box;
