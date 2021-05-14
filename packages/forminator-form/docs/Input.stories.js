@@ -7,6 +7,7 @@ import "./assets/css/form-ui.min.css";
 import "./assets/css/form-material.min.css";
 
 // Call Forminator Form scripts.
+import '../src/js/input-states';
 import '../src/js/input-material';
 
 const listFontFamily = [
