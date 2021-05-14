@@ -1,20 +1,49 @@
-@import './mixins';
+@import '../mixins';
 
-@include form-class(false, true) {
+@include form-class($divi: true, $material: true) {
 
     .forminator-input {
         width: 100%;
+		min-width: unset;
         max-width: 100%;
+		height: auto;
+		min-height: unset;
+		max-height: unset;
         display: block;
         margin: 0;
 		padding: 10px 0 9px;
         border-width: 0 0 1px;
         border-style: solid;
+		background-image: unset;
+		background-color: transparent;
+		line-height: 1.3em;
+        transition: 0.2s ease;
 
         &:focus {
             outline: none;
             box-shadow: none;
         }
+
+		&:disabled {
+			pointer-events: none;
+			border-style: dotted;
+
+			// &:-moz-placeholder {
+			// 	@include opacity(0.4);
+			// }
+
+			// &::-moz-placeholder {
+			// 	@include opacity(0.4);
+			// }
+
+			// &:-ms-input-placeholder {
+			// 	@include opacity(0.4);
+			// }
+
+			// &::-webkit-input-placeholder {
+			// 	@include opacity(0.4);
+			// }
+		}
     }
 
 	// .forminator-input--wrap {
