@@ -1,6 +1,6 @@
-@import '../mixins';
+@import '../helpers/mixins';
 
-@include form-class($divi: true, $material: true) {
+@include form-class($divi: false, $material: true) {
 
     .forminator-input {
         width: 100%;
