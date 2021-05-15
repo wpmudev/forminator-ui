@@ -1,11 +1,18 @@
-@import './mixins';
+@import './helpers/mixins';
 
-@include form-class($divi: true, $material: false) {
+@include form-class($divi: false, $material: false) {
+
+	.forminator-label,
+	.forminator-description,
+	.forminator-error-message {
+		letter-spacing: 0;
+	}
 
     .forminator-label {
 		margin: 0 0 5px;
 		padding: 0;
 		border: 0;
+		line-height: 1.7em;
 	}
 
 	.forminator-error-message {
@@ -20,4 +27,4 @@
 	}
 }
 
-@import './form-ui/input';
+@import './form-styled/input';

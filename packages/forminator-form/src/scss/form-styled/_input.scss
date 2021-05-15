@@ -1,6 +1,6 @@
-@import '../mixins';
+@import '../helpers/mixins';
 
-@include form-class($divi: true, $material: false) {
+@include form-class($divi: false, $material: false) {
 
     .forminator-input {
 		width: 100%;
@@ -14,6 +14,7 @@
 		border-style: solid;
 		background-image: unset;
 		line-height: 1.3em;
+		letter-spacing: 0;
         transition: 0.2s ease;
 
         &:hover,
