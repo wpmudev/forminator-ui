@@ -416,7 +416,7 @@ DefaultDesign.args = {
     labelColor: '#777771',
     labelFontSize: 12,
     labelFontFamily: 'Roboto',
-    labelFontWeight: 'bold',
+    labelFontWeight: '700',
     descColor: '#777771',
     descFontSize: 12,
     descFontFamily: 'Roboto',
