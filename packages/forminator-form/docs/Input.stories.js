@@ -3,7 +3,7 @@ import { createInput } from './components/Input';
 // Call Forminator Form stylesheets.
 import './assets/css/form-grid.min.css';
 import './assets/css/form-basic.min.css';
-import "./assets/css/form-ui.min.css";
+import "./assets/css/form-styled.min.css";
 import "./assets/css/form-material.min.css";
 
 // Call Forminator Form scripts.
