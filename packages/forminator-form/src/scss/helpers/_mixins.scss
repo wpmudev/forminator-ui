@@ -1,6 +1,5 @@
 @mixin wrapper-class($divi: false) {
     @if $divi {
-        .forminator-ui,
         #et-boc #forminator-divi .forminator-ui {
             @content;
         }
