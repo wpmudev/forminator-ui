@@ -1,4 +1,4 @@
-@import '../helpers/mixins';
+@import '../helpers/wrappers';
 
 @include form-class($divi: false, $material: false) {
 

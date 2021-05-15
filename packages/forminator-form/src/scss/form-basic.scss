@@ -1,4 +1,4 @@
-@import './mixins';
+@import './helpers/wrappers';
 
 @include wrapper-class($divi: false) {
 

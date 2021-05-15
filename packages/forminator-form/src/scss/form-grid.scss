@@ -1,5 +1,5 @@
-@import './mixins';
-@import './breakpoints';
+@import './helpers/wrappers';
+@import './helpers/breakpoints';
 
 @include wrapper-class($divi: false) {
     
