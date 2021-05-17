@@ -10,7 +10,7 @@
 //    @include media(max-width, small);
 // =============================================
 
-$fui-breakpoints: (
+$breakpoints: (
 	sm: 783px,
 	md: 961px,
 	lg: 1201px
@@ -20,7 +20,7 @@ $fui-breakpoints: (
 
 	@if ($bp-type == min-width) {
 
-		$min-breakpoint-width: map-get($fui-breakpoints, $bp-name-1);
+		$min-breakpoint-width: map-get($breakpoints, $bp-name-1);
 
 		@media (min-width: $min-breakpoint-width) {
 			@content;
@@ -29,7 +29,7 @@ $fui-breakpoints: (
 
 	@else if ($bp-type == max-width) {
 
-		$max-breakpoint-width: #{map-get($fui-breakpoints, $bp-name-1) - 1px};
+		$max-breakpoint-width: #{map-get($breakpoints, $bp-name-1) - 1px};
 
 		@media (max-width: $max-breakpoint-width) {
 			@content;
@@ -38,8 +38,8 @@ $fui-breakpoints: (
 
 	@else if ($bp-type == between) {
 		
-		$min-breakpoint-width: map-get($fui-breakpoints, $bp-name-1);
-		$max-breakpoint-width: #{map-get($fui-breakpoints, $bp-name-1) - 1px};
+		$min-breakpoint-width: map-get($breakpoints, $bp-name-1);
+		$max-breakpoint-width: #{map-get($breakpoints, $bp-name-1) - 1px};
 
 		@media (min-width: $min-breakpoint-width) and (max-width: $max-breakpoint-width) {
 			@content;
