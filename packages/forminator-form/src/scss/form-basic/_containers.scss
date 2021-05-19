@@ -1,0 +1,15 @@
+@import '../helpers/wrappers';
+
+@include wrapper-class($divi: false) {
+	max-width: 100%;
+	direction: ltr;
+	display: block;
+
+	* {
+		box-sizing: border-box;
+	}
+
+	.forminator-field {
+		display: block;
+	}
+}

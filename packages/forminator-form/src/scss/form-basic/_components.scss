@@ -1,0 +1,26 @@
+@import '../helpers/wrappers';
+
+@include wrapper-class($divi: false) {
+
+	.forminator-input {
+		display: block;
+	}
+
+	.forminator-button {
+		width: auto;
+		height: auto;
+		cursor: pointer;
+		background-image: unset;
+
+		// PayPal Button.
+		&-paypal {
+			display: block;
+			position: relative;
+			z-index: 1;
+
+			> .paypal-buttons {
+				display: block !important;
+			}
+		}
+	}
+}
