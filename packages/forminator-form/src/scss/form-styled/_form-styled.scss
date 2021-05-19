@@ -1,0 +1,10 @@
+@import './form-styled/typography';
+@import './form-styled/input';
+@import './form-styled/button';
+
+@mixin form-styled($divi) {
+	
+	@include typography($divi);
+	@include input($divi);
+	@include button($divi);
+}
