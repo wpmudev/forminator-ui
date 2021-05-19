@@ -1,4 +1,5 @@
 @import '../helpers/wrappers';
+@import '../helpers/opacity';
 
 @include form-class($divi: false, $material: true) {
 
@@ -28,54 +29,54 @@
 			pointer-events: none;
 			border-style: dotted;
 
-			// &:-moz-placeholder {
-			// 	@include opacity(0.4);
-			// }
+			&:-moz-placeholder {
+				@include opacity(0.4);
+			}
 
-			// &::-moz-placeholder {
-			// 	@include opacity(0.4);
-			// }
+			&::-moz-placeholder {
+				@include opacity(0.4);
+			}
 
-			// &:-ms-input-placeholder {
-			// 	@include opacity(0.4);
-			// }
+			&:-ms-input-placeholder {
+				@include opacity(0.4);
+			}
 
-			// &::-webkit-input-placeholder {
-			// 	@include opacity(0.4);
-			// }
+			&::-webkit-input-placeholder {
+				@include opacity(0.4);
+			}
 		}
     }
 
-	// .forminator-input--wrap {
-	// 	display: block;
-	// 	position: relative;
+	.forminator-input--wrap {
+		display: block;
+		position: relative;
 
-	// 	&:after {
-	// 		content: " ";
-	// 		height: 2px;
-	// 		display: block;
-	// 		position: absolute;
-	// 		right: 50%;
-	// 		bottom: 0;
-	// 		left: 50%;
-	// 		box-sizing: border-box;
-	// 		transition: 0.2s ease;
-	// 	}
-	// }
+		&:after {
+			content: " ";
+			height: 2px;
+			display: block;
+			position: absolute;
+			right: 50%;
+			bottom: 0;
+			left: 50%;
+			box-sizing: border-box;
+			transition: 0.2s ease;
+		}
+	}
 
-	// .forminator-field {
+	.forminator-field {
 
-	// 	&.forminator-is_hover,
-	// 	&.forminator-is_active,
-	// 	&.forminator-has_error {
+		&.forminator-is_hover,
+		&.forminator-is_active,
+		&.forminator-has_error {
 
-	// 		.forminator-input--wrap {
+			.forminator-input--wrap {
 
-	// 			&:after {
-	// 				right: 0;
-	// 				left: 0;
-	// 			}
-	// 		}
-	// 	}
-	// }
+				&:after {
+					right: 0;
+					left: 0;
+				}
+			}
+		}
+	}
 }
