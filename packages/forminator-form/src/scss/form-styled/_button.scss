@@ -1,0 +1,18 @@
+@import '../helpers/wrappers';
+@import '../helpers/opacity';
+
+@mixin button($divi: false, $material: false) {
+	
+	@include form-class($divi, $material) {
+
+		.forminator-button {
+			min-width: 100px;
+			max-width: unset;
+			min-height: unset;
+			max-height: unset;
+			margin: 0;
+			line-height: 1.45em;
+			transition: 0.2s ease;
+		}
+	}
+}
