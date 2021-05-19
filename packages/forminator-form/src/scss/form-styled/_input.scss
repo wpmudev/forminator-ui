@@ -1,46 +1,50 @@
 @import '../helpers/wrappers';
+@import '../helpers/opacity';
 
-@include form-class($divi: false, $material: false) {
+@mixin input($divi: false, $material: false) {
+	
+	@include form-class($divi, $material) {
 
-    .forminator-input {
-		width: 100%;
-        min-width: unset;
-		max-width: 100%;
-        height: auto;
-        min-height: unset;
-        max-height: unset;
-		display: block;
-		margin: 0;
-		border-style: solid;
-		background-image: unset;
-		line-height: 1.3em;
-		letter-spacing: 0;
-        transition: 0.2s ease;
-
-        &:hover,
-        &:focus {
-            outline: none;
-        }
-
-		&:disabled {
-			pointer-events: none;
-			border-style: dotted;
-
-			// &:-moz-placeholder {
-			// 	@include opacity(0.4);
-			// }
-
-			// &::-moz-placeholder {
-			// 	@include opacity(0.4);
-			// }
-
-			// &:-ms-input-placeholder {
-			// 	@include opacity(0.4);
-			// }
-
-			// &::-webkit-input-placeholder {
-			// 	@include opacity(0.4);
-			// }
+		.forminator-input {
+			width: 100%;
+			min-width: unset;
+			max-width: 100%;
+			height: auto;
+			min-height: unset;
+			max-height: unset;
+			display: block;
+			margin: 0;
+			border-style: solid;
+			background-image: unset;
+			line-height: 1.3em;
+			letter-spacing: 0;
+			transition: 0.2s ease;
+	
+			&:hover,
+			&:focus {
+				outline: none;
+			}
+	
+			&:disabled {
+				pointer-events: none;
+				border-style: dotted;
+	
+				&:-moz-placeholder {
+					@include opacity(0.4);
+				}
+	
+				&::-moz-placeholder {
+					@include opacity(0.4);
+				}
+	
+				&:-ms-input-placeholder {
+					@include opacity(0.4);
+				}
+	
+				&::-webkit-input-placeholder {
+					@include opacity(0.4);
+				}
+			}
 		}
 	}
 }
