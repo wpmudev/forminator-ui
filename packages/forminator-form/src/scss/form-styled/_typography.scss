@@ -1,0 +1,31 @@
+@import '../helpers/wrappers';
+
+@mixin typography($divi: false, $material: false) {
+	
+	@include form-class($divi, $material) {
+
+		.forminator-label,
+		.forminator-description,
+		.forminator-error-message {
+			letter-spacing: 0;
+		}
+	
+		.forminator-label {
+			margin: 0 0 5px;
+			padding: 0;
+			border: 0;
+			line-height: 1.7em;
+		}
+	
+		.forminator-error-message {
+			margin: 5px 0 0;
+			padding: 2px 10px;
+			line-height: 2em;
+		}
+	
+		.forminator-description {
+			margin: 5px 0 0;
+			line-height: 1.5em;
+		}
+	}
+}
