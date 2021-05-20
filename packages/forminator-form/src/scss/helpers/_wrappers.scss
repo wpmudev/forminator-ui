@@ -1,15 +1,30 @@
-@mixin wrapper-class($divi: false) {
-    @if $divi {
-        .et-db #et-boc .et_pb_module .forminator-ui {
-            @content;
-        }
-    }
+@mixin language-class($rtl: false) {
+	@if $rtl {
+		html[dir="rtl"] {
+			@content;
+		}
+	}
+	@else {
+		@content;
+	}
+}
 
-    @else {
-        .forminator-ui {
-            @content;
-        }
-    }
+@mixin wrapper-class($divi: false, $rtl: false) {
+
+	@include language-class($rtl) {
+		
+		@if $divi {
+			.et-db #et-boc .et_pb_module .forminator-ui {
+				@content;
+			}
+		}
+	
+		@else {
+			.forminator-ui {
+				@content;
+			}
+		}
+	}
 }
 
 @mixin design-class($material: false) {
@@ -27,8 +42,8 @@
     }
 }
 
-@mixin form-class($divi: false, $material: false) {
-    @include wrapper-class($divi) {
+@mixin form-class($divi: false, $material: false, $rtl: false) {
+    @include wrapper-class($divi, $rtl) {
         @include design-class($material) {
             @content;
         }
