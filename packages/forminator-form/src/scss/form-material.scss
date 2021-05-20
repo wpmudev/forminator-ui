@@ -1,26 +1,2 @@
-@import './helpers/wrappers';
-
-@include form-class($divi: false, $material: true) {
-
-	.forminator-label,
-	.forminator-description,
-	.forminator-error-message {
-		letter-spacing: 0;
-	}
-
-    .forminator-label {
-        margin: 0 0 5px;
-        padding: 0;
-        border: 0;
-		line-height: 1.7em;
-    }
-
-    .forminator-description,
-	.forminator-error-message {
-        margin: 5px 0 0;
-		line-height: 1.5em;
-    }
-}
-
-@import './form-material/input';
-@import './form-material/button';
+@import './form-material/_form-material.scss';
+@include form-material($divi: false);
