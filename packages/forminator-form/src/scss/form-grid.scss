@@ -1,7 +1,7 @@
 @import './helpers/wrappers';
 @import './helpers/breakpoints';
 
-@include wrapper-class($divi: false) {
+@include wrapper-class($divi: false, $rtl: false) {
     
     // ELEMENT: Row
 	.forminator-row {
@@ -43,6 +43,17 @@
 					display: block;
 				}
 			}
+		}
+	}
+}
+
+@include wrapper-class($divi: false, $rtl: true) {
+
+	// ELEMENT: Row.
+	.forminator-row {
+
+		@include media(min-width, sm) {
+			flex-direction: row-reverse;
 		}
 	}
 }
