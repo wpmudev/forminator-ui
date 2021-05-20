@@ -29,4 +29,14 @@
 			line-height: 1.5em;
 		}
 	}
+
+	// RTL Support.
+	@include form-class($divi, $material, $rtl: true) {
+
+		.forminator-label,
+		.forminator-description,
+		.forminator-error-message {
+			text-align: right;
+		}
+	}
 }
