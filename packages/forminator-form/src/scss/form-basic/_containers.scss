@@ -2,6 +2,7 @@
 
 @mixin containers($divi: false) {
 	
+	// LTR Language.
 	@include wrapper-class($divi, $rtl: false) {
 		max-width: 100%;
 		direction: ltr;
@@ -14,5 +15,10 @@
 		.forminator-field {
 			display: block;
 		}
+	}
+
+	// RTL Language.
+	@include wrapper-class($divi, $rtl: true) {
+		direction: rtl;
 	}
 }
