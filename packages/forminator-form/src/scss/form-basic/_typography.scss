@@ -1,23 +1,26 @@
 @import '../helpers/wrappers';
 
-@include wrapper-class($divi: false) {
+@mixin typography($divi: false) {
 
-	.forminator-label {
-		display: block;
-	}
+	@include wrapper-class($divi) {
 
-	.forminator-description {
-		display: flex;
-	}
-
-	.forminator-error-message {
-		display: none;
-	}
-
-	.forminator-has_error {
-
-		.forminator-error-message {
+		.forminator-label {
 			display: block;
+		}
+	
+		.forminator-description {
+			display: flex;
+		}
+	
+		.forminator-error-message {
+			display: none;
+		}
+	
+		.forminator-has_error {
+	
+			.forminator-error-message {
+				display: block;
+			}
 		}
 	}
 }

@@ -1,3 +1,2 @@
-@import './form-basic/containers';
-@import './form-basic/components';
-@import './form-basic/typography';
+@import './form-basic/form-basic';
+@include form-basic($divi: false);
