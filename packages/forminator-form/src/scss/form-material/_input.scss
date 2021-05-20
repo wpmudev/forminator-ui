@@ -1,7 +1,7 @@
 @import '../helpers/wrappers';
 @import '../helpers/opacity';
 
-@include form-class($divi: false, $material: true) {
+@include form-class($divi: false, $material: true, $rtl: false) {
 
     .forminator-input {
         width: 100%;
