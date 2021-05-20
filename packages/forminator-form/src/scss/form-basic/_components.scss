@@ -2,7 +2,7 @@
 
 @mixin components($divi: false) {
 	
-	@include wrapper-class($divi) {
+	@include wrapper-class($divi, $rtl: false) {
 
 		.forminator-input {
 			display: block;

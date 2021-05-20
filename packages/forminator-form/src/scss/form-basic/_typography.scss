@@ -2,7 +2,7 @@
 
 @mixin typography($divi: false) {
 
-	@include wrapper-class($divi) {
+	@include wrapper-class($divi, $rtl: false) {
 
 		.forminator-label {
 			display: block;

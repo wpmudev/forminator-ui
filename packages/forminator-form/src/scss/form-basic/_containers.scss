@@ -2,7 +2,7 @@
 
 @mixin containers($divi: false) {
 	
-	@include wrapper-class($divi) {
+	@include wrapper-class($divi, $rtl: false) {
 		max-width: 100%;
 		direction: ltr;
 		display: block;
