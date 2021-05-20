@@ -1,6 +1,7 @@
 @import './helpers/wrappers';
 @import './helpers/breakpoints';
 
+// LTR Support.
 @include wrapper-class($divi: false, $rtl: false) {
     
     // ELEMENT: Row
@@ -47,6 +48,7 @@
 	}
 }
 
+// RTL Support.
 @include wrapper-class($divi: false, $rtl: true) {
 
 	// ELEMENT: Row.

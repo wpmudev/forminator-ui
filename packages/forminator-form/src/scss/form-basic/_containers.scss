@@ -2,7 +2,7 @@
 
 @mixin containers($divi: false) {
 	
-	// LTR Language.
+	// LTR Support.
 	@include wrapper-class($divi, $rtl: false) {
 		max-width: 100%;
 		direction: ltr;
@@ -17,7 +17,7 @@
 		}
 	}
 
-	// RTL Language.
+	// RTL Support.
 	@include wrapper-class($divi, $rtl: true) {
 		direction: rtl;
 	}
