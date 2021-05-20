@@ -1,6 +1,6 @@
-@import './form-styled/typography';
-@import './form-styled/input';
-@import './form-styled/button';
+@import './typography';
+@import './input';
+@import './button';
 
 @mixin form-styled($divi) {
 	

@@ -1,6 +1,6 @@
-@import './form-basic/containers';
-@import './form-basic/components';
-@import './form-basic/typography';
+@import './containers';
+@import './components';
+@import './typography';
 
 @mixin form-basic($divi) {
 	@include containers($divi);
