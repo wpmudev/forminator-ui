@@ -1,2 +1,2 @@
 @import './form-styled/_form-styled.scss';
-@include form-styled(false);
+@include form-styled($divi: false);

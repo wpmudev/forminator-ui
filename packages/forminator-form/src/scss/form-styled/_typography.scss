@@ -1,8 +1,9 @@
 @import '../helpers/wrappers';
 
-@mixin typography($divi: false, $material: false) {
+@mixin typography($divi: false) {
 	
-	@include form-class($divi, $material, $rtl: false) {
+	// LTR Support.
+	@include form-class($divi, $material: false, $rtl: false) {
 
 		.forminator-label,
 		.forminator-description,

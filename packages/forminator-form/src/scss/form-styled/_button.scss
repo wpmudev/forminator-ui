@@ -1,18 +1,34 @@
 @import '../helpers/wrappers';
 @import '../helpers/opacity';
 
-@mixin button($divi: false, $material: false) {
+@mixin button($divi: false) {
 	
-	@include form-class($divi, $material, $rtl: false) {
+	@include form-class($divi, $material: false, $rtl: false) {
 
 		.forminator-button {
-			min-width: 100px;
+			width: auto;
 			max-width: unset;
+			height: auto;
 			min-height: unset;
 			max-height: unset;
 			margin: 0;
+			border: 0;
+			background-image: unset;
 			line-height: 1.45em;
+			text-align: center;
 			transition: 0.2s ease;
+
+			&:hover,
+			&:focus {
+				outline: none;
+				box-shadow: 0 1px 4px 0 rgba(0,0,0,0.6);
+			}
+
+			&:disabled {
+				@include opacity(0.5);
+				user-select: none;
+				pointer-events: none;
+			}
 		}
 	}
 }
