@@ -6,6 +6,10 @@
 
 		.forminator-label {
 			display: block;
+
+			&[for] {
+				cursor: pointer;
+			}
 		}
 	
 		.forminator-description {
