@@ -1,80 +1,83 @@
 @import '../helpers/wrappers';
 @import '../helpers/opacity';
 
-@include form-class($divi: false, $material: true, $rtl: false) {
+@mixin input($divi) {
+	
+	@include form-class($divi, $material: true, $rtl: false) {
 
-    .forminator-input {
-        width: 100%;
-		min-width: unset;
-        max-width: 100%;
-		height: auto;
-		min-height: unset;
-		max-height: unset;
-        display: block;
-        margin: 0;
-		padding: 10px 0 9px;
-        border-width: 0 0 1px;
-        border-style: solid;
-		background-image: unset;
-		background-color: transparent;
-		line-height: 1.3em;
-        transition: 0.2s ease;
-
-        &:focus {
-            outline: none;
-            box-shadow: none;
-        }
-
-		&:disabled {
-			pointer-events: none;
-			border-style: dotted;
-
-			&:-moz-placeholder {
-				@include opacity(0.4);
-			}
-
-			&::-moz-placeholder {
-				@include opacity(0.4);
-			}
-
-			&:-ms-input-placeholder {
-				@include opacity(0.4);
-			}
-
-			&::-webkit-input-placeholder {
-				@include opacity(0.4);
-			}
-		}
-    }
-
-	.forminator-input--wrap {
-		display: block;
-		position: relative;
-
-		&:after {
-			content: " ";
-			height: 2px;
+		.forminator-input {
+			width: 100%;
+			min-width: unset;
+			max-width: 100%;
+			height: auto;
+			min-height: unset;
+			max-height: unset;
 			display: block;
-			position: absolute;
-			right: 50%;
-			bottom: 0;
-			left: 50%;
-			box-sizing: border-box;
+			margin: 0;
+			padding: 10px 0 9px;
+			border-width: 0 0 1px;
+			border-style: solid;
+			background-image: unset;
+			background-color: transparent;
+			line-height: 20px;
 			transition: 0.2s ease;
+	
+			&:focus {
+				outline: none;
+				box-shadow: none;
+			}
+	
+			&:disabled {
+				pointer-events: none;
+				border-style: dotted;
+	
+				&:-moz-placeholder {
+					@include opacity(0.4);
+				}
+	
+				&::-moz-placeholder {
+					@include opacity(0.4);
+				}
+	
+				&:-ms-input-placeholder {
+					@include opacity(0.4);
+				}
+	
+				&::-webkit-input-placeholder {
+					@include opacity(0.4);
+				}
+			}
 		}
-	}
-
-	.forminator-field {
-
-		&.forminator-is_hover,
-		&.forminator-is_active,
-		&.forminator-has_error {
-
-			.forminator-input--wrap {
-
-				&:after {
-					right: 0;
-					left: 0;
+	
+		.forminator-input--wrap {
+			display: block;
+			position: relative;
+	
+			&:after {
+				content: " ";
+				height: 2px;
+				display: block;
+				position: absolute;
+				right: 50%;
+				bottom: 0;
+				left: 50%;
+				box-sizing: border-box;
+				transition: 0.2s ease;
+			}
+		}
+	
+		.forminator-field {
+	
+			&.forminator-is_hover,
+			&.forminator-is_active,
+			&.forminator-has_error {
+	
+				.forminator-input--wrap {
+	
+					&:after {
+						right: 0;
+						left: 0;
+					}
 				}
 			}
 		}
