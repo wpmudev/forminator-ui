@@ -1,0 +1,210 @@
+@import '../helpers/wrappers';
+@import '../helpers/opacity';
+
+$icon-size: 16px !default;
+
+@mixin typography($divi) {
+	
+	// LTR Support.
+	@include form-class($divi, $material: true, $rtl: false) {
+
+		.forminator-label,
+		.forminator-description,
+		.forminator-error-message {
+			letter-spacing: 0;
+		}
+
+		.forminator-label {
+			margin: 0;
+			padding: 0;
+			border: 0;
+			line-height: 20px;
+			
+			&[class*="forminator-floating-"] {
+				pointer-events: none;
+				transition: 0.2s linear;
+			}
+		}
+
+		.forminator-description,
+		.forminator-error-message {
+			margin: 5px 0 0;
+			line-height: 1.5em;
+		}
+
+		// ******************************
+		// INPUT: Floating label.
+		.forminator-floating--input {
+			transform: translateY(30px);
+
+			+ .forminator-input--wrap,
+			+ .forminator-input-with-icon,
+			+ .forminator-input-with-phone,
+			+ .forminator-input-with-suffix {
+
+				.forminator-input {
+
+					&::placeholder {
+						@include opacity(0);
+					}
+
+					&:-moz-placeholder {
+						@include opacity(0);
+					}
+
+					&::-moz-placeholder {
+						@include opacity(0);
+					}
+
+					&:-ms-input-placeholder {
+						@include opacity(0);
+					}
+
+					&::-webkit-input-placeholder {
+						@include opacity(0);
+					}
+				}
+			}
+
+			&.forminator-has_icon {
+				padding-left: #{$icon-size + 10px};
+			}
+
+			&.forminator-has_phone {
+
+				&.allow-dropdown {
+					padding-left: 41px;
+				}
+
+				&:not(.allow-dropdown) {
+					padding-left: 30px;
+				}
+			}
+		}
+
+		.forminator-is_active,
+		.forminator-is_filled {
+
+			.forminator-floating--input {
+				transform: translateY(0);
+
+				+ .forminator-input--wrap,
+				+ .forminator-input-with-icon,
+				+ .forminator-input-with-phone,
+				+ .forminator-input-with-suffix {
+
+					.forminator-input {
+
+						&::placeholder {
+							@include opacity(1);
+						}
+
+						&:-moz-placeholder {
+							@include opacity(1);
+						}
+
+						&::-moz-placeholder {
+							@include opacity(1);
+						}
+
+						&:-ms-input-placeholder {
+							@include opacity(1);
+						}
+
+						&::-webkit-input-placeholder {
+							@include opacity(1);
+						}
+					}
+				}
+			}
+
+			.forminator-input-with-phone {
+
+				.flag-container {
+					top: -61px;
+				}
+			}
+		}
+
+		.forminator-is_filled {
+
+			.forminator-floating--input {
+
+				&:not(.forminator-has_phone) {
+					padding-left: 0 !important;
+				}
+			}
+		}
+
+		// ******************************
+		// TEXTAREA: Floating label.
+		.forminator-floating--textarea {
+			width: 100%;
+			max-height: 140px;
+			overflow-y: hidden;
+			position: absolute;
+			z-index: 1;
+			padding: 10px;
+
+			+ .forminator-textarea--wrap {
+
+				.forminator-textarea {
+
+					&::placeholder {
+						@include opacity(0);
+					}
+
+					&:-moz-placeholder {
+						@include opacity(0);
+					}
+
+					&::-moz-placeholder {
+						@include opacity(0);
+					}
+
+					&:-ms-input-placeholder {
+						@include opacity(0);
+					}
+
+					&::-webkit-input-placeholder {
+						@include opacity(0);
+					}
+				}
+			}
+		}
+
+		.forminator-is_active,
+		.forminator-is_filled {
+
+			.forminator-floating--textarea {
+				padding-top: 10px !important;
+
+				+ .forminator-textarea--wrap {
+
+					.forminator-textarea {
+
+						&::placeholder {
+							@include opacity(1);
+						}
+
+						&:-moz-placeholder {
+							@include opacity(1);
+						}
+
+						&::-moz-placeholder {
+							@include opacity(1);
+						}
+
+						&:-ms-input-placeholder {
+							@include opacity(1);
+						}
+
+						&::-webkit-input-placeholder {
+							@include opacity(1);
+						}
+					}
+				}
+			}
+		}
+	}
+}
