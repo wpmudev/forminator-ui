@@ -6,7 +6,7 @@
 
 	.forminator-custom-form[data-grid] {
 
-		@include desktop-class($desktop: false) {
+		@include desktop-class($desktop-only: false) {
 
 			.forminator-row,
 			.forminator-col {
@@ -18,7 +18,7 @@
 			}
 		}
 
-		@include desktop-class($desktop: true) {
+		@include desktop-class($desktop-only: true) {
 
 			// ELEMENT: Row
 			.forminator-row {
@@ -61,7 +61,7 @@
 
 	.forminator-custom-form[data-grid] {
 
-		@include desktop-class($desktop: true) {
+		@include desktop-class($desktop-only: true) {
 
 			// ELEMENT: Row.
 			.forminator-row {
