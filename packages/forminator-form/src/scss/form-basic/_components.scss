@@ -4,8 +4,13 @@
 	
 	@include wrapper-class($divi, $rtl: false) {
 
-		.forminator-input {
+		.forminator-input,
+		.forminator-textarea {
 			display: block;
+		}
+
+		.forminator-textarea {
+			resize: vertical;
 		}
 	
 		.forminator-button {
