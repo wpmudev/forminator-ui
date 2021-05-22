@@ -42,10 +42,26 @@
     }
 }
 
-@mixin form-class($divi: false, $material: false, $rtl: false) {
+@mixin desktop-class($desktop: false) {
+
+	@if $desktop {
+
+		&:not(.forminator-size--small) {
+			@content;
+		}
+	}
+
+	@else {
+		@content;
+	}
+}
+
+@mixin form-class($rtl: false, $divi: false, $material: false, $desktop: false) {
     @include wrapper-class($divi, $rtl) {
         @include design-class($material) {
-            @content;
+			@include desktop-class($desktop) {
+				@content;
+			}
         }
     }
 }
