@@ -42,7 +42,7 @@
     }
 }
 
-@mixin desktop-class($desktop: false) {
+@mixin desktop-class($desktop-only: false) {
 
 	@if $desktop {
 
@@ -56,10 +56,10 @@
 	}
 }
 
-@mixin form-class($rtl: false, $divi: false, $material: false, $desktop: false) {
+@mixin form-class($rtl: false, $divi: false, $material: false, $desktop-only: false) {
     @include wrapper-class($divi, $rtl) {
         @include design-class($material) {
-			@include desktop-class($desktop) {
+			@include desktop-class($desktop-only) {
 				@content;
 			}
         }
