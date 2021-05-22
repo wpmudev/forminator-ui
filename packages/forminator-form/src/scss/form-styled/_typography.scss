@@ -54,7 +54,7 @@
 	}
 
 	// RTL Support.
-	@include form-class($divi, $material: false, $rtl: false) {
+	@include form-class($divi, $material: false, $rtl: true) {
 
 		.forminator-label,
 		.forminator-description,
