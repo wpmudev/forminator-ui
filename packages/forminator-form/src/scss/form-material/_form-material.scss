@@ -1,9 +1,11 @@
 @import './typography';
 @import './input';
+@import './textarea';
 @import './button';
 
 @mixin form-material($divi) {
 	@include typography($divi);
 	@include input($divi);
+	@include textarea($divi);
 	@include button($divi);
 }

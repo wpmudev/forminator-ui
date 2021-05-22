@@ -1,0 +1,28 @@
+@import '../helpers/wrappers';
+
+@mixin textarea($divi: false) {
+	
+	@include form-class($rtl: false, $divi, $material: false, $desktop-only: false) {
+
+		.forminator-textarea {
+			width: 100%;
+			margin: 0;
+			border-style: solid;
+			background-image: unset;
+			line-height: 1.3em;
+			transition: 0.2s ease;
+
+			&:hover,
+			&:focus {
+				outline: none;
+				box-shadow: none;
+			}
+
+			&:disabled {
+				@include opacity(0.5);
+				pointer-events: none;
+				border-style: dotted;
+			}
+		}
+	}
+}
