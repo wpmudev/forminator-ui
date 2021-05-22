@@ -44,7 +44,7 @@
 
 @mixin desktop-class($desktop-only: false) {
 
-	@if $desktop {
+	@if $desktop-only {
 
 		&:not(.forminator-size--small) {
 			@content;
@@ -56,12 +56,10 @@
 	}
 }
 
-@mixin form-class($rtl: false, $divi: false, $material: false, $desktop-only: false) {
+@mixin form-class($divi: false, $material: false, $rtl: false) {
     @include wrapper-class($divi, $rtl) {
         @include design-class($material) {
-			@include desktop-class($desktop-only) {
-				@content;
-			}
+			@content;
         }
     }
 }

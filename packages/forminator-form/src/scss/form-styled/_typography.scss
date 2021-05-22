@@ -3,7 +3,7 @@
 @mixin typography($divi: false) {
 	
 	// LTR Support.
-	@include form-class($rtl: false, $divi, $material: false, $desktop-only: false) {
+	@include form-class($divi, $material: false, $rtl: false) {
 
 		.forminator-title,
 		.forminator-subtitle {
@@ -54,7 +54,7 @@
 	}
 
 	// RTL Support.
-	@include form-class($rtl: true, $divi, $material: false, $desktop-only: false) {
+	@include form-class($divi, $material: false, $rtl: false) {
 
 		.forminator-label,
 		.forminator-description,

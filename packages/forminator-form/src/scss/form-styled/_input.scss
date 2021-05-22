@@ -3,7 +3,7 @@
 
 @mixin input($divi: false) {
 	
-	@include form-class($rtl: false, $divi, $material: false, $desktop-only: false) {
+	@include form-class($divi, $material: false, $rtl: false) {
 
 		.forminator-input {
 			width: 100%;

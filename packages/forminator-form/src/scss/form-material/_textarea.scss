@@ -3,7 +3,7 @@
 
 @mixin textarea($divi: false) {
 	
-	@include form-class($rtl: false, $divi, $material: true, $desktop-only: false) {
+	@include form-class($divi, $material: true, $rtl: false) {
 
 		.forminator-textarea {
 			width: 100%;
