@@ -4,6 +4,11 @@
 
 	@include wrapper-class($divi, $rtl: false) {
 
+		.forminator-title,
+		.forminator-subtitle {
+			display: block;
+		}
+
 		.forminator-label {
 			display: block;
 

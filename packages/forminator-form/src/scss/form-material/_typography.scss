@@ -8,6 +8,31 @@ $icon-size: 16px !default;
 	// LTR Support.
 	@include form-class($rtl: false, $divi, $material: true, $desktop-only: false) {
 
+		.forminator-title,
+		.forminator-subtitle {
+			margin: 0;
+			padding: 0;
+			border: 0;
+
+			&:before,
+			&:after {
+				content: unset;
+				display: none;
+			}
+		}
+
+		.forminator-title {
+			line-height: 1em;
+
+			+ .forminator-subtitle {
+				margin-top: 10px;
+			}
+		}
+
+		.forminator-subtitle {
+			line-height: 1.4em;
+		}
+
 		.forminator-label,
 		.forminator-description,
 		.forminator-error-message {
