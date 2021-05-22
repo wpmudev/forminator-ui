@@ -2,46 +2,54 @@
 @import './helpers/breakpoints';
 
 // LTR Support.
-@include wrapper-class($divi: false, $rtl: false) {
+@include language-class($rtl: false) {
 
-	// ELEMENT: Row
-	.forminator-row {
+	.forminator-custom-form[data-grid] {
 
-		&:focus {
-			outline: none;
-			box-shadow: none;
+		@include desktop-class($desktop: false) {
+
+			.forminator-row,
+			.forminator-col {
+
+				&:focus {
+					outline: none;
+					box-shadow: none;
+				}
+			}
 		}
 
-		@include media(min-width, sm) {
-			display: flex;
-            flex-flow: row wrap;
-		}
-	}
+		@include desktop-class($desktop: true) {
 
-    // ELEMENT: Column
-	.forminator-col {
-
-		&:focus {
-			outline: none;
-			box-shadow: none;
-		}
-
-		@include media(min-width, sm) {
-			min-width: 0;
-			flex: 1;
-		}
-	}
-
-    // ELEMENT: Multiple Columns
-	.forminator-col-3,
-	.forminator-col-4 {
-
-		.forminator-row {
-
-			&[data-multiple="true"] {
+			// ELEMENT: Row
+			.forminator-row {
 
 				@include media(min-width, sm) {
-					display: block;
+					display: flex;
+					flex-flow: row wrap;
+				}
+			}
+
+			// ELEMENT: Column
+			.forminator-col {
+
+				@include media(min-width, sm) {
+					min-width: 0;
+					flex: 1;
+				}
+			}
+
+			// ELEMENT: Multiple Columns
+			.forminator-col-3,
+			.forminator-col-4 {
+
+				.forminator-row {
+
+					&[data-multiple="true"] {
+
+						@include media(min-width, sm) {
+							display: block;
+						}
+					}
 				}
 			}
 		}
@@ -49,13 +57,19 @@
 }
 
 // RTL Support.
-@include wrapper-class($divi: false, $rtl: true) {
+@include language-class($rtl: true) {
 
-	// ELEMENT: Row.
-	.forminator-row {
+	.forminator-custom-form[data-grid] {
 
-		@include media(min-width, sm) {
-			flex-direction: row-reverse;
+		@include desktop-class($desktop: true) {
+
+			// ELEMENT: Row.
+			.forminator-row {
+
+				@include media(min-width, sm) {
+					flex-direction: row-reverse;
+				}
+			}
 		}
 	}
 }
