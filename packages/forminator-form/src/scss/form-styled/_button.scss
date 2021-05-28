@@ -2,7 +2,7 @@
 @import '../helpers/opacity';
 
 @mixin button($divi: false) {
-	
+
 	// LTR Support.
 	@include form-class($divi, $material: false, $rtl: false) {
 

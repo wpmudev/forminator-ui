@@ -1,7 +1,7 @@
 @import '../helpers/wrappers';
 
 @mixin typography($divi: false) {
-	
+
 	// LTR Support.
 	@include form-class($divi, $material: false, $rtl: false) {
 
@@ -35,19 +35,19 @@
 		.forminator-error-message {
 			letter-spacing: 0;
 		}
-	
+
 		.forminator-label {
 			margin: 0 0 5px;
 			padding: 0;
 			border: 0;
 			line-height: 1.7em;
 		}
-	
+
 		.forminator-error-message {
 			padding: 2px 10px;
 			line-height: 2em;
 		}
-	
+
 		.forminator-description {
 			line-height: 1.5em;
 		}

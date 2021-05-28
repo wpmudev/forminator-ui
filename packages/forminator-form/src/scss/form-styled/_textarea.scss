@@ -1,7 +1,7 @@
 @import '../helpers/wrappers';
 
 @mixin textarea($divi: false) {
-	
+
 	@include form-class($divi, $material: false, $rtl: false) {
 
 		.forminator-textarea {

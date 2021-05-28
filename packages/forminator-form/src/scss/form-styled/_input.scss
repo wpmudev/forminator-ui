@@ -2,7 +2,7 @@
 @import '../helpers/opacity';
 
 @mixin input($divi: false) {
-	
+
 	@include form-class($divi, $material: false, $rtl: false) {
 
 		.forminator-input {
@@ -19,28 +19,28 @@
 			line-height: 1.3em;
 			letter-spacing: 0;
 			transition: 0.2s ease;
-	
+
 			&:hover,
 			&:focus {
 				outline: none;
 			}
-	
+
 			&:disabled {
 				pointer-events: none;
 				border-style: dotted;
-	
+
 				&:-moz-placeholder {
 					@include opacity(0.4);
 				}
-	
+
 				&::-moz-placeholder {
 					@include opacity(0.4);
 				}
-	
+
 				&:-ms-input-placeholder {
 					@include opacity(0.4);
 				}
-	
+
 				&::-webkit-input-placeholder {
 					@include opacity(0.4);
 				}

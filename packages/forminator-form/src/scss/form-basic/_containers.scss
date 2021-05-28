@@ -1,17 +1,17 @@
 @import '../helpers/wrappers';
 
 @mixin containers($divi: false) {
-	
+
 	// LTR Support.
 	@include wrapper-class($divi, $rtl: false) {
 		max-width: 100%;
 		direction: ltr;
 		display: block;
-	
+
 		* {
 			box-sizing: border-box;
 		}
-	
+
 		.forminator-field {
 			display: block;
 		}

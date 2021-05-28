@@ -2,7 +2,7 @@
 @import '../helpers/breakpoints';
 
 @mixin section($divi: false) {
-	
+
 	@include form-class($divi, $material: false, $rtl: false) {
 
 		@include desktop-class($desktop-only: false) {
@@ -19,7 +19,7 @@
 				padding: 0;
 				background-image: unset;
 				background-color: transparent;
-	
+
 				&:first-child {
 					margin-top: 0;
 				}

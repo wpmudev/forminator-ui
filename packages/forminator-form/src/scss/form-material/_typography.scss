@@ -4,7 +4,7 @@
 $icon-size: 16px !default;
 
 @mixin typography($divi) {
-	
+
 	// LTR Support.
 	@include form-class($divi, $material: true, $rtl: false) {
 
@@ -44,7 +44,7 @@ $icon-size: 16px !default;
 			padding: 0;
 			border: 0;
 			line-height: 20px;
-			
+
 			&[class*="forminator-floating-"] {
 				pointer-events: none;
 				transition: 0.2s linear;

@@ -2,7 +2,7 @@
 @import '../helpers/opacity';
 
 @mixin textarea($divi: false) {
-	
+
 	@include form-class($divi, $material: true, $rtl: false) {
 
 		.forminator-textarea {

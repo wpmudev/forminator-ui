@@ -12,13 +12,13 @@
 @mixin wrapper-class($divi: false, $rtl: false) {
 
 	@include language-class($rtl) {
-		
+
 		@if $divi {
 			.et-db #et-boc .et_pb_module .forminator-ui {
 				@content;
 			}
 		}
-	
+
 		@else {
 			.forminator-ui {
 				@content;
