@@ -2,7 +2,7 @@
 @import '../helpers/opacity';
 
 @mixin input($divi) {
-	
+
 	@include form-class($divi, $material: true, $rtl: false) {
 
 		.forminator-input {
@@ -17,42 +17,43 @@
 			padding: 10px 0 9px;
 			border-width: 0 0 1px;
 			border-style: solid;
+			border-radius: 0;
 			background-image: unset;
 			background-color: transparent;
 			line-height: 20px;
 			transition: 0.2s ease;
-	
+
 			&:focus {
 				outline: none;
 				box-shadow: none;
 			}
-	
+
 			&:disabled {
 				pointer-events: none;
 				border-style: dotted;
-	
+
 				&:-moz-placeholder {
 					@include opacity(0.4);
 				}
-	
+
 				&::-moz-placeholder {
 					@include opacity(0.4);
 				}
-	
+
 				&:-ms-input-placeholder {
 					@include opacity(0.4);
 				}
-	
+
 				&::-webkit-input-placeholder {
 					@include opacity(0.4);
 				}
 			}
 		}
-	
+
 		.forminator-input--wrap {
 			display: block;
 			position: relative;
-	
+
 			&:after {
 				content: " ";
 				height: 2px;
@@ -65,15 +66,15 @@
 				transition: 0.2s ease;
 			}
 		}
-	
+
 		.forminator-field {
-	
+
 			&.forminator-is_hover,
 			&.forminator-is_active,
 			&.forminator-has_error {
-	
+
 				.forminator-input--wrap {
-	
+
 					&:after {
 						right: 0;
 						left: 0;
