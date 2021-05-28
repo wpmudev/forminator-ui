@@ -1,0 +1,65 @@
+@import '../helpers/wrappers';
+@import '../helpers/opacity';
+@import '../helpers/screen-readers';
+
+@mixin radio($divi) {
+
+	@include form-class($divi, $material: false, $rtl: false) {
+
+		.forminator-radio {
+			cursor: default;
+			pointer-events: none;
+			display: flex;
+			position: relative;
+
+			input {
+				@extend %screen-readers;
+
+				&:checked {
+
+					+ span[aria-hidden]:before {
+						@include opacity(1);
+					}
+				}
+			}
+
+			span {
+				cursor: pointer;
+				pointer-events: all;
+				display: block;
+			}
+
+			span[aria-hidden] {
+				width: 20px;
+				height: 20px;
+				flex: 0 0 20px;
+				position: relative;
+				border-style: solid;
+				border-radius: 40px;
+
+				&:before {
+					content: " ";
+					@include opacity(0);
+					display: block;
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					border-radius: 100%;
+					transform: translate(-50%, -50%);
+					transition: 0.2s ease;
+				}
+			}
+
+			span:not([aria-hidden]) {
+				flex: 0 1 auto;
+				line-height: 20px;
+			}
+
+			// VARIATION: Inline
+			&.forminator-radio-inline {
+				display: inline-flex;
+				vertical-align: middle;
+			}
+		}
+	}
+}
