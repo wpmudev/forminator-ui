@@ -1,7 +1,7 @@
 @import '../helpers/wrappers';
 
 @mixin components($divi: false) {
-	
+
 	@include wrapper-class($divi, $rtl: false) {
 
 		.forminator-input,
@@ -42,7 +42,7 @@
 				}
 			}
 		}
-	
+
 		.forminator-button {
 			cursor: pointer;
 			display: inline-block;
