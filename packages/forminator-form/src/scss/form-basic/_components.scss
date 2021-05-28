@@ -12,6 +12,36 @@
 		.forminator-textarea {
 			resize: vertical;
 		}
+
+		.forminator-radio {
+			margin: 5px 0;
+
+			span:not([aria-hidden]) {
+				margin-left: 10px;
+			}
+
+			// VARIATION: Inline
+			&.forminator-radio-inline {
+				margin-right: 20px;
+
+				&:last-of-type {
+					margin-right: 0;
+				}
+			}
+
+			// VARIATION: Stacked
+			&:not(.forminator-radio-inline) {
+				display: block;
+
+				&:first-of-type {
+					margin-top: 0;
+				}
+
+				&:last-of-type {
+					margin-bottom: 0;
+				}
+			}
+		}
 	
 		.forminator-button {
 			cursor: pointer;
