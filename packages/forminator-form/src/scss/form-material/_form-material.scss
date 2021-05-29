@@ -2,8 +2,7 @@
 @import './section';
 @import './input';
 @import './textarea';
-@import './radio';
-@import './checkbox';
+@import './radio-checkbox';
 @import './button';
 
 @mixin form-material($divi) {
@@ -11,7 +10,6 @@
 	@include section($divi);
 	@include input($divi);
 	@include textarea($divi);
-	@include radio($divi);
-	@include checkbox($divi);
+	@include radio-checkbox($divi);
 	@include button($divi);
 }
