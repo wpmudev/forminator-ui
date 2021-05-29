@@ -47,6 +47,20 @@
 
 		.forminator-description {
 			line-height: 1.5em;
+
+			a {
+
+				&, &:hover, &:focus {
+					outline: none;
+					box-shadow: none;
+				}
+			}
+
+			p {
+				margin: 0;
+				padding: 0;
+				border: 0;
+			}
 		}
 	}
 
