@@ -13,15 +13,20 @@
 			resize: vertical;
 		}
 
-		.forminator-radio {
+		.forminator-radio,
+		.forminator-checkbox {
 			margin: 5px 0;
+
+			input {
+				margin: 0;
+			}
 
 			span:not([aria-hidden]) {
 				margin-left: 10px;
 			}
 
 			// VARIATION: Inline
-			&.forminator-radio-inline {
+			&.forminator-inline {
 				margin-right: 20px;
 
 				&:last-of-type {
@@ -30,7 +35,7 @@
 			}
 
 			// VARIATION: Stacked
-			&:not(.forminator-radio-inline) {
+			&:not(.forminator-inline) {
 				display: block;
 
 				&:first-of-type {
