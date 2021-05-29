@@ -1,0 +1,99 @@
+@import '../helpers/wrappers';
+@import '../helpers/breakpoints';
+@import '../helpers/opacity';
+@import '../helpers/screen-readers';
+@import '../helpers/animations';
+@import '../helpers/icons';
+
+@mixin checkbox($divi) {
+
+	@include form-class($divi, $material: true, $rtl: false) {
+
+		.forminator-checkbox {
+			cursor: default;
+			pointer-events: none;
+			display: flex;
+			position: relative;
+
+			input {
+				@extend %screen-readers;
+
+				&:checked {
+
+					&:focus {
+
+						+ span[aria-hidden]:after {
+							animation-name: click-animation;
+						}
+					}
+
+					+ span[aria-hidden]:before {
+						@include opacity(1);
+					}
+
+					+ span[aria-hidden]:after {
+						@include opacity(1);
+					}
+				}
+			}
+
+			span {
+				cursor: pointer;
+				pointer-events: all;
+				display: block;
+			}
+
+			span[aria-hidden] {
+				width: 20px;
+				height: 20px;
+				flex: 0 0 20px;
+				position: relative;
+				border-width: 2px;
+				border-style: solid;
+				border-radius: 2px;
+
+				@include icon(before, check) {
+					@include opacity(0);
+					display: block;
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					font-size: 12px;
+					transform: translate(-50%, -50%);
+					transition: 0.2s ease;
+				}
+
+				&:after {
+					content: " ";
+					@include opacity(0);
+					width: 20px;
+					height: 20px;
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					border-radius: 100%;
+					transform: translate(-50%, -50%) scale(0);
+					transform-origin: center;
+					transform-style: preserve-3d;
+					animation-duration: 0.6s;
+					animation-fill-mode: both;
+				}
+
+				+ span {
+					margin-left: 10px;
+				}
+			}
+
+			span:not([aria-hidden]) {
+				flex: 0 1 auto;
+				line-height: 20px;
+			}
+
+			// VARIATION: Inline
+			&.forminator-checkbox-inline {
+				display: inline-flex;
+				vertical-align: middle;
+			}
+		}
+	}
+}
