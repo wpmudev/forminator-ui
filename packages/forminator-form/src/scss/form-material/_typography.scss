@@ -37,7 +37,7 @@ $icon-size: 16px !default;
 		}
 
 		.forminator-label {
-			margin: 0;
+			margin: 0 0 5px;
 			padding: 0;
 			border: 0;
 			line-height: 20px;
@@ -53,10 +53,40 @@ $icon-size: 16px !default;
 			line-height: 1.5em;
 		}
 
+		.forminator-description {
+
+			a {
+
+				&, &:hover, &:focus {
+					outline: none;
+					box-shadow: none;
+				}
+			}
+
+			p {
+				margin: 0;
+				padding: 0;
+				border: 0;
+			}
+		}
+
+		// ******************************
+		// LABEL: Floating label.
+		.forminator-is_active,
+		.forminator-is_filled {
+
+			.forminator-label {
+
+				&[class*="forminator-floating-"] {
+					margin-bottom: 5px;
+				}
+			}
+		}
+
 		// ******************************
 		// INPUT: Floating label.
 		.forminator-floating--input {
-			transform: translateY(30px);
+			transform: translateY(35px);
 
 			+ .forminator-input--wrap,
 			+ .forminator-input-with-icon,
