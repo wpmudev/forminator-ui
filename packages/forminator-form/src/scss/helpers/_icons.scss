@@ -1,0 +1,56 @@
+$icons: (
+	calendar:        "\1f4c5",
+	cancel:          "\2715",
+	check:           "\2713",
+	chevron-down:    "\2304",
+	chevron-left:    "\276e",
+	chevron-right:   "\276f",
+	chevron-up:      "\2303",
+	close:           "\2297",
+	file:            "\1f4c4",
+	loader:          "\25cc",
+	refresh:         "\27f3",
+	reset:           "\2941",
+	social-facebook: "\e900",
+	social-linkedin: "\e90d",
+	social-twitter:  "\e90e",
+	upload:          "\22bc",
+	warning:         "\26a0",
+) !default;
+
+%icon-styles {
+	speak: none;
+	line-height: 1;
+	font-family: "forminator-icons-font" !important; // Use !important to prevent issues with browser extensions that change fonts.
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	// Enable Ligatures ================
+	letter-spacing: 0;
+	font-feature-settings: "liga" 1;
+	font-variant-ligatures: discretionary-ligatures;
+	// Better Font Rendering ================
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+@mixin icon($position: before, $icon: false, $styles: true) {
+
+	@if $position == both {
+		$position: 'before, &:after';
+	}
+
+	&:#{$position} {
+
+		@if $icon {
+			content: "#{map-get($icons, $icon)}";
+		}
+
+		@if $styles {
+			@extend %icon-styles;
+		}
+
+		@content;
+	}
+}
