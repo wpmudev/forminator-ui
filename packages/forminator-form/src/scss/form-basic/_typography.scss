@@ -23,6 +23,12 @@
 		.forminator-description {
 			display: flex;
 			margin: 5px 0 0;
+
+			span {
+				display: block;
+				flex: 0 0 auto;
+				margin: 0 0 0 auto;
+			}
 		}
 
 		.forminator-error-message {
