@@ -1,6 +1,7 @@
 @import '../helpers/wrappers';
 @import '../helpers/opacity';
 @import '../helpers/accessibility';
+@import '../helpers/icons';
 
 @mixin radio-checkbox($divi) {
 
@@ -56,7 +57,60 @@
 			}
 
 			// VARIATION: Inline
-			&.forminator-radio-inline {
+			&.forminator-inline {
+				display: inline-flex;
+				vertical-align: middle;
+			}
+		}
+
+		.forminator-checkbox {
+			cursor: default;
+			pointer-events: none;
+			display: flex;
+			position: relative;
+
+			input {
+				@extend %screen-readers;
+
+				&:checked {
+
+					+ span[aria-hidden]:before {
+						@include opacity(1);
+					}
+				}
+			}
+
+			span {
+				cursor: pointer;
+				pointer-events: all;
+				display: block;
+			}
+
+			span[aria-hidden] {
+				width: 20px;
+				height: 20px;
+				flex: 0 0 20px;
+				position: relative;
+
+				@include icon(before, check) {
+					@include opacity(0);
+					display: block;
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					font-size: 12px;
+					transform: translate(-50%, -50%);
+					transition: 0.2s ease;
+				}
+			}
+
+			span:not([aria-hidden]) {
+				flex: 0 1 auto;
+				line-height: 20px;
+			}
+
+			// VARIATION: Inline
+			&.forminator-inline {
 				display: inline-flex;
 				vertical-align: middle;
 			}
