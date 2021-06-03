@@ -4,11 +4,13 @@
 @import './input-suffix';
 @import './textarea';
 @import './radio-checkbox';
+@import './stripe';
 @import './button';
 
 @mixin form-material($divi, $full: false) {
 	@if $full {
 		@include input-suffix($divi);
+		@include stripe($divi);
 	}
 
 	@else {
