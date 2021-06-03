@@ -5,7 +5,6 @@
 	@include form-class($divi, $material: false, $rtl: false) {
 
 		.forminator-textarea {
-			width: 100%;
 			margin: 0;
 			border-style: solid;
 			background-image: unset;

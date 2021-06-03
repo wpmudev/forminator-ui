@@ -6,7 +6,6 @@
 	@include form-class($divi, $material: false, $rtl: false) {
 
 		.forminator-input {
-			width: 100%;
 			min-width: unset;
 			max-width: 100%;
 			height: auto;
