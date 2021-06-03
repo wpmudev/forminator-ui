@@ -4,13 +4,13 @@
 @import './input-suffix';
 @import './textarea';
 @import './radio-checkbox';
-@import './stripe';
+@import './upload';
 @import './button';
 
 @mixin form-styled($divi, $full: false) {
 	@if $full {
 		@include input-suffix($divi);
-		@include stripe($divi);
+		@include upload($divi);
 	}
 
 	@else {
