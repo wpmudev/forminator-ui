@@ -1,0 +1,54 @@
+@import '../helpers/wrappers';
+
+@mixin components-full($divi: false) {
+
+	@include wrapper-class($divi, $rtl: false) {
+
+		.forminator-input-with-suffix {
+			position: relative;
+
+			.forminator-suffix {
+				pointer-events: none;
+				display: block;
+				position: absolute;
+				top: 50%;
+				right: 0;
+				padding: 0 10px;
+				line-height: 1.4em;
+				transform: translateY(-50%);
+			}
+		}
+
+		.forminator-input-with-prefix {
+			display: flex;
+			flex-flow: row wrap;
+			align-items: center;
+
+			input {
+				min-width: 50px;
+				display: block;
+				flex: 1;
+				margin: 0;
+				padding: 0;
+				border: 0;
+				background-image: none;
+				background-color: transparent;
+				box-shadow: none;
+			}
+
+			.forminator-prefix,
+			.forminator-suffix {
+				display: block;
+				flex: 0 0 auto;
+			}
+
+			.forminator-prefix {
+				margin-right: 10px;
+			}
+
+			.forminator-suffix {
+				margin-left: 10px;
+			}
+		}
+	}
+}

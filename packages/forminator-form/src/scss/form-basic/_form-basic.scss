@@ -1,9 +1,17 @@
 @import './containers';
 @import './components';
+@import './components-full';
 @import './typography';
 
 @mixin form-basic($divi) {
-	@include containers($divi);
-	@include components($divi);
-	@include typography($divi);
+
+	@if $full {
+		@include components-full($divi);
+	}
+
+	@else {
+		@include containers($divi);
+		@include components($divi);
+		@include typography($divi);
+	}
 }
