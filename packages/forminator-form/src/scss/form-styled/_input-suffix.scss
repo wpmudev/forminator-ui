@@ -1,0 +1,25 @@
+@import '../helpers/wrappers';
+
+@mixin input-suffix($divi) {
+
+	@include form-class($divi, $material: false, $rtl: false) {
+
+		.forminator-input-with-suffix {
+			position: relative;
+
+			.forminator-input {
+				padding-right: 60px;
+			}
+
+			.forminator-suffix {
+				display: block;
+				position: absolute;
+				top: 50%;
+				right: 0;
+				padding: 0 10px;
+				transform: translateY(-50%);
+				line-height: 1.4em;
+			}
+		}
+	}
+}
