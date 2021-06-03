@@ -7,14 +7,16 @@
 @import './button';
 
 @mixin form-styled($divi, $full: false) {
-	@include typography($divi);
-	@include section($divi);
-	@include input($divi);
-	@include textarea($divi);
-	@include radio-checkbox($divi);
-	@include button($divi);
-
 	@if $full {
 		@include input-suffix($divi);
+	}
+
+	@else {
+		@include typography($divi);
+		@include section($divi);
+		@include input($divi);
+		@include textarea($divi);
+		@include radio-checkbox($divi);
+		@include button($divi);
 	}
 }
