@@ -14,6 +14,21 @@
 			resize: vertical;
 		}
 
+		.forminator-input-with-suffix {
+			position: relative;
+
+			.forminator-suffix {
+				pointer-events: none;
+				display: block;
+				position: absolute;
+				top: 50%;
+				right: 0;
+				padding: 0 10px;
+				line-height: 1.4em;
+				transform: translateY(-50%);
+			}
+		}
+
 		.forminator-radio,
 		.forminator-checkbox {
 			margin: 5px 0;
