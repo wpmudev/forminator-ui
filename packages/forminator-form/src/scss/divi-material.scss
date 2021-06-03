@@ -1,2 +1,2 @@
 @import './form-material/_form-material.scss';
-@include form-material($divi: true);
+@include form-material($divi: true, $full: false);
