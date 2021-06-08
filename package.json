@@ -64,5 +64,6 @@
 		"release:library": "npm run build:library && npm run clean:ghpages && gh-pages -b master -d ./build/library",
 		"release:showcase": "npm run clean:modules && npm install && npm run build:showcase && npm run clean:ghpages && gh-pages -b gh-pages -d ./build/public",
 		"release": "npm run release:library && npm run release:showcase"
-	}
+	},
+	"dependencies": {}
 }
