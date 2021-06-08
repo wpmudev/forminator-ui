@@ -2,15 +2,51 @@
 
 	@include form-class($form-type, $form-theme, false) {
 
-		.forminator-checkbox {
-			cursor: default;
-			pointer-events: none;
+		.forminator-checkbox,
+		.forminator-checkbox-image {
 			display: flex;
+			align-items: center;
 			position: relative;
 			margin: 5px 0;
 
 			input {
 				@extend %screen-readers;
+			}
+
+			span {
+				display: block;
+			}
+
+			// VARIATION: Inline
+			&.forminator-checkbox-inline {
+				display: inline-flex;
+				vertical-align: middle;
+				margin-right: 20px;
+				margin-bottom: 0;
+
+				&:last-of-type {
+					margin-right: 0;
+				}
+			}
+
+			// VARIATION: Stacked
+			&:not(.forminator-checkbox-inline) {
+
+				&:first-child {
+					margin-top: 0;
+				}
+
+				&:last-child {
+					margin-bottom: 0;
+				}
+			}
+		}
+
+		.forminator-checkbox {
+			cursor: default;
+			pointer-events: none;
+
+			input {
 
 				&:checked {
 
@@ -18,19 +54,19 @@
 
 						&:focus {
 
-							+ span[aria-hidden]:after {
+							+ span[aria-hidden]:not([style]):after {
 								animation-name: click-animation;
 							}
 						}
 					}
 
-					+ span[aria-hidden]:before {
+					+ span[aria-hidden]:not([style]):before {
 						@include opacity(1);
 					}
 
 					@if ('material' == $form-theme) {
 
-						+ span[aria-hidden]:after {
+						+ span[aria-hidden]:not([style]):after {
 							@include opacity(1);
 						}
 					}
@@ -40,10 +76,9 @@
 			span {
 				cursor: pointer;
 				pointer-events: all;
-				display: block;
 			}
 
-			span[aria-hidden] {
+			span[aria-hidden]:not([style]) {
 				width: map-get($checkbox, size);
 				height: map-get($checkbox, size);
 				flex: 0 0 map-get($checkbox, size);
@@ -100,37 +135,93 @@
 					}
 				}
 
-				+ span {
+				~ span {
 					margin-left: 10px;
 				}
 			}
 
-			span:not([aria-hidden]) {
+			span[style] {
+				width: 40px;
+				height: 40px;
+				flex: 0 0 auto;
+				@if ('default' == $form-theme) {
+					border-width: map-get($border-width, default);
+					border-style: map-get($border-style, default);
+					border-radius: map-get($border-radius, default);
+				}
+				@if ('flat' == $form-theme) {
+					border-width: map-get($border-width, flat);
+					border-style: map-get($border-style, flat);
+					border-radius: map-get($border-radius, flat);
+				}
+				@if ('bold' == $form-theme) {
+					border-width: map-get($border-width, bold);
+					border-style: map-get($border-style, bold);
+					border-radius: map-get($border-radius, bold);
+				}
+				@if ('material' == $form-theme) {
+					border-width: map-get($border-width, material);
+					border-style: map-get($border-style, material);
+					border-radius: #{map-get($border-radius, material) * 2};
+				}
+				background-repeat: no-repeat;
+				background-size: cover;
+				background-position: center;
+			}
+
+			span:not([aria-hidden]):not([style]) {
 				flex: 0 1 auto;
 				line-height: 20px;
 			}
+		}
 
-			// VARIATION: Inline
-			&.forminator-checkbox-inline {
-				display: inline-flex;
-				vertical-align: middle;
-				margin-right: 20px;
-				margin-bottom: 0;
+		.forminator-checkbox-image {
 
-				&:last-of-type {
-					margin-right: 0;
+			span[aria-hidden] {
+				cursor: pointer;
+				pointer-events: all;
+				@if ('default' == $form-theme) {
+					padding: #{5px - map-get($border-width, default)};
+					border-width: map-get($border-width, default);
+					border-style: map-get($border-style, default);
+					border-radius: map-get($border-radius, default);
 				}
-			}
-
-			// VARIATION: Stacked
-			&:not(.forminator-checkbox-inline) {
-
-				&:first-child {
-					margin-top: 0;
+				@if ('flat' == $form-theme) {
+					padding: 0;
+				}
+				@if ('bold' == $form-theme) {
+					padding: #{10px - map-get($border-width, bold)};
+					border-width: map-get($border-width, bold);
+					border-style: map-get($border-style, bold);
+					border-radius: map-get($border-radius, bold);
+				}
+				@if ('material' == $form-theme) {
+					padding: #{5px - map-get($border-width, material)};
+					border-width: #{map-get($border-width, material) * 2};
+					border-style: map-get($border-style, material);
+					border-radius: map-get($border-radius, material);
 				}
 
-				&:last-child {
-					margin-bottom: 0;
+				span[style] {
+					@if ('default' == $form-theme) {
+						width: 70px;
+						height: 70px;
+					}
+					@if ('flat' == $form-theme) {
+						width: 80px;
+						height: 80px;
+					}
+					@if ('bold' == $form-theme) {
+						width: 60px;
+						height: 60px;
+					}
+					@if ('material' == $form-theme) {
+						width: 70px;
+						height: 70px;
+					}
+					background-repeat: no-repeat;
+					background-size: cover;
+					background-position: center;
 				}
 			}
 		}
