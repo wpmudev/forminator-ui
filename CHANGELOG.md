@@ -1,3 +1,8 @@
+v1.9.5
+- 🐛 fix(radio): Improve styles for radio with image.
+- 🐛 fix(checkbox): Improve styles for checkbox with image.
+
+
 v1.9.4
 - 🐛 fix(phone field): Fix flag selector positioning for phone field when using material style.
 - 🐛 fix(unordered list): Unordered list does not have bullets in admin preview.
