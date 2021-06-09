@@ -1,10 +1,5 @@
 @mixin component-dropdown2($form-type: no-type, $form-theme: no-theme) {
 
-	// if admin bar and not a preview.
-	body.admin-bar>.forminator-select.forminator-select-dropdown-container--open {
-		margin-top: 33px;
-	}
-
 	.forminator-select {
 
 		&.forminator-select-dropdown-container--open {
@@ -222,6 +217,31 @@
 
 			&.forminator-select-dropdown-container--open {
 				margin-top: 1px;
+			}
+		}
+	}
+
+	body {
+
+		// if admin bar and not a preview.
+		&.admin-bar {
+
+			> .forminator-select {
+
+				&.forminator-select-dropdown-container--open {
+					margin-top: 33px;
+				}
+			}
+		}
+
+		// hotfix for hustle pop-ups
+		&.forminator-hustle-dropdown-fix {
+
+			.forminator-select {
+
+				&.forminator-select-dropdown-container--open {
+					z-index: 999999;
+				}
 			}
 		}
 	}
