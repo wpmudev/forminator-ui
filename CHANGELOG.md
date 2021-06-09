@@ -1,3 +1,7 @@
+v1.9.6
+- 🐛 fix(dropdown): Increase dropdown `z-index`.
+
+
 v1.9.5
 - 🐛 fix(radio): Improve styles for radio with image.
 - 🐛 fix(checkbox): Improve styles for checkbox with image.
