@@ -75,6 +75,11 @@
 							dropdownParent: $parent
 						}).on( 'select2:opening', function() {
 							$select.data( 'select2' ).$dropdown.find( ':input.select2-search__field' ).attr( 'placeholder', $placeholder );
+							if ( $select.closest( '.hustle-popup' ).length || $select.closest( '.hustle-slidein' ) ) {
+								$( document.body ).addClass( 'forminator-hustle-dropdown-fix' );
+							}
+						}).on( 'select2:closing', function() {
+							$( document.body ).removeClass( 'forminator-hustle-dropdown-fix' );
 						});
 					});
 				}
