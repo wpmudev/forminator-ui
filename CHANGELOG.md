@@ -1,3 +1,8 @@
+v1.9.7
+- 🐛 fix(form-radio): Make styles match new markup.
+- 🐛 fix(form-checkbox): Make styles match new markup.
+
+
 v1.9.6
 - 🐛 fix(dropdown): Increase dropdown `z-index`.
 
