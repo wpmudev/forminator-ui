@@ -1,3 +1,8 @@
+v1.9.8
+- 🐛 fix(form-radio): Correct image placement and size.
+- 🐛 fix(form-checkbox): Correct image placement and size.
+
+
 v1.9.7
 - 🐛 fix(form-radio): Make styles match new markup.
 - 🐛 fix(form-checkbox): Make styles match new markup.
