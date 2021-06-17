@@ -1,3 +1,7 @@
+v1.9.9
+- 🐛 fix(quiz): Correct spacing between question elements.
+
+
 v1.9.8
 - 🐛 fix(form-radio): Correct image placement and size.
 - 🐛 fix(form-checkbox): Correct image placement and size.
