@@ -1,3 +1,16 @@
+v1.9.10
+- 🐛 fix(form-radio): New design for hover and checked state.
+- 🐛 fix(form-checkbox): New design for hover and checked state.
+
+v1.9.9
+- 🐛 fix(quiz): Correct spacing between question elements.
+
+
+v1.9.8
+- 🐛 fix(form-radio): Correct image placement and size.
+- 🐛 fix(form-checkbox): Correct image placement and size.
+
+
 v1.9.7
 - 🐛 fix(form-radio): Make styles match new markup.
 - 🐛 fix(form-checkbox): Make styles match new markup.
