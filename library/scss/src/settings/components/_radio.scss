@@ -1,3 +1,5 @@
+$radio-image: 80px;
+
 @mixin component-radio($form-type: no-type, $form-theme: no-theme) {
 
 	@include form-class($form-type, $form-theme, false) {
@@ -8,7 +10,7 @@
 			display: flex;
 			align-items: center;
 			position: relative;
-			margin: 5px 0;
+			margin: 10px 0;
 
 			input {
 				@extend %screen-readers;
@@ -33,6 +35,10 @@
 
 						+ .forminator-radio-bullet:after {
 							@include opacity(1);
+						}
+
+						~ .forminator-radio-image:before {
+							box-shadow: inset 0 0 0 6px rgba(255,255,255,0.7);
 						}
 					}
 				}
@@ -125,10 +131,14 @@
 			}
 
 			.forminator-radio-image {
+				@if ('material' == $form-theme) {
+					position: relative;
+					overflow: hidden;
+				}
 				flex: 0 0 auto;
 				@if ('default' == $form-theme) {
-					padding: #{5px - map-get($border-width, default)};
-					border-width: map-get($border-width, default);
+					padding: #{5px - (map-get($border-width, default) * 2)};
+					border-width: #{map-get($border-width, default) * 2};
 					border-style: map-get($border-style, default);
 					border-radius: map-get($border-radius, default);
 				}
@@ -144,83 +154,46 @@
 					border-radius: map-get($border-radius, bold);
 				}
 				@if ('material' == $form-theme) {
-					padding: #{5px - map-get($border-width, material)};
-					border-width: #{map-get($border-width, material) * 2};
-					border-style: map-get($border-style, material);
+					border-width: 0;
 					border-radius: map-get($border-radius, material);
+
+					&:before {
+						content: " ";
+						width: 100%;
+						height: 100%;
+						position: absolute;
+						z-index: 1;
+						top: 0;
+						left: 0;
+						background-color: transparent !important;
+						transition: 0.2s ease;
+					}
 				}
 
 				span {
+					width: #{$radio-image - 10px};
+					height: #{$radio-image - 10px};
 					background-repeat: no-repeat;
 					background-size: cover;
 					background-position: center;
 				}
 			}
 
+			@if ('material' == $form-theme) {
+
+				&:hover {
+
+					.forminator-radio-image:before {
+						background-color: rgba(255,255,255,0.4) !important;
+					}
+				}
+			}
+
 			// VARIATION: Has Image.
 			&.forminator-has_image {
 
-				// VARIATION: Bullet + Label.
-				&.forminator-has_bullet {
-
-					.forminator-radio-bullet {
-						order: 2;
-						margin-left: 10px;
-					}
-
-					.forminator-radio-label {
-						order: 3;
-					}
-
-					.forminator-radio-image {
-						order: 1;
-						margin-left: 0;
-
-						span {
-							@if ('default' == $form-theme) {
-								width: 40px;
-								height: 40px;
-							}
-							@if ('flat' == $form-theme) {
-								width: 40px;
-								height: 40px;
-							}
-							@if ('bold' == $form-theme) {
-								width: 30px;
-								height: 30px;
-							}
-							@if ('material' == $form-theme) {
-								width: 40px;
-								height: 40px;
-							}
-						}
-					}
-				}
-
-				// VARIATION: Aria Label.
-				&:not(.forminator-has_bullet) {
-
-					.forminator-radio-image {
-
-						span {
-							@if ('default' == $form-theme) {
-								width: 90px;
-								height: 90px;
-							}
-							@if ('flat' == $form-theme) {
-								width: 90px;
-								height: 90px;
-							}
-							@if ('bold' == $form-theme) {
-								width: 80px;
-								height: 80px;
-							}
-							@if ('material' == $form-theme) {
-								width: 90px;
-								height: 90px;
-							}
-						}
-					}
+				.forminator-radio-image {
+					margin-left: 0;
 				}
 			}
 
@@ -231,6 +204,21 @@
 				margin-right: 20px;
 				margin-bottom: 0;
 
+				// VARIATION: Has Image.
+				&.forminator-has_image {
+
+					// VARIATION: Bullet + Label.
+					&.forminator-has_bullet {
+						padding-top: #{$radio-image + 10px};
+
+						.forminator-radio-image {
+							position: absolute;
+							top: 0;
+							left: 0;
+						}
+					}
+				}
+
 				&:last-of-type {
 					margin-right: 0;
 				}
@@ -238,9 +226,39 @@
 
 			// ALIGNMENT: Stacked
 			&:not(.forminator-radio-inline) {
+				margin: 20px 0;
+
+				// VARIATION: Has Image.
+				&.forminator-has_image {
+
+					// VARIATION: Bullet + Label.
+					&.forminator-has_bullet {
+
+						.forminator-radio-bullet {
+							order: 2;
+							margin-left: 10px;
+						}
+
+						.forminator-radio-label {
+							order: 3;
+						}
+
+						.forminator-radio-image {
+							order: 1;
+						}
+					}
+				}
+
+				&:first-of-type {
+					margin-top: 10px;
+				}
 
 				&:first-child {
 					margin-top: 0;
+				}
+
+				&:last-of-type {
+					margin-bottom: 10px;
 				}
 
 				&:last-child {
