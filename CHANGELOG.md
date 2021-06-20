@@ -1,3 +1,7 @@
+v1.9.10
+- 🐛 fix(form-radio): New design for hover and checked state.
+- 🐛 fix(form-checkbox): New design for hover and checked state.
+
 v1.9.9
 - 🐛 fix(quiz): Correct spacing between question elements.
 
