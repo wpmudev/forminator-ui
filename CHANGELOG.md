@@ -1,3 +1,8 @@
+v1.9.11
+- 🐛 fix(quiz): Add spacing between paragraphs inside Quiz description.
+- 🐛 fix(form-checkbox): Missing image hover and checked effect for Material design.
+
+
 v1.9.10
 - 🐛 fix(form-radio): New design for hover and checked state.
 - 🐛 fix(form-checkbox): New design for hover and checked state.
