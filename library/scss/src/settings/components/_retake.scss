@@ -1,0 +1,134 @@
+@mixin component-retake($form-type: no-type, $form-theme: no-theme) {
+
+	@include form-class($form-type, $form-theme, false) {
+
+		.forminator-result--retake {
+
+			&[data-button="true"] {
+
+				&[data-shrink="true"] {
+					width: 40px;
+					min-width: auto;
+					height: 40px;
+					display: flex;
+					flex: 0 0 auto;
+					align-self: flex-start;
+					align-items: center;
+					justify-content: center;
+					position: relative;
+
+					span[class*="forminator-icon-"] {
+						display: block;
+
+						&:before {
+							display: block;
+						}
+					}
+
+					span:not([class*="forminator-icon-"]) {
+						width: 1px;
+						height: 1px;
+						overflow: hidden;
+						position: absolute;
+						white-space: nowrap;
+						margin: -1px;
+						padding: 0;
+						border: 0;
+						clip: rect(0 0 0 0);
+						clip-path: inset(50%);
+					}
+				}
+
+				&[data-shrink="false"] {
+					width: auto;
+					min-width: 1px;
+					height: auto;
+					display: block;
+					flex: 0 1 auto;
+
+					span[class*="forminator-icon-"] {
+						display: inline-block;
+						margin-right: 4px;
+
+						&:before {
+							display: inline;
+						}
+					}
+
+					span:not([class*="forminator-icon-"]) {
+						width: auto;
+						height: auto;
+						overflow: initial;
+						position: initial;
+						white-space: initial;
+						margin: 0;
+						clip: unset;
+						clip-path: none;
+					}
+				}
+			}
+
+			&[data-button="false"] {
+				width: auto;
+				min-width: 1px;
+				max-width: 100%;
+				height: auto;
+				cursor: pointer;
+				display: block;
+				margin: 0;
+				padding: 0;
+				border: 0;
+				background-color: transparent;
+				background-image: none;
+				line-height: 1.85em;
+				text-transform: uppercase;
+			}
+		}
+	}
+
+	@include form-class($form-type, $form-theme, true) {
+
+		.forminator-result--retake {
+
+			&[data-button="true"][data-shrink="true"] {
+
+				span[class*="forminator-icon-"] {
+
+					@include media(min-width, sm) {
+						display: inline-block;
+						margin-right: 4px;
+
+						&:before {
+
+							@include media(min-width, sm) {
+								display: inline;
+							}
+						}
+					}
+				}
+
+				span:not([class*="forminator-icon-"]) {
+
+					@include media(min-width, sm) {
+						width: auto;
+						height: auto;
+						overflow: initial;
+						position: initial;
+						white-space: initial;
+						margin: 0;
+						clip: unset;
+						clip-path: none;
+					}
+				}
+
+				@include media(min-width, sm) {
+					width: auto;
+					min-width: 1px;
+					height: auto;
+					display: block;
+					flex: 0 1 auto;
+				}
+			}
+		}
+	}
+}
