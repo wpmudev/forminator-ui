@@ -43,39 +43,6 @@
 							line-height: 1.75em;
 						}
 
-						.forminator-result--retake {
-							width: 40px;
-							min-width: auto;
-							height: 40px;
-							display: flex;
-							flex: 0 0 auto;
-							align-self: flex-start;
-							align-items: center;
-							justify-content: center;
-							position: relative;
-
-							span[class*="forminator-icon-"] {
-								display: block;
-
-								&:before {
-									display: block;
-								}
-							}
-
-							span:not([class*="forminator-icon-"]) {
-								width: 1px;
-								height: 1px;
-								overflow: hidden;
-								position: absolute;
-								white-space: nowrap;
-								margin: -1px;
-								padding: 0;
-								border: 0;
-								clip: rect(0 0 0 0);
-								clip-path: inset(50%);
-							}
-						}
-
 						+ .forminator-result--content {
 							margin-top: #{$gutter-sm / 2};
 						}
@@ -203,22 +170,6 @@
 								}
 							}
 						}
-
-						.forminator-result--retake {
-							width: auto;
-							min-width: 1px;
-							max-width: 100%;
-							height: auto;
-							cursor: pointer;
-							display: block;
-							margin: 0;
-							padding: 0;
-							border: 0;
-							background-color: transparent;
-							background-image: none;
-							line-height: 1.85em;
-							text-transform: uppercase;
-						}
 					}
 				}
 			}
@@ -241,58 +192,6 @@
 								flex: 1;
 								margin-right: #{$gutter-sm / 2};
 								margin-left: 0;
-							}
-						}
-					}
-
-					.forminator-result--retake {
-
-						span[class*="forminator-icon-"] {
-
-							@include media(min-width, sm) {
-
-								@if $form-theme == 'default' or $form-theme == 'flat' or $form-theme == 'bold' {
-									display: inline-block;
-									margin-right: 4px;
-								}
-
-								&:before {
-
-									@include media(min-width, sm) {
-
-										@if $form-theme == 'default' or $form-theme == 'flat' or $form-theme == 'bold' {
-											display: inline;
-										}
-									}
-								}
-							}
-						}
-
-						span:not([class*="forminator-icon-"]) {
-
-							@include media(min-width, sm) {
-
-								@if $form-theme == 'default' or $form-theme == 'flat' or $form-theme == 'bold' {
-									width: auto;
-									height: auto;
-									overflow: initial;
-									position: initial;
-									white-space: initial;
-									margin: 0;
-									clip: unset;
-									clip-path: none;
-								}
-							}
-						}
-
-						@include media(min-width, sm) {
-
-							@if $form-theme == 'default' or $form-theme == 'flat' or $form-theme == 'bold' {
-								width: auto;
-								min-width: 1px;
-								height: auto;
-								display: block;
-								flex: 0 1 auto;
 							}
 						}
 					}
