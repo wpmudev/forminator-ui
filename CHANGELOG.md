@@ -1,6 +1,9 @@
 v1.9.11
+- ✨ new(button-dynamic): Add dynamic button styles.
+- ✨ new(action-buttons): Add action buttons container styles.
 - 🐛 fix(quiz): Add spacing between paragraphs inside Quiz description.
-- 🐛 fix(form-checkbox): Missing image hover and checked effect for Material design.
+- 🐛 fix(checkbox): Missing image hover and checked effect for Material design.
+- 🐛 fix(button): Prevent styles label from overwriting icon.
 
 
 v1.9.10
