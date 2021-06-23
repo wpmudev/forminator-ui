@@ -122,6 +122,19 @@ $social: (
 				}
 			}
 
+			// SECTION: Action Buttons.
+			&--action-buttons {
+				display: flex;
+				align-items: center;
+
+				.forminator-button {
+
+					+ .forminator-button {
+						margin-left: 10px;
+					}
+				}
+			}
+
 			// SECTION: Social.
 			&--social {
 				border-top-width: 1px;
