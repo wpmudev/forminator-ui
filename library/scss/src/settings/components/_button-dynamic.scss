@@ -1,8 +1,8 @@
-@mixin component-retake($form-type: no-type, $form-theme: no-theme) {
+@mixin component-button-dynamic($form-type: no-type, $form-theme: no-theme) {
 
 	@include form-class($form-type, $form-theme, false) {
 
-		.forminator-result--retake {
+		.forminator-button-dynamic {
 
 			&[data-button="true"] {
 
