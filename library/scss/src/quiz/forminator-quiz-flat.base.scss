@@ -29,11 +29,11 @@ $form-theme: flat;
 @import "../settings/components/answers";
 @import "../settings/components/results";
 @import "../settings/components/button";
-@import "../settings/components/retake";
+@import "../settings/components/button-dynamic";
 
 // Call Components.
 @include component-questions(#{$form-type}, #{$form-theme});
 @include component-answers(#{$form-type}, #{$form-theme});
 @include component-results(#{$form-type}, #{$form-theme});
 @include component-button(#{$form-type}, #{$form-theme});
-@include component-retake(#{$form-type}, #{$form-theme});
+@include component-button-dynamic(#{$form-type}, #{$form-theme});
