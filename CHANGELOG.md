@@ -1,6 +1,8 @@
 v1.9.12
 - 🐛 fix(radio): Image being cut off when inline alignment.
+- 🐛 fix(radio): Update static and hover effect for Material design.
 - 🐛 fix(checkbox): Image being cut off when inline alignment.
+- 🐛 fix(checkbox): Update static and hover effect for Material design.
 
 
 v1.9.11
