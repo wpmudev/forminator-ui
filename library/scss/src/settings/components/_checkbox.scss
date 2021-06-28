@@ -145,6 +145,7 @@ $checkbox-image: 80px;
 					border-radius: map-get($border-radius, material);
 					background-color: #FFF;
 					box-shadow: 0 1px 1px 0 rgba(0,0,0,0.3);
+					transition: 0.2s ease;
 				}
 
 				span {
