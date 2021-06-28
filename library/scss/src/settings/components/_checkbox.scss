@@ -193,7 +193,7 @@ $checkbox-image: 80px;
 
 				// VARIATION: Box + Label.
 				&.forminator-has_box {
-					position: relative;
+					min-width: $checkbox-image;
 					padding-top: #{$checkbox-image + 10px};
 
 					.forminator-checkbox-image {
