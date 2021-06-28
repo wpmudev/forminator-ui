@@ -1,3 +1,8 @@
+v1.9.12
+- 🐛 fix(radio): Image being cut off when inline alignment.
+- 🐛 fix(checkbox): Image being cut off when inline alignment.
+
+
 v1.9.11
 - ✨ new(button-dynamic): Add dynamic button styles.
 - ✨ new(action-buttons): Add action buttons container styles.
