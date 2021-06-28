@@ -209,6 +209,7 @@ $radio-image: 80px;
 
 					// VARIATION: Bullet + Label.
 					&.forminator-has_bullet {
+						min-width: $radio-image;
 						padding-top: #{$radio-image + 10px};
 
 						.forminator-radio-image {
