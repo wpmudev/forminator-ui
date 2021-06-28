@@ -38,7 +38,7 @@ $checkbox-image: 80px;
 						}
 
 						~ .forminator-checkbox-image:before {
-							box-shadow: inset 0 0 0 6px rgba(255,255,255,0.7);
+							box-shadow: 0 3px 8px 0 rgba(0,0,0,0.3);
 						}
 					}
 				}
@@ -143,18 +143,8 @@ $checkbox-image: 80px;
 				@if ('material' == $form-theme) {
 					border-width: 0;
 					border-radius: map-get($border-radius, material);
-
-					&:before {
-						content: " ";
-						width: 100%;
-						height: 100%;
-						position: absolute;
-						z-index: 1;
-						top: 0;
-						left: 0;
-						background-color: transparent !important;
-						transition: 0.2s ease;
-					}
+					background-color: #FFF;
+					box-shadow: 0 1px 1px 0 rgba(0,0,0,0.3);
 				}
 
 				span {
@@ -171,7 +161,7 @@ $checkbox-image: 80px;
 				&:hover {
 
 					.forminator-checkbox-image:before {
-						background-color: rgba(255,255,255,0.4) !important;
+						box-shadow: 0 3px 8px 0 rgba(0,0,0,0.3);
 					}
 				}
 			}
