@@ -37,7 +37,7 @@ $checkbox-image: 80px;
 							@include opacity(1);
 						}
 
-						~ .forminator-checkbox-image:before {
+						~ .forminator-checkbox-image {
 							box-shadow: 0 3px 8px 0 rgba(0,0,0,0.3);
 						}
 					}
@@ -160,7 +160,7 @@ $checkbox-image: 80px;
 
 				&:hover {
 
-					.forminator-checkbox-image:before {
+					.forminator-checkbox-image {
 						box-shadow: 0 3px 8px 0 rgba(0,0,0,0.3);
 					}
 				}
