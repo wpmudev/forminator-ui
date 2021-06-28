@@ -37,7 +37,7 @@ $radio-image: 80px;
 							@include opacity(1);
 						}
 
-						~ .forminator-radio-image:before {
+						~ .forminator-radio-image {
 							box-shadow: 0 3px 8px 0 rgba(0,0,0,0.3);
 						}
 					}
@@ -173,7 +173,7 @@ $radio-image: 80px;
 
 				&:hover {
 
-					.forminator-radio-image:before {
+					.forminator-radio-image {
 						box-shadow: 0 3px 8px 0 rgba(0,0,0,0.3);
 					}
 				}
