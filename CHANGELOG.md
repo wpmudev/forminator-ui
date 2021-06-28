@@ -1,8 +1,3 @@
-v1.9.13
-- 🐛 fix(radio): Applying hover to wrong element for Material design.
-- 🐛 fix(checkbox): Applying hover to wrong element for Material design.
-
-
 v1.9.12
 - 🐛 fix(radio): Image being cut off when inline alignment.
 - 🐛 fix(radio): Update static and hover effect for Material design.
