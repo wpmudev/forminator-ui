@@ -26,6 +26,7 @@ $form-theme: material;
 // Components.
 @import "../settings/components/response";
 @import "../settings/components/radio";
+@import "../settings/components/input";
 @import "../settings/components/button";
 @import "../settings/components/poll/typography";
 @import "../settings/components/poll/image";
@@ -33,6 +34,7 @@ $form-theme: material;
 // Call Components.
 @include component-response(#{$form-type}, #{$form-theme});
 @include component-radio(#{$form-type}, #{$form-theme});
+@include component-input(#{$form-type}, #{$form-theme});
 @include component-button(#{$form-type}, #{$form-theme});
 @include component-typography(#{$form-theme});
 @include component-image(#{$form-theme});
