@@ -1,3 +1,7 @@
+v1.9.13
+- 🐛 fix(polls): Include `input` as part of base stylesheet.
+
+
 v1.9.12
 - 🐛 fix(radio): Image being cut off when inline alignment.
 - 🐛 fix(radio): Update static and hover effect for Material design.
