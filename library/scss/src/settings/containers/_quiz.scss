@@ -124,13 +124,15 @@ $social: (
 
 			// SECTION: Action Buttons.
 			&--action-buttons {
-				display: flex;
-				align-items: center;
 
 				.forminator-button {
 
+					&[data-button="true"][data-shrink="false"] {
+						width: 100%;
+					}
+
 					+ .forminator-button {
-						margin-left: 10px;
+						margin-top: 10px;
 					}
 				}
 			}
@@ -265,6 +267,39 @@ $social: (
 					.forminator-social--icons {
 						justify-content: flex-end;
 					}
+				}
+			}
+		}
+	}
+
+	@include form-class($form-type, $form-theme, true) {
+
+		.forminator-quiz {
+
+			// SECTION: Action Buttons.
+			&--action-buttons {
+
+				.forminator-button {
+
+					&[data-button="true"][data-shrink="false"] {
+
+						@include media(min-width, sm) {
+							width: auto;
+						}
+					}
+
+					+ .forminator-button {
+
+						@include media(min-width, sm) {
+							margin-top: 0;
+							margin-left: 10px;
+						}
+					}
+				}
+
+				@include media(min-width, sm) {
+					display: flex;
+					align-items: center;
 				}
 			}
 		}

@@ -35,13 +35,13 @@
 						justify-content: flex-end;
 						text-align: left;
 
-						.forminator-result--quiz-name {
-							min-width: 1px;
-							display: block;
-							flex: 0 1 auto;
-							margin-left: #{$gutter-sm / 2};
-							line-height: 1.75em;
-						}
+						// .forminator-result--quiz-name {
+						// 	min-width: 1px;
+						// 	display: block;
+						// 	flex: 0 1 auto;
+						// 	margin-left: #{$gutter-sm / 2};
+						// 	line-height: 1.75em;
+						// }
 
 						+ .forminator-result--content {
 							margin-top: #{$gutter-sm / 2};
@@ -169,6 +169,14 @@
 									margin-bottom: #{$gutter-sm / 2};
 								}
 							}
+						}
+					}
+
+					+ .forminator-quiz--action-buttons {
+						@if $form-theme == 'default' or $form-theme == 'flat' or $form-theme == 'bold' {
+							margin-top: #{$gutter-sm / 2};
+						} @else if $form-theme == 'material' {
+							margin-top: $gutter;
 						}
 					}
 				}
