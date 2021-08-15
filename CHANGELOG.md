@@ -1,5 +1,9 @@
+v1.9.14
+- [FOR-1501](https://incsub.atlassian.net/browse/FOR-1501) 🐛 fix(quiz): Improve `retake` button style. ([@iamleigh](https://github.com/iamleigh))
+
+
 v1.9.13
-- 🐛 fix(polls): Include `input` as part of base stylesheet.
+- [FOR-284](https://incsub.atlassian.net/browse/FOR-284) 🐛 fix(polls): Include `input` as part of base stylesheet. ([@iamleigh](https://github.com/iamleigh))
 
 
 v1.9.12
