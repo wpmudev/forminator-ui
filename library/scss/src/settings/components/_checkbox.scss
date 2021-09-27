@@ -8,6 +8,7 @@ $checkbox-image: 80px;
 			cursor: default;
 			pointer-events: none;
 			display: flex;
+			flex: 0 0 auto; // It works with `.forminator-checkbox__wrapper` element.
 			align-items: center;
 			position: relative;
 			margin: 10px 0;
@@ -112,7 +113,8 @@ $checkbox-image: 80px;
 				}
 			}
 
-			.forminator-checkbox-label {
+			// ELEMENT: Label
+			&-label {
 				flex: 0 1 auto;
 				line-height: 20px;
 			}
@@ -163,6 +165,27 @@ $checkbox-image: 80px;
 
 					.forminator-checkbox-image {
 						box-shadow: 0 3px 8px 0 rgba(0,0,0,0.3);
+					}
+				}
+			}
+
+			// ELEMENT: Wrapper
+			&__wrapper {
+				display: flex;
+				flex-flow: row nowrap;
+				align-items: flex-start;
+			}
+
+			// ELEMENT: Label
+			&__label {
+				flex: 0 1 auto;
+				line-height: 20px;
+				margin-left: 10px;
+
+				h1, h2, h3, h4, h5, h6, p, ul, ol {
+
+					&:last-child {
+						margin-bottom: 0;
 					}
 				}
 			}
