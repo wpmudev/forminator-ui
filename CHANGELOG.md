@@ -1,3 +1,7 @@
+v1.9.15
+- [FOR-1841](https://incsub.atlassian.net/browse/FOR-1841) 🐛 fix(checkbox): Allow multi-line label. ([@iamleigh](https://github.com/iamleigh))
+
+
 v1.9.14
 - [FOR-1501](https://incsub.atlassian.net/browse/FOR-1501) 🐛 fix(quiz): Improve `retake` button style. ([@iamleigh](https://github.com/iamleigh))
 
