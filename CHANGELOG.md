@@ -1,3 +1,7 @@
+v1.9.16
+- [FOR-2131](https://incsub.atlassian.net/browse/FOR-2131) 🐛 fix(phone): Flag overlaps input. ([@iamleigh](https://github.com/iamleigh))
+
+
 v1.9.15
 - [FOR-1841](https://incsub.atlassian.net/browse/FOR-1841) 🐛 fix(checkbox): Allow multi-line label. ([@iamleigh](https://github.com/iamleigh))
 
