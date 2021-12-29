@@ -49,11 +49,11 @@
 
 				&.forminator-has_phone {
 
-					&.allow-dropdown {
-						padding-left: #{$int-flag-size + map-get($input, padding) + 11px};
+					&.iti--allow-dropdown {
+						padding-left: 41px;
 					}
 
-					&:not(.allow-dropdown) {
+					&:not(.iti--allow-dropdown) {
 						padding-left: #{$int-flag-size + map-get($input, padding)};
 					}
 				}
