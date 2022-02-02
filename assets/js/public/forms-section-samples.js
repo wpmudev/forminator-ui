@@ -36,7 +36,7 @@
 							const column = $( this );
 							const field = column.data( 'field' );
 
-							if ( column.attr( 'data-field' ) && '' !== column.attr( 'data-field' ) ) {
+							if ( column.prop( 'data-field' ) && '' !== column.prop( 'data-field' ) ) {
 
 								column.load( 'templates/form-elements/field-' + field + '.html', function() {
 
@@ -81,11 +81,11 @@
 									if ( 'checkbox' === $( this ).data( 'field' ) ) {
 
 										checkbox.each( function( index ) {
-											const getFormId = parent.attr( 'id' );
+											const getFormId = parent.prop( 'id' );
 											const elementId = index + 1;
 											const uniqueId = getFormId + '-' + elementId;
-											$( this ).attr( 'for', uniqueId );
-											$( this ).find( 'input' ).attr( 'id', uniqueId );
+											$( this ).prop( 'for', uniqueId );
+											$( this ).find( 'input' ).prop( 'id', uniqueId );
 										});
 									}
 
@@ -93,11 +93,11 @@
 									if ( 'radio' === $( this ).data( 'field' ) ) {
 
 										radio.each( function( index ) {
-											const getFormId = parent.attr( 'id' );
+											const getFormId = parent.prop( 'id' );
 											const elementId = index + 1;
 											const uniqueId = getFormId + '-' + elementId;
-											$( this ).attr( 'for', uniqueId );
-											$( this ).find( 'input' ).attr( 'id', uniqueId );
+											$( this ).prop( 'for', uniqueId );
+											$( this ).find( 'input' ).prop( 'id', uniqueId );
 										});
 									}
 								});

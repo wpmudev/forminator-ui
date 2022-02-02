@@ -73,10 +73,10 @@
 
 						// Enable submit button if all questions has been answered.
 						if ( true === SHOWCASE.quizCountAnsweredQuestions( form ) ) {
-							submit.attr( 'disabled', false );
+							submit.prop( 'disabled', false );
 							submit.removeAttr( 'disabled' );
 						} else {
-							submit.attr( 'disabled', true );
+							submit.prop( 'disabled', true );
 						}
 					}
 				});
@@ -105,13 +105,13 @@
 
 							let resultText = 'You selected a wrong answer.';
 
-							if ( answer.val() === question.attr( 'data-correct-answer' ) ) {
+							if ( answer.val() === question.prop( 'data-correct-answer' ) ) {
 								icon       = 'check';
 								validate   = 'correct';
 								resultText = 'Right! You selected the correct answer.';
 							}
 
-							answers.attr( 'disabled', true );
+							answers.prop( 'disabled', true );
 
 							if ( answer.is( ':checked' ) ) {
 								answer.parent().addClass( 'forminator-is_' + validate );
@@ -148,9 +148,9 @@
 						let resultText = 'You selected a wrong answer.';
 
 						answer.prop( 'checked', true );
-						answers.attr( 'disabled', true );
+						answers.prop( 'disabled', true );
 
-						if ( answer.val() === question.attr( 'data-correct-answer' ) ) {
+						if ( answer.val() === question.prop( 'data-correct-answer' ) ) {
 							icon       = 'check';
 							validate   = 'correct';
 							resultText = 'Right! You selected the correct answer.';
@@ -200,11 +200,11 @@
 
 				form = $( this );
 
-				if ( typeof undefined !== typeof form.attr( 'data-quiz' ) && 'knowledge' === form.attr( 'data-quiz' ) ) {
+				if ( typeof undefined !== typeof form.prop( 'data-quiz' ) && 'knowledge' === form.prop( 'data-quiz' ) ) {
 					SHOWCASE.demoKnowledge( this );
 				}
 
-				if ( typeof undefined !== typeof form.attr( 'data-quiz' ) && 'nowrong' === form.attr( 'data-quiz' ) ) {
+				if ( typeof undefined !== typeof form.prop( 'data-quiz' ) && 'nowrong' === form.prop( 'data-quiz' ) ) {
 					SHOWCASE.demoNoWrong( this );
 				}
 

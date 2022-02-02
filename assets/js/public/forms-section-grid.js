@@ -46,7 +46,7 @@
 				const option = section.find( '.sui-tabs-menu .sui-tab-item' );
 
 				// Get correct grid variation
-				option.click( function( e ) {
+				option.on( 'click', function( e ) {
 
 					const label = $( this );
 					const input = label.find( 'input' );
@@ -63,7 +63,7 @@
 
 					// Apply active class to menu item
 					label.addClass( 'active' );
-					input.attr( 'checked', 'checked' );
+					input.prop( 'checked', 'checked' );
 
 					// Reset form
 					form.removeClass( 'forminator-custom' );
