@@ -59,7 +59,7 @@
 
 					// Reset menu
 					options.removeClass( 'active' );
-					options.find( 'input' ).removeAttr( 'checked' );
+					options.find( 'input' ).prop( 'checked', false );
 
 					// Apply active class to menu item
 					label.addClass( 'active' );

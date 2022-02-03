@@ -30,7 +30,7 @@
 					const radioOptions = radioField.find( '.forminator-radio' );
 
 					// Remove checked attribute
-					radioOptions.find( 'input' ).removeAttr( 'checked' );
+					radioOptions.find( 'input' ).prop( 'checked', false );
 
 					// Remove checked class
 					radioOptions.removeClass( 'forminator-is_checked' );
