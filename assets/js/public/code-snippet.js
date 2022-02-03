@@ -52,7 +52,7 @@
 				this.$element.wrap( '<div class="sui-code-snippet-wrapper"></div>' );
 				this._clipboardId = this.generateUniqueId();
 				button			= '<button class="sui-button" id="sui-code-snippet-button-' + this._clipboardId + '" data-clipboard-target="#sui-code-snippet-' + this._clipboardId + '">' + this.settings.copyText + '</button>';
-				this.$element.attr( 'id', 'sui-code-snippet-' + this._clipboardId ).after( button );
+				this.$element.prop( 'id', 'sui-code-snippet-' + this._clipboardId ).after( button );
 				this._clipboardJs = new ClipboardJS( '#sui-code-snippet-button-' + this._clipboardId );
 
 				// attach events
@@ -75,8 +75,8 @@
 
 		showTooltip: function( e, msg ) {
 			$( e ).addClass( 'sui-tooltip' );
-			$( e ).attr( 'aria-label', msg );
-			$( e ).attr( 'data-tooltip', msg );
+			$( e ).prop( 'aria-label', msg );
+			$( e ).prop( 'data-tooltip', msg );
 		},
 
 		generateUniqueId: function() {
@@ -90,7 +90,7 @@
 		destroy: function() {
 			if ( null !== this._clipboardJs ) {
 				this._clipboardJs.destroy();
-				this.$element.attr( 'id', '' );
+				this.$element.prop( 'id', '' );
 				this.$element.unwrap( '.sui-code-snippet-wrapper' );
 				$( '#sui-code-snippet-button-' + this._clipboardId ).remove();
 			}

@@ -12,7 +12,7 @@
 		const element = $( el );
 		const form = element.closest( '.forminator-custom-form' );
 
-		if ( '' === form.attr( 'data-id' ) ) {
+		if ( '' === form.prop( 'data-id' ) ) {
 			return;
 		}
 
@@ -28,18 +28,18 @@
 					const label = field.find( '.forminator-label' );
 					const dscrp = field.find( '.forminator-description' );
 
-					const getCurrentId = $( this ).attr( 'id' );
+					const getCurrentId = $( this ).prop( 'id' );
 					const getFormId = form.data( 'id' );
 					const getUniqueId = getCurrentId + '-' + getFormId;
 
-					$( this ).attr( 'id', getUniqueId );
+					$( this ).prop( 'id', getUniqueId );
 
 					if ( label.length ) {
-						label.attr( 'for', getUniqueId );
+						label.prop( 'for', getUniqueId );
 					}
 
 					if ( dscrp.length ) {
-						dscrp.attr( 'aria-describedby', getUniqueId );
+						dscrp.prop( 'aria-describedby', getUniqueId );
 					}
 				});
 			}
@@ -55,18 +55,18 @@
 				const label = field.find( '.forminator-label' );
 				const dscrp = field.find( '.forminator-description' );
 
-				const getCurrentId = $( this ).attr( 'id' );
+				const getCurrentId = $( this ).prop( 'id' );
 				const getFormId = form.data( 'id' );
 				const getUniqueId = getCurrentId + '-' + getFormId;
 
-				$( this ).attr( 'id', getUniqueId );
+				$( this ).prop( 'id', getUniqueId );
 
 				if ( label.length ) {
-					label.attr( 'for', getUniqueId );
+					label.prop( 'for', getUniqueId );
 				}
 
 				if ( dscrp.length ) {
-					dscrp.attr( 'aria-describedby', getUniqueId );
+					dscrp.prop( 'aria-describedby', getUniqueId );
 				}
 			});
 		}
@@ -81,15 +81,15 @@
 
 						const input = $( this );
 						const label = input.parent();
-						const iname = input.attr( 'name' );
-						const curid = input.attr( 'id' );
+						const iname = input.prop( 'name' );
+						const curid = input.prop( 'id' );
 						const forid = form.data( 'id' );
 						const uname = iname + '-' + forid;
 						const unqid = curid + '-' + forid;
 
-						input.attr( 'id', unqid );
-						input.attr( 'name', uname );
-						label.attr( 'for', unqid );
+						input.prop( 'id', unqid );
+						input.prop( 'name', uname );
+						label.prop( 'for', unqid );
 
 					});
 				}
@@ -106,12 +106,12 @@
 
 						const input = $( this );
 						const label = input.parent();
-						const curid = input.attr( 'id' );
+						const curid = input.prop( 'id' );
 						const forid = form.data( 'id' );
 						const unqid = curid + '-' + forid;
 
-						input.attr( 'id', unqid );
-						label.attr( 'for', unqid );
+						input.prop( 'id', unqid );
+						label.prop( 'for', unqid );
 
 					});
 				}
@@ -130,18 +130,18 @@
 					const label = field.find( '.forminator-label' );
 					const dscrp = field.find( '.forminator-description' );
 
-					const idCurrent = $( this ).attr( 'id' );
+					const idCurrent = $( this ).prop( 'id' );
 					const idForm = form.data( 'id' );
 					const idUnique = idCurrent + '-' + idForm;
 
-					$( this ).attr( 'id', idUnique );
+					$( this ).prop( 'id', idUnique );
 
 					if ( label.length ) {
-						label.attr( 'for', idUnique );
+						label.prop( 'for', idUnique );
 					}
 
 					if ( dscrp.length ) {
-						dscrp.attr( 'aria-describedby', idUnique );
+						dscrp.prop( 'aria-describedby', idUnique );
 					}
 				});
 			}
@@ -159,18 +159,18 @@
 					const label = field.find( '.forminator-label' );
 					const dscrp = field.find( '.forminator-description' );
 
-					const idCurrent = $( this ).attr( 'id' );
+					const idCurrent = $( this ).prop( 'id' );
 					const idForm = form.data( 'id' );
 					const idUnique = idCurrent + '-' + idForm;
 
-					$( this ).attr( 'id', idUnique );
+					$( this ).prop( 'id', idUnique );
 
 					if ( label.length ) {
-						label.attr( 'for', idUnique );
+						label.prop( 'for', idUnique );
 					}
 
 					if ( dscrp.length ) {
-						dscrp.attr( 'aria-describedby', idUnique );
+						dscrp.prop( 'aria-describedby', idUnique );
 					}
 				});
 			}
@@ -186,12 +186,12 @@
 
 						const input = $( this );
 						const label = input.parent();
-						const curid = input.attr( 'id' );
+						const curid = input.prop( 'id' );
 						const forid = form.data( 'id' );
 						const unqid = curid + '-' + forid;
 
-						input.attr( 'id', unqid );
-						label.attr( 'for', unqid );
+						input.prop( 'id', unqid );
+						label.prop( 'for', unqid );
 
 					});
 				}

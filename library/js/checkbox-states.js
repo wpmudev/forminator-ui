@@ -13,7 +13,7 @@
 		const label = $( el );
 		const input = label.find( 'input' );
 
-		if ( ! label.is( 'label' ) || 'checkbox' !== input.attr( 'type' ) ) {
+		if ( ! label.is( 'label' ) || 'checkbox' !== input.prop( 'type' ) ) {
 			return;
 		}
 

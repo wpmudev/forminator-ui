@@ -210,7 +210,7 @@
                             var yPosition = window.pageYOffset || document.documentElement.scrollTop;
                             this.fakeElem.style.top = yPosition + 'px';
 
-                            this.fakeElem.setAttribute('readonly', '');
+                            this.fakeElem.prop('readonly', '');
                             this.fakeElem.value = this.text;
 
                             this.container.appendChild(this.fakeElem);
@@ -901,7 +901,7 @@
                     var isReadOnly = element.hasAttribute('readonly');
 
                     if (!isReadOnly) {
-                        element.setAttribute('readonly', '');
+                        element.prop('readonly', '');
                     }
 
                     element.select();
