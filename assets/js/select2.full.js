@@ -666,7 +666,6 @@ S2.define('select2/utils',[
       var randomChar = Math.floor(Math.random() * 36);
       chars += randomChar.toString(36);
     }
-
     return chars;
   };
 
@@ -2307,7 +2306,6 @@ S2.define('select2/selection/selectionCss',[
     }
 
     $selection.addClass(selectionCssClass);
-
     return $selection;
   };
 
@@ -3865,9 +3863,7 @@ S2.define('select2/data/tags',[
 
         self.insertTag(data, tag);
       }
-
       obj.results = data;
-
       callback(obj);
     }
 
@@ -4122,7 +4118,6 @@ S2.define('select2/data/maximumSelectionLength',[
   MaximumSelectionLength.prototype._checkIfMaximumSelected =
     function (_, successCallback) {
       var self = this;
-
       this.current(function (currentData) {
         var count = currentData != null ? currentData.length : 0;
         if (self.maximumSelectionLength > 0 &&

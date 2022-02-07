@@ -1,3 +1,6 @@
+v1.10.0
+- [FOR-2328](https://incsub.atlassian.net/browse/FOR-2328) 🐛 fix(global): Support jQuery 3 compatibility. ([@creador-dev](https://github.com/creador-dev))
+
 v1.9.16
 - [FOR-2131](https://incsub.atlassian.net/browse/FOR-2131) 🐛 fix(phone): Flag overlaps input. ([@iamleigh](https://github.com/iamleigh))
 

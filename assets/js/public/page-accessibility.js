@@ -17,7 +17,7 @@
 		if ( true === column.data( 'conditional' ) ) {
 
 			row.hide();
-			row.attr( 'aria-hidden', 'true' );
+			row.prop( 'aria-hidden', 'true' );
 
 			checkbox.on( 'click', function() {
 
@@ -26,7 +26,7 @@
 					row.removeAttr( 'aria-hidden' );
 				} else {
 					row.hide();
-					row.attr( 'aria-hidden' );
+					row.prop( 'aria-hidden' );
 				}
 			});
 		}
@@ -60,8 +60,8 @@
 				btnBack.removeAttr( 'aria-hidden' );
 
 				if ( content.find( '> li' ).length === nextPage.data( 'step' ) ) {
-					$( this ).attr( 'disabled', true );
-					$( this ).attr( 'aria-hidden', true );
+					$( this ).prop( 'disabled', true );
+					$( this ).prop( 'aria-hidden', true );
 				}
 
 				e.preventDefault();
@@ -86,8 +86,8 @@
 				btnNext.removeAttr( 'aria-hidden' );
 
 				if ( 1 === prevPage.data( 'step' ) ) {
-					$( this ).attr( 'disabled', true );
-					$( this ).attr( 'aria-hidden', true );
+					$( this ).prop( 'disabled', true );
+					$( this ).prop( 'aria-hidden', true );
 				}
 
 				e.preventDefault();
@@ -126,7 +126,7 @@
 					const colDiv = $( this );
 					const colField = colDiv.data( 'field' );
 
-					if ( colDiv.attr( 'data-field' ) && '' !== colDiv.attr( 'data-field' ) ) {
+					if ( colDiv.prop( 'data-field' ) && '' !== colDiv.prop( 'data-field' ) ) {
 
 						colDiv.load( 'templates/form-elements/field-' + colField + '.html', function() {
 
@@ -146,7 +146,7 @@
 
 							// Hidden field
 							if ( true === column.data( 'conditional' ) ) {
-								columnUnwrapped.attr( 'data-conditional', 'true' );
+								columnUnwrapped.prop( 'data-conditional', 'true' );
 							}
 
 							// Hide column
@@ -177,7 +177,7 @@
 							FUI.multiSelectStates( multiselect );
 
 							// Load "Material" design wrappers
-							if ( 'material' === column.closest( '.forminator-custom-form' ).attr( 'data-design' ) ) {
+							if ( 'material' === column.closest( '.forminator-custom-form' ).prop( 'data-design' ) ) {
 
 								if ( input.length ) {
 
