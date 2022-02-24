@@ -1102,7 +1102,7 @@
 						return;
 					}
 
-					var data = $highlighted.data( 'data');
+					var data = $highlighted.data('data');
 
 					if ($highlighted.prop('aria-selected') == 'true') {
 						self.trigger('close', {});
@@ -1214,7 +1214,7 @@
 					function (evt) {
 						var $this = $(this);
 
-						var data = $this.data( 'data');
+						var data = $this.data('data');
 
 						if ($this.prop('aria-selected') === 'true') {
 							if (self.options.get('multiple')) {
@@ -1237,7 +1237,7 @@
 
 				this.$results.on('mouseenter', '.select2-results__option[aria-selected]',
 					function (evt) {
-						var data = $(this).data( 'data');
+						var data = $(this).data('data');
 
 						self.getHighlightedResults()
 							.removeClass('select2-results__option--highlighted');
@@ -1352,8 +1352,8 @@
 
 				this._tabindex = 0;
 
-				if (this.$element.data( 'old-tabindex') != null) {
-					this._tabindex = this.$element.data( 'old-tabindex');
+				if (this.$element.data('old-tabindex') != null) {
+					this._tabindex = this.$element.data('old-tabindex');
 				} else if (this.$element.prop('tabindex') != null) {
 					this._tabindex = this.$element.prop('tabindex');
 				}
@@ -1461,7 +1461,7 @@
 							return;
 						}
 
-						var $element = $this.data( 'element');
+						var $element = $this.data('element');
 
 						// FUI-SELECT2 renamed function to FUIselect2
 						$element.FUIselect2('close');
@@ -1636,7 +1636,7 @@
 						var $remove = $(this);
 						var $selection = $remove.parent();
 
-						var data = $selection.data( 'data');
+						var data = $selection.data('data');
 
 						self.trigger('unselect', {
 							originalEvent: evt,
@@ -1687,7 +1687,7 @@
 					$selection.append(formatted);
 					$selection.prop('title', selection.title || selection.text);
 
-					$selection.data( 'data', selection);
+					$selection.data('data', selection);
 
 					$selections.push($selection);
 				}
@@ -1795,7 +1795,7 @@
 
 				evt.stopPropagation();
 
-				var data = $clear.data( 'data');
+				var data = $clear.data('data');
 
 				for (var d = 0; d < data.length; d++) {
 					var unselectData = {
@@ -1840,7 +1840,7 @@
 					'&times;' +
 					'</span>'
 				);
-				$remove.data( 'data', data);
+				$remove.data('data', data);
 
 				this.$selection.find('.select2-selection__rendered').prepend($remove);
 			};
@@ -1931,7 +1931,7 @@
 												  .prev('.select2-selection__choice');
 
 						if ($previousChoice.length > 0) {
-							var item = $previousChoice.data( 'data');
+							var item = $previousChoice.data('data');
 
 							self.searchRemoveChoice(item);
 
@@ -3599,7 +3599,7 @@
 
 					if (tag != null) {
 						var $option = self.option(tag);
-						$option.data( 'select2-tag', true);
+						$option.prop('data-select2-tag', true);
 
 						self.addOptions([$option]);
 
@@ -3684,7 +3684,7 @@
 					// If an existing option wasn't found for it, create the option
 					if (!$existingOptions.length) {
 						var $option = self.option(item);
-						$option.data( 'select2-tag', true);
+						$option.prop('data-select2-tag', true);
 
 						self._removeOldTags();
 						self.addOptions([$option]);
@@ -4230,14 +4230,14 @@
 
 					var $watchers = this.$container.parents().filter(Utils.hasScroll);
 					$watchers.each(function () {
-						$(this).data( 'select2-scroll-position', {
+						$(this).data('select2-scroll-position', {
 							x: $(this).scrollLeft(),
 							y: $(this).scrollTop()
 						});
 					});
 
 					$watchers.on(scrollEvent, function (ev) {
-						var position = $(this).data( 'select2-scroll-position');
+						var position = $(this).data('select2-scroll-position');
 						$(this).scrollTop(position.y);
 					});
 
@@ -4434,7 +4434,7 @@
 					return;
 				}
 
-				var data = $highlightedResults.data( 'data');
+				var data = $highlightedResults.data('data');
 
 				// Don't re-select already selected resulte
 				if (
@@ -5048,7 +5048,7 @@
 				$e.prop('disabled', this.options.disabled);
 				$e.prop('multiple', this.options.multiple);
 
-				if ($e.data( 'select2Tags')) {
+				if ($e.data('select2Tags')) {
 					if (this.options.debug && window.console && console.warn) {
 						console.warn(
 							'Select2: The `data-select2-tags` attribute has been changed to ' +
@@ -5057,11 +5057,11 @@
 						);
 					}
 
-					$e.data( 'data', $e.data( 'select2Tags'));
-					$e.data( 'tags', true);
+					$e.data('data', $e.data('select2Tags'));
+					$e.data('tags', true);
 				}
 
-				if ($e.data( 'ajaxUrl')) {
+				if ($e.data('ajaxUrl')) {
 					if (this.options.debug && window.console && console.warn) {
 						console.warn(
 							'Select2: The `data-ajax-url` attribute has been changed to ' +
@@ -5070,8 +5070,8 @@
 						);
 					}
 
-					$e.prop('ajax--url', $e.data( 'ajaxUrl'));
-					$e.data( 'ajax--url', $e.data( 'ajaxUrl'));
+					$e.prop('ajax--url', $e.data('ajaxUrl'));
+					$e.data('ajax--url', $e.data('ajaxUrl'));
 				}
 
 				var dataset = {};
@@ -5121,8 +5121,8 @@
 			'./keys'
 		], function ($, Options, Utils, KEYS) {
 			var Select2 = function ($element, options) {
-				if ($element.data( 'select2') != null) {
-					$element.data( 'select2').destroy();
+				if ($element.data('select2') != null) {
+					$element.data('select2').destroy();
 				}
 
 				this.$element = $element;
@@ -5138,7 +5138,7 @@
 				// Set up the tabindex
 
 				var tabindex = $element.prop('tabindex') || 0;
-				$element.data( 'old-tabindex', tabindex);
+				$element.data('old-tabindex', tabindex);
 				$element.prop('tabindex', '-1');
 
 				// Set up containers and adapters
@@ -5199,7 +5199,7 @@
 				// Synchronize any monitored attributes
 				this._syncAttributes();
 
-				$element.data( 'select2', this);
+				$element.data('select2', this);
 			};
 
 			Utils.Extend(Select2, Utils.Observable);
@@ -5688,7 +5688,7 @@
 				this._syncS = null;
 
 				this.$element.off('.select2');
-				this.$element.prop('tabindex', this.$element.data( 'old-tabindex'));
+				this.$element.prop('tabindex', this.$element.data('old-tabindex'));
 
 				this.$element.removeClass('select2-hidden-accessible');
 				this.$element.prop('aria-hidden', 'false');
@@ -5719,7 +5719,7 @@
 
 				this.$container.addClass('select2-container--' + this.options.get('theme'));
 
-				$container.data( 'element', this.$element);
+				$container.data('element', this.$element);
 
 				return $container;
 			};
@@ -6472,7 +6472,7 @@
 						var args = Array.prototype.slice.call(arguments, 1);
 
 						this.each(function () {
-							var instance = $(this).data( 'select2');
+							var instance = $(this).data('select2');
 
 							if (instance == null && window.console && console.error) {
 								console.error(
@@ -6535,7 +6535,7 @@
 						var args = Array.prototype.slice.call(arguments, 1);
 
 						this.each(function () {
-							var instance = $(this).data( 'select2');
+							var instance = $(this).data('select2');
 
 							if (instance == null && window.console && console.error) {
 								console.error(
