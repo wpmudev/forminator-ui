@@ -33,7 +33,7 @@
 			overflow-x: hidden;
 			overflow-y: auto;
 			user-select: auto;
-			display: none;
+			display: block;
 			flex-direction: column;
 			align-items: center;
 			position: fixed;
@@ -186,6 +186,7 @@
 					line-height: 1.29;
 					font-family: Roboto , sans-serif;
 					font-weight: 500;
+					color: #72777C;
 				}
 
 				.forminator-authentication-button {
@@ -196,6 +197,7 @@
 					font-family: Roboto , sans-serif;
 					font-weight: 500;
 					font-size: 14px;
+					color: #444444;
 					line-height: 1.29;
 					margin-bottom: 20px;
 				}
@@ -231,6 +233,10 @@
 			.forminator-authentication-nav {
 				margin: 24px 0 0 0;
 				font-weight: 500;
+				&.forminator-authentication-nav,
+				a {
+					color: #72777C;
+				}
 			}
 
 			.forminator-authentication-backtolog {
