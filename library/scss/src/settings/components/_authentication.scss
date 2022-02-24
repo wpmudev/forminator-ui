@@ -161,6 +161,7 @@
 					font-size: 24px;
 					line-height: 32px;
 					font-weight: 400;
+					width: 100%;
 
 					&:focus {
 						border-color: #007CBA;
@@ -182,11 +183,21 @@
 					vertical-align: middle;
 					margin-bottom: 15px;
 					font-size: 14px;
-					line-height: 1.5;
+					line-height: 1.29;
+					font-family: Roboto;
+					font-weight: 500;
 				}
 
 				.forminator-authentication-button {
 					text-align: right;
+				}
+
+				.forminator-authentication-title {
+					font-family: Roboto;
+					font-weight: 500;
+					font-size: 14px;
+					line-height: 1.29;
+					margin-bottom: 20px;
 				}
 			}
 
@@ -195,7 +206,7 @@
 				padding: 0 24px 0;
 				font-size: 13px;
 				line-height: 1.5;
-				font-family: system-ui;
+				font-family: Roboto;
 
 				a {
 					outline: none;
@@ -219,6 +230,7 @@
 
 			.forminator-authentication-nav {
 				margin: 24px 0 0 0;
+				font-weight: 500;
 			}
 
 			.forminator-authentication-backtolog {
