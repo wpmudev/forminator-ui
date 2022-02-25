@@ -12,7 +12,7 @@
 		const element = $( el );
 		const form = element.closest( '.forminator-custom-form' );
 
-		if ( '' === form.data( 'id' ) ) {
+		if ( '' === form.prop( 'id' ) ) {
 			return;
 		}
 
@@ -181,7 +181,7 @@
 					}
 
 					if ( dscrp.length ) {
-						dscrp.attr( 'aria-describedby', idUnique );
+						dscrp.prop( 'aria-describedby', idUnique );
 					}
 				});
 			}
@@ -210,7 +210,7 @@
 					}
 
 					if ( dscrp.length ) {
-						dscrp.attr( 'aria-describedby', idUnique );
+						dscrp.prop( 'aria-describedby', idUnique );
 					}
 				});
 			}
