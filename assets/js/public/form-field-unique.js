@@ -12,7 +12,7 @@
 		const element = $( el );
 		const form = element.closest( '.forminator-custom-form' );
 
-		if ( '' === form.prop( 'data-id' ) ) {
+		if ( '' === form.data( 'id' ) ) {
 			return;
 		}
 
@@ -27,19 +27,39 @@
 					const field = $( this ).closest( '.forminator-field' );
 					const label = field.find( '.forminator-label' );
 					const dscrp = field.find( '.forminator-description' );
+					const error = field.find(  '.forminator-error-message' );
 
 					const getCurrentId = $( this ).prop( 'id' );
 					const getFormId = form.data( 'id' );
 					const getUniqueId = getCurrentId + '-' + getFormId;
+					const getUniqueLabelId = getCurrentId + '-label-' + getFormId;
+					const getUniqueDescId = getCurrentId + '-desc-' + getFormId;
+					const getUniqueErrorId = getCurrentId + '-error-' + getFormId;
 
 					$( this ).prop( 'id', getUniqueId );
 
 					if ( label.length ) {
-						label.prop( 'for', getUniqueId );
+						label.prop({
+							id: getUniqueLabelId,
+							for: getUniqueId
+						});
+						$( this ).attr( 'aria-labelledby', getUniqueLabelId );
+					}
+
+					if ( error.length ) {
+						error.prop({
+							id: getUniqueErrorId
+						});
+						$( this ).attr( 'aria-describedby', getUniqueErrorId );
 					}
 
 					if ( dscrp.length ) {
-						dscrp.prop( 'aria-describedby', getUniqueId );
+						dscrp.prop({
+							id: getUniqueDescId
+						});
+						error.length ?
+						$( this ).attr( 'aria-describedby', getUniqueDescId + ' ' + getUniqueErrorId ) :
+						$( this ).attr( 'aria-describedby', getUniqueDescId );
 					}
 				});
 			}
@@ -54,19 +74,39 @@
 				const field = $( this ).closest( '.forminator-field' );
 				const label = field.find( '.forminator-label' );
 				const dscrp = field.find( '.forminator-description' );
+				const error = field.find(  '.forminator-error-message' );
 
 				const getCurrentId = $( this ).prop( 'id' );
 				const getFormId = form.data( 'id' );
 				const getUniqueId = getCurrentId + '-' + getFormId;
+				const getUniqueLabelId = getCurrentId + '-label-' + getFormId;
+				const getUniqueDescId = getCurrentId + '-desc-' + getFormId;
+				const getUniqueErrorId = getCurrentId + '-error-' + getFormId;
 
 				$( this ).prop( 'id', getUniqueId );
 
 				if ( label.length ) {
-					label.prop( 'for', getUniqueId );
+					label.prop({
+						id: getUniqueLabelId,
+						for: getUniqueId
+					});
+					$( this ).attr( 'aria-labelledby', getUniqueLabelId );
+				}
+
+				if ( error.length ) {
+					error.prop({
+						id: getUniqueErrorId
+					});
+					$( this ).attr( 'aria-describedby', getUniqueErrorId );
 				}
 
 				if ( dscrp.length ) {
-					dscrp.prop( 'aria-describedby', getUniqueId );
+					dscrp.prop({
+						id: getUniqueDescId
+					});
+					error.length ?
+					$( this ).attr( 'aria-describedby', getUniqueDescId + ' ' + getUniqueErrorId ) :
+					$( this ).attr( 'aria-describedby', getUniqueDescId );
 				}
 			});
 		}
@@ -141,7 +181,7 @@
 					}
 
 					if ( dscrp.length ) {
-						dscrp.prop( 'aria-describedby', idUnique );
+						dscrp.attr( 'aria-describedby', idUnique );
 					}
 				});
 			}
@@ -170,7 +210,7 @@
 					}
 
 					if ( dscrp.length ) {
-						dscrp.prop( 'aria-describedby', idUnique );
+						dscrp.attr( 'aria-describedby', idUnique );
 					}
 				});
 			}
