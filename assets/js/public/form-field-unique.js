@@ -84,12 +84,16 @@
 						const iname = input.prop( 'name' );
 						const curid = input.prop( 'id' );
 						const forid = form.data( 'id' );
+						const radioname = label.find( '.forminator-radio-option' );
+						const optionid = curid + '-option-' + forid;
 						const uname = iname + '-' + forid;
 						const unqid = curid + '-' + forid;
 
 						input.prop( 'id', unqid );
 						input.prop( 'name', uname );
 						label.prop( 'for', unqid );
+						input.attr( 'aria-labelledby', optionid );
+						radioname.prop( 'id', optionid );
 
 					});
 				}
@@ -108,10 +112,14 @@
 						const label = input.parent();
 						const curid = input.prop( 'id' );
 						const forid = form.data( 'id' );
+						const checkboxname = label.find( '.forminator-checkbox-option' );
+						const optionid = curid + '-option-' + forid;
 						const unqid = curid + '-' + forid;
 
 						input.prop( 'id', unqid );
 						label.prop( 'for', unqid );
+						input.attr( 'aria-labelledby', optionid );
+						checkboxname.prop( 'id', optionid );
 
 					});
 				}
