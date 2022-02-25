@@ -35,7 +35,7 @@
 			response.removeClass( 'forminator-success' );
 
 			// Hide response for screen readers
-			response.attr( 'aria-hidden', 'true' );
+			response.prop( 'aria-hidden', 'true' );
 			response.removeAttr( 'tabindex' );
 
 			// Remove error class from fields
@@ -50,7 +50,7 @@
 
 			// Show response for screen readers
 			response.removeAttr( 'aria-hidden' );
-			response.attr( 'tabindex', '-1' );
+			response.prop( 'tabindex', '-1' );
 
 			// Focus message
 			response.focus();
@@ -70,7 +70,7 @@
 
 			// Show response for screen readers
 			response.removeAttr( 'aria-hidden' );
-			response.attr( 'tabindex', '-1' );
+			response.prop( 'tabindex', '-1' );
 
 			// Focus message
 			response.focus();
@@ -94,7 +94,7 @@
 					if ( inputLabel.length ) {
 						message += '<li>' + inputLabel.text() + ' needs to be filled.</li>';
 					} else {
-						message += '<li>' + current.attr( 'id' ) + ' needs to be filled.</li>';
+						message += '<li>' + current.prop( 'id' ) + ' needs to be filled.</li>';
 					}
 				}
 			});
@@ -120,7 +120,7 @@
 					if ( textareaLabel.length ) {
 						message += '<li>' + textareaLabel.text() + ' needs to be filled.</li>';
 					} else {
-						message += '<li>' + current.attr( 'id' ) + ' needs to be filled.</li>';
+						message += '<li>' + current.prop( 'id' ) + ' needs to be filled.</li>';
 					}
 				}
 			});
@@ -237,7 +237,7 @@
 
 		function init() {
 
-			submit.click( function( e ) {
+			submit.on( 'click', function( e ) {
 
 				validation();
 

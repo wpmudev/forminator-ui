@@ -13,7 +13,7 @@
 		const label = $( el );
 		const input = label.find( 'input' );
 
-		if ( ! label.is( 'label' ) || 'radio' !== input.attr( 'type' ) ) {
+		if ( ! label.is( 'label' ) || 'radio' !== input.prop( 'type' ) ) {
 			return;
 		}
 
@@ -30,13 +30,13 @@
 					const radioOptions = radioField.find( '.forminator-radio' );
 
 					// Remove checked attribute
-					radioOptions.find( 'input' ).removeAttr( 'checked' );
+					radioOptions.find( 'input' ).prop( 'checked', false );
 
 					// Remove checked class
 					radioOptions.removeClass( 'forminator-is_checked' );
 
 					// Assign checked attribute
-					radioInput.attr( 'checked', 'checked' );
+					radioInput.prop( 'checked', 'checked' );
 
 					// Assign checked class
 					radioLabel.addClass( 'forminator-is_checked' );

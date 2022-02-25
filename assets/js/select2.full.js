@@ -799,7 +799,7 @@
 				);
 
 				if (this.options.get('multiple')) {
-					$results.attr('aria-multiselectable', 'true');
+					$results.prop('aria-multiselectable', 'true');
 				}
 
 				this.$results = $results;
@@ -918,9 +918,9 @@
 
 						if ((item.element != null && item.element.selected) ||
 							(item.element == null && $.inArray(id, selectedIds) > -1)) {
-							$option.attr('aria-selected', 'true');
+							$option.prop('aria-selected', 'true');
 						} else {
-							$option.attr('aria-selected', 'false');
+							$option.prop('aria-selected', 'false');
 						}
 					});
 
@@ -982,7 +982,7 @@
 				for (var attr in attrs) {
 					var val = attrs[attr];
 
-					option.setAttribute(attr, val);
+					option.prop(attr, val);
 				}
 
 				if (data.children) {
@@ -1026,7 +1026,7 @@
 
 				var id = container.id + '-results';
 
-				this.$results.attr('id', id);
+				this.$results.prop('id', id);
 
 				container.on('results:all', function (params) {
 					self.clear();
@@ -1071,8 +1071,8 @@
 
 				container.on('open', function () {
 					// When the dropdown is open, aria-expended="true"
-					self.$results.attr('aria-expanded', 'true');
-					self.$results.attr('aria-hidden', 'false');
+					self.$results.prop('aria-expanded', 'true');
+					self.$results.prop('aria-hidden', 'false');
 
 					self.setClasses();
 					self.ensureHighlightVisible();
@@ -1080,8 +1080,8 @@
 
 				container.on('close', function () {
 					// When the dropdown is closed, aria-expended="false"
-					self.$results.attr('aria-expanded', 'false');
-					self.$results.attr('aria-hidden', 'true');
+					self.$results.prop('aria-expanded', 'false');
+					self.$results.prop('aria-hidden', 'true');
 					self.$results.removeAttr('aria-activedescendant');
 				});
 
@@ -1104,7 +1104,7 @@
 
 					var data = $highlighted.data('data');
 
-					if ($highlighted.attr('aria-selected') == 'true') {
+					if ($highlighted.prop('aria-selected') == 'true') {
 						self.trigger('close', {});
 					} else {
 						self.trigger('select', {
@@ -1216,7 +1216,7 @@
 
 						var data = $this.data('data');
 
-						if ($this.attr('aria-selected') === 'true') {
+						if ($this.prop('aria-selected') === 'true') {
 							if (self.options.get('multiple')) {
 								self.trigger('unselect', {
 									originalEvent: evt,
@@ -1354,12 +1354,12 @@
 
 				if (this.$element.data('old-tabindex') != null) {
 					this._tabindex = this.$element.data('old-tabindex');
-				} else if (this.$element.attr('tabindex') != null) {
-					this._tabindex = this.$element.attr('tabindex');
+				} else if (this.$element.prop('tabindex') != null) {
+					this._tabindex = this.$element.prop('tabindex');
 				}
 
-				$selection.attr('title', this.$element.attr('title'));
-				$selection.attr('tabindex', this._tabindex);
+				$selection.prop('title', this.$element.prop('title'));
+				$selection.prop('tabindex', this._tabindex);
 
 				this.$selection = $selection;
 
@@ -1391,7 +1391,7 @@
 				});
 
 				container.on('results:focus', function (params) {
-					self.$selection.attr('aria-activedescendant', params.data._resultId);
+					self.$selection.prop('aria-activedescendant', params.data._resultId);
 				});
 
 				container.on('selection:update', function (params) {
@@ -1400,15 +1400,15 @@
 
 				container.on('open', function () {
 					// When the dropdown is open, aria-expanded="true"
-					self.$selection.attr('aria-expanded', 'true');
-					self.$selection.attr('aria-owns', resultsId);
+					self.$selection.prop('aria-expanded', 'true');
+					self.$selection.prop('aria-owns', resultsId);
 
 					self._attachCloseHandler(container);
 				});
 
 				container.on('close', function () {
 					// When the dropdown is closed, aria-expanded="false"
-					self.$selection.attr('aria-expanded', 'false');
+					self.$selection.prop('aria-expanded', 'false');
 					self.$selection.removeAttr('aria-activedescendant');
 					self.$selection.removeAttr('aria-owns');
 
@@ -1418,11 +1418,11 @@
 				});
 
 				container.on('enable', function () {
-					self.$selection.attr('tabindex', self._tabindex);
+					self.$selection.prop('tabindex', self._tabindex);
 				});
 
 				container.on('disable', function () {
-					self.$selection.attr('tabindex', '-1');
+					self.$selection.prop('tabindex', '-1');
 				});
 			};
 
@@ -1524,8 +1524,8 @@
 
 				var id = container.id + '-container';
 
-				this.$selection.find('.select2-selection__rendered').attr('id', id);
-				this.$selection.attr('aria-labelledby', id);
+				this.$selection.find('.select2-selection__rendered').prop('id', id);
+				this.$selection.prop('aria-labelledby', id);
 
 				this.$selection.on('mousedown', function (evt) {
 					// Only respond to left clicks
@@ -1906,7 +1906,7 @@
 				});
 
 				container.on('results:focus', function (params) {
-					self.$search.attr('aria-activedescendant', params.id);
+					self.$search.prop('aria-activedescendant', params.id);
 				});
 
 				this.$selection.on('focusin', '.select2-search--inline', function (evt) {
@@ -2005,18 +2005,18 @@
 			 * @private
 			 */
 			Search.prototype._transferTabIndex = function (decorated) {
-				this.$search.attr('tabindex', this.$selection.attr('tabindex'));
-				this.$selection.attr('tabindex', '-1');
+				this.$search.prop('tabindex', this.$selection.prop('tabindex'));
+				this.$selection.prop('tabindex', '-1');
 			};
 
 			Search.prototype.createPlaceholder = function (decorated, placeholder) {
-				this.$search.attr('placeholder', placeholder.text);
+				this.$search.prop('placeholder', placeholder.text);
 			};
 
 			Search.prototype.update = function (decorated, data) {
 				var searchHadFocus = this.$search[0] == document.activeElement;
 
-				this.$search.attr('placeholder', '');
+				this.$search.prop('placeholder', '');
 
 				decorated.call(this, data);
 
@@ -2057,7 +2057,7 @@
 
 				var width = '';
 
-				if (this.$search.attr('placeholder') !== '') {
+				if (this.$search.prop('placeholder') !== '') {
 					width = this.$selection.find('.select2-selection__rendered').innerWidth();
 				} else {
 					var minimumWidth = this.$search.val().length + 1;
@@ -3599,7 +3599,7 @@
 
 					if (tag != null) {
 						var $option = self.option(tag);
-						$option.attr('data-select2-tag', true);
+						$option.prop('data-select2-tag', true);
 
 						self.addOptions([$option]);
 
@@ -3684,7 +3684,7 @@
 					// If an existing option wasn't found for it, create the option
 					if (!$existingOptions.length) {
 						var $option = self.option(item);
-						$option.attr('data-select2-tag', true);
+						$option.prop('data-select2-tag', true);
 
 						self._removeOldTags();
 						self.addOptions([$option]);
@@ -3880,7 +3880,7 @@
 					'</span>'
 				);
 
-				$dropdown.attr('dir', this.options.get('dir'));
+				$dropdown.prop('dir', this.options.get('dir'));
 
 				this.$dropdown = $dropdown;
 
@@ -3952,7 +3952,7 @@
 				});
 
 				container.on('open', function () {
-					self.$search.attr('tabindex', 0);
+					self.$search.prop('tabindex', 0);
 
 					self.$search.focus();
 
@@ -3962,7 +3962,7 @@
 				});
 
 				container.on('close', function () {
-					self.$search.attr('tabindex', -1);
+					self.$search.prop('tabindex', -1);
 
 					self.$search.val('');
 				});
@@ -4192,7 +4192,7 @@
 
 			AttachBody.prototype.position = function (decorated, $dropdown, $container) {
 				// Clone all of the container classes
-				$dropdown.attr('class', $container.attr('class'));
+				$dropdown.prop('class', $container.prop('class'));
 
 				$dropdown.removeClass('select2');
 				$dropdown.addClass('select2-container--open');
@@ -5070,7 +5070,7 @@
 						);
 					}
 
-					$e.attr('ajax--url', $e.data('ajaxUrl'));
+					$e.prop('ajax--url', $e.data('ajaxUrl'));
 					$e.data('ajax--url', $e.data('ajaxUrl'));
 				}
 
@@ -5137,9 +5137,9 @@
 
 				// Set up the tabindex
 
-				var tabindex = $element.attr('tabindex') || 0;
+				var tabindex = $element.prop('tabindex') || 0;
 				$element.data('old-tabindex', tabindex);
-				$element.attr('tabindex', '-1');
+				$element.prop('tabindex', '-1');
 
 				// Set up containers and adapters
 
@@ -5194,7 +5194,7 @@
 
 				// Hide the original select
 				$element.addClass('select2-hidden-accessible');
-				$element.attr('aria-hidden', 'true');
+				$element.prop('aria-hidden', 'true');
 
 				// Synchronize any monitored attributes
 				this._syncAttributes();
@@ -5207,10 +5207,10 @@
 			Select2.prototype._generateId = function ($element) {
 				var id = '';
 
-				if ($element.attr('id') != null) {
-					id = $element.attr('id');
-				} else if ($element.attr('name') != null) {
-					id = $element.attr('name') + '-' + Utils.generateChars(2);
+				if ($element.prop('id') != null) {
+					id = $element.prop('id');
+				} else if ($element.prop('name') != null) {
+					id = $element.prop('name') + '-' + Utils.generateChars(2);
 				} else {
 					id = Utils.generateChars(4);
 				}
@@ -5255,7 +5255,7 @@
 				}
 
 				if (method == 'style') {
-					var style = $element.attr('style');
+					var style = $element.prop('style');
 
 					if (typeof(style) !== 'string') {
 						return null;
@@ -5688,10 +5688,10 @@
 				this._syncS = null;
 
 				this.$element.off('.select2');
-				this.$element.attr('tabindex', this.$element.data('old-tabindex'));
+				this.$element.prop('tabindex', this.$element.data('old-tabindex'));
 
 				this.$element.removeClass('select2-hidden-accessible');
-				this.$element.attr('aria-hidden', 'false');
+				this.$element.prop('aria-hidden', 'false');
 				this.$element.removeData('select2');
 
 				this.dataAdapter.destroy();
@@ -5713,7 +5713,7 @@
 					'</span>'
 				);
 
-				$container.attr('dir', this.options.get('dir'));
+				$container.prop('dir', this.options.get('dir'));
 
 				this.$container = $container;
 
@@ -5733,7 +5733,7 @@
 			function syncCssClasses ($dest, $src, adapter) {
 				var classes, replacements = [], adapted;
 
-				classes = $.trim($dest.attr('class'));
+				classes = $.trim($dest.prop('class'));
 
 				if (classes) {
 					classes = '' + classes; // for IE which returns object
@@ -5746,7 +5746,7 @@
 					});
 				}
 
-				classes = $.trim($src.attr('class'));
+				classes = $.trim($src.prop('class'));
 
 				if (classes) {
 					classes = '' + classes; // for IE which returns object
@@ -5763,7 +5763,7 @@
 					});
 				}
 
-				$dest.attr('class', replacements.join(' '));
+				$dest.prop('class', replacements.join(' '));
 			}
 
 			return {

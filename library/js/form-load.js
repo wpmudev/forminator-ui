@@ -24,13 +24,13 @@
 
 			// Make sure response message
 			// is not accessible by screen readers
-			message.attr( 'aria-hidden', 'true' );
+			message.prop( 'aria-hidden', 'true' );
 
 		}
 
 		function formId() {
 
-			const attrId = form.attr( 'data-id' );
+			const attrId = form.prop( 'data-id' );
 			const dataId = form.data( 'id' );
 
 			if ( attrId.length && '' !== attrId ) {
@@ -40,7 +40,7 @@
 
 		function formDesign() {
 
-			const attrDesign = form.attr( 'data-design' );
+			const attrDesign = form.prop( 'data-design' );
 			const dataDesign = form.data( 'design' );
 
 			if ( attrDesign && '' !== attrDesign ) {
@@ -52,7 +52,7 @@
 
 		function formGrid() {
 
-			const attrGrid = form.attr( 'data-grid' );
+			const attrGrid = form.prop( 'data-grid' );
 			const dataGrid = form.data( 'grid' );
 
 			// Reset

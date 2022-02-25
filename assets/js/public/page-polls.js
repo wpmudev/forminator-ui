@@ -40,7 +40,7 @@
 
 				// Hide response for screen readers
 				response.removeAttr( 'tabindex' );
-				response.attr( 'aria-hidden', 'true' );
+				response.prop( 'aria-hidden', 'true' );
 
 			}
 
@@ -58,7 +58,7 @@
 
 				// Show response for screen readers
 				response.removeAttr( 'aria-hidden' );
-				response.attr( 'tabindex', '-1' );
+				response.prop( 'tabindex', '-1' );
 
 				// Focus message
 				response.focus();
@@ -82,7 +82,7 @@
 
 				// Show response for screen readers
 				response.removeAttr( 'aria-hidden' );
-				response.attr( 'tabindex', '-1' );
+				response.prop( 'tabindex', '-1' );
 
 				// Focus message
 				response.focus();
@@ -171,14 +171,14 @@
 
 				// Hide poll form
 				field.hide();
-				field.attr( 'aria-hidden', 'true' );
+				field.prop( 'aria-hidden', 'true' );
 
 				if ( wrapper.length ) {
 
 					// Show chart wrapper
 					wrapper.addClass( 'forminator-show' );
 					wrapper.removeAttr( 'aria-hidden' );
-					wrapper.attr( 'tabindex', '-1' );
+					wrapper.prop( 'tabindex', '-1' );
 
 					chart.addClass( 'forminator-show' );
 					chart.removeAttr( 'aria-hidden' );
@@ -191,7 +191,7 @@
 					// Show chart
 					chart.addClass( 'forminator-show' );
 					chart.removeAttr( 'aria-hidden' );
-					chart.attr( 'tabindex', '-1' );
+					chart.prop( 'tabindex', '-1' );
 
 					// Focus chart
 					chart.focus();
@@ -205,7 +205,7 @@
 
 				// Hide "view results" link
 				link.hide();
-				link.attr( 'aria-hidden', 'true' );
+				link.prop( 'aria-hidden', 'true' );
 
 				e.preventDefault();
 
@@ -229,24 +229,24 @@
 						// Hide chart
 						wrapper.removeClass( 'forminator-show' );
 						wrapper.removeAttr( 'tabindex' );
-						wrapper.attr( 'aria-hidden', 'true' );
+						wrapper.prop( 'aria-hidden', 'true' );
 
 						chart.removeClass( 'forminator-show' );
-						chart.attr( 'aria-hidden', 'true' );
+						chart.prop( 'aria-hidden', 'true' );
 
 					} else {
 
 						// Hide chart
 						chart.removeClass( 'forminator-show' );
 						chart.removeAttr( 'tabindex' );
-						chart.attr( 'aria-hidden', 'true' );
+						chart.prop( 'aria-hidden', 'true' );
 
 					}
 
 					// Show poll form
 					field.show();
 					field.removeAttr( 'aria-hidden' );
-					field.attr( 'tabindex', '-1' );
+					field.prop( 'tabindex', '-1' );
 
 					// Focus poll form
 					field.focus();
