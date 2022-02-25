@@ -17,7 +17,7 @@
 		if ( true === column.data( 'conditional' ) ) {
 
 			row.hide();
-			row.prop( 'aria-hidden', 'true' );
+			row.attr( 'aria-hidden', 'true' );
 
 			checkbox.on( 'click', function() {
 
@@ -26,7 +26,7 @@
 					row.removeAttr( 'aria-hidden' );
 				} else {
 					row.hide();
-					row.prop( 'aria-hidden' );
+					row.attr( 'aria-hidden' );
 				}
 			});
 		}
@@ -61,7 +61,7 @@
 
 				if ( content.find( '> li' ).length === nextPage.data( 'step' ) ) {
 					$( this ).prop( 'disabled', true );
-					$( this ).prop( 'aria-hidden', true );
+					$( this ).attr( 'aria-hidden', true );
 				}
 
 				e.preventDefault();
@@ -87,7 +87,7 @@
 
 				if ( 1 === prevPage.data( 'step' ) ) {
 					$( this ).prop( 'disabled', true );
-					$( this ).prop( 'aria-hidden', true );
+					$( this ).attr( 'aria-hidden', true );
 				}
 
 				e.preventDefault();
