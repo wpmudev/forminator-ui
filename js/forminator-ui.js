@@ -26,11 +26,11 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
       message.removeClass('forminator-accessible'); // Make sure response message
       // is not accessible by screen readers
 
-      message.attr('aria-hidden', 'true');
+      message.prop('aria-hidden', 'true');
     }
 
     function formId() {
-      var attrId = form.attr('data-id');
+      var attrId = form.prop('data-id');
       var dataId = form.data('id');
 
       if (attrId.length && '' !== attrId) {
@@ -39,7 +39,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
     }
 
     function formDesign() {
-      var attrDesign = form.attr('data-design');
+      var attrDesign = form.prop('data-design');
       var dataDesign = form.data('design');
 
       if (attrDesign && '' !== attrDesign) {
@@ -50,7 +50,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
     }
 
     function formGrid() {
-      var attrGrid = form.attr('data-grid');
+      var attrGrid = form.prop('data-grid');
       var dataGrid = form.data('grid'); // Reset
 
       form.removeClass('forminator-custom');
@@ -108,7 +108,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
       response.removeClass('forminator-error');
       response.removeClass('forminator-success'); // Hide response for screen readers
 
-      response.attr('aria-hidden', 'true');
+      response.prop('aria-hidden', 'true');
       response.removeAttr('tabindex'); // Remove error class from fields
 
       form.find('.forminator-field').removeClass('forminator-has_error');
@@ -119,7 +119,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
       response.addClass('forminator-accessible'); // Show response for screen readers
 
       response.removeAttr('aria-hidden');
-      response.attr('tabindex', '-1'); // Focus message
+      response.prop('tabindex', '-1'); // Focus message
 
       response.focus();
     }
@@ -133,7 +133,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
       response.addClass('forminator-show'); // Show response for screen readers
 
       response.removeAttr('aria-hidden');
-      response.attr('tabindex', '-1'); // Focus message
+      response.prop('tabindex', '-1'); // Focus message
 
       response.focus();
     }
@@ -151,7 +151,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
           if (inputLabel.length) {
             message += '<li>' + inputLabel.text() + ' needs to be filled.</li>';
           } else {
-            message += '<li>' + current.attr('id') + ' needs to be filled.</li>';
+            message += '<li>' + current.prop('id') + ' needs to be filled.</li>';
           }
         }
       }); // Print message
@@ -172,7 +172,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
           if (textareaLabel.length) {
             message += '<li>' + textareaLabel.text() + ' needs to be filled.</li>';
           } else {
-            message += '<li>' + current.attr('id') + ' needs to be filled.</li>';
+            message += '<li>' + current.prop('id') + ' needs to be filled.</li>';
           }
         }
       }); // Print message
@@ -262,7 +262,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
     }
 
     function init() {
-      submit.click(function (e) {
+      submit.on('click', function (e) {
         validation();
         e.preventDefault();
         e.stopPropagation();
@@ -541,7 +541,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
     var label = $(el);
     var input = label.find('input');
 
-    if (!label.is('label') || 'radio' !== input.attr('type')) {
+    if (!label.is('label') || 'radio' !== input.prop('type')) {
       return;
     }
 
@@ -553,11 +553,11 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
           var radioField = radioLabel.closest('.forminator-field');
           var radioOptions = radioField.find('.forminator-radio'); // Remove checked attribute
 
-          radioOptions.find('input').removeAttr('checked'); // Remove checked class
+          radioOptions.find('input').prop('checked', false); // Remove checked class
 
           radioOptions.removeClass('forminator-is_checked'); // Assign checked attribute
 
-          radioInput.attr('checked', 'checked'); // Assign checked class
+          radioInput.prop('checked', 'checked'); // Assign checked class
 
           radioLabel.addClass('forminator-is_checked');
         });
@@ -582,7 +582,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
     var label = $(el);
     var input = label.find('input');
 
-    if (!label.is('label') || 'checkbox' !== input.attr('type')) {
+    if (!label.is('label') || 'checkbox' !== input.prop('type')) {
       return;
     }
 
@@ -688,7 +688,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
               $language = 'en';
             }
 
-            if ('true' === $select.attr('data-search')) {
+            if ('true' === $select.prop('data-search')) {
               $hasSearch = 0;
             }
 
@@ -704,7 +704,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
               minimumResultsForSearch: $hasSearch,
               dropdownParent: $parent
             }).on('select2:opening', function () {
-              $select.data('select2').$dropdown.find(':input.select2-search__field').attr('placeholder', $placeholder);
+              $select.data('select2').$dropdown.find(':input.select2-search__field').prop('placeholder', $placeholder);
 
               if ($select.closest('.hustle-popup').length || $select.closest('.hustle-slidein')) {
                 $(document.body).addClass('forminator-hustle-dropdown-fix');
@@ -965,7 +965,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
     } else {
       this.backdropNode = document.createElement('div');
       this.backdropNode.className = backdropClass;
-      this.backdropNode.setAttribute('data-markup', 'new');
+      this.backdropNode.prop('data-markup', 'new');
       this.dialogNode.parentNode.insertBefore(this.backdropNode, this.dialogNodev);
       this.backdropNode.appendChild(this.dialogNode);
     }

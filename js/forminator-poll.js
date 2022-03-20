@@ -139,7 +139,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
     var label = $(el);
     var input = label.find('input');
 
-    if (!label.is('label') || 'radio' !== input.attr('type')) {
+    if (!label.is('label') || 'radio' !== input.prop('type')) {
       return;
     }
 
@@ -151,11 +151,11 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
           var radioField = radioLabel.closest('.forminator-field');
           var radioOptions = radioField.find('.forminator-radio'); // Remove checked attribute
 
-          radioOptions.find('input').removeAttr('checked'); // Remove checked class
+          radioOptions.find('input').prop('checked', false); // Remove checked class
 
           radioOptions.removeClass('forminator-is_checked'); // Assign checked attribute
 
-          radioInput.attr('checked', 'checked'); // Assign checked class
+          radioInput.prop('checked', 'checked'); // Assign checked class
 
           radioLabel.addClass('forminator-is_checked');
         });
