@@ -1,6 +1,6 @@
 {
   "name": "forminator-ui",
-  "version": "1.9.16",
+  "version": "1.9.17",
   "lockfileVersion": 1,
   "requires": true,
   "dependencies": {
@@ -1604,9 +1604,9 @@
       }
     },
     "caniuse-lite": {
-      "version": "1.0.30001235",
-      "resolved": "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001235.tgz",
-      "integrity": "sha512-zWEwIVqnzPkSAXOUlQnPW2oKoYb2aLQ4Q5ejdjBcnH63rfypaW34CxaeBn1VMya2XaEU3P/R2qHpWyj+l0BT1A==",
+      "version": "1.0.30001319",
+      "resolved": "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001319.tgz",
+      "integrity": "sha512-xjlIAFHucBRSMUo1kb5D4LYgcN1M45qdKP++lhqowDpwJwGkpIRTt5qQqnhxjj1vHcI7nrJxWhCC1ATrCEBTcw==",
       "dev": true
     },
     "caseless": {
