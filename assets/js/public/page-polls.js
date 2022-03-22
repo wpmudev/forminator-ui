@@ -40,7 +40,7 @@
 
 				// Hide response for screen readers
 				response.removeAttr( 'tabindex' );
-				response.prop( 'aria-hidden', 'true' );
+				response.attr( 'aria-hidden', 'true' );
 
 			}
 
@@ -171,7 +171,7 @@
 
 				// Hide poll form
 				field.hide();
-				field.prop( 'aria-hidden', 'true' );
+				field.attr( 'aria-hidden', 'true' );
 
 				if ( wrapper.length ) {
 
@@ -205,7 +205,7 @@
 
 				// Hide "view results" link
 				link.hide();
-				link.prop( 'aria-hidden', 'true' );
+				link.attr( 'aria-hidden', 'true' );
 
 				e.preventDefault();
 
@@ -229,17 +229,17 @@
 						// Hide chart
 						wrapper.removeClass( 'forminator-show' );
 						wrapper.removeAttr( 'tabindex' );
-						wrapper.prop( 'aria-hidden', 'true' );
+						wrapper.attr( 'aria-hidden', 'true' );
 
 						chart.removeClass( 'forminator-show' );
-						chart.prop( 'aria-hidden', 'true' );
+						chart.attr( 'aria-hidden', 'true' );
 
 					} else {
 
 						// Hide chart
 						chart.removeClass( 'forminator-show' );
 						chart.removeAttr( 'tabindex' );
-						chart.prop( 'aria-hidden', 'true' );
+						chart.attr( 'aria-hidden', 'true' );
 
 					}
 

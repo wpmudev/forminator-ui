@@ -75,8 +75,8 @@
 
 		showTooltip: function( e, msg ) {
 			$( e ).addClass( 'sui-tooltip' );
-			$( e ).prop( 'aria-label', msg );
-			$( e ).prop( 'data-tooltip', msg );
+			$( e ).attr( 'aria-label', msg );
+			$( e ).data( 'tooltip', msg );
 		},
 
 		generateUniqueId: function() {
@@ -102,7 +102,7 @@
 	$.fn[ pluginName ] = function( options ) {
 		return this.each( function() {
 
-			// instance of SUICodeSnippet can be called with $(element).data('SUICodeSnippet')
+			// instance of SUICodeSnippet can be called with $(element).data( 'SUICodeSnippet')
 			if ( ! $.data( this, pluginName ) ) {
 				$.data( this, pluginName, new SUICodeSnippet( this, options ) );
 			}

@@ -17,7 +17,7 @@
 		if ( true === column.data( 'conditional' ) ) {
 
 			row.hide();
-			row.prop( 'aria-hidden', 'true' );
+			row.attr( 'aria-hidden', 'true' );
 
 			checkbox.on( 'click', function() {
 
@@ -26,7 +26,7 @@
 					row.removeAttr( 'aria-hidden' );
 				} else {
 					row.hide();
-					row.prop( 'aria-hidden' );
+					row.attr( 'aria-hidden' );
 				}
 			});
 		}
@@ -61,7 +61,7 @@
 
 				if ( content.find( '> li' ).length === nextPage.data( 'step' ) ) {
 					$( this ).prop( 'disabled', true );
-					$( this ).prop( 'aria-hidden', true );
+					$( this ).attr( 'aria-hidden', true );
 				}
 
 				e.preventDefault();
@@ -87,7 +87,7 @@
 
 				if ( 1 === prevPage.data( 'step' ) ) {
 					$( this ).prop( 'disabled', true );
-					$( this ).prop( 'aria-hidden', true );
+					$( this ).attr( 'aria-hidden', true );
 				}
 
 				e.preventDefault();
@@ -126,7 +126,7 @@
 					const colDiv = $( this );
 					const colField = colDiv.data( 'field' );
 
-					if ( colDiv.prop( 'data-field' ) && '' !== colDiv.prop( 'data-field' ) ) {
+					if ( colDiv.data( 'field' ) && '' !== colDiv.data( 'field' ) ) {
 
 						colDiv.load( 'templates/form-elements/field-' + colField + '.html', function() {
 
@@ -146,7 +146,7 @@
 
 							// Hidden field
 							if ( true === column.data( 'conditional' ) ) {
-								columnUnwrapped.prop( 'data-conditional', 'true' );
+								columnUnwrapped.data( 'conditional', 'true' );
 							}
 
 							// Hide column
@@ -177,7 +177,7 @@
 							FUI.multiSelectStates( multiselect );
 
 							// Load "Material" design wrappers
-							if ( 'material' === column.closest( '.forminator-custom-form' ).prop( 'data-design' ) ) {
+							if ( 'material' === column.closest( '.forminator-custom-form' ).data( 'design' ) ) {
 
 								if ( input.length ) {
 
