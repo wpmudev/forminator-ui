@@ -115,15 +115,15 @@
 					width: auto;
 					min-height: 32px;
 					cursor: pointer;
-					display: inline-block;
+					float: right;
 					appearance: none;
 					margin: 0;
 					padding: 0 12px;
-					border-color: 1px solid #007CBA;
+					border-color: 1px solid #007CBA !important;
 					border-radius: 3px;
-					background: #007CBA;
+					background-color: #007CBA !important;
 					box-sizing: border-box;
-					color: #FFF;
+					color: #FFF !important;
 					font-size: 13px;
 					line-height: 2.30769231;
 					text-shadow: none;
@@ -177,28 +177,27 @@
 					}
 				}
 
-				label {
+				label,
+				.def-otp-text,
+				.wpdef-2fa-label {
+					font-size: 14px;
+					line-height: 1.29;
+					font-family: Roboto , sans-serif;
+					font-weight: 600;
+					letter-spacing: -0.5px;
+					color: #72777C;
+				}
+
+				label,
+				.def-otp-text {
 					cursor: pointer;
 					display: inline-block;
 					vertical-align: middle;
 					margin-bottom: 15px;
-					font-size: 14px;
-					line-height: 1.29;
-					font-family: Roboto , sans-serif;
-					font-weight: 500;
-					color: #72777C;
 				}
 
-				.forminator-authentication-button {
-					text-align: right;
-				}
-
-				.forminator-authentication-title {
-					font-family: Roboto , sans-serif;
-					font-weight: 500;
-					font-size: 14px;
+				.wpdef-2fa-label {
 					color: #444444;
-					line-height: 1.29;
 					margin-bottom: 20px;
 				}
 			}
@@ -232,7 +231,7 @@
 
 			.forminator-authentication-nav {
 				margin: 24px 0 0 0;
-				font-weight: 500;
+				font-weight: 600;
 				&.forminator-authentication-nav,
 				a {
 					color: #888888;
@@ -241,6 +240,8 @@
 
 			.forminator-authentication-backtolog {
 				margin: 16px 0;
+				padding: 0;
+				font-weight: 400;
 			}
 
 			.forminator-authentication-notice {
