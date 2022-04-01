@@ -111,11 +111,12 @@
 					margin-bottom: 0;
 				}
 
-				button {
+				button,
+				.button {
 					width: auto;
 					min-height: 32px;
 					cursor: pointer;
-					float: right;
+					display: inline-block;
 					appearance: none;
 					margin: 0;
 					padding: 0 12px;
@@ -143,6 +144,10 @@
 						outline: 2px solid transparent;
 						outline-offset: 0;
 						box-shadow: 0 0 0 1px #FFF, 0 0 0 3px #007CBA;
+					}
+
+					&.float-r {
+						float: right;
 					}
 				}
 
@@ -178,7 +183,7 @@
 				}
 
 				label,
-				.def-otp-text,
+				.wpdef-2fa-text,
 				.wpdef-2fa-label {
 					font-size: 14px;
 					line-height: 1.29;
@@ -189,7 +194,7 @@
 				}
 
 				label,
-				.def-otp-text {
+				.wpdef-2fa-text {
 					display: inline-block;
 					vertical-align: middle;
 					margin-bottom: 15px;
