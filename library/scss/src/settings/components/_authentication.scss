@@ -111,7 +111,7 @@
 					margin-bottom: 0;
 				}
 
-				button {
+				button.button {
 					width: auto;
 					min-height: 32px;
 					cursor: pointer;
@@ -119,11 +119,11 @@
 					appearance: none;
 					margin: 0;
 					padding: 0 12px;
-					border-color: 1px solid #007CBA !important;
+					border: 1px solid #007CBA;
 					border-radius: 3px;
-					background-color: #007CBA !important;
+					background-color: #007CBA;
 					box-sizing: border-box;
-					color: #FFF !important;
+					color: #FFF;
 					font-size: 13px;
 					line-height: 2.30769231;
 					text-shadow: none;
