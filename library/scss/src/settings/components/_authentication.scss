@@ -80,6 +80,10 @@
 						line-height: 1.3;
 						text-decoration: none;
 						text-indent: -9999px;
+						
+						&:focus{
+							background-color: transparent;
+						}
 					}
 				}
 
@@ -111,7 +115,8 @@
 					margin-bottom: 0;
 				}
 
-				button {
+				a.button,
+				button.button {
 					width: auto;
 					min-height: 32px;
 					cursor: pointer;
@@ -119,9 +124,9 @@
 					appearance: none;
 					margin: 0;
 					padding: 0 12px;
-					border-color: 1px solid #007CBA;
+					border: 1px solid #007CBA;
 					border-radius: 3px;
-					background: #007CBA;
+					background-color: #007CBA;
 					box-sizing: border-box;
 					color: #FFF;
 					font-size: 13px;
@@ -144,6 +149,10 @@
 						outline-offset: 0;
 						box-shadow: 0 0 0 1px #FFF, 0 0 0 3px #007CBA;
 					}
+
+					&.float-r {
+						float: right;
+					}
 				}
 
 				.input,
@@ -161,6 +170,7 @@
 					font-size: 24px;
 					line-height: 32px;
 					font-weight: 400;
+					width: 100%;
 
 					&:focus {
 						border-color: #007CBA;
@@ -176,17 +186,41 @@
 					}
 				}
 
-				label {
-					cursor: pointer;
+				.button[name="button_resend_code"] {
 					display: inline-block;
-					vertical-align: middle;
-					margin-bottom: 15px;
-					font-size: 14px;
-					line-height: 1.5;
+					text-decoration: none;
+					font-size: 13px;
+					min-height: 30px;
+					padding: 0 10px;
+					cursor: pointer;
+
+					&,
+					&:active,
+					&:hover{
+						color: #2271b1;
+						border: none;
+						font-weight: 600;
+						background: none;
+					}
 				}
 
-				.forminator-authentication-button {
-					text-align: right;
+				.wpdef-2fa-label,
+				.wpdef-2fa-text {
+					font-family: 'Roboto', sans-serif;
+					font-style: normal;
+					font-weight: 600;
+					font-size: 14px;
+					line-height: 1.5;
+					letter-spacing: -0.5px;
+					margin-bottom: 20px;
+				}
+
+				.wpdef-2fa-label {
+					color: #444;
+				}
+
+				.wpdef-2fa-text{
+					color: #72777C;
 				}
 			}
 
@@ -195,7 +229,7 @@
 				padding: 0 24px 0;
 				font-size: 13px;
 				line-height: 1.5;
-				font-family: system-ui;
+				font-family: 'Roboto' , sans-serif;
 
 				a {
 					outline: none;
@@ -219,10 +253,21 @@
 
 			.forminator-authentication-nav {
 				margin: 24px 0 0 0;
+				font-weight: 600;
+				&.forminator-authentication-nav,
+				a {
+					text-decoration: none;
+					color: #888888;
+				}
 			}
 
 			.forminator-authentication-backtolog {
 				margin: 16px 0;
+				padding: 0;
+				font-weight: 400;
+				a {
+					color: #50575e;
+				}
 			}
 
 			.forminator-authentication-notice {
