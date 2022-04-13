@@ -226,11 +226,6 @@
 
 			.forminator-authentication-nav,
 			.forminator-authentication-backtolog {
-				padding: 0 24px 0;
-				font-size: 13px;
-				line-height: 1.5;
-				font-family: 'Roboto' , sans-serif;
-
 				a {
 					outline: none;
 					color: #555D66;
@@ -251,9 +246,24 @@
 				}
 			}
 
-			.forminator-authentication-nav {
+			.forminator-wrap-nav,
+			.forminator-authentication-backtolog {
+				padding: 0 24px;
+				font-size: 13px;
+				line-height: 1.5;
+			}
+
+			.forminator-wrap-nav {
+				font-family: 'Roboto' , sans-serif;
 				margin: 24px 0 0 0;
 				font-weight: 600;
+				color: #888888;
+			}
+			
+
+			.forminator-authentication-nav {
+				font-family: 'Roboto' , sans-serif;
+				padding: 0;
 				&.forminator-authentication-nav,
 				a {
 					text-decoration: none;
@@ -263,7 +273,6 @@
 
 			.forminator-authentication-backtolog {
 				margin: 16px 0;
-				padding: 0;
 				font-weight: 400;
 				a {
 					color: #50575e;
