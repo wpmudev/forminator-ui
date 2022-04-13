@@ -1,9 +1,15 @@
+v1.9.19
+- [FOR-2394](https://incsub.atlassian.net/browse/FOR-2394) 🚀  fix(authentication): CSS enhancement for authentication. ([@creador-dev](https://github.com/creador-dev))
+
+
 v1.9.18
 - [FOR-2394](https://incsub.atlassian.net/browse/FOR-2394) 🐛  fix(authentication): Authentication design fixes. ([@creador-dev](https://github.com/creador-dev))
+
 
 v1.9.17
 - [FOR-119](https://incsub.atlassian.net/browse/FOR-119) 🐛 fix(phone): `z-index` issue when used inside Hustle. ([@creador-dev](https://github.com/creador-dev))
 - [FOR-2328](https://incsub.atlassian.net/browse/FOR-2328) 🐛 fix(global): Support jQuery 3 compatibility. ([@creador-dev](https://github.com/creador-dev))
+
 
 v1.9.16
 - [FOR-2131](https://incsub.atlassian.net/browse/FOR-2131) 🐛 fix(phone): Flag overlaps input. ([@iamleigh](https://github.com/iamleigh))
