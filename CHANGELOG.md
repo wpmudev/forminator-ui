@@ -1,5 +1,9 @@
+v1.9.20
+- [FOR-2394](https://incsub.atlassian.net/browse/FOR-2394) 🐛  fix(authentication): Added cursor pointer in clickable list items. ([@creador-dev](https://github.com/creador-dev))
+
+
 v1.9.19
-- [FOR-2394](https://incsub.atlassian.net/browse/FOR-2394) 🚀  fix(authentication): CSS enhancement for authentication. ([@creador-dev](https://github.com/creador-dev))
+- [FOR-2394](https://incsub.atlassian.net/browse/FOR-2394) 🐛  fix(authentication): CSS enhancement for authentication. ([@creador-dev](https://github.com/creador-dev))
 
 
 v1.9.18
