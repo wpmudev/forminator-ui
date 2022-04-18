@@ -274,7 +274,7 @@
 		} else {
 			this.backdropNode = document.createElement( 'div' );
 			this.backdropNode.className = backdropClass;
-			this.backdropNode.prop( 'data-markup', 'new' );
+			this.backdropNode.data( 'markup', 'new' );
 			this.dialogNode.parentNode.insertBefore( this.backdropNode, this.dialogNodev );
 			this.backdropNode.appendChild( this.dialogNode );
 		}
