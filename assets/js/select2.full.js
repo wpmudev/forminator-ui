@@ -3599,7 +3599,7 @@
 
 					if (tag != null) {
 						var $option = self.option(tag);
-						$option.prop('data-select2-tag', true);
+						$option.data( 'select2-tag', true);
 
 						self.addOptions([$option]);
 
@@ -3684,7 +3684,7 @@
 					// If an existing option wasn't found for it, create the option
 					if (!$existingOptions.length) {
 						var $option = self.option(item);
-						$option.prop('data-select2-tag', true);
+						$option.data( 'select2-tag', true);
 
 						self._removeOldTags();
 						self.addOptions([$option]);

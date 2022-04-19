@@ -36,7 +36,7 @@
 							const column = $( this );
 							const field = column.data( 'field' );
 
-							if ( column.prop( 'data-field' ) && '' !== column.prop( 'data-field' ) ) {
+							if ( column.data( 'field' ) && '' !== column.data( 'field' ) ) {
 
 								column.load( 'templates/form-elements/field-' + field + '.html', function() {
 
