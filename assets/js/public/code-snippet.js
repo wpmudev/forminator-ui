@@ -76,7 +76,7 @@
 		showTooltip: function( e, msg ) {
 			$( e ).addClass( 'sui-tooltip' );
 			$( e ).prop( 'aria-label', msg );
-			$( e ).data( 'tooltip', msg );
+			$( e ).prop( 'data-tooltip', msg );
 		},
 
 		generateUniqueId: function() {

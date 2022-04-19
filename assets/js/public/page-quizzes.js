@@ -105,7 +105,7 @@
 
 							let resultText = 'You selected a wrong answer.';
 
-							if ( answer.val() === question.data( 'correct-answer' ) ) {
+							if ( answer.val() === question.prop( 'data-correct-answer' ) ) {
 								icon       = 'check';
 								validate   = 'correct';
 								resultText = 'Right! You selected the correct answer.';
@@ -150,7 +150,7 @@
 						answer.prop( 'checked', true );
 						answers.prop( 'disabled', true );
 
-						if ( answer.val() === question.data( 'correct-answer' ) ) {
+						if ( answer.val() === question.prop( 'data-correct-answer' ) ) {
 							icon       = 'check';
 							validate   = 'correct';
 							resultText = 'Right! You selected the correct answer.';
@@ -200,11 +200,11 @@
 
 				form = $( this );
 
-				if ( typeof undefined !== typeof form.data( 'quiz' ) && 'knowledge' === form.data( 'quiz' ) ) {
+				if ( typeof undefined !== typeof form.prop( 'data-quiz' ) && 'knowledge' === form.prop( 'data-quiz' ) ) {
 					SHOWCASE.demoKnowledge( this );
 				}
 
-				if ( typeof undefined !== typeof form.data( 'quiz' ) && 'nowrong' === form.data( 'quiz' ) ) {
+				if ( typeof undefined !== typeof form.prop( 'data-quiz' ) && 'nowrong' === form.prop( 'data-quiz' ) ) {
 					SHOWCASE.demoNoWrong( this );
 				}
 

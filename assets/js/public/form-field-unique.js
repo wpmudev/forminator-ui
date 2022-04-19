@@ -12,7 +12,7 @@
 		const element = $( el );
 		const form = element.closest( '.forminator-custom-form' );
 
-		if ( '' === form.data( 'id' ) ) {
+		if ( '' === form.prop( 'data-id' ) ) {
 			return;
 		}
 

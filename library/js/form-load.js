@@ -30,7 +30,7 @@
 
 		function formId() {
 
-			const attrId = form.data( 'id' );
+			const attrId = form.prop( 'data-id' );
 			const dataId = form.data( 'id' );
 
 			if ( attrId.length && '' !== attrId ) {
@@ -40,7 +40,7 @@
 
 		function formDesign() {
 
-			const attrDesign = form.data( 'design' );
+			const attrDesign = form.prop( 'data-design' );
 			const dataDesign = form.data( 'design' );
 
 			if ( attrDesign && '' !== attrDesign ) {
@@ -52,7 +52,7 @@
 
 		function formGrid() {
 
-			const attrGrid = form.data( 'grid' );
+			const attrGrid = form.prop( 'data-grid' );
 			const dataGrid = form.data( 'grid' );
 
 			// Reset

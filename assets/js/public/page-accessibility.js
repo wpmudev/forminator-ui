@@ -126,7 +126,7 @@
 					const colDiv = $( this );
 					const colField = colDiv.data( 'field' );
 
-					if ( colDiv.data( 'field' ) && '' !== colDiv.data( 'field' ) ) {
+					if ( colDiv.prop( 'data-field' ) && '' !== colDiv.prop( 'data-field' ) ) {
 
 						colDiv.load( 'templates/form-elements/field-' + colField + '.html', function() {
 
@@ -146,7 +146,7 @@
 
 							// Hidden field
 							if ( true === column.data( 'conditional' ) ) {
-								columnUnwrapped.data( 'conditional', 'true' );
+								columnUnwrapped.prop( 'data-conditional', 'true' );
 							}
 
 							// Hide column
@@ -177,7 +177,7 @@
 							FUI.multiSelectStates( multiselect );
 
 							// Load "Material" design wrappers
-							if ( 'material' === column.closest( '.forminator-custom-form' ).data( 'design' ) ) {
+							if ( 'material' === column.closest( '.forminator-custom-form' ).prop( 'data-design' ) ) {
 
 								if ( input.length ) {
 
