@@ -35,7 +35,7 @@
 			response.removeClass( 'forminator-success' );
 
 			// Hide response for screen readers
-			response.prop( 'aria-hidden', 'true' );
+			response.attr( 'aria-hidden', 'true' );
 			response.removeAttr( 'tabindex' );
 
 			// Remove error class from fields

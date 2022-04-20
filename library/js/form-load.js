@@ -24,7 +24,7 @@
 
 			// Make sure response message
 			// is not accessible by screen readers
-			message.prop( 'aria-hidden', 'true' );
+			message.attr( 'aria-hidden', 'true' );
 
 		}
 

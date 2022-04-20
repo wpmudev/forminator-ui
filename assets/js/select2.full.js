@@ -799,7 +799,7 @@
 				);
 
 				if (this.options.get('multiple')) {
-					$results.prop('aria-multiselectable', 'true');
+					$results.attr('aria-multiselectable', 'true');
 				}
 
 				this.$results = $results;
@@ -918,9 +918,9 @@
 
 						if ((item.element != null && item.element.selected) ||
 							(item.element == null && $.inArray(id, selectedIds) > -1)) {
-							$option.prop('aria-selected', 'true');
+							$option.attr('aria-selected', 'true');
 						} else {
-							$option.prop('aria-selected', 'false');
+							$option.attr('aria-selected', 'false');
 						}
 					});
 
@@ -1071,8 +1071,8 @@
 
 				container.on('open', function () {
 					// When the dropdown is open, aria-expended="true"
-					self.$results.prop('aria-expanded', 'true');
-					self.$results.prop('aria-hidden', 'false');
+					self.$results.attr('aria-expanded', 'true');
+					self.$results.attr('aria-hidden', 'false');
 
 					self.setClasses();
 					self.ensureHighlightVisible();
@@ -1080,8 +1080,8 @@
 
 				container.on('close', function () {
 					// When the dropdown is closed, aria-expended="false"
-					self.$results.prop('aria-expanded', 'false');
-					self.$results.prop('aria-hidden', 'true');
+					self.$results.attr('aria-expanded', 'false');
+					self.$results.attr('aria-hidden', 'true');
 					self.$results.removeAttr('aria-activedescendant');
 				});
 
@@ -1104,7 +1104,7 @@
 
 					var data = $highlighted.data('data');
 
-					if ($highlighted.prop('aria-selected') == 'true') {
+					if ($highlighted.attr('aria-selected') == 'true') {
 						self.trigger('close', {});
 					} else {
 						self.trigger('select', {
@@ -1216,7 +1216,7 @@
 
 						var data = $this.data('data');
 
-						if ($this.prop('aria-selected') === 'true') {
+						if ($this.attr('aria-selected') === 'true') {
 							if (self.options.get('multiple')) {
 								self.trigger('unselect', {
 									originalEvent: evt,
@@ -1391,7 +1391,7 @@
 				});
 
 				container.on('results:focus', function (params) {
-					self.$selection.prop('aria-activedescendant', params.data._resultId);
+					self.$selection.attr('aria-activedescendant', params.data._resultId);
 				});
 
 				container.on('selection:update', function (params) {
@@ -1400,15 +1400,15 @@
 
 				container.on('open', function () {
 					// When the dropdown is open, aria-expanded="true"
-					self.$selection.prop('aria-expanded', 'true');
-					self.$selection.prop('aria-owns', resultsId);
+					self.$selection.attr('aria-expanded', 'true');
+					self.$selection.attr('aria-owns', resultsId);
 
 					self._attachCloseHandler(container);
 				});
 
 				container.on('close', function () {
 					// When the dropdown is closed, aria-expanded="false"
-					self.$selection.prop('aria-expanded', 'false');
+					self.$selection.attr('aria-expanded', 'false');
 					self.$selection.removeAttr('aria-activedescendant');
 					self.$selection.removeAttr('aria-owns');
 
@@ -1525,7 +1525,7 @@
 				var id = container.id + '-container';
 
 				this.$selection.find('.select2-selection__rendered').prop('id', id);
-				this.$selection.prop('aria-labelledby', id);
+				this.$selection.attr('aria-labelledby', id);
 
 				this.$selection.on('mousedown', function (evt) {
 					// Only respond to left clicks
@@ -1906,7 +1906,7 @@
 				});
 
 				container.on('results:focus', function (params) {
-					self.$search.prop('aria-activedescendant', params.id);
+					self.$search.attr('aria-activedescendant', params.id);
 				});
 
 				this.$selection.on('focusin', '.select2-search--inline', function (evt) {
@@ -5194,7 +5194,7 @@
 
 				// Hide the original select
 				$element.addClass('select2-hidden-accessible');
-				$element.prop('aria-hidden', 'true');
+				$element.attr('aria-hidden', 'true');
 
 				// Synchronize any monitored attributes
 				this._syncAttributes();
@@ -5691,7 +5691,7 @@
 				this.$element.prop('tabindex', this.$element.data('old-tabindex'));
 
 				this.$element.removeClass('select2-hidden-accessible');
-				this.$element.prop('aria-hidden', 'false');
+				this.$element.attr('aria-hidden', 'false');
 				this.$element.removeData('select2');
 
 				this.dataAdapter.destroy();
