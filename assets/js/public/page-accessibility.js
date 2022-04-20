@@ -61,7 +61,7 @@
 
 				if ( content.find( '> li' ).length === nextPage.data( 'step' ) ) {
 					$( this ).prop( 'disabled', true );
-					$( this ).attr( 'aria-hidden', true );
+					$( this ).attr( 'aria-hidden', 'true' );
 				}
 
 				e.preventDefault();
@@ -87,7 +87,7 @@
 
 				if ( 1 === prevPage.data( 'step' ) ) {
 					$( this ).prop( 'disabled', true );
-					$( this ).attr( 'aria-hidden', true );
+					$( this ).attr( 'aria-hidden', 'true' );
 				}
 
 				e.preventDefault();
