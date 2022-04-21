@@ -26,11 +26,11 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
       message.removeClass('forminator-accessible'); // Make sure response message
       // is not accessible by screen readers
 
-      message.prop('aria-hidden', 'true');
+      message.attr('aria-hidden', 'true');
     }
 
     function formId() {
-      var attrId = form.prop('data-id');
+      var attrId = form.data('id');
       var dataId = form.data('id');
 
       if (attrId.length && '' !== attrId) {
@@ -39,7 +39,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
     }
 
     function formDesign() {
-      var attrDesign = form.prop('data-design');
+      var attrDesign = form.data('design');
       var dataDesign = form.data('design');
 
       if (attrDesign && '' !== attrDesign) {
@@ -50,7 +50,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
     }
 
     function formGrid() {
-      var attrGrid = form.prop('data-grid');
+      var attrGrid = form.data('grid');
       var dataGrid = form.data('grid'); // Reset
 
       form.removeClass('forminator-custom');
@@ -108,7 +108,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
       response.removeClass('forminator-error');
       response.removeClass('forminator-success'); // Hide response for screen readers
 
-      response.prop('aria-hidden', 'true');
+      response.attr('aria-hidden', 'true');
       response.removeAttr('tabindex'); // Remove error class from fields
 
       form.find('.forminator-field').removeClass('forminator-has_error');
@@ -688,7 +688,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
               $language = 'en';
             }
 
-            if ('true' === $select.prop('data-search')) {
+            if (true === $select.data('search')) {
               $hasSearch = 0;
             }
 
@@ -965,7 +965,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
     } else {
       this.backdropNode = document.createElement('div');
       this.backdropNode.className = backdropClass;
-      this.backdropNode.prop('data-markup', 'new');
+      this.backdropNode.data('markup', 'new');
       this.dialogNode.parentNode.insertBefore(this.backdropNode, this.dialogNodev);
       this.backdropNode.appendChild(this.dialogNode);
     }

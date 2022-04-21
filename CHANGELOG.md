@@ -1,3 +1,8 @@
+v.1.9.21
+- [FOR-2526](https://incsub.atlassian.net/browse/FOR-2526) 🐛  fix(select): Search box is not appearing. ([@creador-dev](https://github.com/creador-dev))
+- [FOR-2539](https://incsub.atlassian.net/browse/FOR-2539) 🐛  fix: Replace `.prop` with `.data` for `data-attributes`. ([@creador-dev](https://github.com/creador-dev))
+
+
 v1.9.20
 - [FOR-2394](https://incsub.atlassian.net/browse/FOR-2394) 🐛  fix(authentication): Added cursor pointer in clickable list items. ([@creador-dev](https://github.com/creador-dev))
 
