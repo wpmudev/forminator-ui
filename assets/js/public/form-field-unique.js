@@ -12,7 +12,7 @@
 		const element = $( el );
 		const form = element.closest( '.forminator-custom-form' );
 
-		if ( '' === form.prop( 'data-id' ) ) {
+		if ( '' === form.data( 'id' ) ) {
 			return;
 		}
 
@@ -39,7 +39,7 @@
 					}
 
 					if ( dscrp.length ) {
-						dscrp.prop( 'aria-describedby', getUniqueId );
+						dscrp.attr( 'aria-describedby', getUniqueId );
 					}
 				});
 			}
@@ -66,7 +66,7 @@
 				}
 
 				if ( dscrp.length ) {
-					dscrp.prop( 'aria-describedby', getUniqueId );
+					dscrp.attr( 'aria-describedby', getUniqueId );
 				}
 			});
 		}
@@ -141,7 +141,7 @@
 					}
 
 					if ( dscrp.length ) {
-						dscrp.prop( 'aria-describedby', idUnique );
+						dscrp.attr( 'aria-describedby', idUnique );
 					}
 				});
 			}
@@ -170,7 +170,7 @@
 					}
 
 					if ( dscrp.length ) {
-						dscrp.prop( 'aria-describedby', idUnique );
+						dscrp.attr( 'aria-describedby', idUnique );
 					}
 				});
 			}

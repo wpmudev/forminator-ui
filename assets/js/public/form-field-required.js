@@ -27,7 +27,7 @@
 				const label = field.find( '.forminator-label' );
 				const text = label.text();
 
-				$( this ).prop( 'aria-required', 'true' );
+				$( this ).attr( 'aria-required', 'true' );
 
 				if ( label.length ) {
 					label.html( text + ' ' + required );
@@ -49,7 +49,7 @@
 				const label = field.find( '.forminator-label' );
 				const text = label.text();
 
-				$( this ).prop( 'aria-required', 'true' );
+				$( this ).attr( 'aria-required', 'true' );
 
 				if ( label.length ) {
 					label.html( text + ' ' + required );
@@ -69,13 +69,13 @@
 			const text = label.text();
 
 			radio.each( function() {
-				$( this ).find( 'input' ).prop( 'aria-required', 'true' );
+				$( this ).find( 'input' ).attr( 'aria-required', 'true' );
 			});
 
 			if ( radio.length ) {
 
 				field.addClass( 'forminator-is_required' );
-				field.prop( 'aria-required', 'true' );
+				field.attr( 'aria-required', 'true' );
 
 				if ( label.length ) {
 					label.html( text + ' ' + required );
@@ -92,13 +92,13 @@
 			const text = label.text();
 
 			checkbox.each( function() {
-				$( this ).find( 'input' ).prop( 'aria-required', 'true' );
+				$( this ).find( 'input' ).attr( 'aria-required', 'true' );
 			});
 
 			if ( checkbox.length ) {
 
 				field.addClass( 'forminator-is_required' );
-				field.prop( 'aria-required', 'true' );
+				field.attr( 'aria-required', 'true' );
 
 				if ( label.length ) {
 					label.html( text + ' ' + required );
@@ -118,11 +118,11 @@
 			if ( mutliselect.length ) {
 
 				checkbox.each( function() {
-					$( this ).find( 'input' ).prop( 'aria-required', 'true' );
+					$( this ).find( 'input' ).attr( 'aria-required', 'true' );
 				});
 
 				field.addClass( 'forminator-is_required' );
-				field.prop( 'aria-required', 'true' );
+				field.attr( 'aria-required', 'true' );
 
 				if ( label.length ) {
 					label.html( text + ' ' + required );

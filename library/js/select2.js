@@ -58,7 +58,7 @@
 							$language = 'en';
 						}
 
-						if ( 'true' === $select.prop( 'data-search' ) ) {
+						if ( true === $select.data( 'search' ) ) {
 							$hasSearch = 0;
 						}
 
