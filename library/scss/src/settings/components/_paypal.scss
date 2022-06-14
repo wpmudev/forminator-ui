@@ -6,6 +6,10 @@
 			display: block;
 			position: relative;
 			z-index: 1;
+			width: 100%;
+			order: 1;
+			flex: unset !important;
+			margin-bottom: 20px;
 
 			> .paypal-buttons {
 				display: block !important;
