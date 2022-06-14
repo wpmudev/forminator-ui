@@ -155,5 +155,32 @@
 				margin-right: 0;
 			}
 		}
+
+		&.draft-enabled {
+
+			.forminator-save-draft-link {
+				display:inline-block;
+				font-size:15px;
+				font-weight:500;
+				color:#17A8E3;
+				text-decoration:none;
+				background-color: transparent;
+				padding: 10px 0;
+				margin: 0 20px;
+				text-decoration: none;
+
+				&.disabled {
+					color: #a5a5a5;
+					cursor: default;
+				}
+			}
+
+			.forminator-button-paypal {
+
+				+ .forminator-save-draft-link {
+					margin: 0;
+				}
+			}
+		}
 	}
 }
