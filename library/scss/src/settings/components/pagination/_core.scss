@@ -47,6 +47,7 @@
 				}
 
 				@include media(max-width, sm) {
+					margin-right: 0;
 					margin-bottom: 10px;
 				}
 			}
@@ -89,12 +90,15 @@
 				justify-content: flex-end;
 
 				.forminator-button-back {
-					margin-right: auto;
+					margin-right: 20px;
+					@include media(max-width, sm) {
+						margin-right: 0;
+					}
 				}
 
 				.forminator-save-draft-link {
 					padding: 10px 0;
-					margin: 0 20px;
+					margin: 0 auto 0 0;
 					text-align: right;
 					line-height: 22px;
 
