@@ -128,13 +128,14 @@
 			margin-bottom: 40px;
 
 			.forminator-draft-link {
+				box-sizing: border-box;
 				width: 100%;
-				padding-right: 110px;
+				padding:  18px 110px 15px 18px;
 				margin: 0;
 				background: #EEEEEE;
 				border: none;
 				color: #555;
-				text-decoration-line: underline;
+				text-decoration: underline;
 				outline: none;
 				line-height: 20px;
 				font-family: inherit;
@@ -149,7 +150,7 @@
 				height: 30px;
 				padding: 0;
 				position: absolute;
-				top: 5px;
+				top: 50%;
 				right: 6px;
 				background-color: #666;
 				color: #fff;
@@ -160,6 +161,8 @@
 				line-height: 22px;
 				border: 0;
 				outline: none;
+				transform: translateY(-50%);
+				cursor: pointer;
 			}
 
 			button:hover {
