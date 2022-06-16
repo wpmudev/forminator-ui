@@ -1,5 +1,5 @@
-v.1.9.22
-- [FOR-384](https://incsub.atlassian.net/browse/FOR-384) 🐛  new: Add styles for new feature Save and Continue. ([@paul-provindido](https://github.com/paul-provindido))
+v.1.10.0
+- [FOR-384](https://incsub.atlassian.net/browse/FOR-384) ✨  new(forms): Styles for "save and continue" feature. ([@paul-provindido](https://github.com/paul-provindido))
 
 
 v.1.9.21
