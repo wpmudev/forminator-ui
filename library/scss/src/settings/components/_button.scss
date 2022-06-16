@@ -56,6 +56,12 @@
 			text-align: center;
 			transition: $transition--ease;
 
+
+			@include media(max-width, sm) {
+				width: 100%;
+				margin: 0 0 10px 0;
+			}
+
 			span {
 				display: block;
 				transition: $transition--ease;
@@ -172,6 +178,12 @@
 				&.disabled {
 					color: #a5a5a5;
 					cursor: default;
+				}
+
+				@include media(max-width, sm) {
+					text-align: center;
+					width: 100%;
+					margin: 0 0 10px 0;
 				}
 			}
 

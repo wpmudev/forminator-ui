@@ -1,7 +1,6 @@
 @include body-class(custom-form poll, all, false) {
 
 	.forminator-input {
-		box-sizing: border-box;
 		width: 100%;
 		min-width: unset;
 		max-width: unset;
