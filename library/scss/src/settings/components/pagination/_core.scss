@@ -41,10 +41,14 @@
 				width: 100%;
 				display: block;
 				margin-right: 0;
-				margin-bottom: $gutter-sm;
 
 				&:last-child {
 					margin-bottom: 0;
+				}
+
+				@include media(max-width, sm) {
+					margin-right: 0;
+					margin-bottom: 10px;
 				}
 			}
 		}
@@ -53,6 +57,16 @@
 	@include form-class($form-type, $form-theme, true) {
 
 		.forminator-pagination-footer {
+			display: flex;
+			flex-wrap: wrap;
+			align-items: center;
+			justify-content: space-between;
+			margin: $gutter 0 0;
+			
+			button, 
+			a {
+				order: 2;
+			}
 
 			.forminator-button {
 
@@ -66,17 +80,37 @@
 				@include media(min-width, sm) {
 					width: auto;
 					flex: 0 0 auto;
-					margin-right: #{$gutter / 2};
-					margin-bottom: 0;
+				}
+			}
+		}
+
+		&.draft-enabled {
+
+			.forminator-pagination-footer {
+				justify-content: flex-end;
+
+				.forminator-button-back {
+					margin-right: 20px;
+					@include media(max-width, sm) {
+						margin-right: 0;
+					}
+				}
+
+				.forminator-save-draft-link {
+					padding: 10px 0;
+					margin: 0 auto 0 0;
+					text-align: right;
+					line-height: 22px;
+
+					@include media(max-width, sm) {
+						width: 100%;
+						text-align: center;
+						margin: 0 0 10px;
+						order: 3;
+					}
 				}
 			}
 
-			@include media(min-width, sm) {
-				display: flex;
-				align-items: center;
-				justify-content: space-between;
-				margin: $gutter 0 0;
-			}
 		}
 	}
 }

@@ -56,6 +56,12 @@
 			text-align: center;
 			transition: $transition--ease;
 
+
+			@include media(max-width, sm) {
+				width: 100%;
+				margin: 0 0 10px 0;
+			}
+
 			span {
 				display: block;
 				transition: $transition--ease;
@@ -153,6 +159,39 @@
 
 			&:last-child {
 				margin-right: 0;
+			}
+		}
+
+		&.draft-enabled {
+
+			.forminator-save-draft-link {
+				display:inline-block;
+				font-size:15px;
+				font-weight:500;
+				color:#17A8E3;
+				text-decoration:none;
+				background-color: transparent;
+				padding: 10px 0;
+				margin: 0 10px;
+				text-decoration: none;
+
+				&.disabled {
+					color: #a5a5a5;
+					cursor: default;
+				}
+
+				@include media(max-width, sm) {
+					text-align: center;
+					width: 100%;
+					margin: 0 0 10px 0;
+				}
+			}
+
+			.forminator-button-paypal {
+
+				+ .forminator-save-draft-link {
+					margin: 0;
+				}
 			}
 		}
 	}
