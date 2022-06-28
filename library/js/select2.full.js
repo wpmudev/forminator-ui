@@ -5860,10 +5860,11 @@
 						evt.preventDefault();
 					  } else if (key === KEYS.ESC || key === KEYS.TAB) {
 						self.close();
-				  
+
 						evt.preventDefault();
 					  }
 					} else {
+					// Added the functionality to change option on press of up and down arrow. @edited
 					  if (key === KEYS.ENTER || key === KEYS.SPACE || ((key === KEYS.DOWN || key === KEYS.UP) && evt.altKey)) {
 							self.open();
 							evt.preventDefault();
@@ -5882,6 +5883,7 @@
 						}
 						evt.preventDefault();
 					  }
+					// Added the functionality to select option based on key press. @edited
 					  else {
 						const selectedValue = this.$element.find('option:selected').text();
 						const keyPressed = String.fromCharCode(key).toLowerCase();
