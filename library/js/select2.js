@@ -29,7 +29,7 @@
 
 				var $dir,
 					$language = 'en',
-					$placeholder = null,
+					$placeholder = 'Search',
 					$hasSearch = -1
 					;
 
@@ -49,7 +49,7 @@
 						if ( '' !== $select.data( 'placeholder' ) ) {
 							$placeholder = $select.data( 'placeholder' );
 						} else {
-							$placeholder = null;
+							$placeholder = 'Search';
 						}
 
 						if ( '' !== $select.data( 'language' ) ) {
