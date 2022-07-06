@@ -391,7 +391,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
       $.each($themes, function (index, $theme) {
         var $dir,
             $language = 'en',
-            $placeholder = null,
+            $placeholder = 'Search',
             $hasSearch = -1;
 
         if ($element.hasClass('forminator-design--' + $theme) && $select.length) {
@@ -408,7 +408,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
             if ('' !== $select.data('placeholder')) {
               $placeholder = $select.data('placeholder');
             } else {
-              $placeholder = null;
+              $placeholder = 'Search';
             }
 
             if ('' !== $select.data('language')) {
