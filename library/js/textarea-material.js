@@ -36,7 +36,7 @@
 			// Wrap Label
 			if ( label.length ) {
 
-				const labelHeight  = label.height();
+				const labelHeight  = ( 0 === label.height() ) ? 20 : label.height();
 				const labelPadding = 9;
 				const labelMath    = labelHeight + labelPadding;
 
