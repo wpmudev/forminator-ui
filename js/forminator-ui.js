@@ -690,6 +690,8 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 
             if (true === $select.data('search')) {
               $hasSearch = 0;
+            } else {
+              $hasSearch = -1;
             }
 
             if (!$parent.length) {
@@ -704,7 +706,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
               minimumResultsForSearch: $hasSearch,
               dropdownParent: $parent
             }).on('select2:opening', function () {
-              $select.data('select2').$dropdown.find(':input.select2-search__field').prop('placeholder', $placeholder);
+              $select.data('select2').$dropdown.find(':input.select2-search__field').prop('placeholder', $select.data('placeholder'));
 
               if ($select.closest('.hustle-popup').length || $select.closest('.hustle-slidein')) {
                 $(document.body).addClass('forminator-hustle-dropdown-fix');
