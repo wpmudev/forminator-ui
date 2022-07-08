@@ -10,11 +10,12 @@
 
 	FUI.select2 = function() {
 
-		$( '.forminator-custom-form' ).each( function() {
+		$( '.forminator-custom-form' ).each( function( index ) {
 
 			var $element = $( this ),
 				$formid  = $element.data( 'form-id' ),
-				$select  = $element.find( '.forminator-select2' )
+				$select  = $element.find( '.forminator-select2' ),
+				$formindex = index
 				;
 
 			var $themes = [
@@ -39,6 +40,10 @@
 
 						var $select = $( this ),
 							$parent = $select.closest( '.sui-dialog-content' );
+
+						var id = $( this ).attr( 'id' );
+
+						$( this ).attr( 'id', id + '-' + $formindex );
 
 						if ( true === $select.data( 'rtl-support' ) ) {
 							$dir = 'rtl';
@@ -72,7 +77,8 @@
 							placeholder: $placeholder,
 							dropdownCssClass: 'forminator-custom-form-' + $formid + ' forminator-dropdown--' + $theme,
 							minimumResultsForSearch: $hasSearch,
-							dropdownParent: $parent
+							dropdownParent: $parent,
+							width: '100%'
 						}).on( 'select2:opening', function() {
 							$select.data( 'select2' ).$dropdown.find( ':input.select2-search__field' ).prop( 'placeholder', $placeholder );
 							if ( $select.closest( '.hustle-popup' ).length || $select.closest( '.hustle-slidein' ) ) {
