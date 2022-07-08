@@ -77,8 +77,7 @@
 							placeholder: $placeholder,
 							dropdownCssClass: 'forminator-custom-form-' + $formid + ' forminator-dropdown--' + $theme,
 							minimumResultsForSearch: $hasSearch,
-							dropdownParent: $parent,
-							width: '100%'
+							dropdownParent: $parent
 						}).on( 'select2:opening', function() {
 							$select.data( 'select2' ).$dropdown.find( ':input.select2-search__field' ).prop( 'placeholder', $placeholder );
 							if ( $select.closest( '.hustle-popup' ).length || $select.closest( '.hustle-slidein' ) ) {
