@@ -13,7 +13,7 @@
 
 #### 🐛 Bug Fixes
 - `forms`
-  -  Select fields show an unwanted search bar. [#25](https://github.com/wpmudev/forminator-ui/pull/25) ([FOR-2697](https://incsub.atlassian.net/browse/FOR-2697)) ([@creador-dev](https://github.com/creador-dev))
+  -  Select fields show an unwanted search bar. [#25](https://github.com/wpmudev/forminator-ui/pull/25) ([FOR-2555](https://incsub.atlassian.net/browse/FOR-2555)) ([@creador-dev](https://github.com/creador-dev))
 - `quiz`
   -  Border style not working well for selected answer image. [#28](https://github.com/wpmudev/forminator-ui/pull/28) ([FOR-1675](https://incsub.atlassian.net/browse/FOR-1675)) ([@creador-dev](https://github.com/creador-dev))
 
