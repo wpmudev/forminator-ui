@@ -230,7 +230,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 
 
       if (label.length) {
-        var labelHeight = label.height();
+        var labelHeight = 0 === label.height() ? 20 : label.height();
         var labelPadding = 9;
         var labelMath = labelHeight + labelPadding; // Add floating class
 
