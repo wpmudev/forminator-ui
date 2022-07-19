@@ -26,10 +26,11 @@
 				border-radius: 0;
 			}
 			@if ('material' == $form-theme) {
-				padding: 0 #{$input--padding - $material--border-width} #{$input--padding - $material--border-width};
-				border-width: $material--border-width;
-				border-style: $material--border-style;
-				border-radius: $material--border-radius;
+				padding: 0 0 #{$input--padding - $material--border-width};
+				border-width: 0;
+				border-bottom-width: map-get($border-width, $form-theme);
+				border-style: map-get($border-style, $form-theme);
+				border-radius: 0;
 				line-height: 20px;
 			}
 			background-image: unset;
@@ -74,20 +75,14 @@
 
 				&:after {
 					content: " ";
-					width: 100%;
-					height: 100%;
-					user-select: none;
-					pointer-events: none;
+					height: #{map-get($border-width, $form-theme) * 2};
+					display: block;
 					position: absolute;
-					z-index: 1;
-					top: 0;
-					left: 0;
-					border-width: #{$material--border-width * 2};
-					border-style: $material--border-style;
-					border-radius: $material--border-radius;
+					right: 50%;
+					bottom: 0;
+					left: 50%;
 					box-sizing: border-box;
-					@include opacity(0);
-					transition: $transition--ease;
+					transition: map-get($transition, linear);
 				}
 			}
 
@@ -97,8 +92,11 @@
 				&.forminator-is_active,
 				&.forminator-has_error {
 
-					.forminator-textarea--wrap:after {
-						@include opacity(1);
+					.forminator-textarea--wrap {
+						&:after{
+							right: 0;
+							left: 0;
+						}
 					}
 				}
 			}
