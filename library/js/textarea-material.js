@@ -48,13 +48,6 @@
 					'position': 'relative'
 				});
 
-				if ( ! field.hasClass( 'forminator-is_filled' ) || ! field.hasClass( 'forminator-is_active' ) ) {
-
-					label.css({
-						'padding-top': labelMath + 'px'
-					});
-				}
-
 				textarea.css({
 					'padding-top': labelMath + 'px'
 				});

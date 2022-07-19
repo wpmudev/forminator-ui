@@ -121,7 +121,8 @@
 				overflow-y: hidden;
 				position: absolute;
 				z-index: 1;
-				padding: map-get($input, padding) 0;
+				padding: 0;
+				transform: translateY(30px);
 
 				+ .forminator-textarea--wrap {
 
@@ -154,7 +155,7 @@
 			.forminator-is_filled {
 
 				.forminator-floating--textarea {
-					padding-top: map-get($input, padding) !important;
+					transform: translateY(0);
 
 					+ .forminator-textarea--wrap {
 
