@@ -211,7 +211,6 @@
 					font-weight: 600;
 					font-size: 14px;
 					line-height: 1.5;
-					letter-spacing: -0.5px;
 					margin-bottom: 20px;
 				}
 
@@ -221,6 +220,72 @@
 
 				.wpdef-2fa-text{
 					color: #72777C;
+					letter-spacing: -0.5px;
+				}
+			}
+
+			#forminator-2fa-webauthn {
+				font-size: 14px;
+				font-family: 'Roboto', sans-serif;
+
+				.wpdef-2fa-text {
+					font-weight: 400;
+				}
+
+				.wpdef-2fa-text.wpdef-2fa-biometric-process-desc {
+					font-weight: 500;
+				}
+
+				.webauthn-client-notice {
+					margin-top: 20px;
+				}
+
+				#wpdef-2fa-biometric-retry-btn, 
+				p {
+					line-height: 21px;
+				}
+
+				.welcome-screen {
+					margin-bottom: -10px;
+
+					.option-row {
+						display: flex;
+						cursor: pointer;
+						width: 100%;
+						margin: 0 -24px;
+						padding: 11px 24px;
+						width: auto;
+						&:hover {
+							background: #fafafa;
+						}
+						
+						&:first-of-type {
+							margin-top: 9px;
+						}
+					}
+
+					.option-hd {
+						display: block;
+						margin-bottom: 4px;
+						color: #000;
+						line-height: normal;
+						font-weight: bold;
+					}
+				}
+
+				.icon {
+					display: inline-block;
+					width: 40px;
+					height: 40px;
+					margin-right: 10px;
+					
+					&.biometric {
+						background: url('/assets/images/biometric.svg') no-repeat;
+					}
+
+					&.hardware {
+						background: url('/assets/images/hardware.svg') no-repeat;
+					}
 				}
 			}
 
