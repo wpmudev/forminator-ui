@@ -108,7 +108,7 @@
 				* {
 					margin: 0;
 					padding: 0;
-					font-family: system-ui;
+					font-family: 'Roboto', system-ui;
 				}
 
 				p {
@@ -226,7 +226,6 @@
 
 			#forminator-2fa-webauthn {
 				font-size: 14px;
-				font-family: 'Roboto', sans-serif;
 
 				.wpdef-2fa-text {
 					font-weight: 400;
@@ -243,26 +242,6 @@
 					width: 20px;
 					position: relative;
 					top: 5px;
-				}
-
-				.wpdef-notice-tag {
-					position: relative;
-					top: -1px;
-					min-height: 12px;
-					padding: 2px 8px 1px!important;
-					border: 0;
-					border-radius: 6px;
-					text-align: center;
-					text-transform: uppercase;
-					display: inline-block;
-					height: auto;
-					letter-spacing: -.25px;
-					font: 500 8px/9px Roboto, Arial, sans-serif;
-					box-sizing: border-box;
-					&.beta {
-						background-color: #ff7e41;
-						color: #fff;
-					}
 				}
 
 				#wpdef-2fa-biometric-retry-btn, 
@@ -311,6 +290,25 @@
 					&.hardware {
 						background: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiByeD0iNCIgZmlsbD0iI0YyRjJGMiIvPgo8cGF0aCBkPSJNMTQgMTZIMjZWMjlDMjYgMzAuMTA0NiAyNS4xMDQ2IDMxIDI0IDMxSDE2QzE0Ljg5NTQgMzEgMTQgMzAuMTA0NiAxNCAyOVYxNloiIGZpbGw9IiM0NDQ0NDQiLz4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xNSAxMUMxNSA5Ljg5NTQzIDE1Ljg5NTQgOSAxNyA5SDIzQzI0LjEwNDYgOSAyNSA5Ljg5NTQzIDI1IDExVjE1SDE1VjExWk0xOSAxMkMxOSAxMi41NTIzIDE4LjU1MjMgMTMgMTggMTNDMTcuNDQ3NyAxMyAxNyAxMi41NTIzIDE3IDEyQzE3IDExLjQ0NzcgMTcuNDQ3NyAxMSAxOCAxMUMxOC41NTIzIDExIDE5IDExLjQ0NzcgMTkgMTJaTTIyIDEzQzIyLjU1MjMgMTMgMjMgMTIuNTUyMyAyMyAxMkMyMyAxMS40NDc3IDIyLjU1MjMgMTEgMjIgMTFDMjEuNDQ3NyAxMSAyMSAxMS40NDc3IDIxIDEyQzIxIDEyLjU1MjMgMjEuNDQ3NyAxMyAyMiAxM1oiIGZpbGw9IiM0NDQ0NDQiLz4KPC9zdmc+Cg==") no-repeat;
 					}
+				}
+			}
+
+			.wpdef-notice-tag {
+				position: relative;
+				top: -1px;
+				min-height: 12px;
+				padding: 2px 8px 1px!important;
+				border: 0;
+				border-radius: 6px;
+				text-align: center;
+				text-transform: uppercase;
+				display: inline-block;
+				height: auto;
+				letter-spacing: -.25px;
+				font: 500 8px/9px 'Roboto', system-ui;
+				&.beta {
+					background-color: #ff7e41;
+					color: #fff;
 				}
 			}
 
@@ -385,7 +383,7 @@
 					color: #444;
 					font-size: 13px;
 					line-height: 1.4;
-					font-family: system-ui;
+					font-family: 'Roboto', system-ui;
 				}
 
 				&.error p {
