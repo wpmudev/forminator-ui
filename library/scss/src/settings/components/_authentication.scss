@@ -230,14 +230,19 @@
 
 				.wpdef-2fa-text {
 					font-weight: 400;
-				}
-
-				.wpdef-2fa-text.wpdef-2fa-biometric-process-desc {
-					font-weight: 500;
+					&.wpdef-2fa-biometric-process-desc {
+						font-weight: 500;
+					}
 				}
 
 				.webauthn-client-notice {
 					margin-top: 20px;
+				}
+
+				.def-loader {
+					width: 20px;
+					position: relative;
+					top: 5px;
 				}
 
 				#wpdef-2fa-biometric-retry-btn, 
