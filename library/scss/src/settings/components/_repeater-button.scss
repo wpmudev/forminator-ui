@@ -1,0 +1,18 @@
+@mixin component-repeater-button($form-type: no-type, $form-theme: no-theme) {
+
+	@include form-class($form-type, $form-theme, false) {
+
+        .forminator-group {
+
+            .forminator-repeater-action-link {
+                font-family: $font;
+                font-size: 12px;
+                line-height: 26px;
+                text-decoration: none;
+                &.forminator-repeater-add {
+                    margin-right: 20px;
+                }
+            }
+        }
+	}
+}

@@ -31,6 +31,7 @@ $form-theme: bold;
 @import "../settings/components/select2";
 @import "../settings/components/select2-dropdown";
 @import "../settings/components/e-signature";
+@import "../settings/components/repeater-button";
 
 @include component-input-with-icon(#{$form-type}, #{$form-theme});
 @include component-input-with-suffix(#{$form-type}, #{$form-theme});
@@ -45,3 +46,4 @@ $form-theme: bold;
 @include component-paypal(#{$form-type}, #{$form-theme});
 @include component-stripe(#{$form-type}, #{$form-theme});
 @include component-signature(#{$form-type}, #{$form-theme});
+@include component-repeater-button(#{$form-type}, #{$form-theme});
