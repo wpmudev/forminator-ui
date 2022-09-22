@@ -1,5 +1,14 @@
 # Change Log
 
+## [1.10.5](https://github.com/wpmudev/shared-ui/compare/v1.10.4...v1.10.5) (2022-09-21)
+
+#### 🐛 Bug Fixes
+- `forms`
+  - Border on checkbox image when hover is missing for Material Design. [#36](https://github.com/wpmudev/forminator-ui/pull/36) ([FOR-1562](https://incsub.atlassian.net/browse/FOR-1562)) ([@creador-dev](https://github.com/creador-dev))
+
+#### Committers: 1
+- Pawan Kumar ([@creador-dev](https://github.com/creador-dev))
+
 ## [1.10.4](https://github.com/wpmudev/shared-ui/compare/v1.10.3...v1.10.4) (2022-08-31)
 
 #### 🐛 Bug Fixes
