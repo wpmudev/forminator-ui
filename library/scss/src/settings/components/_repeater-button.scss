@@ -2,15 +2,23 @@
 
 	@include form-class($form-type, $form-theme, false) {
 
-        .forminator-group {
+        .forminator-grouped-fields {
 
-            .forminator-repeater-action-link {
-                font-family: $font;
-                font-size: 12px;
-                line-height: 26px;
-                text-decoration: none;
-                &.forminator-repeater-add {
-                    margin-right: 20px;
+            .forminator-action-buttons {
+
+                .forminator-repeater-action-button {
+                    padding: 5px 15px;
+                    border-radius: 15px;
+                    cursor: pointer;
+                    &:disabled {
+                        pointer-events: none;
+                    }
+                }
+
+                .forminator-repeater-action-link {
+                    &.forminator-repeater-add {
+                        margin-right: 20px;
+                    }
                 }
             }
         }
