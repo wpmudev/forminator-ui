@@ -32,6 +32,7 @@ $form-theme: flat;
 @import "../settings/components/select2-dropdown";
 @import "../settings/components/e-signature";
 @import "../settings/components/repeater-button";
+@import "../settings/components/grouped";
 
 @include component-input-with-icon(#{$form-type}, #{$form-theme});
 @include component-input-with-suffix(#{$form-type}, #{$form-theme});
@@ -47,3 +48,4 @@ $form-theme: flat;
 @include component-stripe(#{$form-type}, #{$form-theme});
 @include component-signature(#{$form-type}, #{$form-theme});
 @include component-repeater-button(#{$form-type}, #{$form-theme});
+@include component-grouped(#{$form-type}, #{$form-theme});
