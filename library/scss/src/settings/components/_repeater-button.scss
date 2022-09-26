@@ -15,6 +15,15 @@
                     }
                 }
 
+                .forminator-repeater-action-icon {
+                    background: transparent;
+                    font-size: 0;
+                    width: 20px;
+                    height: 20px;
+                    border: none;
+                    cursor: pointer;
+                }
+
                 .forminator-repeater-action-button,
                 .forminator-repeater-action-icon {
                     margin-right: 15px;
