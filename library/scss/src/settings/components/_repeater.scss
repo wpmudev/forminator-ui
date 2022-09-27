@@ -1,4 +1,4 @@
-@mixin component-grouped($form-type: no-type, $form-theme: no-theme) {
+@mixin component-repeater($form-type: no-type, $form-theme: no-theme) {
 
 	@include form-class($form-type, $form-theme, false) {
 
