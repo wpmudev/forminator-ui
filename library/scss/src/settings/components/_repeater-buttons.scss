@@ -20,6 +20,7 @@
                     padding: 0;
                     background: transparent;
                     border: none;
+                    cursor: pointer;
 
                     .sui-screen-reader-text {
                         width: 1px;
@@ -39,7 +40,6 @@
 
                 .forminator-repeater-action-button,
                 .forminator-repeater-action-icon {
-                    cursor: pointer;
                     margin-right: 15px;
                 }
 
