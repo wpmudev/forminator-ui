@@ -2,7 +2,7 @@
 
 	@include form-class($form-type, $form-theme, false) {
 
-        .forminator-grouped-fields {
+        .forminator-repeater-field {
             border-radius: 4px;
             padding: 20px 20px 30px 25px;
         }

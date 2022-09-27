@@ -2,7 +2,7 @@
 
 	@include form-class($form-type, $form-theme, false) {
 
-        .forminator-grouped-fields {
+        .forminator-repeater-field {
 
             .forminator-action-buttons {
                 line-height: 1;
