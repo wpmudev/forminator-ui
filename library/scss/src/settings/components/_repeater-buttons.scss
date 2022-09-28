@@ -5,6 +5,7 @@
         .forminator-repeater-field {
 
             .forminator-action-buttons {
+                margin-top: -30px;
                 line-height: 1;
                 .forminator-repeater-action-button {
                     padding: 5px 15px;
@@ -16,11 +17,16 @@
                     }
                 }
 
+                .forminator-repeater-add,
+                .forminator-repeater-remove {
+                    margin-top: 30px;
+                    cursor: pointer;
+                }
+
                 .forminator-repeater-action-icon {
                     padding: 0;
                     background: transparent;
                     border: none;
-                    cursor: pointer;
 
                     .sui-screen-reader-text {
                         width: 1px;
@@ -44,6 +50,7 @@
                 }
 
                 .forminator-repeater-action-link {
+                    display: inline-block;
                     margin-right: 20px;
                     text-decoration: none;
                     outline: none;
