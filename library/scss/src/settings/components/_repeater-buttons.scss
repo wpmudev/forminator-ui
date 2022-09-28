@@ -10,7 +10,6 @@
                 .forminator-repeater-action-button {
                     padding: 5px 15px;
                     border-radius: 15px;
-                    outline: none;
 
                     &:disabled {
                         pointer-events: none;
@@ -21,6 +20,7 @@
                 .forminator-repeater-remove {
                     margin-top: 30px;
                     cursor: pointer;
+                    outline: none;
                 }
 
                 .forminator-repeater-action-icon {
@@ -53,7 +53,6 @@
                     display: inline-block;
                     margin-right: 20px;
                     text-decoration: none;
-                    outline: none;
                 }
             }
         }
