@@ -1,0 +1,61 @@
+@mixin component-repeater-buttons($form-type: no-type, $form-theme: no-theme) {
+
+	@include form-class($form-type, $form-theme, false) {
+
+        .forminator-repeater-field {
+
+            .forminator-action-buttons {
+                margin-top: -30px;
+                line-height: 1;
+                .forminator-repeater-action-button {
+                    padding: 5px 15px;
+                    border-radius: 15px;
+
+                    &:disabled {
+                        pointer-events: none;
+                    }
+                }
+
+                .forminator-repeater-add,
+                .forminator-repeater-remove {
+                    margin-top: 30px;
+                    cursor: pointer;
+                    outline: none;
+                }
+
+                .forminator-repeater-action-icon {
+                    padding: 0;
+                    background: transparent;
+                    border: none;
+
+                    .sui-screen-reader-text {
+                        width: 1px;
+                        min-width: 1px;
+                        height: 1px;
+                        min-height: 1px;
+                        overflow: hidden;
+                        clip: rect(1px, 1px, 1px, 1px);
+                        clip-path: inset(50%);
+                        position: absolute !important;
+                        margin: -1px;
+                        padding: 0;
+                        border: 0;
+                        word-wrap: normal !important;
+                    }
+                }
+
+                .forminator-repeater-action-button,
+                .forminator-repeater-action-icon {
+                    margin-right: 15px;
+                }
+
+                .forminator-repeater-action-link {
+                    display: inline-block;
+                    margin-right: 20px;
+                    text-decoration: none;
+                    background: transparent;
+                }
+            }
+        }
+	}
+}

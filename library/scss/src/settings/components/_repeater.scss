@@ -1,0 +1,22 @@
+@mixin component-repeater($form-type: no-type, $form-theme: no-theme) {
+
+	@include form-class($form-type, $form-theme, false) {
+
+        .forminator-repeater-field {
+            border-radius: 4px;
+            padding: 20px 20px 30px 25px;
+            
+            .forminator-grouped-fields {
+                padding: 30px 0;
+                
+                &:first-child {
+                    padding-top: 0;
+                }
+                
+                &:last-child {
+                    padding-bottom: 0;
+                }
+            }
+        }
+	}
+}

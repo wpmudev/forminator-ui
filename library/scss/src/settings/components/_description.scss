@@ -21,7 +21,13 @@
 			> a {
 				margin: 0 2px;
 			}
+
+			&.forminator-repeater-description {
+				margin: 0 0 10px;
+			}
 		}
+
+
 
 		.forminator-error-message {
 			display: none;
