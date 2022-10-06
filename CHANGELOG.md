@@ -1,5 +1,14 @@
 # Change Log
 
+## [1.11.0](https://github.com/wpmudev/shared-ui/compare/v1.10.5...v1.11.0) (2022-10-06)
+
+#### ✨ New Features
+- `forms`
+  - Add required assets for the repeater field. [#38](https://github.com/wpmudev/forminator-ui/pull/38) ([FOR-366](https://incsub.atlassian.net/browse/FOR-366)) ([@creador-dev](https://github.com/creador-dev))
+
+#### Committers: 1
+- Pawan Kumar ([@creador-dev](https://github.com/creador-dev))
+
 ## [1.10.5](https://github.com/wpmudev/shared-ui/compare/v1.10.4...v1.10.5) (2022-09-21)
 
 #### 🐛 Bug Fixes
