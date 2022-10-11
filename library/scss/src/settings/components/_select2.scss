@@ -44,6 +44,7 @@
 								border-bottom-width: 1px;
 								border-style: $material--border-style;
 							}
+							background-image: none !important;
 
 							@if ('material' == $form-theme) {
 								&:before {
@@ -115,7 +116,7 @@
 							@if ('material' == $form-theme) {
 								&:hover,
 								&[aria-expanded="true"] {
-									
+
 									&:before {
 										right: 0;
 										left: 0;
