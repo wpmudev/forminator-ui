@@ -1,5 +1,14 @@
 # Change Log
 
+## [1.11.1](https://github.com/wpmudev/shared-ui/compare/v1.11.0...v1.11.1) (2022-10-11)
+
+#### 🐛 Bug Fix
+- `forms`
+  - Double arrow on selector. [#39](https://github.com/wpmudev/forminator-ui/pull/39) ([FOR-3035](https://incsub.atlassian.net/browse/FOR-3035)) ([@iamleigh](https://github.com/iamleigh))
+
+#### Committers: 1
+- Leighton Sapir ([@iamleigh](https://github.com/iamleigh))
+
 ## [1.11.0](https://github.com/wpmudev/shared-ui/compare/v1.10.5...v1.11.0) (2022-10-06)
 
 #### ✨ New Features
