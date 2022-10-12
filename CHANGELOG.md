@@ -1,5 +1,14 @@
 # Change Log
 
+## [1.11.2](https://github.com/wpmudev/shared-ui/compare/v1.11.1...v1.11.2) (2022-10-12)
+
+#### 🐛 Bug Fix
+- `forms`
+  - Removed repeater buttons unused wrapper class. [#40](https://github.com/wpmudev/forminator-ui/pull/40) ([FOR-3038](https://incsub.atlassian.net/browse/FOR-3038)) ([@creador-dev](https://github.com/creador-dev))
+
+#### Committers: 1
+- Pawan Kumar ([@creador-dev](https://github.com/creador-dev))
+
 ## [1.11.1](https://github.com/wpmudev/shared-ui/compare/v1.11.0...v1.11.1) (2022-10-11)
 
 #### 🐛 Bug Fix
