@@ -1,0 +1,9 @@
+// Mixins.
+@import "../../mixins/body-class";
+
+@include form-class(poll, no-theme, false) {
+    
+    .forminator-image {
+        max-width: 100%;
+    }
+}
