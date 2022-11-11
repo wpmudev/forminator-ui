@@ -3,7 +3,8 @@
 
 @include form-class(poll, no-theme, false) {
     
-    .forminator-image {
+    .forminator-image,
+    .forminator-radio-image {
         max-width: 100%;
     }
 }
