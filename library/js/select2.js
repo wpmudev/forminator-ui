@@ -38,7 +38,8 @@
 					$select.each( function() {
 
 						var $select = $( this ),
-							$parent = $select.closest( '.sui-dialog-content' ) || $select.closest( '.elementor-popup-modal' );
+							$parent = $select.closest( '.sui-dialog-content' ),
+							$popup  = $select.closest( '.elementor-popup-modal' );
 
 						if ( true === $select.data( 'rtl-support' ) ) {
 							$dir = 'rtl';
@@ -66,6 +67,10 @@
 
 						if ( ! $parent.length ) {
 							$parent = $( document.body );
+						}
+
+						if ( $popup.length ) {
+							$parent = $popup;
 						}
 
 						$select.FUIselect2({
