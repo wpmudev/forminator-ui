@@ -38,7 +38,7 @@
 					$select.each( function() {
 
 						var $select = $( this ),
-							$parent = $select.closest( '.sui-dialog-content' );
+							$parent = $select.closest( '.sui-dialog-content' ) || $select.closest( '.elementor-popup-modal' );
 
 						if ( true === $select.data( 'rtl-support' ) ) {
 							$dir = 'rtl';
