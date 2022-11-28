@@ -3815,7 +3815,7 @@
 
 				decorated.call(this, $element, options);
 
-				const tagsLength = tags.length;
+				var tagsLength = tags.length;
 
 				if (Array.isArray(tags)) {
 				for (var t = 0; t < tagsLength; t++) {
