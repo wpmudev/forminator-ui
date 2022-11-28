@@ -10,6 +10,7 @@
 @import "./settings/utilities/accessibility";
 @import "./settings/utilities/hidden";
 @import "./settings/utilities/fieldset";
+@import "./settings/utilities/image";
 
 @include utility-accessibility(no-type, no-theme);
 @include utility-hidden(no-type, no-theme);
