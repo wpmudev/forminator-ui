@@ -44,6 +44,32 @@
 
 		// ELEMENT: Row
 		.forminator-row {
+			flex-wrap: wrap;
+
+			.forminator-col-md-3 {
+				width: 25%;
+				max-width: 25%;
+				flex-basis: 25%;
+			}
+			
+			.forminator-col-md-4 {
+				width: 33.33333333%;
+				max-width: 33.33333333%;
+				flex-basis: 33.33333333%;
+			}
+			
+			.forminator-col-md-6 {
+				width: 50%;
+				max-width: 50%;
+				flex-basis: 50%;
+			}
+
+			.forminator-no-margin {
+				margin-bottom: -$gutter;
+				.forminator-col {
+					margin-bottom: $gutter;
+				}
+			}
 
 			&:not(:last-child) {
 
