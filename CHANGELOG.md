@@ -1,5 +1,20 @@
 # Change Log
 
+## [1.11.3](https://github.com/wpmudev/shared-ui/compare/v1.11.2...v1.11.3) (2022-11-29)
+
+#### 🚀 Improvement
+- `forms`
+  - Improved select2 JS loops for DOM manipulation. [#44](https://github.com/wpmudev/forminator-ui/pull/44) ([FOR-886](https://incsub.atlassian.net/browse/FOR-886)) ([@creador-dev](https://github.com/creador-dev))
+
+#### 🐛 Bug Fix
+- `forms`
+  - Elementor modal closes when clicked on select2 element. [#43](https://github.com/wpmudev/forminator-ui/pull/43) ([FOR-2772](https://incsub.atlassian.net/browse/FOR-2772)) ([@creador-dev](https://github.com/creador-dev))
+- `polls`
+  - Header image width issue on preview mode. [#42](https://github.com/wpmudev/forminator-ui/pull/42) ([FOR-849](https://incsub.atlassian.net/browse/FOR-849)) ([@creador-dev](https://github.com/creador-dev))
+
+#### Committers: 1
+- Pawan Kumar ([@creador-dev](https://github.com/creador-dev))
+
 ## [1.11.2](https://github.com/wpmudev/shared-ui/compare/v1.11.1...v1.11.2) (2022-10-12)
 
 #### 🐛 Bug Fix
