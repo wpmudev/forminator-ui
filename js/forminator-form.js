@@ -397,7 +397,8 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
         if ($element.hasClass('forminator-design--' + $theme) && $select.length) {
           $select.each(function () {
             var $select = $(this),
-                $parent = $select.closest('.sui-dialog-content');
+                $dialog = $select.closest('.sui-dialog-content'),
+                $parent = $dialog.length ? $dialog : $select.closest('.elementor-popup-modal');
 
             if (true === $select.data('rtl-support')) {
               $dir = 'rtl';
