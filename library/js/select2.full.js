@@ -1456,6 +1456,13 @@
 				$selection.attr('tabindex', this._tabindex);
 				$selection.attr('aria-disabled', 'false');
 
+				// adds aria-describedby tag in select for accessibility @edited
+				var $describedby = this.$element.attr('aria-describedby');
+
+				if ( null !== $describedby && '' !== $describedby ) {
+					$selection.attr('aria-describedby', $describedby);
+				}
+
 				this.$selection = $selection;
 
 				return $selection;
