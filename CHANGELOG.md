@@ -6,7 +6,7 @@
 - `forms`
   - Elementor modal closes when clicked on select2 element. [#46](https://github.com/wpmudev/forminator-ui/pull/46) ([FOR-2660](https://incsub.atlassian.net/browse/FOR-2660)) ([@creador-dev](https://github.com/creador-dev))
 
-#### Committers: 1
+#### Committers: 2
 - Leighton Sapir ([@iamleigh](https://github.com/iamleigh))
 - Pawan Kumar ([@creador-dev](https://github.com/creador-dev))
 
@@ -22,7 +22,7 @@
 - `polls`
   - Header image width issue on preview mode. [#42](https://github.com/wpmudev/forminator-ui/pull/42) ([FOR-849](https://incsub.atlassian.net/browse/FOR-849)) ([@creador-dev](https://github.com/creador-dev))
 
-#### Committers: 1
+#### Committers: 2
 - Leighton Sapir ([@iamleigh](https://github.com/iamleigh))
 - Pawan Kumar ([@creador-dev](https://github.com/creador-dev))
 
@@ -32,7 +32,7 @@
 - `forms`
   - Removed repeater buttons unused wrapper class. [#40](https://github.com/wpmudev/forminator-ui/pull/40) ([FOR-3038](https://incsub.atlassian.net/browse/FOR-3038)) ([@creador-dev](https://github.com/creador-dev))
 
-#### Committers: 1
+#### Committers: 2
 - Leighton Sapir ([@iamleigh](https://github.com/iamleigh))
 - Pawan Kumar ([@creador-dev](https://github.com/creador-dev))
 
