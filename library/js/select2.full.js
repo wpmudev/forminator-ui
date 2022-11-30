@@ -1456,6 +1456,13 @@
 				$selection.attr('tabindex', this._tabindex);
 				$selection.attr('aria-disabled', 'false');
 
+				// adds aria-describedby tag in select for accessibility @edited
+				var $describedby = this.$element.attr('aria-describedby');
+				
+				if ( $describedby != null ) {
+					$selection.attr('aria-describedby', $describedby);
+				}
+
 				this.$selection = $selection;
 
 				return $selection;
@@ -1820,11 +1827,9 @@
 			};
 
 			MultipleSelection.prototype.update = function (data) {
-				var dataLength = data.length;
-				
 				this.clear();
 
-				if (dataLength === 0) {
+				if (data.length === 0) {
 				return;
 				}
 
@@ -1833,7 +1838,7 @@
 				var selectionIdPrefix = this.$selection.find('.select2-selection__rendered')
 				.attr('id') + '-choice-';
 
-				for (var d = 0; d < dataLength; d++) {
+				for (var d = 0; d < data.length; d++) {
 				var selection = data[d];
 
 				var $selection = this.selectionContainer();
@@ -1997,9 +2002,7 @@
 				return;
 				}
 
-				var dataLength = data.length;
-
-				for (var d = 0; d < dataLength; d++) {
+				for (var d = 0; d < data.length; d++) {
 				unselectData = {
 					data: data[d]
 				};
@@ -3815,10 +3818,8 @@
 
 				decorated.call(this, $element, options);
 
-				var tagsLength = tags.length;
-
 				if (Array.isArray(tags)) {
-				for (var t = 0; t < tagsLength; t++) {
+				for (var t = 0; t < tags.length; t++) {
 					var tag = tags[t];
 					var item = this._normalizeItem(tag);
 
@@ -3842,9 +3843,7 @@
 				function wrapper (obj, child) {
 				var data = obj.results;
 
-				var dataLength = data.length;
-
-				for (var i = 0; i < dataLength; i++) {
+				for (var i = 0; i < data.length; i++) {
 					var option = data[i];
 
 					var checkChildren = (
@@ -4737,9 +4736,7 @@
 			function countResults (data) {
 				var count = 0;
 
-				var dataLength = data.length;
-
-				for (var d = 0; d < dataLength; d++) {
+				for (var d = 0; d < data.length; d++) {
 				var item = data[d];
 
 				if (item.children) {
