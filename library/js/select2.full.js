@@ -1820,9 +1820,11 @@
 			};
 
 			MultipleSelection.prototype.update = function (data) {
+				var dataLength = data.length;
+				
 				this.clear();
 
-				if (data.length === 0) {
+				if (dataLength === 0) {
 				return;
 				}
 
@@ -1831,7 +1833,7 @@
 				var selectionIdPrefix = this.$selection.find('.select2-selection__rendered')
 				.attr('id') + '-choice-';
 
-				for (var d = 0; d < data.length; d++) {
+				for (var d = 0; d < dataLength; d++) {
 				var selection = data[d];
 
 				var $selection = this.selectionContainer();
@@ -1995,7 +1997,9 @@
 				return;
 				}
 
-				for (var d = 0; d < data.length; d++) {
+				var dataLength = data.length;
+
+				for (var d = 0; d < dataLength; d++) {
 				unselectData = {
 					data: data[d]
 				};
@@ -3811,8 +3815,10 @@
 
 				decorated.call(this, $element, options);
 
+				var tagsLength = tags.length;
+
 				if (Array.isArray(tags)) {
-				for (var t = 0; t < tags.length; t++) {
+				for (var t = 0; t < tagsLength; t++) {
 					var tag = tags[t];
 					var item = this._normalizeItem(tag);
 
@@ -3836,7 +3842,9 @@
 				function wrapper (obj, child) {
 				var data = obj.results;
 
-				for (var i = 0; i < data.length; i++) {
+				var dataLength = data.length;
+
+				for (var i = 0; i < dataLength; i++) {
 					var option = data[i];
 
 					var checkChildren = (
@@ -4729,7 +4737,9 @@
 			function countResults (data) {
 				var count = 0;
 
-				for (var d = 0; d < data.length; d++) {
+				var dataLength = data.length;
+
+				for (var d = 0; d < dataLength; d++) {
 				var item = data[d];
 
 				if (item.children) {
