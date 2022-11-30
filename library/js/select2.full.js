@@ -1459,7 +1459,7 @@
 				// adds aria-describedby tag in select for accessibility @edited
 				var $describedby = this.$element.attr('aria-describedby');
 
-				if ( $describedby != null ) {
+				if ( null !== $describedby && $describedby.trim().length ) {
 					$selection.attr('aria-describedby', $describedby);
 				}
 
