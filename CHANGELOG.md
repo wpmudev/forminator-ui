@@ -1,5 +1,15 @@
 # Change Log
 
+## [1.11.4](https://github.com/wpmudev/shared-ui/compare/v1.11.3...v1.11.4) (2022-11-30)
+
+#### 🐛 Bug Fix
+- `forms`
+  - Elementor modal closes when clicked on select2 element. [#46](https://github.com/wpmudev/forminator-ui/pull/46) ([FOR-2660](https://incsub.atlassian.net/browse/FOR-2660)) ([@creador-dev](https://github.com/creador-dev))
+
+#### Committers: 1
+- Leighton Sapir ([@iamleigh](https://github.com/iamleigh))
+- Pawan Kumar ([@creador-dev](https://github.com/creador-dev))
+
 ## [1.11.3](https://github.com/wpmudev/shared-ui/compare/v1.11.2...v1.11.3) (2022-11-29)
 
 #### 🚀 Improvement
@@ -13,6 +23,7 @@
   - Header image width issue on preview mode. [#42](https://github.com/wpmudev/forminator-ui/pull/42) ([FOR-849](https://incsub.atlassian.net/browse/FOR-849)) ([@creador-dev](https://github.com/creador-dev))
 
 #### Committers: 1
+- Leighton Sapir ([@iamleigh](https://github.com/iamleigh))
 - Pawan Kumar ([@creador-dev](https://github.com/creador-dev))
 
 ## [1.11.2](https://github.com/wpmudev/shared-ui/compare/v1.11.1...v1.11.2) (2022-10-12)
@@ -22,6 +33,7 @@
   - Removed repeater buttons unused wrapper class. [#40](https://github.com/wpmudev/forminator-ui/pull/40) ([FOR-3038](https://incsub.atlassian.net/browse/FOR-3038)) ([@creador-dev](https://github.com/creador-dev))
 
 #### Committers: 1
+- Leighton Sapir ([@iamleigh](https://github.com/iamleigh))
 - Pawan Kumar ([@creador-dev](https://github.com/creador-dev))
 
 ## [1.11.1](https://github.com/wpmudev/shared-ui/compare/v1.11.0...v1.11.1) (2022-10-11)
