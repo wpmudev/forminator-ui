@@ -1,7 +1,6 @@
 @include body-class(custom-form, all, false) {
 
 	.forminator-textarea {
-		box-sizing: border-box;
 		width: 100%;
 		min-height: $textarea--height;
 		resize: vertical;
