@@ -1,5 +1,19 @@
 # Change Log
 
+## [1.12.0](https://github.com/wpmudev/shared-ui/compare/v1.11.3...v1.12.0) (2022-12-12)
+
+#### ✨ New Features
+- `forms`
+  - new(fields): New CSS grid for fields. [#45](https://github.com/wpmudev/forminator-ui/pull/45) ([FOR-2734](https://incsub.atlassian.net/browse/FOR-2734)) ([@creador-dev](https://github.com/creador-dev))
+
+#### 🐛 Bug Fix
+- `forms`
+  - fix(textarea): Element goes out of box in group field. [#47](https://github.com/wpmudev/forminator-ui/pull/47) ([FOR-3118](https://incsub.atlassian.net/browse/FOR-3118)) ([@creador-dev](https://github.com/creador-dev))
+
+#### Committers: 2
+- Leighton Sapir ([@iamleigh](https://github.com/iamleigh))
+- Pawan Kumar ([@creador-dev](https://github.com/creador-dev))
+
 ## [1.11.4](https://github.com/wpmudev/shared-ui/compare/v1.11.3...v1.11.4) (2022-11-30)
 
 #### 🐛 Bug Fix
