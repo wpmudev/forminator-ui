@@ -1,5 +1,15 @@
 # Change Log
 
+## [1.12.1](https://github.com/wpmudev/shared-ui/compare/v1.12.0...v1.12.1) (2022-12-15)
+
+#### 🐛 Bug Fix
+- `forms`
+  - fix(fields): Box sizing issue in forms. [#48](https://github.com/wpmudev/forminator-ui/pull/48) ([FOR-2734](https://incsub.atlassian.net/browse/FOR-2734)) ([@creador-dev](https://github.com/creador-dev))
+
+#### Committers: 2
+- Leighton Sapir ([@iamleigh](https://github.com/iamleigh))
+- Pawan Kumar ([@creador-dev](https://github.com/creador-dev))
+
 ## [1.12.0](https://github.com/wpmudev/shared-ui/compare/v1.11.3...v1.12.0) (2022-12-12)
 
 #### ✨ New Features
