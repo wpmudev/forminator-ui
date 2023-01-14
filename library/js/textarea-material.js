@@ -48,6 +48,11 @@
 					'position': 'relative'
 				});
 
+				if ( textarea.val() ) {
+
+					field.addClass( 'forminator-is_filled' );
+				}
+
 				if ( ! field.hasClass( 'forminator-is_filled' ) || ! field.hasClass( 'forminator-is_active' ) ) {
 
 					label.css({
