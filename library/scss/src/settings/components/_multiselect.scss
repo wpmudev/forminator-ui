@@ -4,6 +4,7 @@
 
 		.forminator-multiselect {
 			width: 100%;
+			min-height: 38px;
 			@if ('material' != $form-theme) {
 				height: auto;
 				max-height: map-get($dropdown, max-height);
