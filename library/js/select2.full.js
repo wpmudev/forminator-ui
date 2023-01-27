@@ -5882,7 +5882,7 @@
 					  }
 					} else {
 					// Added the functionality to change option on press of up and down arrow. @edited
-					  if (key === KEYS.ENTER || key === KEYS.SPACE || ((key === KEYS.DOWN || key === KEYS.UP) && evt.altKey)) {
+					  if (key === KEYS.ENTER || key === KEYS.SPACE || key === KEYS.DOWN ) {
 							self.open();
 							evt.preventDefault();
 					  }
