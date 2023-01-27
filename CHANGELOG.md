@@ -1,6 +1,17 @@
 # Change Log
 
-## [1.12.1](https://github.com/wpmudev/shared-ui/compare/v1.12.0...v1.12.1) (2022-12-15)
+## [1.12.2](https://github.com/wpmudev/forminator-ui/compare/v1.12.1...v1.12.2) (2023-01-26)
+
+#### 🐛 Bug Fix
+- `forms`
+  - fix(select2): Select voiceover not working in Safari. [#41](https://github.com/wpmudev/forminator-ui/pull/41) ([FOR-1704](https://incsub.atlassian.net/browse/FOR-1704)) ([@creador-dev](https://github.com/creador-dev))
+  - fix(forms): Reset rule must apply to FUI elements only. [#52](https://github.com/wpmudev/forminator-ui/pull/52) ([FOR-3300](https://incsub.atlassian.net/browse/FOR-3300)) ([@creador-dev](https://github.com/creador-dev))
+
+#### Committers: 2
+- Leighton Sapir ([@iamleigh](https://github.com/iamleigh))
+- Pawan Kumar ([@creador-dev](https://github.com/creador-dev))
+
+## [1.12.1](https://github.com/wpmudev/forminator-ui/compare/v1.12.0...v1.12.1) (2022-12-15)
 
 #### 🐛 Bug Fix
 - `forms`
@@ -10,7 +21,7 @@
 - Leighton Sapir ([@iamleigh](https://github.com/iamleigh))
 - Pawan Kumar ([@creador-dev](https://github.com/creador-dev))
 
-## [1.12.0](https://github.com/wpmudev/shared-ui/compare/v1.11.3...v1.12.0) (2022-12-12)
+## [1.12.0](https://github.com/wpmudev/forminator-ui/compare/v1.11.3...v1.12.0) (2022-12-12)
 
 #### ✨ New Features
 - `forms`
@@ -24,7 +35,7 @@
 - Leighton Sapir ([@iamleigh](https://github.com/iamleigh))
 - Pawan Kumar ([@creador-dev](https://github.com/creador-dev))
 
-## [1.11.4](https://github.com/wpmudev/shared-ui/compare/v1.11.3...v1.11.4) (2022-11-30)
+## [1.11.4](https://github.com/wpmudev/forminator-ui/compare/v1.11.3...v1.11.4) (2022-11-30)
 
 #### 🐛 Bug Fix
 - `forms`
@@ -34,7 +45,7 @@
 - Leighton Sapir ([@iamleigh](https://github.com/iamleigh))
 - Pawan Kumar ([@creador-dev](https://github.com/creador-dev))
 
-## [1.11.3](https://github.com/wpmudev/shared-ui/compare/v1.11.2...v1.11.3) (2022-11-29)
+## [1.11.3](https://github.com/wpmudev/forminator-ui/compare/v1.11.2...v1.11.3) (2022-11-29)
 
 #### 🚀 Improvement
 - `forms`
@@ -50,7 +61,7 @@
 - Leighton Sapir ([@iamleigh](https://github.com/iamleigh))
 - Pawan Kumar ([@creador-dev](https://github.com/creador-dev))
 
-## [1.11.2](https://github.com/wpmudev/shared-ui/compare/v1.11.1...v1.11.2) (2022-10-12)
+## [1.11.2](https://github.com/wpmudev/forminator-ui/compare/v1.11.1...v1.11.2) (2022-10-12)
 
 #### 🐛 Bug Fix
 - `forms`
@@ -60,7 +71,7 @@
 - Leighton Sapir ([@iamleigh](https://github.com/iamleigh))
 - Pawan Kumar ([@creador-dev](https://github.com/creador-dev))
 
-## [1.11.1](https://github.com/wpmudev/shared-ui/compare/v1.11.0...v1.11.1) (2022-10-11)
+## [1.11.1](https://github.com/wpmudev/forminator-ui/compare/v1.11.0...v1.11.1) (2022-10-11)
 
 #### 🐛 Bug Fix
 - `forms`
@@ -69,7 +80,7 @@
 #### Committers: 1
 - Leighton Sapir ([@iamleigh](https://github.com/iamleigh))
 
-## [1.11.0](https://github.com/wpmudev/shared-ui/compare/v1.10.5...v1.11.0) (2022-10-06)
+## [1.11.0](https://github.com/wpmudev/forminator-ui/compare/v1.10.5...v1.11.0) (2022-10-06)
 
 #### ✨ New Features
 - `forms`
@@ -78,7 +89,7 @@
 #### Committers: 1
 - Pawan Kumar ([@creador-dev](https://github.com/creador-dev))
 
-## [1.10.5](https://github.com/wpmudev/shared-ui/compare/v1.10.4...v1.10.5) (2022-09-21)
+## [1.10.5](https://github.com/wpmudev/forminator-ui/compare/v1.10.4...v1.10.5) (2022-09-21)
 
 #### 🐛 Bug Fixes
 - `forms`
@@ -87,7 +98,7 @@
 #### Committers: 1
 - Pawan Kumar ([@creador-dev](https://github.com/creador-dev))
 
-## [1.10.4](https://github.com/wpmudev/shared-ui/compare/v1.10.3...v1.10.4) (2022-08-31)
+## [1.10.4](https://github.com/wpmudev/forminator-ui/compare/v1.10.3...v1.10.4) (2022-08-31)
 
 #### 🐛 Bug Fixes
 - `forms`
@@ -97,7 +108,7 @@
 #### Committers: 1
 - Pawan Kumar ([@creador-dev](https://github.com/creador-dev))
 
-## [1.10.3](https://github.com/wpmudev/shared-ui/compare/v1.10.2...v1.10.3) (2022-07-14)
+## [1.10.3](https://github.com/wpmudev/forminator-ui/compare/v1.10.2...v1.10.3) (2022-07-14)
 
 #### 🐛 Bug Fixes
 - `forms`
@@ -106,7 +117,7 @@
 #### Committers: 1
 - Pawan Kumar ([@creador-dev](https://github.com/creador-dev))
 
-## [1.10.2](https://github.com/wpmudev/shared-ui/compare/v1.10.1...v1.10.2) (2022-07-08)
+## [1.10.2](https://github.com/wpmudev/forminator-ui/compare/v1.10.1...v1.10.2) (2022-07-08)
 
 #### 🐛 Bug Fixes
 - `forms`
@@ -115,7 +126,7 @@
 #### Committers: 1
 - Pawan Kumar ([@creador-dev](https://github.com/creador-dev))
 
-## [1.10.1](https://github.com/wpmudev/shared-ui/compare/v1.10.0...v1.10.1) (2022-07-05)
+## [1.10.1](https://github.com/wpmudev/forminator-ui/compare/v1.10.0...v1.10.1) (2022-07-05)
 
 #### 🐛 Bug Fixes
 - `forms`
