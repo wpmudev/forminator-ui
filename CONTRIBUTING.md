@@ -2,6 +2,8 @@
 
 ## Important
 
+> To work with this branch use Node `11.15.0`.
+
 1. Do not commit on `master` or `development` or `gh-pages` branches.
 2. Branch `development` is where our base code resides and will allow us to beta test.
 3. Branch `master` is where we can find **Forminator UI** compiled assets. You should never push directly to this branch.
