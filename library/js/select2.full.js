@@ -4517,6 +4517,7 @@
 				// Custom FUIselect2 dropdown. @edited
 				$dropdown.removeClass('select2');
 				$dropdown.addClass('forminator-select-dropdown-container--open');
+				$dropdown.attr('tabindex', '-1');
 
 				$dropdown[0].classList.remove('select2');
 				$dropdown[0].classList.add('select2-container--open');
