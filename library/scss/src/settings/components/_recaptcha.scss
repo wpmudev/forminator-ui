@@ -8,5 +8,31 @@
                 visibility: visible;
             }
         }
+
+        // captcha alignment
+        .forminator-captcha-left {
+            text-align: left;
+
+            > div {
+                margin-right: auto;
+            }
+        }
+
+        .forminator-captcha-right {
+            text-align: right;
+
+            > div {
+                margin-left: auto;
+            }
+        }
+
+        .forminator-captcha-center {
+            text-align: center;
+
+            > div {
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
     }
 }
