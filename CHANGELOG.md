@@ -1,5 +1,15 @@
 # Change Log
 
+## [1.12.3](https://github.com/wpmudev/forminator-ui/compare/v1.12.2...v1.12.3) (2023-02-03)
+
+#### 🐛 Bug Fix
+- `forms`
+  - fix(select2): Select voiceover not working in Safari. [#54](https://github.com/wpmudev/forminator-ui/pull/54) ([FOR-1704](https://incsub.atlassian.net/browse/FOR-1704)) ([@creador-dev](https://github.com/creador-dev))
+
+#### Committers: 2
+- Leighton Sapir ([@iamleigh](https://github.com/iamleigh))
+- Pawan Kumar ([@creador-dev](https://github.com/creador-dev))
+
 ## [1.12.2](https://github.com/wpmudev/forminator-ui/compare/v1.12.1...v1.12.2) (2023-01-26)
 
 #### 🐛 Bug Fix
