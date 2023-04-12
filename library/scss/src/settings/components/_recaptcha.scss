@@ -7,6 +7,15 @@
             .grecaptcha-badge {
                 visibility: visible;
             }
+
+            > div {
+                width: 100% !important;
+            }
+
+            iframe {
+                max-width: 100%;
+                max-height: 100% !important;
+            }
         }
     }
 }
