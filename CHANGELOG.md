@@ -1,6 +1,6 @@
 # Change Log
 
-## [1.12.4](https://github.com/wpmudev/forminator-ui/compare/v1.12.3...v1.12.4) (Unreleased)
+## [1.12.4](https://github.com/wpmudev/forminator-ui/compare/v1.12.3...v1.12.4) (2023-04-13)
 
 #### ✨ New Features
 - `polls`
