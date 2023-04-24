@@ -89,5 +89,16 @@ $quiz: (
 				}
 			}
 		}
+
+		.leads-quiz-loader {
+			padding:20px;
+			text-align:center;
+			
+			.forminator-loading {
+				&:before {
+					display:block;
+				}
+			}
+		}
 	}
 }
