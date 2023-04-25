@@ -1,5 +1,15 @@
 # Change Log
 
+## [1.12.5](https://github.com/wpmudev/forminator-ui/compare/v1.12.4...v1.12.5) (2023-04-25)
+
+#### 🐛 Bug Fix
+- `forms`
+  - fix(multiselect): UI issue when submission limit reached. [#53](https://github.com/wpmudev/forminator-ui/pull/53) ([FOR-3096](https://incsub.atlassian.net/browse/FOR-3096)) ([@creador-dev](https://github.com/creador-dev))
+
+#### Committers: 2
+- Leighton Sapir ([@iamleigh](https://github.com/iamleigh))
+- Pawan Kumar ([@creador-dev](https://github.com/creador-dev))
+
 ## [1.12.4](https://github.com/wpmudev/forminator-ui/compare/v1.12.3...v1.12.4) (2023-04-13)
 
 #### ✨ New Features
