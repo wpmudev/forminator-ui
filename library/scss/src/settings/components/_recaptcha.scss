@@ -2,7 +2,7 @@
     
     @include form-class($form-type, $form-theme, false) {
 
-        .forminator-g-recaptcha {
+        .forminator-g-recaptcha:not(.recaptcha-invisible) {
 
             .grecaptcha-badge {
                 visibility: visible;
