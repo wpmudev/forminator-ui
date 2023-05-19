@@ -1,5 +1,14 @@
 # Change Log
 
+## [1.12.6](https://github.com/wpmudev/forminator-ui/compare/v1.12.5...v1.12.6) (2023-05-17)
+
+#### 🐛 Bug Fix
+- `forms`
+  - fix(captcha): Invisible reCAPTCHA unwanted width. [#58](https://github.com/wpmudev/forminator-ui/pull/58) ([FOR-3519](https://incsub.atlassian.net/browse/FOR-3519)) ([@creador-dev](https://github.com/creador-dev))
+
+#### Committers: 1
+- Pawan Kumar ([@creador-dev](https://github.com/creador-dev))
+
 ## [1.12.5](https://github.com/wpmudev/forminator-ui/compare/v1.12.4...v1.12.5) (2023-04-25)
 
 #### 🐛 Bug Fix
