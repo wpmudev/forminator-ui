@@ -27,21 +27,22 @@
 		"eslint-config-wordpress": "^2.0.0",
 		"fs": "0.0.1-security",
 		"gh-pages": "^2.0.1",
-		"gulp": "^3.9.1",
+		"gulp": "^4.0.2",
 		"gulp-autoprefixer": "^6.0.0",
-		"gulp-babel": "^8.0.0",
+		"gulp-babel": "^7.0.1",
 		"gulp-clean-css": "^3.10.0",
 		"gulp-concat": "^2.6.1",
-		"gulp-eslint": "^5.0.0",
+		"gulp-eslint": "^4.0.2",
 		"gulp-header": "^2.0.7",
 		"gulp-htmlmin": "^5.0.1",
 		"gulp-rename": "^1.4.0",
 		"gulp-replace": "^1.0.0",
-		"gulp-sass": "^4.0.2",
+		"gulp-sass": "^5.1.0",
 		"gulp-uglify": "^3.0.1",
-		"gulp-uglify-es": "^1.0.4",
-		"gulp-watch": "^5.0.1",
-		"pump": "^3.0.0"
+		"gulp-uglify-es": "^3.0.0",
+		"gulp-watch": "^4.0.1",
+		"pump": "^3.0.0",
+		"sass": "^1.63.6"
 	},
 	"eslintConfig": {
 		"extends": "wordpress",
@@ -68,6 +69,5 @@
 		"release:library": "npm run build:library && npm run clean:ghpages && gh-pages -b master -d ./build/library",
 		"release:showcase": "npm run clean:modules && npm install && npm run build:showcase && npm run clean:ghpages && gh-pages -b gh-pages -d ./build/public",
 		"release": "npm run release:library && npm run release:showcase"
-	},
-	"dependencies": {}
+	}
 }
