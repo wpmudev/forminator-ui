@@ -125,7 +125,7 @@
 
 			.nav-title {
 				display: block;
-				padding: #{$sui-gutter / 2} $sui-gutter;
+				padding: #{calc($sui-gutter / 2)} $sui-gutter;
 				background-color: palette(blue, light);
 				color: palette(gray, dark);
 				font: 500 15px/30px $font;

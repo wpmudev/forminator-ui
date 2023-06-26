@@ -7,7 +7,7 @@
 			.forminator-result {
 				@if $form-theme == 'default' or $form-theme == 'flat' or $form-theme == 'bold' {
 					display: block;
-					padding: #{$gutter-sm / 2};
+					padding: #{calc($gutter-sm / 2)};
 				}
 				@if $form-theme == 'default' {
 					border-width: map-get($border-width, default);
@@ -39,12 +39,12 @@
 						// 	min-width: 1px;
 						// 	display: block;
 						// 	flex: 0 1 auto;
-						// 	margin-left: #{$gutter-sm / 2};
+						// 	margin-left: #{calc($gutter-sm / 2)};
 						// 	line-height: 1.75em;
 						// }
 
 						+ .forminator-result--content {
-							margin-top: #{$gutter-sm / 2};
+							margin-top: #{calc($gutter-sm / 2)};
 						}
 					}
 				} @else if $form-theme == 'material' {
@@ -64,14 +64,14 @@
 						display: block;
 						text-align: left;
 					} @else if $form-theme == 'material' {
-						padding: #{$gutter-sm / 2};
+						padding: #{calc($gutter-sm / 2)};
 						text-align: left;
 					}
 
 					@if $form-theme == 'default' or $form-theme == 'flat' or $form-theme == 'bold' {
 
 						.forminator-result--text {
-							padding: #{$gutter-sm / 2};
+							padding: #{calc($gutter-sm / 2)};
 
 							.forminator-result--title {
 								margin: 0;
@@ -79,7 +79,7 @@
 								line-height: 1.5em;
 
 								+ .forminator-result--description {
-									margin-top: #{$gutter-sm / 2};
+									margin-top: #{calc($gutter-sm / 2)};
 								}
 							}
 
@@ -97,13 +97,13 @@
 									border: 0;
 
 									&:not(:last-child) {
-										margin-bottom: #{$gutter-sm / 2};
+										margin-bottom: #{calc($gutter-sm / 2)};
 									}
 								}
 							}
 
 							+ .forminator-result--image {
-								margin-top: #{$gutter-sm / 2};
+								margin-top: #{calc($gutter-sm / 2)};
 							}
 						}
 
@@ -135,7 +135,7 @@
 							max-width: 100%;
 							height: 2px;
 							display: block;
-							margin: #{$gutter-sm / 2} 0;
+							margin: #{calc($gutter-sm / 2)} 0;
 							padding: 0;
 							border: 0;
 							background-color: rgba(0,0,0,0.1);
@@ -148,7 +148,7 @@
 							line-height: 1.5em;
 
 							+ .forminator-result--description {
-								margin-top: #{$gutter-sm / 2};
+								margin-top: #{calc($gutter-sm / 2)};
 							}
 						}
 
@@ -166,7 +166,7 @@
 								border: 0;
 
 								&:not(:last-child) {
-									margin-bottom: #{$gutter-sm / 2};
+									margin-bottom: #{calc($gutter-sm / 2)};
 								}
 							}
 						}
@@ -174,7 +174,7 @@
 
 					+ .forminator-quiz--action-buttons {
 						@if $form-theme == 'default' or $form-theme == 'flat' or $form-theme == 'bold' {
-							margin-top: #{$gutter-sm / 2};
+							margin-top: #{calc($gutter-sm / 2)};
 						} @else if $form-theme == 'material' {
 							margin-top: $gutter;
 						}
@@ -198,7 +198,7 @@
 
 							@if $form-theme == 'default' or $form-theme == 'flat' or $form-theme == 'bold' {
 								flex: 1;
-								margin-right: #{$gutter-sm / 2};
+								margin-right: #{calc($gutter-sm / 2)};
 								margin-left: 0;
 							}
 						}
@@ -223,7 +223,7 @@
 
 								@if $form-theme == 'default' or $form-theme == 'flat' or $form-theme == 'bold' {
 									margin-top: 0;
-									margin-left: #{$gutter-sm / 2};
+									margin-left: #{calc($gutter-sm / 2)};
 								}
 							}
 						}

@@ -22,7 +22,7 @@
 
 			.select2-results__options {
 				max-height: $dropdown--height;
-				padding: #{$dropdown--padding / 2} 0;
+				padding: #{calc(calc($dropdown--padding / 2))} 0;
 
 				.select2-results__option {
 					line-height: $dropdown--line-height;

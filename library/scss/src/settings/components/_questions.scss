@@ -72,15 +72,15 @@
 			.forminator-legend,
 			.forminator-image,
 			.forminator-question--description {
-				margin: 0 0 #{$gutter-sm / 2};
+				margin: 0 0 #{calc($gutter-sm / 2)};
 			}
 
 			.forminator-answer {
-				margin-top: #{$gutter-sm / 2};
+				margin-top: #{calc($gutter-sm / 2)};
 			}
 
 			.forminator-question--result {
-				margin: #{$gutter-sm / 2} 0 0;
+				margin: #{calc($gutter-sm / 2)} 0 0;
 			}
 
 			.forminator-quiz--result,
@@ -107,15 +107,15 @@
 			.forminator-legend,
 			.forminator-image,
 			.forminator-question--description {
-				margin: 0 0 #{$gutter-enclosed-sm / 2};
+				margin: 0 0 #{calc(calc($gutter-enclosed-sm / 2))};
 			}
 
 			.forminator-answer {
-				margin-top: #{$gutter-enclosed-sm / 2};
+				margin-top: #{calc(calc($gutter-enclosed-sm / 2))};
 			}
 
 			.forminator-question--result {
-				margin: #{$gutter-enclosed-sm / 2} 0 0;
+				margin: #{calc(calc($gutter-enclosed-sm / 2))} 0 0;
 			}
 
 			.forminator-quiz--result,
@@ -196,21 +196,21 @@
 				.forminator-question--description {
 
 					@include media(min-width, sm) {
-						margin-bottom: #{$gutter / 2};
+						margin-bottom: #{calc($gutter / 2)};
 					}
 				}
 
 				.forminator-answer {
 
 					@include media(min-width, sm) {
-						margin-top: #{$gutter / 2};
+						margin-top: #{calc($gutter / 2)};
 					}
 				}
 
 				.forminator-question--result {
 
 					@include media(min-width, sm) {
-						margin-top: #{$gutter / 2};
+						margin-top: #{calc($gutter / 2)};
 					}
 				}
 
@@ -249,21 +249,21 @@
 				.forminator-question--description {
 
 					@include media(min-width, sm) {
-						margin-bottom: #{$gutter-enclosed / 2};
+						margin-bottom: #{calc($gutter-enclosed / 2)};
 					}
 				}
 
 				.forminator-answer {
 
 					@include media(min-width, sm) {
-						margin-top: #{$gutter-enclosed / 2};
+						margin-top: #{calc($gutter-enclosed / 2)};
 					}
 				}
 
 				.forminator-question--result {
 
 					@include media(min-width, sm) {
-						margin-top: #{$gutter-enclosed / 2};
+						margin-top: #{calc($gutter-enclosed / 2)};
 					}
 				}
 
@@ -325,7 +325,7 @@
 				.forminator-answer {
 
 					@include media(min-width, sm) {
-						flex: 0 0 #{100% / $i};
+						flex: 0 0 #{calc(100% / $i)};
 					}
 				}
 			}
@@ -364,8 +364,8 @@
 
 						@include media(min-width, sm) {
 							margin-top: $gutter;
-							margin-right: #{$gutter / 4};
-							margin-left: #{$gutter / 4};
+							margin-right: #{calc($gutter / 4)};
+							margin-left: #{calc($gutter / 4)};
 						}
 					}
 
@@ -375,8 +375,8 @@
 				}
 
 				@include media(min-width, sm) {
-					margin-right: -#{$gutter / 4};
-					margin-left: -#{$gutter / 4};
+					margin-right: -#{calc($gutter / 4)};
+					margin-left: -#{calc($gutter / 4)};
 				}
 			}
 
@@ -385,23 +385,23 @@
 			.forminator-question--description {
 
 				@include media(min-width, sm) {
-					padding: 0 #{$gutter / 4};
+					padding: 0 #{calc($gutter / 4)};
 				}
 			}
 
 			.forminator-answer {
 
 				@include media(min-width, sm) {
-					margin-top: #{$gutter / 2};
-					padding: 0 #{$gutter / 4};
+					margin-top: #{calc($gutter / 2)};
+					padding: 0 #{calc($gutter / 4)};
 				}
 			}
 
 			.forminator-question--result {
 
 				@include media(min-width, sm) {
-					margin-top: #{$gutter / 2};
-					padding: 0 #{$gutter / 4};
+					margin-top: #{calc($gutter / 2)};
+					padding: 0 #{calc($gutter / 4)};
 				}
 			}
 
@@ -426,8 +426,8 @@
 
 						@include media(min-width, sm) {
 							margin-top: $gutter-enclosed;
-							margin-right: #{$gutter-enclosed / 4};
-							margin-left: #{$gutter-enclosed / 4};
+							margin-right: #{calc($gutter-enclosed / 4)};
+							margin-left: #{calc($gutter-enclosed / 4)};
 						}
 					}
 
@@ -437,8 +437,8 @@
 				}
 
 				@include media(min-width, sm) {
-					margin-right: -#{$gutter-enclosed / 4};
-					margin-left: -#{$gutter-enclosed / 4};
+					margin-right: -#{calc($gutter-enclosed / 4)};
+					margin-left: -#{calc($gutter-enclosed / 4)};
 				}
 			}
 
@@ -447,23 +447,23 @@
 			.forminator-question--description {
 
 				@include media(min-width, sm) {
-					padding: 0 #{$gutter-enclosed / 4};
+					padding: 0 #{calc($gutter-enclosed / 4)};
 				}
 			}
 
 			.forminator-answer {
 
 				@include media(min-width, sm) {
-					margin-top: #{$gutter-enclosed / 2};
-					padding: 0 #{$gutter-enclosed / 4};
+					margin-top: #{calc($gutter-enclosed / 2)};
+					padding: 0 #{calc($gutter-enclosed / 4)};
 				}
 			}
 
 			.forminator-question--result {
 
 				@include media(min-width, sm) {
-					margin-top: #{$gutter-enclosed / 2};
-					padding: 0 #{$gutter-enclosed / 4};
+					margin-top: #{calc($gutter-enclosed / 2)};
+					padding: 0 #{calc($gutter-enclosed / 4)};
 				}
 			}
 

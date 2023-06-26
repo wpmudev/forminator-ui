@@ -32,7 +32,7 @@
 						padding: 0;
 
 						+ .iti__arrow {
-							margin-left: #{map-get($input, padding) / 2};
+							margin-left: #{calc(map-get($input, padding) / 2)};
 						}
 					}
 
@@ -138,7 +138,7 @@
 						padding: 0;
 
 						+ .iti__arrow {
-							margin-left: #{map-get($input, padding) / 2};
+							margin-left: #{calc(map-get($input, padding) / 2)};
 						}
 					}
 

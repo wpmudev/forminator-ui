@@ -76,20 +76,20 @@ $radio-image: 80px;
 				&:before {
 					content: " ";
 					@if ('default' == $form-theme) {
-						width: #{map-get($radio, size) / 2};
-						height: #{map-get($radio, size) / 2};
+						width: #{calc(calc(map-get($radio, size) / 2))};
+						height: #{calc(calc(map-get($radio, size) / 2))};
 					}
 					@if ('flat' == $form-theme) {
-						width: #{map-get($radio, size) / 2};
-						height: #{map-get($radio, size) / 2};
+						width: #{calc(calc(map-get($radio, size) / 2))};
+						height: #{calc(calc(map-get($radio, size) / 2))};
 					}
 					@if ('bold' == $form-theme) {
-						width: #{(map-get($radio, size) / 2) - map-get($border-width, bold)};
-						height: #{(map-get($radio, size) / 2) - map-get($border-width, bold)};
+						width: #{(calc(calc(map-get($radio, size) / 2))) - map-get($border-width, bold)};
+						height: #{(calc(calc(map-get($radio, size) / 2))) - map-get($border-width, bold)};
 					}
 					@if ('material' == $form-theme) {
-						width: #{map-get($radio, size) / 2};
-						height: #{map-get($radio, size) / 2};
+						width: #{calc(calc(map-get($radio, size) / 2))};
+						height: #{calc(calc(map-get($radio, size) / 2))};
 					}
 					@include opacity(0);
 					display: block;

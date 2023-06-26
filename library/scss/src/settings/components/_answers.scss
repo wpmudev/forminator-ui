@@ -137,8 +137,8 @@ $quiz: (
 
 					+ .forminator-answer--status {
 						@if $form-theme == 'default' or $form-theme == 'flat' or $form-theme == 'bold' {
-							margin-top: #{(map-get($quiz, image-sm) - map-get($quiz, checkbox)) / 2};
-							margin-bottom: #{(map-get($quiz, image-sm) - map-get($quiz, checkbox)) / 2};
+							margin-top: #{calc((map-get($quiz, image-sm) - map-get($quiz, checkbox)) / 2)};
+							margin-bottom: #{calc((map-get($quiz, image-sm) - map-get($quiz, checkbox)) / 2)};
 							margin-left: map-get($quiz, spacing);
 						} @else if $form-theme == 'material' {
 							position: absolute;
@@ -223,8 +223,8 @@ $quiz: (
 						.forminator-answer--status {
 							top: 50%;
 							left: 50%;
-							margin-top: -#{map-get($quiz, checkbox) / 2};
-							margin-left: -#{map-get($quiz, checkbox) / 2};
+							margin-top: -#{calc(map-get($quiz, checkbox) / 2)};
+							margin-left: -#{calc(map-get($quiz, checkbox) / 2)};
 						}
 
 						.forminator-answer--name {
@@ -241,8 +241,8 @@ $quiz: (
 					.forminator-answer--design {
 
 						.forminator-answer--status {
-							top: #{((map-get($quiz, image-sm) - map-get($quiz, checkbox)) / 2) + map-get($quiz, spacing)};
-							left: #{((map-get($quiz, image-sm) - map-get($quiz, checkbox)) / 2) + map-get($quiz, spacing)};
+							top: #{(calc((map-get($quiz, image-sm) - map-get($quiz, checkbox)) / 2)) + map-get($quiz, spacing)};
+							left: #{(calc((map-get($quiz, image-sm) - map-get($quiz, checkbox)) / 2)) + map-get($quiz, spacing)};
 						}
 					}
 				}

@@ -64,7 +64,7 @@
 			@include media(min-width, sm) {
 				width: auto;
 				flex: 0 0 auto;
-				margin-right: #{$gutter / 2};
+				margin-right: #{calc($gutter / 2)};
 				margin-bottom: 0;
 			}
 		}

@@ -78,8 +78,8 @@
 
 			@include media(min-width, sm) {
 				display: flex;
-				margin-right: -#{$gutter-enclosed / 2};
-				margin-left: -#{$gutter-enclosed / 2};
+				margin-right: -#{calc($gutter-enclosed / 2)};
+				margin-left: -#{calc($gutter-enclosed / 2)};
 			}
 		}
 
@@ -96,7 +96,7 @@
 			@include media(min-width, sm) {
 				min-width: 0;
 				flex: 1;
-				padding: 0 #{$gutter-enclosed / 2};
+				padding: 0 #{calc($gutter-enclosed / 2)};
 			}
 		}
 
