@@ -210,7 +210,7 @@
 		.forminator-break {
 			width: 1px;
 			height: #{map-get($pagination-dot, flat) * 2};
-			margin: 0 #{calc(calc(calc(map-get($pagination-dot, flat) / 2)))};
+			margin: 0 #{calc(map-get($pagination-dot, flat) / 2)};
 
 			&:before {
 				width: 3px;
@@ -262,7 +262,7 @@
 
 			@include media(min-width, sm) {
 				height: 1px;
-				margin: #{calc(calc(calc(map-get($pagination-dot, flat) / 2)))} 0;
+				margin: #{calc(map-get($pagination-dot, flat) / 2)} 0;
 			}
 		}
 
@@ -340,7 +340,7 @@
 		.forminator-break {
 			width: map-get($border-width, material);
 			height: map-get($pagination-dot, material);
-			margin: 0 #{calc(calc((map-get($pagination-dot, material) - map-get($border-width, material)) / 2))};
+			margin: 0 #{calc((map-get($pagination-dot, material) - map-get($border-width, material)) / 2)};
 
 			&:first-child,
 			&:last-child {

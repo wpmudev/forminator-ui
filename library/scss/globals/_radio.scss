@@ -90,8 +90,8 @@
 			border-style: map-get($border-style, default);
 
 			&:before {
-				width: #{calc(calc(map-get($radio, size) / 2))};
-				height: #{calc(calc(map-get($radio, size) / 2))};
+				width: #{calc(map-get($radio, size) / 2)};
+				height: #{calc(map-get($radio, size) / 2)};
 			}
 		}
 	}
@@ -108,8 +108,8 @@
 			border-style: map-get($border-style, flat);
 
 			&:before {
-				width: #{calc(calc(map-get($radio, size) / 2))};
-				height: #{calc(calc(map-get($radio, size) / 2))};
+				width: #{calc(map-get($radio, size) / 2)};
+				height: #{calc(map-get($radio, size) / 2)};
 			}
 		}
 	}
@@ -126,8 +126,8 @@
 			border-style: map-get($border-style, bold);
 
 			&:before {
-				width: #{(calc(calc(map-get($radio, size) / 2))) - map-get($border-width, bold)};
-				height: #{(calc(calc(map-get($radio, size) / 2))) - map-get($border-width, bold)};
+				width: #{(calc(map-get($radio, size) / 2)) - map-get($border-width, bold)};
+				height: #{(calc(map-get($radio, size) / 2)) - map-get($border-width, bold)};
 			}
 		}
 	}
@@ -162,8 +162,8 @@
 			border-style: map-get($border-style, material);
 
 			&:before {
-				width: #{calc(calc(map-get($radio, size) / 2))};
-				height: #{calc(calc(map-get($radio, size) / 2))};
+				width: #{calc(map-get($radio, size) / 2)};
+				height: #{calc(map-get($radio, size) / 2)};
 			}
 
 			&:after {

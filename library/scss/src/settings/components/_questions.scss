@@ -107,15 +107,15 @@
 			.forminator-legend,
 			.forminator-image,
 			.forminator-question--description {
-				margin: 0 0 #{calc(calc($gutter-enclosed-sm / 2))};
+				margin: 0 0 #{calc($gutter-enclosed-sm / 2)};
 			}
 
 			.forminator-answer {
-				margin-top: #{calc(calc($gutter-enclosed-sm / 2))};
+				margin-top: #{calc($gutter-enclosed-sm / 2)};
 			}
 
 			.forminator-question--result {
-				margin: #{calc(calc($gutter-enclosed-sm / 2))} 0 0;
+				margin: #{calc($gutter-enclosed-sm / 2)} 0 0;
 			}
 
 			.forminator-quiz--result,

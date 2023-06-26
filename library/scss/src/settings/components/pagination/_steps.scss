@@ -26,7 +26,7 @@
 						margin: 0 #{calc((map-get($pagination-dot, default) - map-get($border-width, default)) / 2)};
 					}
 					@if ('flat' == $form-theme) {
-						margin: 0 #{calc(calc(calc(map-get($pagination-dot, flat) / 2)))};
+						margin: 0 #{calc(map-get($pagination-dot, flat) / 2)};
 					}
 					@if ('bold' == $form-theme) {
 						margin: 0 #{calc((map-get($pagination-dot, bold) - map-get($border-width, bold)) / 2)};
@@ -170,7 +170,7 @@
 				.forminator-break {
 					width: map-get($border-width, material);
 					height: map-get($pagination-dot, material);
-					margin: 0 #{calc(calc((map-get($pagination-dot, material) - map-get($border-width, material)) / 2))};
+					margin: 0 #{calc((map-get($pagination-dot, material) - map-get($border-width, material)) / 2)};
 
 					&:first-child,
 					&:last-child {
@@ -272,7 +272,7 @@
 							margin: #{calc((map-get($pagination-dot, default) - map-get($border-width, default)) / 2)} 0;
 						}
 						@if ('flat' == $form-theme) {
-							margin: #{calc(calc(calc(map-get($pagination-dot, flat) / 2)))} 0;
+							margin: #{calc(map-get($pagination-dot, flat) / 2)} 0;
 						}
 						@if ('bold' == $form-theme) {
 							margin: #{calc((map-get($pagination-dot, bold) - map-get($border-width, bold)) / 2)} 0;
