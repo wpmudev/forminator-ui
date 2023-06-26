@@ -20,8 +20,8 @@
 		"url": "git@github.com:wpmudev/forminator-ui.git"
 	},
 	"devDependencies": {
-		"@babel/core": "^7.4.3",
-		"@babel/preset-env": "^7.4.3",
+		"@babel/core": "^7.22.5",
+		"@babel/preset-env": "^7.22.5",
 		"@wpmudev/shared-ui": "2.3.23",
 		"browser-sync": "^2.26.3",
 		"eslint-config-wordpress": "^2.0.0",
@@ -29,7 +29,7 @@
 		"gh-pages": "^2.0.1",
 		"gulp": "^4.0.2",
 		"gulp-autoprefixer": "^6.0.0",
-		"gulp-babel": "^7.0.1",
+		"gulp-babel": "^8.0.0",
 		"gulp-clean-css": "^3.10.0",
 		"gulp-concat": "^2.6.1",
 		"gulp-eslint": "^4.0.2",

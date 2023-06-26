@@ -1,8 +1,5 @@
 'use strict';
 
-// Import `src` and `dest` from gulp for use in the task.
-const { src, dest } = require( 'gulp' );
-
 /**
  * Supported Packages
  * List here all dependencies necessary to run required tasks.
@@ -21,9 +18,8 @@ const eslint       = require( 'gulp-eslint' );
 const header       = require( 'gulp-header' );
 const htmlmin      = require( 'gulp-htmlmin' );
 const rename       = require( 'gulp-rename' );
-const sass         = require( 'gulp-sass' );
+const sass         = require( 'gulp-sass' )( require( 'sass' ) );
 const uglify       = require( 'gulp-uglify-es' ).default;
-const watch        = require( 'gulp-watch' );
 const browserSync  = require( 'browser-sync' ).create();
 
 /**
@@ -103,7 +99,6 @@ library.watch.scripts.all = [
 	library.source.scripts + 'radio-states.js',
 	library.source.scripts + 'checkbox-states.js',
 	library.source.scripts + 'multiselect-states.js',
-	library.source.scripts + 'upload.js',
 	library.source.scripts + 'select2.js',
 	library.source.scripts + 'authentication.js',
 	library.source.scripts + 'poll-chart.js',
@@ -229,7 +224,7 @@ gulp.task( 'browser-sync', function() {
 // Copy files
 gulp.task( 'library:files', function() {
 
-	gulp.src( library.watch.files )
+	return gulp.src( library.watch.files )
 		.pipe( gulp.dest( library.output.main ) )
 		;
 });
@@ -237,7 +232,7 @@ gulp.task( 'library:files', function() {
 // Copy fonts
 gulp.task( 'library:fonts', function() {
 
-	gulp.src( library.watch.fonts )
+	return gulp.src( library.watch.fonts )
 		.pipe( gulp.dest( library.output.fonts ) )
 		.pipe( gulp.dest( showcase.output.fonts ) )
 		.pipe( browserSync.stream() )
@@ -247,7 +242,7 @@ gulp.task( 'library:fonts', function() {
 // Build styles
 gulp.task( 'library:styles', function() {
 
-	gulp.src( library.watch.styles )
+	return gulp.src( library.watch.styles )
 		.pipe(
 			sass({ outputStyle: 'compressed' })
 			.on( 'error', sass.logError )
@@ -276,7 +271,7 @@ gulp.task( 'library:scripts:all', function( cb ) {
 		eslint.failAfterError(),
 		babel({
 			presets: [
-				[ '@babel/env', {
+				[ '@babel/preset-env', {
 					modules: false
 				} ]
 			]
@@ -374,7 +369,7 @@ gulp.task( 'library:scripts:select2', function( cb ) {
 });
 
 // Build library
-gulp.task( 'library:build', [
+gulp.task( 'library:build', gulp.series(
 	'library:files',
 	'library:fonts',
 	'library:scripts:all',
@@ -382,22 +377,22 @@ gulp.task( 'library:build', [
 	'library:scripts:poll',
 	'library:scripts:select2',
 	'library:styles'
-]);
+) );
 
 // Watch library
 gulp.task( 'library:watch', function() {
 
 	// Watch files
-	gulp.watch( library.watch.files, [ 'library:files' ]);
+	gulp.watch( library.watch.files, gulp.series( 'library:files' ) );
 
 	// Watch fonts
-	gulp.watch( library.watch.fonts, [ 'library:fonts' ]);
+	gulp.watch( library.watch.fonts,  gulp.series( 'library:fonts' ) );
 
 	// Watch styles
-	gulp.watch( library.watch.styles, [ 'library:styles' ]);
+	gulp.watch( library.watch.styles,  gulp.series( 'library:styles' ) );
 
 	// Watch scripts
-	gulp.watch( library.watch.scripts.all, [ 'library:scripts:all', 'library:scripts:form', 'library:scripts:poll', 'library:scripts:select2' ]);
+	gulp.watch( library.watch.scripts.all,  gulp.series( 'library:scripts:all', 'library:scripts:form', 'library:scripts:poll', 'library:scripts:select2' ) );
 
 });
 
@@ -410,7 +405,7 @@ gulp.task( 'library:watch', function() {
 // Minify Pages
 gulp.task( 'public:pages', function() {
 
-	gulp.src( showcase.watch.pages )
+	return gulp.src( showcase.watch.pages )
 		.pipe( htmlmin({
 			collapseWhitespace: true,
 			removeComments: true
@@ -423,7 +418,7 @@ gulp.task( 'public:pages', function() {
 // Minify Templates
 gulp.task( 'public:templates', function() {
 
-	gulp.src( showcase.watch.templates )
+	return gulp.src( showcase.watch.templates )
 		.pipe( htmlmin({
 			collapseWhitespace: true,
 			removeComments: true
@@ -436,7 +431,7 @@ gulp.task( 'public:templates', function() {
 // Build styles
 gulp.task( 'public:styles', function() {
 
-	gulp.src( showcase.watch.styles )
+	return gulp.src( showcase.watch.styles )
 		.pipe(
 			sass({ outputStyle: 'compressed' })
 			.on( 'error', sass.logError )
@@ -481,7 +476,7 @@ gulp.task( 'public:scripts', function( cb ) {
 // Copy assets – styles
 gulp.task( 'public:assets:css', function() {
 
-	gulp.src( showcase.watch.assetsCss )
+	return gulp.src( showcase.watch.assetsCss )
 		.pipe( gulp.dest( showcase.output.main + 'assets/css/' ) )
 		.pipe( browserSync.stream() )
 		;
@@ -490,7 +485,7 @@ gulp.task( 'public:assets:css', function() {
 // Copy assets – scripts
 gulp.task( 'public:assets:js', function() {
 
-	gulp.src( showcase.watch.assetsJs )
+	return gulp.src( showcase.watch.assetsJs )
 		.pipe( gulp.dest( showcase.output.main + 'assets/js/' ) )
 		.pipe( browserSync.stream() )
 		;
@@ -499,7 +494,7 @@ gulp.task( 'public:assets:js', function() {
 // Copy assets – fonts
 gulp.task( 'public:assets:fonts', function() {
 
-	gulp.src( showcase.watch.assetsFonts )
+	return gulp.src( showcase.watch.assetsFonts )
 		.pipe( gulp.dest( showcase.output.main + 'assets/fonts/' ) )
 		.pipe( browserSync.stream() )
 		;
@@ -508,55 +503,55 @@ gulp.task( 'public:assets:fonts', function() {
 // Copy assets – images
 gulp.task( 'public:assets:images', function() {
 
-	gulp.src( showcase.watch.assetsImages )
+	return gulp.src( showcase.watch.assetsImages )
 		.pipe( gulp.dest( showcase.output.main + 'assets/images/' ) )
 		.pipe( browserSync.stream() )
 		;
 });
 
 // Copy assets
-gulp.task( 'public:assets', [
+gulp.task( 'public:assets', gulp.series(
 	'public:assets:css',
 	'public:assets:js',
 	'public:assets:fonts',
 	'public:assets:images'
-]);
+) );
 
 // Build public
-gulp.task( 'public:build', [
+gulp.task( 'public:build', gulp.series(
 	'public:pages',
 	'public:templates',
 	'public:styles',
 	'public:scripts',
 	'public:assets'
-]);
+) );
 
 // Watch public
 gulp.task( 'public:watch', function() {
 
 	// Watch pages
-	gulp.watch( showcase.watch.pages, [ 'public:pages' ]);
+	gulp.watch( showcase.watch.pages, gulp.series( 'public:pages' ) );
 
 	// Watch templates
-	gulp.watch( showcase.watch.templates, [ 'public:templates' ]);
+	gulp.watch( showcase.watch.templates, gulp.series( 'public:templates' ) );
 
 	// Watch styles
-	gulp.watch( showcase.watch.styles, [ 'public:styles' ]);
+	gulp.watch( showcase.watch.styles, gulp.series( 'public:styles' ) );
 
 	// Watch scripts
-	gulp.watch( showcase.watch.scripts, [ 'public:scripts' ]);
+	gulp.watch( showcase.watch.scripts, gulp.series( 'public:scripts' ) );
 
 	// Watch assets – styles
-	gulp.watch( showcase.watch.assetsCss, [ 'public:assets:css' ]);
+	gulp.watch( showcase.watch.assetsCss, gulp.series( 'public:assets:css' ) );
 
 	// Watch assets – scripts
-	gulp.watch( showcase.watch.assetsJs, [ 'public:assets:js' ]);
+	gulp.watch( showcase.watch.assetsJs, gulp.series( 'public:assets:js' ) );
 
 	// Watch assets – fonts
-	gulp.watch( showcase.watch.assetsFonts, [ 'public:assets:fonts' ]);
+	gulp.watch( showcase.watch.assetsFonts, gulp.series( 'public:assets:fonts' ) );
 
 	// Watch assets – images
-	gulp.watch( showcase.watch.assetsImages, [ 'public:assets:images' ]);
+	gulp.watch( showcase.watch.assetsImages, gulp.series( 'public:assets:images' ) );
 
 	// Watch for HTML changes
 	gulp.watch( showcase.watch.pages ).on( 'change', browserSync.reload );
@@ -571,10 +566,10 @@ gulp.task( 'public:watch', function() {
  * @since 1.7.0
  */
 
-gulp.task( 'development', [
+gulp.task( 'development', gulp.series(
 	'library:build',
 	'public:build',
 	'browser-sync',
 	'library:watch',
 	'public:watch'
-]);
+) );
