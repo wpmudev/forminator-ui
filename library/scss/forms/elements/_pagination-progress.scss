@@ -11,7 +11,7 @@
 			line-height: 2.2em;
 
 			+ .forminator-progress-bar {
-				margin-left: #{$gutter-sm / 2};
+				margin-left: #{calc($gutter-sm / 2)};
 			}
 		}
 
@@ -37,7 +37,7 @@
 			+ .forminator-progress-bar {
 
 				@include media(min-width, sm) {
-					margin-left: #{$gutter / 2};
+					margin-left: #{calc($gutter / 2)};
 				}
 			}
 		}

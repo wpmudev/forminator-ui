@@ -151,7 +151,7 @@ $social: (
 					display: flex;
 					flex-wrap: wrap;
 					flex-direction: row;
-					margin: 0 -#{$gutter-sm / 2};
+					margin: 0 -#{calc($gutter-sm / 2)};
 					padding: 0;
 
 					&, li {
@@ -159,7 +159,7 @@ $social: (
 					}
 
 					li {
-						padding: 0 #{$gutter-sm / 2};
+						padding: 0 #{calc($gutter-sm / 2)};
 
 						a {
 							display: block;

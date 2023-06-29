@@ -13,19 +13,19 @@
 			}
 			display: block;
 			@if ('default' == $form-theme) {
-				padding: #{(map-get($dropdown, padding) / 2) - map-get($border-width, default)};
+				padding: #{(calc(map-get($dropdown, padding) / 2)) - map-get($border-width, default)};
 				border-width: map-get($border-width, default);
 				border-style: map-get($border-style, default);
 				border-radius: map-get($border-radius, default);
 			}
 			@if ('flat' == $form-theme) {
-				padding: #{map-get($dropdown, padding) / 2};
+				padding: #{calc(map-get($dropdown, padding) / 2)};
 				border-width: map-get($border-width, flat);
 				border-style: map-get($border-style, flat);
 				border-radius: map-get($border-radius, flat);
 			}
 			@if ('bold' == $form-theme) {
-				padding: #{map-get($dropdown, padding) / 2};
+				padding: #{calc(map-get($dropdown, padding) / 2)};
 				border-width: map-get($border-width, bold);
 				border-style: map-get($border-style, bold);
 				border-radius: map-get($border-radius, bold);
@@ -36,11 +36,11 @@
 				display: block;
 				position: relative;
 				@if ('material' != $form-theme) {
-					margin: #{map-get($dropdown, padding) / 2} 0;
+					margin: #{calc(map-get($dropdown, padding) / 2)} 0;
 					padding: map-get($dropdown, padding);
 				}
 				@if ('material' == $form-theme) {
-					margin: #{map-get($dropdown, padding) / 2} 0;
+					margin: #{calc(map-get($dropdown, padding) / 2)} 0;
 					padding: #{map-get($dropdown, padding) - (map-get($border-width, material) * 2)};
 					border-width: #{map-get($border-width, material) * 2};
 					border-style: map-get($border-style, material);

@@ -23,13 +23,13 @@
 					}
 					display: block;
 					@if ('default' == $form-theme) {
-						margin: 0 #{(map-get($pagination-dot, default) - map-get($border-width, default)) / 2};
+						margin: 0 #{calc((map-get($pagination-dot, default) - map-get($border-width, default)) / 2)};
 					}
 					@if ('flat' == $form-theme) {
-						margin: 0 #{map-get($pagination-dot, flat) / 2};
+						margin: 0 #{calc(map-get($pagination-dot, flat) / 2)};
 					}
 					@if ('bold' == $form-theme) {
-						margin: 0 #{(map-get($pagination-dot, bold) - map-get($border-width, bold)) / 2};
+						margin: 0 #{calc((map-get($pagination-dot, bold) - map-get($border-width, bold)) / 2)};
 					}
 					position: relative;
 					z-index: 0;
@@ -170,7 +170,7 @@
 				.forminator-break {
 					width: map-get($border-width, material);
 					height: map-get($pagination-dot, material);
-					margin: 0 #{(map-get($pagination-dot, material) - map-get($border-width, material)) / 2};
+					margin: 0 #{calc((map-get($pagination-dot, material) - map-get($border-width, material)) / 2)};
 
 					&:first-child,
 					&:last-child {
@@ -269,13 +269,13 @@
 						}
 						flex: 1;
 						@if ('default' == $form-theme) {
-							margin: #{(map-get($pagination-dot, default) - map-get($border-width, default)) / 2} 0;
+							margin: #{calc((map-get($pagination-dot, default) - map-get($border-width, default)) / 2)} 0;
 						}
 						@if ('flat' == $form-theme) {
-							margin: #{map-get($pagination-dot, flat) / 2} 0;
+							margin: #{calc(map-get($pagination-dot, flat) / 2)} 0;
 						}
 						@if ('bold' == $form-theme) {
-							margin: #{(map-get($pagination-dot, bold) - map-get($border-width, bold)) / 2} 0;
+							margin: #{calc((map-get($pagination-dot, bold) - map-get($border-width, bold)) / 2)} 0;
 						}
 					}
 				}
@@ -351,7 +351,7 @@
 						min-width: map-get($pagination-dot, material);
 						height: map-get($border-width, material);
 						flex: 1;
-						margin: 0 #{$gutter / 2};
+						margin: 0 #{calc($gutter / 2)};
 					}
 				}
 

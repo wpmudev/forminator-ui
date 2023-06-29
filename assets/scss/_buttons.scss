@@ -30,11 +30,11 @@
 			text-transform: uppercase;
 
 			@include media(max-width, md) {
-				padding: #{$sui-gutter-md / 2} $sui-gutter-md;
+				padding: #{calc($sui-gutter-md / 2)} $sui-gutter-md;
 			}
 
 			@include media(min-width, md) {
-				padding: #{$sui-gutter / 2} $sui-gutter;
+				padding: #{calc($sui-gutter / 2)} $sui-gutter;
 			}
 		}
 

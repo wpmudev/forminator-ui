@@ -17,11 +17,11 @@
 			text-align: center;
 
 			@include media(max-width, md) {
-				padding: #{$sui-gutter-md / 2} 5px;
+				padding: #{calc($sui-gutter-md / 2)} 5px;
 			}
 
 			@include media(min-width, md) {
-				padding: #{$sui-gutter / 2} 5px;
+				padding: #{calc($sui-gutter / 2)} 5px;
 			}
 		}
 	}

@@ -148,7 +148,7 @@
 		.forminator-break {
 			width: map-get($border-width, default);
 			height: #{map-get($pagination-dot, default) * 2};
-			margin: 0 #{(map-get($pagination-dot, default) - map-get($border-width, default)) / 2};
+			margin: 0 #{calc((map-get($pagination-dot, default) - map-get($border-width, default)) / 2)};
 
 			&:before {
 				width: #{map-get($border-width, default) * 3};
@@ -187,7 +187,7 @@
 
 			@include media(min-width, sm) {
 				height: map-get($border-width, default);
-				margin: #{(map-get($pagination-dot, default) - map-get($border-width, default)) / 2} 0;
+				margin: #{calc((map-get($pagination-dot, default) - map-get($border-width, default)) / 2)} 0;
 			}
 		}
 
@@ -210,7 +210,7 @@
 		.forminator-break {
 			width: 1px;
 			height: #{map-get($pagination-dot, flat) * 2};
-			margin: 0 #{map-get($pagination-dot, flat) / 2};
+			margin: 0 #{calc(map-get($pagination-dot, flat) / 2)};
 
 			&:before {
 				width: 3px;
@@ -262,7 +262,7 @@
 
 			@include media(min-width, sm) {
 				height: 1px;
-				margin: #{map-get($pagination-dot, flat) / 2} 0;
+				margin: #{calc(map-get($pagination-dot, flat) / 2)} 0;
 			}
 		}
 
@@ -285,7 +285,7 @@
 		.forminator-break {
 			width: map-get($border-width, bold);
 			height: #{map-get($pagination-dot, bold) * 2};
-			margin: 0 #{(map-get($pagination-dot, bold) - map-get($border-width, bold)) / 2};
+			margin: 0 #{calc((map-get($pagination-dot, bold) - map-get($border-width, bold)) / 2)};
 
 			&:before {
 				content: unset;
@@ -315,7 +315,7 @@
 
 			@include media(min-width, sm) {
 				height: map-get($border-width, bold);
-				margin: #{(map-get($pagination-dot, bold) - map-get($border-width, bold)) / 2} 0;
+				margin: #{calc((map-get($pagination-dot, bold) - map-get($border-width, bold)) / 2)} 0;
 			}
 		}
 
@@ -340,7 +340,7 @@
 		.forminator-break {
 			width: map-get($border-width, material);
 			height: map-get($pagination-dot, material);
-			margin: 0 #{(map-get($pagination-dot, material) - map-get($border-width, material)) / 2};
+			margin: 0 #{calc((map-get($pagination-dot, material) - map-get($border-width, material)) / 2)};
 
 			&:first-child,
 			&:last-child {
@@ -396,7 +396,7 @@
 				min-width: map-get($pagination-dot, material);
 				height: map-get($border-width, material);
 				flex: 1;
-				margin: 0 #{$gutter / 2};
+				margin: 0 #{calc($gutter / 2)};
 			}
 		}
 

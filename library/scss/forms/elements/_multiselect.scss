@@ -28,7 +28,7 @@
 		overflow-y: auto;
 
 		.forminator-option {
-			margin: #{map-get($dropdown, padding) / 2} 0;
+			margin: #{calc(map-get($dropdown, padding) / 2)} 0;
 			padding: map-get($dropdown, padding);
 
 			&:first-child {
@@ -47,7 +47,7 @@
 @include body-class(custom-form, default, false) {
 
 	.forminator-multiselect {
-		padding: #{(map-get($dropdown, padding) / 2) - map-get($border-width, default)};
+		padding: #{(calc(map-get($dropdown, padding) / 2)) - map-get($border-width, default)};
 		border-width: map-get($border-width, default);
 		border-style: map-get($border-style, default);
 		border-radius: map-get($border-radius, default);
@@ -72,7 +72,7 @@
 @include body-class(custom-form, flat, false) {
 
 	.forminator-multiselect {
-		padding: #{map-get($dropdown, padding) / 2};
+		padding: #{calc(map-get($dropdown, padding) / 2)};
 		border-width: map-get($border-width, flat);
 		border-style: map-get($border-style, flat);
 		border-radius: map-get($border-radius, flat);
@@ -84,7 +84,7 @@
 @include body-class(custom-form, bold, false) {
 
 	.forminator-multiselect {
-		padding: #{map-get($dropdown, padding) / 2};
+		padding: #{calc(map-get($dropdown, padding) / 2)};
 		border-width: map-get($border-width, bold);
 		border-style: map-get($border-style, bold);
 		border-radius: map-get($border-radius, bold);
@@ -98,7 +98,7 @@
 	.forminator-multiselect {
 
 		.forminator-option {
-			margin: #{map-get($dropdown, padding) / 2} 0;
+			margin: #{calc(map-get($dropdown, padding) / 2)} 0;
 			padding: #{map-get($dropdown, padding) - (map-get($border-width, material) * 2)};
 			border-width: #{map-get($border-width, material) * 2};
 			border-style: map-get($border-style, material);
