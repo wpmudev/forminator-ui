@@ -1,5 +1,18 @@
 # Change Log
 
+## [1.12.7](https://github.com/wpmudev/forminator-ui/compare/v1.12.5...v1.12.6) (2023-07-20)
+
+#### 🚀 Improvement
+- `global`
+  - new(global): updated forminator ui from lib sass to dart sass. [#59](https://github.com/wpmudev/forminator-ui/pull/59) ([FOR-3553](https://incsub.atlassian.net/browse/FOR-3553)) ([@creador-dev](https://github.com/creador-dev))
+
+#### 🐛 Bug Fix
+- `global`
+  - fix(global): building FUI we have unnecessary repeated code. [#60](https://github.com/wpmudev/forminator-ui/pull/60) ([FOR-3707](https://incsub.atlassian.net/browse/FOR-3707)) ([@creador-dev](https://github.com/creador-dev))
+
+#### Committers: 1
+- Pawan Kumar ([@creador-dev](https://github.com/creador-dev))
+
 ## [1.12.6](https://github.com/wpmudev/forminator-ui/compare/v1.12.5...v1.12.6) (2023-05-17)
 
 #### 🐛 Bug Fix
