@@ -269,6 +269,7 @@ gulp.task( 'library:scripts:all', function( cb ) {
 		eslint(),
 		eslint.format(),
 		eslint.failAfterError(),
+		concat( 'forminator-ui.js' ),
 		babel({
 			presets: [
 				[ '@babel/preset-env', {
@@ -276,7 +277,6 @@ gulp.task( 'library:scripts:all', function( cb ) {
 				} ]
 			]
 		}),
-		concat( 'forminator-ui.js' ),
 		header( banner ),
 		gulp.dest( library.output.scripts ),
 		uglify(),
@@ -297,6 +297,7 @@ gulp.task( 'library:scripts:form', function( cb ) {
 		eslint(),
 		eslint.format(),
 		eslint.failAfterError(),
+		concat( 'forminator-form.js' ),
 		babel({
 			presets: [
 				[ '@babel/env', {
@@ -304,7 +305,6 @@ gulp.task( 'library:scripts:form', function( cb ) {
 				} ]
 			]
 		}),
-		concat( 'forminator-form.js' ),
 		header( banner ),
 		gulp.dest( library.output.scripts ),
 		uglify(),
@@ -325,6 +325,7 @@ gulp.task( 'library:scripts:poll', function( cb ) {
 		eslint(),
 		eslint.format(),
 		eslint.failAfterError(),
+		concat( 'forminator-poll.js' ),
 		babel({
 			presets: [
 				[ '@babel/env', {
@@ -332,7 +333,6 @@ gulp.task( 'library:scripts:poll', function( cb ) {
 				} ]
 			]
 		}),
-		concat( 'forminator-poll.js' ),
 		header( banner ),
 		gulp.dest( library.output.scripts ),
 		uglify(),
@@ -350,6 +350,7 @@ gulp.task( 'library:scripts:select2', function( cb ) {
 
 	pump([
 		gulp.src( library.watch.scripts.select2 ),
+		concat( 'select2.full.js' ),
 		babel({
 			presets: [
 				[ '@babel/env', {
@@ -357,7 +358,6 @@ gulp.task( 'library:scripts:select2', function( cb ) {
 				} ]
 			]
 		}),
-		concat( 'select2.full.js' ),
 		rename({
 			suffix: '.min'
 		}),
