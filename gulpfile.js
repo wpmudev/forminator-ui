@@ -101,6 +101,7 @@ library.watch.scripts.all = [
 	library.source.scripts + 'multiselect-states.js',
 	library.source.scripts + 'select2.js',
 	library.source.scripts + 'authentication.js',
+	library.source.scripts + 'slider.js',
 	library.source.scripts + 'poll-chart.js',
 	library.source.scripts + 'form-submit.js'
 ];
@@ -114,7 +115,8 @@ library.watch.scripts.form = [
 	library.source.scripts + 'checkbox-states.js',
 	library.source.scripts + 'multiselect-states.js',
 	library.source.scripts + 'select2.js',
-	library.source.scripts + 'authentication.js'
+	library.source.scripts + 'authentication.js',
+	library.source.scripts + 'slider.js'
 ];
 
 library.watch.scripts.poll = [

@@ -20,7 +20,8 @@
 				'checkbox',
 				'multiselect',
 				'fileupload',
-				'submit'
+				'submit',
+				'slider'
 			];
 
 			// Get form design

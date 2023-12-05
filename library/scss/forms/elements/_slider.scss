@@ -1,0 +1,170 @@
+@include body-class(custom-form, all, false) {
+
+	.forminator-slider {
+		cursor: default;
+		pointer-events: none;
+		display: flex;
+		position: relative;
+		margin: 5px 0;
+		border: 1px solid #000;
+
+		input {
+			@extend %screen-readers;
+
+			&:checked {
+
+				+ span[aria-hidden]:before {
+					@include opacity(1);
+				}
+			}
+		}
+
+		span {
+			cursor: pointer;
+			pointer-events: all;
+			display: block;
+		}
+
+		span[aria-hidden] {
+			width: map-get($checkbox, size);
+			height: map-get($checkbox, size);
+			flex: 0 0 map-get($checkbox, size);
+			position: relative;
+
+			@include icon(before, check) {
+				@include opacity(0);
+				display: block;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				color: map-get($icon, color);
+				font-size: map-get($checkbox, icon);
+				transform: translate(-50%, -50%);
+				transition: map-get($transition, ease);
+			}
+
+			+ span {
+				margin-left: 10px;
+			}
+		}
+
+		span:not([aria-hidden]) {
+			flex: 0 1 auto;
+			line-height: 20px;
+		}
+
+		// VARIATION: Inline
+		&.forminator-slider-inline {
+			display: inline-flex;
+			vertical-align: middle;
+			margin-right: 20px;
+			margin-bottom: 0;
+
+			&:last-of-type {
+				margin-right: 0;
+			}
+		}
+
+		// VARIATION: Stacked
+		&:not(.forminator-slider-inline) {
+
+			&:first-child {
+				margin-top: 0;
+			}
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+}
+
+// =============================================
+// DESIGN: Default
+@include body-class(custom-form, default, false) {
+
+	.forminator-slider {
+
+		span[aria-hidden] {
+			border-width: map-get($border-width, default);
+			border-style: map-get($border-style, default);
+			border-radius: map-get($border-radius, default);
+		}
+	}
+}
+
+// =============================================
+// DESIGN: Flat
+@include body-class(custom-form, flat, false) {
+
+	.forminator-slider {
+
+		span[aria-hidden] {
+			border-width: map-get($border-width, flat);
+			border-style: map-get($border-style, flat);
+			border-radius: map-get($border-radius, flat);
+		}
+	}
+}
+
+// =============================================
+// DESIGN: Bold
+@include body-class(custom-form, bold, false) {
+
+	.forminator-slider {
+
+		span[aria-hidden] {
+			border-width: map-get($border-width, bold);
+			border-style: map-get($border-style, bold);
+			border-radius: map-get($border-radius, bold);
+		}
+	}
+}
+
+// =============================================
+// DESIGN: Material
+@include body-class(custom-form, material, false) {
+
+	.forminator-slider {
+
+		input {
+
+			&:checked {
+
+				+ span[aria-hidden]:after {
+					@include opacity(1);
+				}
+
+				&:focus {
+
+					+ span[aria-hidden]:after {
+						animation-name: click-animation;
+					}
+				}
+			}
+		}
+
+		span[aria-hidden] {
+			position: relative;
+			border-width: #{map-get($border-width, material) * 2};
+			border-style: map-get($border-style, material);
+			border-radius: map-get($border-radius, material);
+
+			&:after {
+				content: " ";
+				@include opacity(0);
+				width: map-get($checkbox, size);
+				height: map-get($checkbox, size);
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				border-radius: 100%;
+				transform: translate(-50%, -50%) scale(0);
+				transform-origin: center;
+				transform-style: preserve-3d;
+				animation-duration: 0.6s;
+				animation-fill-mode: both;
+			}
+		}
+	}
+}

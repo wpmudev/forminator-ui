@@ -48,6 +48,9 @@
 							const textarea = $( this ).find( '.forminator-textarea' );
 							const select = $( this ).find( '.forminator-select' );
 							const select2 = $( this ).find( '.forminator-select2' );
+							const slider = $( this ).find( '.forminator-slider' );
+
+							console.log( 'Slider: '  + slider.length );
 
 							// Unique id
 							SHOWCASE.uniqueFormField( this );
@@ -67,6 +70,11 @@
 								select.each( function() {
 									FUI.select( this );
 								});
+							}
+
+							// Load select function
+							if ( slider.length ) {
+								FUI.slider();
 							}
 
 							// Load select2 function
