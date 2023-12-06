@@ -3,26 +3,35 @@
 	@include form-class($form-type, $form-theme, false) {
 
 		.forminator-slider {
-			border: 1px solid transparent;
-			background: #EDEDED;
-			border-radius: 4px;
-			position: relative;
-    		text-align: left;
+			display: flex;
+			flex-direction: column;
 
-			@if ('default' == $form-theme) {
-				border: 1px solid #777771;
+			.forminator-slide {
+				border: 1px solid transparent;
+				background: #EDEDED;
+				border-radius: 4px;
+				position: relative;
+				text-align: left;
+	
+				@if ('default' == $form-theme) {
+					border: 1px solid #777771;
+				}
+	
+				@if ('bold' == $form-theme) {
+					border: 2px solid #777771;
+				}
 			}
-
-			@if ('bold' == $form-theme) {
-				border: 2px solid #777771;
-			}
+			
 
 			&.forminator-disabled {
 				pointer-events: none;
 				user-select: none;
-				border: none;
-				background: #DDD;
-				border: 1px solid transparent;
+
+				.forminator-slide {
+					border: none;
+					background: #DDD;
+					border: 1px solid transparent;
+				}
 
 				.ui-slider-range {
 					background: #ddd;
@@ -85,7 +94,7 @@
 				}
 			}
 			
-			&.ui-slider-horizontal {
+			.ui-slider-horizontal {
 				height: 8px;
 				margin: 6px 0;
 
@@ -112,6 +121,53 @@
 				.ui-slider-range-max {
 					right: 0;
 				}
+			}
+
+			&.forminator-slider-small {
+				width: 25%;					
+			}
+
+			&.forminator-slider-medium {
+				width: 50%;					
+			}
+
+			&.forminator-slider-large {
+				width: 75%;					
+			}
+		}
+		
+		.forminator-slider-amount {
+			display: flex;
+			justify-content: space-between;
+			color: #888;
+			font-size: 13px;
+			font-style: normal;
+			font-weight: 500;
+			line-height: 22px;
+			letter-spacing: -0.2px;
+
+			.forminator-slider-value {
+				display: inline-block;
+				color: #333;
+				font-size: 15px;
+				font-weight: 400;
+				margin: 0 2px;
+			}
+
+			&.forminator-slider-amount-top-left,
+			&.forminator-slider-amount-top-right,
+			&.forminator-slider-amount-top {
+				order: -1;
+			}
+
+			&.forminator-slider-amount-top-left,
+			&.forminator-slider-amount-bottom-left {
+				align-self: flex-start;
+			}
+
+			&.forminator-slider-amount-top-right,
+			&.forminator-slider-amount-bottom-right {
+				align-self: flex-end;
 			}
 		}
 	}

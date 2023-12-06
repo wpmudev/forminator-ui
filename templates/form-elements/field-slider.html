@@ -4,12 +4,41 @@
 
 	<div 
 		id="slider-1" 
+		class="forminator-slider forminator-slider-small" 
+		aria-required="false"
+	>
+		<div class="forminator-slide" data-value="2"></div>
+		<div class="forminator-slider-amount forminator-slider-amount-top-left" data-value-template="{slider-value}suffix"><span class="forminator-slider-value-min"><span class="forminator-slider-value">2</span>suffix</span></div>
+	</div>
+
+
+
+	<div 
+		id="slider-1" 
+		class="forminator-slider forminator-slider-medium" 
+		aria-required="false"
+	>
+		<div class="forminator-slide" data-value="2"></div>
+		<div class="forminator-slider-amount forminator-slider-amount-top-right" data-value-template="{slider-value}suffix"><span class="forminator-slider-value-min"><span class="forminator-slider-value">2</span>suffix</span></div>
+	</div>
+
+	<div 
+		id="slider-1" 
+		class="forminator-slider forminator-slider-large" 
+		aria-required="false"
+	>
+		<div class="forminator-slide" data-value="2"></div>
+		<div class="forminator-slider-amount forminator-slider-amount-bottom-left" data-value-template="{slider-value}suffix"><span class="forminator-slider-value-min"><span class="forminator-slider-value">2</span>suffix</span></div>
+	</div>
+
+	<div 
+		id="slider-1" 
 		class="forminator-slider forminator-slider-full" 
 		aria-required="false"
-		data-value="2"
-	></div>
-
-	<div class="forminator-slider-amount forminator-slider-amount-bottom-left" data-value-template="{slider-value}suffix">2suffix</div>
+	>
+		<div class="forminator-slide" data-value="2"></div>
+		<div class="forminator-slider-amount forminator-slider-amount-bottom-right" data-value-template="{slider-value}suffix"><span class="forminator-slider-value-min"><span class="forminator-slider-value">2</span>suffix</span></div>
+	</div>
 
 	<span class="forminator-error-message">This field is required.</span>
 
@@ -24,20 +53,22 @@
 	<div 
 		id="slider" 
 		class="forminator-slider forminator-slider-full" 
-		aria-required="false" 
-		data-is-range="true"
-		data-min="0"
-		data-max="100"
-		data-step="2"
-		data-value="2"
-		data-value-max="40"
-	></div>
-
-	<div class="forminator-slider-amount forminator-slider-amount-bottom-left" data-value-template="prefix{slider-value}suffix">
-		<span class="forminator-slider-value-min">prefix2suffix</span>
-		<span class="forminator-slider-value-max">prefix40suffix</span>
+		aria-required="false"
+	>
+		<div class="forminator-slide"
+			data-is-range="true"
+			data-min="0"
+			data-max="100"
+			data-step="2"
+			data-value="2"
+			data-value-max="40"
+		></div>
+		<div class="forminator-slider-amount forminator-slider-amount-bottom" data-value-template="prefix{slider-value}suffix">
+			<span class="forminator-slider-value-min">prefix<span class="forminator-slider-value">2</span>suffix</span>
+			<span class="forminator-slider-value-max">prefix<span class="forminator-slider-value">40</span>suffix</span>
+		</div>
 	</div>
-
+	
 	<span class="forminator-error-message">This field is required.</span>
 
 	<span class="forminator-description">Optional description for slider.</span>

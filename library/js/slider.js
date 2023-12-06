@@ -14,23 +14,24 @@
 
 			// Cache the current slider element
 			var $element = $( this );
+			var $slide = $( this ).find( '.forminator-slide' );
 
 			// Check if it's a range slider
-			var isRange = $element.data( 'is-range' );
+			var isRange = $slide.data( 'is-range' );
 
 			// Parse integer values from data attributes with error handling
-			var minRange = parseInt( $element.data( 'min' ) ) || 0;
-			var maxRange = parseInt( $element.data( 'max' ) ) || 100;
-			var value = parseInt( $element.data( 'value' ) ) || minRange;
-			var valueMax = parseInt( $element.data( 'value-max' ) ) || maxRange;
-			var step = parseInt( $element.data( 'step' ) ) || 1;
+			var minRange = parseInt( $slide.data( 'min' ) ) || 0;
+			var maxRange = parseInt( $slide.data( 'max' ) ) || 100;
+			var value = parseInt( $slide.data( 'value' ) ) || minRange;
+			var valueMax = parseInt( $slide.data( 'value-max' ) ) || maxRange;
+			var step = parseInt( $slide.data( 'step' ) ) || 1;
 
 			// Get slider value wrapper and template
-			var sliderValueWrapper = $element.next( '.forminator-slider-amount' );
+			var sliderValueWrapper = $element.find( '.forminator-slider-amount' );
 			var sliderValueTemplate = sliderValueWrapper.data( 'value-template' ) || '{slider-value}';
 
 			// Initialize the slider with the parsed values
-			$element.slider({
+			$slide.slider({
 				range: isRange ? true : 'min',
 				min: minRange,
 				max: maxRange,
@@ -59,7 +60,7 @@
 					sliderValueWrapper.find( '.forminator-slider-value-min' ).html( minValue );
 					sliderValueWrapper.find( '.forminator-slider-value-max' ).html( maxValue );
 				} else {
-					sliderValueWrapper.html( minValue );
+					sliderValueWrapper.find( '.forminator-slider-value-min' ).html( minValue );
 				}
 			}
 		});
