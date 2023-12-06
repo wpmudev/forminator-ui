@@ -1,28 +1,42 @@
-<div class="forminator-field">
+<div class="forminator-field forminator-field-slider">
 
-	<label class="forminator-label">Slider <span class="forminator-required">*</span></label>
-
-	<div 
-		id="slider" 
-		class="forminator-slider forminator-slider-full" 
-		aria-required="false" 
-		data-is-range="false"
-		data-min="0"
-		data-max="10"
-		data-step="2"
-		data-value="2"
-		data-value-max="4"
-	></div>
-
-	<div id="amount">$0 - $10</div>
+	<label class="forminator-label">Single Slider <span class="forminator-required">*</span></label>
 
 	<div 
 		id="slider-1" 
 		class="forminator-slider forminator-slider-full" 
 		aria-required="false"
+		data-value="2"
 	></div>
 
-	<div class="forminator-slider-amount forminator-slider-amount-bottom-left" data-value-template="USD{slider-value}"></div>
+	<div class="forminator-slider-amount forminator-slider-amount-bottom-left" data-value-template="{slider-value}suffix">2suffix</div>
+
+	<span class="forminator-error-message">This field is required.</span>
+
+	<span class="forminator-description">Optional description for slider.</span>
+
+</div>
+
+<div class="forminator-field forminator-field-slider">
+
+	<label class="forminator-label">Range Slider <span class="forminator-required">*</span></label>
+
+	<div 
+		id="slider" 
+		class="forminator-slider forminator-slider-full" 
+		aria-required="false" 
+		data-is-range="true"
+		data-min="0"
+		data-max="100"
+		data-step="2"
+		data-value="2"
+		data-value-max="40"
+	></div>
+
+	<div class="forminator-slider-amount forminator-slider-amount-bottom-left" data-value-template="prefix{slider-value}suffix">
+		<span class="forminator-slider-value-min">prefix2suffix</span>
+		<span class="forminator-slider-value-max">prefix40suffix</span>
+	</div>
 
 	<span class="forminator-error-message">This field is required.</span>
 

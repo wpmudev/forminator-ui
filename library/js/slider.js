@@ -11,37 +11,59 @@
 	FUI.slider = function() {
 
 		$( '.forminator-slider' ).each( function() {
+
+			// Cache the current slider element
 			var $element = $( this );
+
+			// Check if it's a range slider
 			var isRange = $element.data( 'is-range' );
 
 			// Parse integer values from data attributes with error handling
-			var minRange = parseInt( $element.data( 'min' ) );
-			var maxRange = parseInt( $element.data( 'max' ) );
-			var value = parseInt( $element.data( 'value' ) );
-			var valueMax = parseInt( $element.data( 'value-max' ) );
-			var step = parseInt( $element.data( 'step' ) );
+			var minRange = parseInt( $element.data( 'min' ) ) || 0;
+			var maxRange = parseInt( $element.data( 'max' ) ) || 100;
+			var value = parseInt( $element.data( 'value' ) ) || minRange;
+			var valueMax = parseInt( $element.data( 'value-max' ) ) || maxRange;
+			var step = parseInt( $element.data( 'step' ) ) || 1;
 
-			// Check for valid integer values obtained from data attributes
-			// If any value is not a number, use default values or handle errors appropriately
-			minRange = isNaN( minRange ) ? 0 : minRange;
-			maxRange = isNaN( maxRange ) ? 100 : maxRange;
-			value = isNaN( value ) ? minRange : value;
-			valueMax = isNaN( valueMax ) ? maxRange : valueMax;
-			step = isNaN( step ) ? 1 : step;
+			// Get slider value wrapper and template
+			var sliderValueWrapper = $element.next( '.forminator-slider-amount' );
+			var sliderValueTemplate = sliderValueWrapper.data( 'value-template' ) || '{slider-value}';
 
+			// Initialize the slider with the parsed values
 			$element.slider({
 				range: isRange ? true : 'min',
 				min: minRange,
 				max: maxRange,
 				step: step,
-				...( isRange ? { values: [ value, valueMax ] } : { value: value })
+				...( isRange ? { values: [ value, valueMax ] } : { value: value }),
 
-				// Add comments to clarify the purpose of the commented-out section
-				// slide: function( event, ui ) {
-				//     $( '#amount' ).text( '$' + ui.values[ 0 ] + ' - $' + ui.values[ 1 ]);
-				// }
+				slide: function( event, ui ) {
+
+					// Format the slider values using the template
+					var formattedValue = isRange ? valueTemplate( ui.values[0]) : valueTemplate( ui.value );
+					var formattedValueMax = isRange ? valueTemplate( ui.values[1]) : null;
+
+					// Update the UI with the formatted values
+					updateSliderValues( formattedValue, formattedValueMax );
+				}
 			});
+
+			// Function to format the slider value using the template
+			function valueTemplate( sliderValue ) {
+				return sliderValueTemplate.replace( '{slider-value}', sliderValue );
+			}
+
+			// Function to update the UI with the formatted values
+			function updateSliderValues( minValue, maxValue ) {
+				if ( isRange ) {
+					sliderValueWrapper.find( '.forminator-slider-value-min' ).text( minValue );
+					sliderValueWrapper.find( '.forminator-slider-value-max' ).text( maxValue );
+				} else {
+					sliderValueWrapper.text( minValue );
+				}
+			}
 		});
+
 
 	};
 }( jQuery ) );
