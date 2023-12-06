@@ -50,16 +50,16 @@
 
 			// Function to format the slider value using the template
 			function valueTemplate( sliderValue ) {
-				return sliderValueTemplate.replace( '{slider-value}', sliderValue );
+				return sliderValueTemplate.replace( '{slider-value}', '<span class="forminator-slider-value">' + $( '<div>' ).text( sliderValue ).html() + '</span>' );
 			}
 
 			// Function to update the UI with the formatted values
 			function updateSliderValues( minValue, maxValue ) {
 				if ( isRange ) {
-					sliderValueWrapper.find( '.forminator-slider-value-min' ).text( minValue );
-					sliderValueWrapper.find( '.forminator-slider-value-max' ).text( maxValue );
+					sliderValueWrapper.find( '.forminator-slider-value-min' ).html( minValue );
+					sliderValueWrapper.find( '.forminator-slider-value-max' ).html( maxValue );
 				} else {
-					sliderValueWrapper.text( minValue );
+					sliderValueWrapper.html( minValue );
 				}
 			}
 		});
