@@ -3,11 +3,35 @@
 	@include form-class($form-type, $form-theme, false) {
 
 		.forminator-slider {
-			border: 1px solid #777771;
+			border: 1px solid transparent;
 			background: #EDEDED;
 			border-radius: 4px;
 			position: relative;
     		text-align: left;
+
+			@if ('default' == $form-theme) {
+				border: 1px solid #777771;
+			}
+
+			@if ('bold' == $form-theme) {
+				border: 2px solid #777771;
+			}
+
+			&.forminator-disabled {
+				pointer-events: none;
+				user-select: none;
+				border: none;
+				background: #DDD;
+				border: 1px solid transparent;
+
+				.ui-slider-range {
+					background: #ddd;
+				}
+
+				.ui-slider-handle {
+					background: #aaa;
+				}
+			}
 
 			.ui-slider-range {
 				background: #17A8E3;
@@ -29,6 +53,21 @@
 				&:hover,
 				&:focus {
 					background: #1289BA;
+
+					@if('material' == $form-theme) {
+						background: #17A8E3;
+						
+						&:after {
+							content: '';
+							position: absolute;
+							top: -4px;
+							bottom: -4px;
+							left: -4px;
+							right: -4px;
+							border-radius: 100%;
+							background: rgba(23, 168, 227, 0.4);
+						}
+					}
 				}
 			}
 
@@ -55,6 +94,10 @@
 			&.ui-slider-horizontal .ui-slider-handle {
 				top: -7px;
 				margin-left: -8px;
+
+				@if ('bold' == $form-theme) {
+					top: -8px;
+				}
 			}
 			
 			&.ui-slider-horizontal .ui-slider-range {
@@ -64,6 +107,8 @@
 			
 			&.ui-slider-horizontal .ui-slider-range-min {
 				left: 0;
+				border-top-left-radius: 4px;
+				border-bottom-left-radius: 4px;
 			}
 
 			&.ui-slider-horizontal .ui-slider-range-max {
