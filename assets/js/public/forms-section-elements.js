@@ -50,8 +50,6 @@
 							const select2 = $( this ).find( '.forminator-select2' );
 							const slider = $( this ).find( '.forminator-slider' );
 
-							console.log( 'Slider: '  + slider.length );
-
 							// Unique id
 							SHOWCASE.uniqueFormField( this );
 
