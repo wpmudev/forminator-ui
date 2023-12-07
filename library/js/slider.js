@@ -40,18 +40,18 @@
 				create: function( event, ui ) {
 
 					// Format the slider values using the template
-					var formattedValue = isRange ? valueTemplate( value ) : valueTemplate( value );
+					var formattedValue = valueTemplate( value );
 					var formattedValueMax = isRange ? valueTemplate( valueMax ) : null;
 
 					// Update the UI with the formatted values
-					updateSliderValues( formattedValue, formattedValueMax );
+					updateSliderValues( formattedValue, formattedValueMax, value, valueMax );
 				},
 				slide: function( event, ui ) {
 
 					// Format the slider values using the template
 					var value = isRange ? ui.values[0] : ui.value;
 					var valueMax = isRange ? ui.values[1] : null;
-					var formattedValue = isRange ? valueTemplate( value ) : valueTemplate( value );
+					var formattedValue = valueTemplate( value );
 					var formattedValueMax = isRange ? valueTemplate( valueMax ) : null;
 
 					// Update the UI with the formatted values
