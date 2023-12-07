@@ -43,8 +43,6 @@
 					var formattedValue = isRange ? valueTemplate( value ) : valueTemplate( value );
 					var formattedValueMax = isRange ? valueTemplate( valueMax ) : null;
 
-					console.log( value, valueMax );
-
 					// Update the UI with the formatted values
 					updateSliderValues( formattedValue, formattedValueMax );
 				},
