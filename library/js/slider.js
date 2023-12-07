@@ -49,27 +49,31 @@
 				slide: function( event, ui ) {
 
 					// Format the slider values using the template
-					var formattedValue = isRange ? valueTemplate( ui.values[0]) : valueTemplate( ui.value );
-					var formattedValueMax = isRange ? valueTemplate( ui.values[1]) : null;
+					var value = isRange ? ui.values[0] : ui.value;
+					var valueMax = isRange ? ui.values[1] : null;
+					var formattedValue = isRange ? valueTemplate( value ) : valueTemplate( value );
+					var formattedValueMax = isRange ? valueTemplate( valueMax ) : null;
 
 					// Update the UI with the formatted values
-					updateSliderValues( formattedValue, formattedValueMax );
+					updateSliderValues( formattedValue, formattedValueMax, value, valueMax );
 				}
 			});
 
 			// Function to format the slider value using the template
 			function valueTemplate( sliderValue ) {
-				console.log( sliderValue );
 				return sliderValueTemplate.replace( '{slider-value}', '<span class="forminator-slider-value">' + $( '<div>' ).text( sliderValue ).html() + '</span>' );
 			}
 
 			// Function to update the UI with the formatted values
-			function updateSliderValues( minValue, maxValue ) {
+			function updateSliderValues( formattedValue, formattedValueMax, minValue, maxValue ) {
 				if ( isRange ) {
-					sliderValueWrapper.find( '.forminator-slider-value-min' ).html( minValue );
-					sliderValueWrapper.find( '.forminator-slider-value-max' ).html( maxValue );
+					sliderValueWrapper.find( '.forminator-slider-value-min' ).html( formattedValue );
+					sliderValueWrapper.find( '.forminator-slider-value-max' ).html( formattedValueMax );
+					sliderValueWrapper.find( '.forminator-slider-hidden-min' ).val( minValue );
+					sliderValueWrapper.find( '.forminator-slider-hidden-max' ).val( maxValue );
 				} else {
-					sliderValueWrapper.find( '.forminator-slider-value-min' ).html( minValue );
+					sliderValueWrapper.find( '.forminator-slider-value-min' ).html( formattedValue );
+					sliderValueWrapper.find( '.forminator-slider-hidden-min' ).val( minValue );
 				}
 			}
 		});
