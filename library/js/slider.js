@@ -37,7 +37,17 @@
 				max: maxRange,
 				step: step,
 				...( isRange ? { values: [ value, valueMax ] } : { value: value }),
+				create: function( event, ui ) {
 
+					// Format the slider values using the template
+					var formattedValue = isRange ? valueTemplate( value ) : valueTemplate( value );
+					var formattedValueMax = isRange ? valueTemplate( valueMax ) : null;
+
+					console.log( value, valueMax );
+
+					// Update the UI with the formatted values
+					updateSliderValues( formattedValue, formattedValueMax );
+				},
 				slide: function( event, ui ) {
 
 					// Format the slider values using the template
@@ -51,6 +61,7 @@
 
 			// Function to format the slider value using the template
 			function valueTemplate( sliderValue ) {
+				console.log( sliderValue );
 				return sliderValueTemplate.replace( '{slider-value}', '<span class="forminator-slider-value">' + $( '<div>' ).text( sliderValue ).html() + '</span>' );
 			}
 
