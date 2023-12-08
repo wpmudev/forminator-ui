@@ -54,6 +54,11 @@
 					var formattedValue = valueTemplate( value );
 					var formattedValueMax = isRange ? valueTemplate( valueMax ) : null;
 
+					// return if min and max slider value is same.
+					if ( isRange && ( ( ui.values[0]) == ui.values[1]) ) {
+						return false;
+					}
+
 					// Update the UI with the formatted values
 					updateSliderValues( formattedValue, formattedValueMax, value, valueMax );
 				}
