@@ -6,6 +6,10 @@
 			display: flex;
 			flex-direction: column;
 
+			.forminator-hidden-input {
+				display: none;
+			}
+
 			.forminator-slide {
 				border: 1px solid transparent;
 				background: #EDEDED;

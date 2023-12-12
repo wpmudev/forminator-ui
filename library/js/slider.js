@@ -15,6 +15,7 @@
 			// Cache the current slider element
 			var $element = $( this );
 			var $slide = $( this ).find( '.forminator-slide' );
+			var $input = $( this ).find( '.forminator-hidden-input' );
 
 			// Check if it's a range slider
 			var isRange = $slide.data( 'is-range' );
@@ -29,6 +30,9 @@
 			// Get slider value wrapper and template
 			var sliderValueWrapper = $element.find( '.forminator-slider-amount' );
 			var sliderValueTemplate = sliderValueWrapper.data( 'value-template' ) || '{slider-value}';
+
+			// Get the label associated with this slider
+			var $label = $( 'label[for="' + $input.attr( 'id' ) + '"]' );
 
 			// Initialize the slider with the parsed values
 			$slide.slider({
@@ -59,6 +63,16 @@
 				}
 			});
 
+			// Add a click event listener to the label
+			$label.on( 'click', function() {
+				var handles = $slide.find( '.ui-slider-handle' );
+				if ( isRange && 1 < handles.length ) {
+					$( handles[0]).focus(); // Focus on the first handle for range sliders
+				} else {
+					handles.focus(); // Focus on the handle for single sliders
+				}
+			});
+
 			// Function to format the slider value using the template
 			function valueTemplate( sliderValue ) {
 				return sliderValueTemplate.replace( '{slider-value}', '<span class="forminator-slider-value">' + $( '<div>' ).text( sliderValue ).html() + '</span>' );
@@ -77,7 +91,5 @@
 				}
 			}
 		});
-
-
 	};
 }( jQuery ) );
