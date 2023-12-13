@@ -16,6 +16,7 @@
 			var $element = $( this );
 			var $slide = $( this ).find( '.forminator-slide' );
 			var $input = $( this ).find( '.forminator-hidden-input' );
+			var $disabled = $( this ).hasClass( 'forminator-disabled' );
 
 			// Check if it's a range slider
 			var isRange = $slide.data( 'is-range' );
@@ -39,6 +40,7 @@
 				range: isRange ? true : 'min',
 				min: minRange,
 				max: maxRange,
+				disabled: $disabled,
 				step: step,
 				...( isRange ? { values: [ value, valueMax ] } : { value: value }),
 				create: function( event, ui ) {
@@ -66,6 +68,11 @@
 			// Add a click event listener to the label
 			$label.on( 'click', function() {
 				var handles = $slide.find( '.ui-slider-handle' );
+
+				if ( $disabled ) {
+					return;
+				}
+
 				if ( isRange && 1 < handles.length ) {
 					$( handles[0]).focus(); // Focus on the first handle for range sliders
 				} else {
