@@ -112,8 +112,8 @@
 				}
 
 				.ui-slider-range {
-					top: 0;
-					height: 100%;
+					top: -1px;
+					bottom: -1px;
 				}
 
 				.ui-slider-range-min {
