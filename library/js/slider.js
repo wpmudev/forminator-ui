@@ -81,11 +81,12 @@
 			// Function to update the UI with the formatted values
 			function updateSliderValues( formattedValue, formattedValueMax, minValue, maxValue ) {
 				if ( isRange ) {
+					sliderValueWrapper.find( '.forminator-slider-value-min' ).html( formattedValue );
 					if ( minValue === maxValue ) {
-						sliderValueWrapper.find( '.forminator-slider-value-min' ).html( formattedValue );
+						sliderValueWrapper.find( '.forminator-slider-seperator' ).hide();
 						sliderValueWrapper.find( '.forminator-slider-value-max' ).html( '' );
 					} else {
-						sliderValueWrapper.find( '.forminator-slider-value-min' ).html( formattedValue + ' - ' );
+						sliderValueWrapper.find( '.forminator-slider-seperator' ).show();
 						sliderValueWrapper.find( '.forminator-slider-value-max' ).html( formattedValueMax );
 					}
 					sliderValueWrapper.find( '.forminator-slider-hidden-min' ).val( minValue );
