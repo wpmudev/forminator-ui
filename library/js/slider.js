@@ -96,11 +96,11 @@
 						sliderValueWrapper.find( '.forminator-slider-seperator' ).show();
 						sliderValueWrapper.find( '.forminator-slider-value-max' ).html( formattedValueMax );
 					}
-					sliderValueWrapper.find( '.forminator-slider-hidden-min' ).val( minValue );
-					sliderValueWrapper.find( '.forminator-slider-hidden-max' ).val( maxValue );
+					sliderValueWrapper.find( '.forminator-slider-hidden-min' ).val( minValue ).trigger( 'change' );
+					sliderValueWrapper.find( '.forminator-slider-hidden-max' ).val( maxValue ).trigger( 'change' );
 				} else {
 					sliderValueWrapper.find( '.forminator-slider-value-min' ).html( formattedValue );
-					sliderValueWrapper.find( '.forminator-slider-hidden-min' ).val( minValue );
+					sliderValueWrapper.find( '.forminator-slider-hidden-min' ).val( minValue ).trigger( 'change' );
 				}
 			}
 		});
