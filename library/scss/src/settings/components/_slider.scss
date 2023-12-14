@@ -152,6 +152,12 @@
 		.forminator-slider-seperator {
 			display: none;
 		}
+
+		.forminator-slider-value-max,
+		.forminator-slider-value-min {
+			display: flex;
+			gap: 2px;
+		}
 		
 		.forminator-slider-amount {
 			display: flex;
