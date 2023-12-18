@@ -94,10 +94,10 @@
 
 			if ( $isRange ) {
 				if ( $minValue === $maxValue ) {
-					$sliderValueWrapper.find( '.forminator-slider-seperator' ).hide();
+					$sliderValueWrapper.find( '.forminator-slider-separator' ).hide();
 					$sliderValueWrapper.find( '.forminator-slider-value-max' ).html( '' );
 				} else {
-					$sliderValueWrapper.find( '.forminator-slider-seperator' ).show();
+					$sliderValueWrapper.find( '.forminator-slider-separator' ).show();
 					$sliderValueWrapper.find( '.forminator-slider-value-max' ).html( $formattedValueMax );
 				}
 
