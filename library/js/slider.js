@@ -27,6 +27,7 @@
 			var $value = parseInt( $slide.data( 'value' ) ) || $minRange;
 			var $valueMax = parseInt( $slide.data( 'value-max' ) ) || $maxRange;
 			var $step = parseInt( $slide.data( 'step' ) ) || 1;
+			var $sliderValueWrapper = $element.find( '.forminator-slider-amount' );
 
 			// Get the label associated with this slider
 			var $label = $( 'label[for="' + $input.attr( 'id' ) + '"]' );
@@ -45,8 +46,14 @@
 					var $formattedValue = valueTemplate( $element, $value );
 					var $formattedValueMax = $isRange ? valueTemplate( $element, $valueMax ) : null;
 
+					$sliderValueWrapper.find( '.forminator-slider-hidden-min' ).val( $value ).change();
+
+					if ( $isRange ) {
+						$sliderValueWrapper.find( '.forminator-slider-hidden-max' ).val( $valueMax ).change();
+					}
+
 					// Create the UI with the formatted values
-					updateSliderValues( $element, ui, $formattedValue, $formattedValueMax, $value, $valueMax );
+					updateSliderValues( $element, $formattedValue, $formattedValueMax, $value, $valueMax );
 				},
 				slide: function( event, ui ) {
 
@@ -57,7 +64,21 @@
 					var $formattedValueMax = $isRange ? valueTemplate( $element, $valueMax ) : null;
 
 					// Update the UI with the formatted values
-					updateSliderValues( $element, ui, $formattedValue, $formattedValueMax, $value, $valueMax );
+					updateSliderValues( $element, $formattedValue, $formattedValueMax, $value, $valueMax );
+				},
+				stop: function( event, ui ) {
+
+					// Format the slider values using the template
+					var $value = $isRange ? ui.values[0] : ui.value;
+					var $valueMax = $isRange ? ui.values[1] : null;
+
+					if ( ui.handle === $element.find( '.ui-slider-handle' )[0]) {
+						$sliderValueWrapper.find( '.forminator-slider-hidden-min' ).val( $value ).change();
+					} else if ( ui.handle === $element.find( '.ui-slider-handle' )[1]) {
+						$sliderValueWrapper.find( '.forminator-slider-hidden-max' ).val( $valueMax ).change();
+					} else {
+						$sliderValueWrapper.find( '.forminator-slider-hidden-min' ).val( $value ).change();
+					}
 				}
 			});
 
@@ -85,7 +106,7 @@
 		}
 
 		// Function to update the UI with the formatted values
-		function updateSliderValues( $element, ui, $formattedValue, $formattedValueMax, $minValue, $maxValue ) {
+		function updateSliderValues( $element, $formattedValue, $formattedValueMax, $value, $valueMax ) {
 			var $sliderValueWrapper = $element.find( '.forminator-slider-amount' );
 			var $slide = $element.find( '.forminator-slide' );
 			var $isRange = $slide.data( 'is-range' );
@@ -93,21 +114,13 @@
 			$sliderValueWrapper.find( '.forminator-slider-value-min' ).html( $formattedValue );
 
 			if ( $isRange ) {
-				if ( $minValue === $maxValue ) {
+				if ( $value === $valueMax ) {
 					$sliderValueWrapper.find( '.forminator-slider-separator' ).hide();
 					$sliderValueWrapper.find( '.forminator-slider-value-max' ).html( '' );
 				} else {
 					$sliderValueWrapper.find( '.forminator-slider-separator' ).show();
 					$sliderValueWrapper.find( '.forminator-slider-value-max' ).html( $formattedValueMax );
 				}
-
-				if ( ui.handle === $element.find( '.ui-slider-handle' )[0]) {
-					$sliderValueWrapper.find( '.forminator-slider-hidden-min' ).val( $minValue ).change();
-				} else if ( ui.handle === $element.find( '.ui-slider-handle' )[1]) {
-					$sliderValueWrapper.find( '.forminator-slider-hidden-max' ).val( $maxValue ).change();
-				}
-			} else {
-				$sliderValueWrapper.find( '.forminator-slider-hidden-min' ).val( $minValue ).change();
 			}
 		}
 
