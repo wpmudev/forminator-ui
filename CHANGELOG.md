@@ -1,6 +1,15 @@
 # Change Log
 
-## [1.12.7](https://github.com/wpmudev/forminator-ui/compare/v1.12.5...v1.12.6) (2023-07-20)
+## [1.12.8](https://github.com/wpmudev/forminator-ui/compare/v1.12.7...v1.12.8) (2023-12-22)
+
+#### ✨ New Features
+- `slider`
+  - Add slider component for forminator. [#61](https://github.com/wpmudev/forminator-ui/pull/61) ([FOR-4002](https://incsub.atlassian.net/browse/FOR-4002)) ([@creador-dev](https://github.com/creador-dev))
+
+#### Committers: 1
+- Pawan Kumar ([@creador-dev](https://github.com/creador-dev))
+
+## [1.12.7](https://github.com/wpmudev/forminator-ui/compare/v1.12.6...v1.12.7) (2023-07-20)
 
 #### 🚀 Improvement
 - `global`

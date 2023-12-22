@@ -6,6 +6,11 @@
 function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 (function ($) {
   'use strict';
@@ -995,6 +1000,123 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
   }; // end closeAuthentication.
 })();
 
+(function ($) {
+  // Enable strict mode
+  'use strict';
+
+  // Define global FUI object if it doesn't exist.
+  if ('object' !== _typeof(window.FUI)) {
+    window.FUI = {};
+  }
+  FUI.slider = function () {
+    $('.forminator-slider').each(function () {
+      // Cache the current slider element
+      var $element = $(this);
+      var $slide = $element.find('.forminator-slide');
+      var $input = $element.find('.forminator-hidden-input');
+      var $disabled = $element.hasClass('forminator-disabled');
+
+      // Check if it's a range slider
+      var $isRange = $slide.data('is-range');
+
+      // Parse integer values from data attributes with error handling
+      var $minRange = parseInt($slide.data('min')) || 0;
+      var $maxRange = parseInt($slide.data('max')) || 100;
+      var $value = parseInt($slide.data('value')) || $minRange;
+      var $valueMax = parseInt($slide.data('value-max')) || $maxRange;
+      var $step = parseInt($slide.data('step')) || 1;
+      var $sliderValueWrapper = $element.find('.forminator-slider-amount');
+
+      // Get the label associated with this slider
+      var $label = $('label[for="' + $input.attr('id') + '"]');
+
+      // Initialize the slider with the parsed values
+      $slide.slider(_objectSpread(_objectSpread({
+        range: $isRange ? true : 'min',
+        min: $minRange,
+        max: $maxRange,
+        disabled: $disabled,
+        step: $step
+      }, $isRange ? {
+        values: [$value, $valueMax]
+      } : {
+        value: $value
+      }), {}, {
+        create: function create(event, ui) {
+          // Format the slider values using the template
+          var $formattedValue = valueTemplate($element, $value);
+          var $formattedValueMax = $isRange ? valueTemplate($element, $valueMax) : null;
+          $sliderValueWrapper.find('.forminator-slider-hidden-min').val($value).change();
+          if ($isRange) {
+            $sliderValueWrapper.find('.forminator-slider-hidden-max').val($valueMax).change();
+          }
+
+          // Create the UI with the formatted values
+          updateSliderValues($element, $formattedValue, $formattedValueMax, $value, $valueMax);
+        },
+        slide: function slide(event, ui) {
+          // Format the slider values using the template
+          var $value = $isRange ? ui.values[0] : ui.value;
+          var $valueMax = $isRange ? ui.values[1] : null;
+          var $formattedValue = valueTemplate($element, $value);
+          var $formattedValueMax = $isRange ? valueTemplate($element, $valueMax) : null;
+
+          // Update the UI with the formatted values
+          updateSliderValues($element, $formattedValue, $formattedValueMax, $value, $valueMax);
+        },
+        stop: function stop(event, ui) {
+          // Format the slider values using the template
+          var $value = $isRange ? ui.values[0] : ui.value;
+          var $valueMax = $isRange ? ui.values[1] : null;
+          if (ui.handle === $element.find('.ui-slider-handle')[0]) {
+            $sliderValueWrapper.find('.forminator-slider-hidden-min').val($value).change();
+          } else if (ui.handle === $element.find('.ui-slider-handle')[1]) {
+            $sliderValueWrapper.find('.forminator-slider-hidden-max').val($valueMax).change();
+          } else {
+            $sliderValueWrapper.find('.forminator-slider-hidden-min').val($value).change();
+          }
+        }
+      }));
+
+      // Add a click event listener to the label
+      $label.on('click', function () {
+        var $handles = $slide.find('.ui-slider-handle');
+        if ($disabled) {
+          return;
+        }
+        if ($isRange && 1 < $handles.length) {
+          $($handles[0]).focus(); // Focus on the first handle for range sliders
+        } else {
+          $handles.focus(); // Focus on the handle for single sliders
+        }
+      });
+    });
+
+    // Function to format the slider value using the template
+    function valueTemplate($element, $sliderValue) {
+      var $sliderValueWrapper = $element.find('.forminator-slider-amount');
+      var $sliderValueTemplate = $sliderValueWrapper.data('value-template') || '{slider-value}';
+      return $sliderValueTemplate.replace('{slider-value}', '<span class="forminator-slider-value">' + $('<div>').text($sliderValue).html() + '</span>');
+    }
+
+    // Function to update the UI with the formatted values
+    function updateSliderValues($element, $formattedValue, $formattedValueMax, $value, $valueMax) {
+      var $sliderValueWrapper = $element.find('.forminator-slider-amount');
+      var $slide = $element.find('.forminator-slide');
+      var $isRange = $slide.data('is-range');
+      $sliderValueWrapper.find('.forminator-slider-value-min').html($formattedValue);
+      if ($isRange) {
+        if ($value === $valueMax) {
+          $sliderValueWrapper.find('.forminator-slider-separator').hide();
+          $sliderValueWrapper.find('.forminator-slider-value-max').html('');
+        } else {
+          $sliderValueWrapper.find('.forminator-slider-separator').show();
+          $sliderValueWrapper.find('.forminator-slider-value-max').html($formattedValueMax);
+        }
+      }
+    }
+  };
+})(jQuery);
 (function ($) {
   // Enable strict mode.
   'use strict';
