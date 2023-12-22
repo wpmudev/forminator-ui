@@ -39,6 +39,7 @@ $form-theme: flat;
 @import "../settings/components/recaptcha";
 @import "../settings/components/repeater-buttons";
 @import "../settings/components/repeater";
+@import "../settings/components/slider";
 
 // Call Components.
 @include component-response(#{$form-type}, #{$form-theme});
@@ -55,3 +56,4 @@ $form-theme: flat;
 @include component-recaptcha(#{$form-type}, #{$form-theme});
 @include component-repeater-buttons(#{$form-type}, #{$form-theme});
 @include component-repeater(#{$form-type}, #{$form-theme});
+@include component-slider(#{$form-type}, #{$form-theme});
