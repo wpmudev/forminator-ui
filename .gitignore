@@ -5,6 +5,7 @@
 
 # misc
 .DS_Store
+.idea
 
 # build
 /build
