@@ -32,6 +32,11 @@
 			// Get the label associated with this slider
 			var $label = $( 'label[for="' + $input.attr( 'id' ) + '"]' );
 
+			// Check if slider is already intialised.
+			if ( true === $slide.data( 'init' ) ) {
+				return;
+			}
+
 			// Initialize the slider with the parsed values
 			$slide.slider({
 				range: $isRange ? true : 'min',
@@ -45,6 +50,9 @@
 					// Format the slider values using the template
 					var $formattedValue = valueTemplate( $element, $value );
 					var $formattedValueMax = $isRange ? valueTemplate( $element, $valueMax ) : null;
+
+					// add data-attribute to check intialization.
+					$slide.data( 'init', true );
 
 					$sliderValueWrapper.find( '.forminator-slider-hidden-min' ).val( $value ).change();
 
