@@ -9,8 +9,6 @@
 #### Committers: 1
 - Pawan Kumar ([@creador-dev](https://github.com/creador-dev))
 
-## [1.12.7](https://github.com/wpmudev/forminator-ui/compare/v1.12.6...v1.12.7) (2023-07-20)
-
 ## [1.12.8](https://github.com/wpmudev/forminator-ui/compare/v1.12.7...v1.12.8) (2023-12-22)
 
 #### ✨ New Features
