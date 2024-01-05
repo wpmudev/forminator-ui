@@ -1,5 +1,16 @@
 # Change Log
 
+## [1.12.9](https://github.com/wpmudev/forminator-ui/compare/v1.12.8...v1.12.9) (2024-01-05)
+
+#### 🐛 Bug Fix
+- `slider`
+  - new(slider): slider field init issue fix. [#62](https://github.com/wpmudev/forminator-ui/pull/62) ([FOR-4155](https://incsub.atlassian.net/browse/FOR-4155)) ([@creador-dev](https://github.com/creador-dev))
+
+#### Committers: 1
+- Pawan Kumar ([@creador-dev](https://github.com/creador-dev))
+
+## [1.12.7](https://github.com/wpmudev/forminator-ui/compare/v1.12.6...v1.12.7) (2023-07-20)
+
 ## [1.12.8](https://github.com/wpmudev/forminator-ui/compare/v1.12.7...v1.12.8) (2023-12-22)
 
 #### ✨ New Features
