@@ -25,6 +25,10 @@
 				@if ('bold' == $form-theme) {
 					border: 2px solid #777771;
 				}
+
+				@if ('material' == $form-theme) {
+					background: #777777;
+				}
 			}
 			
 
@@ -36,10 +40,19 @@
 					border: none;
 					background: #DDD;
 					border: 1px solid transparent;
+
+					@if('material' == $form-theme) {
+						background: #777;
+						border: none;
+					}
 				}
 
 				.ui-slider-range {
 					background: #ddd;
+
+					@if('material' == $form-theme) {
+						background: #aaa;
+					}
 				}
 
 				.ui-slider-handle {
@@ -103,6 +116,11 @@
 				height: 8px;
 				margin: 6px 0;
 
+				@if ('material' == $form-theme) {
+					height: 1px;
+					border: none;
+				}
+
 				.ui-slider-handle {
 					top: -7px;
 					margin-left: -8px;
@@ -110,15 +128,24 @@
 					@if ('bold' == $form-theme) {
 						top: -8px;
 					}
+
+					@if ('material' == $form-theme) {
+						top: -9px;
+					}
 				}
 
 				.ui-slider-range {
 					top: -1px;
 					bottom: -1px;
+
+					@if ('material' == $form-theme) {
+						top: -0.5px;
+						bottom: -0.5px;
+					}
 				}
 
 				.ui-slider-range-min {
-					left: 0;
+					left: -1px;
 					border-top-left-radius: 4px;
 					border-bottom-left-radius: 4px;
 				}
