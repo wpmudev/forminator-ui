@@ -1,5 +1,14 @@
 # Change Log
 
+## [1.12.10](https://github.com/wpmudev/forminator-ui/compare/v1.12.9...v1.12.10) (2024-01-12)
+
+#### 🚀 Improvement
+- `slider`
+  - new(slider): slider material design changed. [#63](https://github.com/wpmudev/forminator-ui/pull/63) ([FOR-4200](https://incsub.atlassian.net/browse/FOR-4200)) ([@creador-dev](https://github.com/creador-dev))
+
+#### Committers: 1
+- Pawan Kumar ([@creador-dev](https://github.com/creador-dev))
+
 ## [1.12.9](https://github.com/wpmudev/forminator-ui/compare/v1.12.8...v1.12.9) (2024-01-05)
 
 #### 🐛 Bug Fix
