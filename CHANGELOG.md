@@ -1,5 +1,19 @@
 # Change Log
 
+## [1.12.11](https://github.com/wpmudev/forminator-ui/compare/v1.12.10...v1.12.11) (2024-03-22)
+
+#### ✨ New Features
+- `icon`
+  - new(icon): updated twitter icon. [#64](https://github.com/wpmudev/forminator-ui/pull/64) ([FOR-4263](https://incsub.atlassian.net/browse/FOR-4263)) ([@creador-dev](https://github.com/creador-dev))
+
+#### ✨ New Features
+- `captcha`
+  - new(captcha): captcha alignment styling. [#63](https://github.com/wpmudev/forminator-ui/pull/56) ([FOR-85](https://incsub.atlassian.net/browse/FOR-85)) ([@creador-dev](https://github.com/creador-dev))
+
+#### 🐛 Bug Fix
+- `textarea`
+  - fix(textarea): textarea label overlaps with default text. [#51](https://github.com/wpmudev/forminator-ui/pull/51) ([FOR-2920](https://incsub.atlassian.net/browse/FOR-2920)) ([@creador-dev](https://github.com/creador-dev))
+
 ## [1.12.10](https://github.com/wpmudev/forminator-ui/compare/v1.12.9...v1.12.10) (2024-01-12)
 
 #### 🚀 Improvement
