@@ -487,6 +487,9 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
         field.css({
           'position': 'relative'
         });
+        if (textarea.val()) {
+          field.addClass('forminator-is_filled');
+        }
         if (!field.hasClass('forminator-is_filled') || !field.hasClass('forminator-is_active')) {
           label.css({
             'padding-top': labelMath + 'px'
