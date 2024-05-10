@@ -82,6 +82,12 @@
 								white-space: nowrap;
 							}
 
+							// Multiselect options
+							ul.select2-selection__rendered {
+								margin: 0;
+								list-style: none;
+							}
+
 							// Icon.
 							.select2-selection__arrow {
 								@if ('material' == $form-theme) {
