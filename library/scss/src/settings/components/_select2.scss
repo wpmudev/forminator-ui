@@ -16,6 +16,24 @@
 
 					span[role="combobox"] {
 
+						.select2-selection__rendered {
+							order: 1;
+						}
+
+						.select2-selection__arrow {
+							order: 3;
+						}
+
+						// Remove icon styling
+						.select2-selection__clear,
+						.select2-selection__choice__remove {
+							padding: 0;
+							margin: 0;
+							border: none;
+							background: unset;
+							cursor: pointer;
+						}
+
 						// TYPE: Single Select.
 						&.select2-selection--single {
 							height: auto;
@@ -138,6 +156,54 @@
 									[class*="forminator-icon-"] {
 										transform: rotate(180deg);
 									}
+								}
+							}
+						}
+
+						.select2-selection__clear {
+							order: 2;
+							width: 30px;
+							height: 30px;
+							font-size: 24px;
+							color: #777771;
+						}
+
+						// multiple selection
+						&.select2-selection--multiple {
+
+							.select2-selection__rendered {
+								display: flex;
+								gap: 4px;
+								flex-wrap: wrap;
+								padding-left: 9px;
+							}
+
+							.select2-selection__choice {
+								font: 500 12px/14px Roboto;
+								color: #fff;
+								background: #888888;
+								padding: 6px 8px;
+								border-radius: 4px;
+								display: flex;
+								align-items: center;
+								gap: 6px;
+
+								.select2-selection__choice__remove {
+									font-size: 20px;
+									color: #fff;
+
+									span {
+										line-height: 14px;
+										height: 14px;
+										display: block;
+									}
+								}
+							}
+
+							&.select2-selection--clearable {
+								.select2-selection__rendered {
+									padding-top: 6px;
+									padding-bottom: 6px;
 								}
 							}
 						}
