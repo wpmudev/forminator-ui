@@ -175,7 +175,11 @@
 								display: flex;
 								gap: 4px;
 								flex-wrap: wrap;
-								padding-left: 9px;
+
+								&.forminator-select2-selections {
+									padding-top: 6px;
+									padding-bottom: 6px;
+								}
 							}
 
 							.select2-selection__choice {
@@ -197,13 +201,6 @@
 										height: 14px;
 										display: block;
 									}
-								}
-							}
-
-							&.select2-selection--clearable {
-								.select2-selection__rendered {
-									padding-top: 6px;
-									padding-bottom: 6px;
 								}
 							}
 						}

@@ -1824,6 +1824,9 @@
 				var $rendered = this.$selection.find('.select2-selection__rendered');
 				$rendered.empty();
 				$rendered.removeAttr('title');
+
+				// @edit remove class when the items cleared.
+				$rendered.removeClass('forminator-select2-selections');
 			};
 
 			MultipleSelection.prototype.display = function (data, container) {
@@ -1899,6 +1902,9 @@
 				}
 
 				var $rendered = this.$selection.find('.select2-selection__rendered');
+				
+				// @edit add class when the items selected.
+				$rendered.addClass('forminator-select2-selections');
 
 				$rendered.append($selections);
 			};

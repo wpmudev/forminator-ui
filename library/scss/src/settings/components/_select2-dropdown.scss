@@ -98,42 +98,21 @@
 
 				// Checkbox in dropdown
 				.forminator-checkbox {
-					cursor: default;
-					pointer-events: none;
+					line-height: 20px;
+					cursor: pointer;
 					display: flex;
 					flex: 0 0 auto; // It works with `.forminator-checkbox__wrapper` element.
 					align-items: center;
 					position: relative;
-					margin: 10px 0;
+					padding: 10px 8px;
+					gap: 10px;
 		
 					input {
 						@extend %screen-readers;
 		
 						&:checked {
-		
-							@if ('material' == $form-theme) {
-		
-								&:focus {
-		
-									+ .forminator-checkbox-box:after {
-										animation-name: click-animation;
-									}
-								}
-							}
-		
 							+ .forminator-checkbox-box:before {
 								@include opacity(1);
-							}
-		
-							@if ('material' == $form-theme) {
-		
-								+ .forminator-checkbox-box:after {
-									@include opacity(1);
-								}
-		
-								~ .forminator-checkbox-image {
-									box-shadow: 0 3px 8px 0 rgba(0,0,0,0.3);
-								}
 							}
 						}
 					}
@@ -161,37 +140,6 @@
 							font-size: map-get($checkbox, icon);
 							transform: translate(-50%, -50%);
 							transition: map-get($transition, ease);
-						}
-		
-						~ span {
-							margin-left: 10px;
-						}
-					}
-		
-					// ELEMENT: Label
-					&-label {
-						flex: 0 1 auto;
-						line-height: 20px;
-					}
-		
-					// ELEMENT: Wrapper
-					&__wrapper {
-						display: flex;
-						flex-flow: row nowrap;
-						align-items: flex-start;
-					}
-		
-					// ELEMENT: Label
-					&__label {
-						flex: 0 1 auto;
-						line-height: 20px;
-						margin-left: 10px;
-		
-						h1, h2, h3, h4, h5, h6, p, ul, ol {
-		
-							&:last-child {
-								margin-bottom: 0;
-							}
 						}
 					}
 				}
@@ -392,7 +340,16 @@
 						}
 					}
 				}
+
+				// Checkbox in dropdown
+				&.forminator-dropdown--checkbox {
+					.select2-results .select2-results__options .select2-results__option {
+						padding: 0;
+					}
+				}
 			}
+
+
 		}
 	}
 

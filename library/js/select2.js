@@ -26,14 +26,15 @@
 		const label = FUI.select.escapeJS( data.text );
 		const selected = data.selected;
 		let markup,
-			id = label;
+			id = label.toLowerCase().replace( /\s+/g, '-' );
 
 		if ( data.id ) {
-			id = label;
+			id = data.id;
 		}
 
 		markup 	=	'<label for="' + id + '" class="forminator-checkbox">' +
-						'<input type="checkbox" value="' + label + '" id="' + id + '" ' + ( selected ? 'checked' : '' ) + ' />' +						'<span class="forminator-checkbox-box" aria-hidden="true"></span>' +
+						'<input type="checkbox" value="' + label + '" id="' + id + '" ' + ( selected ? 'checked' : '' ) + ' />' +
+						'<span class="forminator-checkbox-box" aria-hidden="true"></span>' +
 						'<span>' + label + '</span>' +
 					'</label>' ;
 
@@ -72,7 +73,8 @@
 
 						var $select = $( this ),
 							$dialog = $select.closest( '.sui-dialog-content' ),
-							$parent = $dialog.length ? $dialog : $select.closest( '.elementor-popup-modal' );
+							$parent = $dialog.length ? $dialog : $select.closest( '.elementor-popup-modal' ),
+							$dropdownClass = 'forminator-custom-form-' + $formid + ' forminator-dropdown--' + $theme;
 
 						if ( true === $select.data( 'rtl-support' ) ) {
 							$dir = 'rtl';
@@ -100,6 +102,7 @@
 
 						if ( true === $select.data( 'checkbox' ) ) {
 							$hasCheckbox = true;
+							$dropdownClass += ' forminator-dropdown--checkbox';
 						} else {
 							$hasCheckbox = false;
 						}
@@ -112,7 +115,7 @@
 							dir: $dir,
 							language: $language,
 							placeholder: $placeholder,
-							dropdownCssClass: 'forminator-custom-form-' + $formid + ' forminator-dropdown--' + $theme,
+							dropdownCssClass: $dropdownClass,
 							minimumResultsForSearch: $hasSearch,
 							dropdownParent: $parent,
 							...( $hasCheckbox && {
