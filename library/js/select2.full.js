@@ -1738,22 +1738,6 @@
 
 			Utils.Extend(MultipleSelection, BaseSelection);
 
-			// SingleSelection.prototype.render = function () {
-			// 	var $selection = SingleSelection.__super__.render.call(this);
-
-			// 	$selection[0].classList.add('select2-selection--single');
-
-			// 	// Assign FUI icon to select button. @edited
-			// 	$selection.html(
-			// 		'<span class="select2-selection__rendered"></span>' +
-			// 			'<span class="select2-selection__arrow" role="presentation">' +
-			// 			'<span class="forminator-icon-chevron-down" aria-hidden="true"></span>' +
-			// 		'</span>'
-			// 	);
-
-			// 	return $selection;
-			// };
-
 			MultipleSelection.prototype.render = function () {
 				var $selection = MultipleSelection.__super__.render.call(this);
 
