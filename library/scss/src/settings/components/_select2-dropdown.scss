@@ -80,19 +80,6 @@
 								cursor: pointer;
 							}
 						}
-
-						&[aria-multiselectable="true"] {
-							.select2-results__option--selected {
-								background-color: #17a8e3;
-								color: #fff;
-
-								.forminator-checkbox {
-									.forminator-checkbox-box {
-										border-color: #17a8e3;
-									}
-								} 
-							}
-						}
 					}
 				}
 
@@ -128,7 +115,6 @@
 						height: map-get($checkbox, size);
 						flex: 0 0 map-get($checkbox, size);
 						position: relative;
-						background: #ededed;
 		
 						@include icon(before, check) {
 							@include opacity(0);
@@ -136,7 +122,6 @@
 							position: absolute;
 							top: 50%;
 							left: 50%;
-							color: #17a8e3;
 							font-size: map-get($checkbox, icon);
 							transform: translate(-50%, -50%);
 							transition: map-get($transition, ease);
@@ -309,10 +294,6 @@
 			
 								+ .forminator-checkbox-box:after {
 									@include opacity(1);
-								}
-		
-								~ .forminator-checkbox-image {
-									box-shadow: 0 3px 8px 0 rgba(0,0,0,0.3);
 								}
 							}
 						}

@@ -638,6 +638,30 @@
 						color: $dropdown-active--color;
 					}
 				}
+
+				&[aria-multiselectable="true"] {
+					.select2-results__option--selected {
+						background-color: $dropdown-active--background;
+						color: $dropdown-active--color;
+	
+						.forminator-checkbox {
+							.forminator-checkbox-box {
+								border-color: $dropdown-active--background;
+							}
+						} 
+					}
+				}
+			}
+		}
+
+		// Checkbox in dropdown
+		.forminator-checkbox {
+			.forminator-checkbox-box {
+				background: $dropdown-active--color;
+
+				&::before {
+					color: $dropdown-active--background;
+				}
 			}
 		}
 	}
