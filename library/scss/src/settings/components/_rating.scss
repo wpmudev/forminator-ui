@@ -10,6 +10,7 @@
 			display: flex;
 			gap: 10px;
 			align-items: center;
+			border: 1px solid transparent;
 
 			&.forminator-rating-focused {
 				.forminator-rating-items {
@@ -57,7 +58,9 @@
 
 				&.forminator-rating-hover,
 				&.forminator-rating-selected {
-					color: #FF7E41;
+					&:before {
+						color: #FF7E41;
+					}
 				}
 			}
 		}
