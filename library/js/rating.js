@@ -28,7 +28,7 @@
                 var iconType = $element.attr( 'data-type' ) || 'star';
 
                 // Get the icon type from the data-type attribute
-                var iconSize = $element.attr( 'data-size' ) || 'medium';
+                var iconSize = $element.attr( 'data-size' ) || 'md';
 
                 // Calculate the selected value.
                 var selectedValue = $element.find( 'option:selected' ).val() || 0;

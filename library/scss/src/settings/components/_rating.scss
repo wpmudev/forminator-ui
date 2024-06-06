@@ -20,13 +20,16 @@
 			
 			.forminator-rating-items {
 				display: flex;
-				font-size: 24px;
 
-				&.forminator-rating-large {
+				&.forminator-rating-md {
+					font-size: 24px;
+				}
+
+				&.forminator-rating-lg {
 					font-size: 32px;
 				}
 
-				&.forminator-rating-small {
+				&.forminator-rating-sm {
 					font-size: 16px;
 				}
 
@@ -56,10 +59,18 @@
 				cursor: pointer;
 				transition: ease color 0.2s;
 
+				[class*=forminator-icon-] {
+					&:before {
+						color: #aaa;
+					}
+				}
+
 				&.forminator-rating-hover,
 				&.forminator-rating-selected {
-					&:before {
-						color: #FF7E41;
+					[class*=forminator-icon-] {
+						&:before {
+							color: #FF7E41;
+						}
 					}
 				}
 			}
