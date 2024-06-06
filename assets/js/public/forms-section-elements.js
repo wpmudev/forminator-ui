@@ -49,6 +49,7 @@
 							const select = $( this ).find( '.forminator-select' );
 							const select2 = $( this ).find( '.forminator-select2' );
 							const slider = $( this ).find( '.forminator-slider' );
+							const rating = $( this ).find( '.forminator-rating' );
 
 							// Unique id
 							SHOWCASE.uniqueFormField( this );
@@ -80,11 +81,15 @@
 								FUI.select2();
 							}
 
+							// Load rating field.
+							if ( rating.length ) {
+								FUI.rating();
+							}
+
 							// Load radio and checkbox function
 							FUI.radioStates( radio );
 							FUI.checkboxStates( checkbox );
 							FUI.multiSelectStates( multiselect );
-
 						});
 					});
 				}
