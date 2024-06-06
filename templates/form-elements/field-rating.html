@@ -1,6 +1,33 @@
 <div class="forminator-field">
 
-	<label for="rating-field" class="forminator-label">Rating <span class="forminator-required">*</span></label>
+	<label for="rating-field" class="forminator-label">Star Rating <span class="forminator-required">*</span></label>
+
+	<select 
+		id="rating-field-3"
+		class="forminator-rating"
+		aria-describedby="rating-description"
+		aria-errormessage="rating-error"
+		data-type="star"
+		data-size="large"
+		data-suffix="true"
+	>
+		<option value="0" disabled selected>Select rating</option>
+		<option value="1">Rate 1</option>
+		<option value="2">Rate 2</option>
+		<option value="3">Rate 3</option>
+		<option value="4">Rate 4</option>
+		<option value="5">Rate 5</option>
+	</select>
+
+	<span id="rating-error"  class="forminator-error-message">This field is required.</span>
+
+	<span id="rating-description" class="forminator-description">Optional description for slider.</span>
+
+</div>
+
+<div class="forminator-field">
+
+	<label for="rating-field" class="forminator-label">Smiley Rating <span class="forminator-required">*</span></label>
 
 	<select 
 		id="rating-field"
@@ -26,7 +53,7 @@
 
 <div class="forminator-field">
 
-	<label for="rating-field" class="forminator-label">Rating <span class="forminator-required">*</span></label>
+	<label for="rating-field" class="forminator-label">Like Rating <span class="forminator-required">*</span></label>
 
 	<select 
 		id="rating-field-1"
@@ -52,7 +79,7 @@
 
 <div class="forminator-field">
 
-	<label for="rating-field" class="forminator-label">Rating <span class="forminator-required">*</span></label>
+	<label for="rating-field" class="forminator-label">Heart Rating <span class="forminator-required">*</span></label>
 
 	<select 
 		id="rating-field-2"
@@ -61,33 +88,6 @@
 		aria-errormessage="rating-error"
 		data-type="heart"
 		data-size="small"
-		data-suffix="true"
-	>
-		<option value="0" disabled selected>Select rating</option>
-		<option value="1">Rate 1</option>
-		<option value="2">Rate 2</option>
-		<option value="3">Rate 3</option>
-		<option value="4">Rate 4</option>
-		<option value="5">Rate 5</option>
-	</select>
-
-	<span id="rating-error"  class="forminator-error-message">This field is required.</span>
-
-	<span id="rating-description" class="forminator-description">Optional description for slider.</span>
-
-</div>
-
-<div class="forminator-field">
-
-	<label for="rating-field" class="forminator-label">Rating <span class="forminator-required">*</span></label>
-
-	<select 
-		id="rating-field-3"
-		class="forminator-rating"
-		aria-describedby="rating-description"
-		aria-errormessage="rating-error"
-		data-type="star"
-		data-size="large"
 		data-suffix="true"
 	>
 		<option value="0" disabled selected>Select rating</option>

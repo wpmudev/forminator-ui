@@ -37,7 +37,7 @@
                 var $wrapper = $( '<div class="forminator-rating-wrapper"></div>' );
 
                 // Create the rating items container
-                var $ratingItemsContainer = $( '<span data-id="' + id + '" class="forminator-rating-items forminator-rating-' + iconSize + '"></span>' );
+                var $ratingItemsContainer = $( '<span data-id="' + id + '" data-selected-value="' + selectedValue  + '" class="forminator-rating-items forminator-rating-' + iconSize + '"></span>' );
 
                 // Add the rating items to the container based on the number of options
                 for ( i = 0; i < numOptions; i++ ) {
@@ -49,6 +49,9 @@
                         '</span>'
                     );
                 }
+
+				// Add selected-value in select.
+				$element.attr( 'data-selected-value', selectedValue );
 
                 // Append the rating items container to the wrapper
                 $wrapper.append( $ratingItemsContainer );
@@ -114,6 +117,7 @@
 
                 $select.val( value ).trigger( 'change' );
                 $container.attr( 'data-selected-value', value );
+                $select.attr( 'data-selected-value', value );
                 $item.siblings().removeClass( 'forminator-rating-selected' );
                 $item.prevAll().addBack().addClass( 'forminator-rating-selected' );
 
@@ -164,6 +168,7 @@
                     $suffix = $container.next( '.forminator-rating-suffix' );
 
                 $container.attr( 'data-selected-value', value );
+                $select.attr( 'data-selected-value', value );
                 $container.children().removeClass( 'forminator-rating-selected' );
                 $container.children().each( function() {
                     if ( $( this ).data( 'value' ) <= value ) {
