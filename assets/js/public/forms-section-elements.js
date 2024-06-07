@@ -83,7 +83,9 @@
 
 							// Load rating field.
 							if ( rating.length ) {
-								FUI.rating();
+								rating.each( function() {
+									FUI.rating( this );
+								});
 							}
 
 							// Load radio and checkbox function
