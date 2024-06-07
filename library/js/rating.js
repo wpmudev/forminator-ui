@@ -179,7 +179,5 @@
 
         // Init rating
         init();
-
-		console.log( 'Rating js called.' );
     };
 }( jQuery ) );
