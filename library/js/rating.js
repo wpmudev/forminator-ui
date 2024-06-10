@@ -3,6 +3,9 @@
     // Enable strict mode
     'use strict';
 
+	// Flag to track if events are already bound
+    var eventsBound = false;
+
     // Define global FUI object if it doesn't exist.
     if ( 'object' !== typeof window.FUI ) {
         window.FUI = {};
@@ -70,6 +73,12 @@
 
         // Init rating
         init();
+
+		// Call rating field events if they are not already bound
+		if ( ! eventsBound ) {
+			FUI.rating.events();
+			eventsBound = true; // Set the flag to indicate that events are bound
+		}
     };
 
 	FUI.rating.events = function( ) {
@@ -167,8 +176,5 @@
 			}
 		});
 	};
-
-	// Call rating field events.
-	FUI.rating.events();
 
 }( jQuery ) );
