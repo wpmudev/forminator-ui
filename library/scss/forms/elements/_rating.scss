@@ -1,65 +1,53 @@
-@mixin component-rating($form-type: no-type, $form-theme: no-theme) {
+@include body-class(custom-form, all, false) {
+	.forminator-rating {
+		@extend %screen-readers;
+	}
 
-	@include form-class($form-type, $form-theme, false) {
+	.forminator-rating-wrapper {
+		display: flex;
+		gap: 10px;
+		align-items: center;
 
-		.forminator-rating {
-			@extend %screen-readers;
-		}
-
-		.forminator-rating-wrapper {
-			display: flex;
-			gap: 10px;
-			align-items: center;
-
-			&.forminator-rating-focused {
-				.forminator-rating-items {
-					border: 1px solid #17a8e3;
-				}
-			}
-			
+		&.forminator-rating-focused {
 			.forminator-rating-items {
-				display: flex;
-				font-size: 24px;
+				border: 1px solid #17a8e3;
+			}
+		}
+		
+		.forminator-rating-items {
+			display: flex;
+			font-size: 24px;
 
-				&.forminator-rating-large {
-					font-size: 32px;
-				}
-
-				&.forminator-rating-small {
-					font-size: 16px;
-				}
-
-				.forminator-rating-item {
-					padding: 0 5px;
-
-					
-
-					&:first-child {
-						padding-left: 0;
-					}
-	
-					&:last-child {
-						padding-right: 0;
-					}
-				}				
+			&.forminator-rating-large {
+				font-size: 32px;
 			}
 
-			.forminator-rating-suffix {
-				font-size: 13px;
-				line-height: 22px;
-				letter-spacing: -0.25px;
-				color: #888;
+			&.forminator-rating-small {
+				font-size: 16px;
 			}
 
 			.forminator-rating-item {
-				cursor: pointer;
-				transition: ease color 0.2s;
+				padding: 0 5px;
 
-				&.forminator-rating-hover,
-				&.forminator-rating-selected {
-					color: #FF7E41;
+				&:first-child {
+					padding-left: 0;
 				}
-			}
+
+				&:last-child {
+					padding-right: 0;
+				}
+			}				
+		}
+
+		.forminator-rating-suffix {
+			font-size: 13px;
+			line-height: 22px;
+			letter-spacing: -0.25px;
+		}
+
+		.forminator-rating-item {
+			cursor: pointer;
+			transition: ease color 0.2s;
 		}
 	}
 }
