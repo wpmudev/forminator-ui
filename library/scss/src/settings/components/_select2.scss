@@ -35,6 +35,7 @@
 						}
 
 						// TYPE: Single Select.
+						&.select2-selection--multiple,
 						&.select2-selection--single {
 							height: auto;
 							cursor: pointer;
@@ -85,13 +86,13 @@
 								display: block;
 								flex: 1;
 								@if ('default' == $form-theme) {
-									padding: #{10px - ($default--border-width * 2)} 5px #{10px - ($default--border-width * 2)} 14px;
+									padding: #{10px - ($default--border-width * 2)} 5px #{10px - ($default--border-width * 2)} 8px;
 								}
 								@else if ('flat' == $form-theme) {
-									padding: 8px 5px 8px 14px;
+									padding: 8px 5px 8px 8px;
 								}
 								@else if ('bold' == $form-theme) {
-									padding: #{10px - ($bold--border-width * 2)} 5px #{10px - ($bold--border-width * 2)} 14px;
+									padding: #{10px - ($bold--border-width * 2)} 5px #{10px - ($bold--border-width * 2)} 8px;
 								}
 								@else if ('material' == $form-theme) {
 									padding: 8px 5px 8px 0;
@@ -104,6 +105,10 @@
 							ul.select2-selection__rendered {
 								margin: 0;
 								list-style: none;
+
+								.select2-selection__placeholder {
+									margin: 0;
+								}
 							}
 
 							// Icon.
@@ -166,6 +171,12 @@
 							height: 30px;
 							font-size: 24px;
 							color: #777771;
+
+							span {
+								display: block;
+								height: 100%;
+								line-height: 1;
+							}
 						}
 
 						// multiple selection
@@ -193,6 +204,19 @@
 								gap: 6px;
 								margin: 0;
 								white-space: normal;
+								
+								@if ('default' == $form-theme) {
+									border-radius: 4px;
+								}
+								@else if ('flat' == $form-theme) {
+									border-radius: 0;
+								}
+								@else if ('bold' == $form-theme) {
+									border-radius: 4px;
+								}
+								@else if ('material' == $form-theme) {
+									border-radius: 15px;
+								}
 
 								.select2-selection__choice__remove {
 									font-size: 20px;

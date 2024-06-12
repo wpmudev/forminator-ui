@@ -1740,8 +1740,6 @@
 
 			MultipleSelection.prototype.render = function () {
 				var $selection = MultipleSelection.__super__.render.call(this);
-
-				$selection[0].classList.add('select2-selection--single');
 				$selection[0].classList.add('select2-selection--multiple');
 
 				// Assign FUI icon to select button. @edited
