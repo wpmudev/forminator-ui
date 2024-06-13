@@ -8,6 +8,39 @@
 		window.FUI = {};
 	}
 
+	FUI.select = {};
+
+	FUI.select.escapeJS = ( string ) => {
+
+        // Create a temporary <div> element using jQuery and set the HTML content.
+        var div = $( '<div>' ).html( string );
+
+        // Get the text content of the <div> element and remove script tags
+        var text = div.text().replace( /<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '' );
+
+        // Return the escaped text
+        return text;
+    };
+
+	FUI.select.formatCheckbox = ( data, container ) => {
+		const label = FUI.select.escapeJS( data.text );
+		const selected = data.selected;
+		let markup,
+			id = label.toLowerCase().replace( /\s+/g, '-' );
+
+		if ( data.id ) {
+			id = data.id;
+		}
+
+		markup 	=	'<label for="' + id + '" class="forminator-checkbox">' +
+						'<input type="checkbox" value="' + label + '" id="' + id + '" ' + ( selected ? 'checked' : '' ) + ' />' +
+						'<span class="forminator-checkbox-box" aria-hidden="true"></span>' +
+						'<span>' + label + '</span>' +
+					'</label>' ;
+
+		return markup;
+	};
+
 	FUI.select2 = function() {
 
 		$( '.forminator-custom-form' ).each( function() {
@@ -29,8 +62,9 @@
 
 				var $dir,
 					$language = 'en',
-					$placeholder = 'Search',
-					$hasSearch = -1
+					$placeholder = 'Select',
+					$hasSearch = -1,
+					$hasCheckbox = false
 					;
 
 				if ( $element.hasClass( 'forminator-design--' + $theme ) && $select.length ) {
@@ -39,7 +73,8 @@
 
 						var $select = $( this ),
 							$dialog = $select.closest( '.sui-dialog-content' ),
-							$parent = $dialog.length ? $dialog : $select.closest( '.elementor-popup-modal' );
+							$parent = $dialog.length ? $dialog : $select.closest( '.elementor-popup-modal' ),
+							$dropdownClass = 'forminator-custom-form-' + $formid + ' forminator-dropdown--' + $theme;
 
 						if ( true === $select.data( 'rtl-support' ) ) {
 							$dir = 'rtl';
@@ -47,13 +82,13 @@
 							$dir = 'ltr';
 						}
 
-						if ( '' !== $select.data( 'placeholder' ) ) {
+						if ( $select.data( 'placeholder' ) ) {
 							$placeholder = $select.data( 'placeholder' );
 						} else {
-							$placeholder = 'Search';
+							$placeholder = 'Select';
 						}
 
-						if ( '' !== $select.data( 'language' ) ) {
+						if ( $select.data( 'language' ) ) {
 							$language = $select.data( 'language' );
 						} else {
 							$language = 'en';
@@ -65,6 +100,17 @@
 							$hasSearch = -1;
 						}
 
+						if ( true === $select.data( 'checkbox' ) ) {
+							$hasCheckbox = true;
+							$dropdownClass += ' forminator-dropdown--checkbox';
+						} else {
+							$hasCheckbox = false;
+						}
+
+						if ( $select.prop( 'multiple' ) ) {
+							$dropdownClass += ' forminator-dropdown--multiple';
+						}
+
 						if ( ! $parent.length ) {
 							$parent = $( document.body );
 						}
@@ -73,11 +119,23 @@
 							dir: $dir,
 							language: $language,
 							placeholder: $placeholder,
-							dropdownCssClass: 'forminator-custom-form-' + $formid + ' forminator-dropdown--' + $theme,
+							dropdownCssClass: $dropdownClass,
 							minimumResultsForSearch: $hasSearch,
-							dropdownParent: $parent
+							dropdownParent: $parent,
+							...( $hasCheckbox && {
+								closeOnSelect: false,
+								templateResult: FUI.select.formatCheckbox,
+								escapeMarkup: function( markup ) {
+									return markup;
+								}
+							})
 						}).on( 'select2:opening', function() {
-							$select.data( 'select2' ).$dropdown.find( ':input.select2-search__field' ).prop( 'placeholder', '' !== $select.data( 'placeholder' ) ? $select.data( 'placeholder' ) : 'Search' );
+							if ( $select.data( 'search-placeholder' ) ) {
+								$select.data( 'select2' ).$dropdown.find( ':input.select2-search__field' ).prop( 'placeholder', $select.data( 'search-placeholder' ) );
+							} else {
+								$select.data( 'select2' ).$dropdown.find( ':input.select2-search__field' ).prop( 'placeholder', $select.data( 'placeholder' ) ? $select.data( 'placeholder' ) : 'Search' );
+							}
+
 							if ( $select.closest( '.hustle-popup' ).length || $select.closest( '.hustle-slidein' ) ) {
 								$( document.body ).addClass( 'forminator-hustle-dropdown-fix' );
 							}

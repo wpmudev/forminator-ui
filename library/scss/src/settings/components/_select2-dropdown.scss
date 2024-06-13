@@ -83,6 +83,53 @@
 					}
 				}
 
+				// Checkbox in dropdown
+				.forminator-checkbox {
+					line-height: 20px;
+					cursor: pointer;
+					display: flex;
+					flex: 0 0 auto; // It works with `.forminator-checkbox__wrapper` element.
+					align-items: center;
+					position: relative;
+					padding: 10px 8px;
+					gap: 10px;
+					margin: 0;
+		
+					input {
+						@extend %screen-readers;
+		
+						&:checked {
+							+ .forminator-checkbox-box:before {
+								@include opacity(1);
+							}
+						}
+					}
+		
+					span {
+						cursor: pointer;
+						pointer-events: all;
+						display: block;
+					}
+		
+					.forminator-checkbox-box {
+						width: map-get($checkbox, size);
+						height: map-get($checkbox, size);
+						flex: 0 0 map-get($checkbox, size);
+						position: relative;
+		
+						@include icon(before, check) {
+							@include opacity(0);
+							display: block;
+							position: absolute;
+							top: 50%;
+							left: 50%;
+							font-size: map-get($checkbox, icon);
+							transform: translate(-50%, -50%);
+							transition: map-get($transition, ease);
+						}
+					}
+				}
+
 				// DESIGN: Default.
 				&.forminator-dropdown--default {
 					padding: #{$dropdown--padding - $default--border-width} 0;
@@ -116,6 +163,16 @@
 							}
 						}
 					}
+
+					// Checkbox in dropdown
+					.forminator-checkbox {
+			
+						.forminator-checkbox-box {
+							border-width: map-get($border-width, default);
+							border-style: map-get($border-style, default);
+							border-radius: map-get($border-radius, default);
+						}
+					}
 				}
 
 				// DESIGN: Flat.
@@ -145,6 +202,15 @@
 							.select2-results__option {
 								padding: #{calc($dropdown--padding / 2)} $dropdown--padding;
 							}
+						}
+					}
+
+					// Checkbox in dropdown
+					.forminator-checkbox {			
+						.forminator-checkbox-box {
+							border-width: map-get($border-width, flat);
+							border-style: map-get($border-style, flat);
+							border-radius: map-get($border-radius, flat);
 						}
 					}
 				}
@@ -177,6 +243,15 @@
 							}
 						}
 					}
+
+					// Checkbox in dropdown
+					.forminator-checkbox {	
+						.forminator-checkbox-box {
+							border-width: map-get($border-width, bold);
+							border-style: map-get($border-style, bold);
+							border-radius: map-get($border-radius, bold);
+						}
+					}
 				}
 
 				// DESIGN: Material.
@@ -206,8 +281,57 @@
 							}
 						}
 					}
+
+					// Checkbox in dropdown
+					.forminator-checkbox {			
+						input {
+							&:checked {
+								&:focus {
+		
+									+ .forminator-checkbox-box:after {
+										animation-name: click-animation;
+									}
+								}
+			
+								+ .forminator-checkbox-box:after {
+									@include opacity(1);
+								}
+							}
+						}
+			
+						.forminator-checkbox-box {
+							border-width: #{map-get($border-width, material) * 2};
+							border-style: map-get($border-style, material);
+							border-radius: map-get($border-radius, material);
+
+							&:after {
+								content: " ";
+								@include opacity(0);
+								width: map-get($checkbox, size);
+								height: map-get($checkbox, size);
+								position: absolute;
+								top: 50%;
+								left: 50%;
+								border-radius: 100%;
+								transform: translate(-50%, -50%) scale(0);
+								transform-origin: center;
+								transform-style: preserve-3d;
+								animation-duration: 0.6s;
+								animation-fill-mode: both;
+							}
+						}
+					}
+				}
+
+				// Checkbox in dropdown
+				&.forminator-dropdown--checkbox {
+					.select2-results .select2-results__options .select2-results__option {
+						padding: 0;
+					}
 				}
 			}
+
+
 		}
 	}
 
