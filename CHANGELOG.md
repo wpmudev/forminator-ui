@@ -1,5 +1,21 @@
 # Change Log
 
+## [1.12.12](https://github.com/wpmudev/forminator-ui/compare/v1.12.11...v1.12.12) (2024-03-22)
+
+#### ✨ New Features
+- `multiselect`
+  - new(multiselect): multi-select new variation. [#67](https://github.com/wpmudev/forminator-ui/pull/67) ([FOR-4423](https://incsub.atlassian.net/browse/FOR-4423)) ([@creador-dev](https://github.com/creador-dev))
+
+- `rating`
+  - new(rating): new rating field. [#68](https://github.com/wpmudev/forminator-ui/pull/68) ([FOR-4470](https://incsub.atlassian.net/browse/FOR-4470)) ([@creador-dev](https://github.com/creador-dev))
+
+#### 📖 Docs
+- `checkbox`
+  - fix(checkbox): checkbox docs updated. [#65](https://github.com/wpmudev/forminator-ui/pull/65) ([@creador-dev](https://github.com/creador-dev))
+
+- `select`
+  - fix(select): select field docs updated. [#66](https://github.com/wpmudev/forminator-ui/pull/66) ([@creador-dev](https://github.com/creador-dev))
+
 ## [1.12.11](https://github.com/wpmudev/forminator-ui/compare/v1.12.10...v1.12.11) (2024-03-22)
 
 #### ✨ New Features
