@@ -9,7 +9,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
 function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
 function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : String(i); }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
 function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 (function ($) {
@@ -615,6 +615,28 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
   if ('object' !== _typeof(window.FUI)) {
     window.FUI = {};
   }
+  FUI.select = {};
+  FUI.select.escapeJS = function (string) {
+    // Create a temporary <div> element using jQuery and set the HTML content.
+    var div = $('<div>').html(string);
+
+    // Get the text content of the <div> element and remove script tags
+    var text = div.text().replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '');
+
+    // Return the escaped text
+    return text;
+  };
+  FUI.select.formatCheckbox = function (data, container) {
+    var label = FUI.select.escapeJS(data.text);
+    var selected = data.selected;
+    var markup,
+      id = label.toLowerCase().replace(/\s+/g, '-');
+    if (data.id) {
+      id = data.id;
+    }
+    markup = '<label for="' + id + '" class="forminator-checkbox">' + '<input type="checkbox" value="' + label + '" id="' + id + '" ' + (selected ? 'checked' : '') + ' />' + '<span class="forminator-checkbox-box" aria-hidden="true"></span>' + '<span>' + label + '</span>' + '</label>';
+    return markup;
+  };
   FUI.select2 = function () {
     $('.forminator-custom-form').each(function () {
       var $element = $(this),
@@ -624,24 +646,26 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
       $.each($themes, function (index, $theme) {
         var $dir,
           $language = 'en',
-          $placeholder = 'Search',
-          $hasSearch = -1;
+          $placeholder = 'Select',
+          $hasSearch = -1,
+          $hasCheckbox = false;
         if ($element.hasClass('forminator-design--' + $theme) && $select.length) {
           $select.each(function () {
             var $select = $(this),
               $dialog = $select.closest('.sui-dialog-content'),
-              $parent = $dialog.length ? $dialog : $select.closest('.elementor-popup-modal');
+              $parent = $dialog.length ? $dialog : $select.closest('.elementor-popup-modal'),
+              $dropdownClass = 'forminator-custom-form-' + $formid + ' forminator-dropdown--' + $theme;
             if (true === $select.data('rtl-support')) {
               $dir = 'rtl';
             } else {
               $dir = 'ltr';
             }
-            if ('' !== $select.data('placeholder')) {
+            if ($select.data('placeholder')) {
               $placeholder = $select.data('placeholder');
             } else {
-              $placeholder = 'Search';
+              $placeholder = 'Select';
             }
-            if ('' !== $select.data('language')) {
+            if ($select.data('language')) {
               $language = $select.data('language');
             } else {
               $language = 'en';
@@ -651,18 +675,37 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
             } else {
               $hasSearch = -1;
             }
+            if (true === $select.data('checkbox')) {
+              $hasCheckbox = true;
+              $dropdownClass += ' forminator-dropdown--checkbox';
+            } else {
+              $hasCheckbox = false;
+            }
+            if ($select.prop('multiple')) {
+              $dropdownClass += ' forminator-dropdown--multiple';
+            }
             if (!$parent.length) {
               $parent = $(document.body);
             }
-            $select.FUIselect2({
+            $select.FUIselect2(_objectSpread({
               dir: $dir,
               language: $language,
               placeholder: $placeholder,
-              dropdownCssClass: 'forminator-custom-form-' + $formid + ' forminator-dropdown--' + $theme,
+              dropdownCssClass: $dropdownClass,
               minimumResultsForSearch: $hasSearch,
               dropdownParent: $parent
-            }).on('select2:opening', function () {
-              $select.data('select2').$dropdown.find(':input.select2-search__field').prop('placeholder', '' !== $select.data('placeholder') ? $select.data('placeholder') : 'Search');
+            }, $hasCheckbox && {
+              closeOnSelect: false,
+              templateResult: FUI.select.formatCheckbox,
+              escapeMarkup: function escapeMarkup(markup) {
+                return markup;
+              }
+            })).on('select2:opening', function () {
+              if ($select.data('search-placeholder')) {
+                $select.data('select2').$dropdown.find(':input.select2-search__field').prop('placeholder', $select.data('search-placeholder'));
+              } else {
+                $select.data('select2').$dropdown.find(':input.select2-search__field').prop('placeholder', $select.data('placeholder') ? $select.data('placeholder') : 'Search');
+              }
               if ($select.closest('.hustle-popup').length || $select.closest('.hustle-slidein')) {
                 $(document.body).addClass('forminator-hustle-dropdown-fix');
               }
@@ -1125,6 +1168,159 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
         }
       }
     }
+  };
+})(jQuery);
+(function ($) {
+  // Enable strict mode
+  'use strict';
+
+  // Flag to track if events are already bound
+  var eventsBound = false;
+
+  // Define global FUI object if it doesn't exist.
+  if ('object' !== _typeof(window.FUI)) {
+    window.FUI = {};
+  }
+  FUI.rating = function (rating) {
+    function init() {
+      var $rating = rating;
+      $rating.each(function () {
+        var $element = $(this),
+          i;
+
+        // Get the id
+        var id = $element.attr('id');
+
+        // Get the number of options, excluding the first placeholder option
+        var $options = $element.find('option').not(':disabled');
+        var numOptions = $options.length;
+
+        // Get the icon type from the data-type attribute
+        var iconType = $element.attr('data-type') || 'star';
+
+        // Get the icon type from the data-type attribute
+        var iconSize = $element.attr('data-size') || 'md';
+
+        // Calculate the selected value.
+        var selectedValue = $element.find('option:selected').val() || 0;
+
+        // Create the wrapper element
+        var $wrapper = $('<div class="forminator-rating-wrapper"></div>');
+
+        // Create the rating items container
+        var $ratingItemsContainer = $('<span data-id="' + id + '" data-selected-value="' + selectedValue + '" class="forminator-rating-items forminator-rating-' + iconSize + '"></span>');
+
+        // Add the rating items to the container based on the number of options
+        for (i = 0; i < numOptions; i++) {
+          var optionValue = $options.eq(i).val();
+          var itemClass = optionValue <= selectedValue ? 'forminator-rating-item forminator-rating-selected' : 'forminator-rating-item';
+          $ratingItemsContainer.append('<span class="' + itemClass + '" data-value="' + optionValue + '">' + '<i class="forminator-icon-' + iconType + '" aria-hidden="true"></i>' + '</span>');
+        }
+
+        // Add selected-value in select.
+        $element.attr('data-selected-value', selectedValue);
+
+        // Append the rating items container to the wrapper
+        $wrapper.append($ratingItemsContainer);
+
+        // Check if data-suffix is true
+        if ('true' === $element.attr('data-suffix')) {
+          // Add the suffix span
+          $wrapper.append('<span class="forminator-rating-suffix">(' + selectedValue + '/' + numOptions + ')</span>');
+        }
+
+        // Insert the wrapper after the select element
+        $element.after($wrapper);
+      });
+    }
+
+    // Init rating
+    init();
+
+    // Call rating field events if they are not already bound
+    if (!eventsBound) {
+      FUI.rating.events();
+      eventsBound = true; // Set the flag to indicate that events are bound
+    }
+  };
+  FUI.rating.events = function () {
+    $(document).on('mouseenter', '.forminator-rating-item', function () {
+      var $item = $(this);
+      $item.siblings().removeClass('forminator-rating-selected');
+      $item.prevAll().addBack().addClass('forminator-rating-hover');
+    });
+    $(document).on('mouseleave', '.forminator-rating-item', function () {
+      var $item = $(this);
+      var $container = $item.closest('.forminator-rating-items');
+      var id = $container.data('id');
+      var $select = $('#' + id);
+      var selectedValue = $select.find('option:selected').val();
+      $item.prevAll().addBack().removeClass('forminator-rating-hover');
+      $item.siblings().addBack().each(function () {
+        if ($(this).data('value') <= selectedValue) {
+          $(this).addClass('forminator-rating-selected');
+        } else {
+          $(this).removeClass('forminator-rating-selected');
+        }
+      });
+    });
+    $(document).on('click', '.forminator-rating-item', function () {
+      var $item = $(this),
+        value = $item.data('value'),
+        $container = $item.closest('.forminator-rating-items'),
+        id = $container.data('id'),
+        $select = $('#' + id),
+        $suffix = $container.next('.forminator-rating-suffix');
+      $select.val(value).trigger('change');
+      $container.attr('data-selected-value', value);
+      $select.attr('data-selected-value', value);
+      $item.siblings().removeClass('forminator-rating-selected');
+      $item.prevAll().addBack().addClass('forminator-rating-selected');
+      if ($suffix.length) {
+        $suffix.text('(' + value + '/' + $container.children().length + ')');
+      }
+    });
+    $(document).on('focus', '.forminator-rating', function () {
+      var $select = $(this),
+        $wrapper = $select.next('.forminator-rating-wrapper');
+      $wrapper.addClass('forminator-rating-focused');
+    });
+    $(document).on('blur', '.forminator-rating', function () {
+      var $select = $(this),
+        $wrapper = $select.next('.forminator-rating-wrapper');
+      $wrapper.removeClass('forminator-rating-focused');
+    });
+    $(document).on('keydown', '.forminator-rating', function (e) {
+      var $select = $(this),
+        $options = $select.find('option'),
+        currentIndex = $options.index($select.find('option:selected'));
+      if ('ArrowUp' === e.key || 'ArrowRight' === e.key || 'ArrowDown' === e.key || 'ArrowLeft' === e.key) {
+        e.preventDefault();
+      }
+      if (('ArrowUp' === e.key || 'ArrowRight' === e.key) && currentIndex < $options.length - 1) {
+        $options.eq(currentIndex + 1).prop('selected', true).trigger('change');
+      } else if (('ArrowDown' === e.key || 'ArrowLeft' === e.key) && 0 < currentIndex) {
+        $options.eq(currentIndex - 1).prop('selected', true).trigger('change');
+      }
+    });
+    $(document).on('change', '.forminator-rating', function () {
+      var $select = $(this),
+        value = $select.val() || 0,
+        id = $select.attr('id'),
+        $container = $('[data-id="' + id + '"]'),
+        $suffix = $container.next('.forminator-rating-suffix');
+      $container.attr('data-selected-value', value);
+      $select.attr('data-selected-value', value);
+      $container.children().removeClass('forminator-rating-selected');
+      $container.children().each(function () {
+        if ($(this).data('value') <= value) {
+          $(this).addClass('forminator-rating-selected');
+        }
+      });
+      if ($suffix.length) {
+        $suffix.text('(' + value + '/' + $container.children().length + ')');
+      }
+    });
   };
 })(jQuery);
 (function ($) {
