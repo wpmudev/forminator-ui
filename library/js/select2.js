@@ -107,6 +107,10 @@
 							$hasCheckbox = false;
 						}
 
+						if ( $select.prop( 'multiple' ) ) {
+							$dropdownClass += ' forminator-dropdown--multiple';
+						}
+
 						if ( ! $parent.length ) {
 							$parent = $( document.body );
 						}
