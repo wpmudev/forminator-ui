@@ -16,6 +16,7 @@
 		
 		.forminator-rating-items {
 			display: flex;
+			flex-wrap: wrap;
 			border: 1px solid transparent;
 			
 			&.forminator-rating-md {
