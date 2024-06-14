@@ -41,9 +41,9 @@
 				var $ratingItemsContainer = $( '<span data-id="' + id + '" data-selected-value="' + selectedValue  + '" class="forminator-rating-items forminator-rating-' + iconSize + '"></span>' );
 
 				// Intialized
-				var init = $element.attr( 'data-init' ) || 'false';
+				var isInitialized = $element.attr( 'data-init' ) || 'false';
 
-				if ( 'true' === init ) {
+				if ( 'true' === isInitialized ) {
 					return;
 				}
 
