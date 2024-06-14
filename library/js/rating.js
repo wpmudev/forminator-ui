@@ -44,7 +44,7 @@
 				var isInitialized = $element.attr( 'data-init' ) || 'false';
 
 				if ( 'true' === isInitialized ) {
-					return;
+					$element.next( '.forminator-rating-wrapper' ).remove();
 				}
 
 				// Add the rating items to the container based on the number of options
@@ -77,6 +77,26 @@
 				$element.after( $wrapper );
 
 				$element.attr( 'data-init', 'true' );
+
+				// Add change event inside the rating field initialization
+                $element.on( 'change', function() {
+                    var value = $( this ).val() || 0;
+                    var $container = $( '[data-id="' + id + '"]' );
+                    var $suffix = $container.next( '.forminator-rating-suffix' );
+
+                    $container.attr( 'data-selected-value', value );
+                    $( this ).attr( 'data-selected-value', value );
+                    $container.children().removeClass( 'forminator-rating-selected' );
+                    $container.children().each( function() {
+                        if ( $( this ).data( 'value' ) <= value ) {
+                            $( this ).addClass( 'forminator-rating-selected' );
+                        }
+                    });
+
+                    if ( $suffix.length ) {
+                        $suffix.text( '(' + value + '/' + $container.children().length + ')' );
+                    }
+                });
 			});
         }
 
@@ -164,26 +184,6 @@
 			}
 		});
 
-		$( document ).on( 'change', '.forminator-rating', function() {
-			var $select = $( this ),
-				value = $select.val() || 0,
-				id = $select.attr( 'id' ),
-				$container = $( '[data-id="' + id + '"]' ),
-				$suffix = $container.next( '.forminator-rating-suffix' );
-
-			$container.attr( 'data-selected-value', value );
-			$select.attr( 'data-selected-value', value );
-			$container.children().removeClass( 'forminator-rating-selected' );
-			$container.children().each( function() {
-				if ( $( this ).data( 'value' ) <= value ) {
-					$( this ).addClass( 'forminator-rating-selected' );
-				}
-			});
-
-			if ( $suffix.length ) {
-				$suffix.text( '(' + value + '/' + $container.children().length + ')' );
-			}
-		});
 	};
 
 }( jQuery ) );
