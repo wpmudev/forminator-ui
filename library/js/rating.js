@@ -40,6 +40,13 @@
 				// Create the rating items container
 				var $ratingItemsContainer = $( '<span data-id="' + id + '" data-selected-value="' + selectedValue  + '" class="forminator-rating-items forminator-rating-' + iconSize + '"></span>' );
 
+				// Intialized
+				var init = $element.attr( 'data-init' ) || 'false';
+
+				if ( 'true' === init ) {
+					return;
+				}
+
 				// Add the rating items to the container based on the number of options
 				for ( i = 0; i < numOptions; i++ ) {
 					let optionValue = $options.eq( i ).val();
@@ -68,6 +75,8 @@
 
 				// Insert the wrapper after the select element
 				$element.after( $wrapper );
+
+				$element.attr( 'data-init', 'true' );
 			});
         }
 
