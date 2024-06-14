@@ -40,6 +40,13 @@
 				// Create the rating items container
 				var $ratingItemsContainer = $( '<span data-id="' + id + '" data-selected-value="' + selectedValue  + '" class="forminator-rating-items forminator-rating-' + iconSize + '"></span>' );
 
+				// Intialized
+				var isInitialized = $element.attr( 'data-init' ) || 'false';
+
+				if ( 'true' === isInitialized ) {
+					$element.next( '.forminator-rating-wrapper' ).remove();
+				}
+
 				// Add the rating items to the container based on the number of options
 				for ( i = 0; i < numOptions; i++ ) {
 					let optionValue = $options.eq( i ).val();
@@ -68,6 +75,28 @@
 
 				// Insert the wrapper after the select element
 				$element.after( $wrapper );
+
+				$element.attr( 'data-init', 'true' );
+
+				// Add change event inside the rating field initialization
+                $element.on( 'change', function() {
+                    var value = $( this ).val() || 0;
+                    var $container = $( '[data-id="' + id + '"]' );
+                    var $suffix = $container.next( '.forminator-rating-suffix' );
+
+                    $container.attr( 'data-selected-value', value );
+                    $( this ).attr( 'data-selected-value', value );
+                    $container.children().removeClass( 'forminator-rating-selected' );
+                    $container.children().each( function() {
+                        if ( $( this ).data( 'value' ) <= value ) {
+                            $( this ).addClass( 'forminator-rating-selected' );
+                        }
+                    });
+
+                    if ( $suffix.length ) {
+                        $suffix.text( '(' + value + '/' + $container.children().length + ')' );
+                    }
+                });
 			});
         }
 
@@ -155,26 +184,6 @@
 			}
 		});
 
-		$( document ).on( 'change', '.forminator-rating', function() {
-			var $select = $( this ),
-				value = $select.val() || 0,
-				id = $select.attr( 'id' ),
-				$container = $( '[data-id="' + id + '"]' ),
-				$suffix = $container.next( '.forminator-rating-suffix' );
-
-			$container.attr( 'data-selected-value', value );
-			$select.attr( 'data-selected-value', value );
-			$container.children().removeClass( 'forminator-rating-selected' );
-			$container.children().each( function() {
-				if ( $( this ).data( 'value' ) <= value ) {
-					$( this ).addClass( 'forminator-rating-selected' );
-				}
-			});
-
-			if ( $suffix.length ) {
-				$suffix.text( '(' + value + '/' + $container.children().length + ')' );
-			}
-		});
 	};
 
 }( jQuery ) );
