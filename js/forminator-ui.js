@@ -3,12 +3,12 @@
  * Copyright 2019 Incsub (https://incsub.com)
  * Licensed under GPL v3 (http://www.gnu.org/licenses/gpl-3.0.html)
  */
-function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+function _createForOfIteratorHelper(r, e) { var t = "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (!t) { if (Array.isArray(r) || (t = _unsupportedIterableToArray(r)) || e && r && "number" == typeof r.length) { t && (r = t); var _n = 0, F = function F() {}; return { s: F, n: function n() { return _n >= r.length ? { done: !0 } : { done: !1, value: r[_n++] }; }, e: function e(r) { throw r; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var o, a = !0, u = !1; return { s: function s() { t = t.call(r); }, n: function n() { var r = t.next(); return a = r.done, r; }, e: function e(r) { u = !0, o = r; }, f: function f() { try { a || null == t["return"] || t["return"](); } finally { if (u) throw o; } } }; }
+function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
 function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
 function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
-function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
 function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
 function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
@@ -1210,6 +1210,12 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
         // Create the rating items container
         var $ratingItemsContainer = $('<span data-id="' + id + '" data-selected-value="' + selectedValue + '" class="forminator-rating-items forminator-rating-' + iconSize + '"></span>');
 
+        // Intialized
+        var isInitialized = $element.attr('data-init') || 'false';
+        if ('true' === isInitialized) {
+          $element.next('.forminator-rating-wrapper').remove();
+        }
+
         // Add the rating items to the container based on the number of options
         for (i = 0; i < numOptions; i++) {
           var optionValue = $options.eq(i).val();
@@ -1217,8 +1223,9 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
           $ratingItemsContainer.append('<span class="' + itemClass + '" data-value="' + optionValue + '">' + '<i class="forminator-icon-' + iconType + '" aria-hidden="true"></i>' + '</span>');
         }
 
-        // Add selected-value in select.
+        // Add selected-value and total-value in select.
         $element.attr('data-selected-value', selectedValue);
+        $element.attr('data-total-value', numOptions);
 
         // Append the rating items container to the wrapper
         $wrapper.append($ratingItemsContainer);
@@ -1231,6 +1238,25 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
 
         // Insert the wrapper after the select element
         $element.after($wrapper);
+        $element.attr('data-init', 'true');
+
+        // Add change event inside the rating field initialization
+        $element.on('change', function () {
+          var value = $(this).val() || 0;
+          var $container = $('[data-id="' + id + '"]');
+          var $suffix = $container.next('.forminator-rating-suffix');
+          $container.attr('data-selected-value', value);
+          $(this).attr('data-selected-value', value);
+          $container.children().removeClass('forminator-rating-selected');
+          $container.children().each(function () {
+            if ($(this).data('value') <= value) {
+              $(this).addClass('forminator-rating-selected');
+            }
+          });
+          if ($suffix.length) {
+            $suffix.text('(' + value + '/' + $container.children().length + ')');
+          }
+        });
       });
     }
 
@@ -1301,24 +1327,6 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
         $options.eq(currentIndex + 1).prop('selected', true).trigger('change');
       } else if (('ArrowDown' === e.key || 'ArrowLeft' === e.key) && 0 < currentIndex) {
         $options.eq(currentIndex - 1).prop('selected', true).trigger('change');
-      }
-    });
-    $(document).on('change', '.forminator-rating', function () {
-      var $select = $(this),
-        value = $select.val() || 0,
-        id = $select.attr('id'),
-        $container = $('[data-id="' + id + '"]'),
-        $suffix = $container.next('.forminator-rating-suffix');
-      $container.attr('data-selected-value', value);
-      $select.attr('data-selected-value', value);
-      $container.children().removeClass('forminator-rating-selected');
-      $container.children().each(function () {
-        if ($(this).data('value') <= value) {
-          $(this).addClass('forminator-rating-selected');
-        }
-      });
-      if ($suffix.length) {
-        $suffix.text('(' + value + '/' + $container.children().length + ')');
       }
     });
   };
