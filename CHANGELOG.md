@@ -1,5 +1,14 @@
 # Change Log
 
+## [1.12.13](https://github.com/wpmudev/forminator-ui/compare/v1.12.12...v1.12.13) (2024-03-22)
+####  🐛 Bug Fix
+- `rating`
+  - fix(rating): wrap rating field items. [#69](https://github.com/wpmudev/forminator-ui/pull/69) ([FOR-4494](https://incsub.atlassian.net/browse/FOR-4494)) ([@creador-dev](https://github.com/creador-dev))
+  - fix(rating): rating field init and onChange fix. [#70](https://github.com/wpmudev/forminator-ui/pull/70) ([FOR-4496](https://incsub.atlassian.net/browse/FOR-4496)) ([@creador-dev](https://github.com/creador-dev))
+  - fix(rating): rating field data-total-value added. [#72](https://github.com/wpmudev/forminator-ui/pull/72) ([@creador-dev](https://github.com/creador-dev))
+- `multiselect`
+  - fix(multiselect): multiselect design fix. [#71](https://github.com/wpmudev/forminator-ui/pull/71) ([@creador-dev](https://github.com/creador-dev))
+
 ## [1.12.12](https://github.com/wpmudev/forminator-ui/compare/v1.12.11...v1.12.12) (2024-03-22)
 
 #### ✨ New Features
