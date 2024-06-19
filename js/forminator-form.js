@@ -371,7 +371,7 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
     if (data.id) {
       id = data.id;
     }
-    markup = '<label for="' + id + '" class="forminator-checkbox">' + '<input type="checkbox" value="' + label + '" id="' + id + '" ' + (selected ? 'checked' : '') + ' />' + '<span class="forminator-checkbox-box" aria-hidden="true"></span>' + '<span>' + label + '</span>' + '</label>';
+    markup = '<label for="' + id + '" class="forminator-checkbox">' + '<input type="checkbox" value="' + label + '" id="' + id + '" ' + (selected ? 'checked' : '') + ' />' + '<span class="forminator-checkbox-box" aria-hidden="true"></span>' + '<span class="forminator-select-label">' + label + '</span>' + '</label>';
     return markup;
   };
   FUI.select2 = function () {
