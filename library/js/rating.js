@@ -58,8 +58,9 @@
 					);
 				}
 
-				// Add selected-value in select.
+				// Add selected-value and total-value in select.
 				$element.attr( 'data-selected-value', selectedValue );
+				$element.attr( 'data-total-value', numOptions );
 
 				// Append the rating items container to the wrapper
 				$wrapper.append( $ratingItemsContainer );
