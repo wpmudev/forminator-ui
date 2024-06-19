@@ -35,7 +35,7 @@
 		markup 	=	'<label for="' + id + '" class="forminator-checkbox">' +
 						'<input type="checkbox" value="' + label + '" id="' + id + '" ' + ( selected ? 'checked' : '' ) + ' />' +
 						'<span class="forminator-checkbox-box" aria-hidden="true"></span>' +
-						'<span>' + label + '</span>' +
+						'<span class="forminator-select-label">' + label + '</span>' +
 					'</label>' ;
 
 		return markup;
