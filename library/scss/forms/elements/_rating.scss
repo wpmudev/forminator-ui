@@ -17,8 +17,10 @@
 		.forminator-rating-items {
 			display: flex;
 			flex-wrap: wrap;
+			line-height: 1;
+			gap: 10px;
 			border: 1px solid transparent;
-			
+
 			&.forminator-rating-md {
 				font-size: 24px;
 			}
@@ -29,22 +31,11 @@
 
 			&.forminator-rating-sm {
 				font-size: 16px;
-			}
-
-			.forminator-rating-item {
-				padding: 0 5px;
-
-				&:first-child {
-					padding-left: 0;
-				}
-
-				&:last-child {
-					padding-right: 0;
-				}
-			}				
+			}			
 		}
 
 		.forminator-rating-suffix {
+			display: block;
 			font-size: 13px;
 			line-height: 22px;
 			letter-spacing: -0.25px;
