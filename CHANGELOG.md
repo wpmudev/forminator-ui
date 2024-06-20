@@ -1,5 +1,10 @@
 # Change Log
 
+## [1.12.14](https://github.com/wpmudev/forminator-ui/compare/v1.12.13...v1.12.14) (2024-03-22)
+####  🐛 Bug Fix
+- `rating`
+  - fix(rating): rating field design improvements. [#73](https://github.com/wpmudev/forminator-ui/pull/73) ([FOR-4494](https://incsub.atlassian.net/browse/FOR-4494)) ([@creador-dev](https://github.com/creador-dev))
+
 ## [1.12.13](https://github.com/wpmudev/forminator-ui/compare/v1.12.12...v1.12.13) (2024-03-22)
 ####  🐛 Bug Fix
 - `rating`
