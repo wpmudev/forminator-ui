@@ -592,6 +592,37 @@
 			border-color: $multiselect-error--border;
 		}
 	}
+
+	// ============================================================
+	// FIELD: Rating
+	.forminator-rating-wrapper {
+		&.forminator-rating-focused {
+			.forminator-rating-items {
+				border: 1px solid #17a8e3;
+			}
+		}
+		
+		.forminator-rating-suffix {
+			color: #888;
+		}
+
+		.forminator-rating-item {
+			[class*=forminator-icon-] {
+				&:before {
+					color: #aaa;
+				}
+			}
+
+			&.forminator-rating-hover,
+			&.forminator-rating-selected {
+				[class*=forminator-icon-] {
+					&:before {
+						color: #FF7E41;
+					}
+				}
+			}
+		}
+	}
 }
 
 // ELEMENT: Select2 Dropdown
