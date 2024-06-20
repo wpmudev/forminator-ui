@@ -69,7 +69,7 @@
 				if ( 'true' === $element.attr( 'data-suffix' ) ) {
 
 					// Add the suffix span
-					$wrapper.append(
+					$ratingItemsContainer.append(
 						'<span class="forminator-rating-suffix">(' + selectedValue + '/' + numOptions + ')</span>'
 					);
 				}

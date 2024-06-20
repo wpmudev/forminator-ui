@@ -20,6 +20,7 @@
 			.forminator-rating-items {
 				display: flex;
 				flex-wrap: wrap;
+				gap: 10px;
 				border: 1px solid transparent;
 
 				&.forminator-rating-md {
@@ -32,24 +33,13 @@
 
 				&.forminator-rating-sm {
 					font-size: 16px;
-				}
-
-				.forminator-rating-item {
-					padding: 0 5px;
-
-					&:first-child {
-						padding-left: 0;
-					}
-	
-					&:last-child {
-						padding-right: 0;
-					}
-				}				
+				}			
 			}
 
 			.forminator-rating-suffix {
+				display: block;
 				font-size: 13px;
-				line-height: 22px;
+				line-height: 32px;
 				letter-spacing: -0.25px;
 				color: #888;
 			}
