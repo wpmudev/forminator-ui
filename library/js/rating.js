@@ -83,7 +83,7 @@
                 $element.on( 'change', function() {
                     var value = $( this ).val() || 0;
                     var $container = $( '[data-id="' + id + '"]' );
-                    var $suffix = $container.next( '.forminator-rating-suffix' );
+                    var $suffix = $container.find( '.forminator-rating-suffix' );
 
                     $container.attr( 'data-selected-value', value );
                     $( this ).attr( 'data-selected-value', value );
@@ -95,7 +95,7 @@
                     });
 
                     if ( $suffix.length ) {
-                        $suffix.text( '(' + value + '/' + $container.children().length + ')' );
+                        $suffix.text( '(' + value + '/' + $container.children().not( '.forminator-rating-suffix' ).length + ')' );
                     }
                 });
 			});
@@ -142,7 +142,7 @@
 				$container = $item.closest( '.forminator-rating-items' ),
 				id = $container.data( 'id' ),
 				$select = $( '#' + id ),
-				$suffix = $container.next( '.forminator-rating-suffix' );
+				$suffix = $container.find( '.forminator-rating-suffix' );
 
 			$select.val( value ).trigger( 'change' );
 			$container.attr( 'data-selected-value', value );
@@ -151,7 +151,7 @@
 			$item.prevAll().addBack().addClass( 'forminator-rating-selected' );
 
 			if ( $suffix.length ) {
-				$suffix.text( '(' + value + '/' + $container.children().length + ')' );
+				$suffix.text( '(' + value + '/' + $container.children().not( '.forminator-rating-suffix' ).length + ')' );
 			}
 		});
 
