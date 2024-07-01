@@ -2,6 +2,10 @@
     
     @include form-class($form-type, $form-theme, false) {
 
+		.forminator-field-captcha {
+			overflow: hidden;
+		}
+
         .forminator-g-recaptcha:not(.recaptcha-invisible) {
 
             .grecaptcha-badge {
