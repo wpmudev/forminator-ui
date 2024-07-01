@@ -32,7 +32,7 @@
 				var iconSize = $element.attr( 'data-size' ) || 'md';
 
 				// Calculate the selected value.
-				var selectedValue = $element.find( 'option:selected' ).val() || 0;
+				var selectedValue = Number( $element.find( 'option:selected' ).val() ) || 0;
 
 				// Create the wrapper element
 				var $wrapper = $( '<div class="forminator-rating-wrapper"></div>' );
@@ -49,7 +49,7 @@
 
 				// Add the rating items to the container based on the number of options
 				for ( i = 0; i < numOptions; i++ ) {
-					let optionValue = $options.eq( i ).val();
+					let optionValue = Number( $options.eq( i ).val() );
 					let itemClass = optionValue <= selectedValue ? 'forminator-rating-item forminator-rating-selected' : 'forminator-rating-item';
 					$ratingItemsContainer.append(
 						'<span class="' + itemClass + '" data-value="' + optionValue + '">' +
@@ -81,7 +81,7 @@
 
 				// Add change event inside the rating field initialization
                 $element.on( 'change', function() {
-                    var value = $( this ).val() || 0;
+                    var value = Number( $( this ).val() ) || 0;
                     var $container = $( '[data-id="' + id + '"]' );
                     var $suffix = $container.find( '.forminator-rating-suffix' );
 
@@ -123,7 +123,7 @@
 			var $container = $item.closest( '.forminator-rating-items' );
 			var id = $container.data( 'id' );
 			var $select = $( '#' + id );
-			var selectedValue = $select.find( 'option:selected' ).val();
+			var selectedValue = Number( $select.find( 'option:selected' ).val() );
 
 			$item.prevAll().addBack().removeClass( 'forminator-rating-hover' );
 
@@ -138,7 +138,7 @@
 
         $( document ).on( 'click', '.forminator-rating-item', function() {
 			var $item = $( this ),
-				value = $item.data( 'value' ),
+				value = Number( $item.data( 'value' ) ),
 				$container = $item.closest( '.forminator-rating-items' ),
 				id = $container.data( 'id' ),
 				$select = $( '#' + id ),
