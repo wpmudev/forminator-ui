@@ -1,5 +1,13 @@
 # Change Log
 
+## [1.12.15](https://github.com/wpmudev/forminator-ui/compare/v1.12.14...v1.12.15) (2024-07-11)
+####  🐛 Bug Fix
+- `rating`
+  - fix(rating): rating field type issue for values. [#74](https://github.com/wpmudev/forminator-ui/pull/74) ([FOR-4566](https://incsub.atlassian.net/browse/FOR-4566)) ([@creador-dev](https://github.com/creador-dev))
+
+- `captcha`
+  - fix(captcha): captcha field hide when it overflow. [#75](https://github.com/wpmudev/forminator-ui/pull/74) ([FOR-4514](https://incsub.atlassian.net/browse/FOR-4514)) ([@creador-dev](https://github.com/creador-dev))
+
 ## [1.12.14](https://github.com/wpmudev/forminator-ui/compare/v1.12.13...v1.12.14) (2024-03-22)
 ####  🐛 Bug Fix
 - `rating`
