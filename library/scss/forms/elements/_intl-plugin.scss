@@ -3,16 +3,16 @@
 	.forminator-phone {
 		display: block;
 
-		.flag-container {
+		.country-container {
 
-			.selected-flag {
+			.selected-country {
 				width: auto;
 				display: flex;
 				align-items: center;
 				margin: 0;
 				padding: 0 map-get($input, padding);
 
-				.iti-flag {
+				.iti-country {
 					display: block;
 					position: relative;
 					top: auto;
@@ -51,7 +51,7 @@
 
 		&:not(.allow-dropdown) {
 
-			.flag-container {
+			.country-container {
 				pointer-events: none;
 			}
 		}
@@ -64,21 +64,21 @@
 
 	.forminator-phone {
 
-		.flag-container {
+		.country-container {
 			padding: map-get($border-width, default);
 		}
 
 		&.allow-dropdown {
 
 			.forminator-input {
-				padding-left: #{($int-flag-size + (map-get($input, padding) * 2)) + (map-get($input, padding) + map-get($border-width, default))};
+				padding-left: #{($int-country-size + (map-get($input, padding) * 2)) + (map-get($input, padding) + map-get($border-width, default))};
 			}
 		}
 
 		&:not(.allow-dropdown) {
 
 			.forminator-input {
-				padding-right: #{($int-flag-size + (map-get($input, padding) * 2)) + (map-get($input, padding) + map-get($border-width, default))};
+				padding-right: #{($int-country-size + (map-get($input, padding) * 2)) + (map-get($input, padding) + map-get($border-width, default))};
 			}
 		}
 	}
@@ -90,21 +90,21 @@
 
 	.forminator-phone {
 
-		.flag-container {
+		.country-container {
 			padding: map-get($border-width, flat);
 		}
 
 		&.allow-dropdown {
 
 			.forminator-input {
-				padding-left: #{($int-flag-size + (map-get($input, padding) * 2)) + (map-get($input, padding) + map-get($border-width, flat))};
+				padding-left: #{($int-country-size + (map-get($input, padding) * 2)) + (map-get($input, padding) + map-get($border-width, flat))};
 			}
 		}
 
 		&:not(.allow-dropdown) {
 
 			.forminator-input {
-				padding-right: #{($int-flag-size + (map-get($input, padding) * 2)) + (map-get($input, padding) + map-get($border-width, flat))};
+				padding-right: #{($int-country-size + (map-get($input, padding) * 2)) + (map-get($input, padding) + map-get($border-width, flat))};
 			}
 		}
 	}
@@ -116,21 +116,21 @@
 
 	.forminator-phone {
 
-		.flag-container {
+		.country-container {
 			padding: map-get($border-width, bold);
 		}
 
 		&.allow-dropdown {
 
 			.forminator-input {
-				padding-left: #{($int-flag-size + (map-get($input, padding) * 2)) + (map-get($input, padding) + map-get($border-width, bold))};
+				padding-left: #{($int-country-size + (map-get($input, padding) * 2)) + (map-get($input, padding) + map-get($border-width, bold))};
 			}
 		}
 
 		&:not(.allow-dropdown) {
 
 			.forminator-input {
-				padding-right: #{($int-flag-size + (map-get($input, padding) * 2)) + (map-get($input, padding) + map-get($border-width, bold))};
+				padding-right: #{($int-country-size + (map-get($input, padding) * 2)) + (map-get($input, padding) + map-get($border-width, bold))};
 			}
 		}
 	}
