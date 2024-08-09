@@ -5,7 +5,7 @@
 		.forminator-phone {
 			display: block;
 
-			.iti__flag-container {
+			.iti__country-container {
 				@if ('default' == $form-theme) {
 					padding: map-get($border-width, default);
 				}
@@ -16,14 +16,14 @@
 					padding: map-get($border-width, bold);
 				}
 
-				.iti__selected-flag {
+				.iti__selected-country {
 					width: auto;
 					display: flex;
 					align-items: center;
 					margin: 0;
 					padding: 0 map-get($input, padding);
 
-					.iti__flag {
+					.iti__country {
 						display: block;
 						position: relative;
 						top: auto;
@@ -66,13 +66,13 @@
 
 					.forminator-input {
 						@if ('default' == $form-theme) {
-							padding-left: #{($int-flag-size + (map-get($input, padding) * 2)) + (map-get($input, padding) + map-get($border-width, default))};
+							padding-left: #{($int-country-size + (map-get($input, padding) * 2)) + (map-get($input, padding) + map-get($border-width, default))};
 						}
 						@if ('flat' == $form-theme) {
-							padding-left: #{($int-flag-size + (map-get($input, padding) * 2)) + (map-get($input, padding) + map-get($border-width, flat))};
+							padding-left: #{($int-country-size + (map-get($input, padding) * 2)) + (map-get($input, padding) + map-get($border-width, flat))};
 						}
 						@if ('bold' == $form-theme) {
-							padding-left: #{($int-flag-size + (map-get($input, padding) * 2)) + (map-get($input, padding) + map-get($border-width, bold))};
+							padding-left: #{($int-country-size + (map-get($input, padding) * 2)) + (map-get($input, padding) + map-get($border-width, bold))};
 						}
 					}
 				}
@@ -80,7 +80,7 @@
 
 			&:not(.iti--allow-dropdown) {
 
-				.iti__flag-container {
+				.iti__country-container {
 					pointer-events: none;
 				}
 
@@ -88,13 +88,13 @@
 
 					.forminator-input {
 						@if ('default' == $form-theme) {
-							padding-right: #{($int-flag-size + (map-get($input, padding) * 2)) + (map-get($input, padding) + map-get($border-width, default))};
+							padding-right: #{($int-country-size + (map-get($input, padding) * 2)) + (map-get($input, padding) + map-get($border-width, default))};
 						}
 						@if ('flat' == $form-theme) {
-							padding-right: #{($int-flag-size + (map-get($input, padding) * 2)) + (map-get($input, padding) + map-get($border-width, flat))};
+							padding-right: #{($int-country-size + (map-get($input, padding) * 2)) + (map-get($input, padding) + map-get($border-width, flat))};
 						}
 						@if ('bold' == $form-theme) {
-							padding-right: #{($int-flag-size + (map-get($input, padding) * 2)) + (map-get($input, padding) + map-get($border-width, bold))};
+							padding-right: #{($int-country-size + (map-get($input, padding) * 2)) + (map-get($input, padding) + map-get($border-width, bold))};
 						}
 					}
 				}
@@ -107,7 +107,7 @@
 				min-height: 40px;
 			}
 
-			.iti__flag-container {
+			.iti__country-container {
 				@if ('material' == $form-theme) {
 					flex: 0 0 auto;
 					position: absolute;
@@ -116,7 +116,7 @@
 					padding: 0;
 				}
 
-				.iti__selected-flag {
+				.iti__selected-country {
 					width: 31px;
 					display: flex;
 					align-items: center;
@@ -129,7 +129,7 @@
 						background-color: transparent !important;
 					}
 
-					.iti__flag {
+					.iti__country {
 						display: block;
 						position: relative;
 						top: auto;
@@ -173,7 +173,7 @@
 					}
 
 					~ span {
-						padding-left: #{$int-flag-size + map-get($input, padding)};
+						padding-left: #{$int-country-size + map-get($input, padding)};
 					}
 				}
 
@@ -203,7 +203,7 @@
 			&:not(.iti--allow-dropdown) {
 
 				.forminator-input--wrap {
-					left: #{$int-flag-size + map-get($input, padding)};
+					left: #{$int-country-size + map-get($input, padding)};
 				}
 			}
 		}
