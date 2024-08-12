@@ -21,9 +21,21 @@
 					display: flex;
 					align-items: center;
 					margin: 0;
-					padding: 0 map-get($input, padding);
+					padding: 0;
+					background: unset;
 
-					.iti__country {
+					.iti__selected-country-primary {
+						padding: 0 map-get($input, padding);
+
+						&:hover,
+						&:focus,
+						&:active {
+							outline: none;
+							box-shadow: none;
+						}
+					}
+
+					.iti__flag {
 						display: block;
 						position: relative;
 						top: auto;
@@ -47,8 +59,9 @@
 					&:hover,
 					&:focus,
 					&:active {
-						outline: none;
-						box-shadow: none;
+						@if ('material' == $form-theme) {
+							background-color: unset;
+						}
 					}
 				}
 
@@ -121,15 +134,25 @@
 					display: flex;
 					align-items: center;
 					margin: 0;
-					@if ('material' != $form-theme) {
-						padding: 0 map-get($input, padding);
-					}
+					background: unset;
+					padding: 0;
+
 					@if ('material' == $form-theme) {
-						padding: map-get($input, padding) 0 #{map-get($input, padding) - map-get($border-width, material)};
 						background-color: transparent !important;
 					}
 
-					.iti__country {
+					.iti__selected-country-primary {
+						padding: 0 map-get($input, padding);
+
+						@if ('material' != $form-theme) {
+							padding: 0 map-get($input, padding);
+						}
+						@if ('material' == $form-theme) {
+							padding: map-get($input, padding) 0 #{map-get($input, padding) - map-get($border-width, material)};
+						}
+					}
+
+					.iti__flag {
 						display: block;
 						position: relative;
 						top: auto;
