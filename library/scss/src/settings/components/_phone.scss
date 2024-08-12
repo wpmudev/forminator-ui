@@ -150,6 +150,14 @@
 						@if ('material' == $form-theme) {
 							padding: map-get($input, padding) 0 #{map-get($input, padding) - map-get($border-width, material)};
 						}
+
+						&:hover,
+						&:focus,
+						&:active {
+							@if ('material' == $form-theme) {
+								background-color: unset;
+							}
+						}
 					}
 
 					.iti__flag {
