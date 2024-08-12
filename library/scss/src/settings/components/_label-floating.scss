@@ -54,7 +54,7 @@
 					}
 
 					&:not(.iti--allow-dropdown) {
-						padding-left: #{$int-flag-size + map-get($input, padding)};
+						padding-left: #{$int-country-size + map-get($input, padding)};
 					}
 				}
 			}
@@ -97,7 +97,7 @@
 
 				.forminator-input-with-phone {
 
-					.flag-container {
+					.country-container {
 						top: -61px;
 					}
 				}
