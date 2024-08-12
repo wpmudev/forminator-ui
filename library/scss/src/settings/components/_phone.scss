@@ -30,8 +30,9 @@
 						&:hover,
 						&:focus,
 						&:active {
-							outline: none;
-							box-shadow: none;
+							@if ('material' == $form-theme) {
+								background-color: unset;
+							}
 						}
 					}
 
@@ -59,9 +60,8 @@
 					&:hover,
 					&:focus,
 					&:active {
-						@if ('material' == $form-theme) {
-							background-color: unset;
-						}
+						outline: none;
+						box-shadow: none;
 					}
 				}
 
