@@ -1,5 +1,10 @@
 # Change Log
 
+## [1.12.16](https://github.com/wpmudev/forminator-ui/compare/v1.12.15...v1.12.16) (2024-08-20)
+####  ✨ Improvement
+- `phone field`
+  - new(phone): phone library styles updated. [#76](https://github.com/wpmudev/forminator-ui/pull/76) ([FOR-4711](https://incsub.atlassian.net/browse/FOR-4711)) ([@creador-dev](https://github.com/creador-dev))
+
 ## [1.12.15](https://github.com/wpmudev/forminator-ui/compare/v1.12.14...v1.12.15) (2024-07-11)
 ####  🐛 Bug Fix
 - `rating`
