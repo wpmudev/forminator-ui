@@ -255,12 +255,12 @@ gulp.task( 'library:fonts', function() {
 gulp.task( 'library:styles', function() {
     const tasks = builders.map( config => {
         return gulp.src( library.watch.styles )
-            .pipe( replace( '__PREFIX__', config.prefix ) )
             .pipe(
                 sass({ outputStyle: 'compressed' })
                 .on( 'error', sass.logError )
             )
-            .pipe( autoprefixer( browsersList ) )
+            .pipe( replace( '__PREFIX__', config.prefix ) )
+			.pipe( autoprefixer( browsersList ) )
             .pipe( header( banner ) )
             .pipe( cleanCSS() )
             .pipe( rename({
