@@ -264,7 +264,7 @@ gulp.task( 'library:styles', function() {
             .pipe( header( banner ) )
             .pipe( cleanCSS() )
             .pipe( rename({
-                suffix: '' === config.name ? `-builders_${config.name}.min` : '.min'
+                suffix: '' !== config.name ? `-builders_${config.name}.min` : '.min'
             }) )
             .pipe( gulp.dest( library.output.styles ) )
             .pipe( gulp.dest( showcase.output.styles ) )
