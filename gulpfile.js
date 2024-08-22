@@ -50,7 +50,7 @@ const banner = [
 // Array of prefixes
 const builders = [
 	{ name: 'divi', prefix: '.et-db #et-boc .et_pb_module' },
-	{ name: 'default', prefix: '' }
+	{ name: '', prefix: '' }
 ];
 
 /**
@@ -252,37 +252,6 @@ gulp.task( 'library:fonts', function() {
 });
 
 // Build styles
-// gulp.task( 'library:styles', function() {
-
-// 	// Create an array of promises
-// 	const tasks = builders.map( build => {
-// 		return new Promise( ( resolve, reject ) => {
-// 			gulp.src( library.watch.styles )
-// 				.pipe( replace( '__PREFIX__', build.prefix ) )
-// 				.pipe(
-// 					sass({ outputStyle: 'compressed' })
-// 					.on( 'error', sass.logError )
-// 				)
-// 				.pipe( autoprefixer( browsersList ) )
-// 				.pipe( header( banner ) )
-// 				.pipe( cleanCSS() )
-// 				.pipe( rename({
-// 					suffix: 'default' !== build.name ? `-builder_${build.name}.min` : '.min'
-// 				}) )
-// 				.pipe( gulp.dest( library.output.styles ) )
-// 				.pipe( gulp.dest( showcase.output.styles ) )
-// 				.pipe( browserSync.stream({
-// 					match: '**/*.css'
-// 				}) )
-// 				.on( 'end', resolve )  // Resolve the promise when the stream ends
-// 				.on( 'error', reject ); // Reject the promise if an error occurs
-// 		});
-// 	});
-
-// 	// Return a Promise that resolves when all tasks are complete
-// 	return Promise.all( tasks );
-// });
-
 gulp.task( 'library:styles', function() {
     const tasks = builders.map( config => {
         return gulp.src( library.watch.styles )
@@ -295,7 +264,7 @@ gulp.task( 'library:styles', function() {
             .pipe( header( banner ) )
             .pipe( cleanCSS() )
             .pipe( rename({
-                suffix: config.name.length ? `-builders_${config.name}.min` : '.min'
+                suffix: '' === config.name ? `-builders_${config.name}.min` : '.min'
             }) )
             .pipe( gulp.dest( library.output.styles ) )
             .pipe( gulp.dest( showcase.output.styles ) )
