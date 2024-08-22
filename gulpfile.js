@@ -47,10 +47,10 @@ const banner = [
 	''
 ].join( '\n' );
 
-// Array of prefixes
+// Prefixes for builders
 const builders = [
-	{ name: 'divi', prefix: '.et-db #et-boc .et_pb_module' },
-	{ name: '', prefix: '' }
+	{ name: '', prefix: '' },
+	{ name: 'divi', prefix: '.et-db #et-boc .et_pb_module' }
 ];
 
 /**
