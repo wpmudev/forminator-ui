@@ -47,12 +47,6 @@ const banner = [
 	''
 ].join( '\n' );
 
-// Prefixes for builders
-const builders = [
-	{ name: '', prefix: '' },
-	{ name: 'divi', prefix: '.et-db #et-boc .et_pb_module' }
-];
-
 /**
  * List of Supported Browsers
  *
@@ -75,6 +69,16 @@ const library = {
 	output: {},
 	watch: {}
 };
+
+/**
+ * Generate multiple styles with different prefixes.
+ *
+ * @since 1.12.17
+ */
+const builders = [
+	{ name: '', prefix: '' }, // for default styles
+	{ name: 'divi', prefix: '.et-db #et-boc .et_pb_module' } // for divi builder
+];
 
 library.source.main = './library/';
 library.source.fonts = './library/fonts/';
