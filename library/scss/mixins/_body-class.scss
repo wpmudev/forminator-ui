@@ -12,8 +12,7 @@
 
 @mixin body-class($module-type: all, $module-theme: all, $desktop: false) {
 
-	.forminator-ui,
-	.et-db #et-boc .et_pb_module .forminator-ui {
+	__PREFIX__ .forminator-ui {
 
 		@if ($module-type == all) {
 
@@ -145,8 +144,7 @@
 // =============================================
 @mixin form-class($module-type: no-type, $module-theme: no-theme, $desktop: false) {
 
-	.forminator-ui,
-	.et-db #et-boc .et_pb_module .forminator-ui {
+	__PREFIX__ .forminator-ui {
 
 		@if ($module-type == no-type) {
 
