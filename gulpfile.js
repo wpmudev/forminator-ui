@@ -77,7 +77,7 @@ const library = {
  */
 const builders = [
 	{ name: '', prefix: '' }, // for default styles
-	{ name: 'divi', prefix: '.et-db #et-main-area .et_pb_module' } // for divi builder
+	{ name: 'divi', prefix: '.et-db #et-boc .et_pb_module' } // for divi builder
 ];
 
 library.source.main = './library/';
