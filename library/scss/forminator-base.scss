@@ -29,19 +29,16 @@
 	}
 
 	// Inputs
-	.forminator-input {
-		width: 100%;
-		min-width: unset;
-		max-width: unset;
-		height: auto;
-		min-height: unset;
-		max-height: unset;
+	.forminator-input,
+	.forminator-select2,
+	.forminator-field-phone .iti {
 		display: block;
-		margin: 0;
-		padding: 0;
-		background-image: unset;
-		line-height: map-get($input, line-height);
-		transition: map-get($transition, ease);
+		width: 100%;
+	}
+
+	.forminator-checkbox {
+		display: flex;
+		align-items: center;
 	}
 
 	.forminator-input-with-icon {
@@ -235,124 +232,6 @@
 
 		&.forminator-accessible {
 			@extend %screen-readers;
-		}
-	}
-
-	// Buttons
-	.forminator-button {
-		width: auto;
-		min-width: 100px;
-		max-width: unset;
-		height: auto;
-		min-height: unset;
-		max-height: unset;
-		cursor: pointer;
-		display: inline-block;
-		position: relative;
-		margin: 0 10px 0 0;
-		border: 0;
-		background-image: unset;
-		line-height: map-get($button, line-height);
-		text-align: center;
-		transition: $transition--ease;
-
-		span {
-			display: block;
-			transition: $transition--ease;
-		}
-
-		.forminator-icon-loader {
-			@include opacity(0);
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			transform: translate(-50%, -50%);
-			transition: $transition--ease;
-
-			&:before {
-				display: block;
-			}
-		}
-
-		&,
-		&:hover,
-		&:focus,
-		&:active {
-			outline: none;
-			box-shadow: none;
-			text-decoration: none;
-		}
-
-		&:disabled,
-		&.forminator-onload,
-		&.forminator-disabled {
-			@include opacity(0.5);
-			user-select: none;
-			pointer-events: none;
-		}
-
-		&.forminator-onload {
-
-			span {
-				@include opacity(0);
-			}
-
-			.forminator-icon-loader {
-				@include opacity(1);
-			}
-		}
-
-		&:last-child {
-			margin-right: 0;
-		}
-
-		&.forminator-button-loader {
-
-			.forminator-icon-loader {
-				display: inline-block;
-				position: initial;
-				top: auto;
-				left: auto;
-				transform: none;
-
-				&:before {
-					display: inline-block;
-				}
-			}
-
-			.forminator-onload-default {
-				display: block;
-			}
-
-			.forminator-onload-loading {
-				display: none;
-			}
-
-			&.forminator-onload {
-
-				span {
-					@include opacity(1);
-				}
-
-				.forminator-onload-default {
-					display: none;
-				}
-
-				.forminator-onload-loading {
-					display: block;
-				}
-			}
-		}
-
-		// PayPal Button
-		&-paypal {
-			display: block;
-			position: relative;
-			z-index: 1;
-
-			> .paypal-buttons {
-				display: block !important;
-			}
 		}
 	}
 }
