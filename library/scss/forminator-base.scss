@@ -1,0 +1,358 @@
+@charset "UTF-8";
+
+@import "variables";
+
+// Helpers
+@import "helpers/icon-styles";
+
+// Mixins
+@import "mixins/body-class";
+@import "mixins/breakpoints";
+@import "mixins/opacity";
+@import "mixins/animations";
+@import "mixins/icons";
+
+// Helpers
+@import "helpers/screen-readers";
+
+
+@include form-class(custom-form, basic, false) {
+
+	// Hidden
+	.forminator-hidden {
+		display: none !important;
+	}
+
+	// Screenreader only.
+	.forminator-screen-reader-only {
+		@extend %screen-readers;
+	}
+
+	// Inputs
+	.forminator-input {
+		width: 100%;
+		min-width: unset;
+		max-width: unset;
+		height: auto;
+		min-height: unset;
+		max-height: unset;
+		display: block;
+		margin: 0;
+		padding: 0;
+		background-image: unset;
+		line-height: map-get($input, line-height);
+		transition: map-get($transition, ease);
+	}
+
+	.forminator-input-with-icon {
+
+		[class*="forminator-icon-"] {
+			display: block;
+			font-size: map-get($icon, size);
+			transition: map-get($transition, ease);
+
+			&:before {
+				color: inherit;
+			}
+		}
+	}
+
+	.forminator-input-with-suffix {
+		position: relative;
+
+		.forminator-input {
+			padding-right: 60px;
+		}
+
+		.forminator-suffix {
+			display: block;
+			position: absolute;
+			top: 50%;
+			right: 0;
+			padding: 0 map-get($input, padding);
+			transform: translateY(-50%);
+			line-height: 1.4em;
+		}
+	}
+
+
+	// Labels
+	.forminator-label,
+	.forminator-error-message {
+		display: block;
+	}
+
+	.forminator-description {
+		display: flex;
+
+		span {
+			min-width: 80px;
+			margin-right: 0;
+			margin-left: auto;
+			text-align: right;
+		}
+	}
+
+	.forminator-error-message {
+		display: none;
+	}
+
+	.forminator-has_error {
+
+		.forminator-error-message {
+			display: block;
+		}
+	}
+
+	// Radio
+	.forminator-radio {
+		cursor: default;
+		pointer-events: none;
+		display: flex;
+		position: relative;
+		margin: 5px 0;
+
+		input {
+			@extend %screen-readers;
+
+			&:checked {
+
+				+ span[aria-hidden]:before {
+					@include opacity(1);
+				}
+			}
+		}
+
+		span {
+			cursor: pointer;
+			pointer-events: all;
+			display: block;
+		}
+
+		span[aria-hidden] {
+			width: map-get($radio, size);
+			height: map-get($radio, size);
+			flex: 0 0 map-get($radio, size);
+			position: relative;
+			border-radius: #{map-get($radio, size) * 2};
+
+			&:before {
+				content: " ";
+				@include opacity(0);
+				display: block;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				border-radius: 100%;
+				transform: translate(-50%, -50%);
+				transition: map-get($transition, ease);
+			}
+
+			+ span {
+				margin-left: 10px;
+			}
+		}
+
+		span:not([aria-hidden]) {
+			flex: 0 1 auto;
+			line-height: 20px;
+		}
+
+		// VARIATION: Inline
+		&.forminator-radio-inline {
+			display: inline-flex;
+			vertical-align: middle;
+			margin-right: 20px;
+			margin-bottom: 0;
+
+			&:last-of-type {
+				margin-right: 0;
+			}
+		}
+
+		// VARIATION: Stacked
+		&:not(.forminator-radio-inline) {
+
+			&:first-child {
+				margin-top: 0;
+			}
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	// Responses
+	.forminator-response-message {
+		margin: 0 0 $gutter-sm;
+		text-align: left;
+
+		p {
+			margin: 0;
+			padding: 0;
+			border: 0;
+			line-height: 1.3em;
+			letter-spacing: 0;
+			word-break: break-word;
+
+			&:not(:last-child) {
+				margin-bottom: 10px;
+			}
+		}
+
+		&,
+		&:focus,
+		&:hover,
+		&:active {
+			outline: none;
+			box-shadow: none;
+		}
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+
+		&[aria-hidden="true"] {
+			display: none;
+		}
+
+		&.forminator-loading {
+			position: relative;
+			padding-left: #{($gutter-sm * 2) + 6px};
+
+			@include icon(before, loader, true) {
+				position: absolute;
+				top: 17px;
+				left: $gutter-sm;
+				font-size: 16px;
+			}
+		}
+
+		&.forminator-show {
+			display: block;
+		}
+
+		&.forminator-accessible {
+			@extend %screen-readers;
+		}
+	}
+
+	// Buttons
+	.forminator-button {
+		width: auto;
+		min-width: 100px;
+		max-width: unset;
+		height: auto;
+		min-height: unset;
+		max-height: unset;
+		cursor: pointer;
+		display: inline-block;
+		position: relative;
+		margin: 0 10px 0 0;
+		border: 0;
+		background-image: unset;
+		line-height: map-get($button, line-height);
+		text-align: center;
+		transition: $transition--ease;
+
+		span {
+			display: block;
+			transition: $transition--ease;
+		}
+
+		.forminator-icon-loader {
+			@include opacity(0);
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			transition: $transition--ease;
+
+			&:before {
+				display: block;
+			}
+		}
+
+		&,
+		&:hover,
+		&:focus,
+		&:active {
+			outline: none;
+			box-shadow: none;
+			text-decoration: none;
+		}
+
+		&:disabled,
+		&.forminator-onload,
+		&.forminator-disabled {
+			@include opacity(0.5);
+			user-select: none;
+			pointer-events: none;
+		}
+
+		&.forminator-onload {
+
+			span {
+				@include opacity(0);
+			}
+
+			.forminator-icon-loader {
+				@include opacity(1);
+			}
+		}
+
+		&:last-child {
+			margin-right: 0;
+		}
+
+		&.forminator-button-loader {
+
+			.forminator-icon-loader {
+				display: inline-block;
+				position: initial;
+				top: auto;
+				left: auto;
+				transform: none;
+
+				&:before {
+					display: inline-block;
+				}
+			}
+
+			.forminator-onload-default {
+				display: block;
+			}
+
+			.forminator-onload-loading {
+				display: none;
+			}
+
+			&.forminator-onload {
+
+				span {
+					@include opacity(1);
+				}
+
+				.forminator-onload-default {
+					display: none;
+				}
+
+				.forminator-onload-loading {
+					display: block;
+				}
+			}
+		}
+
+		// PayPal Button
+		&-paypal {
+			display: block;
+			position: relative;
+			z-index: 1;
+
+			> .paypal-buttons {
+				display: block !important;
+			}
+		}
+	}
+}
