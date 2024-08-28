@@ -3,6 +3,7 @@
 @import "variables";
 
 // Helpers
+@import "helpers/text-reset";
 @import "helpers/icon-styles";
 
 // Mixins
@@ -15,7 +16,16 @@
 // Helpers
 @import "helpers/screen-readers";
 
+// Fields
+@import "src/settings/components/rating";
+@import "src/settings/components/slider";
+@import "src/settings/components/paypal";
+@import "src/settings/components/calendar";
 
+// Components
+@include component-rating(custom-form, basic);
+@include component-slider(custom-form, basic);
+@include component-calendar(custom-form, basic);
 @include form-class(custom-form, basic, false) {
 
 	// Hidden
@@ -31,19 +41,30 @@
 	// Inputs
 	.forminator-input,
 	.forminator-select2,
+	.forminator-textarea,
 	.forminator-field-phone .iti {
 		display: block;
 		width: 100%;
 	}
 
-	.forminator-checkbox {
+	.forminator-checkbox,
+	.forminator-checkbox__wrapper {
 		display: flex;
 		align-items: center;
 	}
 
+	.forminator-textarea {
+		padding: #{$textarea--padding - $default--border-width};
+	}
+
 	.forminator-input-with-icon {
+		position: relative;
 
 		[class*="forminator-icon-"] {
+			position: absolute;
+			top: 50%;
+			left: map-get($input, padding);
+			transform: translateY(-50%);
 			display: block;
 			font-size: map-get($icon, size);
 			transition: map-get($transition, ease);
@@ -51,6 +72,10 @@
 			&:before {
 				color: inherit;
 			}
+		}
+
+		.forminator-input {
+			padding-left: #{(map-get($input, padding) - map-get($border-width, default)) + map-get($input, padding) + map-get($icon, size)};
 		}
 	}
 
@@ -74,20 +99,8 @@
 
 
 	// Labels
-	.forminator-label,
-	.forminator-error-message {
+	.forminator-label {
 		display: block;
-	}
-
-	.forminator-description {
-		display: flex;
-
-		span {
-			min-width: 80px;
-			margin-right: 0;
-			margin-left: auto;
-			text-align: right;
-		}
 	}
 
 	.forminator-error-message {
@@ -103,135 +116,13 @@
 
 	// Radio
 	.forminator-radio {
-		cursor: default;
-		pointer-events: none;
 		display: flex;
-		position: relative;
-		margin: 5px 0;
-
-		input {
-			@extend %screen-readers;
-
-			&:checked {
-
-				+ span[aria-hidden]:before {
-					@include opacity(1);
-				}
-			}
-		}
-
-		span {
-			cursor: pointer;
-			pointer-events: all;
-			display: block;
-		}
-
-		span[aria-hidden] {
-			width: map-get($radio, size);
-			height: map-get($radio, size);
-			flex: 0 0 map-get($radio, size);
-			position: relative;
-			border-radius: #{map-get($radio, size) * 2};
-
-			&:before {
-				content: " ";
-				@include opacity(0);
-				display: block;
-				position: absolute;
-				top: 50%;
-				left: 50%;
-				border-radius: 100%;
-				transform: translate(-50%, -50%);
-				transition: map-get($transition, ease);
-			}
-
-			+ span {
-				margin-left: 10px;
-			}
-		}
-
-		span:not([aria-hidden]) {
-			flex: 0 1 auto;
-			line-height: 20px;
-		}
-
-		// VARIATION: Inline
-		&.forminator-radio-inline {
-			display: inline-flex;
-			vertical-align: middle;
-			margin-right: 20px;
-			margin-bottom: 0;
-
-			&:last-of-type {
-				margin-right: 0;
-			}
-		}
-
-		// VARIATION: Stacked
-		&:not(.forminator-radio-inline) {
-
-			&:first-child {
-				margin-top: 0;
-			}
-
-			&:last-child {
-				margin-bottom: 0;
-			}
-		}
 	}
 
-	// Responses
-	.forminator-response-message {
-		margin: 0 0 $gutter-sm;
-		text-align: left;
-
-		p {
-			margin: 0;
-			padding: 0;
-			border: 0;
-			line-height: 1.3em;
-			letter-spacing: 0;
-			word-break: break-word;
-
-			&:not(:last-child) {
-				margin-bottom: 10px;
-			}
-		}
-
-		&,
-		&:focus,
-		&:hover,
-		&:active {
-			outline: none;
-			box-shadow: none;
-		}
-
-		&:last-child {
-			margin-bottom: 0;
-		}
-
-		&[aria-hidden="true"] {
-			display: none;
-		}
-
-		&.forminator-loading {
-			position: relative;
-			padding-left: #{($gutter-sm * 2) + 6px};
-
-			@include icon(before, loader, true) {
-				position: absolute;
-				top: 17px;
-				left: $gutter-sm;
-				font-size: 16px;
-			}
-		}
-
-		&.forminator-show {
-			display: block;
-		}
-
-		&.forminator-accessible {
-			@extend %screen-readers;
+	// Timepicker
+	.forminator-timepicker {
+		.forminator-row {
+			align-items: flex-end;
 		}
 	}
 }
