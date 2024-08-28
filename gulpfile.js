@@ -21,6 +21,8 @@ const rename       = require( 'gulp-rename' );
 const sass         = require( 'gulp-sass' )( require( 'sass' ) );
 const uglify       = require( 'gulp-uglify-es' ).default;
 const browserSync  = require( 'browser-sync' ).create();
+const replace      = require( 'gulp-replace' );
+const merge        = require( 'merge-stream' );
 
 /**
  * Get Package File
@@ -67,6 +69,16 @@ const library = {
 	output: {},
 	watch: {}
 };
+
+/**
+ * Generate multiple styles with different prefixes.
+ *
+ * @since 1.12.17
+ */
+const builders = [
+	{ name: '', prefix: '' }, // for default styles
+	{ name: 'divi', prefix: '.et-db #et-boc .et_pb_module' } // for divi builder
+];
 
 library.source.main = './library/';
 library.source.fonts = './library/fonts/';
@@ -245,24 +257,27 @@ gulp.task( 'library:fonts', function() {
 
 // Build styles
 gulp.task( 'library:styles', function() {
+    const tasks = builders.map( config => {
+        return gulp.src( library.watch.styles )
+            .pipe(
+                sass({ outputStyle: 'compressed' })
+                .on( 'error', sass.logError )
+            )
+            .pipe( replace( '__PREFIX__', config.prefix ) )
+			.pipe( autoprefixer( browsersList ) )
+            .pipe( header( banner ) )
+            .pipe( cleanCSS() )
+            .pipe( rename({
+                suffix: '' !== config.name ? `.builder_${config.name}.min` : '.min'
+            }) )
+            .pipe( gulp.dest( library.output.styles ) )
+            .pipe( gulp.dest( showcase.output.styles ) )
+            .pipe( browserSync.stream({
+                match: '**/*.css'
+            }) );
+    });
 
-	return gulp.src( library.watch.styles )
-		.pipe(
-			sass({ outputStyle: 'compressed' })
-			.on( 'error', sass.logError )
-		)
-		.pipe( autoprefixer( browsersList ) )
-		.pipe( header( banner ) )
-		.pipe( cleanCSS() )
-		.pipe( rename({
-			suffix: '.min'
-		}) )
-		.pipe( gulp.dest( library.output.styles ) )
-		.pipe( gulp.dest( showcase.output.styles ) )
-		.pipe( browserSync.stream({
-			match: '**/*.css'
-		}) )
-		;
+    return merge( tasks ); // Merge all streams and return them
 });
 
 // Build scripts
