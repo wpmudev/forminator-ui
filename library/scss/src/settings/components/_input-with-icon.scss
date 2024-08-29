@@ -47,7 +47,7 @@
 			@if ('material' != $form-theme) {
 
 				.forminator-input {
-					@if ('default' == $form-theme) {
+					@if ('default' == $form-theme or 'basic' == $form-theme) {
 						padding-left: #{(map-get($input, padding) - map-get($border-width, default)) + map-get($input, padding) + map-get($icon, size)};
 					}
 					@if ('flat' == $form-theme) {

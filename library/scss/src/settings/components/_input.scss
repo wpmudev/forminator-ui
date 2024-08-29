@@ -7,11 +7,13 @@
 			width: 100%;
 			min-width: unset;
 			max-width: unset;
-			height: auto;
 			min-height: unset;
 			max-height: unset;
 			display: block;
 			margin: 0;
+			@if ('basic' != $form-theme) {
+				height: auto;
+			}
 			@if ('default' == $form-theme) {
 				padding: #{map-get($input, padding) - map-get($border-width, default)};
 				border-width: map-get($border-width, default);

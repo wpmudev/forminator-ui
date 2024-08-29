@@ -33,6 +33,9 @@
 				border-radius: $material--border-radius;
 				line-height: 20px;
 			}
+			@if ('basic' == $form-theme) {
+				padding: $textarea--padding;
+			}
 			background-image: unset;
 			line-height: $textarea--line-height;
 			transition: $transition--ease;

@@ -113,7 +113,7 @@
 			}
 			
 			.ui-slider-horizontal {
-				height: 8px;
+				height: 8px !important;
 				margin: 6px 0;
 
 				@if ('material' == $form-theme) {

@@ -2,8 +2,13 @@
 
 @import "variables";
 
+
+$form-type: custom-form;
+$form-theme: basic;
+
 // Helpers
 @import "helpers/text-reset";
+@import "helpers/text-truncate";
 @import "helpers/icon-styles";
 
 // Mixins
@@ -20,109 +25,71 @@
 @import "src/settings/components/rating";
 @import "src/settings/components/slider";
 @import "src/settings/components/paypal";
+@import "src/settings/components/stripe";
 @import "src/settings/components/calendar";
+@import "src/settings/components/e-signature";
+@import "src/settings/components/textarea";
+@import "src/settings/components/input";
+@import "src/settings/components/input-with-icon";
+@import "src/settings/components/input-with-prefix";
+@import "src/settings/components/input-with-suffix";
+@import "src/settings/components/label";
+@import "src/settings/components/description";
+@import "src/settings/components/timepicker";
+@import "src/settings/components/upload";
+@import "src/settings/components/pagination";
+@import "src/settings/components/response";
+@import "src/settings/components/recaptcha";
+@import "src/settings/components/repeater";
+@import "src/settings/components/repeater-buttons";
+@import "src/settings/components/multiselect";
 
 // Components
-@include component-rating(custom-form, basic);
-@include component-slider(custom-form, basic);
-@include component-calendar(custom-form, basic);
-@include form-class(custom-form, basic, false) {
+@include component-repeater(#{$form-type}, #{$form-theme});
+@include component-repeater-buttons(#{$form-type}, #{$form-theme});
+@include component-response(#{$form-type}, #{$form-theme});
+@include component-recaptcha(#{$form-type}, #{$form-theme});
+@include component-rating(#{$form-type}, #{$form-theme});
+@include component-slider(#{$form-type}, #{$form-theme});
+@include component-calendar(#{$form-type}, #{$form-theme});
+@include component-signature(#{$form-type}, #{$form-theme});
+@include component-textarea(#{$form-type}, #{$form-theme});
+@include component-input-with-icon(#{$form-type}, #{$form-theme});
+@include component-input(#{$form-type}, #{$form-theme});
+@include component-input-with-prefix(#{$form-type}, #{$form-theme});
+@include component-input-with-suffix(#{$form-type}, #{$form-theme});
+@include component-label(#{$form-type}, #{$form-theme});
+@include component-description(#{$form-type}, #{$form-theme});
+@include component-timepicker(#{$form-type}, #{$form-theme});
+@include component-upload(#{$form-type}, #{$form-theme});
+@include component-pagination(#{$form-type}, #{$form-theme});
+@include component-paypal(#{$form-type}, #{$form-theme});
+@include component-stripe(#{$form-type}, #{$form-theme});
+@include component-multiselect(#{$form-type}, #{$form-theme});
 
-	// Hidden
-	.forminator-hidden {
-		display: none !important;
-	}
 
-	// Screenreader only.
-	.forminator-screen-reader-only {
-		@extend %screen-readers;
-	}
-
+@include form-class(#{$form-type}, #{$form-theme}, false) {
 	// Inputs
-	.forminator-input,
 	.forminator-select2,
-	.forminator-textarea,
 	.forminator-field-phone .iti {
 		display: block;
 		width: 100%;
 	}
 
 	.forminator-checkbox,
-	.forminator-checkbox__wrapper {
-		display: flex;
-		align-items: center;
-	}
-
-	.forminator-textarea {
-		padding: #{$textarea--padding - $default--border-width};
-	}
-
-	.forminator-input-with-icon {
-		position: relative;
-
-		[class*="forminator-icon-"] {
-			position: absolute;
-			top: 50%;
-			left: map-get($input, padding);
-			transform: translateY(-50%);
-			display: block;
-			font-size: map-get($icon, size);
-			transition: map-get($transition, ease);
-
-			&:before {
-				color: inherit;
-			}
-		}
-
-		.forminator-input {
-			padding-left: #{(map-get($input, padding) - map-get($border-width, default)) + map-get($input, padding) + map-get($icon, size)};
-		}
-	}
-
-	.forminator-input-with-suffix {
-		position: relative;
-
-		.forminator-input {
-			padding-right: 60px;
-		}
-
-		.forminator-suffix {
-			display: block;
-			position: absolute;
-			top: 50%;
-			right: 0;
-			padding: 0 map-get($input, padding);
-			transform: translateY(-50%);
-			line-height: 1.4em;
-		}
-	}
-
-
-	// Labels
-	.forminator-label {
-		display: block;
-	}
-
-	.forminator-error-message {
-		display: none;
-	}
-
-	.forminator-has_error {
-
-		.forminator-error-message {
-			display: block;
-		}
-	}
-
-	// Radio
+	.forminator-checkbox__wrapper,
 	.forminator-radio {
 		display: flex;
+		align-items: center;
+		margin: 10px 0;
+
+		input {
+			margin: 0;
+		}
 	}
 
-	// Timepicker
-	.forminator-timepicker {
-		.forminator-row {
-			align-items: flex-end;
-		}
+	.forminator-radio-label,
+	.forminator-checkbox-label {
+		margin-left: 10px;
 	}
 }
