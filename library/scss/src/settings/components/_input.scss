@@ -11,9 +11,6 @@
 			max-height: unset;
 			display: block;
 			margin: 0;
-			@if ('basic' != $form-theme) {
-				height: auto;
-			}
 			@if ('default' == $form-theme) {
 				padding: #{map-get($input, padding) - map-get($border-width, default)};
 				border-width: map-get($border-width, default);
@@ -40,8 +37,11 @@
 				border-radius: 0;
 				background-color: transparent !important;
 			}
+			@if ('basic' != $form-theme) {
+				height: auto;
+				line-height: map-get($input, line-height);
+			}
 			background-image: unset;
-			line-height: map-get($input, line-height);
 			transition: map-get($transition, ease);
 
 			&,

@@ -23,10 +23,8 @@ $form-theme: basic;
 
 // Fields
 @import "src/settings/components/rating";
-@import "src/settings/components/slider";
 @import "src/settings/components/paypal";
 @import "src/settings/components/stripe";
-@import "src/settings/components/calendar";
 @import "src/settings/components/e-signature";
 @import "src/settings/components/textarea";
 @import "src/settings/components/input";
@@ -50,8 +48,6 @@ $form-theme: basic;
 @include component-response(#{$form-type}, #{$form-theme});
 @include component-recaptcha(#{$form-type}, #{$form-theme});
 @include component-rating(#{$form-type}, #{$form-theme});
-@include component-slider(#{$form-type}, #{$form-theme});
-@include component-calendar(#{$form-type}, #{$form-theme});
 @include component-signature(#{$form-type}, #{$form-theme});
 @include component-textarea(#{$form-type}, #{$form-theme});
 @include component-input-with-icon(#{$form-type}, #{$form-theme});
