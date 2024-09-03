@@ -9,7 +9,7 @@
 				margin: 0 0 $gutter-sm;
 
 				.forminator-break {
-					@if ('default' == $form-theme) {
+					@if ('default' == $form-theme or 'basic' == $form-theme) {
 						width: map-get($border-width, default);
 						height: #{map-get($pagination-dot, default) * 2};
 					}
@@ -22,7 +22,7 @@
 						height: #{map-get($pagination-dot, bold) * 2};
 					}
 					display: block;
-					@if ('default' == $form-theme) {
+					@if ('default' == $form-theme or 'basic' == $form-theme) {
 						margin: 0 #{calc((map-get($pagination-dot, default) - map-get($border-width, default)) / 2)};
 					}
 					@if ('flat' == $form-theme) {
@@ -38,7 +38,7 @@
 
 						&:before {
 							content: " ";
-							@if ('default' == $form-theme) {
+							@if ('default' == $form-theme or 'basic' == $form-theme) {
 								width: #{map-get($border-width, default) * 3};
 							}
 							@if ('flat' == $form-theme) {
@@ -48,7 +48,7 @@
 							display: block;
 							position: absolute;
 							top: 0;
-							@if ('default' == $form-theme) {
+							@if ('default' == $form-theme or 'basic' == $form-theme) {
 								left: -#{map-get($border-width, default)};
 							}
 							@if ('flat' == $form-theme) {
@@ -65,7 +65,7 @@
 				}
 
 				.forminator-step {
-					@if ('default' == $form-theme) {
+					@if ('default' == $form-theme or 'basic' == $form-theme) {
 						height: map-get($pagination-dot, default);
 					}
 					@if ('flat' == $form-theme) {
@@ -102,7 +102,7 @@
 					}
 
 					.forminator-step-dot {
-						@if ('default' == $form-theme) {
+						@if ('default' == $form-theme or 'basic' == $form-theme) {
 							width: map-get($pagination-dot, default);
 							height: map-get($pagination-dot, default);
 						}
@@ -115,7 +115,7 @@
 							height: map-get($pagination-dot, bold);
 						}
 						display: block;
-						@if ('default' == $form-theme) {
+						@if ('default' == $form-theme or 'basic' == $form-theme) {
 							flex: 0 0 map-get($pagination-dot, default);
 							border-width: map-get($border-width, default);
 							border-style: map-get($border-style, default);
@@ -147,7 +147,7 @@
 							}
 						}
 
-						@if ('flat' == $form-theme) {
+						@if ('flat' == $form-theme or 'basic' == $form-theme) {
 
 							~ .forminator-step {
 
@@ -236,7 +236,7 @@
 
 						@include media(min-width, sm) {
 							width: 100%;
-							@if ('default' == $form-theme) {
+							@if ('default' == $form-theme or 'basic' == $form-theme) {
 								height: #{map-get($border-width, default) * 3};
 								top: -#{map-get($border-width, default)};
 							}
@@ -258,7 +258,7 @@
 
 					@include media(min-width, sm) {
 						width: auto;
-						@if ('default' == $form-theme) {
+						@if ('default' == $form-theme or 'basic' == $form-theme) {
 							height: map-get($border-width, default);
 						}
 						@if ('flat' == $form-theme) {
@@ -268,7 +268,7 @@
 							height: map-get($border-width, bold);
 						}
 						flex: 1;
-						@if ('default' == $form-theme) {
+						@if ('default' == $form-theme or 'basic' == $form-theme) {
 							margin: #{calc((map-get($pagination-dot, default) - map-get($border-width, default)) / 2)} 0;
 						}
 						@if ('flat' == $form-theme) {
@@ -315,7 +315,7 @@
 					}
 
 					@include media(min-width, sm) {
-						@if ('default' == $form-theme) {
+						@if ('default' == $form-theme or 'basic' == $form-theme) {
 							width: map-get($pagination-dot, default);
 						}
 						@if ('flat' == $form-theme) {

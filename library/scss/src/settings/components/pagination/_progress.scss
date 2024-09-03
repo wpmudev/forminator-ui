@@ -18,7 +18,7 @@
 			}
 
 			.forminator-progress-bar {
-				@if ('default' == $form-theme) {
+				@if ('default' == $form-theme or 'basic' == $form-theme) {
 					height: map-get($pagination-bar, default);
 				}
 				@if ('flat' == $form-theme) {
@@ -34,12 +34,12 @@
 				display: block;
 				flex: 1;
 				position: relative;
-				@if ('default' == $form-theme) {
+				@if ('default' == $form-theme or 'basic' == $form-theme) {
 					border-radius: map-get($pagination-bar, default);
 				}
 
 				span {
-					@if ('default' == $form-theme) {
+					@if ('default' == $form-theme or 'basic' == $form-theme) {
 						height: map-get($pagination-bar, default);
 					}
 					@if ('flat' == $form-theme) {

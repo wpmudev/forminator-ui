@@ -54,6 +54,7 @@
 				'bold',
 				'flat',
 				'default',
+				'basic',
 				'material',
 				'none'
 			];

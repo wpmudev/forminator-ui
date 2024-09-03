@@ -130,10 +130,10 @@
 					}
 				}
 
-				// DESIGN: Default.
-				&.forminator-dropdown--default {
+				// DESIGN: Default and Basic.
+				&.forminator-dropdown--default,
+				&.forminator-dropdown--basic {
 					padding: #{$dropdown--padding - $default--border-width} 0;
-					border-width: $default--border-width;
 					border-style: $default--border-style;
 
 					// Search input.
@@ -143,7 +143,6 @@
 
 						input {
 							padding: #{$dropdown--padding - $default--border-width};
-							border-width: $default--border-width;
 							border-style: $default--border-style;
 							border-radius: 2px;
 						}
@@ -168,9 +167,29 @@
 					.forminator-checkbox {
 			
 						.forminator-checkbox-box {
-							border-width: map-get($border-width, default);
 							border-style: map-get($border-style, default);
 							border-radius: map-get($border-radius, default);
+						}
+					}
+				}
+
+				// DESIGN: Default.
+				&.forminator-dropdown--default {
+					border-width: $default--border-width;
+
+					// Search input.
+					.select2-search {
+
+						input {
+							border-width: $default--border-width;
+						}
+					}
+
+					// Checkbox in dropdown
+					.forminator-checkbox {
+			
+						.forminator-checkbox-box {
+							border-width: map-get($border-width, default);
 						}
 					}
 				}

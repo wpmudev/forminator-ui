@@ -63,6 +63,9 @@
 								border-bottom-width: 1px;
 								border-style: $material--border-style;
 							}
+							@else if ('basic' == $form-theme) {
+								border-style: $default--border-style;
+							}
 							background-image: none !important;
 
 							@if ('material' == $form-theme) {
@@ -85,7 +88,7 @@
 								overflow: hidden;
 								display: block;
 								flex: 1;
-								@if ('default' == $form-theme) {
+								@if ('default' == $form-theme or 'basic' == $form-theme) {
 									padding: #{10px - ($default--border-width * 2)} 5px #{10px - ($default--border-width * 2)} 8px;
 								}
 								@else if ('flat' == $form-theme) {
@@ -204,7 +207,7 @@
 								margin: 0;
 								white-space: normal;
 								
-								@if ('default' == $form-theme) {
+								@if ('default' == $form-theme or 'basic' == $form-theme) {
 									border-radius: 4px;
 								}
 								@else if ('flat' == $form-theme) {
