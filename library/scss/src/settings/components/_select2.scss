@@ -46,7 +46,7 @@
 							position: relative;
 							margin: 0;
 							padding: 0;
-							@if ('default' == $form-theme) {
+							@if ('default' == $form-theme or 'basic' == $form-theme) {
 								border-width: $default--border-width;
 								border-style: $default--border-style;
 							}
