@@ -31,7 +31,7 @@
 
 		.forminator-error-message {
 			display: none;
-			@if ('default' == $form-theme or 'basic' == $form-theme) {
+			@if ('default' == $form-theme) {
 				padding: 2px 10px;
 				border-radius: map-get($border-radius, default);
 			}

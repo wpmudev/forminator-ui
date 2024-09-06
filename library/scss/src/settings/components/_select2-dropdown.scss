@@ -131,8 +131,7 @@
 				}
 
 				// DESIGN: Default and Basic.
-				&.forminator-dropdown--default,
-				&.forminator-dropdown--basic {
+				&.forminator-dropdown--default {
 					padding: #{$dropdown--padding - $default--border-width} 0;
 					border-style: $default--border-style;
 
@@ -174,8 +173,7 @@
 				}
 
 				// DESIGN: Default.
-				&.forminator-dropdown--default,
-				&.forminator-dropdown--basic {
+				&.forminator-dropdown--default {
 					border-width: $default--border-width;
 
 					// Search input.
