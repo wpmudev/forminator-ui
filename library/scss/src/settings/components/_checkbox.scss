@@ -6,15 +6,20 @@ $checkbox-image: 80px;
 
 		.forminator-checkbox {
 			cursor: default;
-			pointer-events: none;
 			display: flex;
 			flex: 0 0 auto; // It works with `.forminator-checkbox__wrapper` element.
 			align-items: center;
 			position: relative;
 			margin: 10px 0;
 
+			@if ('basic' != $form-theme) {
+				pointer-events: none;
+			}
+
 			input {
-				@extend %screen-readers;
+				@if ('basic' != $form-theme) {
+					@extend %screen-readers;
+				}
 
 				&:checked {
 
@@ -51,65 +56,67 @@ $checkbox-image: 80px;
 				display: block;
 			}
 
-			.forminator-checkbox-box {
-				width: map-get($checkbox, size);
-				height: map-get($checkbox, size);
-				flex: 0 0 map-get($checkbox, size);
-				position: relative;
-				@if ('default' == $form-theme) {
-					border-width: map-get($border-width, default);
-					border-style: map-get($border-style, default);
-					border-radius: map-get($border-radius, default);
-				}
-				@if ('flat' == $form-theme) {
-					border-width: map-get($border-width, flat);
-					border-style: map-get($border-style, flat);
-					border-radius: map-get($border-radius, flat);
-				}
-				@if ('bold' == $form-theme) {
-					border-width: map-get($border-width, bold);
-					border-style: map-get($border-style, bold);
-					border-radius: map-get($border-radius, bold);
-				}
-				@if ('material' == $form-theme) {
-					border-width: #{map-get($border-width, material) * 2};
-					border-style: map-get($border-style, material);
-					border-radius: map-get($border-radius, material);
-				}
+			@if ('basic' != $form-theme) {
+				.forminator-checkbox-box {
+					width: map-get($checkbox, size);
+					height: map-get($checkbox, size);
+					flex: 0 0 map-get($checkbox, size);
+					position: relative;
+					@if ('default' == $form-theme) {
+						border-width: map-get($border-width, default);
+						border-style: map-get($border-style, default);
+						border-radius: map-get($border-radius, default);
+					}
+					@if ('flat' == $form-theme) {
+						border-width: map-get($border-width, flat);
+						border-style: map-get($border-style, flat);
+						border-radius: map-get($border-radius, flat);
+					}
+					@if ('bold' == $form-theme) {
+						border-width: map-get($border-width, bold);
+						border-style: map-get($border-style, bold);
+						border-radius: map-get($border-radius, bold);
+					}
+					@if ('material' == $form-theme) {
+						border-width: #{map-get($border-width, material) * 2};
+						border-style: map-get($border-style, material);
+						border-radius: map-get($border-radius, material);
+					}
 
-				@include icon(before, check) {
-					@include opacity(0);
-					display: block;
-					position: absolute;
-					top: 50%;
-					left: 50%;
-					color: map-get($icon, color);
-					font-size: map-get($checkbox, icon);
-					transform: translate(-50%, -50%);
-					transition: map-get($transition, ease);
-				}
-
-				@if ('material' == $form-theme) {
-
-					&:after {
-						content: " ";
+					@include icon(before, check) {
 						@include opacity(0);
-						width: map-get($checkbox, size);
-						height: map-get($checkbox, size);
+						display: block;
 						position: absolute;
 						top: 50%;
 						left: 50%;
-						border-radius: 100%;
-						transform: translate(-50%, -50%) scale(0);
-						transform-origin: center;
-						transform-style: preserve-3d;
-						animation-duration: 0.6s;
-						animation-fill-mode: both;
+						color: map-get($icon, color);
+						font-size: map-get($checkbox, icon);
+						transform: translate(-50%, -50%);
+						transition: map-get($transition, ease);
 					}
-				}
 
-				~ span {
-					margin-left: 10px;
+					@if ('material' == $form-theme) {
+
+						&:after {
+							content: " ";
+							@include opacity(0);
+							width: map-get($checkbox, size);
+							height: map-get($checkbox, size);
+							position: absolute;
+							top: 50%;
+							left: 50%;
+							border-radius: 100%;
+							transform: translate(-50%, -50%) scale(0);
+							transform-origin: center;
+							transform-style: preserve-3d;
+							animation-duration: 0.6s;
+							animation-fill-mode: both;
+						}
+					}
+
+					~ span {
+						margin-left: 10px;
+					}
 				}
 			}
 

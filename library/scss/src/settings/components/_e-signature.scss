@@ -31,7 +31,7 @@ $esign-reset: 20px;
 				position: relative;
 				margin: 0;
 				padding: 0;
-				@if $form-theme == 'default' {
+				@if ($form-theme == 'default' or $form-theme == 'basic') {
 					border-width: 1px;
 					border-radius: 2px;
 				}
@@ -46,9 +46,7 @@ $esign-reset: 20px;
 					border-width: 0;
 					border-radius: 0;
 				}
-				@if $form-theme != 'basic' {
-					border-style: solid;
-				}
+				border-style: solid;
 				background-color: transparent;
 				transition: $transition--ease;
 
@@ -64,7 +62,7 @@ $esign-reset: 20px;
 					pointer-events: none;
 					display: block;
 					position: absolute;
-					@if $form-theme == 'default' or $form-theme == 'basic' {
+					@if ($form-theme == 'default' or $form-theme == 'basic') {
 						top: 9px;
 						right: #{$esign-reset + 9px};
 						left: 9px;

@@ -22,14 +22,19 @@
 				background-color: #FFF;
 				box-shadow: 1px 1px 4px rgba(0,0,0,0.3);
 			}
+			@if ('basic' == $form-theme) {
+				padding: 15px 10px;
+			}
 			text-align: left;
 
 			p {
 				margin: 0;
 				padding: 0;
 				border: 0;
-				line-height: 1.3em;
-				letter-spacing: 0;
+				@if ('basic' != $form-theme) {
+					line-height: 1.3em;
+					letter-spacing: 0;
+				}
 
 				&:not(:last-child) {
 					margin-bottom: 10px;

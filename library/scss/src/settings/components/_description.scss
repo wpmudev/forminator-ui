@@ -9,7 +9,9 @@
 
 		.forminator-description {
 			display: flex;
-			line-height: 1.5em;
+			@if ('basic' != $form-theme) {
+				line-height: 1.5em;
+			}
 
 			span {
 				min-width: 80px;
@@ -43,7 +45,12 @@
 				padding: 2px 10px;
 				border-radius: map-get($border-radius, bold);
 			}
-			line-height: 2em;
+			@if ('basic' == $form-theme) {
+				padding: 2px 10px;
+			}
+			@if ('basic' != $form-theme) {
+				line-height: 2em;
+			}
 		}
 
 		.forminator-has_error {

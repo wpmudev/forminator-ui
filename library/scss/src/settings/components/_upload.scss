@@ -36,9 +36,12 @@
 			flex: 0 0 auto;
 			align-items: center;
 			justify-content: center;
-			margin: 0;
-			padding: 0;
-			border: 0;
+			@if ('basic' != $form-theme) {
+				font-size: map-get($button, icon-size);
+				margin: 0;
+				padding: 0;
+				border: 0;
+			}
 			@if ('default' == $form-theme) {
 				border-radius: map-get($border-radius, default);
 			}
@@ -51,7 +54,6 @@
 			@if ('material' == $form-theme) {
 				border-radius: #{map-get($border-radius, material) * 2};
 			}
-			font-size: map-get($button, icon-size);
 
 			[class*=forminator-icon-] {
 				display: block;

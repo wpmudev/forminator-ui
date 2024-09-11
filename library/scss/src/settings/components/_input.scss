@@ -3,14 +3,21 @@
 	@include form-class($form-type, $form-theme, false) {
 
 		.forminator-input {
-			box-sizing: border-box;
-			width: 100%;
-			min-width: unset;
-			max-width: unset;
-			min-height: unset;
-			max-height: unset;
+			width: 100%;			
 			display: block;
-			margin: 0;
+			@if ('basic' == $form-theme) {
+				appearance: auto;
+			}
+			@if ('basic' != $form-theme) {
+				box-sizing: border-box;
+				min-width: unset;
+				max-width: unset;
+				min-height: unset;
+				max-height: unset;
+				background-image: unset;
+				transition: map-get($transition, ease);
+				margin: 0;
+			}
 			@if ('default' == $form-theme) {
 				padding: #{map-get($input, padding) - map-get($border-width, default)};
 				border-width: map-get($border-width, default);
@@ -37,40 +44,36 @@
 				border-radius: 0;
 				background-color: transparent !important;
 			}
+
 			@if ('basic' != $form-theme) {
-				height: auto;
-				line-height: map-get($input, line-height);
-			}
-			background-image: unset;
-			transition: map-get($transition, ease);
-
-			&,
-			&:hover,
-			&:focus,
-			&:active,
-			&:disabled {
-				outline: none;
-				box-shadow: none;
-			}
-
-			&:disabled {
-				pointer-events: none;
-				border-style: dotted;
-
-				&:-moz-placeholder {
-					@include opacity(0.4);
+				&,
+				&:hover,
+				&:focus,
+				&:active,
+				&:disabled {
+					outline: none;
+					box-shadow: none;
 				}
 
-				&::-moz-placeholder {
-					@include opacity(0.4);
-				}
+				&:disabled {
+					pointer-events: none;
+					border-style: dotted;
 
-				&:-ms-input-placeholder {
-					@include opacity(0.4);
-				}
+					&:-moz-placeholder {
+						@include opacity(0.4);
+					}
 
-				&::-webkit-input-placeholder {
-					@include opacity(0.4);
+					&::-moz-placeholder {
+						@include opacity(0.4);
+					}
+
+					&:-ms-input-placeholder {
+						@include opacity(0.4);
+					}
+
+					&::-webkit-input-placeholder {
+						@include opacity(0.4);
+					}
 				}
 			}
 		}

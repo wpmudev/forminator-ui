@@ -41,6 +41,9 @@ $form-theme: basic;
 @import "src/settings/components/repeater";
 @import "src/settings/components/repeater-buttons";
 @import "src/settings/components/multiselect";
+@import "src/settings/components/radio";
+@import "src/settings/components/checkbox";
+@import "src/settings/components/phone";
 
 // Components
 @include component-repeater(#{$form-type}, #{$form-theme});
@@ -62,31 +65,6 @@ $form-theme: basic;
 @include component-paypal(#{$form-type}, #{$form-theme});
 @include component-stripe(#{$form-type}, #{$form-theme});
 @include component-multiselect(#{$form-type}, #{$form-theme});
-
-
-@include form-class(#{$form-type}, #{$form-theme}, false) {
-	// Inputs
-	.forminator-select2,
-	.forminator-field-phone .iti {
-		display: block;
-		width: 100%;
-	}
-
-	.forminator-checkbox,
-	.forminator-checkbox__wrapper,
-	.forminator-radio {
-		display: flex;
-		align-items: center;
-		margin: 10px 0;
-
-		input {
-			margin: 0;
-		}
-	}
-
-	.forminator-radio-label,
-	.forminator-checkbox-label,
-	.forminator-consent__label {
-		margin-left: 5px;
-	}
-}
+@include component-checkbox(#{$form-type}, #{$form-theme});
+@include component-radio(#{$form-type}, #{$form-theme});
+@include component-phone(#{$form-type}, #{$form-theme});

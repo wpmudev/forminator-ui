@@ -5,14 +5,17 @@
         .forminator-action-buttons {
             margin-top: -30px;
             line-height: 1;
-            .forminator-repeater-action-button {
-                padding: 5px 15px;
-                border-radius: 15px;
 
-                &:disabled {
-                    pointer-events: none;
-                }
-            }
+			@if ('basic' != $form-theme) {
+				.forminator-repeater-action-button {
+					padding: 5px 15px;
+					border-radius: 15px;
+	
+					&:disabled {
+						pointer-events: none;
+					}
+				}
+			}
 
             .forminator-repeater-add,
             .forminator-repeater-remove {

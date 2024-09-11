@@ -7,17 +7,19 @@
 			flex-flow: row wrap;
 			align-items: center;
 
-			input {
-				min-width: 50px;
-				display: block;
-				flex: 1;
-				margin: 0;
-				padding: 0;
-				border: 0;
-				background-image: none;
-				background-color: transparent;
-				box-shadow: none;
-			}
+				input {
+					min-width: 50px;
+					display: block;
+					flex: 1;
+					@if ('basic' != $form-theme) {
+						margin: 0;
+						padding: 0;
+						border: 0;
+						background-image: none;
+						background-color: transparent;
+						box-shadow: none;
+					}
+				}
 
 			.forminator-prefix,
 			.forminator-suffix {
