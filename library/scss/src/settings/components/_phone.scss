@@ -91,6 +91,17 @@
 				}
 			}
 
+			.iti__country-container {
+				right: 0;
+			}
+
+			&.iti--allow-dropdown {
+				.iti__country-container {
+					right: auto;
+					left: 0;
+				}
+			}
+
 			&:not(.iti--allow-dropdown) {
 
 				.iti__country-container {
