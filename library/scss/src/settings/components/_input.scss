@@ -14,6 +14,8 @@
 				max-width: unset;
 				min-height: unset;
 				max-height: unset;
+				height: auto;
+				line-height: map-get($input, line-height);
 				background-image: unset;
 				transition: map-get($transition, ease);
 				margin: 0;
