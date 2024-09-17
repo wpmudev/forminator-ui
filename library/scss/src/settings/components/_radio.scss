@@ -125,10 +125,15 @@ $radio-image: 80px;
 							animation-fill-mode: both;
 						}
 					}
+				}
+			}
 
-					~ span {
-						margin-left: 10px;
-					}
+			.forminator-radio-bullet {
+				@if ('basic' == $form-theme) {
+					display: none;
+				}
+				~ span {
+					margin-left: 10px;
 				}
 			}
 

@@ -113,10 +113,15 @@ $checkbox-image: 80px;
 							animation-fill-mode: both;
 						}
 					}
+				}
+			}
 
-					~ span {
-						margin-left: 10px;
-					}
+			.forminator-checkbox-box {
+				@if ('basic' == $form-theme) {
+					display: none;
+				}
+				~ span {
+					margin-left: 10px;
 				}
 			}
 
