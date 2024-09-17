@@ -247,9 +247,16 @@ $radio-image: 80px;
 					// VARIATION: Bullet + Label.
 					&.forminator-has_bullet {
 
-						.forminator-radio-bullet {
-							order: 2;
-							margin-left: 10px;
+						@if ('basic' == $form-theme) {
+							input {
+								order: 2;
+								margin-left: 10px;
+							}
+						} @else {
+							.forminator-radio-bullet {
+								order: 2;
+								margin-left: 10px;
+							}
 						}
 
 						.forminator-radio-label {

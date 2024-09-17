@@ -249,9 +249,16 @@ $checkbox-image: 80px;
 					// VARIATION: Box + Label.
 					&.forminator-has_box {
 
-						.forminator-checkbox-box {
-							order: 2;
-							margin-left: 10px;
+						@if ('basic' == $form-theme) {
+							input {
+								order: 2;
+								margin-left: 10px;
+							}
+						} @else {
+							.forminator-checkbox-box {
+								order: 2;
+								margin-left: 10px;
+							}
 						}
 
 						.forminator-checkbox-label {
