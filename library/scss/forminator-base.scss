@@ -44,6 +44,7 @@ $form-theme: basic;
 @import "src/settings/components/radio";
 @import "src/settings/components/checkbox";
 @import "src/settings/components/phone";
+@import "src/settings/components/slider";
 
 // Components
 @include component-repeater(#{$form-type}, #{$form-theme});
@@ -68,3 +69,4 @@ $form-theme: basic;
 @include component-checkbox(#{$form-type}, #{$form-theme});
 @include component-radio(#{$form-type}, #{$form-theme});
 @include component-phone(#{$form-type}, #{$form-theme});
+@include component-slider(#{$form-type}, #{$form-theme});

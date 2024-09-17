@@ -139,6 +139,7 @@
 				&.forminator-dropdown--basic {
 					padding: #{$dropdown--padding - $default--border-width} 0;
 					border-style: $default--border-style;
+					border-width: 1px;
 
 					.forminator-checkbox-box {
 						display: none;
