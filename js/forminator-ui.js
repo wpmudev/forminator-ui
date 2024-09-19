@@ -642,7 +642,7 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
       var $element = $(this),
         $formid = $element.data('form-id'),
         $select = $element.find('.forminator-select2');
-      var $themes = ['bold', 'flat', 'default', 'material', 'none'];
+      var $themes = ['bold', 'flat', 'default', 'basic', 'material', 'none'];
       $.each($themes, function (index, $theme) {
         var $dir,
           $language = 'en',
