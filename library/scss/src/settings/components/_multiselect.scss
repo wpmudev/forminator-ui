@@ -46,8 +46,10 @@
 					border-style: map-get($border-style, material);
 					border-radius: map-get($border-radius, material);
 				}
-				line-height: map-get($dropdown, line-height);
-				transition: map-get($transition, ease);
+				@if ('basic' != $form-theme) {
+					line-height: map-get($dropdown, line-height);
+					transition: map-get($transition, ease);
+				}
 
 				input {
 					@extend %screen-readers;

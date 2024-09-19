@@ -1,0 +1,72 @@
+@charset "UTF-8";
+
+@import "variables";
+
+
+$form-type: custom-form;
+$form-theme: basic;
+
+// Helpers
+@import "helpers/text-reset";
+@import "helpers/text-truncate";
+@import "helpers/icon-styles";
+
+// Mixins
+@import "mixins/body-class";
+@import "mixins/breakpoints";
+@import "mixins/opacity";
+@import "mixins/animations";
+@import "mixins/icons";
+
+// Helpers
+@import "helpers/screen-readers";
+
+// Fields
+@import "src/settings/components/rating";
+@import "src/settings/components/paypal";
+@import "src/settings/components/stripe";
+@import "src/settings/components/e-signature";
+@import "src/settings/components/textarea";
+@import "src/settings/components/input";
+@import "src/settings/components/input-with-icon";
+@import "src/settings/components/input-with-prefix";
+@import "src/settings/components/input-with-suffix";
+@import "src/settings/components/label";
+@import "src/settings/components/description";
+@import "src/settings/components/timepicker";
+@import "src/settings/components/upload";
+@import "src/settings/components/pagination";
+@import "src/settings/components/response";
+@import "src/settings/components/recaptcha";
+@import "src/settings/components/repeater";
+@import "src/settings/components/repeater-buttons";
+@import "src/settings/components/multiselect";
+@import "src/settings/components/radio";
+@import "src/settings/components/checkbox";
+@import "src/settings/components/phone";
+@import "src/settings/components/slider";
+
+// Components
+@include component-repeater(#{$form-type}, #{$form-theme});
+@include component-repeater-buttons(#{$form-type}, #{$form-theme});
+@include component-response(#{$form-type}, #{$form-theme});
+@include component-recaptcha(#{$form-type}, #{$form-theme});
+@include component-rating(#{$form-type}, #{$form-theme});
+@include component-signature(#{$form-type}, #{$form-theme});
+@include component-textarea(#{$form-type}, #{$form-theme});
+@include component-input-with-icon(#{$form-type}, #{$form-theme});
+@include component-input(#{$form-type}, #{$form-theme});
+@include component-input-with-prefix(#{$form-type}, #{$form-theme});
+@include component-input-with-suffix(#{$form-type}, #{$form-theme});
+@include component-label(#{$form-type}, #{$form-theme});
+@include component-description(#{$form-type}, #{$form-theme});
+@include component-timepicker(#{$form-type}, #{$form-theme});
+@include component-upload(#{$form-type}, #{$form-theme});
+@include component-pagination(#{$form-type}, #{$form-theme});
+@include component-paypal(#{$form-type}, #{$form-theme});
+@include component-stripe(#{$form-type}, #{$form-theme});
+@include component-multiselect(#{$form-type}, #{$form-theme});
+@include component-checkbox(#{$form-type}, #{$form-theme});
+@include component-radio(#{$form-type}, #{$form-theme});
+@include component-phone(#{$form-type}, #{$form-theme});
+@include component-slider(#{$form-type}, #{$form-theme});

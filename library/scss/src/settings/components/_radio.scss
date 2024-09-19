@@ -6,14 +6,19 @@ $radio-image: 80px;
 
 		.forminator-radio {
 			cursor: default;
-			pointer-events: none;
 			display: flex;
 			align-items: center;
 			position: relative;
 			margin: 10px 0;
 
+			@if ('basic' != $form-theme) {
+				pointer-events: none;
+			}
+
 			input {
-				@extend %screen-readers;
+				@if ('basic' != $form-theme) {
+					@extend %screen-readers;
+				}
 
 				&:checked {
 
@@ -50,76 +55,83 @@ $radio-image: 80px;
 				display: block;
 			}
 
-			.forminator-radio-bullet {
-				width: map-get($radio, size);
-				height: map-get($radio, size);
-				flex: 0 0 map-get($radio, size);
-				position: relative;
-				@if ('default' == $form-theme) {
-					border-width: map-get($border-width, default);
-					border-style: map-get($border-style, default);
-				}
-				@if ('flat' == $form-theme) {
-					border-width: map-get($border-width, flat);
-					border-style: map-get($border-style, flat);
-				}
-				@if ('bold' == $form-theme) {
-					border-width: map-get($border-width, bold);
-					border-style: map-get($border-style, bold);
-				}
-				@if ('material' == $form-theme) {
-					border-width: #{map-get($border-width, material) * 2};
-					border-style: map-get($border-style, material);
-				}
-				border-radius: #{map-get($radio, size) * 2};
-
-				&:before {
-					content: " ";
+			@if ('basic' != $form-theme) {
+				.forminator-radio-bullet {
+					width: map-get($radio, size);
+					height: map-get($radio, size);
+					flex: 0 0 map-get($radio, size);
+					position: relative;
 					@if ('default' == $form-theme) {
-						width: #{calc(map-get($radio, size) / 2)};
-						height: #{calc(map-get($radio, size) / 2)};
+						border-width: map-get($border-width, default);
+						border-style: map-get($border-style, default);
 					}
 					@if ('flat' == $form-theme) {
-						width: #{calc(map-get($radio, size) / 2)};
-						height: #{calc(map-get($radio, size) / 2)};
+						border-width: map-get($border-width, flat);
+						border-style: map-get($border-style, flat);
 					}
 					@if ('bold' == $form-theme) {
-						width: #{(calc(map-get($radio, size) / 2)) - map-get($border-width, bold)};
-						height: #{(calc(map-get($radio, size) / 2)) - map-get($border-width, bold)};
+						border-width: map-get($border-width, bold);
+						border-style: map-get($border-style, bold);
 					}
 					@if ('material' == $form-theme) {
-						width: #{calc(map-get($radio, size) / 2)};
-						height: #{calc(map-get($radio, size) / 2)};
+						border-width: #{map-get($border-width, material) * 2};
+						border-style: map-get($border-style, material);
 					}
-					@include opacity(0);
-					display: block;
-					position: absolute;
-					top: 50%;
-					left: 50%;
-					border-radius: 100%;
-					transform: translate(-50%, -50%);
-					transition: map-get($transition, ease);
-				}
+					border-radius: #{map-get($radio, size) * 2};
 
-				@if ('material' == $form-theme) {
-
-					&:after {
+					&:before {
 						content: " ";
+						@if ('default' == $form-theme) {
+							width: #{calc(map-get($radio, size) / 2)};
+							height: #{calc(map-get($radio, size) / 2)};
+						}
+						@if ('flat' == $form-theme) {
+							width: #{calc(map-get($radio, size) / 2)};
+							height: #{calc(map-get($radio, size) / 2)};
+						}
+						@if ('bold' == $form-theme) {
+							width: #{(calc(map-get($radio, size) / 2)) - map-get($border-width, bold)};
+							height: #{(calc(map-get($radio, size) / 2)) - map-get($border-width, bold)};
+						}
+						@if ('material' == $form-theme) {
+							width: #{calc(map-get($radio, size) / 2)};
+							height: #{calc(map-get($radio, size) / 2)};
+						}
 						@include opacity(0);
-						width: map-get($radio, size);
-						height: map-get($radio, size);
+						display: block;
 						position: absolute;
 						top: 50%;
 						left: 50%;
 						border-radius: 100%;
-						transform: translate(-50%, -50%) scale(0);
-						transform-origin: center;
-						transform-style: preserve-3d;
-						animation-duration: 0.6s;
-						animation-fill-mode: both;
+						transform: translate(-50%, -50%);
+						transition: map-get($transition, ease);
+					}
+
+					@if ('material' == $form-theme) {
+
+						&:after {
+							content: " ";
+							@include opacity(0);
+							width: map-get($radio, size);
+							height: map-get($radio, size);
+							position: absolute;
+							top: 50%;
+							left: 50%;
+							border-radius: 100%;
+							transform: translate(-50%, -50%) scale(0);
+							transform-origin: center;
+							transform-style: preserve-3d;
+							animation-duration: 0.6s;
+							animation-fill-mode: both;
+						}
 					}
 				}
+			}
 
+			.forminator-radio-bullet {
+				@if ('basic' == $form-theme) {
+					display: none;
+				}
 				~ span {
 					margin-left: 10px;
 				}
@@ -127,7 +139,10 @@ $radio-image: 80px;
 
 			.forminator-radio-label {
 				flex: 0 1 auto;
-				line-height: 20px;
+
+				@if ('basic' != $form-theme) {
+					line-height: 20px;
+				}
 			}
 
 			.forminator-radio-image {
@@ -232,9 +247,16 @@ $radio-image: 80px;
 					// VARIATION: Bullet + Label.
 					&.forminator-has_bullet {
 
-						.forminator-radio-bullet {
-							order: 2;
-							margin-left: 10px;
+						@if ('basic' == $form-theme) {
+							input {
+								order: 2;
+								margin-left: 10px;
+							}
+						} @else {
+							.forminator-radio-bullet {
+								order: 2;
+								margin-left: 10px;
+							}
 						}
 
 						.forminator-radio-label {

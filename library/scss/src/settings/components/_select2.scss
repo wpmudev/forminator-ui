@@ -2,252 +2,263 @@
 
 	@include form-class($form-type, $form-theme, false) {
 
-		select.forminator-select2 {
-
-			+ .forminator-select {
-				min-width: 100%;
-				max-width: 100%;
-				display: block;
-				text-align: left;
-
-				// STATE: Default.
-				.selection {
+		select {
+			@if ('basic' == $form-theme) {
+				&:not(.forminator-select2) {
+					width: 100%;
 					display: block;
+				}
+			}
 
-					span[role="combobox"] {
+			&.forminator-select2 {
 
-						.select2-selection__rendered {
-							order: 1;
-						}
-
-						.select2-selection__arrow {
-							order: 3;
-						}
-
-						// Remove icon styling
-						.select2-selection__clear,
-						.select2-selection__choice__remove {
-							padding: 0;
-							margin: 0;
-							border: none;
-							background: unset;
-							cursor: pointer;
-						}
-
-						// TYPE: Single Select.
-						&.select2-selection--multiple,
-						&.select2-selection--single {
-							height: auto;
-							cursor: pointer;
-							user-select: none;
-							display: flex;
-							flex-flow: row nowrap;
-							align-items: center;
-							position: relative;
-							margin: 0;
-							padding: 0;
-							@if ('default' == $form-theme) {
-								border-width: $default--border-width;
-								border-style: $default--border-style;
-							}
-							@else if ('flat' == $form-theme) {
-								border-width: 0;
-								border-style: none;
-							}
-							@else if ('bold' == $form-theme) {
-								border-width: $bold--border-width;
-								border-style: $bold--border-style;
-							}
-							@else if ('material' == $form-theme) {
-								border-width: 0;
-								border-bottom-width: 1px;
-								border-style: $material--border-style;
-							}
-							background-image: none !important;
-
-							@if ('material' == $form-theme) {
-								&:before {
-									content: " ";
-									height: 2px;
-									display: block;
-									position: absolute;
-									z-index: 2;
-									right: 50%;
-									bottom: -1px;
-									left: 50%;
-									transition: 0.2s linear;
-								}
-							}
-
-							// Label.
+				+ .forminator-select {
+					min-width: 100%;
+					max-width: 100%;
+					display: block;
+					text-align: left;
+	
+					// STATE: Default.
+					.selection {
+						display: block;
+	
+						span[role="combobox"] {
+	
 							.select2-selection__rendered {
-								min-width: 10px;
-								overflow: hidden;
-								display: block;
-								flex: 1;
-								@if ('default' == $form-theme) {
-									padding: #{10px - ($default--border-width * 2)} 5px #{10px - ($default--border-width * 2)} 8px;
-								}
-								@else if ('flat' == $form-theme) {
-									padding: 8px 5px 8px 8px;
-								}
-								@else if ('bold' == $form-theme) {
-									padding: #{10px - ($bold--border-width * 2)} 5px #{10px - ($bold--border-width * 2)} 8px;
-								}
-								@else if ('material' == $form-theme) {
-									padding: 8px 5px 8px 0;
-								}
-								text-overflow: ellipsis;
-								white-space: nowrap;
+								order: 1;
 							}
-
-							// Multiselect options
-							ul.select2-selection__rendered {
-								margin: 0;
-								list-style: none;
-
-								.select2-selection__placeholder {
-									margin: 0;
-								}
-							}
-
-							// Icon.
+	
 							.select2-selection__arrow {
-								@if ('material' == $form-theme) {
-									width: auto;
-								}
-								@else {
-									width: 38px;
-								}
-								height: 38px;
+								order: 3;
+							}
+	
+							// Remove icon styling
+							.select2-selection__clear,
+							.select2-selection__choice__remove {
+								padding: 0;
+								margin: 0;
+								border: none;
+								background: unset;
+								cursor: pointer;
+							}
+	
+							// TYPE: Single Select.
+							&.select2-selection--multiple,
+							&.select2-selection--single {
+								height: auto;
+								cursor: pointer;
+								user-select: none;
 								display: flex;
-								flex: 0 0 auto;
-								flex-flow: row wrap;
+								flex-flow: row nowrap;
 								align-items: center;
 								position: relative;
 								margin: 0;
 								padding: 0;
-								border: 0;
-
-								[class*="forminator-icon-"] {
-									display: block;
-									margin: 0 auto;
-									font-size: $select--handle-icon;
-									transition: $transition--linear;
-
-									&:before {
-										display: block;
-										color: inherit;
-									}
-								}
-							}
-
-							@if ('material' == $form-theme) {
-								&:hover,
-								&[aria-expanded="true"] {
-
-									&:before {
-										right: 0;
-										left: 0;
-									}
-								}
-							}
-
-							&[aria-expanded="true"] {
-
-								// Icon.
-								.select2-selection__arrow {
-
-									[class*="forminator-icon-"] {
-										transform: rotate(180deg);
-									}
-								}
-							}
-						}
-
-						.select2-selection__clear {
-							order: 2;
-							width: 30px;
-							height: 30px;
-							font-size: 24px;
-							color: #777771;
-
-							span {
-								display: block;
-								height: 100%;
-							}
-						}
-
-						// multiple selection
-						&.select2-selection--multiple {
-
-							.select2-selection__rendered {
-								display: flex;
-								gap: 4px;
-								flex-wrap: wrap;
-
-								&.forminator-select2-selections {
-									padding-top: 6px;
-									padding-bottom: 6px;
-								}
-							}
-
-							.select2-selection__choice {
-								line-height: 14px;
-								color: #fff;
-								background: #888888;
-								padding: 6px 8px;
-								border-radius: 4px;
-								display: flex;
-								align-items: center;
-								gap: 6px;
-								margin: 0;
-								white-space: normal;
-								
-								@if ('default' == $form-theme) {
-									border-radius: 4px;
+								@if ('default' == $form-theme or 'basic' == $form-theme) {
+									border-width: $default--border-width;
+									border-style: $default--border-style;
 								}
 								@else if ('flat' == $form-theme) {
-									border-radius: 0;
+									border-width: 0;
+									border-style: none;
 								}
 								@else if ('bold' == $form-theme) {
-									border-radius: 4px;
+									border-width: $bold--border-width;
+									border-style: $bold--border-style;
 								}
 								@else if ('material' == $form-theme) {
-									border-radius: 15px;
+									border-width: 0;
+									border-bottom-width: 1px;
+									border-style: $material--border-style;
 								}
-
-								.select2-selection__choice__remove {
-									font-size: 20px;
-									color: #fff;
-
-									span {
-										line-height: 12px;
-										height: 14px;
+								background-image: none !important;
+	
+								@if ('material' == $form-theme) {
+									&:before {
+										content: " ";
+										height: 2px;
 										display: block;
+										position: absolute;
+										z-index: 2;
+										right: 50%;
+										bottom: -1px;
+										left: 50%;
+										transition: 0.2s linear;
+									}
+								}
+	
+								// Label.
+								.select2-selection__rendered {
+									min-width: 10px;
+									overflow: hidden;
+									display: block;
+									flex: 1;
+									@if ('default' == $form-theme or 'basic' == $form-theme) {
+										padding: #{10px - ($default--border-width * 2)} 5px #{10px - ($default--border-width * 2)} 8px;
+									}
+									@else if ('flat' == $form-theme) {
+										padding: 8px 5px 8px 8px;
+									}
+									@else if ('bold' == $form-theme) {
+										padding: #{10px - ($bold--border-width * 2)} 5px #{10px - ($bold--border-width * 2)} 8px;
+									}
+									@else if ('material' == $form-theme) {
+										padding: 8px 5px 8px 0;
+									}
+									text-overflow: ellipsis;
+									white-space: nowrap;
+								}
+	
+								// Multiselect options
+								ul.select2-selection__rendered {
+									margin: 0;
+									list-style: none;
+	
+									.select2-selection__placeholder {
+										margin: 0;
+									}
+								}
+	
+								// Icon.
+								.select2-selection__arrow {
+									@if ('material' == $form-theme) {
+										width: auto;
+									}
+									@else {
+										width: 38px;
+									}
+									@if ('basic' != $form-theme) {
+										height: 38px;
+									}
+									display: flex;
+									flex: 0 0 auto;
+									flex-flow: row wrap;
+									align-items: center;
+									position: relative;
+									margin: 0;
+									padding: 0;
+									border: 0;
+	
+									[class*="forminator-icon-"] {
+										display: block;
+										margin: 0 auto;
+										font-size: $select--handle-icon;
+										transition: $transition--linear;
+	
+										&:before {
+											display: block;
+											color: inherit;
+										}
+									}
+								}
+	
+								@if ('material' == $form-theme) {
+									&:hover,
+									&[aria-expanded="true"] {
+	
+										&:before {
+											right: 0;
+											left: 0;
+										}
+									}
+								}
+	
+								&[aria-expanded="true"] {
+	
+									// Icon.
+									.select2-selection__arrow {
+	
+										[class*="forminator-icon-"] {
+											transform: rotate(180deg);
+										}
 									}
 								}
 							}
+	
+							.select2-selection__clear {
+								order: 2;
+								width: 30px;
+								height: 30px;
+								font-size: 24px;
+								color: #777771;
+	
+								span {
+									display: block;
+									height: 100%;
+								}
+							}
+	
+							// multiple selection
+							&.select2-selection--multiple {
+	
+								.select2-selection__rendered {
+									display: flex;
+									gap: 4px;
+									flex-wrap: wrap;
+	
+									&.forminator-select2-selections {
+										padding-top: 6px;
+										padding-bottom: 6px;
+									}
+								}
+	
+								.select2-selection__choice {
+									line-height: 14px;
+									color: #fff;
+									background: #888888;
+									padding: 6px 8px;
+									border-radius: 4px;
+									display: flex;
+									align-items: center;
+									gap: 6px;
+									margin: 0;
+									white-space: normal;
+									
+									@if ('default' == $form-theme) {
+										border-radius: 4px;
+									}
+									@else if ('flat' == $form-theme) {
+										border-radius: 0;
+									}
+									@else if ('bold' == $form-theme) {
+										border-radius: 4px;
+									}
+									@else if ('material' == $form-theme) {
+										border-radius: 15px;
+									}
+	
+									.select2-selection__choice__remove {
+										font-size: 20px;
+										color: #fff;
+	
+										span {
+											line-height: 12px;
+											height: 14px;
+											display: block;
+										}
+									}
+								}
+							}
+	
+							&:hover,
+							&:focus {
+								outline: none;
+								box-shadow: none;
+							}
 						}
-
+	
 						&:hover,
 						&:focus {
 							outline: none;
 							box-shadow: none;
 						}
 					}
-
+	
 					&:hover,
 					&:focus {
 						outline: none;
 						box-shadow: none;
 					}
-				}
-
-				&:hover,
-				&:focus {
-					outline: none;
-					box-shadow: none;
 				}
 			}
 		}

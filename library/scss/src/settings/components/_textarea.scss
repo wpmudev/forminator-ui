@@ -3,12 +3,17 @@
 	@include form-class($form-type, $form-theme, false) {
 
 		.forminator-textarea {
-			box-sizing: border-box;
 			width: 100%;
-			min-height: $textarea--height;
-			resize: vertical;
 			display: block;
-			margin: 0;
+			@if ('basic' != $form-theme) {
+				box-sizing: border-box;
+				resize: vertical;
+				margin: 0;
+				min-height: $textarea--height;
+				background-image: unset;
+				line-height: $textarea--line-height;
+				transition: $transition--ease;
+			}
 			@if ('default' == $form-theme) {
 				padding: #{$textarea--padding - $default--border-width};
 				border-width: $default--border-width;
@@ -33,37 +38,36 @@
 				border-radius: $material--border-radius;
 				line-height: 20px;
 			}
-			background-image: unset;
-			line-height: $textarea--line-height;
-			transition: $transition--ease;
 
-			&,
-			&:hover,
-			&:focus,
-			&:active,
-			&:disabled {
-				outline: none;
-				box-shadow: none;
-			}
-
-			&:disabled {
-				pointer-events: none;
-				border-style: dotted;
-
-				&:-moz-placeholder {
-					@include opacity(0.4);
+			@if ('basic' != $form-theme) {
+				&,
+				&:hover,
+				&:focus,
+				&:active,
+				&:disabled {
+					outline: none;
+					box-shadow: none;
 				}
 
-				&::-moz-placeholder {
-					@include opacity(0.4);
-				}
+				&:disabled {
+					pointer-events: none;
+					border-style: dotted;
 
-				&:-ms-input-placeholder {
-					@include opacity(0.4);
-				}
+					&:-moz-placeholder {
+						@include opacity(0.4);
+					}
 
-				&::-webkit-input-placeholder {
-					@include opacity(0.4);
+					&::-moz-placeholder {
+						@include opacity(0.4);
+					}
+
+					&:-ms-input-placeholder {
+						@include opacity(0.4);
+					}
+
+					&::-webkit-input-placeholder {
+						@include opacity(0.4);
+					}
 				}
 			}
 		}

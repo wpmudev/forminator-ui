@@ -5,56 +5,65 @@
 		.forminator-phone {
 			display: block;
 
-			.iti__country-container {
-				@if ('default' == $form-theme) {
-					padding: map-get($border-width, default);
-				}
-				@if ('flat' == $form-theme) {
-					padding: map-get($border-width, flat);
-				}
-				@if ('bold' == $form-theme) {
-					padding: map-get($border-width, bold);
-				}
+			@if ('basic' != $form-theme) {
+				.iti__country-container {
+					@if ('default' == $form-theme) {
+						padding: map-get($border-width, default);
+					}
+					@if ('flat' == $form-theme) {
+						padding: map-get($border-width, flat);
+					}
+					@if ('bold' == $form-theme) {
+						padding: map-get($border-width, bold);
+					}
 
-				.iti__selected-country {
-					width: auto;
-					display: flex;
-					align-items: center;
-					margin: 0;
-					padding: 0;
-					background: unset;
+					.iti__selected-country {
+						width: auto;
+						display: flex;
+						align-items: center;
+						margin: 0;
+						padding: 0;
+						background: unset;
 
-					.iti__selected-country-primary {
-						padding: 0 map-get($input, padding);
+						.iti__selected-country-primary {
+							padding: 0 map-get($input, padding);
+
+							&:hover,
+							&:focus,
+							&:active {
+								@if ('material' == $form-theme) {
+									background-color: unset;
+								}
+							}
+						}
+
+						.iti__flag {
+							display: block;
+							position: relative;
+							top: auto;
+							bottom: auto;
+							margin: 0;
+							padding: 0;
+
+							+ .iti__arrow {
+								margin-left: #{calc(map-get($input, padding) / 2)};
+							}
+						}
+
+						.iti__arrow {
+							display: block;
+							position: relative;
+							top: auto;
+							right: auto;
+							margin: 0;
+						}
 
 						&:hover,
 						&:focus,
 						&:active {
-							@if ('material' == $form-theme) {
-								background-color: unset;
-							}
+							outline: none;
+							box-shadow: none;
 						}
-					}
-
-					.iti__flag {
-						display: block;
-						position: relative;
-						top: auto;
-						bottom: auto;
-						margin: 0;
-						padding: 0;
-
-						+ .iti__arrow {
-							margin-left: #{calc(map-get($input, padding) / 2)};
-						}
-					}
-
-					.iti__arrow {
-						display: block;
-						position: relative;
-						top: auto;
-						right: auto;
-						margin: 0;
 					}
 
 					&:hover,
@@ -65,120 +74,141 @@
 					}
 				}
 
-				&:hover,
-				&:focus,
-				&:active {
-					outline: none;
-					box-shadow: none;
-				}
-			}
+				@if ('material' != $form-theme) {
 
-			@if ('material' != $form-theme) {
+					&.iti--allow-dropdown {
 
-				&.iti--allow-dropdown {
-
-					.forminator-input {
-						@if ('default' == $form-theme) {
-							padding-left: #{($int-country-size + (map-get($input, padding) * 2)) + (map-get($input, padding) + map-get($border-width, default))};
-						}
-						@if ('flat' == $form-theme) {
-							padding-left: #{($int-country-size + (map-get($input, padding) * 2)) + (map-get($input, padding) + map-get($border-width, flat))};
-						}
-						@if ('bold' == $form-theme) {
-							padding-left: #{($int-country-size + (map-get($input, padding) * 2)) + (map-get($input, padding) + map-get($border-width, bold))};
+						.forminator-input {
+							@if ('default' == $form-theme) {
+								padding-left: #{($int-country-size + (map-get($input, padding) * 2)) + (map-get($input, padding) + map-get($border-width, default))};
+							}
+							@if ('flat' == $form-theme) {
+								padding-left: #{($int-country-size + (map-get($input, padding) * 2)) + (map-get($input, padding) + map-get($border-width, flat))};
+							}
+							@if ('bold' == $form-theme) {
+								padding-left: #{($int-country-size + (map-get($input, padding) * 2)) + (map-get($input, padding) + map-get($border-width, bold))};
+							}
 						}
 					}
 				}
-			}
 
-			&:not(.iti--allow-dropdown) {
+				&:not(.iti--allow-dropdown) {
 
-				.iti__country-container {
-					pointer-events: none;
-				}
+					.iti__country-container {
+						pointer-events: none;
+					}
 
-				@if ('material' != $form-theme) {
+					@if ('material' != $form-theme) {
 
-					.forminator-input {
-						@if ('default' == $form-theme) {
-							padding-right: #{($int-country-size + (map-get($input, padding) * 2)) + (map-get($input, padding) + map-get($border-width, default))};
-						}
-						@if ('flat' == $form-theme) {
-							padding-right: #{($int-country-size + (map-get($input, padding) * 2)) + (map-get($input, padding) + map-get($border-width, flat))};
-						}
-						@if ('bold' == $form-theme) {
-							padding-right: #{($int-country-size + (map-get($input, padding) * 2)) + (map-get($input, padding) + map-get($border-width, bold))};
+						.forminator-input {
+							@if ('default' == $form-theme) {
+								padding-right: #{($int-country-size + (map-get($input, padding) * 2)) + (map-get($input, padding) + map-get($border-width, default))};
+							}
+							@if ('flat' == $form-theme) {
+								padding-right: #{($int-country-size + (map-get($input, padding) * 2)) + (map-get($input, padding) + map-get($border-width, flat))};
+							}
+							@if ('bold' == $form-theme) {
+								padding-right: #{($int-country-size + (map-get($input, padding) * 2)) + (map-get($input, padding) + map-get($border-width, bold))};
+							}
 						}
 					}
 				}
 			}
 		}
 
-		.forminator-input-with-phone {
-			@if ('material' == $form-theme) {
-				display: block;
-				min-height: 40px;
-			}
-
-			.iti__country-container {
+		@if ('basic' != $form-theme) {
+			.forminator-input-with-phone {
 				@if ('material' == $form-theme) {
-					flex: 0 0 auto;
-					position: absolute;
-					top: 2px;
-					left: 0;
-					padding: 0;
+					display: block;
+					min-height: 40px;
 				}
 
-				.iti__selected-country {
-					width: 31px;
-					display: flex;
-					align-items: center;
-					margin: 0;
-					background: unset;
-					padding: 0;
-
+				.iti__country-container {
 					@if ('material' == $form-theme) {
-						background-color: transparent !important;
+						flex: 0 0 auto;
+						position: absolute;
+						top: 2px;
+						left: 0;
+						padding: 0;
 					}
 
-					.iti__selected-country-primary {
-						padding: 0 map-get($input, padding);
+					.iti__selected-country {
+						width: 31px;
+						display: flex;
+						align-items: center;
+						margin: 0;
+						background: unset;
+						padding: 0;
 
-						@if ('material' != $form-theme) {
-							padding: 0 map-get($input, padding);
-						}
 						@if ('material' == $form-theme) {
-							padding: map-get($input, padding) 0 #{map-get($input, padding) - map-get($border-width, material)};
+							background-color: transparent !important;
+						}
+
+						.iti__selected-country-primary {
+							padding: 0 map-get($input, padding);
+
+							@if ('material' != $form-theme) {
+								padding: 0 map-get($input, padding);
+							}
+							@if ('material' == $form-theme) {
+								padding: map-get($input, padding) 0 #{map-get($input, padding) - map-get($border-width, material)};
+							}
+
+							&:hover,
+							&:focus,
+							&:active {
+								@if ('material' == $form-theme) {
+									background-color: unset;
+								}
+							}
+						}
+
+						.iti__flag {
+							display: block;
+							position: relative;
+							top: auto;
+							bottom: auto;
+							margin: 0;
+							padding: 0;
+
+							+ .iti__arrow {
+								margin-left: #{calc(map-get($input, padding) / 2)};
+							}
+						}
+
+						.iti__arrow {
+							display: block;
+							position: relative;
+							top: auto;
+							right: auto;
+							margin: 0;
 						}
 
 						&:hover,
 						&:focus,
 						&:active {
-							@if ('material' == $form-theme) {
-								background-color: unset;
+							outline: none;
+							box-shadow: none;
+						}
+
+						@if ('material' == $form-theme) {
+
+							&:first-child {
+								margin-right: map-get($input, padding);
 							}
 						}
 					}
 
-					.iti__flag {
-						display: block;
-						position: relative;
-						top: auto;
-						bottom: auto;
-						margin: 0;
-						padding: 0;
+					@if ('material' == $form-theme) {
 
-						+ .iti__arrow {
-							margin-left: #{calc(map-get($input, padding) / 2)};
+						.forminator-input {
+							padding-right: 0;
+							padding-left: 0;
 						}
-					}
 
-					.iti__arrow {
-						display: block;
-						position: relative;
-						top: auto;
-						right: auto;
-						margin: 0;
+						~ span {
+							padding-left: #{$int-country-size + map-get($input, padding)};
+						}
 					}
 
 					&:hover,
@@ -187,62 +217,38 @@
 						outline: none;
 						box-shadow: none;
 					}
-
-					@if ('material' == $form-theme) {
-
-						&:first-child {
-							margin-right: map-get($input, padding);
-						}
-					}
 				}
 
 				@if ('material' == $form-theme) {
-
-					.forminator-input {
-						padding-right: 0;
-						padding-left: 0;
-					}
-
-					~ span {
-						padding-left: #{$int-country-size + map-get($input, padding)};
+					.forminator-input--wrap {
+						position: absolute;
+						top: 0;
+						right: 0;
 					}
 				}
 
-				&:hover,
-				&:focus,
-				&:active {
-					outline: none;
-					box-shadow: none;
+				&.iti--allow-dropdown {
+
+					.forminator-input--wrap {
+						left: 41px;
+					}
 				}
-			}
 
-			@if ('material' == $form-theme) {
-				.forminator-input--wrap {
-					position: absolute;
-					top: 0;
-					right: 0;
-				}
-			}
+				&:not(.iti--allow-dropdown) {
 
-			&.iti--allow-dropdown {
-
-				.forminator-input--wrap {
-					left: 41px;
-				}
-			}
-
-			&:not(.iti--allow-dropdown) {
-
-				.forminator-input--wrap {
-					left: #{$int-country-size + map-get($input, padding)};
+					.forminator-input--wrap {
+						left: #{$int-country-size + map-get($input, padding)};
+					}
 				}
 			}
 		}
 	}
 
-	.iti-mobile {
-		.iti--container {
-			z-index: 999991;
+	@if ('basic' != $form-theme) {
+		.iti-mobile {
+			.iti--container {
+				z-index: 999991;
+			}
 		}
 	}
 }

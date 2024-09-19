@@ -5,13 +5,13 @@
 		.forminator-label {
 			cursor: default;
 			display: block;
-			margin: 0;
-			border: 0;
 			@if ('material' == $form-theme) {
 				line-height: 20px;
 			}
-			@else {
+			@else if ('basic' != $form-theme) {
 				line-height: 1.7em;
+				margin: 0;
+				border: 0;
 			}
 
 			&[for] {
