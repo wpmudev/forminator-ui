@@ -1,5 +1,11 @@
 # Change Log
 
+## [1.12.17](https://github.com/wpmudev/forminator-ui/compare/v1.12.16...v1.12.17) (2024-09-19)
+####  ✨ Improvement
+- `styles`
+  - new(builder): separated styles for divi theme builder. [#77](https://github.com/wpmudev/forminator-ui/pull/77) ([FOR-4711](https://incsub.atlassian.net/browse/FOR-1282)) ([@creador-dev](https://github.com/creador-dev))
+  - new(theme): new basic theme introduced. [#79](https://github.com/wpmudev/forminator-ui/pull/79) ([FOR-4711](https://incsub.atlassian.net/browse/FOR-511)) ([@creador-dev](https://github.com/creador-dev))
+
 ## [1.12.16](https://github.com/wpmudev/forminator-ui/compare/v1.12.15...v1.12.16) (2024-08-20)
 ####  ✨ Improvement
 - `phone field`
