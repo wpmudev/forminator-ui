@@ -20,6 +20,10 @@ $radio-image: 80px;
 					@extend %screen-readers;
 				}
 
+				@if ('basic' == $form-theme) {
+					margin: 0;
+				}
+
 				&:checked {
 
 					@if ('material' == $form-theme) {
