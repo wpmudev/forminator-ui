@@ -239,7 +239,11 @@ $radio-image: 80px;
 
 			// ALIGNMENT: Stacked
 			&:not(.forminator-radio-inline) {
-				margin: 20px 0;
+				@if ('basic' == $form-theme) {
+					margin: 10px 0;
+				} @else {
+					margin: 20px 0;
+				}
 
 				// VARIATION: Has Image.
 				&.forminator-has_image {
