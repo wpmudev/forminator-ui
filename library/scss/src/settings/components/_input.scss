@@ -57,9 +57,12 @@
 					box-shadow: none;
 				}
 
+				&:disabled:not(.forminator-calculation) {
+					border-style: dotted;
+				}
+
 				&:disabled {
 					pointer-events: none;
-					border-style: dotted;
 
 					&:-moz-placeholder {
 						@include opacity(0.4);
