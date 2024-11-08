@@ -22,6 +22,12 @@
 			}
 		}
 
+		@if ('basic' == $form-theme) {
+			.forminator-button-upload {
+				margin-right: 10px;
+			}
+		}
+
 		.forminator-button-delete {
 			@if ('flat' == $form-theme) {
 				width: 20px;
