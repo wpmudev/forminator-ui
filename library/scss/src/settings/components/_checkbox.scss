@@ -293,10 +293,11 @@ $checkbox-image: 80px;
 
 				// CONSENT
 				&.forminator-consent {
+					margin: 0;
 					@if ('basic' == $form-theme) {
-						margin: 4px 0;
-					} @else {
-						margin: 0;
+						input {
+							margin: 4px 0;
+						}
 					}
 				}
 			}			
