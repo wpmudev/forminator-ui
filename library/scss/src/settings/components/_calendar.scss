@@ -25,6 +25,7 @@
 					right: 0;
 					bottom: 1px;
 					left: 0;
+					width: 100%;
 					@if ('default' == $form-theme) {
 						border-width: map-get($border-width, default);
 						border-style: map-get($border-style, default);
