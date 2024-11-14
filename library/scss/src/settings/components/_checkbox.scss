@@ -241,7 +241,11 @@ $checkbox-image: 80px;
 
 			// ALIGNMENT: Stacked
 			&:not(.forminator-checkbox-inline) {
-				margin: 20px 0;
+				@if ('basic' == $form-theme) {
+					margin: 10px 0;
+				} @else {
+					margin: 20px 0;
+				}
 
 				// VARIATION: Has Image.
 				&.forminator-has_image {
@@ -286,7 +290,17 @@ $checkbox-image: 80px;
 				&:last-child {
 					margin-bottom: 0;
 				}
-			}
+
+				// CONSENT
+				&.forminator-consent {
+					margin: 0;
+					@if ('basic' == $form-theme) {
+						input {
+							margin: 4px 0;
+						}
+					}
+				}
+			}			
 		}
 	}
 }

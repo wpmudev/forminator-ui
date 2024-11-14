@@ -20,6 +20,10 @@ $radio-image: 80px;
 					@extend %screen-readers;
 				}
 
+				@if ('basic' == $form-theme) {
+					margin: 0;
+				}
+
 				&:checked {
 
 					@if ('material' == $form-theme) {
@@ -239,7 +243,11 @@ $radio-image: 80px;
 
 			// ALIGNMENT: Stacked
 			&:not(.forminator-radio-inline) {
-				margin: 20px 0;
+				@if ('basic' == $form-theme) {
+					margin: 10px 0;
+				} @else {
+					margin: 20px 0;
+				}
 
 				// VARIATION: Has Image.
 				&.forminator-has_image {

@@ -7,13 +7,13 @@
 			display: block;
 			@if ('material' == $form-theme) {
 				line-height: 20px;
-			}
-			@else if ('basic' != $form-theme) {
+			} @else if ('basic' != $form-theme) {
 				line-height: 1.7em;
 				margin: 0;
 				border: 0;
+			} @else if ('basic' == $form-theme) {
+				margin-bottom: 10px;
 			}
-
 			&[for] {
 				cursor: pointer;
 			}

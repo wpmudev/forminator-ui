@@ -1,155 +1,78 @@
 @mixin component-calendar($form-type: no-type, $form-theme: no-theme) {
+	@if ('basic' != $form-theme) {
+		.ui-datepicker {
 
-	.ui-datepicker {
+			&.forminator-calendar--#{$form-theme} {
+				width: auto;
+				z-index: 20000000;
+				margin: 0;
+				padding: 1px 0;
+				border: 0;
+				border-radius: 0;
+				background-color: transparent !important;
 
-		&.forminator-calendar--#{$form-theme} {
-			width: auto;
-			z-index: 20000000;
-			margin: 0;
-			padding: 1px 0;
-			border: 0;
-			border-radius: 0;
-			background-color: transparent !important;
-
-			&, * {
-				box-sizing: border-box;
-				@extend %text-reset;
-			}
-
-			&:before {
-				content: " ";
-				display: block;
-				position: absolute;
-				z-index: 1;
-				top: 1px;
-				right: 0;
-				bottom: 1px;
-				left: 0;
-				width: 100%;
-				@if ('default' == $form-theme) {
-					border-width: map-get($border-width, default);
-					border-style: map-get($border-style, default);
-					border-radius: map-get($border-radius, default);
+				&, * {
+					box-sizing: border-box;
+					@extend %text-reset;
 				}
-				@if ('bold' == $form-theme) {
-					border-width: map-get($border-width, bold);
-					border-style: map-get($border-style, bold);
-					border-radius: map-get($border-radius, bold);
-				}
-				@if ('material' == $form-theme) {
-					border-width: 0;
-					border-style: none;
-					border-radius: map-get($border-radius, material);
-				}
-			}
 
-			.ui-datepicker-header {
-				display: block;
-				position: relative;
-				z-index: 1;
-				padding: 10px;
-
-				.ui-corner-all {
-					width: map-get($calendar, select-size);
-					height: map-get($calendar, select-size);
-					cursor: pointer;
-					display: flex;
-					align-items: center;
-					justify-content: center;
+				&:before {
+					content: " ";
+					display: block;
 					position: absolute;
-					top: 11px;
+					z-index: 1;
+					top: 1px;
+					right: 0;
+					bottom: 1px;
+					left: 0;
+					width: 100%;
 					@if ('default' == $form-theme) {
+						border-width: map-get($border-width, default);
+						border-style: map-get($border-style, default);
 						border-radius: map-get($border-radius, default);
 					}
-					@if ('flat' == $form-theme) {
-						border-radius: 100%;
-					}
 					@if ('bold' == $form-theme) {
+						border-width: map-get($border-width, bold);
+						border-style: map-get($border-style, bold);
 						border-radius: map-get($border-radius, bold);
 					}
 					@if ('material' == $form-theme) {
-						border-radius: 0;
-						background-color: transparent;
-					}
-					font-size: map-get($calendar, arrows-size);
-					transition: map-get($transition, ease);
-
-					&,
-					&:hover,
-					&:focus,
-					&:active {
-						outline: none;
-						box-shadow: none;
-						text-decoration: none;
-					}
-
-					.ui-icon {
-						@extend %screen-readers;
-					}
-
-					&.ui-datepicker-prev {
-						right: unset;
-						left: 10px;
-
-						@include icon(before, chevron-left);
-					}
-
-					&.ui-datepicker-next {
-						right: 10px;
-						left: unset;
-
-						@include icon(before, chevron-right);
+						border-width: 0;
+						border-style: none;
+						border-radius: map-get($border-radius, material);
 					}
 				}
 
-				.ui-datepicker-title {
-					display: flex;
-					padding: 0 #{map-get($calendar, select-size) + 10px};
+				.ui-datepicker-header {
+					display: block;
+					position: relative;
+					z-index: 1;
+					padding: 10px;
 
-					select {
+					.ui-corner-all {
+						width: map-get($calendar, select-size);
 						height: map-get($calendar, select-size);
 						cursor: pointer;
-						flex: 1;
-						margin: 0 5px;
+						display: flex;
+						align-items: center;
+						justify-content: center;
+						position: absolute;
+						top: 11px;
 						@if ('default' == $form-theme) {
-							padding: 0 #{10px - map-get($border-width, default)};
-							border-width: map-get($border-width, default);
-							border-style: map-get($border-style, default);
 							border-radius: map-get($border-radius, default);
 						}
 						@if ('flat' == $form-theme) {
-							padding: 0 #{10px - map-get($border-width, flat)};
-							border-width: map-get($border-width, flat);
-							border-style: map-get($border-style, flat);
-							border-radius: map-get($border-radius, flat);
+							border-radius: 100%;
 						}
 						@if ('bold' == $form-theme) {
-							border-width: map-get($border-width, bold);
-							border-style: map-get($border-style, bold);
 							border-radius: map-get($border-radius, bold);
-							padding: 0 #{10px - map-get($border-width, bold)};
 						}
 						@if ('material' == $form-theme) {
-							border-width: 0;
-							border-style: none;
 							border-radius: 0;
-							padding: 0 10px;
+							background-color: transparent;
 						}
-						font-size: 14px;
-						@if ('default' == $form-theme) {
-							line-height: #{map-get($calendar, select-size) - (map-get($border-width, default) * 2)};
-						}
-						@if ('flat' == $form-theme) {
-							line-height: map-get($calendar, select-size);
-						}
-						@if ('bold' == $form-theme) {
-							line-height: #{map-get($calendar, select-size) - (map-get($border-width, bold) * 2)};
-						}
-						@if ('material' == $form-theme) {
-							line-height: map-get($calendar, select-size);
-						}
-						font-family: inherit;
-						appearance: none;
+						font-size: map-get($calendar, arrows-size);
+						transition: map-get($transition, ease);
 
 						&,
 						&:hover,
@@ -157,226 +80,334 @@
 						&:active {
 							outline: none;
 							box-shadow: none;
+							text-decoration: none;
 						}
 
-						&:first-child {
-							margin-left: 0;
+						.ui-icon {
+							@extend %screen-readers;
 						}
 
-						&:last-child {
-							margin-right: 0;
+						&.ui-datepicker-prev {
+							right: unset;
+							left: 10px;
+
+							@include icon(before, chevron-left);
+						}
+
+						&.ui-datepicker-next {
+							right: 10px;
+							left: unset;
+
+							@include icon(before, chevron-right);
 						}
 					}
-				}
 
-				+ .ui-datepicker-calendar {
-					@if ('material' == $form-theme) {
-						margin-top: 10px;
-					}
-					padding-top: 0;
-				}
-			}
+					.ui-datepicker-title {
+						display: flex;
+						padding: 0 #{map-get($calendar, select-size) + 10px};
 
-			.ui-datepicker-calendar {
-				width: auto;
-				table-layout: fixed;
-				position: relative;
-				z-index: 1;
-				margin: 0;
-				padding: 0;
-				border: 0;
-				border-spacing: 0;
-				border-collapse: collapse;
-				font-family: inherit;
-
-				thead,
-				tbody {
-
-					tr {
-						margin: 0;
-						padding: 0;
-						border: 0;
-
-						th, td {
-							margin: 0;
-							padding: 5px;
-							border: 0;
-							text-align: center;
-							font-family: inherit;
-
-							a, span {
-								width: map-get($calendar, cell-size);
-								display: block;
-								padding: 2px;
-								border: 0;
-								border-radius: #{map-get($calendar, cell-size) * 2};
+						select {
+							height: map-get($calendar, select-size);
+							cursor: pointer;
+							flex: 1;
+							margin: 0 5px;
+							@if ('basic' == $form-theme) {
+								padding: 0 #{10px - map-get($border-width, default)};
+								display: inline-block;
 							}
+							@if ('default' == $form-theme) {
+								padding: 0 #{10px - map-get($border-width, default)};
+								border-width: map-get($border-width, default);
+								border-style: map-get($border-style, default);
+								border-radius: map-get($border-radius, default);
+							}
+							@if ('flat' == $form-theme) {
+								padding: 0 #{10px - map-get($border-width, flat)};
+								border-width: map-get($border-width, flat);
+								border-style: map-get($border-style, flat);
+								border-radius: map-get($border-radius, flat);
+							}
+							@if ('bold' == $form-theme) {
+								border-width: map-get($border-width, bold);
+								border-style: map-get($border-style, bold);
+								border-radius: map-get($border-radius, bold);
+								padding: 0 #{10px - map-get($border-width, bold)};
+							}
+							@if ('material' == $form-theme) {
+								border-width: 0;
+								border-style: none;
+								border-radius: 0;
+								padding: 0 10px;
+							}
+							font-size: 14px;
+							@if ('default' == $form-theme) {
+								line-height: #{map-get($calendar, select-size) - (map-get($border-width, default) * 2)};
+							}
+							@if ('flat' == $form-theme) {
+								line-height: map-get($calendar, select-size);
+							}
+							@if ('bold' == $form-theme) {
+								line-height: #{map-get($calendar, select-size) - (map-get($border-width, bold) * 2)};
+							}
+							@if ('material' == $form-theme) {
+								line-height: map-get($calendar, select-size);
+							}
+							font-family: inherit;
+							appearance: none;
 
-							a {
-								text-decoration: none;
-								transition: map-get($calendar, ease);
-
-								&,
-								&:hover,
-								&:active,
-								&:visited {
-									outline: none;
-									box-shadow: none;
-									text-decoration: none;
-								}
-
-								&,
-								&:visited {
-									font-weight: 400;
-								}
-
-								&:hover,
-								&:active {
-									font-weight: 600;
-								}
+							&,
+							&:hover,
+							&:focus,
+							&:active {
+								outline: none;
+								box-shadow: none;
 							}
 
 							&:first-child {
-								@if ('default' == $form-theme) {
-									padding-left: #{15px - map-get($border-width, default)};
-								}
-								@if ('flat' == $form-theme) {
-									padding-left: #{15px - map-get($border-width, flat)};
-								}
-								@if ('bold' == $form-theme) {
-									padding-left: #{15px - map-get($border-width, bold)};
-								}
-								@if ('material' == $form-theme) {
-									padding-left: #{15px - map-get($border-width, material)};
-								}
+								margin-left: 0;
 							}
 
 							&:last-child {
-								@if ('default' == $form-theme) {
-									padding-right: #{15px - map-get($border-width, default)};
-								}
-								@if ('flat' == $form-theme) {
-									padding-right: #{15px - map-get($border-width, flat)};
-								}
-								@if ('bold' == $form-theme) {
-									padding-right: #{15px - map-get($border-width, bold)};
-								}
-								@if ('material' == $form-theme) {
-									padding-right: #{15px - map-get($border-width, material)};
-								}
+								margin-right: 0;
 							}
 						}
 					}
-				}
 
-				thead {
-
-					tr {
-
-						th {
-							font-size: 12px;
-							font-weight: 600;
-
-							span {
-								display: block;
-								@if ('default' == $form-theme) {
-									line-height: 1.4em;
-								}
-								@if ('flat' == $form-theme) {
-									line-height: 1.4em;
-								}
-								@if ('bold' == $form-theme) {
-									line-height: 1.4em;
-								}
-								@if ('material' == $form-theme) {
-									line-height: 1.4em;
-								}
-							}
+					+ .ui-datepicker-calendar {
+						@if ('material' == $form-theme) {
+							margin-top: 10px;
 						}
+						padding-top: 0;
 					}
 				}
 
-				tbody {
+				.ui-datepicker-calendar {
+					width: auto;
+					table-layout: fixed;
+					position: relative;
+					z-index: 1;
+					margin: 0;
+					padding: 0;
+					border: 0;
+					border-spacing: 0;
+					border-collapse: collapse;
+					font-family: inherit;
 
-					tr {
+					thead,
+					tbody {
 
-						td {
-							font-size: 13px;
+						tr {
+							margin: 0;
+							padding: 0;
+							border: 0;
 
-							a, span {
-								@if ('default' == $form-theme) {
-									border-width: map-get($border-width, default);
-									border-style: map-get($border-style, default);
-									border-radius: map-get($border-radius, default);
-									line-height: #{map-get($calendar, cell-size) - (map-get($border-width, default) * 2) - 4px};
-								}
-								@if ('flat' == $form-theme) {
-									border-width: map-get($border-width, flat);
-									border-style: map-get($border-style, flat);
-									border-radius: map-get($border-radius, flat);
-									line-height: #{map-get($calendar, cell-size) - (map-get($border-width, flat) * 2) - 4px};
-								}
-								@if ('bold' == $form-theme) {
-									border-width: map-get($border-width, bold);
-									border-style: map-get($border-style, bold);
-									border-radius: map-get($border-radius, bold);
-									line-height: #{map-get($calendar, cell-size) - (map-get($border-width, bold) * 2) - 4px};
-								}
-								@if ('material' == $form-theme) {
-									border-width: map-get($border-width, material);
-									border-style: map-get($border-style, material);
-									border-radius: 100%;
-									line-height: #{map-get($calendar, cell-size) - (map-get($border-width, material) * 2) - 4px};
-								}
-							}
-
-							&.ui-state-disabled,
-							&.ui-datepicker-unselectable {
+							th, td {
+								margin: 0;
+								padding: 5px;
+								border: 0;
+								text-align: center;
+								font-family: inherit;
 
 								a, span {
-									cursor: not-allowed;
-									user-select: none;
-									@include opacity(0.3);
+									width: map-get($calendar, cell-size);
+									display: block;
+									padding: 2px;
+									border: 0;
+									border-radius: #{map-get($calendar, cell-size) * 2};
 								}
 
-								&.ui-datepicker-other-month {
+								a {
+									text-decoration: none;
+									transition: map-get($calendar, ease);
 
-									a, span {
-										cursor: default;
+									&,
+									&:hover,
+									&:active,
+									&:visited {
+										outline: none;
+										box-shadow: none;
+										text-decoration: none;
+									}
+
+									&,
+									&:visited {
+										font-weight: 400;
+									}
+
+									&:hover,
+									&:active {
+										font-weight: 600;
+									}
+								}
+
+								&:first-child {
+									@if ('default' == $form-theme) {
+										padding-left: #{15px - map-get($border-width, default)};
+									}
+									@if ('flat' == $form-theme) {
+										padding-left: #{15px - map-get($border-width, flat)};
+									}
+									@if ('bold' == $form-theme) {
+										padding-left: #{15px - map-get($border-width, bold)};
+									}
+									@if ('material' == $form-theme) {
+										padding-left: #{15px - map-get($border-width, material)};
+									}
+								}
+
+								&:last-child {
+									@if ('default' == $form-theme) {
+										padding-right: #{15px - map-get($border-width, default)};
+									}
+									@if ('flat' == $form-theme) {
+										padding-right: #{15px - map-get($border-width, flat)};
+									}
+									@if ('bold' == $form-theme) {
+										padding-right: #{15px - map-get($border-width, bold)};
+									}
+									@if ('material' == $form-theme) {
+										padding-right: #{15px - map-get($border-width, material)};
 									}
 								}
 							}
 						}
 					}
-				}
 
-				&:last-child {
+					thead {
 
-					thead:last-child,
-					tbody:last-child {
+						tr {
 
-						tr:last-child {
+							th {
+								font-size: 12px;
+								font-weight: 600;
 
-							th, td {
-								@if ('default' == $form-theme) {
-									padding-bottom: #{15px - map-get($border-width, default)};
-								}
-								@if ('flat' == $form-theme) {
-									padding-bottom: #{15px - map-get($border-width, flat)};
-								}
-								@if ('bold' == $form-theme) {
-									padding-bottom: #{15px - map-get($border-width, bold)};
-								}
-								@if ('material' == $form-theme) {
-									padding-bottom: #{15px - map-get($border-width, material)};
+								span {
+									display: block;
+									@if ('default' == $form-theme) {
+										line-height: 1.4em;
+									}
+									@if ('flat' == $form-theme) {
+										line-height: 1.4em;
+									}
+									@if ('bold' == $form-theme) {
+										line-height: 1.4em;
+									}
+									@if ('material' == $form-theme) {
+										line-height: 1.4em;
+									}
 								}
 							}
 						}
 					}
-				}
 
-				+ .ui-datepicker-buttonpane {
-					padding-top: 8px;
+					tbody {
+
+						tr {
+
+							td {
+								font-size: 13px;
+
+								a, span {
+									@if ('default' == $form-theme) {
+										border-width: map-get($border-width, default);
+										border-style: map-get($border-style, default);
+										border-radius: map-get($border-radius, default);
+										line-height: #{map-get($calendar, cell-size) - (map-get($border-width, default) * 2) - 4px};
+									}
+									@if ('flat' == $form-theme) {
+										border-width: map-get($border-width, flat);
+										border-style: map-get($border-style, flat);
+										border-radius: map-get($border-radius, flat);
+										line-height: #{map-get($calendar, cell-size) - (map-get($border-width, flat) * 2) - 4px};
+									}
+									@if ('bold' == $form-theme) {
+										border-width: map-get($border-width, bold);
+										border-style: map-get($border-style, bold);
+										border-radius: map-get($border-radius, bold);
+										line-height: #{map-get($calendar, cell-size) - (map-get($border-width, bold) * 2) - 4px};
+									}
+									@if ('material' == $form-theme) {
+										border-width: map-get($border-width, material);
+										border-style: map-get($border-style, material);
+										border-radius: 100%;
+										line-height: #{map-get($calendar, cell-size) - (map-get($border-width, material) * 2) - 4px};
+									}
+								}
+
+								&.ui-state-disabled,
+								&.ui-datepicker-unselectable {
+
+									a, span {
+										cursor: not-allowed;
+										user-select: none;
+										@include opacity(0.3);
+									}
+
+									&.ui-datepicker-other-month {
+
+										a, span {
+											cursor: default;
+										}
+									}
+								}
+							}
+						}
+					}
+
+					&:last-child {
+
+						thead:last-child,
+						tbody:last-child {
+
+							tr:last-child {
+
+								th, td {
+									@if ('default' == $form-theme) {
+										padding-bottom: #{15px - map-get($border-width, default)};
+									}
+									@if ('flat' == $form-theme) {
+										padding-bottom: #{15px - map-get($border-width, flat)};
+									}
+									@if ('bold' == $form-theme) {
+										padding-bottom: #{15px - map-get($border-width, bold)};
+									}
+									@if ('material' == $form-theme) {
+										padding-bottom: #{15px - map-get($border-width, material)};
+									}
+								}
+							}
+						}
+					}
+
+					+ .ui-datepicker-buttonpane {
+						padding-top: 8px;
+					}
+				}
+			}
+		}
+	}
+
+	@if ('basic' == $form-theme) {
+		.ui-datepicker {
+
+			&.forminator-calendar--basic {
+				
+				.ui-datepicker-header {
+	
+					.ui-datepicker-title {
+						display: flex;
+						padding: 0;
+	
+						select {
+							height: map-get($calendar, select-size);
+							cursor: pointer;
+							flex: 1;
+							margin: 0 5px;
+							padding: 0 #{10px - map-get($border-width, default)};
+							display: inline-block;
+							font-size: 14px;
+						}
+					}
 				}
 			}
 		}

@@ -127,9 +127,7 @@
 									@else {
 										width: 38px;
 									}
-									@if ('basic' != $form-theme) {
-										height: 38px;
-									}
+									height: 38px;
 									display: flex;
 									flex: 0 0 auto;
 									flex-flow: row wrap;
