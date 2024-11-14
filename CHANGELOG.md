@@ -1,5 +1,14 @@
 # Change Log
 
+## [1.12.18](https://github.com/wpmudev/forminator-ui/compare/v1.12.16...v1.12.17) (2024-09-14)
+####  🐛 Bug Fix
+- `calendar`
+  - fix(calendar): calendar bg issue with Colibri WP theme. [#81](https://github.com/wpmudev/forminator-ui/pull/81) ([FOR-4913](https://incsub.atlassian.net/browse/FOR-4913)) ([@creador-dev](https://github.com/creador-dev))
+- `calculation`
+  - fix(calendar): calculation field border design issue. [#82](https://github.com/wpmudev/forminator-ui/pull/82) ([FOR-4742](https://incsub.atlassian.net/browse/FOR-4742)) ([@creador-dev](https://github.com/creador-dev))
+- `basic styles`
+  - fix(fields): Improved styles of fields for basic appearance styles. [#83](https://github.com/wpmudev/forminator-ui/pull/83) ([FOR-4812](https://incsub.atlassian.net/browse/FOR-4812)) ([@creador-dev](https://github.com/creador-dev))
+
 ## [1.12.17](https://github.com/wpmudev/forminator-ui/compare/v1.12.16...v1.12.17) (2024-09-19)
 ####  ✨ Improvement
 - `styles`
