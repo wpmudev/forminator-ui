@@ -1,5 +1,10 @@
 # Change Log
 
+## [1.12.19](https://github.com/wpmudev/forminator-ui/compare/v1.12.18...v1.12.19) (2024-11-18)
+####  🐛 Bug Fix
+- `slider`
+  - fix(slider): slider height issues. [#84](https://github.com/wpmudev/forminator-ui/pull/84) ([FOR-4998](https://incsub.atlassian.net/browse/FOR-4998)) ([@creador-dev](https://github.com/creador-dev))
+
 ## [1.12.18](https://github.com/wpmudev/forminator-ui/compare/v1.12.16...v1.12.17) (2024-09-14)
 ####  🐛 Bug Fix
 - `calendar`
