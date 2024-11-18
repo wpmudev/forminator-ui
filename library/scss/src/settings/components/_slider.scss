@@ -126,7 +126,7 @@
 			
 			@if ('basic' != $form-theme) {
 				.ui-slider-horizontal {
-					height: 8px !important;
+					min-height: 8px;
 					margin: 6px 0;
 
 					@if ('material' == $form-theme) {
@@ -166,6 +166,10 @@
 					.ui-slider-range-max {
 						right: 0;
 					}
+				}
+			} @else {
+				.ui-slider-horizontal {
+					min-height: 12px;
 				}
 			}
 
