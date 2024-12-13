@@ -13,7 +13,7 @@
 
 						&:not(.forminator--no_label) {
 
-							.StripeElement iframe {
+							.StripeElement:not(.forminator-stripe-payment-element) iframe {
 								@include opacity(1);
 							}
 						}
@@ -23,7 +23,7 @@
 
 			.forminator-input--stripe {
 
-				.StripeElement {
+				.StripeElement:not(.forminator-stripe-payment-element) {
 					padding: 10px 0 9px;
 					border: 1px solid transparent;
 					border-radius: 0;
@@ -42,7 +42,7 @@
 
 				&:not(.forminator--no_label) {
 
-					.StripeElement {
+					.StripeElement:not(.forminator-stripe-payment-element) {
 
 						iframe {
 							@include opacity(0);
