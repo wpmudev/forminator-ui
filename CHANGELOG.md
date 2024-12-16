@@ -1,5 +1,10 @@
 # Change Log
 
+## [1.12.20](https://github.com/wpmudev/forminator-ui/compare/v1.12.19...v1.12.20) (2024-12-16)
+####  ✨ Improvement
+- `stripe`
+  - new(stripe): avoiding styling new stripe payment element. [#85](https://github.com/wpmudev/forminator-ui/pull/85) ([FOR-5054](https://incsub.atlassian.net/browse/FOR-5054)) ([@creador-dev](https://github.com/creador-dev))
+
 ## [1.12.19](https://github.com/wpmudev/forminator-ui/compare/v1.12.18...v1.12.19) (2024-11-18)
 ####  🐛 Bug Fix
 - `slider`
