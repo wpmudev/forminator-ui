@@ -26,8 +26,6 @@
 						background: unset;
 
 						.iti__selected-country-primary {
-							padding: 0 map-get($input, padding);
-
 							&:hover,
 							&:focus,
 							&:active {
@@ -145,7 +143,6 @@
 						}
 
 						.iti__selected-country-primary {
-							padding: 0 map-get($input, padding);
 
 							@if ('material' != $form-theme) {
 								padding: 0 map-get($input, padding);
@@ -224,6 +221,10 @@
 						position: absolute;
 						top: 0;
 						right: 0;
+					}
+
+					.iti__tel-input {
+						padding-left: 0;
 					}
 				}
 
