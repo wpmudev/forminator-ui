@@ -1,5 +1,10 @@
 # Change Log
 
+## [1.12.21](https://github.com/wpmudev/forminator-ui/compare/v1.12.20...v1.12.21) (2025-01-07)
+####  🐛 Bug
+- `phone`
+  - fix(phone): phone field material design spacing fix. [#86](https://github.com/wpmudev/forminator-ui/pull/86) ([FOR-5082](https://incsub.atlassian.net/browse/FOR-5082)) ([@creador-dev](https://github.com/creador-dev))
+
 ## [1.12.20](https://github.com/wpmudev/forminator-ui/compare/v1.12.19...v1.12.20) (2024-12-16)
 ####  ✨ Improvement
 - `stripe`
