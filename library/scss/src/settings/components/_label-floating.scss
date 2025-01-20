@@ -43,6 +43,10 @@
 					}
 				}
 
+				+ .forminator-input-with-phone .iti__selected-dial-code {
+					@include opacity(0);
+				}
+
 				&.forminator-has_icon {
 					padding-left: #{map-get($icon, size) + map-get($input, padding)};
 				}
@@ -92,6 +96,10 @@
 								@include opacity(1);
 							}
 						}
+					}
+
+					+ .forminator-input-with-phone .iti__selected-dial-code {
+						@include opacity(1);
 					}
 				}
 
