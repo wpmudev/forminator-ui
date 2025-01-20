@@ -223,8 +223,16 @@
 						right: 0;
 					}
 
+					.iti__selected-dial-code {
+						margin-left: 10px;
+					}
+
 					.iti__tel-input {
 						padding-left: 0;
+						
+						&[data-national_mode="disabled"] {
+							padding-left: 46px !important;
+						}
 					}
 				}
 
