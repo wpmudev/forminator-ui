@@ -7,8 +7,19 @@
 			margin: 5px 0 0;
 		}
 
+		.forminator-label {
+			+ .forminator-description {
+				margin: 0 0 5px;
+			}
+		} 
+
 		.forminator-description {
 			display: flex;
+			
+			&:first-child {
+				margin: 0 0 5px;
+			}
+
 			@if ('basic' != $form-theme) {
 				line-height: 1.5em;
 			}
