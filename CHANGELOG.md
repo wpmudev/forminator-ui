@@ -1,5 +1,13 @@
 # Change Log
 
+## [1.12.23](https://github.com/wpmudev/forminator-ui/compare/v1.12.22...v1.12.23) (2025-02-05)
+#### ✨ Improvement
+- `description`
+  - new(description): allow description to position above field. [#89](https://github.com/wpmudev/forminator-ui/pull/89) ([FOR-145](https://incsub.atlassian.net/browse/FOR-145)) ([@creador-dev](https://github.com/creador-dev))
+
+- `fields`
+  - new(fields): basic theme fields width issue in OceanWP theme. [#88](https://github.com/wpmudev/forminator-ui/pull/88) ([FOR-5003](https://incsub.atlassian.net/browse/FOR-5003)) ([@creador-dev](https://github.com/creador-dev))
+
 ## [1.12.22](https://github.com/wpmudev/forminator-ui/compare/v1.12.21...v1.12.22) (2025-01-20)
 #### ✨ Improvement
 - `phone`
