@@ -150,14 +150,6 @@
 						transform: translateY(-50%);
 						margin-left: -10px;
 						box-shadow: 0px 0px 3px 0px #0000001A;
-		
-						@if ('bold' == $form-theme) {
-							top: -8px;
-						}
-
-						@if ('material' == $form-theme) {
-							top: -9px;
-						}
 					}
 
 					&.forminator-slide-handle-icon {
