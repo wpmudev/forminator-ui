@@ -143,6 +143,7 @@
 					@if ('material' == $form-theme) {
 						min-height: 2px;
 						border: none;
+						margin: 12px 0;
 					}
 
 					.ui-slider-handle {
@@ -190,6 +191,7 @@
 						@if ('material' == $form-theme) {
 							min-height: 4px;
 							border: none;
+							margin: 20px 0;
 						}
 
 						&.forminator-slide-handle-icon {
