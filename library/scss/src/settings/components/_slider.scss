@@ -82,6 +82,26 @@
 					touch-action: none;
 					outline: none;
 
+					@if('material' == $form-theme) {
+						&:after {
+							content: '';
+							position: absolute;
+							inset: -6px;
+							border-radius: 100%;
+							background: rgba(23, 168, 227, 0.2);
+							opacity: 0;
+							transition: ease all 0.2s;
+							pointer-events: none;
+						}
+
+						&:focus {
+							&:after {
+								inset: -10px;
+								background: rgba(23, 168, 227, 0.4);
+							}
+						}
+					}
+
 					&:hover,
 					&:focus {
 						background: #1289BA;
@@ -90,14 +110,7 @@
 							background: #17A8E3;
 							
 							&:after {
-								content: '';
-								position: absolute;
-								top: -4px;
-								bottom: -4px;
-								left: -4px;
-								right: -4px;
-								border-radius: 100%;
-								background: rgba(23, 168, 227, 0.4);
+								opacity: 1;
 							}
 						}
 					}
@@ -107,6 +120,18 @@
 					.ui-slider-handle {
 						width: 40px;
 						height: 40px;
+
+						@if('material' == $form-theme) {
+							&:after {
+								inset: -10px;
+							}
+
+							&:focus {
+								&:after {
+									inset: -20px;
+								}
+							}
+						}
 					}
 
 					.forminator-slide {
@@ -143,7 +168,7 @@
 					@if ('material' == $form-theme) {
 						min-height: 2px;
 						border: none;
-						margin: 12px 0;
+						margin: 10px 0;
 					}
 
 					.ui-slider-handle {
@@ -189,7 +214,7 @@
 						margin: 10px 0;
 
 						@if ('material' == $form-theme) {
-							min-height: 4px;
+							min-height: 6px;
 							border: none;
 							margin: 20px 0;
 						}
