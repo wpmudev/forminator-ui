@@ -141,7 +141,7 @@
 					margin: 6px 0;
 
 					@if ('material' == $form-theme) {
-						height: 1px;
+						min-height: 2px;
 						border: none;
 					}
 
@@ -166,8 +166,8 @@
 						bottom: -1px;
 
 						@if ('material' == $form-theme) {
-							top: -0.5px;
-							bottom: -0.5px;
+							top: 0;
+							bottom: 0;
 						}
 					}
 
@@ -186,6 +186,11 @@
 					.ui-slider-horizontal {
 						min-height: 20px;
 						margin: 10px 0;
+
+						@if ('material' == $form-theme) {
+							min-height: 4px;
+							border: none;
+						}
 
 						.ui-slider-handle {
 							margin-left: -20px;
