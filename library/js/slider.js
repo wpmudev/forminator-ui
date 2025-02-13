@@ -17,17 +17,19 @@
 			var $slide = $element.find( '.forminator-slide' );
 			var $input = $element.find( '.forminator-hidden-input' );
 			var $disabled = $element.hasClass( 'forminator-disabled' );
+			var $sliderLimit = $element.find( '.forminator-slider-limit' );
 
 			// Check if it's a range slider
 			var $isRange = $slide.data( 'is-range' );
 
 			// Parse integer values from data attributes with error handling
-			var $minRange = parseInt( $slide.data( 'min' ) ) || 0;
-			var $maxRange = parseInt( $slide.data( 'max' ) ) || 100;
-			var $value = parseInt( $slide.data( 'value' ) ) || $minRange;
-			var $valueMax = parseInt( $slide.data( 'value-max' ) ) || $maxRange;
-			var $step = parseInt( $slide.data( 'step' ) ) || 1;
+			var $minRange = parseFloat( $slide.data( 'min' ) ) || 0;
+			var $maxRange = parseFloat( $slide.data( 'max' ) ) || 100;
+			var $value = parseFloat( $slide.data( 'value' ) ) || $minRange;
+			var $valueMax = parseFloat( $slide.data( 'value-max' ) ) || $maxRange;
+			var $step = parseFloat( $slide.data( 'step' ) ) || 1;
 			var $sliderValueWrapper = $element.find( '.forminator-slider-amount' );
+			var $sliderLabels = $sliderLimit.data( 'labels' ) || '';
 
 			// Get the label associated with this slider
 			var $label = $( 'label[for="' + $input.attr( 'id' ) + '"]' );
@@ -60,7 +62,10 @@
 						$sliderValueWrapper.find( '.forminator-slider-hidden-max' ).val( $valueMax ).change();
 					}
 
-					// Create the UI with the formatted values
+					// Generate slider labels.
+					generateSliderLabels( $sliderLimit, $minRange, $maxRange, $step );
+
+					// Create the UI with the formatted values.
 					updateSliderValues( $element, $formattedValue, $formattedValueMax, $value, $valueMax );
 				},
 				slide: function( event, ui ) {
@@ -105,6 +110,48 @@
 				}
 			});
 		});
+
+		// Function to generate slider labels
+		function generateSliderLabels( $sliderLimit, $minRange, $maxRange, $step ) {
+			if ( ! $sliderLimit.length ) {
+				return;
+			}
+
+			let showAllLabels = 'all' === $sliderLimit.data( 'labels' );
+
+			$sliderLimit.empty(); // Clear existing labels
+			for ( let $i = $minRange; $i <= $maxRange; $i += $step ) {
+
+				// If not showing all labels, only show first and last
+				if ( ! showAllLabels && $i !== $minRange && $i !== $maxRange ) {
+					continue;
+				}
+
+				let percent = ( ( $i - $minRange ) / ( $maxRange - $minRange ) ) * 100;
+				let className = 'forminator-slider-limit-between'; // Default class
+
+				// Assign specific classes for first and last labels
+				if ( $i === $minRange ) {
+					className = 'forminator-slider-limit-min';
+				} else if ( $i === $maxRange ) {
+					className = 'forminator-slider-limit-max';
+				}
+
+				let label = $( '<span class="' + className + '">' + $i + '</span>' ).css({
+					left: percent + '%',
+					position: 'absolute'
+				});
+
+				// Remove transform for the first and last label
+				if ( $i !== $minRange && $i !== $maxRange ) {
+					label.css( 'transform', 'translateX(-50%)' );
+				} else if ( $i === $maxRange ) {
+					label.css( 'transform', 'translateX(-80%)' );
+				}
+
+				$sliderLimit.append( label );
+			}
+		}
 
 		// Function to format the slider value using the template
 		function valueTemplate( $element, $sliderValue ) {
