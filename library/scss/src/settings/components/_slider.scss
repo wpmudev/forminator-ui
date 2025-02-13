@@ -82,26 +82,6 @@
 					touch-action: none;
 					outline: none;
 
-					@if('material' == $form-theme) {
-						&:after {
-							content: '';
-							position: absolute;
-							inset: -6px;
-							border-radius: 100%;
-							background: rgba(23, 168, 227, 0.2);
-							opacity: 0;
-							transition: ease all 0.2s;
-							pointer-events: none;
-						}
-
-						&:focus {
-							&:after {
-								inset: -10px;
-								background: rgba(23, 168, 227, 0.4);
-							}
-						}
-					}
-
 					&:hover,
 					&:focus {
 						background: #1289BA;
@@ -110,7 +90,27 @@
 							background: #17A8E3;
 							
 							&:after {
-								opacity: 1;
+								opacity: 0.2;
+							}
+						}
+					}
+
+					@if('material' == $form-theme) {
+						&:after {
+							content: '';
+							position: absolute;
+							inset: -6px;
+							border-radius: 100%;
+							background-color: inherit;
+							opacity: 0;
+							transition: ease all 0.2s;
+							pointer-events: none;
+						}
+
+						&:focus {
+							&:after {
+								inset: -10px;
+								opacity: 0.4;
 							}
 						}
 					}
