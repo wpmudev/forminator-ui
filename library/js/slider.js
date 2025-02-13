@@ -29,7 +29,6 @@
 			var $valueMax = parseFloat( $slide.data( 'value-max' ) ) || $maxRange;
 			var $step = parseFloat( $slide.data( 'step' ) ) || 1;
 			var $sliderValueWrapper = $element.find( '.forminator-slider-amount' );
-			var $sliderLabels = $sliderLimit.data( 'labels' ) || '';
 
 			// Get the label associated with this slider
 			var $label = $( 'label[for="' + $input.attr( 'id' ) + '"]' );
@@ -117,7 +116,7 @@
 				return;
 			}
 
-			let showAllLabels = 'all' === $sliderLimit.data( 'labels' );
+			let showAllLabels = 'all' === $sliderLimit.data( 'step-type' );
 
 			$sliderLimit.empty(); // Clear existing labels
 			for ( let $i = $minRange; $i <= $maxRange; $i += $step ) {
