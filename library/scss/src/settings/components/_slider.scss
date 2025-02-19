@@ -175,7 +175,7 @@
 						top: 50%;
 						transform: translateY(-50%);
 						margin-left: -10px;
-						box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.1);
+						box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.15);
 					}
 
 					&.forminator-slide-handle-icon {
@@ -216,7 +216,7 @@
 						@if ('material' == $form-theme) {
 							min-height: 6px;
 							border: none;
-							margin: 20px 0;
+							margin: 18px 0;
 						}
 
 						&.forminator-slide-handle-icon {
@@ -227,6 +227,12 @@
 
 						.ui-slider-handle {
 							margin-left: -20px;
+						}
+
+						&.forminator-slide-handle-icon {
+							.ui-slider-handle {
+								background-size: 12px;
+							}
 						}
 
 						.ui-slider-range-min {
