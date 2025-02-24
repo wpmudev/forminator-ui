@@ -802,11 +802,11 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
       var $isRange = $slide.data('is-range');
 
       // Parse integer values from data attributes with error handling
-      var $minRange = parseInt($slide.data('min')) || 0;
-      var $maxRange = parseInt($slide.data('max')) || 100;
-      var $value = parseInt($slide.data('value')) || $minRange;
-      var $valueMax = parseInt($slide.data('value-max')) || $maxRange;
-      var $step = parseInt($slide.data('step')) || 1;
+      var $minRange = getSafeInt($slide.data('min'), 0);
+      var $maxRange = getSafeInt($slide.data('max'), 100);
+      var $value = getSafeInt($slide.data('value'), $minRange);
+      var $valueMax = getSafeInt($slide.data('value-max'), $maxRange);
+      var $step = getSafeInt($slide.data('step'), 1);
       var $sliderValueWrapper = $element.find('.forminator-slider-amount');
 
       // Get the label associated with this slider
@@ -885,8 +885,8 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
     // Function to format the slider value using the template
     function valueTemplate($element, $sliderValue) {
       var $sliderValueWrapper = $element.find('.forminator-slider-amount');
-      var $sliderValueTemplate = $sliderValueWrapper.data('value-template') || '{slider-value}';
-      return $sliderValueTemplate.replace('{slider-value}', '<span class="forminator-slider-value">' + $('<div>').text($sliderValue).html() + '</span>');
+      var $sliderValueTemplate = sanitize($sliderValueWrapper.data('value-template') || '{slider-value}');
+      return $sliderValueTemplate.replace('{slider-value}', '<span class="forminator-slider-value">' + sanitize(String($sliderValue)) + '</span>');
     }
 
     // Function to update the UI with the formatted values
@@ -904,6 +904,22 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
           $sliderValueWrapper.find('.forminator-slider-value-max').html($formattedValueMax);
         }
       }
+    }
+
+    // function to get int value safely from data attr.
+    function getSafeInt(value, defaultValue) {
+      var parsedValue = parseInt(value, 10);
+      return isNaN(parsedValue) ? defaultValue : parsedValue;
+    }
+
+    // function to sanitize the data values.
+    function sanitize(template) {
+      if ('string' !== typeof template) {
+        return '';
+      }
+
+      // Sanitize values.
+      return template.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#039;');
     }
   };
 })(jQuery);
