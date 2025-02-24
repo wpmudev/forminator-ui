@@ -119,6 +119,10 @@
 			let showAllLabels = 'all' === $sliderLimit.data( 'step-type' );
 
 			$sliderLimit.empty(); // Clear existing labels
+			$sliderLimit.css({
+				position: 'relative',
+				height: '22px'
+			});
 			for ( let $i = $minRange; $i <= $maxRange; $i += $step ) {
 
 				// If not showing all labels, only show first and last

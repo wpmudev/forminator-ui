@@ -214,7 +214,7 @@
 						margin: 10px 0;
 
 						@if ('material' == $form-theme) {
-							min-height: 6px;
+							min-height: 4px;
 							border: none;
 							margin: 18px 0;
 						}
@@ -263,8 +263,7 @@
 		.forminator-slider-limit {
 			display: flex;
 			justify-content: space-between;
-			position: relative;
-			height: 22px;
+
 			@if ('basic' != $form-theme) {
 				color: #888;
 				font-size: 15px;
