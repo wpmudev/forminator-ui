@@ -130,7 +130,9 @@
 					continue;
 				}
 
-				let percent = ( ( $i - $minRange ) / ( $maxRange - $minRange ) ) * 100;
+				let totalSteps = Math.floor( ( $maxRange - $minRange ) / $step );
+				let currentStep = Math.floor( ( $i - $minRange ) / $step );
+				let percent = ( currentStep / totalSteps ) * 100;
 				let className = 'forminator-slider-limit-between'; // Default class
 
 				// Assign specific classes for first and last labels
