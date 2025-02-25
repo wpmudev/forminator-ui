@@ -23,11 +23,11 @@
 			var $isRange = $slide.data( 'is-range' );
 
 			// Parse integer values from data attributes with error handling
-			var $minRange = parseFloat( $slide.data( 'min' ) ) || 0;
-			var $maxRange = parseFloat( $slide.data( 'max' ) ) || 100;
-			var $value = parseFloat( $slide.data( 'value' ) ) || $minRange;
-			var $valueMax = parseFloat( $slide.data( 'value-max' ) ) || $maxRange;
-			var $step = parseFloat( $slide.data( 'step' ) ) || 1;
+			var $minRange = getSafeFloat( $slide.data( 'min' ), 0 );
+			var $maxRange = getSafeFloat( $slide.data( 'max' ), 100 );
+			var $value = getSafeFloat( $slide.data( 'value' ), $minRange );
+			var $valueMax = getSafeFloat( $slide.data( 'value-max' ), $maxRange );
+			var $step = getSafeFloat( $slide.data( 'step' ), 1 );
 			var $sliderValueWrapper = $element.find( '.forminator-slider-amount' );
 
 			// Get the label associated with this slider
@@ -159,8 +159,8 @@
 		// Function to format the slider value using the template
 		function valueTemplate( $element, $sliderValue ) {
 			var $sliderValueWrapper = $element.find( '.forminator-slider-amount' );
-			var $sliderValueTemplate = $sliderValueWrapper.data( 'value-template' ) || '{slider-value}';
-			return $sliderValueTemplate.replace( '{slider-value}', '<span class="forminator-slider-value">' + $( '<div>' ).text( $sliderValue ).html() + '</span>' );
+			var $sliderValueTemplate = sanitize( $sliderValueWrapper.data( 'value-template' ) || '{slider-value}' );
+			return $sliderValueTemplate.replace( '{slider-value}', '<span class="forminator-slider-value">' + sanitize( String( $sliderValue ) ) + '</span>' );
 		}
 
 		// Function to update the UI with the formatted values
@@ -180,6 +180,27 @@
 					$sliderValueWrapper.find( '.forminator-slider-value-max' ).html( $formattedValueMax );
 				}
 			}
+		}
+
+		// function to get int value safely from data attr.
+		function getSafeFloat( value, defaultValue ) {
+			var parsedValue = parseFloat( value, 10 );
+			return isNaN( parsedValue ) ? defaultValue : parsedValue;
+		}
+
+		// function to sanitize the data values.
+		function sanitize( template ) {
+			if ( 'string' !== typeof template ) {
+				return '';
+			}
+
+			// Sanitize values.
+			return template
+				.replace( /&/g, '&amp;' )
+				.replace( /</g, '&lt;' )
+				.replace( />/g, '&gt;' )
+				.replace( /"/g, '&quot;' )
+				.replace( /'/g, '&#039;' );
 		}
 
 	};
