@@ -797,16 +797,17 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
       var $slide = $element.find('.forminator-slide');
       var $input = $element.find('.forminator-hidden-input');
       var $disabled = $element.hasClass('forminator-disabled');
+      var $sliderLimit = $element.find('.forminator-slider-limit');
 
       // Check if it's a range slider
       var $isRange = $slide.data('is-range');
 
       // Parse integer values from data attributes with error handling
-      var $minRange = getSafeInt($slide.data('min'), 0);
-      var $maxRange = getSafeInt($slide.data('max'), 100);
-      var $value = getSafeInt($slide.data('value'), $minRange);
-      var $valueMax = getSafeInt($slide.data('value-max'), $maxRange);
-      var $step = getSafeInt($slide.data('step'), 1);
+      var $minRange = getSafeFloat($slide.data('min'), 0);
+      var $maxRange = getSafeFloat($slide.data('max'), 100);
+      var $value = getSafeFloat($slide.data('value'), $minRange);
+      var $valueMax = getSafeFloat($slide.data('value-max'), $maxRange);
+      var $step = getSafeFloat($slide.data('step'), 1);
       var $sliderValueWrapper = $element.find('.forminator-slider-amount');
 
       // Get the label associated with this slider
@@ -841,7 +842,10 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
             $sliderValueWrapper.find('.forminator-slider-hidden-max').val($valueMax).change();
           }
 
-          // Create the UI with the formatted values
+          // Generate slider labels.
+          generateSliderLabels($sliderLimit, $minRange, $maxRange, $step);
+
+          // Create the UI with the formatted values.
           updateSliderValues($element, $formattedValue, $formattedValueMax, $value, $valueMax);
         },
         slide: function slide(event, ui) {
@@ -882,6 +886,48 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
       });
     });
 
+    // Function to generate slider labels
+    function generateSliderLabels($sliderLimit, $minRange, $maxRange, $step) {
+      if (!$sliderLimit.length) {
+        return;
+      }
+      var showAllLabels = 'all' === $sliderLimit.data('step-type');
+      $sliderLimit.empty(); // Clear existing labels
+      $sliderLimit.css({
+        position: 'relative',
+        height: '22px'
+      });
+      for (var $i = $minRange; $i <= $maxRange; $i += $step) {
+        // If not showing all labels, only show first and last
+        if (!showAllLabels && $i !== $minRange && $i !== $maxRange) {
+          continue;
+        }
+        var totalSteps = Math.floor(($maxRange - $minRange) / $step);
+        var currentStep = Math.floor(($i - $minRange) / $step);
+        var percent = currentStep / totalSteps * 100;
+        var className = 'forminator-slider-limit-between'; // Default class
+
+        // Assign specific classes for first and last labels
+        if ($i === $minRange) {
+          className = 'forminator-slider-limit-min';
+        } else if ($i === $maxRange) {
+          className = 'forminator-slider-limit-max';
+        }
+        var label = $('<span class="' + className + '">' + $i + '</span>').css({
+          left: percent + '%',
+          position: 'absolute'
+        });
+
+        // Remove transform for the first and last label
+        if ($i !== $minRange && $i !== $maxRange) {
+          label.css('transform', 'translateX(-50%)');
+        } else if ($i === $maxRange) {
+          label.css('transform', 'translateX(-80%)');
+        }
+        $sliderLimit.append(label);
+      }
+    }
+
     // Function to format the slider value using the template
     function valueTemplate($element, $sliderValue) {
       var $sliderValueWrapper = $element.find('.forminator-slider-amount');
@@ -907,8 +953,8 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
     }
 
     // function to get int value safely from data attr.
-    function getSafeInt(value, defaultValue) {
-      var parsedValue = parseInt(value, 10);
+    function getSafeFloat(value, defaultValue) {
+      var parsedValue = parseFloat(value, 10);
       return isNaN(parsedValue) ? defaultValue : parsedValue;
     }
 
