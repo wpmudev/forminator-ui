@@ -1,5 +1,10 @@
 # Change Log
 
+## [1.12.25](https://github.com/wpmudev/forminator-ui/compare/v1.12.24...v1.12.25) (2025-02-26)
+#### ✨ Improvement
+- `slider`
+  - new(slider): slider field new styles and variation. [#92](https://github.com/wpmudev/forminator-ui/pull/92) ([FOR-5071](https://incsub.atlassian.net/browse/FOR-5071)) ([@creador-dev](https://github.com/creador-dev))
+
 ## [1.12.24](https://github.com/wpmudev/forminator-ui/compare/v1.12.23...v1.12.24) (2025-02-24)
 #### 💥 Improvement
 - `slider`
