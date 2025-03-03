@@ -33,6 +33,10 @@
 			// Get the label associated with this slider
 			var $label = $( 'label[for="' + $input.attr( 'id' ) + '"]' );
 
+			// Clamp values within min and max range
+			$value = isNaN( $value ) || $value < $minRange || $value > $maxRange ? $minRange : $value;
+			$valueMax = isNaN( $valueMax ) || $valueMax < $minRange || $valueMax > $maxRange ? $maxRange : $valueMax;
+
 			// Check if slider is already intialised.
 			if ( true === $slide.data( 'init' ) ) {
 				return;
