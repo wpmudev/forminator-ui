@@ -23,7 +23,8 @@
 					&:after {
 						content: '';
 						position: absolute;
-						inset: 0;
+						top: 0;
+						bottom: 0;
 						right: -10px;
 						left: -10px;
 						border-radius: inherit;
@@ -36,7 +37,8 @@
 					border: 1px solid #777771;
 
 					&:after {
-						inset: -1px;
+						top: -1px;
+						bottom: -1px;
 					}
 				}
 	
@@ -44,7 +46,8 @@
 					border: 2px solid #777771;
 					
 					&:after {
-						inset: -2px;
+						top: -2px;
+						bottom: -2px;
 					}
 				}
 
