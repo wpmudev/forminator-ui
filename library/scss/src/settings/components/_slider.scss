@@ -23,7 +23,7 @@
 					&:after {
 						content: '';
 						position: absolute;
-						inset: -1px;
+						inset: 0;
 						right: -10px;
 						left: -10px;
 						border-radius: inherit;
@@ -34,10 +34,18 @@
 	
 				@if ('default' == $form-theme) {
 					border: 1px solid #777771;
+
+					&:after {
+						inset: -1px;
+					}
 				}
 	
 				@if ('bold' == $form-theme) {
 					border: 2px solid #777771;
+					
+					&:after {
+						inset: -2px;
+					}
 				}
 
 				@if ('material' == $form-theme) {
@@ -195,7 +203,7 @@
 					@if ('material' == $form-theme) {
 						min-height: 2px;
 						border: none;
-						margin: 10px 0;
+						margin: 10px;
 					}
 
 					.ui-slider-handle {
@@ -242,7 +250,7 @@
 						@if ('material' == $form-theme) {
 							min-height: 4px;
 							border: none;
-							margin: 18px 0;
+							margin: 18px 20px;
 						}
 
 						&.forminator-slide-handle-icon {
