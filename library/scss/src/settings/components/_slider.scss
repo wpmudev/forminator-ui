@@ -19,6 +19,17 @@
 					border: 1px solid transparent;
 					background: #EDEDED;
 					border-radius: 5px;
+
+					&:after {
+						content: '';
+						position: absolute;
+						inset: -1px;
+						right: -10px;
+						left: -10px;
+						border-radius: inherit;
+						background: inherit;
+						border: inherit;
+					}
 				}
 	
 				@if ('default' == $form-theme) {
@@ -136,6 +147,11 @@
 
 					.forminator-slide {
 						border-radius: 10px;
+
+						&:after {
+							right: -20px;
+							left: -20px;
+						}
 					}
 				}
 			}
@@ -149,6 +165,17 @@
 					display: block;
 					border: 0;
 					background-position: 0 0;
+
+					&::after {
+						content: '';
+						position: absolute;
+						inset: -1px;
+						right: -9px;
+						left: -9px;
+						border-radius: inherit;
+						background: inherit;
+						border: inherit;
+					}
 				}
 			}
 			
@@ -163,7 +190,7 @@
 			@if ('basic' != $form-theme) {
 				.ui-slider-horizontal {
 					min-height: 10px;
-					margin: 6px 0;
+					margin: 6px 10px;
 
 					@if ('material' == $form-theme) {
 						min-height: 2px;
@@ -190,6 +217,7 @@
 					.ui-slider-range {
 						top: -1px;
 						bottom: -1px;
+						border-radius: 5px;
 
 						@if ('material' == $form-theme) {
 							top: 0;
@@ -199,8 +227,6 @@
 
 					.ui-slider-range-min {
 						left: -1px;
-						border-top-left-radius: 5px;
-						border-bottom-left-radius: 5px;
 					}
 
 					.ui-slider-range-max {
@@ -211,7 +237,7 @@
 				&.forminator-slider-size-large {
 					.ui-slider-horizontal {
 						min-height: 20px;
-						margin: 10px 0;
+						margin: 10px 20px;
 
 						@if ('material' == $form-theme) {
 							min-height: 4px;
@@ -235,9 +261,15 @@
 							}
 						}
 
+						.ui-slider-range {
+							&::after {
+								right: -19px;
+								left: -19px;
+							}
+						}
+
 						.ui-slider-range-min {
-							border-top-left-radius: 10px;
-							border-bottom-left-radius: 10px;
+							border-radius: 10px;
 						}
 					}
 				}
@@ -269,6 +301,15 @@
 				font-size: 15px;
 				font-weight: 400;
 				line-height: 22px;
+				margin: 0 10px;
+			}
+		}
+
+		.forminator-slider-size-large {
+			.forminator-slider-limit {
+				@if ('basic' != $form-theme) {
+					margin: 0 20px;
+				}
 			}
 		}
 
