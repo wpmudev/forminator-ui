@@ -917,13 +917,7 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
           left: percent + '%',
           position: 'absolute'
         });
-
-        // Remove transform for the first and last label
-        if ($i !== $minRange && $i !== $maxRange) {
-          label.css('transform', 'translateX(-50%)');
-        } else if ($i === $maxRange) {
-          label.css('transform', 'translateX(-80%)');
-        }
+        label.css('transform', 'translateX(-50%)');
         $sliderLimit.append(label);
       }
     }
