@@ -12,7 +12,8 @@
 	&[data-grid="open"] {
 
 		// ELEMENT: Row
-		.forminator-row {
+		.forminator-row,
+		.forminator-row-inside {
 
 			&:not(:last-child),
 			&:not(.forminator-row-last) {
@@ -43,7 +44,8 @@
 	&[data-grid="enclosed"] {
 
 		// ELEMENT: Row
-		.forminator-row {
+		.forminator-row,
+		.forminator-row-inside {
 
 			&:not(:last-child),
 			&:not(.forminator-row-last) {
@@ -64,7 +66,8 @@
 @include form-class(custom-form, no-theme, true) {
 
 	// ELEMENT: Row
-	.forminator-row {
+	.forminator-row,
+	.forminator-row-inside {
 
 		@include media(min-width, sm) {
 			display: flex;
@@ -91,7 +94,8 @@
 	.forminator-col-3,
 	.forminator-col-4 {
 
-		.forminator-row {
+		.forminator-row,
+		.forminator-row-inside {
 
 			&[data-multiple="true"] {
 
@@ -106,7 +110,8 @@
 	&[data-grid="open"] {
 
 		// ELEMENT: Row
-		.forminator-row {
+		.forminator-row,
+		.forminator-row-inside {
 
 			&:not(:last-child),
 			&:not(.forminator-row-last) {
@@ -141,7 +146,8 @@
 		.forminator-col-3,
 		.forminator-col-4 {
 
-			.forminator-row {
+			.forminator-row,
+			.forminator-row-inside {
 
 				&[data-multiple="true"] {
 
@@ -163,7 +169,8 @@
 	&[data-grid="enclosed"] {
 
 		// ELEMENT: Row
-		.forminator-row {
+		.forminator-row,
+		.forminator-row-inside {
 
 			&:not(:last-child),
 			&:not(.forminator-row-last) {
@@ -191,7 +198,8 @@
 		.forminator-col-3,
 		.forminator-col-4 {
 
-			.forminator-row {
+			.forminator-row,
+			.forminator-row-inside {
 
 				&[data-multiple="true"] {
 
