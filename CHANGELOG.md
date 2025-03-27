@@ -1,5 +1,12 @@
 # Change Log
 
+## [1.12.27](https://github.com/wpmudev/forminator-ui/compare/v1.12.26...v1.12.27) (2025-03-27)
+#### ✨ Improvement
+- `row`
+  - new(row): added class for row inside row. [#97](https://github.com/wpmudev/forminator-ui/pull/97) ([FOR-5233](https://incsub.atlassian.net/browse/FOR-5233)) ([@creador-dev](https://github.com/creador-dev))
+- `slider`
+  - new(slider): slider handle comes over the calendar. [#96](https://github.com/wpmudev/forminator-ui/pull/96) ([FOR-5301](https://incsub.atlassian.net/browse/FOR-5301)) ([@creador-dev](https://github.com/creador-dev))
+
 ## [1.12.26](https://github.com/wpmudev/forminator-ui/compare/v1.12.25...v1.12.26) (2025-03-06)
 #### ✨ Improvement
 - `slider`
