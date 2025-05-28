@@ -1097,6 +1097,7 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
           // Format the slider values using the template
           var $formattedValue = valueTemplate($element, $value);
           var $formattedValueMax = $isRange ? valueTemplate($element, $valueMax) : null;
+          var $sliderHandles = $(this).find('.ui-slider-handle');
 
           // add data-attribute to check intialization.
           $slide.data('init', true);
@@ -1110,6 +1111,19 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
 
           // Create the UI with the formatted values.
           updateSliderValues($element, $formattedValue, $formattedValueMax, $value, $valueMax);
+
+          // Update the slider handle attributes.
+          $sliderHandles.each(function (index) {
+            var isFirst = 0 === index;
+            var currentValue = isFirst ? $value : $valueMax;
+            $(this).attr({
+              role: 'slider',
+              'aria-valuemin': $minRange,
+              'aria-valuemax': $maxRange,
+              'aria-valuenow': currentValue,
+              'aria-valuetext': currentValue
+            });
+          });
         },
         slide: function slide(event, ui) {
           // Format the slider values using the template
@@ -1117,9 +1131,27 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
           var $valueMax = $isRange ? ui.values[1] : null;
           var $formattedValue = valueTemplate($element, $value);
           var $formattedValueMax = $isRange ? valueTemplate($element, $valueMax) : null;
+          var $sliderHandles = $(this).find('.ui-slider-handle');
 
           // Update the UI with the formatted values
           updateSliderValues($element, $formattedValue, $formattedValueMax, $value, $valueMax);
+
+          // Update the slider handle attributes.
+          if ($isRange) {
+            $sliderHandles.eq(0).attr({
+              'aria-valuenow': ui.values[0],
+              'aria-valuetext': ui.values[0]
+            });
+            $sliderHandles.eq(1).attr({
+              'aria-valuenow': ui.values[1],
+              'aria-valuetext': ui.values[1]
+            });
+          } else {
+            $sliderHandles.eq(0).attr({
+              'aria-valuenow': ui.value,
+              'aria-valuetext': ui.value
+            });
+          }
         },
         stop: function stop(event, ui) {
           // Format the slider values using the template
