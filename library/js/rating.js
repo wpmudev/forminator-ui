@@ -38,7 +38,11 @@
 				var $wrapper = $( '<div class="forminator-rating-wrapper"></div>' );
 
 				// Create the rating items container
-				var $ratingItemsContainer = $( '<span data-id="' + id + '" data-selected-value="' + selectedValue  + '" class="forminator-rating-items forminator-rating-' + iconSize + '"></span>' );
+				var $ratingItemsContainer = $( '<span></span>' )
+					.attr( 'data-id', id )
+					.attr( 'data-selected-value', selectedValue )
+					.addClass( 'forminator-rating-items' )
+					.addClass( 'forminator-rating-' + iconSize.replace( /[^a-z0-9_-]/gi, '' ) );
 
 				// Intialized
 				var isInitialized = $element.attr( 'data-init' ) || 'false';
