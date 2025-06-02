@@ -25,11 +25,11 @@
 				var $options = $element.find( 'option' ).not( ':disabled' );
 				var numOptions = $options.length;
 
-				// Get the icon type from the data-type attribute
-				var iconType = $element.attr( 'data-type' ) || 'star';
+				// Get the icon type from the data-type attribute and sanitize it
+				var iconType = ( $element.attr( 'data-type' ) || 'star' ).replace( /[^a-z0-9_-]/gi, '' );
 
-				// Get the icon type from the data-type attribute
-				var iconSize = $element.attr( 'data-size' ) || 'md';
+				// Get the icon size from the data-size attribute and sanitize it
+				var iconSize = ( $element.attr( 'data-size' ) || 'md' ).replace( /[^a-z0-9_-]/gi, '' );
 
 				// Calculate the selected value.
 				var selectedValue = Number( $element.find( 'option:selected' ).val() ) || 0;
@@ -56,9 +56,15 @@
 					let optionValue = Number( $options.eq( i ).val() );
 					let itemClass = optionValue <= selectedValue ? 'forminator-rating-item forminator-rating-selected' : 'forminator-rating-item';
 					$ratingItemsContainer.append(
-						'<span class="' + itemClass + '" data-value="' + optionValue + '">' +
-							'<i class="forminator-icon-' + iconType + '" aria-hidden="true"></i>' +
-						'</span>'
+						$( '<span>', {
+							'class': itemClass,
+							'data-value': optionValue
+						}).append(
+							$( '<i>', {
+								'class': 'forminator-icon-' + iconType,
+								'aria-hidden': 'true'
+							})
+						)
 					);
 				}
 
@@ -67,9 +73,12 @@
 				$element.attr( 'data-total-value', numOptions );
 
 				// Append the rating items container to the wrapper
-				$wrapper.append( $ratingItemsContainer );
-
-				// Check if data-suffix is true
+					$ratingItemsContainer.append(
+						$( '<span>', {
+							'class': 'forminator-rating-suffix',
+							'text': '(' + selectedValue + '/' + numOptions + ')'
+						})
+					);
 				if ( 'true' === $element.attr( 'data-suffix' ) ) {
 
 					// Add the suffix span
