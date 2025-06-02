@@ -1283,11 +1283,11 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
         var $options = $element.find('option').not(':disabled');
         var numOptions = $options.length;
 
-        // Get the icon type from the data-type attribute
-        var iconType = $element.attr('data-type') || 'star';
+        // Get the icon type from the data-type attribute and sanitize it
+        var iconType = ($element.attr('data-type') || 'star').replace(/[^a-z0-9_-]/gi, '');
 
-        // Get the icon type from the data-type attribute
-        var iconSize = $element.attr('data-size') || 'md';
+        // Get the icon size from the data-size attribute and sanitize it
+        var iconSize = ($element.attr('data-size') || 'md').replace(/[^a-z0-9_-]/gi, '');
 
         // Calculate the selected value.
         var selectedValue = Number($element.find('option:selected').val()) || 0;
@@ -1308,7 +1308,13 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
         for (i = 0; i < numOptions; i++) {
           var optionValue = Number($options.eq(i).val());
           var itemClass = optionValue <= selectedValue ? 'forminator-rating-item forminator-rating-selected' : 'forminator-rating-item';
-          $ratingItemsContainer.append('<span class="' + itemClass + '" data-value="' + optionValue + '">' + '<i class="forminator-icon-' + iconType + '" aria-hidden="true"></i>' + '</span>');
+          $ratingItemsContainer.append($('<span>', {
+            'class': itemClass,
+            'data-value': optionValue
+          }).append($('<i>', {
+            'class': 'forminator-icon-' + iconType,
+            'aria-hidden': 'true'
+          })));
         }
 
         // Add selected-value and total-value in select.
