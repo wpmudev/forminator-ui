@@ -73,12 +73,9 @@
 				$element.attr( 'data-total-value', numOptions );
 
 				// Append the rating items container to the wrapper
-					$ratingItemsContainer.append(
-						$( '<span>', {
-							'class': 'forminator-rating-suffix',
-							'text': '(' + selectedValue + '/' + numOptions + ')'
-						})
-					);
+				$wrapper.append( $ratingItemsContainer );
+
+				// Check if data-suffix is true
 				if ( 'true' === $element.attr( 'data-suffix' ) ) {
 
 					// Add the suffix span
