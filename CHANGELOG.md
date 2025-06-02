@@ -1,5 +1,11 @@
 # Change Log
 
+## [1.12.29](https://github.com/wpmudev/forminator-ui/compare/v1.12.28...v1.12.29) (2025-06-02)
+####  
+fix
+- `rating`
+  - fix(rating): rating field XSS vulnerability fix. [#99](https://github.com/wpmudev/forminator-ui/pull/99) ([FOR-5514](https://incsub.atlassian.net/browse/FOR-5514) ([@creador-dev](https://github.com/creador-dev))
+
 ## [1.12.28](https://github.com/wpmudev/forminator-ui/compare/v1.12.27...v1.12.28) (2025-05-28)
 ####  :sparkles: Improvement
 - `slider`
