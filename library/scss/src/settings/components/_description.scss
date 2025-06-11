@@ -24,7 +24,7 @@
 				line-height: 1.5em;
 			}
 
-			span {
+			span:not(.forminator-monospace) {
 				min-width: 80px;
 				margin-right: 0;
 				margin-left: auto;
