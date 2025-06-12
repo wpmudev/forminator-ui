@@ -14,7 +14,7 @@
 		} 
 
 		.forminator-description {
-			display: flex;
+			display: block;
 			
 			&:first-child {
 				margin: 0 0 5px;
@@ -24,11 +24,15 @@
 				line-height: 1.5em;
 			}
 
-			span {
+			span:not(.forminator-monospace) {
 				min-width: 80px;
 				margin-right: 0;
 				margin-left: auto;
 				text-align: right;
+			}
+
+			.forminator-monospace {
+				font-family: monospace;
 			}
 
 			> a {

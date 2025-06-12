@@ -316,13 +316,14 @@
 			}
 		}
 
-		.forminator-slider-size-large {
-			.forminator-slider-limit {
-				@if ('basic' != $form-theme) {
+		@if ('basic' != $form-theme) {
+			.forminator-slider-size-large {
+				.forminator-slider-limit {
 					margin: 0 20px;
 				}
 			}
 		}
+
 
 		.forminator-slider-limit-top {
 			order: -1;
