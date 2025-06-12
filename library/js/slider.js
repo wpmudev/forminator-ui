@@ -65,6 +65,9 @@
 					// Generate slider labels.
 					generateSliderLabels( $sliderLimit, $minRange, $maxRange, $step );
 
+					// Add custom labels if available.
+					customSliderLabels( $sliderLimit, $slide );
+
 					// Create the UI with the formatted values.
 					updateSliderValues( $element, $formattedValue, $formattedValueMax, $value, $valueMax );
 
@@ -183,6 +186,26 @@
 				label.css( 'transform', 'translateX(-50%)' );
 
 				$sliderLimit.append( label );
+			}
+		}
+
+		// Function for custom slider labels
+		function customSliderLabels( $sliderLimit, $slide ) {
+			const minLabel = sanitize( $slide.data( 'min-label' ) || '' );
+			const maxLabel = sanitize( $slide.data( 'max-label' ) || '' );
+
+			// Safe: text() escapes potentially dangerous characters.
+			const $minLabelSpan = $( '<span class="forminator-slider-label-min"></span>' ).text( minLabel );
+			const $maxLabelSpan = $( '<span class="forminator-slider-label-max"></span>' ).text( maxLabel );
+
+			const $labelWrapper = $( '<div class="forminator-slider-labels"></div>' )
+				.append( $minLabelSpan )
+				.append( $maxLabelSpan );
+
+			if ( $sliderLimit.length && $sliderLimit.prev( '.forminator-slide' ).length ) {
+				$sliderLimit.after( $labelWrapper );
+			} else if ( $sliderLimit.length && $sliderLimit.next( '.forminator-slide' ).length ) {
+				$sliderLimit.before( $labelWrapper );
 			}
 		}
 

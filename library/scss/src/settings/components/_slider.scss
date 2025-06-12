@@ -303,7 +303,8 @@
 			}
 		}
 
-		.forminator-slider-limit {
+		.forminator-slider-limit,
+		.forminator-slider-labels {
 			display: flex;
 			justify-content: space-between;
 
@@ -312,6 +313,12 @@
 				font-size: 15px;
 				font-weight: 400;
 				line-height: 22px;
+			}
+		}
+
+		.forminator-slider-limit {
+
+			@if ('basic' != $form-theme) {
 				margin: 0 10px;
 			}
 		}
@@ -320,6 +327,12 @@
 			.forminator-slider-size-large {
 				.forminator-slider-limit {
 					margin: 0 20px;
+				}
+			}
+
+			.forminator-slider-labels {
+				@if ('basic' != $form-theme) {
+					margin: 0 10px;
 				}
 			}
 		}
