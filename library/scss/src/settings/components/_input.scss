@@ -86,6 +86,7 @@
 
 		.forminator-custom-input {
 			display: none;
+			margin-top: 10px;
 		}
 
 		@if ('material' == $form-theme) {
