@@ -44,6 +44,37 @@
 		<span>$1001 or more USD</span>
 	</label>
 
+	<label
+		for="radio-option-4"
+		class="forminator-radio"
+	>
+		<input
+			type="radio"
+			name="radio-options"
+			value="custom_option"
+			id="radio-option-4"
+		/>
+		<span aria-hidden="true"></span>
+		<span>Other</span>
+	</label>
+
+	<div class="forminator-field forminator-custom-input">
+
+		<label for="forminator-field-input" class="forminator-label">Company</label>
+
+		<input
+			type="text"
+			placeholder="E.g. Acme Enterprises"
+			id="forminator-field-input"
+			class="forminator-input"
+		/>
+
+		<span class="forminator-error-message" aria-hidden="true">This field is required.</span>
+
+		<span class="forminator-description" aria-describedby="forminator-field-input">Optional description for input field. <span>0 / 180</span></span>
+
+	</div>
+
 	<span class="forminator-error-message">This field is required.</span>
 
 	<span class="forminator-description">Optional description for radio field.</span>
