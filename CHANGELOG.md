@@ -1,5 +1,15 @@
 # Change Log
 
+## [1.12.31](https://github.com/wpmudev/forminator-ui/compare/v1.12.30...v1.12.31) (2025-06-12)
+####
+new
+- `slider`
+  - new(slider): allow slider min max labels. [#101](https://github.com/wpmudev/forminator-ui/pull/101) ([FOR-5505](https://incsub.atlassian.net/browse/FOR-5505) ([@creador-dev](https://github.com/creador-dev))
+- `label`
+  - new(label): monospace style for label and description. [#101](https://github.com/wpmudev/forminator-ui/pull/101) ([FOR-5334](https://incsub.atlassian.net/browse/FOR-5334) ([@creador-dev](https://github.com/creador-dev))
+- `custom field`
+  - new(field): Checkbox radio and select fields custom input field. [#103](https://github.com/wpmudev/forminator-ui/pull/103) ([FOR-5504](https://incsub.atlassian.net/browse/FOR-5504) ([@creador-dev](https://github.com/creador-dev))
+
 ## [1.12.30](https://github.com/wpmudev/forminator-ui/compare/v1.12.29...v1.12.30) (2025-06-02)
 ####
 fix

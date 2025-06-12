@@ -537,6 +537,13 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
 
           // Assign checked class
           radioLabel.addClass('forminator-is_checked');
+
+          // check if value is custom_option then show the custom option input
+          if ('custom_option' === radioInput.val() && radioInput.is(':checked')) {
+            radioField.find('.forminator-custom-input').show();
+          } else {
+            radioField.find('.forminator-custom-input').hide();
+          }
         });
       });
     }
@@ -563,10 +570,18 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
         $(this).on('click', function () {
           var checkInput = $(this);
           var checkLabel = checkInput.parent();
+          var checkField = checkLabel.closest('.forminator-field');
           if (checkLabel.is('.forminator-is_checked')) {
             checkLabel.removeClass('forminator-is_checked');
           } else {
             checkLabel.addClass('forminator-is_checked');
+          }
+
+          // check if value is custom_option then show the custom option input
+          if ('custom_option' === checkInput.val() && checkInput.is(':checked')) {
+            checkField.find('.forminator-custom-input').show();
+          } else if ('custom_option' === checkInput.val() && !checkInput.is(':checked')) {
+            checkField.find('.forminator-custom-input').hide();
           }
         });
       });
@@ -595,10 +610,18 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
         $(this).on('click', function () {
           var checkInput = $(this);
           var checkLabel = checkInput.parent();
+          var checkField = checkLabel.closest('.forminator-field');
           if (checkLabel.is('.forminator-is_checked')) {
             checkLabel.removeClass('forminator-is_checked');
           } else {
             checkLabel.addClass('forminator-is_checked');
+          }
+
+          // check if value is custom_option then show the custom option input
+          if ('custom_option' === checkInput.val() && checkInput.is(':checked')) {
+            checkField.find('.forminator-custom-input').show();
+          } else if ('custom_option' === checkInput.val() && !checkInput.is(':checked')) {
+            checkField.find('.forminator-custom-input').hide();
           }
         });
       });
@@ -708,6 +731,18 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
               }
               if ($select.closest('.hustle-popup').length || $select.closest('.hustle-slidein')) {
                 $(document.body).addClass('forminator-hustle-dropdown-fix');
+              }
+            }).on('select2:select', function () {
+              if ($(this).val().includes('custom_option')) {
+                $(this).closest('.forminator-field').find('.forminator-custom-input').show();
+              } else {
+                $(this).closest('.forminator-field').find('.forminator-custom-input').hide();
+              }
+            }).on('select2:unselect', function () {
+              if ($(this).val().includes('custom_option')) {
+                $(this).closest('.forminator-field').find('.forminator-custom-input').show();
+              } else {
+                $(this).closest('.forminator-field').find('.forminator-custom-input').hide();
               }
             }).on('select2:closing', function () {
               $(document.body).removeClass('forminator-hustle-dropdown-fix');
@@ -1109,6 +1144,9 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
           // Generate slider labels.
           generateSliderLabels($sliderLimit, $minRange, $maxRange, $step);
 
+          // Add custom labels if available.
+          customSliderLabels($sliderLimit, $slide);
+
           // Create the UI with the formatted values.
           updateSliderValues($element, $formattedValue, $formattedValueMax, $value, $valueMax);
 
@@ -1214,6 +1252,22 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
         });
         label.css('transform', 'translateX(-50%)');
         $sliderLimit.append(label);
+      }
+    }
+
+    // Function for custom slider labels
+    function customSliderLabels($sliderLimit, $slide) {
+      var minLabel = sanitize($slide.data('min-label') || '');
+      var maxLabel = sanitize($slide.data('max-label') || '');
+
+      // Safe: text() escapes potentially dangerous characters.
+      var $minLabelSpan = $('<span class="forminator-slider-label-min"></span>').text(minLabel);
+      var $maxLabelSpan = $('<span class="forminator-slider-label-max"></span>').text(maxLabel);
+      var $labelWrapper = $('<div class="forminator-slider-labels"></div>').append($minLabelSpan).append($maxLabelSpan);
+      if ($sliderLimit.length && $sliderLimit.prev('.forminator-slide').length) {
+        $sliderLimit.after($labelWrapper);
+      } else if ($sliderLimit.length && $sliderLimit.next('.forminator-slide').length) {
+        $sliderLimit.before($labelWrapper);
       }
     }
 
