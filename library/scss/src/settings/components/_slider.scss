@@ -331,9 +331,7 @@
 			}
 
 			.forminator-slider-labels {
-				@if ('basic' != $form-theme) {
-					margin: 0 10px;
-				}
+				margin: 0 10px;
 			}
 		}
 
