@@ -191,6 +191,12 @@
 
 		// Function for custom slider labels
 		function customSliderLabels( $sliderLimit, $slide ) {
+
+			// Prevent duplicate labels
+			if ( $sliderLimit.siblings( '.forminator-slider-labels' ).length ) {
+				return;
+			}
+
 			const minLabel = sanitize( $slide.data( 'min-label' ) || '' );
 			const maxLabel = sanitize( $slide.data( 'max-label' ) || '' );
 
