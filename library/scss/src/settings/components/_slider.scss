@@ -328,13 +328,13 @@
 				.forminator-slider-limit {
 					margin: 0 20px;
 				}
-			}
 
-			.forminator-slider-labels {
-				@if ('basic' != $form-theme) {
-					margin: 0 10px;
+				.forminator-slider-labels {
+					margin: 0 5px;
 				}
 			}
+
+			
 		}
 
 
