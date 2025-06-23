@@ -1,8 +1,14 @@
 # Change Log
 
+## [1.12.32](https://github.com/wpmudev/forminator-ui/compare/v1.12.31...v1.12.32) (2025-06-23)
+####  🐛 Bug Fix
+- `slider`
+  - new(slider): slider custom labels styling. [#108](https://github.com/wpmudev/forminator-ui/pull/108) ([FOR-5505](https://incsub.atlassian.net/browse/FOR-5505) ([@creador-dev](https://github.com/creador-dev))
+- `textarea`
+  - new(textarea): textarea description alignment fix. [#107](https://github.com/wpmudev/forminator-ui/pull/101) ([FOR-5543](https://incsub.atlassian.net/browse/FOR-5543) ([@creador-dev](https://github.com/creador-dev))
+
 ## [1.12.31](https://github.com/wpmudev/forminator-ui/compare/v1.12.30...v1.12.31) (2025-06-12)
-####
-new
+####  🐛 Bug Fix
 - `slider`
   - new(slider): allow slider min max labels. [#101](https://github.com/wpmudev/forminator-ui/pull/101) ([FOR-5505](https://incsub.atlassian.net/browse/FOR-5505) ([@creador-dev](https://github.com/creador-dev))
 - `label`
@@ -11,14 +17,12 @@ new
   - new(field): Checkbox radio and select fields custom input field. [#103](https://github.com/wpmudev/forminator-ui/pull/103) ([FOR-5504](https://incsub.atlassian.net/browse/FOR-5504) ([@creador-dev](https://github.com/creador-dev))
 
 ## [1.12.30](https://github.com/wpmudev/forminator-ui/compare/v1.12.29...v1.12.30) (2025-06-02)
-####
-fix
+####  🐛 Bug Fix
 - `rating`
   - fix(rating): rating field XSS vulnerability fix. [#100](https://github.com/wpmudev/forminator-ui/pull/100) ([FOR-5514](https://incsub.atlassian.net/browse/FOR-5514) ([@creador-dev](https://github.com/creador-dev))
 
 ## [1.12.29](https://github.com/wpmudev/forminator-ui/compare/v1.12.28...v1.12.29) (2025-06-02)
-####  
-fix
+####  🐛 Bug Fix
 - `rating`
   - fix(rating): rating field XSS vulnerability fix. [#99](https://github.com/wpmudev/forminator-ui/pull/99) ([FOR-5514](https://incsub.atlassian.net/browse/FOR-5514) ([@creador-dev](https://github.com/creador-dev))
 
