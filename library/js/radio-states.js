@@ -26,6 +26,7 @@
 					const radioInput = $( this );
 					const radioLabel = radioInput.parent();
 
+					const radioField = radioLabel.closest( '.forminator-field' );
 					const radioOptions = radioField.find( '.forminator-radio' );
 
 					// Remove checked attribute
