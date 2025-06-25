@@ -116,11 +116,6 @@
 							$parent = $( document.body );
 						}
 
-						// If selected option contains 'custom_option', show the custom input field.
-						if ( $select.val() && $select.val().includes( 'custom_option' ) ) {
-							$select.closest( '.forminator-field' ).find( '.forminator-custom-input' ).show();
-						}
-
 						$select.FUIselect2({
 							dir: $dir,
 							language: $language,
@@ -144,18 +139,6 @@
 
 							if ( $select.closest( '.hustle-popup' ).length || $select.closest( '.hustle-slidein' ) ) {
 								$( document.body ).addClass( 'forminator-hustle-dropdown-fix' );
-							}
-						}).on( 'select2:select', function() {
-							if ( $( this ).val().includes( 'custom_option' ) ) {
-								$( this ).closest( '.forminator-field' ).find( '.forminator-custom-input' ).show();
-							} else {
-								$( this ).closest( '.forminator-field' ).find( '.forminator-custom-input' ).hide();
-							}
-						}).on( 'select2:unselect', function() {
-							if ( $( this ).val().includes( 'custom_option' ) ) {
-								$( this ).closest( '.forminator-field' ).find( '.forminator-custom-input' ).show();
-							} else {
-								$( this ).closest( '.forminator-field' ).find( '.forminator-custom-input' ).hide();
 							}
 						}).on( 'select2:closing', function() {
 							$( document.body ).removeClass( 'forminator-hustle-dropdown-fix' );
