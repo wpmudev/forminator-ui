@@ -116,6 +116,11 @@
 							$parent = $( document.body );
 						}
 
+						// If selected option contains 'custom_option', show the custom input field.
+						if ( $select.val() && $select.val().includes( 'custom_option' ) ) {
+							$select.closest( '.forminator-field' ).find( '.forminator-custom-input' ).show();
+						}
+
 						$select.FUIselect2({
 							dir: $dir,
 							language: $language,
