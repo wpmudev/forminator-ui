@@ -40,13 +40,6 @@
 
 					// Assign checked class
 					radioLabel.addClass( 'forminator-is_checked' );
-
-					// check if value is custom_option then show the custom option input
-					if ( 'custom_option' === radioInput.val() && radioInput.is( ':checked' ) ) {
-						radioField.find( '.forminator-custom-input' ).show();
-					} else {
-						radioField.find( '.forminator-custom-input' ).hide();
-					}
 				});
 			});
 		}
