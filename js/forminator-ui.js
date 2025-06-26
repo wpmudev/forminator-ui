@@ -537,13 +537,6 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
 
           // Assign checked class
           radioLabel.addClass('forminator-is_checked');
-
-          // check if value is custom_option then show the custom option input
-          if ('custom_option' === radioInput.val() && radioInput.is(':checked')) {
-            radioField.find('.forminator-custom-input').show();
-          } else {
-            radioField.find('.forminator-custom-input').hide();
-          }
         });
       });
     }
@@ -570,18 +563,10 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
         $(this).on('click', function () {
           var checkInput = $(this);
           var checkLabel = checkInput.parent();
-          var checkField = checkLabel.closest('.forminator-field');
           if (checkLabel.is('.forminator-is_checked')) {
             checkLabel.removeClass('forminator-is_checked');
           } else {
             checkLabel.addClass('forminator-is_checked');
-          }
-
-          // check if value is custom_option then show the custom option input
-          if ('custom_option' === checkInput.val() && checkInput.is(':checked')) {
-            checkField.find('.forminator-custom-input').show();
-          } else if ('custom_option' === checkInput.val() && !checkInput.is(':checked')) {
-            checkField.find('.forminator-custom-input').hide();
           }
         });
       });
@@ -610,18 +595,10 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
         $(this).on('click', function () {
           var checkInput = $(this);
           var checkLabel = checkInput.parent();
-          var checkField = checkLabel.closest('.forminator-field');
           if (checkLabel.is('.forminator-is_checked')) {
             checkLabel.removeClass('forminator-is_checked');
           } else {
             checkLabel.addClass('forminator-is_checked');
-          }
-
-          // check if value is custom_option then show the custom option input
-          if ('custom_option' === checkInput.val() && checkInput.is(':checked')) {
-            checkField.find('.forminator-custom-input').show();
-          } else if ('custom_option' === checkInput.val() && !checkInput.is(':checked')) {
-            checkField.find('.forminator-custom-input').hide();
           }
         });
       });
@@ -731,18 +708,6 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
               }
               if ($select.closest('.hustle-popup').length || $select.closest('.hustle-slidein')) {
                 $(document.body).addClass('forminator-hustle-dropdown-fix');
-              }
-            }).on('select2:select', function () {
-              if ($(this).val().includes('custom_option')) {
-                $(this).closest('.forminator-field').find('.forminator-custom-input').show();
-              } else {
-                $(this).closest('.forminator-field').find('.forminator-custom-input').hide();
-              }
-            }).on('select2:unselect', function () {
-              if ($(this).val().includes('custom_option')) {
-                $(this).closest('.forminator-field').find('.forminator-custom-input').show();
-              } else {
-                $(this).closest('.forminator-field').find('.forminator-custom-input').hide();
               }
             }).on('select2:closing', function () {
               $(document.body).removeClass('forminator-hustle-dropdown-fix');
