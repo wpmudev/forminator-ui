@@ -1,5 +1,11 @@
 # Change Log
 
+## [1.12.33](https://github.com/wpmudev/forminator-ui/compare/v1.12.32...v1.12.33) (2025-06-26)
+####
+improvement
+- `custom input`
+  - new(custom input): moved logic of custom input to Forminator. [#109](https://github.com/wpmudev/forminator-ui/pull/109) ([FOR-5504](https://incsub.atlassian.net/browse/FOR-5504) ([@creador-dev](https://github.com/creador-dev))
+
 ## [1.12.32](https://github.com/wpmudev/forminator-ui/compare/v1.12.31...v1.12.32) (2025-06-23)
 ####  🐛 Bug Fix
 - `slider`
