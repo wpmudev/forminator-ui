@@ -20,6 +20,12 @@
 				margin: 0 0 5px;
 			}
 
+			&::after {
+				content: '';
+				display: block;
+				clear: both;
+			}
+
 			@if ('basic' != $form-theme) {
 				line-height: 1.5em;
 			}
