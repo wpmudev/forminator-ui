@@ -1,5 +1,11 @@
 # Change Log
 
+## [1.12.34](https://github.com/wpmudev/forminator-ui/compare/v1.12.33...v1.12.34) (2025-07-02)
+####
+fix
+- `description`
+  - fix(description): description overlaps in case of rich text editor. [#110](https://github.com/wpmudev/forminator-ui/pull/110) ([FOR-5543](https://incsub.atlassian.net/browse/FOR-5543) ([@creador-dev](https://github.com/creador-dev))
+
 ## [1.12.33](https://github.com/wpmudev/forminator-ui/compare/v1.12.32...v1.12.33) (2025-06-26)
 ####
 improvement
