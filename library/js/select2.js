@@ -10,36 +10,38 @@
 
 	FUI.select = {};
 
-	FUI.select.escapeJS = ( string ) => {
-
-        // Create a temporary <div> element using jQuery and set the HTML content.
-        var div = $( '<div>' ).html( string );
-
-        // Get the text content of the <div> element and remove script tags
-        var text = div.text().replace( /<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '' );
-
-        // Return the escaped text
-        return text;
-    };
-
 	FUI.select.formatCheckbox = ( data, container ) => {
-		const label = FUI.select.escapeJS( data.text );
+		const label = data.text;
 		const selected = data.selected;
-		let markup,
-			id = label.toLowerCase().replace( /\s+/g, '-' );
+		const id = ( data.id || label.toLowerCase().replace( /\s+/g, '-' ) );
 
-		if ( data.id ) {
-			id = data.id;
+		const wrapper = document.createElement( 'label' );
+		wrapper.setAttribute( 'for', id );
+		wrapper.className = 'forminator-checkbox';
+
+		const input = document.createElement( 'input' );
+		input.type = 'checkbox';
+		input.value = label;
+		input.id = id;
+		if ( selected ) {
+			input.checked = true;
 		}
 
-		markup 	=	'<label for="' + id + '" class="forminator-checkbox">' +
-						'<input type="checkbox" value="' + label + '" id="' + id + '" ' + ( selected ? 'checked' : '' ) + ' />' +
-						'<span class="forminator-checkbox-box" aria-hidden="true"></span>' +
-						'<span class="forminator-select-label">' + label + '</span>' +
-					'</label>' ;
+		const box = document.createElement( 'span' );
+		box.className = 'forminator-checkbox-box';
+		box.setAttribute( 'aria-hidden', 'true' );
 
-		return markup;
+		const text = document.createElement( 'span' );
+		text.className = 'forminator-select-label';
+		text.textContent = label;
+
+		wrapper.appendChild( input );
+		wrapper.appendChild( box );
+		wrapper.appendChild( text );
+
+		return wrapper;
 	};
+
 
 	FUI.select2 = function() {
 
