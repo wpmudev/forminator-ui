@@ -257,6 +257,13 @@
 						outline: none;
 						box-shadow: none;
 					}
+
+					&[dir="rtl"] {
+
+						.select2-selection__rendered {
+							text-align: right;
+						}
+					}
 				}
 			}
 		}

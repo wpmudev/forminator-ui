@@ -77,7 +77,7 @@
 							$parent = $dialog.length ? $dialog : $select.closest( '.elementor-popup-modal' ),
 							$dropdownClass = 'forminator-custom-form-' + $formid + ' forminator-dropdown--' + $theme;
 
-						if ( true === $select.data( 'rtl-support' ) ) {
+						if ( true === $select.data( 'rtl-support' ) || 'rtl' === $select.closest( 'html' ).attr( 'dir' ) ) {
 							$dir = 'rtl';
 						} else {
 							$dir = 'ltr';
