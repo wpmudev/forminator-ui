@@ -295,4 +295,21 @@ $radio-image: 80px;
 			}
 		}
 	}
+
+	// ============================================
+	// RTL Support
+	// ============================================
+	@include form-class($form-type, $form-theme, false, true) {
+
+		.forminator-radio {
+
+			.forminator-radio-bullet {
+				~ span {
+					margin-right: 10px;
+					margin-left: 0;
+				}
+			}
+
+		}
+	}
 }

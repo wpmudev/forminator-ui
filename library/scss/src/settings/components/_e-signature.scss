@@ -156,4 +156,26 @@ $esign-reset: 20px;
 			}
 		}
 	}
+
+	// ============================================
+	// RTL Support
+	// ============================================
+	@include form-class($form-type, $form-theme, false, true) {
+		
+		.forminator-field-signature {
+			
+			.forminator-signature {
+				
+				.forminator-signature--container {
+
+					// ELEMENT: Reset Button.
+					+ div {
+						top: 7px;
+						left: 7px;
+						right: auto;
+					}
+				}
+			}
+		}
+	}
 }

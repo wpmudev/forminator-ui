@@ -48,4 +48,29 @@
             }
         }
     }
+
+	// ============================================
+	// RTL Support
+	// ============================================
+	@include form-class($form-type, $form-theme, false, true) {
+
+		// captcha alignment
+        .forminator-captcha-left {
+            text-align: right;
+
+            > div {
+                margin-left: auto;
+				margin-right: 0;
+            }
+        }
+
+        .forminator-captcha-right {
+            text-align: left;
+
+            > div {
+                margin-right: auto;
+				margin-left: 0;
+            }
+        }
+	}
 }
