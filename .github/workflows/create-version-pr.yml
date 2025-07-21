@@ -1,6 +1,10 @@
 name: Create Version PR
 
 on:
+  push:
+    branches:
+      - releases
+
   workflow_dispatch:
 
 jobs:
@@ -24,6 +28,6 @@ jobs:
       - name: Create or update version PR
         uses: changesets/action@v1
         with:
-          versionBranch: release-development
+          versionBranch: releases
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
