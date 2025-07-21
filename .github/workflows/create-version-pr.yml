@@ -27,7 +27,5 @@ jobs:
 
       - name: Create or update version PR
         uses: changesets/action@v1
-        with:
-          versionBranch: releases
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
