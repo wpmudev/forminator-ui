@@ -25,7 +25,12 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Configure Git
+        run: |
+          git config --global user.name "Govind Kumar"
+          git config --global user.email "govind.kumar@incsub.com"
+
       - name: Create or update version PR
         uses: changesets/action@v1
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
