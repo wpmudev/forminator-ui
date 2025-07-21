@@ -1,0 +1,29 @@
+name: Create Version PR
+
+on:
+  workflow_dispatch:
+
+jobs:
+  version:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Create or update version PR
+        uses: changesets/action@v1
+        with:
+          versionBranch: release-development
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
