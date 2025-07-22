@@ -3,7 +3,7 @@ name: Create Version PR
 on:
   push:
     branches:
-      - release-development
+      - releases
   workflow_dispatch:
 
 permissions:
