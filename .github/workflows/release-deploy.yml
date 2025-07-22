@@ -63,6 +63,23 @@ jobs:
           echo "changelog<<EOF" >> $GITHUB_OUTPUT
           echo "$CHANGELOG_BODY" >> $GITHUB_OUTPUT
           echo "EOF" >> $GITHUB_OUTPUT
+          
+      - name: Create release branch with build output
+        run: |
+          RELEASE_BRANCH="release/${{ steps.meta.outputs.VERSION }}"
+          
+          # Create and checkout release branch
+          git checkout -b "$RELEASE_BRANCH"
+          
+          # Build assets
+          npm run build:library && npm run build:showcase
+          
+          # Stage and commit build artifacts
+          git add -A
+          git commit -m "chore: build output for v${{ steps.meta.outputs.VERSION }}"
+          
+          # Push release branch to origin
+          git push origin "$RELEASE_BRANCH"
 
       - name: Fetch and switch to master
         run: |
