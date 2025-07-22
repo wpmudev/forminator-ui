@@ -83,11 +83,13 @@ jobs:
           # Stage and commit build artifacts
           git status
           git add .
-          git commit -m "chore: build output for v${{ steps.meta.outputs.VERSION }}"
-          
-          # Push release branch to origin
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+          git commit -m "chore: 📦 Forminator UI v${{ steps.meta.outputs.VERSION }}"
           git push origin "$RELEASE_BRANCH"
-
+          fi
+          
       - name: Fetch and switch to master
         run: |
           git fetch origin master
