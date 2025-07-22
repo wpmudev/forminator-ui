@@ -1,0 +1,110 @@
+name: Deploy & Release
+
+on:
+  pull_request:
+    types: [closed]
+    branches:
+      - releases
+
+jobs:
+  release:
+    if: |
+      github.event.pull_request.merged == true &&
+      startsWith(github.event.pull_request.title, 'Prepare Release')
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      #      - name: Run Changeset Release
+      #        run: npm run release
+
+      - name: Get version and date
+        id: meta
+        run: |
+          VERSION=$(node -p "require('./package.json').version")
+          DATE=$(date +'%Y-%m-%d')
+          echo "VERSION=$VERSION" >> $GITHUB_OUTPUT
+          echo "DATE=$DATE" >> $GITHUB_OUTPUT
+
+      - name: Extract Changelog
+        id: extract_changelog
+        shell: bash
+        run: |
+          LATEST_LINE=$(grep -m1 '^## ' CHANGELOG.md)
+          if [ -z "$LATEST_LINE" ]; then
+            echo "No version section found"
+            exit 1
+          fi
+
+          LATEST_VERSION=$(echo "$LATEST_LINE" | sed -E 's/^## ?\[*([0-9\.]+).*/\1/')
+
+          CHANGELOG_BODY=$(awk -v ver="$LATEST_VERSION" '
+            $0 ~ "^## " {
+              if (found) exit
+              if ($0 ~ ver) { found = 1; next }
+            }
+            found { print }
+          ' CHANGELOG.md)
+
+          echo "version=${LATEST_VERSION}" >> $GITHUB_OUTPUT
+          echo "changelog<<EOF" >> $GITHUB_OUTPUT
+          echo "$CHANGELOG_BODY" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Set Git user identity
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Create release branch with build output
+        run: |
+          RELEASE_BRANCH="release/${{ steps.meta.outputs.VERSION }}"
+          
+          # Create and checkout release branch
+          git checkout -b "$RELEASE_BRANCH"
+          
+          # Build assets
+          npm run build:library && npm run build:showcase
+          
+          # Stage and commit build artifacts
+          git status
+          git add .
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+          git commit -m "📦 Forminator UI v${{ steps.meta.outputs.VERSION }}"
+          git push origin "$RELEASE_BRANCH"
+          fi
+
+      - name: Fetch and switch to master
+        run: |
+          git fetch origin master
+          git checkout master
+          git pull origin master
+
+      - name: Tag the master branch
+        run: |
+          git tag v${{ steps.meta.outputs.VERSION }}
+          git push origin v${{ steps.meta.outputs.VERSION }}
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: v${{ steps.meta.outputs.VERSION }}
+          name: v${{ steps.meta.outputs.VERSION }} (${{ steps.meta.outputs.DATE }})
+          body: ${{ steps.extract_changelog.outputs.changelog }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}

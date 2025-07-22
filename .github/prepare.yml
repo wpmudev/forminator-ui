@@ -1,0 +1,54 @@
+name: Prepare Release
+
+on:
+  push:
+    branches:
+      - releases
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  version:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/releases'
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Get latest commit message
+        id: commit
+        run: |
+          msg=$(git log -1 --pretty=%B)
+          echo "message<<EOF" >> $GITHUB_OUTPUT
+          echo "$msg" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Skip if it's a release commit
+        if: |
+          contains(steps.commit.outputs.message, 'Prepare Release') ||
+          contains(steps.commit.outputs.message, 'chore: release version')
+        run: |
+          echo "Skipping release preparation due to commit message: ${{ steps.commit.outputs.message }}"
+          exit 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run Changesets to create version PR
+        uses: changesets/action@v1
+        with:
+          title: 'Prepare Release'
+          commit: 'chore: release version'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
