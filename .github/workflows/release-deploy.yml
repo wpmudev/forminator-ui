@@ -1,19 +1,18 @@
 name: Deploy & Release
 
 on:
-  push:
+  pull_request:
+    types: [closed]
     branches:
       - releases
-  workflow_dispatch:
-    inputs:
-      version:
-        description: 'Version number for the release (e.g., 1.12.35)'
-        required: true
-        type: string
 
 jobs:
   release:
+    if: |
+      github.event.pull_request.merged == true &&
+      startsWith(github.event.pull_request.title, 'Prepare Release')
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
