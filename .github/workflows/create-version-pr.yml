@@ -12,15 +12,28 @@ permissions:
 
 jobs:
   version:
-    if: |
-      github.event_name != 'push' ||
-      (!contains(github.event.head_commit.message, 'chore: release version') &&
-       !startsWith(github.event.head_commit.message, 'Prepare Release'))
     runs-on: ubuntu-latest
+    if: github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/releases'
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Get latest commit message
+        id: commit
+        run: |
+          msg=$(git log -1 --pretty=%B)
+          echo "message=$msg" >> $GITHUB_OUTPUT
+
+      - name: Skip if it's a release commit
+        if: |
+          contains(steps.commit.outputs.message, 'Prepare Release') ||
+          contains(steps.commit.outputs.message, 'chore: release version')
+        run: |
+          echo "Skipping release preparation due to commit message: ${{ steps.commit.outputs.message }}"
+          exit 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v4

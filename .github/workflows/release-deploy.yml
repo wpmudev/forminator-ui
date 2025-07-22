@@ -31,17 +31,6 @@ jobs:
 #      - name: Run Changeset Release
 #        run: npm run release
 
-      - name: Fetch and switch to master
-        run: |
-          git fetch origin master
-          git checkout master
-          git pull origin master
-
-      - name: Set up Git identity
-        run: |
-          git config user.name "Govind Kumar"
-          git config user.email "govind.kumar@incsub.com"
-
       - name: Get version and date
         id: meta
         run: |
@@ -49,6 +38,11 @@ jobs:
           DATE=$(date +'%Y-%m-%d')
           echo "VERSION=$VERSION" >> $GITHUB_OUTPUT
           echo "DATE=$DATE" >> $GITHUB_OUTPUT
+
+      - name: Set up Git identity
+        run: |
+          git config user.name "Govind Kumar"
+          git config user.email "govind.kumar@incsub.com"
 
       - name: Extract latest changelog entry
         id: changelog
@@ -60,6 +54,12 @@ jobs:
             /^## / && print_flag {exit}
             print_flag {print}
           ' CHANGELOG.md > RELEASE_BODY.md
+
+      - name: Fetch and switch to master
+        run: |
+          git fetch origin master
+          git checkout master
+          git pull origin master
           
       - name: Tag the master branch
         run: |
