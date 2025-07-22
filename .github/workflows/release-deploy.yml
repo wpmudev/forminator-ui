@@ -44,16 +44,28 @@ jobs:
           git config user.name "Govind Kumar"
           git config user.email "govind.kumar@incsub.com"
 
-      - name: Extract latest changelog entry
-        id: changelog
+      - name: Extract Changelog
+        id: extract_changelog
         run: |
-          VERSION=${{ steps.meta.outputs.VERSION }}
-          awk -v version="## $VERSION" '
-            BEGIN {print_flag=0}
-            $0 ~ version {print_flag=1; next}
-            /^## / && print_flag {exit}
-            print_flag {print}
-          ' CHANGELOG.md > RELEASE_BODY.md
+          # Extract the latest version number
+          LATEST_VERSION=$(grep -oP '^## \K[\d\.]+' changelog.md | head -1)
+          if [ -z "$LATEST_VERSION" ]; then
+            echo "Error: No version found in changelog.md"
+            exit 1
+          fi
+          # Extract changelog for the latest version
+          CHANGELOG=$(awk "/^## ${LATEST_VERSION}/,/^## /{if (!/^## /) print}" changelog.md | sed '/^$/d' | sed 's/^### /#### /')
+          if [ -z "$CHANGELOG" ]; then
+            echo "Error: No changelog content found for version ${LATEST_VERSION}"
+            exit 1
+          fi
+          # Escape special characters for GitHub output
+          CHANGELOG="${CHANGELOG//'%'/'%25'}"
+          CHANGELOG="${CHANGELOG//$'\n'/'%0A'}"
+          CHANGELOG="${CHANGELOG//$'\r'/'%0D'}"
+          echo "version=${LATEST_VERSION}" >> $GITHUB_OUTPUT
+          echo "changelog=${CHANGELOG}" >> $GITHUB_OUTPUT
+        shell: bash
 
       - name: Fetch and switch to master
         run: |
@@ -64,13 +76,13 @@ jobs:
       - name: Tag the master branch
         run: |
           git tag v${{ steps.meta.outputs.VERSION }}
-          git push origin ${{ steps.meta.outputs.VERSION }}
+          git push origin v${{ steps.meta.outputs.VERSION }}
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v1
         with:
           tag_name: v${{ steps.meta.outputs.VERSION }}
           name: v${{ steps.meta.outputs.VERSION }} (${{ steps.meta.outputs.DATE }})
-          body_path: RELEASE_BODY.md
+          body: ${{ steps.extract_changelog.outputs.changelog }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
