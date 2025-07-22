@@ -47,22 +47,18 @@ jobs:
 
       - name: Extract Changelog
         id: extract_changelog
-        shell: bash  # ✅ put this OUTSIDE the run block
+        shell: bash
         run: |
-          # Get today's date
           TODAY=$(date +%F)
 
-          # Get the first version header (e.g., "## 1.12.35" or "## [1.12.34](...)")
           LATEST_LINE=$(grep -m1 '^## ' CHANGELOG.md)
           if [ -z "$LATEST_LINE" ]; then
             echo "No version section found"
             exit 1
           fi
 
-          # Extract version number
           LATEST_VERSION=$(echo "$LATEST_LINE" | sed -E 's/^## ?\[*([0-9\.]+).*/\1/')
 
-          # Extract changelog body for that version
           CHANGELOG_BODY=$(awk -v ver="$LATEST_VERSION" '
             $0 ~ "^## " {
               if (found) exit
@@ -71,18 +67,14 @@ jobs:
             found { print }
           ' CHANGELOG.md)
 
-          # Final changelog format
           FORMATTED_CHANGELOG="v${LATEST_VERSION} (${TODAY})
           ${CHANGELOG_BODY}"
           
-          # Escape for GitHub Actions output
-          FORMATTED_CHANGELOG="${FORMATTED_CHANGELOG//'%'/'%25'}"
-          FORMATTED_CHANGELOG="${FORMATTED_CHANGELOG//$'\n'/'%0A'}"
-          FORMATTED_CHANGELOG="${FORMATTED_CHANGELOG//$'\r'/'%0D'}"
-          
           echo "version=${LATEST_VERSION}" >> $GITHUB_OUTPUT
-          echo "changelog=${FORMATTED_CHANGELOG}" >> $GITHUB_OUTPUT
-            
+          echo "changelog<<EOF" >> $GITHUB_OUTPUT
+          echo "$FORMATTED_CHANGELOG" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
       - name: Fetch and switch to master
         run: |
           git fetch origin master
