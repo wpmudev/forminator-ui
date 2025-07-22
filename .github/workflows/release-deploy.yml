@@ -47,8 +47,10 @@ jobs:
 
       - name: Extract Changelog
         id: extract_changelog
+        shell: bash  # ✅ put this OUTSIDE the run block
         run: |
-          #!/bin/bash
+          # Get today's date
+          TODAY=$(date +%F)
 
           # Get the first version header (e.g., "## 1.12.35" or "## [1.12.34](...)")
           LATEST_LINE=$(grep -m1 '^## ' CHANGELOG.md)
@@ -70,7 +72,8 @@ jobs:
           ' CHANGELOG.md)
 
           # Final changelog format
-          FORMATTED_CHANGELOG="${CHANGELOG_BODY}"
+          FORMATTED_CHANGELOG="v${LATEST_VERSION} (${TODAY})
+          ${CHANGELOG_BODY}"
           
           # Escape for GitHub Actions output
           FORMATTED_CHANGELOG="${FORMATTED_CHANGELOG//'%'/'%25'}"
@@ -79,7 +82,6 @@ jobs:
           
           echo "version=${LATEST_VERSION}" >> $GITHUB_OUTPUT
           echo "changelog=${FORMATTED_CHANGELOG}" >> $GITHUB_OUTPUT
-          shell: bash
             
       - name: Fetch and switch to master
         run: |
