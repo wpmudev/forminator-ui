@@ -40,17 +40,10 @@ jobs:
           echo "VERSION=$VERSION" >> $GITHUB_OUTPUT
           echo "DATE=$DATE" >> $GITHUB_OUTPUT
 
-      - name: Set up Git identity
-        run: |
-          git config user.name "Govind Kumar"
-          git config user.email "govind.kumar@incsub.com"
-
       - name: Extract Changelog
         id: extract_changelog
         shell: bash
         run: |
-          TODAY=$(date +%F)
-
           LATEST_LINE=$(grep -m1 '^## ' CHANGELOG.md)
           if [ -z "$LATEST_LINE" ]; then
             echo "No version section found"
@@ -67,12 +60,9 @@ jobs:
             found { print }
           ' CHANGELOG.md)
 
-          FORMATTED_CHANGELOG="v${LATEST_VERSION} (${TODAY})
-          ${CHANGELOG_BODY}"
-          
           echo "version=${LATEST_VERSION}" >> $GITHUB_OUTPUT
           echo "changelog<<EOF" >> $GITHUB_OUTPUT
-          echo "$FORMATTED_CHANGELOG" >> $GITHUB_OUTPUT
+          echo "$CHANGELOG_BODY" >> $GITHUB_OUTPUT
           echo "EOF" >> $GITHUB_OUTPUT
 
       - name: Fetch and switch to master
