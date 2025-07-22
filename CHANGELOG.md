@@ -1,13 +1,5 @@
 # Change Log
 
-## 1.12.35
-
-### Patch Changes
-
-- 0d65777: Add a random code in index.html to test out release
-- 97aae4f: Configure changeset
-- 30d9bd0: Improve the title
-
 ## [1.12.34](https://github.com/wpmudev/forminator-ui/compare/v1.12.33...v1.12.34) (2025-07-02)
 
 ####
