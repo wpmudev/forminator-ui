@@ -25,7 +25,9 @@ jobs:
         id: commit
         run: |
           msg=$(git log -1 --pretty=%B)
-          echo "message=$msg" >> $GITHUB_OUTPUT
+          echo "message<<EOF" >> $GITHUB_OUTPUT
+          echo "$msg" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
 
       - name: Skip if it's a release commit
         if: |
