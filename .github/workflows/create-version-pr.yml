@@ -33,5 +33,8 @@ jobs:
 
       - name: Run Changesets to create version PR
         uses: changesets/action@v1
+        with:
+          title: 'Prepare Release'
+          commit: 'chore: release version'
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
