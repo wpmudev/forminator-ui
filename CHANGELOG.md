@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.12.36
+
+### Patch Changes
+
+- 0f15b4e: Add Hello world to debug release
+
 ## 1.12.35
 
 ### Patch Changes
