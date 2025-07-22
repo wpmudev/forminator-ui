@@ -48,26 +48,39 @@ jobs:
       - name: Extract Changelog
         id: extract_changelog
         run: |
-          # Extract the latest version number
-          LATEST_VERSION=$(grep -oP '^## \K[\d\.]+' CHANGELOG.md | head -1)
-          if [ -z "$LATEST_VERSION" ]; then
-            echo "Error: No version found in CHANGELOG.md"
-            exit 1
-          fi
-          # Extract changelog for the latest version
-          CHANGELOG=$(awk "/^## ${LATEST_VERSION}/,/^## /{if (!/^## /) print}" CHANGELOG.md | sed '/^$/d' | sed 's/^### /#### /')
-          if [ -z "$CHANGELOG" ]; then
-            echo "Error: No changelog content found for version ${LATEST_VERSION}"
-            exit 1
-          fi
-          # Escape special characters for GitHub output
-          CHANGELOG="${CHANGELOG//'%'/'%25'}"
-          CHANGELOG="${CHANGELOG//$'\n'/'%0A'}"
-          CHANGELOG="${CHANGELOG//$'\r'/'%0D'}"
-          echo "version=${LATEST_VERSION}" >> $GITHUB_OUTPUT
-          echo "changelog=${CHANGELOG}" >> $GITHUB_OUTPUT
-        shell: bash
+          #!/bin/bash
 
+          # Get the first version header (e.g., "## 1.12.35" or "## [1.12.34](...)")
+          LATEST_LINE=$(grep -m1 '^## ' CHANGELOG.md)
+          if [ -z "$LATEST_LINE" ]; then
+            echo "No version section found"
+            exit 1
+          fi
+
+          # Extract version number
+          LATEST_VERSION=$(echo "$LATEST_LINE" | sed -E 's/^## ?\[*([0-9\.]+).*/\1/')
+
+          # Extract changelog body for that version
+          CHANGELOG_BODY=$(awk -v ver="$LATEST_VERSION" '
+            $0 ~ "^## " {
+              if (found) exit
+              if ($0 ~ ver) { found = 1; next }
+            }
+            found { print }
+          ' CHANGELOG.md)
+
+          # Final changelog format
+          FORMATTED_CHANGELOG="${CHANGELOG_BODY}"
+          
+          # Escape for GitHub Actions output
+          FORMATTED_CHANGELOG="${FORMATTED_CHANGELOG//'%'/'%25'}"
+          FORMATTED_CHANGELOG="${FORMATTED_CHANGELOG//$'\n'/'%0A'}"
+          FORMATTED_CHANGELOG="${FORMATTED_CHANGELOG//$'\r'/'%0D'}"
+          
+          echo "version=${LATEST_VERSION}" >> $GITHUB_OUTPUT
+          echo "changelog=${FORMATTED_CHANGELOG}" >> $GITHUB_OUTPUT
+          shell: bash
+            
       - name: Fetch and switch to master
         run: |
           git fetch origin master
