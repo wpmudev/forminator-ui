@@ -1,18 +1,19 @@
 name: Deploy & Release
 
 on:
-  pull_request:
-    types: [closed]
+  push:
     branches:
       - releases
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version number for the release (e.g., 1.12.35)'
+        required: true
+        type: string
 
 jobs:
   release:
-    if: |
-      github.event.pull_request.merged == true &&
-      startsWith(github.event.pull_request.title, 'Prepare Release')
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -68,7 +69,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          
+
       - name: Create release branch with build output
         run: |
           RELEASE_BRANCH="release/${{ steps.meta.outputs.VERSION }}"
@@ -80,7 +81,8 @@ jobs:
           npm run build:library && npm run build:showcase
           
           # Stage and commit build artifacts
-          git add -A
+          git status
+          git add .
           git commit -m "chore: build output for v${{ steps.meta.outputs.VERSION }}"
           
           # Push release branch to origin
