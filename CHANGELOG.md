@@ -1,5 +1,12 @@
 # Change Log
 
+## 1.12.35
+
+### Patch Changes
+
+- 1681a2c: Add random codes and improve deploy script
+- 1681a2c: Added some random codes
+
 ## [1.12.34](https://github.com/wpmudev/forminator-ui/compare/v1.12.33...v1.12.34) (2025-07-02)
 
 ####
