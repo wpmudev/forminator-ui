@@ -12,6 +12,10 @@ permissions:
 
 jobs:
   version:
+    if: |
+      github.event_name != 'push' ||
+      (!contains(github.event.head_commit.message, 'chore: release version') &&
+       !startsWith(github.event.head_commit.message, 'Prepare Release'))
     runs-on: ubuntu-latest
 
     steps:
@@ -25,6 +29,11 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+
+      - name: Set up Git identity
+        run: |
+          git config user.name "Govind Kumar"
+          git config user.email "govind.kumar@incsub.com"
 
       - name: Run Changesets to create version PR
         uses: changesets/action@v1

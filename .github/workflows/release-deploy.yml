@@ -31,10 +31,21 @@ jobs:
 #      - name: Run Changeset Release
 #        run: npm run release
 
+      - name: Fetch and switch to master
+        run: |
+          git fetch origin master
+          git checkout master
+          git pull origin master
+
+      - name: Set up Git identity
+        run: |
+          git config user.name "Govind Kumar"
+          git config user.email "govind.kumar@incsub.com"
+
       - name: Get version and date
         id: meta
         run: |
-          VERSION=v$(node -p "require('./package.json').version")
+          VERSION=$(node -p "require('./package.json').version")
           DATE=$(date +'%Y-%m-%d')
           echo "VERSION=$VERSION" >> $GITHUB_OUTPUT
           echo "DATE=$DATE" >> $GITHUB_OUTPUT
@@ -49,11 +60,16 @@ jobs:
             /^## / && print_flag {exit}
             print_flag {print}
           ' CHANGELOG.md > RELEASE_BODY.md
+          
+      - name: Tag the master branch
+        run: |
+          git tag v${{ steps.meta.outputs.VERSION }}
+          git push origin ${{ steps.meta.outputs.VERSION }}
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: ${{ steps.meta.outputs.VERSION }}
+          tag_name: v${{ steps.meta.outputs.VERSION }}
           name: v${{ steps.meta.outputs.VERSION }} (${{ steps.meta.outputs.DATE }})
           body_path: RELEASE_BODY.md
         env:
