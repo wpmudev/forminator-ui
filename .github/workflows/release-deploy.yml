@@ -1,6 +1,9 @@
 name: Deploy & Release
 
 on:
+  push:
+    branches:
+      - releases
   workflow_dispatch:
     inputs:
       version:
