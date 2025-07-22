@@ -31,14 +31,18 @@ jobs:
 #      - name: Run Changeset Release
 #        run: npm run release
 
-      - name: Get version from package.json
-        id: version
-        run: echo "VERSION=v$(node -p \"require('./package.json').version\")" >> $GITHUB_OUTPUT
+      - name: Get version and date
+        id: meta
+        run: |
+          VERSION=v$(node -p "require('./package.json').version")
+          DATE=$(date +'%Y-%m-%d')
+          echo "VERSION=$VERSION" >> $GITHUB_OUTPUT
+          echo "DATE=$DATE" >> $GITHUB_OUTPUT
 
       - name: Extract latest changelog entry
         id: changelog
         run: |
-          VERSION=${{ steps.version.outputs.VERSION }}
+          VERSION=${{ steps.meta.outputs.VERSION }}
           awk -v version="## $VERSION" '
             BEGIN {print_flag=0}
             $0 ~ version {print_flag=1; next}
@@ -49,8 +53,8 @@ jobs:
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: ${{ steps.version.outputs.VERSION }}
-          name: Release ${{ steps.version.outputs.VERSION }}
+          tag_name: ${{ steps.meta.outputs.VERSION }}
+          name: v${{ steps.meta.outputs.VERSION }} (${{ steps.meta.outputs.DATE }})
           body_path: RELEASE_BODY.md
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
