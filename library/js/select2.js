@@ -43,11 +43,12 @@
 
 	FUI.select2 = function() {
 
-		$( '.forminator-custom-form' ).each( function() {
+		$( '.forminator-custom-form' ).each( function( index ) {
 
 			var $element = $( this ),
 				$formid  = $element.data( 'form-id' ),
-				$select  = $element.find( '.forminator-select2' )
+				$select  = $element.find( '.forminator-select2' ),
+				$formindex = index
 				;
 
 			var $themes = [
@@ -76,6 +77,10 @@
 							$dialog = $select.closest( '.sui-dialog-content' ),
 							$parent = $dialog.length ? $dialog : $select.closest( '.elementor-popup-modal' ),
 							$dropdownClass = 'forminator-custom-form-' + $formid + ' forminator-dropdown--' + $theme;
+
+						var id = $( this ).attr( 'id' );
+
+						$( this ).attr( 'id', id + '-' + $formindex );
 
 						if ( true === $select.data( 'rtl-support' ) ) {
 							$dir = 'rtl';
