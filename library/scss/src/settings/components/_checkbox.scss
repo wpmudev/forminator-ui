@@ -303,4 +303,25 @@ $checkbox-image: 80px;
 			}			
 		}
 	}
+
+	// ============================================
+	// RTL Support
+	// ============================================
+	@include form-class($form-type, $form-theme, false, true) {
+
+		.forminator-checkbox {
+			// ELEMENT: Label
+			&__label {
+				margin-right: 10px;
+				margin-left: 0;
+			}
+		}
+
+		.forminator-checkbox-box {
+			~ span {
+				margin-right: 10px;
+				margin-left: 0;
+			}
+		}
+	}
 }

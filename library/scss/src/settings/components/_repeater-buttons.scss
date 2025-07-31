@@ -58,4 +58,24 @@
             }
         }
 	}
+
+	// ============================================
+	// RTL Support
+	// ============================================
+	@include form-class($form-type, $form-theme, false, true) {
+		
+		.forminator-action-buttons {
+
+            .forminator-repeater-action-button,
+            .forminator-repeater-action-icon {
+                margin-left: 15px;
+				margin-right: 0;
+            }
+
+            .forminator-repeater-action-link {
+                margin-left: 20px;
+				margin-right: 0;
+            }
+        }
+	}
 }

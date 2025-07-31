@@ -72,6 +72,20 @@
 		}
 	}
 
+	// ============================================
+	// RTL Support
+	// ============================================
+	@include form-class($form-type, $form-theme, false) {
+
+		@if ('basic' == $form-theme) {
+			.forminator-button-upload {
+				margin-left: 10px;
+				margin-right: 0;
+			}
+		}
+		
+	}
+
 	@include form-class($form-type, $form-theme, true) {
 
 		.forminator-col-3,

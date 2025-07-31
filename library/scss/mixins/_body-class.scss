@@ -141,8 +141,33 @@
 // 3. $desktop:
 //    - true
 //    - false
+// 4. $rtl:
+//    - true
+//    - false
 // =============================================
-@mixin form-class($module-type: no-type, $module-theme: no-theme, $desktop: false) {
+@mixin form-class($module-type: no-type, $module-theme: no-theme, $desktop: false, $rtl: false) {
+	
+	@if ($rtl == true) {
+	
+		[dir="rtl"] {
+	
+			@include _form-class-content($module-type, $module-theme, $desktop) {
+				@content;
+			}
+	
+		}
+	
+	} @else {
+	
+		@include _form-class-content($module-type, $module-theme, $desktop) {
+			@content;
+		}
+	
+	}
+
+}
+
+@mixin _form-class-content($module-type, $module-theme, $desktop) {
 
 	__PREFIX__ .forminator-ui {
 
@@ -319,4 +344,5 @@
 			}
 		}
 	}
+
 }

@@ -195,4 +195,18 @@
 			}
 		}
 	}
+
+	// ============================================
+	// RTL Support
+	// ============================================
+	@include form-class($form-type, $form-theme, false, true) {
+
+		.forminator-button {
+			margin: 0 0 0 10px;
+
+			@include media(max-width, sm) {
+				margin: 0 0 10px 0;
+			}
+		}
+	}
 }

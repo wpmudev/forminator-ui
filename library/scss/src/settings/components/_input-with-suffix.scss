@@ -32,4 +32,24 @@
 			}
 		}
 	}
+
+	// =============================================
+	// RTL Support
+	// =============================================
+	@include form-class($form-type, $form-theme, false, true) {
+		
+		.forminator-input-with-suffix {
+
+			.forminator-input {
+				padding-left: 60px;
+				padding-right: map-get($input, padding);
+			}
+
+			.forminator-suffix {
+				left: 0;
+				right: auto;
+			}
+		}
+
+	}
 }
