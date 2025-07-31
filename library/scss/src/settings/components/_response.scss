@@ -45,7 +45,6 @@
 			&:focus,
 			&:hover,
 			&:active {
-				outline: none;
 				@if ('material' != $form-theme) {
 					box-shadow: none;
 				}
