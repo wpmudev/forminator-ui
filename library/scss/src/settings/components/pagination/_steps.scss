@@ -88,6 +88,11 @@
 					text-transform: none;
 					text-decoration: none;
 
+					&:focus,
+					&:focus-visible {
+						outline: -webkit-focus-ring-color auto 1px;
+					}
+
 					.forminator-step-label {
 						overflow: hidden;
 						display: block;
