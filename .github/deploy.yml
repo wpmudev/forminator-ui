@@ -4,7 +4,7 @@ on:
   pull_request:
     types: [closed]
     branches:
-      - releases
+      - development
 
 jobs:
   release:
@@ -107,4 +107,4 @@ jobs:
           name: v${{ steps.meta.outputs.VERSION }} (${{ steps.meta.outputs.DATE }})
           body: ${{ steps.extract_changelog.outputs.changelog }}
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

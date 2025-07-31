@@ -6,10 +6,10 @@ Follow these steps to keep things simple and avoid mistakes.
 
 ## Branches
 
-### 1. `releases` Branch
+### 1. `development` Branch
 - **What it's for**: This branch collects all changes (fixes, features, improvements) for the next version.
 - **Rules**:
-    - Don't push directly to `releases`. It's meant to stay clean.
+    - Don't push directly to `development`. It's meant to stay clean.
     - All pull requests (PRs) for your changes must go to this branch.
     - Before opening a PR, run `npx changeset` to create a file in the `.changeset` folder describing your changes.
     - This branch holds everything we plan to release next.
@@ -23,8 +23,8 @@ Follow these steps to keep things simple and avoid mistakes.
 Here's how to add your changes and get a new version out:
 
 1. **Create a New Branch**:
-    - Create a branch from the latest `releases` branch.
-    - Example: `git checkout -b feature/add-toggle releases`
+    - Create a branch from the latest `development` branch.
+    - Example: `git checkout -b feature/add-toggle development`
 
 2. **Add Your Changes**:
     - Make your changes (e.g., fix a bug or add a feature).
@@ -41,17 +41,17 @@ Here's how to add your changes and get a new version out:
 
 3. **Push and Open a PR**:
     - Push your branch: `git push origin feature/add-toggle`
-    - Open a pull request targeting the `releases` branch.
+    - Open a pull request targeting the `development` branch.
     - Do this for every fix or feature you want in the next version.
 
 4. **Review and Merge**:
-    - After review, your PR gets merged into `releases`.
+    - After review, your PR gets merged into `development`.
     - When merged, the `changeset` tool automatically:
         - Creates or updates a PR that combines all changesets into a changelog and bumps the version in `package.json`.
         - Example: If you added a fix and someone else added a feature, the PR will list both in the changelog and suggest a version like `1.12.36`.
 
 5. **Releasing the Version**:
-    - When we're ready to release, we merge the auto-generated PR into `releases`.
+    - When we're ready to release, we merge the auto-generated PR into `development`.
     - This triggers deployment, which does the following:
         - Creates a `release/x.x.x` branch (e.g., `release/1.12.36`) with built files.
           - Runs `npm run build:library` and `npm run build:showcase` to build assets.
@@ -64,7 +64,7 @@ Here's how to add your changes and get a new version out:
 - **Forgetting `npx changeset`**: Every PR needs a changeset file, or it won't show up in the changelog.
 - **Wrong Version Bump**: Choose the right bump (patch for fixes, minor for features, major for breaking changes). If unsure, ask a maintainer.
 - **Missing `.changeset` Files**: Make sure the `.changeset` folder is committed with your changes.
-- **Direct Pushes to `releases`**: Always use PRs to add changes.
+- **Direct Pushes to `development`**: Always use PRs to add changes.
 
 ## Debugging Tips
 - **No Changelog in Auto PR?** Check that your `.changeset` file was committed and merged.
@@ -72,7 +72,7 @@ Here's how to add your changes and get a new version out:
 - **Need Help?** Ask a maintainer or check the GitHub Actions logs for errors.
 
 ## Things to Remember
-- Always target the `releases` branch for PRs.
+- Always target the `development` branch for PRs.
 - Run `npx changeset` for every change to keep the changelog accurate.
 - Don't create `release/x.x.x` branches—the deployment automation handles that.
 - Review the auto-generated PR to ensure the changelog and version bump are correct.

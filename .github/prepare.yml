@@ -3,7 +3,7 @@ name: Prepare Release
 on:
   push:
     branches:
-      - releases
+      - development
   workflow_dispatch:
 
 permissions:
@@ -13,7 +13,7 @@ permissions:
 jobs:
   version:
     runs-on: ubuntu-latest
-    if: github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/releases'
+    if: github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/development'
 
     steps:
       - name: Checkout code
@@ -51,4 +51,4 @@ jobs:
           title: 'Prepare Release'
           commit: 'chore: release version'
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
