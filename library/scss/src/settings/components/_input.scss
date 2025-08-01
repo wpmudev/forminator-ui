@@ -54,7 +54,6 @@
 				&:focus,
 				&:active,
 				&:disabled {
-					outline: none;
 					box-shadow: none;
 				}
 
@@ -119,6 +118,21 @@
 							right: 0;
 							left: 0;
 						}
+					}
+				}
+			}
+		}
+
+		&[data-color-option="default"] {
+			.forminator-input {
+
+				@if ('basic' != $form-theme) {
+					&,
+					&:hover,
+					&:focus,
+					&:active,
+					&:disabled {
+						outline: none;
 					}
 				}
 			}
