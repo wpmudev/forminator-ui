@@ -381,7 +381,8 @@
 					}
 				}
 
-				&[data-color-option="default"] {
+				// &[data-color-option="default"]
+				&.forminator-color-option--default {
 					.ui-datepicker-header {
 
 						.ui-corner-all {
