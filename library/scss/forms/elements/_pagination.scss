@@ -20,6 +20,7 @@
 			visibility: hidden;
 
 			&:focus {
+				outline: none;
 				box-shadow: none;
 			}
 
@@ -42,16 +43,6 @@
 
 			&:last-child {
 				margin-bottom: 0;
-			}
-		}
-	}
-
-	&[data-color-option="default"] {
-		.forminator-pagination-content {
-			li {
-				&:focus {
-					outline: none;
-				}
 			}
 		}
 	}

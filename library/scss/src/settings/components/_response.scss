@@ -45,6 +45,7 @@
 			&:focus,
 			&:hover,
 			&:active {
+				outline: none;
 				@if ('material' != $form-theme) {
 					box-shadow: none;
 				}
@@ -76,18 +77,6 @@
 
 			&.forminator-accessible {
 				@extend %screen-readers;
-			}
-		}
-
-		&[data-color-option="default"] {
-			.forminator-response-message {
-
-				&,
-				&:focus,
-				&:hover,
-				&:active {
-					outline: none;
-				}
 			}
 		}
 	}

@@ -21,6 +21,7 @@
 		&:focus,
 		&:hover,
 		&:active {
+			outline: none;
 			box-shadow: none;
 		}
 
@@ -50,18 +51,6 @@
 
 		&.forminator-accessible {
 			@extend %screen-readers;
-		}
-	}
-
-	&[data-color-option="default"] {
-		.forminator-response-message {
-
-			&,
-			&:focus,
-			&:hover,
-			&:active {
-				outline: none;
-			}
 		}
 	}
 }

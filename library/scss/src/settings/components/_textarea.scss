@@ -45,6 +45,7 @@
 				&:focus,
 				&:active,
 				&:disabled {
+					outline: none;
 					box-shadow: none;
 				}
 
@@ -111,21 +112,6 @@
 		// On Error
 		.forminator-has_error .tmce-active .forminator-textarea.wp-editor-area {
 			display: none;
-		}
-
-		&[data-color-option="default"] {
-			.forminator-textarea {
-
-				@if ('basic' != $form-theme) {
-					&,
-					&:hover,
-					&:focus,
-					&:active,
-					&:disabled {
-						outline: none;
-					}
-				}
-			}
 		}
 	}
 }

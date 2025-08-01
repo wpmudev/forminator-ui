@@ -91,6 +91,7 @@ $esign-reset: 20px;
 				.forminator-signature--container {
 
 					canvas {
+						outline: none;
 						box-shadow: none;
 					}
 
@@ -149,21 +150,6 @@ $esign-reset: 20px;
 
 						.forminator-signature--placeholder {
 							@include opacity(0);
-						}
-					}
-				}
-			}
-		}
-
-		&[data-color-option="default"] {
-			.forminator-field-signature {
-
-				.forminator-signature {
-
-					.forminator-signature--container {
-
-						canvas {
-							outline: none;
 						}
 					}
 				}

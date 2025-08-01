@@ -16,6 +16,7 @@
 		&:focus,
 		&:active,
 		&:disabled {
+			outline: none;
 			box-shadow: none;
 		}
 
@@ -37,19 +38,6 @@
 
 			&::-webkit-input-placeholder {
 				@include opacity(0.4);
-			}
-		}
-	}
-
-	&[data-color-option="default"] {
-		.forminator-textarea {
-
-			&,
-			&:hover,
-			&:focus,
-			&:active,
-			&:disabled {
-				outline: none;
 			}
 		}
 	}

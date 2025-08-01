@@ -59,6 +59,7 @@
 						&:hover,
 						&:focus,
 						&:active {
+							outline: none;
 							box-shadow: none;
 						}
 					}
@@ -66,6 +67,7 @@
 					&:hover,
 					&:focus,
 					&:active {
+						outline: none;
 						box-shadow: none;
 					}
 				}
@@ -182,6 +184,7 @@
 						&:hover,
 						&:focus,
 						&:active {
+							outline: none;
 							box-shadow: none;
 						}
 
@@ -208,6 +211,7 @@
 					&:hover,
 					&:focus,
 					&:active {
+						outline: none;
 						box-shadow: none;
 					}
 				}
@@ -243,53 +247,6 @@
 
 					.forminator-input--wrap {
 						left: #{$int-country-size + map-get($input, padding)};
-					}
-				}
-			}
-		}
-
-		&[data-color-option="default"] {
-			.forminator-phone {
-				@if ('basic' != $form-theme) {
-					.iti__country-container {
-
-						.iti__selected-country {
-
-							&:hover,
-							&:focus,
-							&:active {
-								outline: none;
-							}
-						}
-
-						&:hover,
-						&:focus,
-						&:active {
-							outline: none;
-						}
-					}
-				}
-			}
-
-			@if ('basic' != $form-theme) {
-				.forminator-input-with-phone {
-
-					.iti__country-container {
-
-						.iti__selected-country {
-
-							&:hover,
-							&:focus,
-							&:active {
-								outline: none;
-							}
-						}
-
-						&:hover,
-						&:focus,
-						&:active {
-							outline: none;
-						}
 					}
 				}
 			}

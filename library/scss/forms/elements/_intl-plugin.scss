@@ -36,6 +36,7 @@
 				&:hover,
 				&:focus,
 				&:active {
+					outline: none;
 					box-shadow: none;
 				}
 			}
@@ -43,6 +44,7 @@
 			&:hover,
 			&:focus,
 			&:active {
+				outline: none;
 				box-shadow: none;
 			}
 		}
@@ -51,29 +53,6 @@
 
 			.country-container {
 				pointer-events: none;
-			}
-		}
-	}
-
-	&[data-color-option="default"] {
-		.forminator-phone {
-
-			.country-container {
-
-				.selected-country {
-
-					&:hover,
-					&:focus,
-					&:active {
-						outline: none;
-					}
-				}
-
-				&:hover,
-				&:focus,
-				&:active {
-					outline: none;
-				}
 			}
 		}
 	}
