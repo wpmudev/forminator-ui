@@ -39,7 +39,6 @@
 		&:hover,
 		&:focus,
 		&:active {
-			outline: none;
 			box-shadow: none;
 			text-decoration: none;
 		}
@@ -114,6 +113,17 @@
 			> .paypal-buttons {
 				display: block !important;
 			}
+		}
+	}
+
+	&[data-color-option="default"] {
+		.forminator-button {
+			&,
+			&:hover,
+			&:focus,
+			&:active {
+				outline: none;
+			}		
 		}
 	}
 }
