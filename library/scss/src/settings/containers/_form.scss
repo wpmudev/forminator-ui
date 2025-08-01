@@ -12,6 +12,7 @@
 			border: 0;
 
 			&:focus {
+				outline: none;
 				box-shadow: none;
 			}
 		}
@@ -22,15 +23,6 @@
 
 		&:last-child {
 			margin-bottom: 0;
-		}
-
-		&[data-color-option="default"] {
-			.forminator-field {
-				
-				&:focus {
-					outline: none;
-				}
-			}
 		}
 	}
 

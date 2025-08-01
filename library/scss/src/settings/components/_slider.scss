@@ -102,6 +102,7 @@
 					cursor: pointer;
 					-ms-touch-action: none;
 					touch-action: none;
+					outline: none;
 
 					&:hover,
 					&:focus {
@@ -365,17 +366,6 @@
 
 			&.forminator-slider-amount-top {
 				order: -1;
-			}
-		}
-
-		&[data-color-option="default"] {
-			.forminator-slider {
-
-				@if ('basic' != $form-theme) {
-					.ui-slider-handle {
-						outline: none;
-					}
-				}
 			}
 		}
 	}
