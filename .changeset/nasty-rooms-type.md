@@ -1,5 +1,5 @@
 ---
-"forminator-ui": minor
+"forminator-ui": patch
 ---
 
 Removed fields outline and added changeset.
