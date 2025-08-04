@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.12.36
+
+### Patch Changes
+
+- d96476e: Fix pagination steps focus style.
+
 ## 1.12.35
 
 ### Patch Changes
