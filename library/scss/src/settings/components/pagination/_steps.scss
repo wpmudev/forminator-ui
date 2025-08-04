@@ -90,7 +90,7 @@
 
 					&:focus,
 					&:focus-visible {
-						outline: -webkit-focus-ring-color auto 1px;
+						outline-offset: 10px;
 					}
 
 					.forminator-step-label {
