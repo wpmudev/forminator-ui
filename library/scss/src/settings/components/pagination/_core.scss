@@ -22,7 +22,6 @@
 				visibility: hidden;
 
 				&:focus {
-					outline: none;
 					box-shadow: none;
 				}
 
@@ -49,6 +48,16 @@
 				@include media(max-width, sm) {
 					margin-right: 0;
 					margin-bottom: 10px;
+				}
+			}
+		}
+
+		&[data-color-option="default"] {
+			.forminator-pagination-content {
+				li {
+					&:focus {
+						outline: none;
+					}
 				}
 			}
 		}

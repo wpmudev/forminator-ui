@@ -19,7 +19,6 @@
 		&:focus,
 		&:active,
 		&:disabled {
-			outline: none;
 			box-shadow: none;
 		}
 
@@ -92,7 +91,6 @@
 				&:hover,
 				&:focus,
 				&:active {
-					outline: none;
 					box-shadow: none;
 				}
 			}
@@ -100,7 +98,6 @@
 			&:hover,
 			&:focus,
 			&:active {
-				outline: none;
 				box-shadow: none;
 			}
 		}
@@ -121,6 +118,40 @@
 			padding: 0 map-get($input, padding);
 			transform: translateY(-50%);
 			line-height: 1.4em;
+		}
+	}
+
+	&[data-color-option="default"] {
+		.forminator-input {
+
+			&,
+			&:hover,
+			&:focus,
+			&:active,
+			&:disabled {
+				outline: none;
+			}
+		}
+
+		.forminator-input-with-phone {
+
+			.country-container {
+
+				.selected-country {
+
+					&:hover,
+					&:focus,
+					&:active {
+						outline: none;
+					}
+				}
+
+				&:hover,
+				&:focus,
+				&:active {
+					outline: none;
+				}
+			}
 		}
 	}
 }

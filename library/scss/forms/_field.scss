@@ -6,8 +6,15 @@
 		border: 0;
 
 		&:focus {
-			outline: none;
 			box-shadow: none;
+		}
+	}
+
+	&[data-color-option="default"] {
+		.forminator-field {
+			&:focus {
+				outline: none;
+			}
 		}
 	}
 }

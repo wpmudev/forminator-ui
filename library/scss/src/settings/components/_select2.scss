@@ -240,21 +240,18 @@
 	
 							&:hover,
 							&:focus {
-								outline: none;
 								box-shadow: none;
 							}
 						}
 	
 						&:hover,
 						&:focus {
-							outline: none;
 							box-shadow: none;
 						}
 					}
 	
 					&:hover,
 					&:focus {
-						outline: none;
 						box-shadow: none;
 					}
 
@@ -262,6 +259,38 @@
 
 						.select2-selection__rendered {
 							text-align: right;
+						}
+					}
+				}
+			}
+		}
+
+		&[data-color-option="default"] {
+			select {
+				&.forminator-select2 {
+
+					+ .forminator-select {
+		
+						// STATE: Default.
+						.selection {
+		
+							span[role="combobox"] {								
+		
+								&:hover,
+								&:focus {
+									outline: none;
+								}
+							}
+		
+							&:hover,
+							&:focus {
+								outline: none;
+							}
+						}
+		
+						&:hover,
+						&:focus {
+							outline: none;
 						}
 					}
 				}
