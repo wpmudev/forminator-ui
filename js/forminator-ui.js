@@ -616,26 +616,30 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
     window.FUI = {};
   }
   FUI.select = {};
-  FUI.select.escapeJS = function (string) {
-    // Create a temporary <div> element using jQuery and set the HTML content.
-    var div = $('<div>').html(string);
-
-    // Get the text content of the <div> element and remove script tags
-    var text = div.text().replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '');
-
-    // Return the escaped text
-    return text;
-  };
   FUI.select.formatCheckbox = function (data, container) {
-    var label = FUI.select.escapeJS(data.text);
+    var label = data.text;
     var selected = data.selected;
-    var markup,
-      id = label.toLowerCase().replace(/\s+/g, '-');
-    if (data.id) {
-      id = data.id;
+    var id = data.id || label.toLowerCase().replace(/\s+/g, '-');
+    var wrapper = document.createElement('label');
+    wrapper.setAttribute('for', id);
+    wrapper.className = 'forminator-checkbox';
+    var input = document.createElement('input');
+    input.type = 'checkbox';
+    input.value = label;
+    input.id = id;
+    if (selected) {
+      input.checked = true;
     }
-    markup = '<label for="' + id + '" class="forminator-checkbox">' + '<input type="checkbox" value="' + label + '" id="' + id + '" ' + (selected ? 'checked' : '') + ' />' + '<span class="forminator-checkbox-box" aria-hidden="true"></span>' + '<span class="forminator-select-label">' + label + '</span>' + '</label>';
-    return markup;
+    var box = document.createElement('span');
+    box.className = 'forminator-checkbox-box';
+    box.setAttribute('aria-hidden', 'true');
+    var text = document.createElement('span');
+    text.className = 'forminator-select-label';
+    text.textContent = label;
+    wrapper.appendChild(input);
+    wrapper.appendChild(box);
+    wrapper.appendChild(text);
+    return wrapper;
   };
   FUI.select2 = function () {
     $('.forminator-custom-form').each(function () {
@@ -655,7 +659,7 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
               $dialog = $select.closest('.sui-dialog-content'),
               $parent = $dialog.length ? $dialog : $select.closest('.elementor-popup-modal'),
               $dropdownClass = 'forminator-custom-form-' + $formid + ' forminator-dropdown--' + $theme;
-            if (true === $select.data('rtl-support')) {
+            if (true === $select.data('rtl-support') || 'rtl' === $select.closest('html').attr('dir')) {
               $dir = 'rtl';
             } else {
               $dir = 'ltr';
