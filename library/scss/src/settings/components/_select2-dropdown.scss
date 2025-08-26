@@ -1,6 +1,11 @@
 @mixin component-dropdown2($form-type: no-type, $form-theme: no-theme) {
 
 	.forminator-select {
+		
+		// Fix for select2 in elementor popup issue.
+		+ .forminator-select {
+			display: none;
+		}
 
 		&.forminator-select-dropdown-container--open {
 			display: block;
