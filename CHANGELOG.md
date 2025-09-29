@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.12.37
+
+### Patch Changes
+
+- 53c76e1: Select placeholder is duplicated when use Elementor PopUp.
+
 ## 1.12.36
 
 ### Patch Changes
