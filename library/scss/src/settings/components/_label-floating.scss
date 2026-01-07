@@ -12,7 +12,8 @@
 			// ******************************
 			// INPUT: Floating label
 			.forminator-floating--input {
-				transform: translateY(30px);
+				// use css variable or default 30px
+				transform: translateY(var(--forminator-floating-label-translate, 30px));
 
 				+ .forminator-input--wrap,
 				+ .forminator-input-with-icon,
@@ -130,6 +131,7 @@
 				position: absolute;
 				z-index: 1;
 				padding: map-get($input, padding);
+				transform: translateY(var(--forminator-floating-label-translate, 0));
 
 				+ .forminator-textarea--wrap {
 
