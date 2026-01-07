@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.12.38
+
+### Patch Changes
+
+- c5a14e2: fix: labels overlap with description in material design
+
 ## 1.12.37
 
 ### Patch Changes
