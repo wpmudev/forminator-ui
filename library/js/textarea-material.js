@@ -43,14 +43,6 @@
 				// Add floating class
 				label.addClass( 'forminator-floating--textarea' );
 
-				// If input has description adjancent to label then calculate it';s height and set --forminator-floating-label-translate css variable
-				const description = field.find( '.forminator-label + .forminator-description' );
-				if ( description.length ) {
-					const descriptionHeight = description.outerHeight();
-					const translateY = descriptionHeight;
-					label.css( '--forminator-floating-label-translate', translateY + 'px' );
-				}
-
 				// Align textarea
 				field.css({
 					'position': 'relative'
