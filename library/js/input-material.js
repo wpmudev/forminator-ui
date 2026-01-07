@@ -38,6 +38,15 @@
 				// Add floating class
 				label.addClass( 'forminator-floating--input' );
 
+				// If input has description adjancent to label then calculate it';s height and set --forminator-floating-label-translate css variable
+				const description = field.find( '.forminator-label + .forminator-description' );
+				if ( description.length ) {
+					const descriptionHeight = description.outerHeight();
+					const labelHeight = label.outerHeight();
+					const translateY = descriptionHeight + labelHeight + 8; // 8px margin
+					label.css( '--forminator-floating-label-translate', translateY + 'px' );
+				}
+
 				// Add icon class (if applies)
 				if ( field.find( '.forminator-input-with-icon' ).length ) {
 					label.addClass( 'forminator-has_icon' );
