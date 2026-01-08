@@ -46,6 +46,7 @@ $form-theme: basic;
 @import "src/settings/components/phone";
 @import "src/settings/components/slider";
 @import "src/settings/components/calendar";
+@import "src/settings/components/select2";
 
 // Components
 @include component-repeater(#{$form-type}, #{$form-theme});
@@ -72,4 +73,5 @@ $form-theme: basic;
 @include component-phone(#{$form-type}, #{$form-theme});
 @include component-slider(#{$form-type}, #{$form-theme});
 @include component-calendar(#{$form-type}, #{$form-theme});
+@include component-select2(#{$form-type}, #{$form-theme});
 
