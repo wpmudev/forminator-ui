@@ -369,7 +369,7 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
         if (description.length) {
           var descriptionHeight = description.outerHeight();
           var labelHeight = label.outerHeight();
-          var translateY = descriptionHeight + labelHeight + 8; // 8px margin
+          var translateY = descriptionHeight + labelHeight + 16; // 16px margin
           label.css('--forminator-floating-label-translate', translateY + 'px');
         }
 
