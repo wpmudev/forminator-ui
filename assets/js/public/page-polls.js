@@ -50,7 +50,7 @@
 				const response = poll.find( '.forminator-response-message' );
 
 				// Print message
-				response.html( '<p>Your vote was submitted successfully.</p>' );
+				response.html( '<p role="alert">Your vote was submitted successfully.</p>' );
 
 				// Show success message
 				response.addClass( 'forminator-success' );
@@ -71,7 +71,7 @@
 				const response = poll.find( '.forminator-response-message' );
 
 				// Print message
-				response.html( '<p>No option has been picked yet, please choose one before submitting the form.</p>' );
+				response.html( '<p role="alert">No option has been picked yet, please choose one before submitting the form.</p>' );
 
 				// Add field error
 				field.addClass( 'forminator-has_error' );
