@@ -12,7 +12,7 @@
 				overflow-y: auto;
 			}
 			display: block;
-			@if ('default' == $form-theme) {
+			@if ('default' == $form-theme) or ('basic' == $form-theme) {
 				padding: #{(calc(map-get($dropdown, padding) / 2)) - map-get($border-width, default)};
 				border-width: map-get($border-width, default);
 				border-style: map-get($border-style, default);
