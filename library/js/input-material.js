@@ -43,7 +43,7 @@
 				if ( description.length ) {
 					const descriptionHeight = description.outerHeight();
 					const labelHeight = label.outerHeight();
-					const translateY = descriptionHeight + labelHeight + 8; // 8px margin
+					const translateY = descriptionHeight + labelHeight + 16; // 16px margin
 					label.css( '--forminator-floating-label-translate', translateY + 'px' );
 				}
 

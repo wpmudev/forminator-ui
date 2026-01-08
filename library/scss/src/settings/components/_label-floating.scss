@@ -15,10 +15,10 @@
 				// use css variable or default 30px
 				transform: translateY(var(--forminator-floating-label-translate, 30px));
 
-				+ .forminator-input--wrap,
-				+ .forminator-input-with-icon,
-				+ .forminator-input-with-phone,
-				+ .forminator-input-with-suffix {
+				~ .forminator-input--wrap,
+				~ .forminator-input-with-icon,
+				~ .forminator-input-with-phone,
+				~ .forminator-input-with-suffix {
 
 					.forminator-input {
 
@@ -44,7 +44,7 @@
 					}
 				}
 
-				+ .forminator-input-with-phone .iti__selected-dial-code {
+				~ .forminator-input-with-phone .iti__selected-dial-code {
 					@include opacity(0);
 				}
 
@@ -70,10 +70,10 @@
 				.forminator-floating--input {
 					transform: translateY(0);
 
-					+ .forminator-input--wrap,
-					+ .forminator-input-with-icon,
-					+ .forminator-input-with-phone,
-					+ .forminator-input-with-suffix {
+					~ .forminator-input--wrap,
+					~ .forminator-input-with-icon,
+					~ .forminator-input-with-phone,
+					~ .forminator-input-with-suffix {
 
 						.forminator-input {
 
@@ -99,7 +99,7 @@
 						}
 					}
 
-					+ .forminator-input-with-phone .iti__selected-dial-code {
+					~ .forminator-input-with-phone .iti__selected-dial-code {
 						@include opacity(1);
 					}
 				}
@@ -133,7 +133,7 @@
 				padding: map-get($input, padding);
 				transform: translateY(var(--forminator-floating-label-translate, 0));
 
-				+ .forminator-textarea--wrap {
+				~ .forminator-textarea--wrap {
 
 					.forminator-textarea {
 
@@ -166,7 +166,7 @@
 				.forminator-floating--textarea {
 					padding-top: map-get($input, padding) !important;
 
-					+ .forminator-textarea--wrap {
+					~ .forminator-textarea--wrap {
 
 						.forminator-textarea {
 
