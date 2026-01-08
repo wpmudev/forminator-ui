@@ -68,6 +68,7 @@ $quiz: (
 				cursor: pointer;
 				pointer-events: all;
 				display: flex;
+				align-items: center;
 				flex-wrap: nowrap;
 				flex-direction: row;
 				@if $form-theme == 'default' {
