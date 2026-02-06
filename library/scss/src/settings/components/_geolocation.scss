@@ -1,0 +1,66 @@
+.forminator-geolocation-dropdown-wrapper {
+	position: absolute;
+	background: #fff;
+	border: map-get($border-width, default) solid rgba(0, 0, 0, 0.2);
+	border-radius: map-get($border-radius, default) * 2;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+	z-index: 1000;
+	margin: #{map-get($input, padding) - 4px} 0 0;
+	overflow: hidden;
+
+	.forminator-geolocation-dropdown {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		max-height: 300px;
+		overflow-y: auto;
+		background: #fff;
+
+		li {
+			position: relative;
+			cursor: pointer;
+			padding: 0 #{map-get($input, padding) - 6px} 0 #{map-get($icon, size) + 12px};
+			line-height: 30px;
+			font-size: 11px;
+			color: #000;
+			text-align: left;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			border-top: map-get($border-width, default) solid #e6e6e6;
+
+			&:first-child {
+				border-top: none;
+			}
+
+			&:hover,
+			&.selected {
+				background-color: #fafafa;
+			}
+
+			.forminator-geolocation-pin-icon {
+				position: absolute;
+				left: #{map-get($input, padding) - 4px};
+				top: 50%;
+				transform: translateY(-50%);
+				width: map-get($icon, size);
+				height: map-get($icon, size);
+				opacity: 0.6;
+			}
+
+			.forminator-geolocation-place-name {
+				font-weight: 500;
+				color: #000;
+			}
+
+			.forminator-geolocation-place-address {
+				font-weight: 400;
+				color: #666;
+			}
+
+			.forminator-geolocation-match {
+				font-weight: 700;
+			}
+		}
+	}
+}

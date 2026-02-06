@@ -31,6 +31,7 @@ $form-theme: bold;
 @import "../settings/components/select2";
 @import "../settings/components/select2-dropdown";
 @import "../settings/components/e-signature";
+@import "../settings/components/geolocation";
 
 @include component-input-with-icon(#{$form-type}, #{$form-theme});
 @include component-input-with-suffix(#{$form-type}, #{$form-theme});
