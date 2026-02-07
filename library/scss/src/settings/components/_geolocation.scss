@@ -22,7 +22,7 @@
 			padding: 0 #{map-get($input, padding) - 6px} 0 #{map-get($icon, size) + 12px};
 			line-height: 30px;
 			font-size: 11px;
-			color: #000;
+			color: #3c4043;
 			text-align: left;
 			white-space: nowrap;
 			overflow: hidden;
@@ -35,7 +35,7 @@
 
 			&:hover,
 			&.selected {
-				background-color: #fafafa;
+				background-color: #f1f3f4;
 			}
 
 			.forminator-geolocation-pin-icon {
@@ -50,16 +50,17 @@
 
 			.forminator-geolocation-place-name {
 				font-weight: 500;
-				color: #000;
+				color: #3c4043;
 			}
 
 			.forminator-geolocation-place-address {
 				font-weight: 400;
-				color: #666;
+				color: #80868b;
 			}
 
 			.forminator-geolocation-match {
 				font-weight: 700;
+				color: #000;
 			}
 		}
 	}
