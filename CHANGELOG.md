@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.12.41
+
+### Patch Changes
+
+- 492a637: Geolocation dropdown style improvments.
+
 ## 1.12.40
 
 ### Patch Changes
