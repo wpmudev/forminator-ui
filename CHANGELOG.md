@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.12.42
+
+### Patch Changes
+
+- f16ed9c: fix(consent): consent field p tag margin fix
+
 ## 1.12.41
 
 ### Patch Changes
