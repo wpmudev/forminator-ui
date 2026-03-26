@@ -22,44 +22,21 @@
 
 		function formatLabel( str, maxwidth ) {
 
-			let sections = [];
-			let words = str.split( ' ' );
-			let temp = '';
+			if ( 'string' !== typeof str ) {
+				str = String( str );
+			}
 
-			words.forEach( function( item, index ) {
+			str = str.replace( /\s+/g, ' ' ).trim();
 
-				if ( 0 < temp.length ) {
+			if ( maxwidth >= str.length ) {
+				return str;
+			}
 
-					let concat = temp + ' ' + item;
+			if ( 3 >= maxwidth ) {
+				return str.slice( 0, maxwidth );
+			}
 
-					if ( concat.length > maxwidth ) {
-						sections.push( temp );
-						temp = '';
-					} else {
-
-						if ( index == ( words.length - 1 ) ) {
-							sections.push( concat );
-							return;
-						} else {
-							temp = concat;
-							return;
-						}
-					}
-				}
-
-				if ( index == ( words.length - 1 ) ) {
-					sections.push( item );
-					return;
-				}
-
-				if ( item.length < maxwidth ) {
-					temp = item;
-				} else {
-					sections.push( item );
-				}
-			});
-
-			return sections;
+			return str.slice( 0, maxwidth - 3 ).trimEnd() + '...';
 		}
 
 		function init() {
