@@ -25,13 +25,16 @@
 			const getTextarea = $( element );
 			const getField = getTextarea.closest( '.forminator-field' );
 
-			getTextarea.mouseover( function( e ) {
+			getField
+				.off( 'mouseenter.forminatorHoverState mouseleave.forminatorHoverState' )
+				.on( 'mouseenter.forminatorHoverState', function( e ) {
 				getField.addClass( 'forminator-is_hover' );
 				e.stopPropagation();
-			}).mouseout( function( e ) {
+				})
+				.on( 'mouseleave.forminatorHoverState', function( e ) {
 				getField.removeClass( 'forminator-is_hover' );
 				e.stopPropagation();
-			});
+				});
 		}
 
 		function focused( element ) {
