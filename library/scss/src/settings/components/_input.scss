@@ -121,6 +121,17 @@
 					}
 				}
 			}
+
+			.forminator-field.forminator-is_hover,
+			.forminator-field.forminator-is_active {
+				.forminator-input--wrap:has(.forminator-input[readonly], .forminator-input:disabled) {
+
+					&:after {
+						right: 50%;
+						left: 50%;
+					}
+				}
+			}
 		}
 
 		&[data-color-option="default"] {
