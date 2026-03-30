@@ -106,6 +106,14 @@
 					}
 				}
 			}
+
+			.forminator-field.forminator-is_hover,
+			.forminator-field.forminator-is_active {
+
+				.forminator-textarea--wrap:has(.forminator-textarea[readonly], .forminator-textarea:disabled):after {
+					@include opacity(0);
+				}
+			}
 		}
 
 		// On Error
