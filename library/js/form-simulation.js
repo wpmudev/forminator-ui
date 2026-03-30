@@ -59,7 +59,7 @@
 
 		function validateSuccess() {
 
-			message = '<p>Form was submitted successfully.</p>';
+			message = '<p role="alert">Form was submitted successfully.</p>';
 
 			// Print message
 			response.html( message );
