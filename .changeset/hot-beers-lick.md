@@ -1,5 +1,5 @@
 ---
-"forminator-ui": minor
+"forminator-ui": patch
 ---
 
 Textarea field remove inline styles.

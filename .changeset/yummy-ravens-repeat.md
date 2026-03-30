@@ -1,5 +1,5 @@
 ---
-"forminator-ui": minor
+"forminator-ui": patch
 ---
 
 Hover effect fix in material design.
