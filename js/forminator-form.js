@@ -26,10 +26,10 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
     function hover(element) {
       var getInput = $(element);
       var getField = getInput.closest('.forminator-field');
-      getInput.mouseover(function (e) {
+      getField.off('mouseenter.forminatorHoverState mouseleave.forminatorHoverState').on('mouseenter.forminatorHoverState', function (e) {
         getField.addClass('forminator-is_hover');
         e.stopPropagation();
-      }).mouseout(function (e) {
+      }).on('mouseleave.forminatorHoverState', function (e) {
         getField.removeClass('forminator-is_hover');
         e.stopPropagation();
       });
@@ -145,10 +145,10 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
     function hover(element) {
       var getTextarea = $(element);
       var getField = getTextarea.closest('.forminator-field');
-      getTextarea.mouseover(function (e) {
+      getField.off('mouseenter.forminatorHoverState mouseleave.forminatorHoverState').on('mouseenter.forminatorHoverState', function (e) {
         getField.addClass('forminator-is_hover');
         e.stopPropagation();
-      }).mouseout(function (e) {
+      }).on('mouseleave.forminatorHoverState', function (e) {
         getField.removeClass('forminator-is_hover');
         e.stopPropagation();
       });
@@ -222,10 +222,6 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
 
       // Wrap Label
       if (label.length) {
-        var labelHeight = 0 === label.height() ? 20 : label.height();
-        var labelPadding = 9;
-        var labelMath = labelHeight + labelPadding;
-
         // Add floating class
         label.addClass('forminator-floating--textarea');
 
@@ -244,14 +240,6 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
         if (textarea.val()) {
           field.addClass('forminator-is_filled');
         }
-        if (!field.hasClass('forminator-is_filled') || !field.hasClass('forminator-is_active')) {
-          label.css({
-            'padding-top': labelMath + 'px'
-          });
-        }
-        textarea.css({
-          'padding-top': labelMath + 'px'
-        });
       }
     }
     init();

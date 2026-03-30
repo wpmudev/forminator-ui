@@ -289,10 +289,10 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
     function hover(element) {
       var getInput = $(element);
       var getField = getInput.closest('.forminator-field');
-      getInput.mouseover(function (e) {
+      getField.off('mouseenter.forminatorHoverState mouseleave.forminatorHoverState').on('mouseenter.forminatorHoverState', function (e) {
         getField.addClass('forminator-is_hover');
         e.stopPropagation();
-      }).mouseout(function (e) {
+      }).on('mouseleave.forminatorHoverState', function (e) {
         getField.removeClass('forminator-is_hover');
         e.stopPropagation();
       });
@@ -408,10 +408,10 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
     function hover(element) {
       var getTextarea = $(element);
       var getField = getTextarea.closest('.forminator-field');
-      getTextarea.mouseover(function (e) {
+      getField.off('mouseenter.forminatorHoverState mouseleave.forminatorHoverState').on('mouseenter.forminatorHoverState', function (e) {
         getField.addClass('forminator-is_hover');
         e.stopPropagation();
-      }).mouseout(function (e) {
+      }).on('mouseleave.forminatorHoverState', function (e) {
         getField.removeClass('forminator-is_hover');
         e.stopPropagation();
       });
@@ -485,10 +485,6 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
 
       // Wrap Label
       if (label.length) {
-        var labelHeight = 0 === label.height() ? 20 : label.height();
-        var labelPadding = 9;
-        var labelMath = labelHeight + labelPadding;
-
         // Add floating class
         label.addClass('forminator-floating--textarea');
 
@@ -507,14 +503,6 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
         if (textarea.val()) {
           field.addClass('forminator-is_filled');
         }
-        if (!field.hasClass('forminator-is_filled') || !field.hasClass('forminator-is_active')) {
-          label.css({
-            'padding-top': labelMath + 'px'
-          });
-        }
-        textarea.css({
-          'padding-top': labelMath + 'px'
-        });
       }
     }
     init();
@@ -1484,36 +1472,17 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
       return;
     }
     function formatLabel(str, maxwidth) {
-      var sections = [];
-      var words = str.split(' ');
-      var temp = '';
-      words.forEach(function (item, index) {
-        if (0 < temp.length) {
-          var concat = temp + ' ' + item;
-          if (concat.length > maxwidth) {
-            sections.push(temp);
-            temp = '';
-          } else {
-            if (index == words.length - 1) {
-              sections.push(concat);
-              return;
-            } else {
-              temp = concat;
-              return;
-            }
-          }
-        }
-        if (index == words.length - 1) {
-          sections.push(item);
-          return;
-        }
-        if (item.length < maxwidth) {
-          temp = item;
-        } else {
-          sections.push(item);
-        }
-      });
-      return sections;
+      if ('string' !== typeof str) {
+        str = String(str);
+      }
+      str = str.replace(/\s+/g, ' ').trim();
+      if (maxwidth >= str.length) {
+        return str;
+      }
+      if (3 >= maxwidth) {
+        return str.slice(0, maxwidth);
+      }
+      return str.slice(0, maxwidth - 3).trimEnd() + '...';
     }
     function init() {
       // Poll Data

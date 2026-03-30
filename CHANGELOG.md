@@ -1,5 +1,19 @@
 # Change Log
 
+## 1.12.43
+
+### Patch Changes
+
+- [#172](https://github.com/wpmudev/forminator-ui/pull/172) [`7e25a39`](https://github.com/wpmudev/forminator-ui/commit/7e25a397e8d66e11c44e44862bcf84a900745669) Thanks [@creador-dev](https://github.com/creador-dev)! - Textarea field remove inline styles.
+
+- [#168](https://github.com/wpmudev/forminator-ui/pull/168) [`0b8cfbc`](https://github.com/wpmudev/forminator-ui/commit/0b8cfbcbedff4c992d9204fc611bdbabdd56e890) Thanks [@creador-dev](https://github.com/creador-dev)! - remove phone field rtl support
+
+- [#171](https://github.com/wpmudev/forminator-ui/pull/171) [`7c20c22`](https://github.com/wpmudev/forminator-ui/commit/7c20c22f3161bdb476e42c90da8c1fd6f51fdadb) Thanks [@creador-dev](https://github.com/creador-dev)! - Remove hover effect from non editable fields in material design.
+
+- [#169](https://github.com/wpmudev/forminator-ui/pull/169) [`1094c1b`](https://github.com/wpmudev/forminator-ui/commit/1094c1bbb4d4e17b566161edfded79f5a9b2336c) Thanks [@creador-dev](https://github.com/creador-dev)! - Truncate labels of polls to fit in one line.
+
+- [#170](https://github.com/wpmudev/forminator-ui/pull/170) [`a74d757`](https://github.com/wpmudev/forminator-ui/commit/a74d757c63686f63114c40a238b7e4f27d5370ab) Thanks [@creador-dev](https://github.com/creador-dev)! - Hover effect fix in material design.
+
 ## 1.12.42
 
 ### Patch Changes
