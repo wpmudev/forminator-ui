@@ -9,7 +9,7 @@
 				box-sizing: border-box;
 				resize: vertical;
 				margin: 0;
-				min-height: $textarea--height;
+				min-height: var(--forminator-textarea-min-height, $textarea--height);
 				background-image: unset;
 				line-height: $textarea--line-height;
 				transition: $transition--ease;

@@ -36,10 +36,6 @@
 			// Wrap Label
 			if ( label.length ) {
 
-				const labelHeight  = ( 0 === label.height() ) ? 20 : label.height();
-				const labelPadding = 9;
-				const labelMath    = labelHeight + labelPadding;
-
 				// Add floating class
 				label.addClass( 'forminator-floating--textarea' );
 
@@ -60,17 +56,6 @@
 
 					field.addClass( 'forminator-is_filled' );
 				}
-
-				if ( ! field.hasClass( 'forminator-is_filled' ) || ! field.hasClass( 'forminator-is_active' ) ) {
-
-					label.css({
-						'padding-top': labelMath + 'px'
-					});
-				}
-
-				textarea.css({
-					'padding-top': labelMath + 'px'
-				});
 			}
 		}
 

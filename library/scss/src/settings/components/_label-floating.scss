@@ -125,17 +125,21 @@
 			// ******************************
 			// INPUT: Floating textarea
 			.forminator-floating--textarea {
+				$floating-textarea-padding-top: $textarea--line-height + map-get($input, padding) - map-get($border-width, material);
+
 				width: 100%;
 				max-height: $textarea--height;
 				overflow-y: hidden;
 				position: absolute;
 				z-index: 1;
 				padding: map-get($input, padding);
+				padding-top: $floating-textarea-padding-top;
 				transform: translateY(var(--forminator-floating-label-translate, 0));
 
 				~ .forminator-textarea--wrap {
 
 					.forminator-textarea {
+						padding-top: $floating-textarea-padding-top;
 
 						&::placeholder {
 							@include opacity(0);
