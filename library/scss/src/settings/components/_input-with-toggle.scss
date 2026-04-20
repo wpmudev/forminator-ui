@@ -1,0 +1,84 @@
+@mixin component-input-with-toggle($form-type: no-type, $form-theme: no-theme) {
+
+	@include form-class($form-type, $form-theme, false) {
+
+		.forminator-input-with-toggle {
+			position: relative;
+			@if ('material' == $form-theme) {
+				display: flex;
+				align-items: center;
+			}
+
+			.forminator-input {
+				padding-right: 40px;
+			}
+
+			.forminator-password-toggle {
+				width: 30px;
+				height: 30px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				position: absolute;
+				top: 50%;
+				right: 10px;
+				z-index: 2;
+				padding: 0;
+				border: 0;
+				border-radius: 4px;
+				background: transparent;
+				color: #888;
+				font-size: 15px;
+				line-height: 1;
+				cursor: pointer;
+				transform: translateY(-50%);
+
+				&:hover,
+				&:focus,
+				&:active {
+					outline: 0;
+				}
+
+				&:hover {
+					background-color: rgba(0, 0, 0, 0.03);
+					color: #666;
+				}
+
+				&:focus-visible {
+					box-shadow: 0 0 0 2px #007cba;
+				}
+
+				svg {
+					pointer-events: none;
+				}
+			}
+
+			@if ('material' == $form-theme) {
+
+				.forminator-input--wrap {
+					display: block;
+					flex: 1;
+				}
+			}
+		}
+	}
+
+	// =============================================
+	// RTL Support
+	// =============================================
+	@include form-class($form-type, $form-theme, false, true) {
+
+		.forminator-input-with-toggle {
+
+			.forminator-input {
+				padding-left: 40px;
+				padding-right: map-get($input, padding);
+			}
+
+			.forminator-password-toggle {
+				left: 10px;
+				right: auto;
+			}
+		}
+	}
+}
