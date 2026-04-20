@@ -5,7 +5,7 @@
 		.forminator-multi-upload {
 			display: block;
 			margin: 0;
-			@if $form-theme == 'default' {
+			@if $form-theme == 'default' or $form-theme == 'basic' {
 				padding: 29px;
 				border-width: 1px;
 				border-style: dashed;
