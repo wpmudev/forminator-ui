@@ -20,6 +20,7 @@ $form-theme: default;
 // Components.
 @import "../settings/components/input-with-icon";
 @import "../settings/components/input-with-suffix";
+@import "../settings/components/input-with-toggle";
 @import "../settings/components/phone";
 @import "../settings/components/upload";
 @import "../settings/components/upload-multiple";
@@ -35,6 +36,7 @@ $form-theme: default;
 
 @include component-input-with-icon(#{$form-type}, #{$form-theme});
 @include component-input-with-suffix(#{$form-type}, #{$form-theme});
+@include component-input-with-toggle(#{$form-type}, #{$form-theme});
 @include component-phone(#{$form-type}, #{$form-theme});
 @include component-upload(#{$form-type}, #{$form-theme});
 @include component-multiupload(#{$form-type}, #{$form-theme});
