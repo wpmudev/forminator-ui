@@ -75,7 +75,7 @@
 	// ============================================
 	// RTL Support
 	// ============================================
-	@include form-class($form-type, $form-theme, false) {
+	@include form-class($form-type, $form-theme, $rtl: true) {
 
 		@if ('basic' == $form-theme) {
 			.forminator-button-upload {
@@ -86,7 +86,7 @@
 		
 	}
 
-	@include form-class($form-type, $form-theme, true) {
+	@include form-class($form-type, $form-theme, $rtl: true) {
 
 		.forminator-col-3,
 		.forminator-col-4 {
