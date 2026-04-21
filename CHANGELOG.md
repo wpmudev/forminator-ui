@@ -1,5 +1,17 @@
 # Change Log
 
+## 1.12.44
+
+### Patch Changes
+
+- [#178](https://github.com/wpmudev/forminator-ui/pull/178) [`f628e9d`](https://github.com/wpmudev/forminator-ui/commit/f628e9da3f8347b7f1d1efeb6190fc3c564800ee) Thanks [@creador-dev](https://github.com/creador-dev)! - Upload field basic styles improvement.
+
+- [#176](https://github.com/wpmudev/forminator-ui/pull/176) [`6ba383f`](https://github.com/wpmudev/forminator-ui/commit/6ba383f9b9ca49f17d6fbc4630b154b8e1a7816f) Thanks [@creador-dev](https://github.com/creador-dev)! - Quizzes question descriotion alignment.
+
+- [#179](https://github.com/wpmudev/forminator-ui/pull/179) [`7d2ac1b`](https://github.com/wpmudev/forminator-ui/commit/7d2ac1b049a6461498ba65f0c18f9476e636aa36) Thanks [@creador-dev](https://github.com/creador-dev)! - Improve select2 rendering in modals.
+
+- [#177](https://github.com/wpmudev/forminator-ui/pull/177) [`4decf96`](https://github.com/wpmudev/forminator-ui/commit/4decf96a96f2ac8c2ff221a9c447358efb7dcbce) Thanks [@creador-dev](https://github.com/creador-dev)! - migrate password field styles and icons to FUI
+
 ## 1.12.43
 
 ### Patch Changes

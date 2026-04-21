@@ -399,7 +399,10 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
           $select.each(function () {
             var $select = $(this),
               $dialog = $select.closest('.sui-dialog-content'),
-              $parent = $dialog.length ? $dialog : $select.closest('.elementor-popup-modal'),
+              $popupMakerContainer = $select.closest('.pum-container'),
+              $elementorModal = $select.closest('.elementor-popup-modal'),
+              $ariaDialog = $select.closest('[role="dialog"], [role="alertdialog"]'),
+              $parent = $dialog.length ? $dialog : $popupMakerContainer.length ? $popupMakerContainer : $elementorModal.length ? $elementorModal : $ariaDialog,
               $dropdownClass = 'forminator-custom-form-' + $formid + ' forminator-dropdown--' + $theme;
             if (true === $select.data('rtl-support') || 'rtl' === $select.closest('html').attr('dir')) {
               $dir = 'rtl';
