@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.12.45
+
+### Patch Changes
+
+- [#181](https://github.com/wpmudev/forminator-ui/pull/181) [`bacfeb2`](https://github.com/wpmudev/forminator-ui/commit/bacfeb29f66a4e567d66d711bac9b075b01a930e) Thanks [@creador-dev](https://github.com/creador-dev)! - Authentication page input field styles fix.
+
 ## 1.12.44
 
 ### Patch Changes
