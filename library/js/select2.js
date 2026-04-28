@@ -22,11 +22,25 @@
 	FUI.select.getDropdownParent = function( $select ) {
 		var $customSelectors = $select.data( 'dropdown-parent-selector' ),
 			$selectors = FUI.select.dropdownParentSelectors.join( ', ' ),
-			$parent = $select.closest( $selectors );
+			$popupSelectors = FUI.select.dropdownParentSelectors.join( ', ' ),
+			$parent = $select.closest( $selectors ),
+			$formParent = $();
 
 		if ( 'string' === typeof $customSelectors && $customSelectors.trim().length ) {
 			$selectors = $customSelectors;
 			$parent = $select.closest( $selectors );
+		}
+
+		if ( $parent.length && $parent.is( $popupSelectors ) ) {
+			$formParent = $select.closest( '.forminator-custom-form' );
+
+			if ( ! $formParent.length ) {
+				$formParent = $select.closest( 'form' );
+			}
+
+			if ( $formParent.length ) {
+				$parent = $formParent;
+			}
 		}
 
 		return $parent.length ? $parent : $( document.body );
