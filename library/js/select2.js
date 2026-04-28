@@ -10,6 +10,28 @@
 
 	FUI.select = {};
 
+	FUI.select.dropdownParentSelectors = [
+		'.sui-dialog-content',
+		'.pum-container',
+		'.elementor-popup-modal',
+		'.popup',
+		'[role="dialog"]',
+		'[role="alertdialog"]'
+	];
+
+	FUI.select.getDropdownParent = function( $select ) {
+		var $customSelectors = $select.data( 'dropdown-parent-selector' ),
+			$selectors = FUI.select.dropdownParentSelectors.join( ', ' ),
+			$parent = $select.closest( $selectors );
+
+		if ( 'string' === typeof $customSelectors && $customSelectors.trim().length ) {
+			$selectors = $customSelectors;
+			$parent = $select.closest( $selectors );
+		}
+
+		return $parent.length ? $parent : $( document.body );
+	};
+
 	FUI.select.formatCheckbox = ( data, container ) => {
 		const label = data.text;
 		const selected = data.selected;
@@ -75,11 +97,7 @@
 					$select.each( function() {
 
 						var $select = $( this ),
-							$dialog = $select.closest( '.sui-dialog-content' ),
-							$popupMakerContainer = $select.closest( '.pum-container' ),
-							$elementorModal = $select.closest( '.elementor-popup-modal' ),
-							$ariaDialog = $select.closest( '[role="dialog"], [role="alertdialog"]' ),
-							$parent = $dialog.length ? $dialog : ( $popupMakerContainer.length ? $popupMakerContainer : ( $elementorModal.length ? $elementorModal : $ariaDialog ) ),
+							$parent = FUI.select.getDropdownParent( $select ),
 							$dropdownClass = 'forminator-custom-form-' + $formid + ' forminator-dropdown--' + $theme;
 
 						if ( true === $select.data( 'rtl-support' ) || 'rtl' === $select.closest( 'html' ).attr( 'dir' ) ) {
@@ -115,10 +133,6 @@
 
 						if ( $select.prop( 'multiple' ) ) {
 							$dropdownClass += ' forminator-dropdown--multiple';
-						}
-
-						if ( ! $parent.length ) {
-							$parent = $( document.body );
 						}
 
 						$select.FUIselect2({
