@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.12.46
+
+### Patch Changes
+
+- [#183](https://github.com/wpmudev/forminator-ui/pull/183) [`2d8eb73`](https://github.com/wpmudev/forminator-ui/commit/2d8eb731fc6e0e1ae18dd018f7fe8c0136fa5977) Thanks [@creador-dev](https://github.com/creador-dev)! - Select dropdown not working properly in popups.
+
 ## 1.12.45
 
 ### Patch Changes

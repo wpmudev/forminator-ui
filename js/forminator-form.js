@@ -358,6 +358,28 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
     window.FUI = {};
   }
   FUI.select = {};
+  FUI.select.dropdownParentSelectors = ['.sui-dialog-content', '.pum-container', '.elementor-popup-modal', '.popup', '[role="dialog"]', '[role="alertdialog"]'];
+  FUI.select.getDropdownParent = function ($select) {
+    var $customSelectors = $select.data('dropdown-parent-selector'),
+      $selectors = FUI.select.dropdownParentSelectors.join(', '),
+      $popupSelectors = FUI.select.dropdownParentSelectors.join(', '),
+      $parent = $select.closest($selectors),
+      $formParent = $();
+    if ('string' === typeof $customSelectors && $customSelectors.trim().length) {
+      $selectors = $customSelectors;
+      $parent = $select.closest($selectors);
+    }
+    if ($parent.length && $parent.is($popupSelectors)) {
+      $formParent = $select.closest('.forminator-custom-form');
+      if (!$formParent.length) {
+        $formParent = $select.closest('form');
+      }
+      if ($formParent.length) {
+        $parent = $formParent;
+      }
+    }
+    return $parent.length ? $parent : $(document.body);
+  };
   FUI.select.formatCheckbox = function (data, container) {
     var label = data.text;
     var selected = data.selected;
@@ -398,11 +420,7 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
         if ($element.hasClass('forminator-design--' + $theme) && $select.length) {
           $select.each(function () {
             var $select = $(this),
-              $dialog = $select.closest('.sui-dialog-content'),
-              $popupMakerContainer = $select.closest('.pum-container'),
-              $elementorModal = $select.closest('.elementor-popup-modal'),
-              $ariaDialog = $select.closest('[role="dialog"], [role="alertdialog"]'),
-              $parent = $dialog.length ? $dialog : $popupMakerContainer.length ? $popupMakerContainer : $elementorModal.length ? $elementorModal : $ariaDialog,
+              $parent = FUI.select.getDropdownParent($select),
               $dropdownClass = 'forminator-custom-form-' + $formid + ' forminator-dropdown--' + $theme;
             if (true === $select.data('rtl-support') || 'rtl' === $select.closest('html').attr('dir')) {
               $dir = 'rtl';
@@ -432,9 +450,6 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
             }
             if ($select.prop('multiple')) {
               $dropdownClass += ' forminator-dropdown--multiple';
-            }
-            if (!$parent.length) {
-              $parent = $(document.body);
             }
             $select.FUIselect2(_objectSpread({
               dir: $dir,
