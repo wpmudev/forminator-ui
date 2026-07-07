@@ -16,6 +16,15 @@
 			}
 		}
 
+		.forminator-field-upload {
+			.forminator-field {
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+				height: 100%;
+			}
+		}
+
 		&:first-child {
 			margin-top: 0;
 		}
