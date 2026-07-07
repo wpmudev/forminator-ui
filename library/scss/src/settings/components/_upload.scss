@@ -2,6 +2,20 @@
 
 	@include form-class($form-type, $form-theme, false) {
 
+		@if ('basic' == $form-theme) {
+			.forminator-field-upload {
+				.forminator-field {
+					display: flex;
+					flex-direction: column;
+					height: 100%;
+				}
+
+				.forminator-file-upload {
+					margin-top: auto;
+				}
+			}
+		}
+
 		.forminator-file-upload {
 			display: flex;
 			align-items: center;
