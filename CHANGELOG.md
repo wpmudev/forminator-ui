@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.13.0
+
+### Minor Changes
+
+- [#185](https://github.com/wpmudev/forminator-ui/pull/185) [`d491d3a`](https://github.com/wpmudev/forminator-ui/commit/d491d3aae8f3273454b3cc5d67787c6af9f53067) Thanks [@creador-dev](https://github.com/creador-dev)! - Upload file design issue in forms.
+
 ## 1.12.46
 
 ### Patch Changes
