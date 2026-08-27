@@ -2,7 +2,13 @@
 
 ## 1.13.0
 
-### Minor Changes
+### Patch Changes
+
+- [#188](https://github.com/wpmudev/forminator-ui/pull/188) [`e62d69b`](https://github.com/wpmudev/forminator-ui/commit/e62d69b80e472c25163aec36b02fb1c384880b79) Thanks [@creador-dev](https://github.com/creador-dev)! - fix(grid): preserve nested multi-field layouts in 3- and 4-column rows.
+
+## 1.12.47
+
+### Patch Changes
 
 - [#185](https://github.com/wpmudev/forminator-ui/pull/185) [`d491d3a`](https://github.com/wpmudev/forminator-ui/commit/d491d3aae8f3273454b3cc5d67787c6af9f53067) Thanks [@creador-dev](https://github.com/creador-dev)! - Upload file design issue in forms.
 
