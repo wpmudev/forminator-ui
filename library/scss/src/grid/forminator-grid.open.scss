@@ -111,31 +111,5 @@
 				padding: 0 #{calc($gutter / 2)};
 			}
 		}
-
-		// ELEMENT: Multiple Columns
-		.forminator-col-3,
-		.forminator-col-4 {
-
-			.forminator-row,
-			.forminator-row-inside {
-
-				&[data-multiple="true"] {
-
-					.forminator-col {
-
-						&:not(:last-child) {
-
-							@include media(min-width, sm) {
-								margin-bottom: $gutter;
-							}
-						}
-					}
-
-					@include media(min-width, sm) {
-						display: block;
-					}
-				}
-			}
-		}
 	}
 }
