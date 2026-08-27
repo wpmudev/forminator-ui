@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.12.48
+
+### Patch Changes
+
+- [#188](https://github.com/wpmudev/forminator-ui/pull/188) [`e62d69b`](https://github.com/wpmudev/forminator-ui/commit/e62d69b80e472c25163aec36b02fb1c384880b79) Thanks [@creador-dev](https://github.com/creador-dev)! - fix(grid): preserve nested multi-field layouts in 3- and 4-column rows.
+
 ## 1.12.47
 
 ### Patch Changes
