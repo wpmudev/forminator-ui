@@ -32,6 +32,11 @@
 
 				&:not(:last-child) {
 					margin-right: 10px;
+
+					@include media(max-width, sm) {
+						margin-right: auto;
+						max-width: 85%;
+					}
 				}
 			}
 		}

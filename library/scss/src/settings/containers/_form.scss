@@ -25,6 +25,10 @@
 
 			.forminator-file-upload  {
 				margin-top: auto;
+
+				@include media(max-width, sm) {
+					flex-wrap: wrap;
+				}
 			}
 		}
 
