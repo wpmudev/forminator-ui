@@ -11,6 +11,7 @@ $checkbox-image: 80px;
 			align-items: center;
 			position: relative;
 			margin: 10px 0;
+			width: auto;
 
 			@if ('basic' != $form-theme) {
 				pointer-events: none;
@@ -295,17 +296,21 @@ $checkbox-image: 80px;
 				&.forminator-consent {
 					margin: 0;
 
+					.forminator-checkbox-box {
+						align-self: flex-start;
+					}
+
 					@if ('basic' == $form-theme) {
 						input {
 							margin: 4px 0;
 						}
 					}
-				}
 
-				+ .forminator-consent__label {
-					p {
-						&:first-child {
-							margin-top: 0;
+					.forminator-consent__label {
+						p {
+							&:first-child {
+								margin-top: 0;
+							}
 						}
 					}
 				}
