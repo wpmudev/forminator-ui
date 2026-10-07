@@ -1,5 +1,15 @@
 # Change Log
 
+## 1.12.49
+
+### Patch Changes
+
+- [#196](https://github.com/wpmudev/forminator-ui/pull/196) [`b1a56b0`](https://github.com/wpmudev/forminator-ui/commit/b1a56b0bc4d131579f779c2f56fc81e7c309c0b0) Thanks [@creador-dev](https://github.com/creador-dev)! - Fix consent field ui issues.
+
+- [#199](https://github.com/wpmudev/forminator-ui/pull/199) [`1315131`](https://github.com/wpmudev/forminator-ui/commit/1315131a1cb765c2288eb8083fa92b8f8badd7c9) Thanks [@creador-dev](https://github.com/creador-dev)! - Fix github workflow.
+
+- [#196](https://github.com/wpmudev/forminator-ui/pull/196) [`b1a56b0`](https://github.com/wpmudev/forminator-ui/commit/b1a56b0bc4d131579f779c2f56fc81e7c309c0b0) Thanks [@creador-dev](https://github.com/creador-dev)! - Fix uploda field smaller screen ui issues.
+
 ## 1.12.48
 
 ### Patch Changes
