@@ -303,6 +303,7 @@ $checkbox-image: 80px;
 					@if ('basic' == $form-theme) {
 						input {
 							margin: 4px 0;
+							align-self: flex-start;
 						}
 					}
 
