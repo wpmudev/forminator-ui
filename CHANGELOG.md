@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.12.50
+
+### Patch Changes
+
+- [#202](https://github.com/wpmudev/forminator-ui/pull/202) [`71dd493`](https://github.com/wpmudev/forminator-ui/commit/71dd493e8f53aa57505826d08d97bd46d85b8b48) Thanks [@creador-dev](https://github.com/creador-dev)! - Revert consent field styles.
+
 ## 1.12.49
 
 ### Patch Changes
