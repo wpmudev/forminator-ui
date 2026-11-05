@@ -1,0 +1,8 @@
+@charset "UTF-8";
+
+// Standalone: intentionally does not import form themes or text resets.
+@import "helpers/reset";
+@import "helpers/screen-readers";
+@import "mixins/body-class";
+@import "mixins/thin-scrollbar";
+@import "submission-views/layout";

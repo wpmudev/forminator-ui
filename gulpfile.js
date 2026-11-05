@@ -140,6 +140,10 @@ library.watch.scripts.poll = [
 	library.source.scripts + 'poll-chart.js'
 ];
 
+library.watch.scripts.submissionViews = [
+	library.source.scripts + 'submission-views.js'
+];
+
 library.watch.scripts.select2 = [
 	library.source.scripts + 'select2.full.js'
 ];
@@ -256,9 +260,9 @@ gulp.task( 'library:fonts', function() {
 });
 
 // Build styles
-gulp.task( 'library:styles', function() {
+function buildLibraryStyles( sources ) {
     const tasks = builders.map( config => {
-        return gulp.src( library.watch.styles )
+        return gulp.src( sources )
             .pipe(
                 sass({ outputStyle: 'compressed' })
                 .on( 'error', sass.logError )
@@ -278,7 +282,11 @@ gulp.task( 'library:styles', function() {
     });
 
     return merge( tasks ); // Merge all streams and return them
-});
+}
+
+gulp.task( 'library:styles', () => buildLibraryStyles( library.watch.styles ) );
+gulp.task( 'library:styles:views', () => buildLibraryStyles( library.source.styles + 'forminator-submission-views.scss' ) );
+gulp.task( 'library:styles:icons', () => buildLibraryStyles( library.source.styles + 'forminator-icons.scss' ) );
 
 // Build scripts
 gulp.task( 'library:scripts:all', function( cb ) {
@@ -317,6 +325,34 @@ gulp.task( 'library:scripts:form', function( cb ) {
 		eslint.format(),
 		eslint.failAfterError(),
 		concat( 'forminator-form.js' ),
+		babel({
+			presets: [
+				[ '@babel/env', {
+					modules: false
+				} ]
+			]
+		}),
+		header( banner ),
+		gulp.dest( library.output.scripts ),
+		uglify(),
+		rename({
+			suffix: '.min'
+		}),
+		header( banner ),
+		gulp.dest( library.output.scripts ),
+		gulp.dest( showcase.output.scripts ),
+		browserSync.stream()
+	], cb );
+});
+
+gulp.task( 'library:scripts:submission-views', function( cb ) {
+
+	pump([
+		gulp.src( library.watch.scripts.submissionViews ),
+		eslint(),
+		eslint.format(),
+		eslint.failAfterError(),
+		concat( 'forminator-submission-views.js' ),
 		babel({
 			presets: [
 				[ '@babel/env', {
@@ -394,6 +430,7 @@ gulp.task( 'library:build', gulp.series(
 	'library:scripts:all',
 	'library:scripts:form',
 	'library:scripts:poll',
+	'library:scripts:submission-views',
 	'library:scripts:select2',
 	'library:styles'
 ) );
@@ -411,6 +448,7 @@ gulp.task( 'library:watch', function() {
 	gulp.watch( library.watch.styles,  gulp.series( 'library:styles' ) );
 
 	// Watch scripts
+	gulp.watch( library.watch.scripts.submissionViews, gulp.series( 'library:scripts:submission-views' ) );
 	gulp.watch( library.watch.scripts.all,  gulp.series( 'library:scripts:all', 'library:scripts:form', 'library:scripts:poll', 'library:scripts:select2' ) );
 
 });
@@ -504,7 +542,7 @@ gulp.task( 'public:assets:css', function() {
 // Copy assets – scripts
 gulp.task( 'public:assets:js', function() {
 
-	return gulp.src( showcase.watch.assetsJs )
+	return gulp.src( showcase.watch.assetsJs, { base: showcase.source.assets + 'js/' } )
 		.pipe( gulp.dest( showcase.output.main + 'assets/js/' ) )
 		.pipe( browserSync.stream() )
 		;

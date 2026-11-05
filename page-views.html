@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+		<title>Forminator Views — Inherit theme</title>
+		<link rel="stylesheet" href="assets/css/public.min.css" />
+		<link rel="stylesheet" href="assets/css/forminator-icons.min.css" />
+		<link rel="stylesheet" href="assets/css/forminator-submission-views.min.css" />
+	</head>
+	<body class="sui-2-12-20">
+		<div id="showcase">
+			<div class="sui-wrap showcase-wrap">
+				<header class="showcase-header"></header>
+				<main class="showcase-content">
+					<div class="views-demo">
+						<h1>Views</h1>
+						<h2>Inherit theme</h2>
+						<section
+							id="forminator-submission-views-demo"
+							class="forminator-ui forminator-submission-views"
+							data-view-demo
+							aria-label="Form submissions"
+						>
+							<div class="forminator-submission-views__toolbar">
+								<label class="forminator-submission-views__search">
+									<span class="forminator-submission-views__sr-only">
+										Search submissions
+									</span>
+									<input type="search" placeholder="Search" />
+								</label>
+								<div class="forminator-submission-views__actions">
+									<div class="forminator-submission-views__download">
+										<button
+											type="button"
+											id="forminator-submission-views-demo--submission-download-button"
+											data-download
+											aria-haspopup="listbox"
+											aria-controls="forminator-submission-views-demo--submission-download-select"
+										>
+											Download as
+											<i
+												class="forminator-icon-chevron-down-rounded forminator-submission-views__button-icon"
+												aria-hidden="true"
+											></i>
+										</button>
+										<select
+											id="forminator-submission-views-demo--submission-download-select"
+											class="forminator-submission-views__download-select"
+											data-download-select
+											tabindex="-1"
+											aria-label="Download format"
+										>
+											<option value="" selected disabled>
+												Choose format
+											</option>
+											<option value="csv">CSV (.csv)</option>
+											<option value="xls">Excel (.xls)</option>
+											<option value="json">JSON (.json)</option>
+										</select>
+									</div>
+									<button
+										type="button"
+										data-columns-toggle
+										aria-expanded="false"
+										aria-controls="forminator-submission-views-demo--view-columns"
+									>
+										Manage columns
+										<i
+											class="forminator-icon-settings forminator-submission-views__button-icon"
+											aria-hidden="true"
+										></i>
+									</button>
+								</div>
+								<div
+									id="forminator-submission-views-demo--view-columns"
+									class="forminator-submission-views__column-options"
+									data-columns
+									hidden
+								>
+									<label>
+										<input type="checkbox" data-column="0" checked />
+										Name
+									</label>
+									<label>
+										<input type="checkbox" data-column="1" checked />
+										Email
+									</label>
+									<label>
+										<input type="checkbox" data-column="2" checked />
+										Phone
+									</label>
+									<label>
+										<input type="checkbox" data-column="3" checked />
+										Address
+									</label>
+									<label>
+										<input type="checkbox" data-column="4" checked />
+										Note
+									</label>
+								</div>
+							</div>
+							<p data-export-status role="status" hidden></p>
+							<div class="forminator-submission-views__frame">
+								<div
+									class="forminator-submission-views__scroll"
+									tabindex="0"
+									role="region"
+									aria-label="Submission table, scroll horizontally for more columns"
+								>
+									<table class="forminator-submission-views__table">
+										<caption class="forminator-submission-views__sr-only">
+											Form submissions
+										</caption>
+										<thead>
+											<tr>
+												<th scope="col" data-resizable>
+													Name
+													<span
+														class="forminator-submission-views__resize-handle"
+														role="separator"
+														tabindex="0"
+														aria-orientation="vertical"
+														aria-label="Resize Name column"
+														aria-valuemin="200"
+														aria-valuemax="1200"
+														aria-valuenow="200"
+													></span>
+												</th>
+												<th scope="col" data-resizable>
+													Email
+													<span
+														class="forminator-submission-views__resize-handle"
+														role="separator"
+														tabindex="0"
+														aria-orientation="vertical"
+														aria-label="Resize Email column"
+														aria-valuemin="200"
+														aria-valuemax="1200"
+														aria-valuenow="200"
+													></span>
+												</th>
+												<th scope="col" data-resizable>
+													Phone
+													<span
+														class="forminator-submission-views__resize-handle"
+														role="separator"
+														tabindex="0"
+														aria-orientation="vertical"
+														aria-label="Resize Phone column"
+														aria-valuemin="200"
+														aria-valuemax="1200"
+														aria-valuenow="200"
+													></span>
+												</th>
+												<th scope="col" data-resizable>
+													Address
+													<span
+														class="forminator-submission-views__resize-handle"
+														role="separator"
+														tabindex="0"
+														aria-orientation="vertical"
+														aria-label="Resize Address column"
+														aria-valuemin="200"
+														aria-valuemax="1200"
+														aria-valuenow="200"
+													></span>
+												</th>
+												<th scope="col" data-resizable>
+													Note
+													<span
+														class="forminator-submission-views__resize-handle"
+														role="separator"
+														tabindex="0"
+														aria-orientation="vertical"
+														aria-label="Resize Note column"
+														aria-valuemin="200"
+														aria-valuemax="1200"
+														aria-valuenow="200"
+													></span>
+												</th>
+												<th
+													scope="col"
+													class="forminator-submission-views__detail-cell"
+												>
+													<span
+														class="forminator-submission-views__sr-only"
+													>
+														Actions
+													</span>
+												</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr data-id="forminator-submission-views-demo--23">
+												<td><bdi dir="auto">Olivia Martinez</bdi></td>
+												<td>
+													<bdi dir="auto">olivia.martinez@gmail.com</bdi>
+												</td>
+												<td><bdi dir="auto">(415) 867-5309</bdi></td>
+												<td>
+													<bdi dir="auto">
+														1023 Market St, San Francisco, CA 94103
+													</bdi>
+												</td>
+												<td><bdi dir="auto">Follow-up needed</bdi></td>
+												<td
+													class="forminator-submission-views__detail-cell"
+												>
+													<button
+														type="button"
+														data-detail
+														aria-haspopup="dialog"
+														aria-controls="forminator-submission-views-demo--submission-detail"
+														aria-label="View detail for Olivia Martinez"
+													>
+														View detail
+													</button>
+												</td>
+											</tr>
+											<tr data-id="forminator-submission-views-demo--24">
+												<td><bdi dir="auto">James Nakamura</bdi></td>
+												<td><bdi dir="auto">j.nakamura@proton.me</bdi></td>
+												<td><bdi dir="auto">(212) 555-0147</bdi></td>
+												<td>
+													<bdi dir="auto">
+														88 W 3rd St, New York, NY 10012
+													</bdi>
+												</td>
+												<td>
+													<bdi dir="auto">Nice service. Keep it on.</bdi>
+												</td>
+												<td
+													class="forminator-submission-views__detail-cell"
+												>
+													<button
+														type="button"
+														data-detail
+														aria-haspopup="dialog"
+														aria-controls="forminator-submission-views-demo--submission-detail"
+														aria-label="View detail for James Nakamura"
+													>
+														View detail
+													</button>
+												</td>
+											</tr>
+											<tr data-id="forminator-submission-views-demo--25">
+												<td><bdi dir="auto">Elena Vasquez</bdi></td>
+												<td><bdi dir="auto">elena.v@pm.me</bdi></td>
+												<td><bdi dir="auto">(305) 555-0748</bdi></td>
+												<td>
+													<bdi dir="auto">
+														801 Brickell Ave, Miami, FL 33131
+													</bdi>
+												</td>
+												<td>
+													<bdi dir="auto">
+														I am going to a vacation. Please reschedule
+														my appointment next week.
+													</bdi>
+												</td>
+												<td
+													class="forminator-submission-views__detail-cell"
+												>
+													<button
+														type="button"
+														data-detail
+														aria-haspopup="dialog"
+														aria-controls="forminator-submission-views-demo--submission-detail"
+														aria-label="View detail for Elena Vasquez"
+													>
+														View detail
+													</button>
+												</td>
+											</tr>
+											<tr data-id="forminator-submission-views-demo--26">
+												<td><bdi dir="auto">Daniel Okafor</bdi></td>
+												<td><bdi dir="auto">d.okafor@zoho.com</bdi></td>
+												<td><bdi dir="auto">(404) 555-0859</bdi></td>
+												<td>
+													<bdi dir="auto">
+														250 Peachtree St NE, Atlanta, GA 30303
+													</bdi>
+												</td>
+												<td><bdi dir="auto">Requires callback</bdi></td>
+												<td
+													class="forminator-submission-views__detail-cell"
+												>
+													<button
+														type="button"
+														data-detail
+														aria-haspopup="dialog"
+														aria-controls="forminator-submission-views-demo--submission-detail"
+														aria-label="View detail for Daniel Okafor"
+													>
+														View detail
+													</button>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+							<p data-empty hidden>No submissions match your search.</p>
+							<div class="forminator-submission-views__footer">
+								<label class="forminator-submission-views__page-filter">
+									Rows per page
+									<span class="forminator-submission-views__page-size">
+										<select data-page-size>
+											<option>2</option>
+											<option selected>10</option>
+											<option>25</option>
+										</select>
+										<i
+											class="forminator-icon-chevron-down-rounded forminator-submission-views__page-size-icon"
+											aria-hidden="true"
+										></i>
+									</span>
+								</label>
+								<nav
+									class="forminator-submission-views__pagination"
+									aria-label="Submission pages"
+								>
+									<button type="button" data-page="first" aria-label="First page">
+										<span
+											class="forminator-submission-views__pagination-icon"
+											dir="ltr"
+											aria-hidden="true"
+										>
+											<i
+												class="forminator-icon-chevron-double-left"
+												aria-hidden="true"
+											></i>
+										</span>
+									</button>
+									<button
+										type="button"
+										data-page="previous"
+										aria-label="Previous page"
+									>
+										<span
+											class="forminator-submission-views__pagination-icon"
+											dir="ltr"
+											aria-hidden="true"
+										>
+											<i
+												class="forminator-icon-chevron-left-rounded"
+												aria-hidden="true"
+											></i>
+										</span>
+									</button>
+									<span data-page-status role="status" aria-live="polite"></span>
+									<button type="button" data-page="next" aria-label="Next page">
+										<span
+											class="forminator-submission-views__pagination-icon"
+											dir="ltr"
+											aria-hidden="true"
+										>
+											<i
+												class="forminator-icon-chevron-right-rounded"
+												aria-hidden="true"
+											></i>
+										</span>
+									</button>
+									<button type="button" data-page="last" aria-label="Last page">
+										<span
+											class="forminator-submission-views__pagination-icon"
+											dir="ltr"
+											aria-hidden="true"
+										>
+											<i
+												class="forminator-icon-chevron-double-right"
+												aria-hidden="true"
+											></i>
+										</span>
+									</button>
+								</nav>
+							</div>
+							<dialog
+								id="forminator-submission-views-demo--submission-detail"
+								class="forminator-submission-views__panel"
+								aria-labelledby="forminator-submission-views-demo--submission-title"
+							>
+								<div class="forminator-submission-views__panel-header">
+									<h2
+										id="forminator-submission-views-demo--submission-title"
+										class="forminator-submission-views__panel-title"
+										data-submission-title
+									>
+										Submission
+									</h2>
+									<div class="forminator-submission-views__close-wrap">
+										<button
+											type="button"
+											class="forminator-submission-views__close"
+											data-close
+											aria-label="Close submission details"
+											autofocus
+											aria-describedby="forminator-submission-views-demo--close-tooltip"
+										>
+											<i
+												class="forminator-icon-close forminator-submission-views__button-icon"
+												aria-hidden="true"
+											></i>
+										</button>
+										<span
+											id="forminator-submission-views-demo--close-tooltip"
+											class="forminator-submission-views__tooltip"
+											role="tooltip"
+										>
+											Close
+										</span>
+									</div>
+								</div>
+								<div class="forminator-submission-views__panel-body">
+									<dl class="forminator-submission-views__fields">
+										<div class="forminator-submission-views__field">
+											<dt>Submission ID</dt>
+											<dd><bdi dir="auto" data-submission-id></bdi></dd>
+										</div>
+										<div class="forminator-submission-views__field">
+											<dt>Name</dt>
+											<dd><bdi dir="auto" data-value="0"></bdi></dd>
+										</div>
+										<div class="forminator-submission-views__field">
+											<dt>Email</dt>
+											<dd><bdi dir="auto" data-value="1"></bdi></dd>
+										</div>
+										<div class="forminator-submission-views__field">
+											<dt>Phone</dt>
+											<dd><bdi dir="auto" data-value="2"></bdi></dd>
+										</div>
+										<div class="forminator-submission-views__field">
+											<dt>Address</dt>
+											<dd>
+												<dl class="forminator-submission-views__group">
+													<div>
+														<dt>Post code</dt>
+														<dd>
+															<bdi dir="auto" data-address="0"></bdi>
+														</dd>
+													</div>
+													<div>
+														<dt>Street address</dt>
+														<dd>
+															<bdi dir="auto" data-address="1"></bdi>
+														</dd>
+													</div>
+													<div>
+														<dt>City</dt>
+														<dd>
+															<bdi dir="auto" data-address="2"></bdi>
+														</dd>
+													</div>
+													<div>
+														<dt>State</dt>
+														<dd>
+															<bdi dir="auto" data-address="3"></bdi>
+														</dd>
+													</div>
+													<div>
+														<dt>Country</dt>
+														<dd>
+															<bdi dir="auto" data-address="4"></bdi>
+														</dd>
+													</div>
+												</dl>
+											</dd>
+										</div>
+										<div class="forminator-submission-views__field">
+											<dt>Note</dt>
+											<dd><bdi dir="auto" data-value="4"></bdi></dd>
+										</div>
+									</dl>
+								</div>
+							</dialog>
+						</section>
+					</div>
+					<div class="showcase-footer"></div>
+				</main>
+			</div>
+		</div>
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+		<script src="assets/js/forminator-submission-views.min.js"></script>
+		<script>
+			FUI.submissionViews('#forminator-submission-views-demo');
+		</script>
+		<script src="assets/js/public.min.js"></script>
+	</body>
+</html>
