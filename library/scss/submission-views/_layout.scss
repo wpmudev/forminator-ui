@@ -269,7 +269,8 @@
 			);
 
 			max-width: 100%;
-			overflow-x: auto;
+			max-height: var(--forminator-submission-views-table-max-height, 60vh);
+			overflow: auto;
 			isolation: isolate;
 
 			&[data-scrollable] {
@@ -281,7 +282,8 @@
 			}
 
 			&[data-content-behind] {
-				#{$block}__detail-cell {
+				// Only body action cells need a surface and shadow over scrolling content.
+				tbody #{$block}__detail-cell {
 					background: var(
 						--forminator-submission-views-sticky-background,
 						var(--forminator-submission-views-surface)
@@ -308,6 +310,17 @@
 			border-spacing: 0;
 			border: 0;
 			margin: 0;
+
+			// Keep the complete header row together above scrolling body cells.
+			thead {
+				position: sticky;
+				inset-block-start: 0;
+				z-index: 2;
+				background: var(
+					--forminator-submission-views-header-background,
+					var(--forminator-submission-views-surface)
+				);
+			}
 			// Structural defaults use the inherited text color; no palette is assigned.
 			th,
 			td {
@@ -331,6 +344,10 @@
 				font-size: var(--forminator-submission-views-header-font-size);
 				font-weight: var(--forminator-submission-views-header-font-weight);
 			}
+			thead #{$block}__detail-cell {
+				pointer-events: none;
+			}
+
 			tbody tr:last-child td {
 				border-block-end: 0;
 			}

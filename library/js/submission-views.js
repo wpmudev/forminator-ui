@@ -241,6 +241,164 @@
 			resizeColumn( header, width );
 		}
 
+		// Submission content is supplied by Forminator, independently of table columns.
+		function createText( value, emptyValue ) {
+			const text = document.createElement( 'bdi' );
+			text.dir = 'auto';
+			text.textContent = null === value || undefined === value || '' === value ? emptyValue : String( value );
+			return text;
+		}
+
+		function renderValue( container, value, emptyValue ) {
+			if ( Array.isArray( value ) ) {
+				const list = document.createElement( 'ul' );
+				value.forEach( function( item ) {
+					const entry = document.createElement( 'li' );
+					entry.appendChild( createText( item, emptyValue ) );
+					list.appendChild( entry );
+				});
+				if ( value.length ) {
+					container.appendChild( list );
+					return;
+				}
+				value = null;
+			}
+			container.appendChild( createText( value, emptyValue ) );
+		}
+
+		// Parse URLs before assigning href; never accept executable or embedded-data schemes.
+		function getSafeUrl( value ) {
+			if ( 'string' !== typeof value || ! value.trim() || /[\u0000-\u001f\u007f]/.test( value ) ) {
+				return null;
+			}
+			try {
+				const url = new window.URL( value.trim(), document.baseURI );
+				if ( ! [ 'https:', 'http:' ].includes( url.protocol ) || url.username || url.password ) {
+					return null;
+				}
+				return url.href;
+			} catch ( error ) {
+				return null;
+			}
+		}
+
+		function renderLink( container, value, field, emptyValue ) {
+			const details = value && 'object' === typeof value ? value : { url: value };
+			const href = getSafeUrl( details.url );
+			const label = details.label || details.name || details.url;
+			if ( ! href ) {
+				container.appendChild( createText( label, emptyValue ) );
+				return;
+			}
+			const link = document.createElement( 'a' );
+			link.href = href;
+			link.appendChild( createText( label, emptyValue ) );
+			if ( true === field.newTab ) {
+				link.target = '_blank';
+				link.rel = 'noopener noreferrer';
+			}
+			if ([ 'file', 'upload' ].includes( field.type ) ) {
+				link.setAttribute( 'download', '' );
+			}
+			container.appendChild( link );
+		}
+
+		function renderLinkField( container, field, emptyValue ) {
+			if ( ! Array.isArray( field.value ) ) {
+				renderLink( container, field.value, field, emptyValue );
+				return;
+			}
+			if ( ! field.value.length ) {
+				container.appendChild( createText( null, emptyValue ) );
+				return;
+			}
+			const list = document.createElement( 'ul' );
+			field.value.forEach( function( value ) {
+				const item = document.createElement( 'li' );
+				renderLink( item, value, field, emptyValue );
+				list.appendChild( item );
+			});
+			container.appendChild( list );
+		}
+
+		function renderRepeater( entries, emptyValue ) {
+			const group = document.createElement( 'dl' );
+			group.className = 'forminator-submission-views__group';
+			entries.forEach( function( entry ) {
+				if ( ! entry || ! Array.isArray( entry.fields ) ) {
+					return;
+				}
+
+				// Unlabelled entries show child fields directly, like Address.
+				if ( ! entry.label ) {
+					const fields = renderFields( entry.fields, emptyValue, true );
+					group.append( ...Array.from( fields.children ) );
+					return;
+				}
+				const row = document.createElement( 'div' );
+				const label = document.createElement( 'dt' );
+				const content = document.createElement( 'dd' );
+
+				// Keep a named entry group only when Forminator supplies its label.
+				label.appendChild( createText( entry.label, emptyValue ) );
+				content.appendChild( renderFields( entry.fields, emptyValue, true ) );
+				row.append( label, content );
+				group.appendChild( row );
+			});
+			return group;
+		}
+
+		function renderFields( fields, emptyValue, nested ) {
+			const list = document.createElement( 'dl' );
+			list.className = nested ? 'forminator-submission-views__group' : 'forminator-submission-views__fields';
+			fields.forEach( function( field ) {
+				if ( ! field || 'object' !== typeof field ) {
+					return;
+				}
+				const row = document.createElement( 'div' );
+				const label = document.createElement( 'dt' );
+				const content = document.createElement( 'dd' );
+				if ( ! nested ) {
+					row.className = 'forminator-submission-views__field';
+				}
+				if ( undefined !== field.id ) {
+					row.dataset.fieldId = String( field.id );
+				}
+				label.appendChild( createText( field.label, emptyValue ) );
+				if ( 'repeater' === field.type && Array.isArray( field.entries ) && field.entries.length ) {
+					content.appendChild( renderRepeater( field.entries, emptyValue ) );
+				} else if ( Array.isArray( field.fields ) ) {
+					content.appendChild( renderFields( field.fields, emptyValue, true ) );
+				} else if ([ 'link', 'url', 'file', 'upload' ].includes( field.type ) ) {
+					renderLinkField( content, field, emptyValue );
+				} else {
+					renderValue( content, field.value, emptyValue );
+				}
+				row.append( label, content );
+				list.appendChild( row );
+			});
+			return list;
+		}
+
+		/** Replace dialog fields without opening it or changing the table. */
+		function setSubmission( submission ) {
+			if ( destroyed || ! panelBody || ! submission || ! Array.isArray( submission.fields ) ) {
+				return false;
+			}
+
+			// Validate the whole record before replacing either its title or fields.
+			const title = panel.querySelector( '[data-submission-title]' );
+			if ( ! title || 'string' !== typeof submission.title || ! submission.title.trim() ) {
+				return false;
+			}
+			const emptyValue = undefined === submission.emptyValue ? '—' : String( submission.emptyValue );
+			const fields = renderFields( submission.fields, emptyValue, false );
+			title.textContent = submission.title.trim();
+			panelBody.replaceChildren( fields );
+			panelBody.scrollTop = 0;
+			return true;
+		}
+
 		// Sidebar opening, animated dismissal and focus restoration.
 		function openPanel( trigger ) {
 			if ( ! panel || panel.open || destroyed ) {
@@ -529,7 +687,7 @@
 			observeLayout();
 		}
 
-		const api = { refresh, destroy, open: openPanel, close: closePanel };
+		const api = { refresh, destroy, open: openPanel, close: closePanel, setSubmission };
 		instances.set( view, api );
 		init();
 		return api;
