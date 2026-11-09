@@ -50,6 +50,12 @@
 			font-size: var(--forminator-submission-views-button-icon-size, 20px);
 			line-height: 1;
 		}
+
+		&__pagination {
+			button {
+				padding: var(--forminator-submission-views-pagination-button-padding, 6px);
+			}
+		}
 	}
 
 	button {

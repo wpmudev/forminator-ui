@@ -3,11 +3,6 @@
 	font-size: var(--forminator-submission-views-control-font-size);
 	line-height: var(--forminator-submission-views-line-height);
 	padding: var(--forminator-submission-views-control-padding);
-	// border: var(--forminator-submission-views-control-border);
-	// border-width: var(--forminator-submission-views-control-border-width, inherit);
-	// border-radius: var(--forminator-submission-views-control-radius, inherit);
-	// border-color: var(--forminator-submission-views-control-border-color, inherit);
-	// color: var(--forminator-submission-views-control-color, inherit);
 }
 
 @mixin _submission-views-icon-box {
