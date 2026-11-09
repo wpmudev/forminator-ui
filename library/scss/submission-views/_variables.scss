@@ -1,0 +1,53 @@
+@mixin submission-views-variables() {
+	// Typography.
+	--forminator-submission-views-font-size: 16px;
+	--forminator-submission-views-line-height: 24px;
+	--forminator-submission-views-font-weight: 400;
+	--forminator-submission-views-header-font-size: 15px;
+	--forminator-submission-views-header-font-weight: 500;
+	--forminator-submission-views-detail-font-size: 15px;
+	--forminator-submission-views-detail-font-weight: 500;
+	--forminator-submission-views-control-font-size: var(--forminator-submission-views-font-size);
+	--forminator-submission-views-footer-font-size: var(--forminator-submission-views-font-size);
+	--forminator-submission-views-panel-font-size: var(--forminator-submission-views-font-size);
+	--forminator-submission-views-panel-title-font-size: 18px;
+	--forminator-submission-views-panel-title-line-height: 28px;
+	--forminator-submission-views-panel-title-font-weight: 700;
+	--forminator-submission-views-field-label-font-weight: 500;
+	--forminator-submission-views-tooltip-font-size: 14px;
+	--forminator-submission-views-tooltip-line-height: 20px;
+	// Spacing and control geometry.
+	--forminator-submission-views-gap: 16px;
+	--forminator-submission-views-control-gap: 8px;
+	--forminator-submission-views-cell-padding: 16px;
+	--forminator-submission-views-row-background: #fff;
+	--forminator-submission-views-cell-border: 1px solid;
+	--forminator-submission-views-frame-border: 1px solid;
+	--forminator-submission-views-control-padding: 8px 12px;
+	--forminator-submission-views-control-border: 1px solid;
+	// Table sizing and resize handles.
+	--forminator-submission-views-table-max-height: 100%;
+	--forminator-submission-views-table-min-width: 0px;
+	--forminator-submission-views-column-min-width: 200px;
+	--forminator-submission-views-detail-column-width: 120px;
+	--forminator-submission-views-resize-handle-display: block;
+	// Sidebar sizing and motion.
+	--forminator-submission-views-panel-width: 600px;
+	--forminator-submission-views-panel-mobile-gutter: 40px;
+	--forminator-submission-views-panel-padding: 16px 24px;
+	--forminator-submission-views-panel-z-index: 100000;
+	--forminator-submission-views-panel-duration: 400ms;
+	--forminator-submission-views-panel-easing: cubic-bezier(0.32, 0.72, 0, 1);
+	// Override these surfaces for themes without a WordPress background preset.
+	--forminator-submission-views-surface: var(--wp--preset--color--base, Canvas);
+	--forminator-submission-views-sticky-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.1),
+		0 5px 20px 0 rgba(0, 0, 0, 0.1);
+	--forminator-submission-views-panel-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.1);
+	--forminator-submission-views-close-hover-background: rgb(0 0 0 / 10%);
+	--forminator-submission-views-field-background: transparent;
+	--forminator-submission-views-field-alternate-background: #f5f5f5;
+	--forminator-submission-views-sidebar-border-color: #e6e6e6;
+	--forminator-submission-views-group-border: 1px solid
+		var(--forminator-submission-views-sidebar-border-color);
+	--forminator-submission-views-group-radius: 8px;
+}

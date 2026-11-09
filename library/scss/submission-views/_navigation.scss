@@ -1,0 +1,30 @@
+@mixin submission-views-navigation($block) {
+	#{$block} {
+		&__pagination-icon {
+			// Keep glyph direction stable before applying the visual RTL mirror.
+			direction: ltr;
+			unicode-bidi: isolate;
+
+			> i {
+				@include _submission-views-icon-box;
+			}
+		}
+	}
+
+	&:dir(rtl) #{$block}__pagination-icon {
+		transform: scaleX(-1);
+	}
+
+	#{$block} {
+		&__column-options {
+			flex-basis: 100%;
+			label {
+				display: inline-flex;
+				align-items: center;
+				gap: 4px;
+				margin-inline-end: 12px;
+			}
+		}
+
+	}
+}
