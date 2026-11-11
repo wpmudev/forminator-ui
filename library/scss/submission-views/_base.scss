@@ -30,7 +30,7 @@
 		outline: auto;
 	}
 
-	::before,
+	:not([class*="forminator-icon-"])::before,
 	::after {
 		content: unset;
 	}

@@ -9,6 +9,7 @@
 		}
 
 		&__actions,
+		&__columns,
 		&__download,
 		&__pagination {
 			> button {
@@ -32,16 +33,6 @@
 			display: inline-flex;
 			flex: 0 0 auto;
 
-			// Keep the select rendered for its native picker, but visually hidden.
-			> #{$block}__download-select {
-				position: absolute;
-				inset: 0;
-				width: 100%;
-				height: 100%;
-				margin: 0;
-				opacity: 0;
-				pointer-events: none;
-			}
 		}
 
 		&__button-icon,

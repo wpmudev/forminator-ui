@@ -1,6 +1,5 @@
 @mixin submission-views-sidebar($block) {
 	#{$block} {
-
 		&__panel {
 			position: fixed;
 			inset: auto;
@@ -82,6 +81,7 @@
 		}
 
 		&__panel-body {
+			flex: 1 1 auto;
 			@include thin-scrollbar(
 				var(--forminator-submission-views-scrollbar-thumb, #d9d9d9),
 				var(--forminator-submission-views-scrollbar-thumb-hover, #b0b0b0),
@@ -94,6 +94,29 @@
 			overflow-y: auto;
 			overscroll-behavior-y: contain;
 			padding-bottom: env(safe-area-inset-bottom, 0px);
+		}
+
+		&__panel-footer {
+			display: flex;
+			justify-content: flex-end;
+			flex-shrink: 0;
+			padding: var(--forminator-submission-views-panel-padding);
+			border-top: 1px solid var(--forminator-submission-views-sidebar-border-color);
+			background: var(
+				--forminator-submission-views-panel-background,
+				var(--forminator-submission-views-surface)
+			);
+			button {
+				margin: 0;
+				padding: 8px 0;
+				border: 0;
+				background: transparent;
+				color: var(--forminator-submission-views-delete-color);
+				font: inherit;
+				font-size: var(--forminator-submission-views-font-size);
+				line-height: var(--forminator-submission-views-line-height);
+				text-decoration: underline;
+			}
 		}
 
 		&__fields {
@@ -131,9 +154,11 @@
 			}
 			> div + div {
 				border-top: var(--forminator-submission-views-group-border);
-				border-top-width: var(--forminator-submission-views-group-border-width, var(--forminator-submission-views-sidebar-border-width, inherit));
+				border-top-width: var(
+					--forminator-submission-views-group-border-width,
+					var(--forminator-submission-views-sidebar-border-width, inherit)
+				);
 			}
 		}
-
 	}
 }

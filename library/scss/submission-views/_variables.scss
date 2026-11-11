@@ -30,8 +30,27 @@
 	--forminator-submission-views-table-max-height: 100%;
 	--forminator-submission-views-table-min-width: 0px;
 	--forminator-submission-views-column-min-width: 200px;
-	--forminator-submission-views-detail-column-width: 120px;
+	--forminator-submission-views-detail-column-width: 180px;
 	--forminator-submission-views-resize-handle-display: block;
+	// Column dropdown and row actions.
+	--forminator-submission-views-columns-width: 280px;
+	--forminator-submission-views-columns-max-height: 360px;
+	--forminator-submission-views-columns-background: #fff;
+	--forminator-submission-views-columns-color: #111;
+	--forminator-submission-views-columns-border: 1px solid rgb(0 0 0 / 10%);
+	--forminator-submission-views-columns-radius: 8px;
+	--forminator-submission-views-columns-shadow: 0 8px 20px rgb(0 0 0 / 10%);
+	--forminator-submission-views-checkbox-color: #111;
+	--forminator-submission-views-row-actions-gap: 16px;
+	--forminator-submission-views-delete-color: #cb210f;
+	// Delete confirmation.
+	--forminator-submission-views-delete-dialog-width: 400px;
+	--forminator-submission-views-delete-dialog-padding: 24px;
+	--forminator-submission-views-delete-dialog-radius: 16px;
+	--forminator-submission-views-delete-dialog-background: #fff;
+	--forminator-submission-views-delete-dialog-color: #111;
+	--forminator-submission-views-delete-dialog-backdrop: rgb(0 0 0 / 40%);
+	--forminator-submission-views-delete-confirm-color: #fff;
 	// Sidebar sizing and motion.
 	--forminator-submission-views-panel-width: 600px;
 	--forminator-submission-views-panel-mobile-gutter: 40px;

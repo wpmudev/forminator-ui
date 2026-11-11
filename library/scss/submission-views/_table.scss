@@ -1,6 +1,5 @@
 @mixin submission-views-table($block) {
 	#{$block} {
-
 		// The optional frame stays outside the horizontal scrollport.
 		&__frame {
 			min-width: 0;
@@ -49,7 +48,10 @@
 				calc(
 					var(--forminator-submission-views-data-column-count, 0) *
 						var(--forminator-submission-views-column-min-width) +
-						var(--forminator-submission-views-detail-column-width)
+						var(
+							--forminator-submission-views-action-column-width,
+							var(--forminator-submission-views-detail-column-width)
+						)
 				)
 			);
 			border-collapse: separate;
@@ -99,7 +101,8 @@
 				pointer-events: none;
 			}
 
-			tbody tr:last-child td {
+			// Pagination may leave hidden rows after the last displayed submission.
+			tbody tr:not([hidden]):not(:has(~ tr:not([hidden]))) td {
 				border-block-end: 0;
 			}
 
@@ -120,6 +123,16 @@
 					color: var(--forminator-submission-views-detail-color, inherit);
 					background: var(--forminator-submission-views-detail-background, transparent);
 				}
+			}
+
+			#{$block}__row-actions {
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				gap: var(--forminator-submission-views-row-actions-gap);
+			}
+			button#{$block}__delete {
+				color: var(--forminator-submission-views-delete-color);
 			}
 
 			th[data-resizable] {

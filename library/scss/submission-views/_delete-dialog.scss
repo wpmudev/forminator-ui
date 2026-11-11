@@ -1,0 +1,89 @@
+@mixin submission-views-delete-dialog($block) {
+	#{$block} {
+		&__delete-dialog {
+			@include thin-scrollbar;
+			position: fixed;
+			inset: 0;
+			margin: auto;
+			width: min(var(--forminator-submission-views-delete-dialog-width), calc(100% - 32px));
+			max-width: none;
+			min-width: 0;
+			height: fit-content;
+			max-height: calc(100dvh - 32px);
+			overflow-y: auto;
+			padding: var(--forminator-submission-views-delete-dialog-padding);
+			border: 0;
+			border-radius: var(--forminator-submission-views-delete-dialog-radius);
+			background: var(--forminator-submission-views-delete-dialog-background);
+			color: var(--forminator-submission-views-delete-dialog-color);
+			font: inherit;
+			font-size: var(--forminator-submission-views-font-size);
+			line-height: var(--forminator-submission-views-line-height);
+			text-align: start;
+			&[open] {
+				display: flex;
+				flex-direction: column;
+				align-items: flex-start;
+				gap: 20px;
+			}
+			&::backdrop {
+				background: var(--forminator-submission-views-delete-dialog-backdrop);
+			}
+		}
+		&__delete-icon {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex-shrink: 0;
+			width: 40px;
+			height: 40px;
+			border-radius: 50%;
+			background: var(--forminator-submission-views-delete-color);
+			.forminator-icon-delete {
+				@include _submission-views-icon-box;
+				font-size: 20px;
+				color: var(--forminator-submission-views-delete-confirm-color);
+			}
+		}
+		&__delete-content {
+			display: flex;
+			flex-direction: column;
+			gap: 8px;
+			width: 100%;
+			p {
+				margin: 0;
+				font: inherit;
+				color: inherit;
+			}
+		}
+		&__delete-title {
+			margin: 0;
+			font: inherit;
+			font-size: 18px;
+			font-weight: 700;
+			color: inherit;
+		}
+		&__delete-actions {
+			display: flex;
+			justify-content: flex-end;
+			flex-wrap: wrap;
+			gap: 16px;
+			width: 100%;
+			button {
+				margin: 0;
+				padding: 7px 11px;
+				min-height: 40px;
+				border: 1px solid transparent;
+				border-radius: 2px;
+				font: inherit;
+				background: transparent;
+				color: inherit;
+			}
+			[data-delete-confirm] {
+				border-color: var(--forminator-submission-views-delete-color);
+				background: var(--forminator-submission-views-delete-color);
+				color: var(--forminator-submission-views-delete-confirm-color);
+			}
+		}
+	}
+}

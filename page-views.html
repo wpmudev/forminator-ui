@@ -31,73 +31,54 @@
 								</label>
 								<div class="forminator-submission-views__actions">
 									<div class="forminator-submission-views__download">
+										<button type="button" data-download>Download as CSV</button>
+									</div>
+									<div class="forminator-submission-views__columns">
 										<button
 											type="button"
-											id="forminator-submission-views-demo--submission-download-button"
-											data-download
-											aria-haspopup="listbox"
-											aria-controls="forminator-submission-views-demo--submission-download-select"
+											data-columns-toggle
+											aria-expanded="false"
+											aria-controls="forminator-submission-views-demo--view-columns"
 										>
-											Download as
+											Manage columns
 											<i
 												class="forminator-icon-chevron-down-rounded forminator-submission-views__button-icon"
 												aria-hidden="true"
 											></i>
 										</button>
-										<select
-											id="forminator-submission-views-demo--submission-download-select"
-											class="forminator-submission-views__download-select"
-											data-download-select
-											tabindex="-1"
-											aria-label="Download format"
+										<div
+											id="forminator-submission-views-demo--view-columns"
+											class="forminator-submission-views__column-options"
+											data-columns
+											role="group"
+											aria-label="Show or hide columns"
+											hidden
 										>
-											<option value="" selected disabled>
-												Choose format
-											</option>
-											<option value="csv">CSV (.csv)</option>
-											<option value="xls">Excel (.xls)</option>
-											<option value="json">JSON (.json)</option>
-										</select>
+											<p class="forminator-submission-views__column-title">
+												Show or hide columns
+											</p>
+											<label>
+												<input type="checkbox" data-column="0" checked />
+												Name
+											</label>
+											<label>
+												<input type="checkbox" data-column="1" checked />
+												Email
+											</label>
+											<label>
+												<input type="checkbox" data-column="2" checked />
+												Phone
+											</label>
+											<label>
+												<input type="checkbox" data-column="3" checked />
+												Address
+											</label>
+											<label>
+												<input type="checkbox" data-column="4" checked />
+												Note
+											</label>
+										</div>
 									</div>
-									<button
-										type="button"
-										data-columns-toggle
-										aria-expanded="false"
-										aria-controls="forminator-submission-views-demo--view-columns"
-									>
-										Manage columns
-										<i
-											class="forminator-icon-settings forminator-submission-views__button-icon"
-											aria-hidden="true"
-										></i>
-									</button>
-								</div>
-								<div
-									id="forminator-submission-views-demo--view-columns"
-									class="forminator-submission-views__column-options"
-									data-columns
-									hidden
-								>
-									<label>
-										<input type="checkbox" data-column="0" checked />
-										Name
-									</label>
-									<label>
-										<input type="checkbox" data-column="1" checked />
-										Email
-									</label>
-									<label>
-										<input type="checkbox" data-column="2" checked />
-										Phone
-									</label>
-									<label>
-										<input type="checkbox" data-column="3" checked />
-										Address
-									</label>
-									<label>
-										<input type="checkbox" data-column="4" checked />
-										Note
-									</label>
 								</div>
 							</div>
 							<p data-export-status role="status" hidden></p>
@@ -207,15 +188,26 @@
 												<td
 													class="forminator-submission-views__detail-cell"
 												>
-													<button
-														type="button"
-														data-detail
-														aria-haspopup="dialog"
-														aria-controls="forminator-submission-views-demo--submission-detail"
-														aria-label="View detail for Olivia Martinez"
+													<span
+														class="forminator-submission-views__row-actions"
+														><button
+															type="button"
+															data-detail
+															aria-haspopup="dialog"
+															aria-controls="forminator-submission-views-demo--submission-detail"
+															aria-label="View detail for Olivia Martinez"
+														>
+															View detail
+														</button>
+														<button
+															type="button"
+															class="forminator-submission-views__delete"
+															data-delete
+															aria-label="Delete submission for Olivia Martinez"
+														>
+															Delete
+														</button></span
 													>
-														View detail
-													</button>
 												</td>
 											</tr>
 											<tr data-id="forminator-submission-views-demo--24">
@@ -233,15 +225,26 @@
 												<td
 													class="forminator-submission-views__detail-cell"
 												>
-													<button
-														type="button"
-														data-detail
-														aria-haspopup="dialog"
-														aria-controls="forminator-submission-views-demo--submission-detail"
-														aria-label="View detail for James Nakamura"
+													<span
+														class="forminator-submission-views__row-actions"
+														><button
+															type="button"
+															data-detail
+															aria-haspopup="dialog"
+															aria-controls="forminator-submission-views-demo--submission-detail"
+															aria-label="View detail for James Nakamura"
+														>
+															View detail
+														</button>
+														<button
+															type="button"
+															class="forminator-submission-views__delete"
+															data-delete
+															aria-label="Delete submission for James Nakamura"
+														>
+															Delete
+														</button></span
 													>
-														View detail
-													</button>
 												</td>
 											</tr>
 											<tr data-id="forminator-submission-views-demo--25">
@@ -262,15 +265,26 @@
 												<td
 													class="forminator-submission-views__detail-cell"
 												>
-													<button
-														type="button"
-														data-detail
-														aria-haspopup="dialog"
-														aria-controls="forminator-submission-views-demo--submission-detail"
-														aria-label="View detail for Elena Vasquez"
+													<span
+														class="forminator-submission-views__row-actions"
+														><button
+															type="button"
+															data-detail
+															aria-haspopup="dialog"
+															aria-controls="forminator-submission-views-demo--submission-detail"
+															aria-label="View detail for Elena Vasquez"
+														>
+															View detail
+														</button>
+														<button
+															type="button"
+															class="forminator-submission-views__delete"
+															data-delete
+															aria-label="Delete submission for Elena Vasquez"
+														>
+															Delete
+														</button></span
 													>
-														View detail
-													</button>
 												</td>
 											</tr>
 											<tr data-id="forminator-submission-views-demo--26">
@@ -286,15 +300,26 @@
 												<td
 													class="forminator-submission-views__detail-cell"
 												>
-													<button
-														type="button"
-														data-detail
-														aria-haspopup="dialog"
-														aria-controls="forminator-submission-views-demo--submission-detail"
-														aria-label="View detail for Daniel Okafor"
+													<span
+														class="forminator-submission-views__row-actions"
+														><button
+															type="button"
+															data-detail
+															aria-haspopup="dialog"
+															aria-controls="forminator-submission-views-demo--submission-detail"
+															aria-label="View detail for Daniel Okafor"
+														>
+															View detail
+														</button>
+														<button
+															type="button"
+															class="forminator-submission-views__delete"
+															data-delete
+															aria-label="Delete submission for Daniel Okafor"
+														>
+															Delete
+														</button></span
 													>
-														View detail
-													</button>
 												</td>
 											</tr>
 											<tr data-id="forminator-submission-views-demo--27">
@@ -316,15 +341,26 @@
 												<td
 													class="forminator-submission-views__detail-cell"
 												>
-													<button
-														type="button"
-														data-detail
-														aria-haspopup="dialog"
-														aria-controls="forminator-submission-views-demo--submission-detail"
-														aria-label="View detail for Ava Thompson"
+													<span
+														class="forminator-submission-views__row-actions"
+														><button
+															type="button"
+															data-detail
+															aria-haspopup="dialog"
+															aria-controls="forminator-submission-views-demo--submission-detail"
+															aria-label="View detail for Ava Thompson"
+														>
+															View detail
+														</button>
+														<button
+															type="button"
+															class="forminator-submission-views__delete"
+															data-delete
+															aria-label="Delete submission for Ava Thompson"
+														>
+															Delete
+														</button></span
 													>
-														View detail
-													</button>
 												</td>
 											</tr>
 											<tr data-id="forminator-submission-views-demo--28">
@@ -348,15 +384,26 @@
 												<td
 													class="forminator-submission-views__detail-cell"
 												>
-													<button
-														type="button"
-														data-detail
-														aria-haspopup="dialog"
-														aria-controls="forminator-submission-views-demo--submission-detail"
-														aria-label="View detail for Liam Patel"
+													<span
+														class="forminator-submission-views__row-actions"
+														><button
+															type="button"
+															data-detail
+															aria-haspopup="dialog"
+															aria-controls="forminator-submission-views-demo--submission-detail"
+															aria-label="View detail for Liam Patel"
+														>
+															View detail
+														</button>
+														<button
+															type="button"
+															class="forminator-submission-views__delete"
+															data-delete
+															aria-label="Delete submission for Liam Patel"
+														>
+															Delete
+														</button></span
 													>
-														View detail
-													</button>
 												</td>
 											</tr>
 											<tr data-id="forminator-submission-views-demo--29">
@@ -374,15 +421,26 @@
 												<td
 													class="forminator-submission-views__detail-cell"
 												>
-													<button
-														type="button"
-														data-detail
-														aria-haspopup="dialog"
-														aria-controls="forminator-submission-views-demo--submission-detail"
-														aria-label="View detail for Sofia Rossi"
+													<span
+														class="forminator-submission-views__row-actions"
+														><button
+															type="button"
+															data-detail
+															aria-haspopup="dialog"
+															aria-controls="forminator-submission-views-demo--submission-detail"
+															aria-label="View detail for Sofia Rossi"
+														>
+															View detail
+														</button>
+														<button
+															type="button"
+															class="forminator-submission-views__delete"
+															data-delete
+															aria-label="Delete submission for Sofia Rossi"
+														>
+															Delete
+														</button></span
 													>
-														View detail
-													</button>
 												</td>
 											</tr>
 											<tr data-id="forminator-submission-views-demo--30">
@@ -406,15 +464,26 @@
 												<td
 													class="forminator-submission-views__detail-cell"
 												>
-													<button
-														type="button"
-														data-detail
-														aria-haspopup="dialog"
-														aria-controls="forminator-submission-views-demo--submission-detail"
-														aria-label="View detail for Noah Williams"
+													<span
+														class="forminator-submission-views__row-actions"
+														><button
+															type="button"
+															data-detail
+															aria-haspopup="dialog"
+															aria-controls="forminator-submission-views-demo--submission-detail"
+															aria-label="View detail for Noah Williams"
+														>
+															View detail
+														</button>
+														<button
+															type="button"
+															class="forminator-submission-views__delete"
+															data-delete
+															aria-label="Delete submission for Noah Williams"
+														>
+															Delete
+														</button></span
 													>
-														View detail
-													</button>
 												</td>
 											</tr>
 											<tr data-id="forminator-submission-views-demo--31">
@@ -435,15 +504,26 @@
 												<td
 													class="forminator-submission-views__detail-cell"
 												>
-													<button
-														type="button"
-														data-detail
-														aria-haspopup="dialog"
-														aria-controls="forminator-submission-views-demo--submission-detail"
-														aria-label="View detail for Mia Chen"
+													<span
+														class="forminator-submission-views__row-actions"
+														><button
+															type="button"
+															data-detail
+															aria-haspopup="dialog"
+															aria-controls="forminator-submission-views-demo--submission-detail"
+															aria-label="View detail for Mia Chen"
+														>
+															View detail
+														</button>
+														<button
+															type="button"
+															class="forminator-submission-views__delete"
+															data-delete
+															aria-label="Delete submission for Mia Chen"
+														>
+															Delete
+														</button></span
 													>
-														View detail
-													</button>
 												</td>
 											</tr>
 											<tr data-id="forminator-submission-views-demo--32">
@@ -469,15 +549,26 @@
 												<td
 													class="forminator-submission-views__detail-cell"
 												>
-													<button
-														type="button"
-														data-detail
-														aria-haspopup="dialog"
-														aria-controls="forminator-submission-views-demo--submission-detail"
-														aria-label="View detail for Oliver Brown"
+													<span
+														class="forminator-submission-views__row-actions"
+														><button
+															type="button"
+															data-detail
+															aria-haspopup="dialog"
+															aria-controls="forminator-submission-views-demo--submission-detail"
+															aria-label="View detail for Oliver Brown"
+														>
+															View detail
+														</button>
+														<button
+															type="button"
+															class="forminator-submission-views__delete"
+															data-delete
+															aria-label="Delete submission for Oliver Brown"
+														>
+															Delete
+														</button></span
 													>
-														View detail
-													</button>
 												</td>
 											</tr>
 											<tr data-id="forminator-submission-views-demo--33">
@@ -495,15 +586,26 @@
 												<td
 													class="forminator-submission-views__detail-cell"
 												>
-													<button
-														type="button"
-														data-detail
-														aria-haspopup="dialog"
-														aria-controls="forminator-submission-views-demo--submission-detail"
-														aria-label="View detail for Amara Johnson"
+													<span
+														class="forminator-submission-views__row-actions"
+														><button
+															type="button"
+															data-detail
+															aria-haspopup="dialog"
+															aria-controls="forminator-submission-views-demo--submission-detail"
+															aria-label="View detail for Amara Johnson"
+														>
+															View detail
+														</button>
+														<button
+															type="button"
+															class="forminator-submission-views__delete"
+															data-delete
+															aria-label="Delete submission for Amara Johnson"
+														>
+															Delete
+														</button></span
 													>
-														View detail
-													</button>
 												</td>
 											</tr>
 											<tr data-id="forminator-submission-views-demo--34">
@@ -528,15 +630,26 @@
 												<td
 													class="forminator-submission-views__detail-cell"
 												>
-													<button
-														type="button"
-														data-detail
-														aria-haspopup="dialog"
-														aria-controls="forminator-submission-views-demo--submission-detail"
-														aria-label="View detail for Ethan Garcia"
+													<span
+														class="forminator-submission-views__row-actions"
+														><button
+															type="button"
+															data-detail
+															aria-haspopup="dialog"
+															aria-controls="forminator-submission-views-demo--submission-detail"
+															aria-label="View detail for Ethan Garcia"
+														>
+															View detail
+														</button>
+														<button
+															type="button"
+															class="forminator-submission-views__delete"
+															data-delete
+															aria-label="Delete submission for Ethan Garcia"
+														>
+															Delete
+														</button></span
 													>
-														View detail
-													</button>
 												</td>
 											</tr>
 											<tr data-id="forminator-submission-views-demo--35">
@@ -554,15 +667,26 @@
 												<td
 													class="forminator-submission-views__detail-cell"
 												>
-													<button
-														type="button"
-														data-detail
-														aria-haspopup="dialog"
-														aria-controls="forminator-submission-views-demo--submission-detail"
-														aria-label="View detail for Isabella Silva"
+													<span
+														class="forminator-submission-views__row-actions"
+														><button
+															type="button"
+															data-detail
+															aria-haspopup="dialog"
+															aria-controls="forminator-submission-views-demo--submission-detail"
+															aria-label="View detail for Isabella Silva"
+														>
+															View detail
+														</button>
+														<button
+															type="button"
+															class="forminator-submission-views__delete"
+															data-delete
+															aria-label="Delete submission for Isabella Silva"
+														>
+															Delete
+														</button></span
 													>
-														View detail
-													</button>
 												</td>
 											</tr>
 											<tr data-id="forminator-submission-views-demo--36">
@@ -587,15 +711,26 @@
 												<td
 													class="forminator-submission-views__detail-cell"
 												>
-													<button
-														type="button"
-														data-detail
-														aria-haspopup="dialog"
-														aria-controls="forminator-submission-views-demo--submission-detail"
-														aria-label="View detail for Lucas Martin"
+													<span
+														class="forminator-submission-views__row-actions"
+														><button
+															type="button"
+															data-detail
+															aria-haspopup="dialog"
+															aria-controls="forminator-submission-views-demo--submission-detail"
+															aria-label="View detail for Lucas Martin"
+														>
+															View detail
+														</button>
+														<button
+															type="button"
+															class="forminator-submission-views__delete"
+															data-delete
+															aria-label="Delete submission for Lucas Martin"
+														>
+															Delete
+														</button></span
 													>
-														View detail
-													</button>
 												</td>
 											</tr>
 											<tr data-id="forminator-submission-views-demo--37">
@@ -619,15 +754,26 @@
 												<td
 													class="forminator-submission-views__detail-cell"
 												>
-													<button
-														type="button"
-														data-detail
-														aria-haspopup="dialog"
-														aria-controls="forminator-submission-views-demo--submission-detail"
-														aria-label="View detail for نور أحمد"
+													<span
+														class="forminator-submission-views__row-actions"
+														><button
+															type="button"
+															data-detail
+															aria-haspopup="dialog"
+															aria-controls="forminator-submission-views-demo--submission-detail"
+															aria-label="View detail for نور أحمد"
+														>
+															View detail
+														</button>
+														<button
+															type="button"
+															class="forminator-submission-views__delete"
+															data-delete
+															aria-label="Delete submission for نور أحمد"
+														>
+															Delete
+														</button></span
 													>
-														View detail
-													</button>
 												</td>
 											</tr>
 											<tr data-id="forminator-submission-views-demo--38">
@@ -646,15 +792,26 @@
 												<td
 													class="forminator-submission-views__detail-cell"
 												>
-													<button
-														type="button"
-														data-detail
-														aria-haspopup="dialog"
-														aria-controls="forminator-submission-views-demo--submission-detail"
-														aria-label="View detail for יעל כהן"
+													<span
+														class="forminator-submission-views__row-actions"
+														><button
+															type="button"
+															data-detail
+															aria-haspopup="dialog"
+															aria-controls="forminator-submission-views-demo--submission-detail"
+															aria-label="View detail for יעל כהן"
+														>
+															View detail
+														</button>
+														<button
+															type="button"
+															class="forminator-submission-views__delete"
+															data-delete
+															aria-label="Delete submission for יעל כהן"
+														>
+															Delete
+														</button></span
 													>
-														View detail
-													</button>
 												</td>
 											</tr>
 											<tr data-id="forminator-submission-views-demo--39">
@@ -673,15 +830,26 @@
 												<td
 													class="forminator-submission-views__detail-cell"
 												>
-													<button
-														type="button"
-														data-detail
-														aria-haspopup="dialog"
-														aria-controls="forminator-submission-views-demo--submission-detail"
-														aria-label="View detail for Harper Wilson"
+													<span
+														class="forminator-submission-views__row-actions"
+														><button
+															type="button"
+															data-detail
+															aria-haspopup="dialog"
+															aria-controls="forminator-submission-views-demo--submission-detail"
+															aria-label="View detail for Harper Wilson"
+														>
+															View detail
+														</button>
+														<button
+															type="button"
+															class="forminator-submission-views__delete"
+															data-delete
+															aria-label="Delete submission for Harper Wilson"
+														>
+															Delete
+														</button></span
 													>
-														View detail
-													</button>
 												</td>
 											</tr>
 											<tr data-id="forminator-submission-views-demo--40">
@@ -706,15 +874,26 @@
 												<td
 													class="forminator-submission-views__detail-cell"
 												>
-													<button
-														type="button"
-														data-detail
-														aria-haspopup="dialog"
-														aria-controls="forminator-submission-views-demo--submission-detail"
-														aria-label="View detail for Arjun Mehta"
+													<span
+														class="forminator-submission-views__row-actions"
+														><button
+															type="button"
+															data-detail
+															aria-haspopup="dialog"
+															aria-controls="forminator-submission-views-demo--submission-detail"
+															aria-label="View detail for Arjun Mehta"
+														>
+															View detail
+														</button>
+														<button
+															type="button"
+															class="forminator-submission-views__delete"
+															data-delete
+															aria-label="Delete submission for Arjun Mehta"
+														>
+															Delete
+														</button></span
 													>
-														View detail
-													</button>
 												</td>
 											</tr>
 											<tr data-id="forminator-submission-views-demo--41">
@@ -736,15 +915,26 @@
 												<td
 													class="forminator-submission-views__detail-cell"
 												>
-													<button
-														type="button"
-														data-detail
-														aria-haspopup="dialog"
-														aria-controls="forminator-submission-views-demo--submission-detail"
-														aria-label="View detail for Chloe Dubois"
+													<span
+														class="forminator-submission-views__row-actions"
+														><button
+															type="button"
+															data-detail
+															aria-haspopup="dialog"
+															aria-controls="forminator-submission-views-demo--submission-detail"
+															aria-label="View detail for Chloe Dubois"
+														>
+															View detail
+														</button>
+														<button
+															type="button"
+															class="forminator-submission-views__delete"
+															data-delete
+															aria-label="Delete submission for Chloe Dubois"
+														>
+															Delete
+														</button></span
 													>
-														View detail
-													</button>
 												</td>
 											</tr>
 											<tr data-id="forminator-submission-views-demo--42">
@@ -768,15 +958,26 @@
 												<td
 													class="forminator-submission-views__detail-cell"
 												>
-													<button
-														type="button"
-														data-detail
-														aria-haspopup="dialog"
-														aria-controls="forminator-submission-views-demo--submission-detail"
-														aria-label="View detail for Benjamin Lee"
+													<span
+														class="forminator-submission-views__row-actions"
+														><button
+															type="button"
+															data-detail
+															aria-haspopup="dialog"
+															aria-controls="forminator-submission-views-demo--submission-detail"
+															aria-label="View detail for Benjamin Lee"
+														>
+															View detail
+														</button>
+														<button
+															type="button"
+															class="forminator-submission-views__delete"
+															data-delete
+															aria-label="Delete submission for Benjamin Lee"
+														>
+															Delete
+														</button></span
 													>
-														View detail
-													</button>
 												</td>
 											</tr>
 										</tbody>
@@ -895,6 +1096,48 @@
 									</div>
 								</div>
 								<div class="forminator-submission-views__panel-body"></div>
+								<div class="forminator-submission-views__panel-footer">
+									<button
+										type="button"
+										class="forminator-submission-views__delete"
+										data-delete
+										disabled
+									>
+										Delete
+									</button>
+								</div>
+							</dialog>
+							<dialog
+								class="forminator-submission-views__delete-dialog"
+								data-delete-dialog
+								role="alertdialog"
+								aria-labelledby="forminator-submission-views-demo--delete-title"
+								aria-describedby="forminator-submission-views-demo--delete-description"
+							>
+								<div
+									class="forminator-submission-views__delete-icon"
+									aria-hidden="true"
+								>
+									<i class="forminator-icon-delete" aria-hidden="true"></i>
+								</div>
+								<div class="forminator-submission-views__delete-content">
+									<h2
+										id="forminator-submission-views-demo--delete-title"
+										class="forminator-submission-views__delete-title"
+									>
+										Delete submission?
+									</h2>
+									<p id="forminator-submission-views-demo--delete-description">
+										Are you sure want to delete this submission? This action
+										cannot be undone.
+									</p>
+								</div>
+								<div class="forminator-submission-views__delete-actions">
+									<button type="button" data-delete-cancel autofocus>
+										Cancel
+									</button>
+									<button type="button" data-delete-confirm>Delete</button>
+								</div>
 							</dialog>
 						</section>
 					</div>

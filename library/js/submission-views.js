@@ -25,11 +25,13 @@
 		const selector = '.forminator-submission-views__';
 		const table = view.querySelector( 'table' );
 		const scroll = view.querySelector( selector + 'scroll' );
-		const panel = view.querySelector( 'dialog' );
+		const panel = view.querySelector( selector + 'panel' );
+		const deleteDialog = view.querySelector( '[data-delete-dialog]' );
+		const sidebarDelete = panel ? panel.querySelector( '[data-delete]' ) : null;
 		const panelBody = view.querySelector( selector + 'panel-body' );
 		const columnOptions = view.querySelector( '[data-columns]' );
-		const downloadButton = view.querySelector( '[data-download]' );
-		const downloadSelect = view.querySelector( '[data-download-select]' );
+		const columnsButton = view.querySelector( '[data-columns-toggle]' );
+		const originalColumnStyle = columnOptions ? columnOptions.getAttribute( 'style' ) : null;
 
 		if ( ! table || ! table.tHead || ! table.tHead.rows.length || ! scroll ) {
 			return;
@@ -39,6 +41,7 @@
 		const listeners = [];
 		const boundHandles = new WeakSet();
 		const handleAttributes = new Map();
+		const originalColumnDisabled = new Map();
 		const widths = new Map();
 		const originalColgroup = table.querySelector( 'colgroup' );
 		const colgroup = originalColgroup || document.createElement( 'colgroup' );
@@ -50,6 +53,9 @@
 		let maxColumnWidth = 1200;
 		let resizing;
 		let opener;
+		let activeSubmissionId;
+		let pendingDelete;
+		let deleteConfirmed = false;
 		let closeTimer;
 		let observer;
 		let directionObserver;
@@ -92,7 +98,7 @@
 		}
 
 		function detailWidth() {
-			return readWidth( 'detail-column-width', 120 );
+			return readWidth( 'detail-column-width', 180 );
 		}
 
 		function updateScrollState() {
@@ -141,6 +147,7 @@
 			});
 			colgroup.replaceChildren( ...columns );
 			table.style.setProperty( '--forminator-submission-views-data-column-count', dataColumns.length );
+			table.style.setProperty( '--forminator-submission-views-action-column-width', visibleHeaders.some( header => ! isDataColumn( header ) ) ? actionWidth + 'px' : '0px' );
 			table.style.tableLayout = 'fixed';
 			table.style.width = Math.max( scroll.clientWidth, totalWidth ) + 'px';
 			updateScrollState();
@@ -394,6 +401,8 @@
 			const emptyValue = undefined === submission.emptyValue ? '—' : String( submission.emptyValue );
 			const fields = renderFields( submission.fields, emptyValue, false );
 			title.textContent = submission.title.trim();
+			activeSubmissionId = submission.id;
+			updateSidebarDelete();
 			panelBody.replaceChildren( fields );
 			panelBody.scrollTop = 0;
 			return true;
@@ -405,6 +414,11 @@
 				return;
 			}
 			opener = trigger || document.activeElement;
+			const row = trigger && trigger.closest( 'tr' );
+			if ( row ) {
+				activeSubmissionId = row.dataset.id;
+			}
+			updateSidebarDelete();
 			panel.dataset.state = 'closed';
 			panel.showModal();
 
@@ -483,6 +497,8 @@
 			emit( 'close', {});
 			if ( opener && opener.isConnected ) {
 				opener.focus();
+			} else {
+				focusAvailableControl();
 			}
 		}
 
@@ -527,65 +543,200 @@
 			}
 		}
 
-		function toggleColumnOptions( event, button ) {
+		function setColumnOptionsOpen( open, restoreFocus ) {
+			if ( ! columnOptions || ! columnsButton ) {
+				return;
+			}
+			columnOptions.hidden = ! open;
+			columnsButton.setAttribute( 'aria-expanded', String( open ) );
+			if ( open ) {
+				positionColumnOptions();
+				const checkbox = columnOptions.querySelector( 'input:not(:disabled)' );
+				if ( checkbox ) {
+					checkbox.focus({ preventScroll: true });
+				}
+			} else if ( restoreFocus ) {
+				columnsButton.focus();
+			}
+		}
+
+		function positionColumnOptions() {
+			const anchor = columnsButton.getBoundingClientRect();
+			const below = window.innerHeight - anchor.bottom - 16;
+			const above = anchor.top - 16;
+			const placeAbove = 200 > below && above > below;
+			columnOptions.dataset.placement = placeAbove ? 'top' : 'bottom';
+			columnOptions.style.maxHeight = Math.max( 80, Math.min( readWidth( 'columns-max-height', 360 ), placeAbove ? above : below ) ) + 'px';
+			columnOptions.style.transform = '';
+			const bounds = columnOptions.getBoundingClientRect();
+			const offset = Math.max( 8 - bounds.left, Math.min( 0, document.documentElement.clientWidth - 8 - bounds.right ) );
+			columnOptions.style.transform = 'translateX(' + offset + 'px)';
+		}
+
+		function toggleColumnOptions() {
+			if ( columnOptions ) {
+				setColumnOptionsOpen( columnOptions.hidden, false );
+			}
+		}
+
+		function dismissColumnOptions( event ) {
+			if ( ! columnOptions || ! columnsButton || columnOptions.hidden ) {
+				return;
+			}
+			if ( ! columnOptions.contains( event.target ) && ! columnsButton.contains( event.target ) ) {
+				setColumnOptionsOpen( false, false );
+			}
+		}
+
+		function handleColumnOptionsKeydown( event ) {
+			if ( 'Escape' === event.key && columnOptions && ! columnOptions.hidden ) {
+				event.preventDefault();
+				setColumnOptionsOpen( false, true );
+			}
+		}
+
+		function updateSidebarDelete() {
+			if ( sidebarDelete ) {
+				sidebarDelete.disabled = undefined === activeSubmissionId || null === activeSubmissionId;
+			}
+		}
+
+		function requestDelete( event, trigger ) {
+			if ( ! deleteDialog || deleteDialog.open || pendingDelete ) {
+				return;
+			}
+			const row = trigger.closest( 'tr' );
+			const fromSidebar = panel && panel.contains( trigger );
+			const id = row ? row.dataset.id : activeSubmissionId;
+			if ( undefined === id || null === id || ( ! row && ! fromSidebar ) ) {
+				return;
+			}
+			pendingDelete = { id, trigger, source: fromSidebar ? 'sidebar' : 'table' };
+			deleteConfirmed = false;
+			setColumnOptionsOpen( false, false );
+			deleteDialog.showModal();
+			const cancel = deleteDialog.querySelector( '[data-delete-cancel]' );
+			if ( cancel ) {
+				cancel.focus();
+			}
+		}
+
+		function cancelDelete( event ) {
+			if ( event ) {
+				event.preventDefault();
+			}
+			if ( deleteDialog && deleteDialog.open ) {
+				deleteDialog.close();
+			}
+		}
+
+		function confirmDelete() {
+			if ( ! deleteDialog || ! deleteDialog.open || ! pendingDelete || deleteConfirmed ) {
+				return;
+			}
+			deleteConfirmed = true;
+			const request = pendingDelete;
+			deleteDialog.close();
+			if ( 'sidebar' === request.source ) {
+				closePanel();
+			}
+
+			// No record is removed by FUI. Forminator handles the confirmed request.
+			emit( 'delete', request );
+		}
+
+		function handleDeleteDialogClosed() {
+			const trigger = pendingDelete && pendingDelete.trigger;
+			if ( ! deleteConfirmed && trigger && trigger.isConnected ) {
+				trigger.focus();
+			} else if ( ! panel || ! panel.open ) {
+				focusAvailableControl();
+			}
+			pendingDelete = null;
+		}
+
+		function focusAvailableControl() {
+			const action = view.querySelector( 'tbody tr:not([hidden]) td:not([hidden]) [data-detail]' );
+			const search = view.querySelector( '[type="search"]' );
+			const target = action || search;
+			if ( target ) {
+				target.focus();
+			}
+		}
+
+		function bindDeleteDialogEvents() {
+			if ( ! deleteDialog ) {
+				return;
+			}
+			listen( deleteDialog, 'cancel', cancelDelete );
+			listen( deleteDialog, 'close', handleDeleteDialogClosed );
+			delegate( 'click', '[data-delete-cancel]', cancelDelete );
+			delegate( 'click', '[data-delete-confirm]', confirmDelete );
+		}
+
+		function setColumnVisible( index, visible ) {
+			Array.from( table.rows ).forEach( function( row ) {
+				if ( row.cells[index]) {
+					row.cells[index].hidden = ! visible;
+				}
+			});
+		}
+
+		function updateColumnOptions() {
+			const dataColumns = headers.filter( isDataColumn );
+			let visibleColumns = dataColumns.filter( isVisibleColumn );
+			if ( ! visibleColumns.length && dataColumns.length ) {
+				setColumnVisible( headers.indexOf( dataColumns[0]), true );
+				visibleColumns = [ dataColumns[0] ];
+			}
 			if ( ! columnOptions ) {
 				return;
 			}
-			columnOptions.hidden = ! columnOptions.hidden;
-			button.setAttribute( 'aria-expanded', String( ! columnOptions.hidden ) );
+			columnOptions.querySelectorAll( '[data-column]' ).forEach( function( input ) {
+				const header = headers[Number( input.dataset.column )];
+				if ( ! header || ! isDataColumn( header ) ) {
+					return;
+				}
+				if ( ! originalColumnDisabled.has( input ) ) {
+					originalColumnDisabled.set( input, input.disabled );
+				}
+				input.checked = ! header.hidden;
+				input.disabled = originalColumnDisabled.get( input ) || ( input.checked && 1 === visibleColumns.length );
+			});
 		}
 
 		function changeColumnVisibility( event, input ) {
 			const index = Number( input.dataset.column );
-			if ( ! Number.isInteger( index ) || 0 > index || index >= headers.length - 1 ) {
+			if ( ! Number.isInteger( index ) || ! headers[index] || ! isDataColumn( headers[index]) ) {
 				return;
 			}
-			Array.from( table.rows ).forEach( function( row ) {
-				if ( row.cells[index]) {
-					row.cells[index].hidden = ! input.checked;
-				}
-			});
+			const visibleColumns = headers.filter( isDataColumn ).filter( isVisibleColumn );
+			if ( ! input.checked && ! headers[index].hidden && 1 === visibleColumns.length ) {
+				updateColumnOptions();
+				return;
+			}
+			setColumnVisible( index, input.checked );
+			updateColumnOptions();
 			applyColumnWidths();
 			emit( 'columns', { index, visible: input.checked });
 		}
 
-		function showDownloadFormats() {
-			if ( ! downloadSelect ) {
-				return;
-			}
-			if ( 'function' === typeof downloadSelect.showPicker ) {
-				try {
-					downloadSelect.showPicker();
-					return;
-				} catch ( error ) {
-
-					// Some browsers expose showPicker but do not allow it in this context.
-				}
-			}
-			downloadSelect.focus();
-			downloadSelect.click();
-		}
-
-		function requestExport( event, select ) {
-			const format = select.value;
-			select.value = '';
-			if ( downloadButton ) {
-				downloadButton.focus();
-			}
-			if ( format ) {
-				emit( 'export', { format });
-			}
+		function requestExport() {
+			emit( 'export', { format: 'csv' });
 		}
 
 		function bindControlEvents() {
 			delegate( 'click', '[data-detail]', requestDetail );
+			delegate( 'click', '[data-delete]', requestDelete );
+			listen( document, 'pointerdown', dismissColumnOptions );
+			listen( document, 'focusin', dismissColumnOptions );
+			listen( view, 'keydown', handleColumnOptionsKeydown );
 			delegate( 'input', '[type="search"]', requestSearch );
 			delegate( 'change', '[data-page-size]', requestPageSize );
 			delegate( 'click', '[data-page]', requestPage );
 			delegate( 'click', '[data-columns-toggle]', toggleColumnOptions );
 			delegate( 'change', '[data-column]', changeColumnVisibility );
-			delegate( 'click', '[data-download]', showDownloadFormats );
-			delegate( 'change', '[data-download-select]', requestExport );
+			delegate( 'click', '[data-download]', requestExport );
 		}
 
 		// Instance lifecycle.
@@ -600,6 +751,7 @@
 				const savedWidth = widths.get( header ) || minColumnWidth;
 				widths.set( header, Math.max( minColumnWidth, savedWidth ) );
 			});
+			updateColumnOptions();
 			bindResizeHandles();
 			applyColumnWidths();
 		}
@@ -609,12 +761,28 @@
 				return;
 			}
 			destroyed = true;
+			pendingDelete = null;
+			if ( deleteDialog && deleteDialog.open ) {
+				deleteDialog.close();
+			}
+			setColumnOptionsOpen( false, false );
+			if ( columnOptions ) {
+				delete columnOptions.dataset.placement;
+				if ( null === originalColumnStyle ) {
+					columnOptions.removeAttribute( 'style' );
+				} else {
+					columnOptions.setAttribute( 'style', originalColumnStyle );
+				}
+			}
 			clearTimeout( closeTimer );
 			if ( observer ) {
 				observer.disconnect();
 			}
 			directionObserver.disconnect();
 			listeners.forEach( ( remove ) => remove() );
+			originalColumnDisabled.forEach( function( disabled, input ) {
+				input.disabled = disabled;
+			});
 			handleAttributes.forEach( ( attributes, handle ) => {
 				attributes.forEach( ([ name, value ]) => {
 					if ( null === value ) {
@@ -682,6 +850,7 @@
 				table.insertBefore( colgroup, table.tHead );
 			}
 			bindPanelEvents();
+			bindDeleteDialogEvents();
 			bindControlEvents();
 			refresh();
 			observeLayout();
