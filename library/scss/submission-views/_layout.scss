@@ -1,0 +1,23 @@
+// Component partials define scoped mixins; this file assembles the Views layout.
+@import "mixins";
+@import "variables";
+@import "base";
+@import "controls";
+@import "table";
+@import "navigation";
+@import "sidebar";
+@import "close-button";
+@import "delete-dialog";
+
+@include body-class(submission-views, no-theme) {
+	$block: ".forminator-submission-views";
+
+	@include submission-views-variables();
+	@include submission-views-base($block);
+	@include submission-views-controls($block);
+	@include submission-views-table($block);
+	@include submission-views-navigation($block);
+	@include submission-views-sidebar($block);
+	@include submission-views-close-button($block);
+	@include submission-views-delete-dialog($block);
+}

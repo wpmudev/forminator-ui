@@ -1,0 +1,188 @@
+@mixin submission-views-table($block) {
+	#{$block} {
+		// The optional frame stays outside the horizontal scrollport.
+		&__frame {
+			min-width: 0;
+			border: var(--forminator-submission-views-frame-border);
+		}
+
+		&__scroll {
+			@include thin-scrollbar(
+				var(--forminator-submission-views-scrollbar-thumb),
+				var(--forminator-submission-views-scrollbar-thumb-hover),
+				var(--forminator-submission-views-scrollbar-radius)
+			);
+
+			max-width: 100%;
+			max-height: var(--forminator-submission-views-table-max-height);
+			overflow: auto;
+			isolation: isolate;
+
+			&[data-scrollable] {
+				#{$block}__detail-cell {
+					position: sticky;
+					inset-inline-end: calc(-1 * var(--forminator-submission-views-sticky-action-offset));
+					z-index: 1;
+				}
+			}
+
+			&[data-content-behind] {
+
+				// Only body action cells need a surface and shadow over scrolling content.
+				tbody #{$block}__detail-cell {
+					background: var(
+						--forminator-submission-views-sticky-background,
+						var(--forminator-submission-views-surface)
+					);
+					box-shadow: var(--forminator-submission-views-sticky-shadow);
+				}
+			}
+		}
+
+		&__table {
+			font-size: var(--forminator-submission-views-font-size);
+			line-height: var(--forminator-submission-views-line-height);
+			width: 100%;
+			table-layout: fixed;
+			min-width: max(
+				var(--forminator-submission-views-table-min-width),
+				calc(
+					var(--forminator-submission-views-data-column-count) *
+						var(--forminator-submission-views-column-min-width) +
+						var(
+							--forminator-submission-views-action-column-width,
+							var(--forminator-submission-views-detail-column-width)
+						)
+				)
+			);
+			border-collapse: separate;
+			border-spacing: 0;
+			border: 0;
+			margin: 0;
+			overflow: unset;
+
+			// Keep the complete header row together above scrolling body cells.
+			thead {
+				position: sticky;
+				inset-block-start: 0;
+				z-index: 2;
+				background: var(
+					--forminator-submission-views-header-background,
+					var(--forminator-submission-views-surface)
+				);
+			}
+
+			tr {
+				background: var(--forminator-submission-views-row-background);
+			}
+
+			// Structural defaults use the inherited text color; no palette is assigned.
+			th,
+			td {
+				min-width: var(--forminator-submission-views-column-min-width);
+				font-size: var(--forminator-submission-views-font-size);
+				line-height: var(--forminator-submission-views-line-height);
+				padding: var(--forminator-submission-views-cell-padding);
+				border: 0;
+				border-block-end: var(--forminator-submission-views-cell-border);
+				border-color: var(--forminator-submission-views-cell-border-color, inherit);
+				color: var(--forminator-submission-views-cell-color, inherit);
+				background: var(--forminator-submission-views-cell-background);
+				text-align: start;
+				vertical-align: top;
+				overflow-wrap: anywhere;
+			}
+
+			th {
+				color: var(--forminator-submission-views-header-color, inherit);
+				background: var(--forminator-submission-views-header-background);
+				font-size: var(--forminator-submission-views-header-font-size);
+			}
+
+			thead #{$block}__detail-cell {
+				pointer-events: none;
+			}
+
+			// Pagination may leave hidden rows after the last displayed submission.
+			tbody tr:not([hidden]):not(:has(~ tr:not([hidden]))) td {
+				border-block-end: 0;
+			}
+
+			#{$block}__detail-cell {
+				width: var(--forminator-submission-views-detail-column-width);
+				min-width: var(--forminator-submission-views-detail-column-width);
+				text-align: center;
+				vertical-align: middle;
+				white-space: nowrap;
+
+				button {
+					font-size: var(--forminator-submission-views-detail-font-size);
+					line-height: var(--forminator-submission-views-line-height);
+					border: 0;
+					padding: 0;
+					text-decoration: underline;
+					color: var(--forminator-submission-views-detail-color, inherit);
+					background: var(--forminator-submission-views-detail-background);
+				}
+			}
+
+			#{$block}__row-actions {
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				gap: var(--forminator-submission-views-row-actions-gap);
+			}
+
+			button#{$block}__delete {
+				color: var(--forminator-submission-views-delete-color);
+			}
+
+			th[data-resizable] {
+				position: relative;
+			}
+		}
+
+		&__resize-handle {
+			display: var(--forminator-submission-views-resize-handle-display);
+			position: absolute;
+			inset-block: 0;
+			inset-inline-end: 0;
+			width: var(--forminator-submission-views-resize-handle-width);
+			cursor: col-resize;
+			touch-action: none;
+			user-select: none;
+
+			&::after {
+				content: "";
+				position: absolute;
+				width: var(--forminator-submission-views-resize-divider-width);
+				background: var(--forminator-submission-views-resize-handle-color);
+				height: var(--forminator-submission-views-resize-divider-height);
+				top: 50%;
+				inset-inline-end: 0;
+				transform: translateY(-50%);
+			}
+
+			&:focus-visible {
+				outline: 2px solid Highlight;
+				outline-offset: -2px;
+			}
+		}
+	}
+
+	@media (hover: hover) and (pointer: fine) {
+		#{$block}__table #{$block}__detail-cell button#{$block}__delete:not(:disabled):hover {
+			color: var(--forminator-submission-views-delete-hover-color);
+		}
+
+		#{$block}__resize-handle:hover::after {
+			width: var(--forminator-submission-views-resize-divider-hover-width);
+			background: var(--forminator-submission-views-resize-handle-hover-color);
+		}
+	}
+
+	&[data-column-resizing] {
+		user-select: none;
+		cursor: col-resize;
+	}
+}

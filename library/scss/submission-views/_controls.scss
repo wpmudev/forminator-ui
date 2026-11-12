@@ -1,0 +1,152 @@
+@mixin submission-views-controls($block) {
+	// Basic control geometry; colors and backgrounds come from the host theme.
+	#{$block} {
+		&__page-status {
+			margin: var(--forminator-submission-views-page-status-margin);
+		}
+
+		&__search {
+			margin: 0;
+
+			input {
+				@include _submission-views-control;
+			}
+		}
+
+		&__actions,
+		&__columns,
+		&__download,
+		&__pagination {
+			> button {
+				@include _submission-views-control;
+
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				gap: var(--forminator-submission-views-control-gap);
+			}
+		}
+
+		&__button-icon,
+		&__pagination-icon,
+		&__page-size-icon {
+			@include _submission-views-icon-box;
+		}
+
+		&__download {
+			position: relative;
+			display: inline-flex;
+			flex: 0 0 auto;
+
+		}
+
+		&__button-icon,
+		&__pagination-icon {
+			flex-shrink: 0;
+			font-size: var(--forminator-submission-views-button-icon-size);
+			line-height: 1;
+		}
+
+		&__pagination {
+			button {
+				padding: var(--forminator-submission-views-pagination-button-padding);
+			}
+		}
+	}
+
+	button {
+		cursor: pointer;
+		text-transform: unset;
+
+		&:disabled {
+			opacity: 0.7;
+			pointer-events: none;
+		}
+	}
+
+	#{$block} {
+		&__footer {
+			font-size: var(--forminator-submission-views-footer-font-size);
+			line-height: var(--forminator-submission-views-line-height);
+
+			> label {
+				display: inline-flex;
+				flex-wrap: wrap;
+				align-items: center;
+				gap: var(--forminator-submission-views-control-gap);
+				margin: 0;
+			}
+
+			> #{$block}__page-filter {
+				width: auto;
+				gap: var(--forminator-submission-views-page-filter-gap);
+				flex-wrap: nowrap;
+			}
+
+			#{$block}__page-filter {
+				#{$block}__page-size {
+					position: relative;
+					display: inline-flex;
+					flex: 0 0 auto;
+
+					select {
+						appearance: none;
+						width: auto;
+						min-width: 0;
+						height: auto;
+						margin: 0;
+						padding-block: var(--forminator-submission-views-page-size-padding);
+						padding-inline: var(--forminator-submission-views-page-size-padding-inline);
+						border: var(--forminator-submission-views-page-size-border);
+						border-radius: var(--forminator-submission-views-page-size-radius);
+						background: var(--forminator-submission-views-page-size-background);
+						border-color: var(--forminator-submission-views-page-size-border-color, inherit);
+						border-width: var(--forminator-submission-views-page-size-border-width, inherit);
+						box-shadow: none;
+						color: var(--forminator-submission-views-page-size-color, inherit);
+						font-size: var(--forminator-submission-views-footer-font-size);
+						line-height: var(--forminator-submission-views-line-height);
+						cursor: pointer;
+					}
+
+					#{$block}__page-size-icon {
+						position: absolute;
+						inset-inline-end: var(--forminator-submission-views-page-size-icon-offset);
+						top: 50%;
+						font-size: var(--forminator-submission-views-page-size-icon-size);
+						line-height: 1;
+						transform: translateY(-50%);
+						pointer-events: none;
+					}
+				}
+			}
+		}
+
+		&__toolbar,
+		&__footer,
+		&__actions,
+		&__pagination {
+			display: flex;
+			flex-wrap: wrap;
+			align-items: center;
+			gap: var(--forminator-submission-views-control-gap);
+			min-width: 0;
+		}
+
+		&__toolbar,
+		&__footer {
+			justify-content: space-between;
+		}
+
+		&__search {
+			flex: 1 1 var(--forminator-submission-views-search-width);
+			min-width: 0;
+
+			input {
+				max-width: 100%;
+				width: var(--forminator-submission-views-search-width);
+			}
+		}
+
+	}
+}

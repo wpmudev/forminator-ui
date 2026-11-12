@@ -1,0 +1,103 @@
+@mixin submission-views-close-button($block) {
+	#{$block} {
+
+		&__close-wrap {
+			position: relative;
+			flex-shrink: 0;
+		}
+
+		&__close {
+			border: 0;
+			border-radius: var(--forminator-submission-views-close-radius);
+			padding: var(--forminator-submission-views-close-padding);
+			background: var(--forminator-submission-views-close-background);
+			color: var(--forminator-submission-views-close-color);
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			width: var(--forminator-submission-views-close-size);
+			height: var(--forminator-submission-views-close-size);
+			min-width: var(--forminator-submission-views-close-size);
+			min-height: var(--forminator-submission-views-close-size);
+			line-height: 1;
+			touch-action: manipulation;
+			transition: background-color var(--forminator-submission-views-close-transition-duration) ease;
+
+			#{$block}__button-icon {
+				font-size: var(--forminator-submission-views-close-icon-size);
+			}
+
+			&:focus-visible {
+				+ #{$block}__tooltip {
+					opacity: 1;
+					visibility: visible;
+					transition: none;
+				}
+			}
+		}
+
+		&__tooltip {
+			position: absolute;
+			z-index: 2;
+			// Center on the button regardless of text direction.
+			left: 50%;
+			top: calc(100% + var(--forminator-submission-views-tooltip-offset));
+			transform: translateX(-50%);
+			padding: var(--forminator-submission-views-tooltip-padding);
+			background: var(--forminator-submission-views-tooltip-background);
+			color: var(--forminator-submission-views-tooltip-color);
+			border-radius: var(--forminator-submission-views-tooltip-radius);
+			box-shadow: var(--forminator-submission-views-tooltip-shadow);
+			font-size: var(--forminator-submission-views-tooltip-font-size);
+			line-height: var(--forminator-submission-views-tooltip-line-height);
+			white-space: nowrap;
+			pointer-events: none;
+			opacity: 0;
+			visibility: hidden;
+			transition:
+				opacity var(--forminator-submission-views-tooltip-transition-duration) cubic-bezier(0.23, 1, 0.32, 1),
+				visibility 0s var(--forminator-submission-views-tooltip-transition-duration);
+
+			&::before {
+				content: "";
+				position: absolute;
+				bottom: 100%;
+				left: 50%;
+				transform: translateX(-50%);
+				border-inline: var(--forminator-submission-views-tooltip-arrow-size) solid transparent;
+				border-bottom: var(--forminator-submission-views-tooltip-arrow-size) solid
+					var(--forminator-submission-views-tooltip-background);
+			}
+		}
+	}
+
+	@media (hover: hover) and (pointer: fine) {
+		#{$block} {
+			&__close:hover {
+				background: var(--forminator-submission-views-close-hover-background);
+
+				+ #{$block}__tooltip {
+					opacity: 1;
+					visibility: visible;
+					transition-delay: 0s;
+				}
+			}
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		#{$block} {
+			&__close {
+				transition-duration: var(--forminator-submission-views-reduced-motion-duration);
+			}
+
+			&__tooltip {
+				transition-duration: var(--forminator-submission-views-reduced-motion-duration), 0s;
+			}
+
+			&__close:not(:hover):not(:focus-visible) + #{$block}__tooltip {
+				transition-delay: 0s, var(--forminator-submission-views-reduced-motion-duration);
+			}
+		}
+	}
+}

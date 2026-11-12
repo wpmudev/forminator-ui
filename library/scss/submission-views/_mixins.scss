@@ -1,0 +1,22 @@
+@mixin _submission-views-control {
+	font-size: var(--forminator-submission-views-control-font-size);
+	line-height: var(--forminator-submission-views-line-height);
+	padding: var(--forminator-submission-views-control-padding);
+}
+
+@mixin _submission-views-icon-box {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	inline-size: 1em;
+	block-size: 1em;
+	flex-shrink: 0;
+	font-style: normal;
+	line-height: 1;
+	vertical-align: middle;
+
+	&::before {
+		display: block;
+		line-height: 1;
+	}
+}

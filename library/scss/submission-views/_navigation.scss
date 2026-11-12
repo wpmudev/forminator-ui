@@ -1,0 +1,87 @@
+@mixin submission-views-navigation($block) {
+	#{$block} {
+		&__pagination-icon {
+			// Keep glyph direction stable before applying the visual RTL mirror.
+			direction: ltr;
+			unicode-bidi: isolate;
+
+			> i {
+				@include _submission-views-icon-box;
+			}
+		}
+	}
+
+	&:dir(rtl) #{$block}__pagination-icon {
+		transform: scaleX(-1);
+	}
+
+	#{$block} {
+		&__columns {
+			position: relative;
+			display: inline-flex;
+		}
+
+		&__column-options {
+			@include thin-scrollbar;
+			position: absolute;
+			inset-inline-end: 0;
+			top: calc(100% + var(--forminator-submission-views-columns-offset));
+			z-index: 10;
+			width: min(var(--forminator-submission-views-columns-width), calc(100vw - 2 * var(--forminator-submission-views-columns-viewport-gutter)));
+			max-height: min(var(--forminator-submission-views-columns-max-height), 60vh);
+			overflow-y: auto;
+			padding: var(--forminator-submission-views-columns-padding);
+			border: var(--forminator-submission-views-columns-border);
+			border-radius: var(--forminator-submission-views-columns-radius);
+			background: var(--forminator-submission-views-columns-background);
+			color: var(--forminator-submission-views-columns-color);
+			box-shadow: var(--forminator-submission-views-columns-shadow);
+			font-size: var(--forminator-submission-views-columns-font-size);
+			line-height: var(--forminator-submission-views-columns-line-height);
+			text-align: start;
+
+			&[data-placement="top"] {
+				top: auto;
+				bottom: calc(100% + var(--forminator-submission-views-columns-offset));
+			}
+
+			label {
+				display: flex;
+				align-items: flex-start;
+				gap: var(--forminator-submission-views-columns-item-gap);
+				margin: 0;
+				padding: var(--forminator-submission-views-columns-item-padding);
+				color: inherit;
+				overflow-wrap: anywhere;
+				cursor: pointer;
+			}
+
+			input[type="checkbox"] {
+				appearance: auto;
+				flex: 0 0 var(--forminator-submission-views-columns-checkbox-size);
+				width: var(--forminator-submission-views-columns-checkbox-size);
+				height: var(--forminator-submission-views-columns-checkbox-size);
+				margin: var(--forminator-submission-views-columns-checkbox-margin);
+				padding: 0;
+				cursor: pointer;
+
+				&:disabled {
+					cursor: default;
+					opacity: 0.5;
+				}
+
+				&::before,
+				&::after {
+					content: none;
+				}
+			}
+		}
+
+		&__column-title {
+			margin: 0;
+			padding: var(--forminator-submission-views-columns-item-padding);
+			font-weight: var(--forminator-submission-views-columns-title-font-weight);
+			color: inherit;
+		}
+	}
+}

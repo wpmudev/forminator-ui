@@ -1,0 +1,1295 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+		<title>Forminator Views — Inherit theme</title>
+		<link rel="stylesheet" href="assets/css/public.min.css" />
+		<link rel="stylesheet" href="assets/css/forminator-icons.min.css" />
+		<link rel="stylesheet" href="assets/css/forminator-submission-views.min.css" />
+	</head>
+	<body class="sui-2-12-20">
+		<div id="showcase">
+			<div class="sui-wrap showcase-wrap">
+				<header class="showcase-header"></header>
+				<main class="showcase-content">
+					<div class="views-demo">
+						<h1>Views</h1>
+						<h2>Inherit theme</h2>
+						<section
+							id="forminator-submission-views-demo"
+							class="forminator-ui forminator-submission-views"
+							data-view-demo
+							aria-label="Form submissions"
+						>
+							<div class="forminator-submission-views__toolbar">
+								<label class="forminator-submission-views__search">
+									<span class="forminator-submission-views__sr-only">
+										Search submissions
+									</span>
+									<input class="forminator-submission-views__search-input" type="search" placeholder="Search" />
+								</label>
+								<div class="forminator-submission-views__actions">
+									<div class="forminator-submission-views__download">
+										<button class="forminator-submission-views__download-button" type="button" data-download>Download as CSV</button>
+									</div>
+									<div class="forminator-submission-views__columns">
+										<button class="forminator-submission-views__columns-toggle"
+											type="button"
+											data-columns-toggle
+											aria-expanded="false"
+											aria-controls="forminator-submission-views-demo--view-columns"
+										>
+											Manage columns
+											<i
+												class="forminator-icon-chevron-down-rounded forminator-submission-views__button-icon"
+												aria-hidden="true"
+											></i>
+										</button>
+										<div
+											id="forminator-submission-views-demo--view-columns"
+											class="forminator-submission-views__column-options"
+											data-columns
+											role="group"
+											aria-label="Show or hide columns"
+											hidden
+										>
+											<p class="forminator-submission-views__column-title">
+												Show or hide columns
+											</p>
+											<label class="forminator-submission-views__column-option">
+												<input class="forminator-submission-views__column-checkbox" type="checkbox" data-column="0" checked />
+												Name
+											</label>
+											<label class="forminator-submission-views__column-option">
+												<input class="forminator-submission-views__column-checkbox" type="checkbox" data-column="1" checked />
+												Email
+											</label>
+											<label class="forminator-submission-views__column-option">
+												<input class="forminator-submission-views__column-checkbox" type="checkbox" data-column="2" checked />
+												Phone
+											</label>
+											<label class="forminator-submission-views__column-option">
+												<input class="forminator-submission-views__column-checkbox" type="checkbox" data-column="3" checked />
+												Address
+											</label>
+											<label class="forminator-submission-views__column-option">
+												<input class="forminator-submission-views__column-checkbox" type="checkbox" data-column="4" checked />
+												Note
+											</label>
+										</div>
+									</div>
+								</div>
+							</div>
+							<p class="forminator-submission-views__export-status" data-export-status role="status" hidden></p>
+							<div class="forminator-submission-views__frame">
+								<div
+									class="forminator-submission-views__scroll"
+									tabindex="0"
+									role="region"
+									aria-label="Submission table, scroll horizontally for more columns"
+								>
+									<table class="forminator-submission-views__table">
+										<caption class="forminator-submission-views__sr-only">
+											Form submissions
+										</caption>
+										<thead class="forminator-submission-views__table-head">
+											<tr class="forminator-submission-views__row">
+												<th class="forminator-submission-views__header-cell" scope="col" data-resizable data-field-id="name">
+													Name
+													<span
+														class="forminator-submission-views__resize-handle"
+														role="separator"
+														tabindex="0"
+														aria-orientation="vertical"
+														aria-label="Resize Name column"
+														aria-valuemin="200"
+														aria-valuemax="1200"
+														aria-valuenow="200"
+													></span>
+												</th>
+												<th class="forminator-submission-views__header-cell"
+													scope="col"
+													data-resizable
+													data-field-id="email"
+												>
+													Email
+													<span
+														class="forminator-submission-views__resize-handle"
+														role="separator"
+														tabindex="0"
+														aria-orientation="vertical"
+														aria-label="Resize Email column"
+														aria-valuemin="200"
+														aria-valuemax="1200"
+														aria-valuenow="200"
+													></span>
+												</th>
+												<th class="forminator-submission-views__header-cell"
+													scope="col"
+													data-resizable
+													data-field-id="phone"
+												>
+													Phone
+													<span
+														class="forminator-submission-views__resize-handle"
+														role="separator"
+														tabindex="0"
+														aria-orientation="vertical"
+														aria-label="Resize Phone column"
+														aria-valuemin="200"
+														aria-valuemax="1200"
+														aria-valuenow="200"
+													></span>
+												</th>
+												<th class="forminator-submission-views__header-cell"
+													scope="col"
+													data-resizable
+													data-field-id="address"
+												>
+													Address
+													<span
+														class="forminator-submission-views__resize-handle"
+														role="separator"
+														tabindex="0"
+														aria-orientation="vertical"
+														aria-label="Resize Address column"
+														aria-valuemin="200"
+														aria-valuemax="1200"
+														aria-valuenow="200"
+													></span>
+												</th>
+												<th class="forminator-submission-views__header-cell" scope="col" data-resizable data-field-id="note">
+													Note
+													<span
+														class="forminator-submission-views__resize-handle"
+														role="separator"
+														tabindex="0"
+														aria-orientation="vertical"
+														aria-label="Resize Note column"
+														aria-valuemin="200"
+														aria-valuemax="1200"
+														aria-valuenow="200"
+													></span>
+												</th>
+												<th
+													scope="col"
+													class="forminator-submission-views__detail-cell"
+												>
+													<span
+														class="forminator-submission-views__sr-only"
+													>
+														Actions
+													</span>
+												</th>
+											</tr>
+										</thead>
+										<tbody class="forminator-submission-views__table-body">
+											<tr class="forminator-submission-views__row" data-id="forminator-submission-views-demo--23">
+												<td class="forminator-submission-views__cell"><bdi class="forminator-submission-views__value" dir="auto">Olivia Martinez</bdi></td>
+												<td class="forminator-submission-views__cell">
+													<bdi class="forminator-submission-views__value" dir="auto">olivia.martinez@gmail.com</bdi>
+												</td>
+												<td class="forminator-submission-views__cell"><bdi class="forminator-submission-views__value" dir="auto">(415) 867-5309</bdi></td>
+												<td class="forminator-submission-views__cell">
+													<bdi class="forminator-submission-views__value" dir="auto">
+														1023 Market St, San Francisco, CA 94103
+													</bdi>
+												</td>
+												<td class="forminator-submission-views__cell"><bdi class="forminator-submission-views__value" dir="auto">Follow-up needed</bdi></td>
+												<td
+													class="forminator-submission-views__detail-cell"
+												>
+													<span
+														class="forminator-submission-views__row-actions"
+														><button class="forminator-submission-views__detail"
+															type="button"
+															data-detail
+															aria-haspopup="dialog"
+															aria-controls="forminator-submission-views-demo--submission-detail"
+															aria-label="View detail for Olivia Martinez"
+														>
+															View detail
+														</button>
+														<button
+															type="button"
+															class="forminator-submission-views__delete"
+															data-delete
+															aria-label="Delete submission for Olivia Martinez"
+														>
+															Delete
+														</button></span
+													>
+												</td>
+											</tr>
+											<tr class="forminator-submission-views__row" data-id="forminator-submission-views-demo--24">
+												<td class="forminator-submission-views__cell"><bdi class="forminator-submission-views__value" dir="auto">James Nakamura</bdi></td>
+												<td class="forminator-submission-views__cell"><bdi class="forminator-submission-views__value" dir="auto">j.nakamura@proton.me</bdi></td>
+												<td class="forminator-submission-views__cell"><bdi class="forminator-submission-views__value" dir="auto">(212) 555-0147</bdi></td>
+												<td class="forminator-submission-views__cell">
+													<bdi class="forminator-submission-views__value" dir="auto">
+														88 W 3rd St, New York, NY 10012
+													</bdi>
+												</td>
+												<td class="forminator-submission-views__cell">
+													<bdi class="forminator-submission-views__value" dir="auto">Nice service. Keep it on.</bdi>
+												</td>
+												<td
+													class="forminator-submission-views__detail-cell"
+												>
+													<span
+														class="forminator-submission-views__row-actions"
+														><button class="forminator-submission-views__detail"
+															type="button"
+															data-detail
+															aria-haspopup="dialog"
+															aria-controls="forminator-submission-views-demo--submission-detail"
+															aria-label="View detail for James Nakamura"
+														>
+															View detail
+														</button>
+														<button
+															type="button"
+															class="forminator-submission-views__delete"
+															data-delete
+															aria-label="Delete submission for James Nakamura"
+														>
+															Delete
+														</button></span
+													>
+												</td>
+											</tr>
+											<tr class="forminator-submission-views__row" data-id="forminator-submission-views-demo--25">
+												<td class="forminator-submission-views__cell"><bdi class="forminator-submission-views__value" dir="auto">Elena Vasquez</bdi></td>
+												<td class="forminator-submission-views__cell"><bdi class="forminator-submission-views__value" dir="auto">elena.v@pm.me</bdi></td>
+												<td class="forminator-submission-views__cell"><bdi class="forminator-submission-views__value" dir="auto">(305) 555-0748</bdi></td>
+												<td class="forminator-submission-views__cell">
+													<bdi class="forminator-submission-views__value" dir="auto">
+														801 Brickell Ave, Miami, FL 33131
+													</bdi>
+												</td>
+												<td class="forminator-submission-views__cell">
+													<bdi class="forminator-submission-views__value" dir="auto">
+														I am going to a vacation. Please reschedule
+														my appointment next week.
+													</bdi>
+												</td>
+												<td
+													class="forminator-submission-views__detail-cell"
+												>
+													<span
+														class="forminator-submission-views__row-actions"
+														><button class="forminator-submission-views__detail"
+															type="button"
+															data-detail
+															aria-haspopup="dialog"
+															aria-controls="forminator-submission-views-demo--submission-detail"
+															aria-label="View detail for Elena Vasquez"
+														>
+															View detail
+														</button>
+														<button
+															type="button"
+															class="forminator-submission-views__delete"
+															data-delete
+															aria-label="Delete submission for Elena Vasquez"
+														>
+															Delete
+														</button></span
+													>
+												</td>
+											</tr>
+											<tr class="forminator-submission-views__row" data-id="forminator-submission-views-demo--26">
+												<td class="forminator-submission-views__cell"><bdi class="forminator-submission-views__value" dir="auto">Daniel Okafor</bdi></td>
+												<td class="forminator-submission-views__cell"><bdi class="forminator-submission-views__value" dir="auto">d.okafor@zoho.com</bdi></td>
+												<td class="forminator-submission-views__cell"><bdi class="forminator-submission-views__value" dir="auto">(404) 555-0859</bdi></td>
+												<td class="forminator-submission-views__cell">
+													<bdi class="forminator-submission-views__value" dir="auto">
+														250 Peachtree St NE, Atlanta, GA 30303
+													</bdi>
+												</td>
+												<td class="forminator-submission-views__cell"><bdi class="forminator-submission-views__value" dir="auto">Requires callback</bdi></td>
+												<td
+													class="forminator-submission-views__detail-cell"
+												>
+													<span
+														class="forminator-submission-views__row-actions"
+														><button class="forminator-submission-views__detail"
+															type="button"
+															data-detail
+															aria-haspopup="dialog"
+															aria-controls="forminator-submission-views-demo--submission-detail"
+															aria-label="View detail for Daniel Okafor"
+														>
+															View detail
+														</button>
+														<button
+															type="button"
+															class="forminator-submission-views__delete"
+															data-delete
+															aria-label="Delete submission for Daniel Okafor"
+														>
+															Delete
+														</button></span
+													>
+												</td>
+											</tr>
+											<tr class="forminator-submission-views__row" data-id="forminator-submission-views-demo--27">
+												<td class="forminator-submission-views__cell"><bdi class="forminator-submission-views__value" dir="auto">Ava Thompson</bdi></td>
+												<td class="forminator-submission-views__cell">
+													<bdi class="forminator-submission-views__value" dir="auto">ava.thompson@example.com</bdi>
+												</td>
+												<td class="forminator-submission-views__cell"><bdi class="forminator-submission-views__value" dir="auto">(206) 555-0101</bdi></td>
+												<td class="forminator-submission-views__cell">
+													<bdi class="forminator-submission-views__value" dir="auto"
+														>450 Pine St, Seattle, WA 98101</bdi
+													>
+												</td>
+												<td class="forminator-submission-views__cell">
+													<bdi class="forminator-submission-views__value" dir="auto"
+														>Please contact me after 3 PM.</bdi
+													>
+												</td>
+												<td
+													class="forminator-submission-views__detail-cell"
+												>
+													<span
+														class="forminator-submission-views__row-actions"
+														><button class="forminator-submission-views__detail"
+															type="button"
+															data-detail
+															aria-haspopup="dialog"
+															aria-controls="forminator-submission-views-demo--submission-detail"
+															aria-label="View detail for Ava Thompson"
+														>
+															View detail
+														</button>
+														<button
+															type="button"
+															class="forminator-submission-views__delete"
+															data-delete
+															aria-label="Delete submission for Ava Thompson"
+														>
+															Delete
+														</button></span
+													>
+												</td>
+											</tr>
+											<tr class="forminator-submission-views__row" data-id="forminator-submission-views-demo--28">
+												<td class="forminator-submission-views__cell"><bdi class="forminator-submission-views__value" dir="auto">Liam Patel</bdi></td>
+												<td class="forminator-submission-views__cell">
+													<bdi class="forminator-submission-views__value" dir="auto">liam.patel@example.com</bdi>
+												</td>
+												<td class="forminator-submission-views__cell"><bdi class="forminator-submission-views__value" dir="auto">(512) 555-0102</bdi></td>
+												<td class="forminator-submission-views__cell">
+													<bdi class="forminator-submission-views__value" dir="auto"
+														>120 Congress Ave, Austin, TX 78701</bdi
+													>
+												</td>
+												<td class="forminator-submission-views__cell">
+													<bdi class="forminator-submission-views__value" dir="auto"
+														>Interested in the annual plan. Please send
+														pricing for a team of twelve and explain the
+														onboarding process.</bdi
+													>
+												</td>
+												<td
+													class="forminator-submission-views__detail-cell"
+												>
+													<span
+														class="forminator-submission-views__row-actions"
+														><button class="forminator-submission-views__detail"
+															type="button"
+															data-detail
+															aria-haspopup="dialog"
+															aria-controls="forminator-submission-views-demo--submission-detail"
+															aria-label="View detail for Liam Patel"
+														>
+															View detail
+														</button>
+														<button
+															type="button"
+															class="forminator-submission-views__delete"
+															data-delete
+															aria-label="Delete submission for Liam Patel"
+														>
+															Delete
+														</button></span
+													>
+												</td>
+											</tr>
+											<tr class="forminator-submission-views__row" data-id="forminator-submission-views-demo--29">
+												<td class="forminator-submission-views__cell"><bdi class="forminator-submission-views__value" dir="auto">Sofia Rossi</bdi></td>
+												<td class="forminator-submission-views__cell">
+													<bdi class="forminator-submission-views__value" dir="auto">sofia.rossi@example.com</bdi>
+												</td>
+												<td class="forminator-submission-views__cell"><bdi class="forminator-submission-views__value" dir="auto">(617) 555-0103</bdi></td>
+												<td class="forminator-submission-views__cell">
+													<bdi class="forminator-submission-views__value" dir="auto"
+														>75 State St, Boston, MA 02109</bdi
+													>
+												</td>
+												<td class="forminator-submission-views__cell"><bdi class="forminator-submission-views__value" dir="auto">Confirmed.</bdi></td>
+												<td
+													class="forminator-submission-views__detail-cell"
+												>
+													<span
+														class="forminator-submission-views__row-actions"
+														><button class="forminator-submission-views__detail"
+															type="button"
+															data-detail
+															aria-haspopup="dialog"
+															aria-controls="forminator-submission-views-demo--submission-detail"
+															aria-label="View detail for Sofia Rossi"
+														>
+															View detail
+														</button>
+														<button
+															type="button"
+															class="forminator-submission-views__delete"
+															data-delete
+															aria-label="Delete submission for Sofia Rossi"
+														>
+															Delete
+														</button></span
+													>
+												</td>
+											</tr>
+											<tr class="forminator-submission-views__row" data-id="forminator-submission-views-demo--30">
+												<td class="forminator-submission-views__cell"><bdi class="forminator-submission-views__value" dir="auto">Noah Williams</bdi></td>
+												<td class="forminator-submission-views__cell">
+													<bdi class="forminator-submission-views__value" dir="auto">noah.williams@example.com</bdi>
+												</td>
+												<td class="forminator-submission-views__cell"><bdi class="forminator-submission-views__value" dir="auto">(303) 555-0104</bdi></td>
+												<td class="forminator-submission-views__cell">
+													<bdi class="forminator-submission-views__value" dir="auto"
+														>1700 Lincoln St, Denver, CO 80203</bdi
+													>
+												</td>
+												<td class="forminator-submission-views__cell">
+													<bdi class="forminator-submission-views__value" dir="auto"
+														>Available on Monday or Wednesday morning.
+														Please include the appointment location in
+														your confirmation email.</bdi
+													>
+												</td>
+												<td
+													class="forminator-submission-views__detail-cell"
+												>
+													<span
+														class="forminator-submission-views__row-actions"
+														><button class="forminator-submission-views__detail"
+															type="button"
+															data-detail
+															aria-haspopup="dialog"
+															aria-controls="forminator-submission-views-demo--submission-detail"
+															aria-label="View detail for Noah Williams"
+														>
+															View detail
+														</button>
+														<button
+															type="button"
+															class="forminator-submission-views__delete"
+															data-delete
+															aria-label="Delete submission for Noah Williams"
+														>
+															Delete
+														</button></span
+													>
+												</td>
+											</tr>
+											<tr class="forminator-submission-views__row" data-id="forminator-submission-views-demo--31">
+												<td class="forminator-submission-views__cell"><bdi class="forminator-submission-views__value" dir="auto">Mia Chen</bdi></td>
+												<td class="forminator-submission-views__cell"><bdi class="forminator-submission-views__value" dir="auto">mia.chen@example.com</bdi></td>
+												<td class="forminator-submission-views__cell"><bdi class="forminator-submission-views__value" dir="auto">(415) 555-0105</bdi></td>
+												<td class="forminator-submission-views__cell">
+													<bdi class="forminator-submission-views__value" dir="auto"
+														>200 California St, San Francisco, CA
+														94111</bdi
+													>
+												</td>
+												<td class="forminator-submission-views__cell">
+													<bdi class="forminator-submission-views__value" dir="auto"
+														>Requested a product demonstration.</bdi
+													>
+												</td>
+												<td
+													class="forminator-submission-views__detail-cell"
+												>
+													<span
+														class="forminator-submission-views__row-actions"
+														><button class="forminator-submission-views__detail"
+															type="button"
+															data-detail
+															aria-haspopup="dialog"
+															aria-controls="forminator-submission-views-demo--submission-detail"
+															aria-label="View detail for Mia Chen"
+														>
+															View detail
+														</button>
+														<button
+															type="button"
+															class="forminator-submission-views__delete"
+															data-delete
+															aria-label="Delete submission for Mia Chen"
+														>
+															Delete
+														</button></span
+													>
+												</td>
+											</tr>
+											<tr class="forminator-submission-views__row" data-id="forminator-submission-views-demo--32">
+												<td class="forminator-submission-views__cell"><bdi class="forminator-submission-views__value" dir="auto">Oliver Brown</bdi></td>
+												<td class="forminator-submission-views__cell">
+													<bdi class="forminator-submission-views__value" dir="auto">oliver.brown@example.com</bdi>
+												</td>
+												<td class="forminator-submission-views__cell"><bdi class="forminator-submission-views__value" dir="auto">(312) 555-0106</bdi></td>
+												<td class="forminator-submission-views__cell">
+													<bdi class="forminator-submission-views__value" dir="auto"
+														>233 W Jackson Blvd, Suite 1400, Chicago, IL
+														60606</bdi
+													>
+												</td>
+												<td class="forminator-submission-views__cell">
+													<bdi class="forminator-submission-views__value" dir="auto"
+														>The delivery address differs from the
+														billing address. Contact our reception
+														before arrival and allow extra time for
+														building access.</bdi
+													>
+												</td>
+												<td
+													class="forminator-submission-views__detail-cell"
+												>
+													<span
+														class="forminator-submission-views__row-actions"
+														><button class="forminator-submission-views__detail"
+															type="button"
+															data-detail
+															aria-haspopup="dialog"
+															aria-controls="forminator-submission-views-demo--submission-detail"
+															aria-label="View detail for Oliver Brown"
+														>
+															View detail
+														</button>
+														<button
+															type="button"
+															class="forminator-submission-views__delete"
+															data-delete
+															aria-label="Delete submission for Oliver Brown"
+														>
+															Delete
+														</button></span
+													>
+												</td>
+											</tr>
+											<tr class="forminator-submission-views__row" data-id="forminator-submission-views-demo--33">
+												<td class="forminator-submission-views__cell"><bdi class="forminator-submission-views__value" dir="auto">Amara Johnson</bdi></td>
+												<td class="forminator-submission-views__cell">
+													<bdi class="forminator-submission-views__value" dir="auto">amara.johnson@example.com</bdi>
+												</td>
+												<td class="forminator-submission-views__cell"><bdi class="forminator-submission-views__value" dir="auto">(404) 555-0107</bdi></td>
+												<td class="forminator-submission-views__cell">
+													<bdi class="forminator-submission-views__value" dir="auto"
+														>600 Peachtree St NE, Atlanta, GA 30308</bdi
+													>
+												</td>
+												<td class="forminator-submission-views__cell"><bdi class="forminator-submission-views__value" dir="auto">Email preferred.</bdi></td>
+												<td
+													class="forminator-submission-views__detail-cell"
+												>
+													<span
+														class="forminator-submission-views__row-actions"
+														><button class="forminator-submission-views__detail"
+															type="button"
+															data-detail
+															aria-haspopup="dialog"
+															aria-controls="forminator-submission-views-demo--submission-detail"
+															aria-label="View detail for Amara Johnson"
+														>
+															View detail
+														</button>
+														<button
+															type="button"
+															class="forminator-submission-views__delete"
+															data-delete
+															aria-label="Delete submission for Amara Johnson"
+														>
+															Delete
+														</button></span
+													>
+												</td>
+											</tr>
+											<tr class="forminator-submission-views__row" data-id="forminator-submission-views-demo--34">
+												<td class="forminator-submission-views__cell"><bdi class="forminator-submission-views__value" dir="auto">Ethan Garcia</bdi></td>
+												<td class="forminator-submission-views__cell">
+													<bdi class="forminator-submission-views__value" dir="auto">ethan.garcia@example.com</bdi>
+												</td>
+												<td class="forminator-submission-views__cell"><bdi class="forminator-submission-views__value" dir="auto">(213) 555-0108</bdi></td>
+												<td class="forminator-submission-views__cell">
+													<bdi class="forminator-submission-views__value" dir="auto"
+														>800 W Olympic Blvd, Los Angeles, CA
+														90015</bdi
+													>
+												</td>
+												<td class="forminator-submission-views__cell">
+													<bdi class="forminator-submission-views__value" dir="auto"
+														>Please provide an accessible meeting room
+														and share parking information in
+														advance.</bdi
+													>
+												</td>
+												<td
+													class="forminator-submission-views__detail-cell"
+												>
+													<span
+														class="forminator-submission-views__row-actions"
+														><button class="forminator-submission-views__detail"
+															type="button"
+															data-detail
+															aria-haspopup="dialog"
+															aria-controls="forminator-submission-views-demo--submission-detail"
+															aria-label="View detail for Ethan Garcia"
+														>
+															View detail
+														</button>
+														<button
+															type="button"
+															class="forminator-submission-views__delete"
+															data-delete
+															aria-label="Delete submission for Ethan Garcia"
+														>
+															Delete
+														</button></span
+													>
+												</td>
+											</tr>
+											<tr class="forminator-submission-views__row" data-id="forminator-submission-views-demo--35">
+												<td class="forminator-submission-views__cell"><bdi class="forminator-submission-views__value" dir="auto">Isabella Silva</bdi></td>
+												<td class="forminator-submission-views__cell">
+													<bdi class="forminator-submission-views__value" dir="auto">isabella.silva@example.com</bdi>
+												</td>
+												<td class="forminator-submission-views__cell"><bdi class="forminator-submission-views__value" dir="auto">(305) 555-0109</bdi></td>
+												<td class="forminator-submission-views__cell">
+													<bdi class="forminator-submission-views__value" dir="auto"
+														>300 Biscayne Blvd, Miami, FL 33132</bdi
+													>
+												</td>
+												<td class="forminator-submission-views__cell"><bdi class="forminator-submission-views__value" dir="auto">Follow up next month.</bdi></td>
+												<td
+													class="forminator-submission-views__detail-cell"
+												>
+													<span
+														class="forminator-submission-views__row-actions"
+														><button class="forminator-submission-views__detail"
+															type="button"
+															data-detail
+															aria-haspopup="dialog"
+															aria-controls="forminator-submission-views-demo--submission-detail"
+															aria-label="View detail for Isabella Silva"
+														>
+															View detail
+														</button>
+														<button
+															type="button"
+															class="forminator-submission-views__delete"
+															data-delete
+															aria-label="Delete submission for Isabella Silva"
+														>
+															Delete
+														</button></span
+													>
+												</td>
+											</tr>
+											<tr class="forminator-submission-views__row" data-id="forminator-submission-views-demo--36">
+												<td class="forminator-submission-views__cell"><bdi class="forminator-submission-views__value" dir="auto">Lucas Martin</bdi></td>
+												<td class="forminator-submission-views__cell">
+													<bdi class="forminator-submission-views__value" dir="auto">lucas.martin@example.com</bdi>
+												</td>
+												<td class="forminator-submission-views__cell"><bdi class="forminator-submission-views__value" dir="auto">(503) 555-0110</bdi></td>
+												<td class="forminator-submission-views__cell">
+													<bdi class="forminator-submission-views__value" dir="auto"
+														>100 SW Main St, Portland, OR 97204</bdi
+													>
+												</td>
+												<td class="forminator-submission-views__cell">
+													<bdi class="forminator-submission-views__value" dir="auto"
+														>We are comparing several services and would
+														appreciate a detailed breakdown of features,
+														support hours, contract terms, and
+														cancellation options.</bdi
+													>
+												</td>
+												<td
+													class="forminator-submission-views__detail-cell"
+												>
+													<span
+														class="forminator-submission-views__row-actions"
+														><button class="forminator-submission-views__detail"
+															type="button"
+															data-detail
+															aria-haspopup="dialog"
+															aria-controls="forminator-submission-views-demo--submission-detail"
+															aria-label="View detail for Lucas Martin"
+														>
+															View detail
+														</button>
+														<button
+															type="button"
+															class="forminator-submission-views__delete"
+															data-delete
+															aria-label="Delete submission for Lucas Martin"
+														>
+															Delete
+														</button></span
+													>
+												</td>
+											</tr>
+											<tr class="forminator-submission-views__row" data-id="forminator-submission-views-demo--37">
+												<td class="forminator-submission-views__cell"><bdi class="forminator-submission-views__value" dir="auto">نور أحمد</bdi></td>
+												<td class="forminator-submission-views__cell">
+													<bdi class="forminator-submission-views__value" dir="auto">noor.ahmad@example.com</bdi>
+												</td>
+												<td class="forminator-submission-views__cell"><bdi class="forminator-submission-views__value" dir="auto">+971 50 555 0111</bdi></td>
+												<td class="forminator-submission-views__cell">
+													<bdi class="forminator-submission-views__value" dir="auto"
+														>شارع الشيخ زايد، دبي، الإمارات العربية
+														المتحدة</bdi
+													>
+												</td>
+												<td class="forminator-submission-views__cell">
+													<bdi class="forminator-submission-views__value" dir="auto"
+														>يرجى التواصل عبر البريد الإلكتروني لتأكيد
+														تفاصيل الموعد.</bdi
+													>
+												</td>
+												<td
+													class="forminator-submission-views__detail-cell"
+												>
+													<span
+														class="forminator-submission-views__row-actions"
+														><button class="forminator-submission-views__detail"
+															type="button"
+															data-detail
+															aria-haspopup="dialog"
+															aria-controls="forminator-submission-views-demo--submission-detail"
+															aria-label="View detail for نور أحمد"
+														>
+															View detail
+														</button>
+														<button
+															type="button"
+															class="forminator-submission-views__delete"
+															data-delete
+															aria-label="Delete submission for نور أحمد"
+														>
+															Delete
+														</button></span
+													>
+												</td>
+											</tr>
+											<tr class="forminator-submission-views__row" data-id="forminator-submission-views-demo--38">
+												<td class="forminator-submission-views__cell"><bdi class="forminator-submission-views__value" dir="auto">יעל כהן</bdi></td>
+												<td class="forminator-submission-views__cell">
+													<bdi class="forminator-submission-views__value" dir="auto">yael.cohen@example.com</bdi>
+												</td>
+												<td class="forminator-submission-views__cell"><bdi class="forminator-submission-views__value" dir="auto">+972 50 555 0112</bdi></td>
+												<td class="forminator-submission-views__cell"><bdi class="forminator-submission-views__value" dir="auto">רחוב הרצל 15, תל אביב</bdi></td>
+												<td class="forminator-submission-views__cell">
+													<bdi class="forminator-submission-views__value" dir="auto"
+														>Please send the confirmation in
+														Hebrew.</bdi
+													>
+												</td>
+												<td
+													class="forminator-submission-views__detail-cell"
+												>
+													<span
+														class="forminator-submission-views__row-actions"
+														><button class="forminator-submission-views__detail"
+															type="button"
+															data-detail
+															aria-haspopup="dialog"
+															aria-controls="forminator-submission-views-demo--submission-detail"
+															aria-label="View detail for יעל כהן"
+														>
+															View detail
+														</button>
+														<button
+															type="button"
+															class="forminator-submission-views__delete"
+															data-delete
+															aria-label="Delete submission for יעל כהן"
+														>
+															Delete
+														</button></span
+													>
+												</td>
+											</tr>
+											<tr class="forminator-submission-views__row" data-id="forminator-submission-views-demo--39">
+												<td class="forminator-submission-views__cell"><bdi class="forminator-submission-views__value" dir="auto">Harper Wilson</bdi></td>
+												<td class="forminator-submission-views__cell">
+													<bdi class="forminator-submission-views__value" dir="auto">harper.wilson@example.com</bdi>
+												</td>
+												<td class="forminator-submission-views__cell"><bdi class="forminator-submission-views__value" dir="auto">(702) 555-0113</bdi></td>
+												<td class="forminator-submission-views__cell">
+													<bdi class="forminator-submission-views__value" dir="auto"
+														>500 S Grand Central Pkwy, Las Vegas, NV
+														89106</bdi
+													>
+												</td>
+												<td class="forminator-submission-views__cell"><bdi class="forminator-submission-views__value" dir="auto">No additional notes.</bdi></td>
+												<td
+													class="forminator-submission-views__detail-cell"
+												>
+													<span
+														class="forminator-submission-views__row-actions"
+														><button class="forminator-submission-views__detail"
+															type="button"
+															data-detail
+															aria-haspopup="dialog"
+															aria-controls="forminator-submission-views-demo--submission-detail"
+															aria-label="View detail for Harper Wilson"
+														>
+															View detail
+														</button>
+														<button
+															type="button"
+															class="forminator-submission-views__delete"
+															data-delete
+															aria-label="Delete submission for Harper Wilson"
+														>
+															Delete
+														</button></span
+													>
+												</td>
+											</tr>
+											<tr class="forminator-submission-views__row" data-id="forminator-submission-views-demo--40">
+												<td class="forminator-submission-views__cell"><bdi class="forminator-submission-views__value" dir="auto">Arjun Mehta</bdi></td>
+												<td class="forminator-submission-views__cell">
+													<bdi class="forminator-submission-views__value" dir="auto">arjun.mehta@example.com</bdi>
+												</td>
+												<td class="forminator-submission-views__cell"><bdi class="forminator-submission-views__value" dir="auto">+91 98765 01114</bdi></td>
+												<td class="forminator-submission-views__cell">
+													<bdi class="forminator-submission-views__value" dir="auto"
+														>42 MG Road, Bengaluru, Karnataka
+														560001</bdi
+													>
+												</td>
+												<td class="forminator-submission-views__cell">
+													<bdi class="forminator-submission-views__value" dir="auto"
+														>Please schedule a call between 10 AM and
+														noon IST. Our technical team will join to
+														discuss integration requirements.</bdi
+													>
+												</td>
+												<td
+													class="forminator-submission-views__detail-cell"
+												>
+													<span
+														class="forminator-submission-views__row-actions"
+														><button class="forminator-submission-views__detail"
+															type="button"
+															data-detail
+															aria-haspopup="dialog"
+															aria-controls="forminator-submission-views-demo--submission-detail"
+															aria-label="View detail for Arjun Mehta"
+														>
+															View detail
+														</button>
+														<button
+															type="button"
+															class="forminator-submission-views__delete"
+															data-delete
+															aria-label="Delete submission for Arjun Mehta"
+														>
+															Delete
+														</button></span
+													>
+												</td>
+											</tr>
+											<tr class="forminator-submission-views__row" data-id="forminator-submission-views-demo--41">
+												<td class="forminator-submission-views__cell"><bdi class="forminator-submission-views__value" dir="auto">Chloe Dubois</bdi></td>
+												<td class="forminator-submission-views__cell">
+													<bdi class="forminator-submission-views__value" dir="auto">chloe.dubois@example.com</bdi>
+												</td>
+												<td class="forminator-submission-views__cell"><bdi class="forminator-submission-views__value" dir="auto">+33 6 12 34 56 78</bdi></td>
+												<td class="forminator-submission-views__cell">
+													<bdi class="forminator-submission-views__value" dir="auto"
+														>18 Rue de Rivoli, 75004 Paris, France</bdi
+													>
+												</td>
+												<td class="forminator-submission-views__cell">
+													<bdi class="forminator-submission-views__value" dir="auto"
+														>Merci de confirmer la disponibilité.</bdi
+													>
+												</td>
+												<td
+													class="forminator-submission-views__detail-cell"
+												>
+													<span
+														class="forminator-submission-views__row-actions"
+														><button class="forminator-submission-views__detail"
+															type="button"
+															data-detail
+															aria-haspopup="dialog"
+															aria-controls="forminator-submission-views-demo--submission-detail"
+															aria-label="View detail for Chloe Dubois"
+														>
+															View detail
+														</button>
+														<button
+															type="button"
+															class="forminator-submission-views__delete"
+															data-delete
+															aria-label="Delete submission for Chloe Dubois"
+														>
+															Delete
+														</button></span
+													>
+												</td>
+											</tr>
+											<tr class="forminator-submission-views__row" data-id="forminator-submission-views-demo--42">
+												<td class="forminator-submission-views__cell"><bdi class="forminator-submission-views__value" dir="auto">Benjamin Lee</bdi></td>
+												<td class="forminator-submission-views__cell">
+													<bdi class="forminator-submission-views__value" dir="auto">benjamin.lee@example.com</bdi>
+												</td>
+												<td class="forminator-submission-views__cell"><bdi class="forminator-submission-views__value" dir="auto">(619) 555-0116</bdi></td>
+												<td class="forminator-submission-views__cell">
+													<bdi class="forminator-submission-views__value" dir="auto"
+														>900 Bayfront Ct, San Diego, CA 92101</bdi
+													>
+												</td>
+												<td class="forminator-submission-views__cell">
+													<bdi class="forminator-submission-views__value" dir="auto"
+														>Returning customer. Please refer to our
+														previous booking when preparing the
+														quote.</bdi
+													>
+												</td>
+												<td
+													class="forminator-submission-views__detail-cell"
+												>
+													<span
+														class="forminator-submission-views__row-actions"
+														><button class="forminator-submission-views__detail"
+															type="button"
+															data-detail
+															aria-haspopup="dialog"
+															aria-controls="forminator-submission-views-demo--submission-detail"
+															aria-label="View detail for Benjamin Lee"
+														>
+															View detail
+														</button>
+														<button
+															type="button"
+															class="forminator-submission-views__delete"
+															data-delete
+															aria-label="Delete submission for Benjamin Lee"
+														>
+															Delete
+														</button></span
+													>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+							<p class="forminator-submission-views__empty" data-empty hidden>No submissions match your search.</p>
+							<div class="forminator-submission-views__footer">
+								<label class="forminator-submission-views__page-filter">
+									Rows per page
+									<span class="forminator-submission-views__page-size">
+										<select class="forminator-submission-views__page-size-select" data-page-size>
+											<option>2</option>
+											<option selected>10</option>
+											<option>25</option>
+										</select>
+										<i
+											class="forminator-icon-chevron-down-rounded forminator-submission-views__page-size-icon"
+											aria-hidden="true"
+										></i>
+									</span>
+								</label>
+								<nav
+									class="forminator-submission-views__pagination"
+									aria-label="Submission pages"
+								>
+									<button class="forminator-submission-views__pagination-button" type="button" data-page="first" aria-label="First page">
+										<span
+											class="forminator-submission-views__pagination-icon"
+											dir="ltr"
+											aria-hidden="true"
+										>
+											<i
+												class="forminator-icon-chevron-double-left"
+												aria-hidden="true"
+											></i>
+										</span>
+									</button>
+									<button class="forminator-submission-views__pagination-button"
+										type="button"
+										data-page="previous"
+										aria-label="Previous page"
+									>
+										<span
+											class="forminator-submission-views__pagination-icon"
+											dir="ltr"
+											aria-hidden="true"
+										>
+											<i
+												class="forminator-icon-chevron-left-rounded"
+												aria-hidden="true"
+											></i>
+										</span>
+									</button>
+									<span class="forminator-submission-views__page-status" data-page-status role="status" aria-live="polite"></span>
+									<button class="forminator-submission-views__pagination-button" type="button" data-page="next" aria-label="Next page">
+										<span
+											class="forminator-submission-views__pagination-icon"
+											dir="ltr"
+											aria-hidden="true"
+										>
+											<i
+												class="forminator-icon-chevron-right-rounded"
+												aria-hidden="true"
+											></i>
+										</span>
+									</button>
+									<button class="forminator-submission-views__pagination-button" type="button" data-page="last" aria-label="Last page">
+										<span
+											class="forminator-submission-views__pagination-icon"
+											dir="ltr"
+											aria-hidden="true"
+										>
+											<i
+												class="forminator-icon-chevron-double-right"
+												aria-hidden="true"
+											></i>
+										</span>
+									</button>
+								</nav>
+							</div>
+							<dialog
+								id="forminator-submission-views-demo--submission-detail"
+								class="forminator-submission-views__panel"
+								aria-labelledby="forminator-submission-views-demo--submission-title"
+							>
+								<div class="forminator-submission-views__panel-header">
+									<h2
+										id="forminator-submission-views-demo--submission-title"
+										class="forminator-submission-views__panel-title"
+										data-submission-title
+									>
+										Submission
+									</h2>
+									<div class="forminator-submission-views__close-wrap">
+										<button
+											type="button"
+											class="forminator-submission-views__close"
+											data-close
+											aria-label="Close submission details"
+											autofocus
+											aria-describedby="forminator-submission-views-demo--close-tooltip"
+										>
+											<i
+												class="forminator-icon-close forminator-submission-views__button-icon"
+												aria-hidden="true"
+											></i>
+										</button>
+										<span
+											id="forminator-submission-views-demo--close-tooltip"
+											class="forminator-submission-views__tooltip"
+											role="tooltip"
+										>
+											Close
+										</span>
+									</div>
+								</div>
+								<div class="forminator-submission-views__panel-body"></div>
+								<div class="forminator-submission-views__panel-footer">
+									<button
+										type="button"
+										class="forminator-submission-views__delete"
+										data-delete
+										disabled
+									>
+										Delete
+									</button>
+								</div>
+							</dialog>
+							<dialog
+								class="forminator-submission-views__delete-dialog"
+								data-delete-dialog
+								role="alertdialog"
+								aria-labelledby="forminator-submission-views-demo--delete-title"
+								aria-describedby="forminator-submission-views-demo--delete-description"
+							>
+								<div
+									class="forminator-submission-views__delete-icon"
+									aria-hidden="true"
+								>
+									<i class="forminator-icon-delete" aria-hidden="true"></i>
+								</div>
+								<div class="forminator-submission-views__delete-content">
+									<h2
+										id="forminator-submission-views-demo--delete-title"
+										class="forminator-submission-views__delete-title"
+									>
+										Delete submission?
+									</h2>
+									<p class="forminator-submission-views__delete-description" id="forminator-submission-views-demo--delete-description">
+										Are you sure want to delete this submission? This action
+										cannot be undone.
+									</p>
+								</div>
+								<div class="forminator-submission-views__delete-actions">
+									<button class="forminator-submission-views__delete-cancel" type="button" data-delete-cancel autofocus>
+										Cancel
+									</button>
+									<button class="forminator-submission-views__delete-confirm" type="button" data-delete-confirm>Delete</button>
+								</div>
+							</dialog>
+						</section>
+					</div>
+					<div class="showcase-footer"></div>
+				</main>
+			</div>
+		</div>
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+		<script src="assets/js/forminator-submission-views.min.js"></script>
+		<script>
+			const section = document.getElementById("forminator-submission-views-demo");
+			const submissionView = FUI.submissionViews(section);
+			// Example data only; Forminator supplies complete submission records in production.
+			section.addEventListener("forminator:submission-views:detail", function (event) {
+				const row = event.detail.trigger.closest("tr");
+				const fields = [
+					{ id: "name", label: "Name", value: row.cells[0].textContent.trim() },
+					{ id: "email", label: "Email", value: row.cells[1].textContent.trim() },
+					{ id: "phone", label: "Phone", value: row.cells[2].textContent.trim() },
+					{ id: "address", label: "Address", value: row.cells[3].textContent.trim() },
+					{ id: "note", label: "Note", value: row.cells[4].textContent.trim() },
+					{
+						id: "website",
+						label: "Website",
+						type: "link",
+						newTab: true,
+						value: { url: "https://example.com", label: "Visit example website" },
+					},
+					{
+						id: "attachment",
+						label: "Attachment",
+						type: "file",
+						value: { url: "assets/images/quiz-image.png", name: "quiz-image.png" },
+					},
+					{
+						id: "uploads",
+						label: "Multiple attachments",
+						type: "upload",
+						value: [
+							{ url: "assets/images/quiz-image.png", name: "quiz-image.png" },
+							{ url: "assets/images/boiling-water.jpg", name: "boiling-water.jpg" },
+						],
+					},
+					{
+						id: "attendees",
+						label: "Attendees (named entries)",
+						type: "repeater",
+						entries: [
+							{
+								label: "Entry 1",
+								fields: [
+									{
+										id: "name",
+										label: "Name",
+										value: row.cells[0].textContent.trim(),
+									},
+									{
+										id: "email",
+										label: "Email",
+										value: row.cells[1].textContent.trim(),
+									},
+								],
+							},
+							{
+								label: "Entry 2",
+								fields: [
+									{ id: "name", label: "Name", value: "Example guest" },
+									{ id: "email", label: "Email", value: "guest@example.com" },
+								],
+							},
+						],
+					},
+					{
+						id: "contact-emails",
+						label: "Contact emails (direct fields)",
+						type: "repeater",
+						entries: [
+							{
+								fields: [
+									{
+										id: "email",
+										label: "Email",
+										value: row.cells[1].textContent.trim(),
+									},
+								],
+							},
+							{
+								fields: [
+									{ id: "email", label: "Email", value: "guest@example.com" },
+								],
+							},
+						],
+					},
+				];
+
+				submissionView.setSubmission({
+					title: "Submission #" + row.dataset.id.split("--").pop(),
+					fields: fields,
+				});
+			});
+			const exportFields = [
+				{ id: "submission-id", label: "Submission ID" },
+				{ id: "name", label: "Name" },
+				{ id: "email", label: "Email" },
+				{ id: "phone", label: "Phone" },
+				{ id: "address", label: "Address" },
+				{ id: "note", label: "Note" },
+				{ id: "website", label: "Website" },
+				{ id: "attendees", label: "Attendees" },
+			];
+			section.addEventListener("forminator:submission-views:export", function (event) {
+				event.preventDefault();
+				const records = Array.from(section.querySelectorAll("tbody tr")).map(function (
+					row
+				) {
+					return {
+						"submission-id": row.dataset.id.split("--").pop(),
+						name: row.cells[0].textContent.trim(),
+						email: row.cells[1].textContent.trim(),
+						phone: row.cells[2].textContent.trim(),
+						address: row.cells[3].textContent.trim(),
+						note: row.cells[4].textContent.trim(),
+						website: "https://example.com",
+						attendees: [
+							{
+								name: row.cells[0].textContent.trim(),
+								email: row.cells[1].textContent.trim(),
+							},
+							{ name: "Example guest", email: "guest@example.com" },
+						],
+					};
+				});
+				submissionView.downloadCsv({
+					fields: exportFields,
+					rows: records,
+					mode: "all",
+					filename: "demo-submissions.csv",
+				});
+			});
+		</script>
+		<script src="assets/js/public.min.js"></script>
+	</body>
+</html>

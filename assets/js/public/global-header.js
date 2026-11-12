@@ -5,7 +5,8 @@
 		const pages = [
 			'forms',
 			'polls',
-			'quizzes'
+			'quizzes',
+			'views'
 		];
 
 		const headerDiv = $( '.showcase-header' );
@@ -19,6 +20,11 @@
 				const header = $( this );
 				const navChild = header.find( '.child-link' );
 				const sideBtn = header.find( '#showcase-open-sidenav' );
+
+				if ( $( '[data-view-demo]' ).length ) {
+					header.addClass( 'has-view-controls' );
+					header.find( '.showcase-direction' ).prop( 'hidden', false );
+				}
 
 				$.each( pages, function( index, page ) {
 
