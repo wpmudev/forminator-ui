@@ -21,12 +21,13 @@
 			&[data-scrollable] {
 				#{$block}__detail-cell {
 					position: sticky;
-					inset-inline-end: 0;
+					inset-inline-end: calc(-1 * var(--forminator-submission-views-sticky-action-offset, 0px));
 					z-index: 1;
 				}
 			}
 
 			&[data-content-behind] {
+
 				// Only body action cells need a surface and shadow over scrolling content.
 				tbody #{$block}__detail-cell {
 					background: var(
@@ -114,7 +115,6 @@
 				white-space: nowrap;
 
 				button {
-					font: inherit;
 					font-size: var(--forminator-submission-views-detail-font-size);
 					line-height: var(--forminator-submission-views-line-height);
 					border: 0;
@@ -131,6 +131,7 @@
 				justify-content: center;
 				gap: var(--forminator-submission-views-row-actions-gap);
 			}
+
 			button#{$block}__delete {
 				color: var(--forminator-submission-views-delete-color);
 			}

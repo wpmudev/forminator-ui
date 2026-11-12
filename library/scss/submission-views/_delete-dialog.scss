@@ -16,18 +16,38 @@
 			border-radius: var(--forminator-submission-views-delete-dialog-radius);
 			background: var(--forminator-submission-views-delete-dialog-background);
 			color: var(--forminator-submission-views-delete-dialog-color);
-			font: inherit;
 			font-size: var(--forminator-submission-views-font-size);
 			line-height: var(--forminator-submission-views-line-height);
 			text-align: start;
+			opacity: 0;
+			transform: scale(0.96);
+			pointer-events: none;
+			transition:
+				opacity var(--forminator-submission-views-delete-dialog-duration) cubic-bezier(0.23, 1, 0.32, 1),
+				transform var(--forminator-submission-views-delete-dialog-duration) cubic-bezier(0.23, 1, 0.32, 1);
+
 			&[open] {
+				pointer-events: auto;
 				display: flex;
 				flex-direction: column;
 				align-items: flex-start;
 				gap: 20px;
 			}
+			&[data-state="closing"] {
+				pointer-events: none;
+			}
+			&[open][data-state="open"] {
+				opacity: 1;
+				transform: scale(1);
+			}
 			&::backdrop {
 				background: var(--forminator-submission-views-delete-dialog-backdrop);
+				opacity: 0;
+				transition:
+					opacity var(--forminator-submission-views-delete-dialog-duration) cubic-bezier(0.23, 1, 0.32, 1);
+			}
+			&[open][data-state="open"]::backdrop {
+				opacity: 1;
 			}
 		}
 		&__delete-icon {
@@ -52,13 +72,11 @@
 			width: 100%;
 			p {
 				margin: 0;
-				font: inherit;
 				color: inherit;
 			}
 		}
 		&__delete-title {
 			margin: 0;
-			font: inherit;
 			font-size: 18px;
 			font-weight: 700;
 			color: inherit;
@@ -75,7 +93,6 @@
 				min-height: 40px;
 				border: 1px solid transparent;
 				border-radius: 2px;
-				font: inherit;
 				background: transparent;
 				color: inherit;
 			}
@@ -86,4 +103,15 @@
 			}
 		}
 	}
+	@media (prefers-reduced-motion: reduce) {
+		#{$block}__delete-dialog {
+			--forminator-submission-views-delete-dialog-duration: 80ms;
+			&,
+			&[open],
+			&[open][data-state="open"] {
+				transform: none;
+			}
+		}
+	}
+
 }

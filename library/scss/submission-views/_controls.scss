@@ -51,6 +51,7 @@
 
 	button {
 		cursor: pointer;
+		text-transform: unset;
 
 		&:disabled {
 			opacity: 0.7;
@@ -64,7 +65,6 @@
 			line-height: var(--forminator-submission-views-line-height);
 
 			> label {
-				font: inherit;
 				display: inline-flex;
 				flex-wrap: wrap;
 				align-items: center;
@@ -99,7 +99,6 @@
 						border-width: var(--forminator-submission-views-page-size-border-width, inherit);
 						box-shadow: none;
 						color: var(--forminator-submission-views-page-size-color, inherit);
-						font: inherit;
 						font-size: var(--forminator-submission-views-footer-font-size);
 						line-height: var(--forminator-submission-views-line-height);
 						cursor: pointer;

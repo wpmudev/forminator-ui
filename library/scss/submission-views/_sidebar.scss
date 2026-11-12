@@ -23,7 +23,6 @@
 				var(--forminator-submission-views-surface)
 			);
 			color: var(--forminator-submission-views-panel-color, inherit);
-			font: inherit;
 			text-align: start;
 			box-shadow: var(--forminator-submission-views-panel-shadow);
 			overflow: hidden;
@@ -112,7 +111,6 @@
 				border: 0;
 				background: transparent;
 				color: var(--forminator-submission-views-delete-color);
-				font: inherit;
 				font-size: var(--forminator-submission-views-font-size);
 				line-height: var(--forminator-submission-views-line-height);
 				text-decoration: underline;

@@ -47,6 +47,7 @@
 		const colgroup = originalColgroup || document.createElement( 'colgroup' );
 		const originalColumns = Array.from( colgroup.childNodes );
 		const originalTableStyle = table.getAttribute( 'style' );
+		const originalScrollStyle = scroll.getAttribute( 'style' );
 		const reducedMotion = window.matchMedia( '(prefers-reduced-motion: reduce)' );
 		let headers = [];
 		let minColumnWidth = 200;
@@ -56,6 +57,7 @@
 		let activeSubmissionId;
 		let pendingDelete;
 		let deleteConfirmed = false;
+		let deleteCloseTimer;
 		let closeTimer;
 		let observer;
 		let directionObserver;
@@ -117,7 +119,28 @@
 			scroll.toggleAttribute( 'data-scrollable', 1 < remaining );
 
 			// RTL scrollLeft is negative; the distance from the inline start is absolute.
-			scroll.toggleAttribute( 'data-content-behind', 1 < remaining - Math.abs( scroll.scrollLeft ) );
+			const contentBehind = Math.max( 0, remaining - Math.abs( scroll.scrollLeft ) );
+			scroll.toggleAttribute( 'data-content-behind', 1 < contentBehind );
+			updateStickyActionWidth( contentBehind );
+		}
+
+		function updateStickyActionWidth( contentBehind ) {
+			const button = table.querySelector( 'tbody tr:not([hidden]) td:not([hidden]) [data-detail]' );
+			let offset = 0;
+			if ( button && 1 < contentBehind ) {
+				const cell = button.closest( 'td' );
+				const styles = getComputedStyle( cell );
+				const cellBounds = cell.getBoundingClientRect();
+				const buttonBounds = button.getBoundingClientRect();
+				const rtl = 'rtl' === styles.direction;
+				const startSpace = rtl ? cellBounds.right - buttonBounds.right : buttonBounds.left - cellBounds.left;
+				const endSpace = parseFloat( styles.paddingInlineEnd ) || 0;
+				const stickyWidth = startSpace + buttonBounds.width + endSpace;
+
+				// Let the rest of the action column enter naturally over the final scroll pixels.
+				offset = Math.min( contentBehind, Math.max( 0, cellBounds.width - stickyWidth ) );
+			}
+			scroll.style.setProperty( '--forminator-submission-views-sticky-action-offset', offset + 'px' );
 		}
 
 		function applyColumnWidths() {
@@ -614,10 +637,46 @@
 			pendingDelete = { id, trigger, source: fromSidebar ? 'sidebar' : 'table' };
 			deleteConfirmed = false;
 			setColumnOptionsOpen( false, false );
+			deleteDialog.dataset.state = 'closed';
 			deleteDialog.showModal();
+
+			// Establish the entry frame before transitioning the dialog and backdrop.
+			deleteDialog.getBoundingClientRect();
+			getComputedStyle( deleteDialog, '::backdrop' ).opacity;
+			deleteDialog.dataset.state = 'open';
 			const cancel = deleteDialog.querySelector( '[data-delete-cancel]' );
 			if ( cancel ) {
 				cancel.focus();
+			}
+		}
+
+		function finishDeleteDialogClose() {
+			if ( deleteDialog && 'closing' === deleteDialog.dataset.state ) {
+				clearTimeout( deleteCloseTimer );
+				deleteDialog.close();
+			}
+		}
+
+		function closeDeleteDialog() {
+			if ( ! deleteDialog || ! deleteDialog.open || 'closing' === deleteDialog.dataset.state ) {
+				return;
+			}
+			deleteDialog.dataset.state = 'closing';
+			const durations = getComputedStyle( deleteDialog ).transitionDuration.split( ',' ).map( function( value ) {
+				const duration = parseFloat( value ) || 0;
+				return duration * ( value.trim().endsWith( 'ms' ) ? 1 : 1000 );
+			});
+			const duration = Math.max( 0, ...durations );
+			if ( ! duration ) {
+				finishDeleteDialogClose();
+				return;
+			}
+			deleteCloseTimer = setTimeout( finishDeleteDialogClose, duration + 50 );
+		}
+
+		function finishDeleteTransition( event ) {
+			if ( event.target === deleteDialog && 'opacity' === event.propertyName ) {
+				finishDeleteDialogClose();
 			}
 		}
 
@@ -625,9 +684,7 @@
 			if ( event ) {
 				event.preventDefault();
 			}
-			if ( deleteDialog && deleteDialog.open ) {
-				deleteDialog.close();
-			}
+			closeDeleteDialog();
 		}
 
 		function confirmDelete() {
@@ -636,7 +693,7 @@
 			}
 			deleteConfirmed = true;
 			const request = pendingDelete;
-			deleteDialog.close();
+			closeDeleteDialog();
 			if ( 'sidebar' === request.source ) {
 				closePanel();
 			}
@@ -646,6 +703,8 @@
 		}
 
 		function handleDeleteDialogClosed() {
+			clearTimeout( deleteCloseTimer );
+			delete deleteDialog.dataset.state;
 			const trigger = pendingDelete && pendingDelete.trigger;
 			if ( ! deleteConfirmed && trigger && trigger.isConnected ) {
 				trigger.focus();
@@ -670,6 +729,7 @@
 			}
 			listen( deleteDialog, 'cancel', cancelDelete );
 			listen( deleteDialog, 'close', handleDeleteDialogClosed );
+			listen( deleteDialog, 'transitionend', finishDeleteTransition );
 			delegate( 'click', '[data-delete-cancel]', cancelDelete );
 			delegate( 'click', '[data-delete-confirm]', confirmDelete );
 		}
@@ -721,6 +781,94 @@
 			emit( 'columns', { index, visible: input.checked });
 		}
 
+		// Export data is explicit and independent of the table's displayed values.
+		function getCsv( options ) {
+			if ( destroyed || ! options || ! Array.isArray( options.fields ) || ! Array.isArray( options.rows ) ) {
+				return false;
+			}
+			const mode = options.mode || 'all';
+			if ( ! [ 'all', 'visible' ].includes( mode ) ) {
+				return false;
+			}
+			const ids = new Set();
+			for ( const field of options.fields ) {
+				if ( ! field || 'string' !== typeof field.id || ! field.id || ids.has( field.id ) ) {
+					return false;
+				}
+				ids.add( field.id );
+			}
+			let fields = options.fields;
+			if ( 'visible' === mode ) {
+				let visibleIds = options.visibleFieldIds;
+				if ( undefined === visibleIds ) {
+					visibleIds = headers.filter( isDataColumn ).filter( isVisibleColumn ).map( header => header.dataset.fieldId );
+				}
+				if ( ! Array.isArray( visibleIds ) ) {
+					return false;
+				}
+				fields = fields.filter( field => visibleIds.includes( field.id ) );
+			}
+			if ( ! fields.length ) {
+				return false;
+			}
+			try {
+				const lines = [ fields.map( field => quoteCsvValue( undefined === field.label ? field.id : field.label ) ).join( ',' ) ];
+				for ( const row of options.rows ) {
+					if ( ! row || 'object' !== typeof row || Array.isArray( row ) ) {
+						return false;
+					}
+					lines.push( fields.map( function( field ) {
+						const value = Object.prototype.hasOwnProperty.call( row, field.id ) ? row[field.id] : null;
+						return quoteCsvValue( value );
+					}).join( ',' ) );
+				}
+				return lines.join( '\r\n' ) + '\r\n';
+			} catch ( error ) {
+
+				// Cyclic or otherwise unserializable field data must not produce a partial file.
+				return false;
+			}
+		}
+
+		function quoteCsvValue( value ) {
+			let text = '';
+			if ( null !== value && undefined !== value ) {
+				text = 'object' === typeof value ? JSON.stringify( value ) : String( value );
+			}
+
+			// Quote CSV syntax and neutralize spreadsheet formulas, including leading whitespace.
+			if ( /^[\s\u0000-\u001f]*[=+@-]|^[\t\r\n]/.test( text ) && 'number' !== typeof value ) {
+				text = '\'' + text;
+			}
+			return '"' + text.replace( /"/g, '""' ) + '"';
+		}
+
+		function downloadCsv( options ) {
+			const csv = getCsv( options );
+			if ( false === csv ) {
+				return false;
+			}
+			let filename = 'string' === typeof options.filename ? options.filename.trim() : 'submissions.csv';
+			filename = filename.replace( /[\\/:*?"<>|\u0000-\u001f]/g, '-' ) || 'submissions.csv';
+			if ( ! /\.csv$/i.test( filename ) ) {
+				filename += '.csv';
+			}
+			const content = false === options.bom ? csv : '\uFEFF' + csv;
+			const url = URL.createObjectURL( new Blob([ content ], { type: 'text/csv;charset=utf-8;' }) );
+			const link = document.createElement( 'a' );
+			link.href = url;
+			link.download = filename;
+			link.hidden = true;
+			document.body.appendChild( link );
+			try {
+				link.click();
+			} finally {
+				link.remove();
+				setTimeout( () => URL.revokeObjectURL( url ), 1000 );
+			}
+			return true;
+		}
+
 		function requestExport() {
 			emit( 'export', { format: 'csv' });
 		}
@@ -761,6 +909,7 @@
 				return;
 			}
 			destroyed = true;
+			clearTimeout( deleteCloseTimer );
 			pendingDelete = null;
 			if ( deleteDialog && deleteDialog.open ) {
 				deleteDialog.close();
@@ -813,6 +962,11 @@
 			}
 			scroll.removeAttribute( 'data-scrollable' );
 			scroll.removeAttribute( 'data-content-behind' );
+			if ( null === originalScrollStyle ) {
+				scroll.removeAttribute( 'style' );
+			} else {
+				scroll.setAttribute( 'style', originalScrollStyle );
+			}
 			view.removeAttribute( 'data-column-resizing' );
 			instances.delete( view );
 		}
@@ -856,7 +1010,7 @@
 			observeLayout();
 		}
 
-		const api = { refresh, destroy, open: openPanel, close: closePanel, setSubmission };
+		const api = { refresh, destroy, open: openPanel, close: closePanel, setSubmission, getCsv, downloadCsv };
 		instances.set( view, api );
 		init();
 		return api;

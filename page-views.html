@@ -95,7 +95,7 @@
 										</caption>
 										<thead>
 											<tr>
-												<th scope="col" data-resizable>
+												<th scope="col" data-resizable data-field-id="name">
 													Name
 													<span
 														class="forminator-submission-views__resize-handle"
@@ -108,7 +108,11 @@
 														aria-valuenow="200"
 													></span>
 												</th>
-												<th scope="col" data-resizable>
+												<th
+													scope="col"
+													data-resizable
+													data-field-id="email"
+												>
 													Email
 													<span
 														class="forminator-submission-views__resize-handle"
@@ -121,7 +125,11 @@
 														aria-valuenow="200"
 													></span>
 												</th>
-												<th scope="col" data-resizable>
+												<th
+													scope="col"
+													data-resizable
+													data-field-id="phone"
+												>
 													Phone
 													<span
 														class="forminator-submission-views__resize-handle"
@@ -134,7 +142,11 @@
 														aria-valuenow="200"
 													></span>
 												</th>
-												<th scope="col" data-resizable>
+												<th
+													scope="col"
+													data-resizable
+													data-field-id="address"
+												>
 													Address
 													<span
 														class="forminator-submission-views__resize-handle"
@@ -147,7 +159,7 @@
 														aria-valuenow="200"
 													></span>
 												</th>
-												<th scope="col" data-resizable>
+												<th scope="col" data-resizable data-field-id="note">
 													Note
 													<span
 														class="forminator-submission-views__resize-handle"
@@ -1236,6 +1248,45 @@
 				submissionView.setSubmission({
 					title: "Submission #" + row.dataset.id.split("--").pop(),
 					fields: fields,
+				});
+			});
+			const exportFields = [
+				{ id: "submission-id", label: "Submission ID" },
+				{ id: "name", label: "Name" },
+				{ id: "email", label: "Email" },
+				{ id: "phone", label: "Phone" },
+				{ id: "address", label: "Address" },
+				{ id: "note", label: "Note" },
+				{ id: "website", label: "Website" },
+				{ id: "attendees", label: "Attendees" },
+			];
+			section.addEventListener("forminator:submission-views:export", function (event) {
+				event.preventDefault();
+				const records = Array.from(section.querySelectorAll("tbody tr")).map(function (
+					row
+				) {
+					return {
+						"submission-id": row.dataset.id.split("--").pop(),
+						name: row.cells[0].textContent.trim(),
+						email: row.cells[1].textContent.trim(),
+						phone: row.cells[2].textContent.trim(),
+						address: row.cells[3].textContent.trim(),
+						note: row.cells[4].textContent.trim(),
+						website: "https://example.com",
+						attendees: [
+							{
+								name: row.cells[0].textContent.trim(),
+								email: row.cells[1].textContent.trim(),
+							},
+							{ name: "Example guest", email: "guest@example.com" },
+						],
+					};
+				});
+				submissionView.downloadCsv({
+					fields: exportFields,
+					rows: records,
+					mode: "all",
+					filename: "demo-submissions.csv",
 				});
 			});
 		</script>
