@@ -39,6 +39,7 @@
 			font-size: var(--forminator-submission-views-columns-font-size);
 			line-height: var(--forminator-submission-views-columns-line-height);
 			text-align: start;
+
 			&[data-placement="top"] {
 				top: auto;
 				bottom: calc(100% + 8px);

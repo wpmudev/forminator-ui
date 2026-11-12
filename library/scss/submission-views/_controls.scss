@@ -7,6 +7,7 @@
 
 		&__search {
 			margin: 0;
+
 			input {
 				@include _submission-views-control;
 			}
@@ -140,6 +141,7 @@
 		&__search {
 			flex: 1 1 240px;
 			min-width: 0;
+
 			input {
 				max-width: 100%;
 				width: 240px;

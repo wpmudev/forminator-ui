@@ -64,6 +64,7 @@
 			height: var(--forminator-submission-views-delete-badge-size);
 			border-radius: 50%;
 			background: var(--forminator-submission-views-delete-badge-background);
+
 			.forminator-icon-delete {
 				@include _submission-views-icon-box;
 				font-size: var(--forminator-submission-views-delete-icon-size);
@@ -76,6 +77,7 @@
 			flex-direction: column;
 			gap: var(--forminator-submission-views-delete-content-gap);
 			width: 100%;
+
 			p {
 				margin: 0;
 				color: inherit;
@@ -134,6 +136,7 @@
 	@media (prefers-reduced-motion: reduce) {
 		#{$block}__delete-dialog {
 			--forminator-submission-views-delete-dialog-duration: var(--forminator-submission-views-reduced-motion-duration);
+
 			&,
 			&[open],
 			&[open][data-state="open"] {
