@@ -5,25 +5,26 @@
 			position: relative;
 			flex-shrink: 0;
 		}
+
 		&__close {
 			border: 0;
-			border-radius: var(--forminator-submission-views-close-radius, 8px);
-			padding: 8px;
-			background: var(--forminator-submission-views-close-background, transparent);
-			color: var(--forminator-submission-views-close-color, #111);
+			border-radius: var(--forminator-submission-views-close-radius);
+			padding: var(--forminator-submission-views-close-padding);
+			background: var(--forminator-submission-views-close-background);
+			color: var(--forminator-submission-views-close-color);
 			display: inline-flex;
 			align-items: center;
 			justify-content: center;
-			width: 40px;
-			height: 40px;
-			min-width: 40px;
-			min-height: 40px;
+			width: var(--forminator-submission-views-close-size);
+			height: var(--forminator-submission-views-close-size);
+			min-width: var(--forminator-submission-views-close-size);
+			min-height: var(--forminator-submission-views-close-size);
 			line-height: 1;
 			touch-action: manipulation;
-			transition: background-color var(--forminator-submission-views-close-transition-duration, 150ms) ease;
+			transition: background-color var(--forminator-submission-views-close-transition-duration) ease;
 
 			#{$block}__button-icon {
-				font-size: var(--forminator-submission-views-close-icon-size, 24px);
+				font-size: var(--forminator-submission-views-close-icon-size);
 			}
 
 			&:focus-visible {
@@ -40,26 +41,22 @@
 			z-index: 2;
 			// Center on the button regardless of text direction.
 			left: 50%;
-			top: calc(100% + 11px);
+			top: calc(100% + var(--forminator-submission-views-tooltip-offset));
 			transform: translateX(-50%);
-			padding: 8px 16px;
-			background: var(--forminator-submission-views-tooltip-background, rgb(0 0 0 / 90%));
-			color: var(--forminator-submission-views-tooltip-color, #fff);
-			border-radius: var(--forminator-submission-views-tooltip-radius, 8px);
-			box-shadow: var(
-				--forminator-submission-views-tooltip-shadow,
-				0 4px 12px rgb(0 0 0 / 30%)
-			);
+			padding: var(--forminator-submission-views-tooltip-padding);
+			background: var(--forminator-submission-views-tooltip-background);
+			color: var(--forminator-submission-views-tooltip-color);
+			border-radius: var(--forminator-submission-views-tooltip-radius);
+			box-shadow: var(--forminator-submission-views-tooltip-shadow);
 			font-size: var(--forminator-submission-views-tooltip-font-size);
-			font-weight: 400;
 			line-height: var(--forminator-submission-views-tooltip-line-height);
 			white-space: nowrap;
 			pointer-events: none;
 			opacity: 0;
 			visibility: hidden;
 			transition:
-				opacity var(--forminator-submission-views-tooltip-transition-duration, 150ms) cubic-bezier(0.23, 1, 0.32, 1),
-				visibility 0s var(--forminator-submission-views-tooltip-transition-duration, 150ms);
+				opacity var(--forminator-submission-views-tooltip-transition-duration) cubic-bezier(0.23, 1, 0.32, 1),
+				visibility 0s var(--forminator-submission-views-tooltip-transition-duration);
 
 			&::before {
 				content: "";
@@ -67,12 +64,13 @@
 				bottom: 100%;
 				left: 50%;
 				transform: translateX(-50%);
-				border-inline: 8px solid transparent;
-				border-bottom: 8px solid
-					var(--forminator-submission-views-tooltip-background, rgb(0 0 0 / 90%));
+				border-inline: var(--forminator-submission-views-tooltip-arrow-size) solid transparent;
+				border-bottom: var(--forminator-submission-views-tooltip-arrow-size) solid
+					var(--forminator-submission-views-tooltip-background);
 			}
 		}
 	}
+
 	@media (hover: hover) and (pointer: fine) {
 		#{$block} {
 			&__close:hover {
@@ -86,16 +84,19 @@
 			}
 		}
 	}
+
 	@media (prefers-reduced-motion: reduce) {
 		#{$block} {
 			&__close {
-				transition-duration: 80ms;
+				transition-duration: var(--forminator-submission-views-reduced-motion-duration);
 			}
+
 			&__tooltip {
-				transition-duration: 80ms, 0s;
+				transition-duration: var(--forminator-submission-views-reduced-motion-duration), 0s;
 			}
+
 			&__close:not(:hover):not(:focus-visible) + #{$block}__tooltip {
-				transition-delay: 0s, 80ms;
+				transition-delay: 0s, var(--forminator-submission-views-reduced-motion-duration);
 			}
 		}
 	}

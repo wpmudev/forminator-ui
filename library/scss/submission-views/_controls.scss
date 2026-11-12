@@ -1,6 +1,10 @@
 @mixin submission-views-controls($block) {
 	// Basic control geometry; colors and backgrounds come from the host theme.
 	#{$block} {
+		&__page-status {
+			margin: 0 4px;
+		}
+
 		&__search {
 			margin: 0;
 			input {
@@ -38,13 +42,13 @@
 		&__button-icon,
 		&__pagination-icon {
 			flex-shrink: 0;
-			font-size: var(--forminator-submission-views-button-icon-size, 20px);
+			font-size: var(--forminator-submission-views-button-icon-size);
 			line-height: 1;
 		}
 
 		&__pagination {
 			button {
-				padding: var(--forminator-submission-views-pagination-button-padding, 6px);
+				padding: var(--forminator-submission-views-pagination-button-padding);
 			}
 		}
 	}
@@ -74,7 +78,7 @@
 
 			> #{$block}__page-filter {
 				width: auto;
-				gap: var(--forminator-submission-views-page-filter-gap, 4px);
+				gap: var(--forminator-submission-views-page-filter-gap);
 				flex-wrap: nowrap;
 			}
 
@@ -90,11 +94,11 @@
 						min-width: 0;
 						height: auto;
 						margin: 0;
-						padding-block: var(--forminator-submission-views-page-size-padding, 4px);
-						padding-inline: 4px 24px;
-						border: var(--forminator-submission-views-page-size-border, 0);
-						border-radius: var(--forminator-submission-views-page-size-radius, 1px);
-						background: var(--forminator-submission-views-page-size-background, transparent);
+						padding-block: var(--forminator-submission-views-page-size-padding);
+						padding-inline: 4px 20px;
+						border: var(--forminator-submission-views-page-size-border);
+						border-radius: var(--forminator-submission-views-page-size-radius);
+						background: var(--forminator-submission-views-page-size-background);
 						border-color: var(--forminator-submission-views-page-size-border-color, inherit);
 						border-width: var(--forminator-submission-views-page-size-border-width, inherit);
 						box-shadow: none;
@@ -108,7 +112,7 @@
 						position: absolute;
 						inset-inline-end: 4px;
 						top: 50%;
-						font-size: var(--forminator-submission-views-page-size-icon-size, 16px);
+						font-size: var(--forminator-submission-views-page-size-icon-size);
 						line-height: 1;
 						transform: translateY(-50%);
 						pointer-events: none;

@@ -18,30 +18,38 @@
 			height: 100dvh;
 			max-height: none;
 			z-index: var(--forminator-submission-views-panel-z-index);
-			background: var(
-				--forminator-submission-views-panel-background,
-				var(--forminator-submission-views-surface)
-			);
+			background: var(--forminator-submission-views-panel-background);
 			color: var(--forminator-submission-views-panel-color, inherit);
 			text-align: start;
 			box-shadow: var(--forminator-submission-views-panel-shadow);
 			overflow: hidden;
 			transform: translateX(100%);
+
 			&:dir(rtl) {
 				transform: translateX(-100%);
 			}
+
 			transition: transform var(--forminator-submission-views-panel-duration)
 				var(--forminator-submission-views-panel-easing);
+
 			&[open] {
 				display: flex;
 				flex-direction: column;
 			}
+
 			&[data-state="open"] {
 				transform: translateX(0);
 			}
+
 			&::backdrop {
-				background: var(--forminator-submission-views-backdrop, transparent);
+				background: var(--forminator-submission-views-backdrop);
 			}
+		}
+	}
+
+	@media (hover: hover) and (pointer: fine) {
+		#{$block}__panel-footer button:not(:disabled):hover {
+			color: var(--forminator-submission-views-delete-hover-color);
 		}
 	}
 
@@ -66,10 +74,7 @@
 			gap: var(--forminator-submission-views-gap);
 			flex-shrink: 0;
 			padding: var(--forminator-submission-views-panel-padding);
-			border-bottom: var(
-				--forminator-submission-views-panel-header-border,
-				1px solid var(--forminator-submission-views-sidebar-border-color)
-			);
+			border-bottom: var(--forminator-submission-views-panel-header-border);
 		}
 
 		&__panel-title {
@@ -82,9 +87,9 @@
 		&__panel-body {
 			flex: 1 1 auto;
 			@include thin-scrollbar(
-				var(--forminator-submission-views-scrollbar-thumb, #d9d9d9),
-				var(--forminator-submission-views-scrollbar-thumb-hover, #b0b0b0),
-				var(--forminator-submission-views-scrollbar-radius, 3px)
+				var(--forminator-submission-views-scrollbar-thumb),
+				var(--forminator-submission-views-scrollbar-thumb-hover),
+				var(--forminator-submission-views-scrollbar-radius)
 			);
 
 			font-size: var(--forminator-submission-views-panel-font-size);
@@ -99,15 +104,12 @@
 			display: flex;
 			justify-content: flex-end;
 			flex-shrink: 0;
-			padding: var(--forminator-submission-views-panel-padding);
-			border-top: 1px solid var(--forminator-submission-views-sidebar-border-color);
-			background: var(
-				--forminator-submission-views-panel-background,
-				var(--forminator-submission-views-surface)
-			);
+			padding: var(--forminator-submission-views-panel-footer-padding);
+			border-top: var(--forminator-submission-views-panel-footer-border);
+			background: var(--forminator-submission-views-panel-footer-background);
 			button {
 				margin: 0;
-				padding: 8px 0;
+				padding: var(--forminator-submission-views-panel-footer-action-padding);
 				border: 0;
 				background: transparent;
 				color: var(--forminator-submission-views-delete-color);
@@ -120,42 +122,46 @@
 		&__fields {
 			margin: 0;
 		}
+
 		&__field {
 			padding: var(--forminator-submission-views-panel-padding);
 			color: var(--forminator-submission-views-field-color, inherit);
 			background: var(--forminator-submission-views-field-background);
+
 			&:nth-child(even) {
 				background: var(--forminator-submission-views-field-alternate-background);
 			}
+
 			dt,
 			dd {
 				font-size: var(--forminator-submission-views-panel-font-size);
 				line-height: var(--forminator-submission-views-line-height);
-				padding: var(--forminator-submission-views-field-padding, 0);
+				padding: var(--forminator-submission-views-field-padding);
 			}
+
 			dt {
 				font-weight: var(--forminator-submission-views-field-label-font-weight);
-				margin: 0 0 8px;
+				margin: 0 0 var(--forminator-submission-views-field-label-gap);
 			}
+
 			dd {
 				font-weight: var(--forminator-submission-views-font-weight);
 				margin: 0;
 				overflow-wrap: anywhere;
 			}
 		}
+
 		&__group {
 			margin: 0;
 			border: var(--forminator-submission-views-group-border);
-			border-radius: var(--forminator-submission-views-group-radius, 0);
+			border-radius: var(--forminator-submission-views-group-radius);
+
 			> div {
-				padding: var(--forminator-submission-views-group-padding, 16px);
+				padding: var(--forminator-submission-views-group-padding);
 			}
+
 			> div + div {
 				border-top: var(--forminator-submission-views-group-border);
-				border-top-width: var(
-					--forminator-submission-views-group-border-width,
-					var(--forminator-submission-views-sidebar-border-width, inherit)
-				);
 			}
 		}
 	}

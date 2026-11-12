@@ -1,6 +1,6 @@
 @mixin submission-views-base($block) {
 	color: var(--forminator-submission-views-color, inherit);
-	background: var(--forminator-submission-views-background, transparent);
+	background: var(--forminator-submission-views-background);
 	font-weight: var(--forminator-submission-views-font-weight);
 	line-height: var(--forminator-submission-views-line-height);
 

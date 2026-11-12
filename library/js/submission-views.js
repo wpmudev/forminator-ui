@@ -104,17 +104,6 @@
 		}
 
 		function updateScrollState() {
-
-			// Match each header's computed divider, including host-theme inheritance.
-			table.querySelectorAll( 'th[data-resizable]' ).forEach( ( header ) => {
-				const handle = header.querySelector( selector + 'resize-handle' );
-				if ( handle ) {
-					handle.style.setProperty(
-						'--forminator-submission-views-resize-divider-width',
-						getComputedStyle( header ).borderBottomWidth
-					);
-				}
-			});
 			const remaining = scroll.scrollWidth - scroll.clientWidth;
 			scroll.toggleAttribute( 'data-scrollable', 1 < remaining );
 

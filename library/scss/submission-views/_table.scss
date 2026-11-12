@@ -3,14 +3,14 @@
 		// The optional frame stays outside the horizontal scrollport.
 		&__frame {
 			min-width: 0;
-			border: var(--forminator-submission-views-frame-border, 0);
+			border: var(--forminator-submission-views-frame-border);
 		}
 
 		&__scroll {
 			@include thin-scrollbar(
-				var(--forminator-submission-views-scrollbar-thumb, #d9d9d9),
-				var(--forminator-submission-views-scrollbar-thumb-hover, #b0b0b0),
-				var(--forminator-submission-views-scrollbar-radius, 3px)
+				var(--forminator-submission-views-scrollbar-thumb),
+				var(--forminator-submission-views-scrollbar-thumb-hover),
+				var(--forminator-submission-views-scrollbar-radius)
 			);
 
 			max-width: 100%;
@@ -21,7 +21,7 @@
 			&[data-scrollable] {
 				#{$block}__detail-cell {
 					position: sticky;
-					inset-inline-end: calc(-1 * var(--forminator-submission-views-sticky-action-offset, 0px));
+					inset-inline-end: calc(-1 * var(--forminator-submission-views-sticky-action-offset));
 					z-index: 1;
 				}
 			}
@@ -47,7 +47,7 @@
 			min-width: max(
 				var(--forminator-submission-views-table-min-width),
 				calc(
-					var(--forminator-submission-views-data-column-count, 0) *
+					var(--forminator-submission-views-data-column-count) *
 						var(--forminator-submission-views-column-min-width) +
 						var(
 							--forminator-submission-views-action-column-width,
@@ -71,6 +71,7 @@
 					var(--forminator-submission-views-surface)
 				);
 			}
+
 			tr {
 				background: var(--forminator-submission-views-row-background);
 			}
@@ -81,23 +82,23 @@
 				min-width: var(--forminator-submission-views-column-min-width);
 				font-size: var(--forminator-submission-views-font-size);
 				line-height: var(--forminator-submission-views-line-height);
-				font-weight: var(--forminator-submission-views-font-weight);
 				padding: var(--forminator-submission-views-cell-padding);
 				border: 0;
 				border-block-end: var(--forminator-submission-views-cell-border);
 				border-color: var(--forminator-submission-views-cell-border-color, inherit);
 				color: var(--forminator-submission-views-cell-color, inherit);
-				background: var(--forminator-submission-views-cell-background, transparent);
+				background: var(--forminator-submission-views-cell-background);
 				text-align: start;
 				vertical-align: top;
 				overflow-wrap: anywhere;
 			}
+
 			th {
 				color: var(--forminator-submission-views-header-color, inherit);
-				background: var(--forminator-submission-views-header-background, transparent);
+				background: var(--forminator-submission-views-header-background);
 				font-size: var(--forminator-submission-views-header-font-size);
-				font-weight: var(--forminator-submission-views-header-font-weight);
 			}
+
 			thead #{$block}__detail-cell {
 				pointer-events: none;
 			}
@@ -121,7 +122,7 @@
 					padding: 0;
 					text-decoration: underline;
 					color: var(--forminator-submission-views-detail-color, inherit);
-					background: var(--forminator-submission-views-detail-background, transparent);
+					background: var(--forminator-submission-views-detail-background);
 				}
 			}
 
@@ -153,16 +154,29 @@
 			&::after {
 				content: "";
 				position: absolute;
-				inset-block: 25%;
-				inset-inline-end: 5px;
-				width: var(--forminator-submission-views-resize-divider-width, 0px);
-				background: var(--forminator-submission-views-resize-handle-color, currentColor);
-				opacity: 0.25;
+				width: var(--forminator-submission-views-resize-divider-width);
+				background: var(--forminator-submission-views-resize-handle-color);
+				height: 24px;
+				top: 50%;
+				inset-inline-end: 0;
+				transform: translateY(-50%);
 			}
+
 			&:focus-visible {
 				outline: 2px solid Highlight;
 				outline-offset: -2px;
 			}
+		}
+	}
+
+	@media (hover: hover) and (pointer: fine) {
+		#{$block}__table #{$block}__detail-cell button#{$block}__delete:not(:disabled):hover {
+			color: var(--forminator-submission-views-delete-hover-color);
+		}
+
+		#{$block}__resize-handle:hover::after {
+			width: var(--forminator-submission-views-resize-divider-hover-width);
+			background: var(--forminator-submission-views-resize-handle-hover-color);
 		}
 	}
 
