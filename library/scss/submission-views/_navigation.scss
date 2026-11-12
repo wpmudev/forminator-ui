@@ -25,9 +25,9 @@
 			@include thin-scrollbar;
 			position: absolute;
 			inset-inline-end: 0;
-			top: calc(100% + 8px);
+			top: calc(100% + var(--forminator-submission-views-columns-offset));
 			z-index: 10;
-			width: min(var(--forminator-submission-views-columns-width), calc(100vw - 32px));
+			width: min(var(--forminator-submission-views-columns-width), calc(100vw - 2 * var(--forminator-submission-views-columns-viewport-gutter)));
 			max-height: min(var(--forminator-submission-views-columns-max-height), 60vh);
 			overflow-y: auto;
 			padding: var(--forminator-submission-views-columns-padding);
@@ -42,7 +42,7 @@
 
 			&[data-placement="top"] {
 				top: auto;
-				bottom: calc(100% + 8px);
+				bottom: calc(100% + var(--forminator-submission-views-columns-offset));
 			}
 
 			label {
@@ -61,7 +61,7 @@
 				flex: 0 0 var(--forminator-submission-views-columns-checkbox-size);
 				width: var(--forminator-submission-views-columns-checkbox-size);
 				height: var(--forminator-submission-views-columns-checkbox-size);
-				margin: 2px 0;
+				margin: var(--forminator-submission-views-columns-checkbox-margin);
 				padding: 0;
 				cursor: pointer;
 

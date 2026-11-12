@@ -152,4 +152,18 @@
 	--forminator-submission-views-background: transparent;
 	--forminator-submission-views-panel-background: var(--forminator-submission-views-surface);
 	--forminator-submission-views-panel-header-border: 1px solid var(--forminator-submission-views-sidebar-border-color);
+	// Additional layout customization.
+	--forminator-submission-views-search-width: 240px;
+	--forminator-submission-views-page-status-margin: 0 4px;
+	--forminator-submission-views-page-size-padding-inline: 4px 20px;
+	--forminator-submission-views-page-size-icon-offset: 4px;
+	--forminator-submission-views-columns-checkbox-margin: 2px 0;
+	--forminator-submission-views-resize-handle-width: 12px;
+	--forminator-submission-views-resize-divider-height: 24px;
+	--forminator-submission-views-sidebar-border-width: 1px;
+	--forminator-submission-views-delete-button-border-width: 1px;
+	--forminator-submission-views-rtl-sticky-shadow: 6px 0 16px rgb(0 0 0 / 8%);
+	--forminator-submission-views-rtl-panel-shadow: 4px 0 16px rgb(0 0 0 / 10%);
+	--forminator-submission-views-columns-offset: 8px;
+	--forminator-submission-views-columns-viewport-gutter: 16px;
 }

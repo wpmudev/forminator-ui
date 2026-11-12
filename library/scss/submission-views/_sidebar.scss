@@ -8,7 +8,7 @@
 			margin: 0;
 			padding: 0;
 			border: unset;
-			border-inline-start: 1px solid var(--forminator-submission-views-sidebar-border-color);
+			border-inline-start: var(--forminator-submission-views-sidebar-border-width) solid var(--forminator-submission-views-sidebar-border-color);
 			width: min(
 				var(--forminator-submission-views-panel-width),
 				calc(100% - var(--forminator-submission-views-panel-mobile-gutter))

@@ -147,7 +147,7 @@
 			position: absolute;
 			inset-block: 0;
 			inset-inline-end: 0;
-			width: 12px;
+			width: var(--forminator-submission-views-resize-handle-width);
 			cursor: col-resize;
 			touch-action: none;
 			user-select: none;
@@ -157,7 +157,7 @@
 				position: absolute;
 				width: var(--forminator-submission-views-resize-divider-width);
 				background: var(--forminator-submission-views-resize-handle-color);
-				height: 24px;
+				height: var(--forminator-submission-views-resize-divider-height);
 				top: 50%;
 				inset-inline-end: 0;
 				transform: translateY(-50%);

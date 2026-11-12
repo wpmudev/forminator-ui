@@ -88,7 +88,8 @@
 		// Table layout and overflow.
 		function readWidth( name, fallback ) {
 			const value = getComputedStyle( view ).getPropertyValue( '--forminator-submission-views-' + name );
-			return parseFloat( value ) || fallback;
+			const number = parseFloat( value );
+			return Number.isFinite( number ) ? number : fallback;
 		}
 
 		function isVisibleColumn( header ) {
@@ -574,14 +575,16 @@
 
 		function positionColumnOptions() {
 			const anchor = columnsButton.getBoundingClientRect();
-			const below = window.innerHeight - anchor.bottom - 16;
-			const above = anchor.top - 16;
+			const gap = Math.max( 0, readWidth( 'columns-offset', 8 ) );
+			const gutter = Math.max( 0, readWidth( 'columns-viewport-gutter', 16 ) );
+			const below = window.innerHeight - anchor.bottom - gap - gutter;
+			const above = anchor.top - gap - gutter;
 			const placeAbove = 200 > below && above > below;
 			columnOptions.dataset.placement = placeAbove ? 'top' : 'bottom';
-			columnOptions.style.maxHeight = Math.max( 80, Math.min( readWidth( 'columns-max-height', 360 ), placeAbove ? above : below ) ) + 'px';
+			columnOptions.style.maxHeight = Math.max( 0, Math.min( readWidth( 'columns-max-height', 360 ), placeAbove ? above : below ) ) + 'px';
 			columnOptions.style.transform = '';
 			const bounds = columnOptions.getBoundingClientRect();
-			const offset = Math.max( 8 - bounds.left, Math.min( 0, document.documentElement.clientWidth - 8 - bounds.right ) );
+			const offset = Math.max( gutter - bounds.left, Math.min( 0, document.documentElement.clientWidth - gutter - bounds.right ) );
 			columnOptions.style.transform = 'translateX(' + offset + 'px)';
 		}
 

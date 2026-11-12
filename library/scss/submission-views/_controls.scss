@@ -2,7 +2,7 @@
 	// Basic control geometry; colors and backgrounds come from the host theme.
 	#{$block} {
 		&__page-status {
-			margin: 0 4px;
+			margin: var(--forminator-submission-views-page-status-margin);
 		}
 
 		&__search {
@@ -96,7 +96,7 @@
 						height: auto;
 						margin: 0;
 						padding-block: var(--forminator-submission-views-page-size-padding);
-						padding-inline: 4px 20px;
+						padding-inline: var(--forminator-submission-views-page-size-padding-inline);
 						border: var(--forminator-submission-views-page-size-border);
 						border-radius: var(--forminator-submission-views-page-size-radius);
 						background: var(--forminator-submission-views-page-size-background);
@@ -111,7 +111,7 @@
 
 					#{$block}__page-size-icon {
 						position: absolute;
-						inset-inline-end: 4px;
+						inset-inline-end: var(--forminator-submission-views-page-size-icon-offset);
 						top: 50%;
 						font-size: var(--forminator-submission-views-page-size-icon-size);
 						line-height: 1;
@@ -139,12 +139,12 @@
 		}
 
 		&__search {
-			flex: 1 1 240px;
+			flex: 1 1 var(--forminator-submission-views-search-width);
 			min-width: 0;
 
 			input {
 				max-width: 100%;
-				width: 240px;
+				width: var(--forminator-submission-views-search-width);
 			}
 		}
 

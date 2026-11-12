@@ -5,8 +5,8 @@
 	line-height: var(--forminator-submission-views-line-height);
 
 	&:dir(rtl) {
-		--forminator-submission-views-sticky-shadow: 6px 0 16px rgb(0 0 0 / 8%);
-		--forminator-submission-views-panel-shadow: 4px 0 16px rgb(0 0 0 / 10%);
+		--forminator-submission-views-sticky-shadow: var(--forminator-submission-views-rtl-sticky-shadow);
+		--forminator-submission-views-panel-shadow: var(--forminator-submission-views-rtl-panel-shadow);
 	}
 
 	font-size: var(--forminator-submission-views-font-size);

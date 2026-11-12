@@ -104,7 +104,7 @@
 				margin: 0;
 				padding: var(--forminator-submission-views-delete-button-padding);
 				min-height: var(--forminator-submission-views-delete-button-min-height);
-				border: 1px solid transparent;
+				border: var(--forminator-submission-views-delete-button-border-width) solid transparent;
 				border-radius: var(--forminator-submission-views-delete-button-radius);
 				background: var(--forminator-submission-views-delete-cancel-background);
 				color: var(--forminator-submission-views-delete-cancel-color);
