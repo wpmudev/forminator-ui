@@ -2,6 +2,7 @@
 @import "mixins";
 @import "variables";
 @import "base";
+@import "loading";
 @import "controls";
 @import "table";
 @import "navigation";
@@ -14,6 +15,7 @@
 
 	@include submission-views-variables();
 	@include submission-views-base($block);
+	@include submission-views-loading($block);
 	@include submission-views-controls($block);
 	@include submission-views-table($block);
 	@include submission-views-navigation($block);

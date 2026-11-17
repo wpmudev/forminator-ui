@@ -13,7 +13,7 @@
 // 1. BASIC VARIABLES
 
 $version:    '1.7.4'                 !default;
-$font--icon-version: '1.7.4-f009'     !default;
+$font--icon-version: '1.7.4-f007-loader'     !default;
 $path-fonts: '../fonts/'             !default;
 
 $font:       inherit                 !default;
@@ -158,6 +158,7 @@ $icons: (
 	chevron-right:   "\276f",
 	chevron-up:      "\2303",
 	close:           "\f006",
+	loading:         "\f007",
 	delete:          "\f008",
 	settings:        "\2297",
 	file:            "\1f4c4",

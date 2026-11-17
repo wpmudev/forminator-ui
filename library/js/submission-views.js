@@ -63,6 +63,87 @@
 		let directionObserver;
 		let pointerStartedOutside = false;
 		let destroyed = false;
+		let loading = false;
+		let loadingFocus;
+		const loadingClass = 'forminator-submission-views--loading';
+		const initiallyLoading = view.classList.contains( loadingClass );
+		const originalBusy = view.getAttribute( 'aria-busy' );
+		const loadingRegions = new Map();
+		const loadingControls = new Map();
+		const loader = view.querySelector( selector + 'loader' );
+		const originalLoaderHidden = loader ? loader.hidden : true;
+
+		// Keep the intended state separate from the temporary loading disabled state.
+		function setControlDisabled( control, disabled ) {
+			if ( loading ) {
+				loadingControls.set( control, disabled );
+				control.disabled = true;
+			} else {
+				control.disabled = disabled;
+			}
+		}
+
+		function syncLoadingRegions() {
+			view.querySelectorAll( selector + 'toolbar, ' + selector + 'frame, ' + selector + 'footer' ).forEach( function( region ) {
+				if ( ! loadingRegions.has( region ) ) {
+					loadingRegions.set( region, region.getAttribute( 'inert' ) );
+				}
+				region.setAttribute( 'inert', '' );
+				region.querySelectorAll( 'button, input, select, textarea, fieldset' ).forEach( function( control ) {
+					if ( ! loadingControls.has( control ) ) {
+						loadingControls.set( control, control.disabled );
+					}
+					control.disabled = true;
+				});
+			});
+		}
+
+		/** Temporarily disable table controls while the integration updates data. */
+		function setLoading( value ) {
+			if ( destroyed || 'boolean' !== typeof value || ( value && ! loader ) ) {
+				return false;
+			}
+			if ( loading === value ) {
+				return true;
+			}
+			loading = value;
+			view.classList.toggle( loadingClass, loading );
+			if ( loading ) {
+				setColumnOptionsOpen( false, false );
+				stopResizing();
+				loadingFocus = document.activeElement;
+				view.setAttribute( 'aria-busy', 'true' );
+				loader.hidden = false;
+				if ( loadingFocus && loadingFocus.closest( selector + 'toolbar, ' + selector + 'frame, ' + selector + 'footer' ) ) {
+					loader.focus({ preventScroll: true });
+				}
+				syncLoadingRegions();
+			} else {
+				loadingRegions.forEach( function( inert, region ) {
+					if ( null === inert ) {
+						region.removeAttribute( 'inert' );
+					} else {
+						region.setAttribute( 'inert', inert );
+					}
+				});
+				loadingRegions.clear();
+				loadingControls.forEach( function( disabled, control ) {
+					control.disabled = disabled;
+				});
+				loadingControls.clear();
+				if ( null === originalBusy ) {
+					view.removeAttribute( 'aria-busy' );
+				} else {
+					view.setAttribute( 'aria-busy', originalBusy );
+				}
+				if ( document.activeElement === loader && loadingFocus && loadingFocus.isConnected ) {
+					loadingFocus.focus({ preventScroll: true });
+				}
+				loader.hidden = true;
+				loadingFocus = null;
+			}
+			return true;
+		}
 
 		// Shared event helpers. Every registered listener is removed on destroy.
 		function listen( target, type, handler, options ) {
@@ -546,6 +627,46 @@
 			emit( 'search', { value: input.value });
 		}
 
+		/** Update pagination markup after Forminator supplies the current results. */
+		function setPagination( options ) {
+			if ( destroyed || ! options || 'object' !== typeof options ) {
+				return false;
+			}
+			const { page, pageSize, totalPages, statusText } = options;
+			if ( ! Number.isSafeInteger( page ) || ! Number.isSafeInteger( pageSize ) || ! Number.isSafeInteger( totalPages ) ||
+				1 > pageSize || 0 > totalPages || 0 > page ||
+				( 0 === totalPages ? 1 < page : 1 > page || page > totalPages ) ||
+				( undefined !== statusText && 'string' !== typeof statusText ) ) {
+				return false;
+			}
+
+			// Query current controls so replaced pagination markup works too.
+			const size = view.querySelector( '[data-page-size]' );
+			if ( size && ! Array.from( size.options ).some( option => option.value === String( pageSize ) ) ) {
+				return false;
+			}
+			const empty = 0 === totalPages;
+			const status = view.querySelector( '[data-page-status]' );
+			if ( status ) {
+				status.textContent = undefined === statusText ? ( empty ? '0 of 0' : page + ' of ' + totalPages ) : statusText;
+			}
+			if ( size ) {
+				size.value = String( pageSize );
+			}
+			const disabled = {
+				first: empty || 1 >= page,
+				previous: empty || 1 >= page,
+				next: empty || page >= totalPages,
+				last: empty || page >= totalPages
+			};
+			view.querySelectorAll( '[data-page]' ).forEach( function( button ) {
+				if ( Object.prototype.hasOwnProperty.call( disabled, button.dataset.page ) ) {
+					setControlDisabled( button, disabled[button.dataset.page]);
+				}
+			});
+			return true;
+		}
+
 		function requestPageSize( event, input ) {
 			emit( 'page-size', { value: Number( input.value ) });
 		}
@@ -750,10 +871,10 @@
 					return;
 				}
 				if ( ! originalColumnDisabled.has( input ) ) {
-					originalColumnDisabled.set( input, input.disabled );
+					originalColumnDisabled.set( input, loadingControls.has( input ) ? loadingControls.get( input ) : input.disabled );
 				}
 				input.checked = ! header.hidden;
-				input.disabled = originalColumnDisabled.get( input ) || ( input.checked && 1 === visibleColumns.length );
+				setControlDisabled( input, originalColumnDisabled.get( input ) || ( input.checked && 1 === visibleColumns.length ) );
 			});
 		}
 
@@ -884,6 +1005,9 @@
 			if ( destroyed || ! table.tHead || ! table.tHead.rows.length ) {
 				return;
 			}
+			if ( loading ) {
+				syncLoadingRegions();
+			}
 			minColumnWidth = readWidth( 'column-min-width', 200 );
 			maxColumnWidth = Math.max( 1200, minColumnWidth );
 			headers = Array.from( table.tHead.rows[0].cells );
@@ -892,6 +1016,13 @@
 				widths.set( header, Math.max( minColumnWidth, savedWidth ) );
 			});
 			updateColumnOptions();
+
+			// New AJAX rows inherit visibility from the current data headers.
+			headers.forEach( function( header, index ) {
+				if ( isDataColumn( header ) ) {
+					setColumnVisible( index, isVisibleColumn( header ) );
+				}
+			});
 			bindResizeHandles();
 			applyColumnWidths();
 		}
@@ -900,6 +1031,11 @@
 			if ( destroyed ) {
 				return;
 			}
+			setLoading( false );
+			if ( loader ) {
+				loader.hidden = originalLoaderHidden;
+			}
+			view.classList.toggle( loadingClass, initiallyLoading );
 			destroyed = true;
 			clearTimeout( deleteCloseTimer );
 			pendingDelete = null;
@@ -992,6 +1128,14 @@
 		}
 
 		function init() {
+			[ 'click', 'input', 'change', 'keydown', 'pointerdown' ].forEach( function( type ) {
+				listen( view, type, function( event ) {
+					if ( loading && event.target.closest( selector + 'toolbar, ' + selector + 'frame, ' + selector + 'footer' ) ) {
+						event.preventDefault();
+						event.stopImmediatePropagation();
+					}
+				}, true );
+			});
 			if ( ! originalColgroup ) {
 				table.insertBefore( colgroup, table.tHead );
 			}
@@ -1000,9 +1144,12 @@
 			bindControlEvents();
 			refresh();
 			observeLayout();
+			if ( initiallyLoading ) {
+				setLoading( true );
+			}
 		}
 
-		const api = { refresh, destroy, open: openPanel, close: closePanel, setSubmission, getCsv, downloadCsv };
+		const api = { refresh, destroy, setLoading, setPagination, open: openPanel, close: closePanel, setSubmission, getCsv, downloadCsv };
 		instances.set( view, api );
 		init();
 		return api;
