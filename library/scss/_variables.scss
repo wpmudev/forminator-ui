@@ -13,7 +13,7 @@
 // 1. BASIC VARIABLES
 
 $version:    '1.7.4'                 !default;
-$font--icon-version: '1.7.4-f007-loader'     !default;
+$font--icon-version: '1.7.5'          !default;
 $path-fonts: '../fonts/'             !default;
 
 $font:       inherit                 !default;
@@ -157,9 +157,9 @@ $icons: (
 	chevron-left:    "\276e",
 	chevron-right:   "\276f",
 	chevron-up:      "\2303",
-	close:           "\f006",
-	loading:         "\f007",
-	delete:          "\f008",
+	close:           "\f008",
+	loading:         "\f004",
+	delete:          "\f009",
 	settings:        "\2297",
 	file:            "\1f4c4",
 	loader:          "\25cc",
@@ -178,11 +178,11 @@ $icons: (
 	smile:          "\e906",
 	eye: 		    "\f000",
 	eye-hide: 		"\f001",
-	chevron-double-left:   "\f002",
-	chevron-left-rounded:  "\f003",
-	chevron-right-rounded: "\f004",
+	chevron-double-left:   "\f006",
+	chevron-left-rounded:  "\f002",
+	chevron-right-rounded: "\f003",
 	chevron-double-right:  "\f005",
-	chevron-down-rounded:  "\f009",
+	chevron-down-rounded:  "\f007",
 ) !default;
 
 // =============================================

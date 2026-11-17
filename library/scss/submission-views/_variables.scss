@@ -1,7 +1,7 @@
 @mixin submission-views-variables() {
 	// Loading state.
 	--forminator-submission-views-loading-opacity: 0.2;
-	--forminator-submission-views-loader-color: #000;
+	--forminator-submission-views-loader-color: rgb(0 0 0 / 70%);
 	--forminator-submission-views-loader-duration: 1s;
 	--forminator-submission-views-loader-size: 48px;
 	// Typography.
