@@ -4,6 +4,14 @@
 	--forminator-submission-views-loader-color: rgb(0 0 0 / 70%);
 	--forminator-submission-views-loader-duration: 1s;
 	--forminator-submission-views-loader-size: 48px;
+	// Error alert.
+	--forminator-submission-views-alert-padding: 12px 16px;
+	--forminator-submission-views-alert-border: 1px solid #cb210f;
+	--forminator-submission-views-alert-radius: 4px;
+	--forminator-submission-views-alert-background: #fff0f0;
+	--forminator-submission-views-alert-color: #8a160a;
+	--forminator-submission-views-alert-font-size: var(--forminator-submission-views-font-size);
+	--forminator-submission-views-alert-line-height: var(--forminator-submission-views-line-height);
 	// Typography.
 	--forminator-submission-views-font-size: 16px;
 	--forminator-submission-views-line-height: 24px;

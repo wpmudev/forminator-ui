@@ -141,6 +141,20 @@ library.watch.scripts.poll = [
 ];
 
 library.watch.scripts.submissionViews = [
+	library.source.scripts + 'helpers/urls.js',
+	library.source.scripts + 'helpers/notices.js',
+	library.source.scripts + 'helpers/csv.js',
+	library.source.scripts + 'submission-views/events.js',
+	library.source.scripts + 'submission-views/feedback.js',
+	library.source.scripts + 'submission-views/layout.js',
+	library.source.scripts + 'submission-views/resizing.js',
+	library.source.scripts + 'submission-views/fields.js',
+	library.source.scripts + 'submission-views/sidebar.js',
+	library.source.scripts + 'submission-views/pagination.js',
+	library.source.scripts + 'submission-views/columns.js',
+	library.source.scripts + 'submission-views/deletion.js',
+	library.source.scripts + 'submission-views/csv.js',
+	library.source.scripts + 'submission-views/controls.js',
 	library.source.scripts + 'submission-views.js'
 ];
 

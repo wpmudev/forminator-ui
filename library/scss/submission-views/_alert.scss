@@ -1,0 +1,15 @@
+@mixin submission-views-alert($block) {
+	#{$block}__alert {
+		margin: 0;
+		padding: var(--forminator-submission-views-alert-padding);
+		border: var(--forminator-submission-views-alert-border);
+		border-radius: var(--forminator-submission-views-alert-radius);
+		background: var(--forminator-submission-views-alert-background);
+		color: var(--forminator-submission-views-alert-color);
+		font-size: var(--forminator-submission-views-alert-font-size);
+		line-height: var(--forminator-submission-views-alert-line-height);
+		text-align: start;
+		white-space: pre-line;
+		overflow-wrap: anywhere;
+	}
+}
