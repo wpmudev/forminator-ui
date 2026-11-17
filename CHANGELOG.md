@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.13.0
+
+### Minor Changes
+
+- [#204](https://github.com/wpmudev/forminator-ui/pull/204) [`b33f0fd`](https://github.com/wpmudev/forminator-ui/commit/b33f0fd4f4bb73839adf50f4e5042068e6e62696) Thanks [@creador-dev](https://github.com/creador-dev)! - Add Submission Views with responsive tables, column management, RTL support, submission detail and delete dialogs, CSV export, pagination and loading APIs, and customizable error notices.
+
 ## 1.12.50
 
 ### Patch Changes
