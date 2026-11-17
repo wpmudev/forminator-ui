@@ -149,7 +149,8 @@
 	--forminator-submission-views-group-padding: 16px;
 	--forminator-submission-views-button-icon-size: 20px;
 	--forminator-submission-views-page-filter-gap: 4px;
-	--forminator-submission-views-page-size-padding: 4px;
+	--forminator-submission-views-page-size-padding: 4px 20px 4px 0;
+	--forminator-submission-views-page-size-padding-rtl: 4px 0 4px 20px;
 	--forminator-submission-views-page-size-border: 0;
 	--forminator-submission-views-page-size-radius: 1px;
 	--forminator-submission-views-page-size-background: transparent;
@@ -160,7 +161,6 @@
 	// Additional layout customization.
 	--forminator-submission-views-search-width: 240px;
 	--forminator-submission-views-page-status-margin: 0 4px;
-	--forminator-submission-views-page-size-padding-inline: 4px 20px;
 	--forminator-submission-views-page-size-icon-offset: 4px;
 	--forminator-submission-views-columns-checkbox-margin: 2px 0;
 	--forminator-submission-views-resize-handle-width: 12px;

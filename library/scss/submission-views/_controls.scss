@@ -95,8 +95,7 @@
 						min-width: 0;
 						height: auto;
 						margin: 0;
-						padding-block: var(--forminator-submission-views-page-size-padding);
-						padding-inline: var(--forminator-submission-views-page-size-padding-inline);
+						padding: var(--forminator-submission-views-page-size-padding);
 						border: var(--forminator-submission-views-page-size-border);
 						border-radius: var(--forminator-submission-views-page-size-radius);
 						background: var(--forminator-submission-views-page-size-background);
@@ -107,6 +106,10 @@
 						font-size: var(--forminator-submission-views-footer-font-size);
 						line-height: var(--forminator-submission-views-line-height);
 						cursor: pointer;
+
+						&:dir(rtl) {
+							padding: var(--forminator-submission-views-page-size-padding-rtl);
+						}
 					}
 
 					#{$block}__page-size-icon {
