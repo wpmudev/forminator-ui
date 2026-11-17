@@ -1,0 +1,47 @@
+@mixin submission-views-base($block) {
+	color: var(--forminator-submission-views-color, inherit);
+	background: var(--forminator-submission-views-background);
+	font-weight: var(--forminator-submission-views-font-weight);
+	line-height: var(--forminator-submission-views-line-height);
+
+	&:dir(rtl) {
+		--forminator-submission-views-sticky-shadow: var(--forminator-submission-views-rtl-sticky-shadow);
+		--forminator-submission-views-panel-shadow: var(--forminator-submission-views-rtl-panel-shadow);
+	}
+
+	font-size: var(--forminator-submission-views-font-size);
+	min-width: 0;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: var(--forminator-submission-views-gap);
+
+	*,
+	*::before,
+	*::after {
+		box-sizing: border-box;
+	}
+
+	*:focus {
+		outline: none;
+	}
+
+	*:focus-visible {
+		outline: auto;
+	}
+
+	:not([class*="forminator-icon-"])::before,
+	::after {
+		content: unset;
+	}
+
+	#{$block} {
+		&__sr-only {
+			@extend %screen-readers;
+		}
+	}
+
+	[hidden] {
+		display: none !important;
+	}
+}

@@ -1,0 +1,41 @@
+@mixin submission-views-loading($block) {
+	position: relative;
+
+	#{$block}__loader {
+		position: absolute;
+		inset: 0;
+		z-index: 10;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		pointer-events: none;
+
+		#{$block}__loader-icon {
+			@include _submission-views-icon-box;
+			font-size: var(--forminator-submission-views-loader-size);
+			color: var(--forminator-submission-views-loader-color);
+			flex: none;
+			animation: forminator-submission-views-spin var(--forminator-submission-views-loader-duration) linear infinite;
+		}
+
+	}
+
+	&#{$block}--loading {
+		#{$block}__toolbar,
+		#{$block}__frame,
+		#{$block}__footer {
+			opacity: var(--forminator-submission-views-loading-opacity);
+			pointer-events: none;
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		#{$block}__loader-icon {
+			animation: none;
+		}
+	}
+}
+
+@keyframes forminator-submission-views-spin {
+	to { transform: rotate(360deg); }
+}

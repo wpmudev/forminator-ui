@@ -8,6 +8,9 @@
 //
 // B) To get quiz module + flat theme class:
 //    @include body-class(quiz, flat) { ... }
+//
+// C) To get Views without a theme selector (Inherit):
+//    @include body-class(submission-views, no-theme) { ... }
 // =============================================
 
 @mixin body-class($module-type: all, $module-theme: all, $desktop: false) {
@@ -75,7 +78,22 @@
 
 				&.forminator-#{$type} {
 
-					@if ($module-theme == all) {
+					// Structural styles can opt out of theme selectors.
+					@if ($module-theme == no-theme or $module-theme == '') {
+
+						@if ($desktop == true) {
+
+							&:not(.forminator-size--small) {
+								@content;
+							}
+
+						} @else {
+
+							@content;
+
+						}
+
+					} @else if ($module-theme == all) {
 
 						&.forminator-design--default,
 						&.forminator-design--flat,

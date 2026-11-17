@@ -1,0 +1,148 @@
+@mixin submission-views-delete-dialog($block) {
+	#{$block} {
+		&__delete-dialog {
+			@include thin-scrollbar;
+			position: fixed;
+			inset: 0;
+			margin: auto;
+			width: min(var(--forminator-submission-views-delete-dialog-width), calc(100% - 2 * var(--forminator-submission-views-delete-dialog-viewport-gutter)));
+			max-width: none;
+			min-width: 0;
+			height: fit-content;
+			max-height: calc(100dvh - 2 * var(--forminator-submission-views-delete-dialog-viewport-gutter));
+			overflow-y: auto;
+			padding: var(--forminator-submission-views-delete-dialog-padding);
+			border: 0;
+			border-radius: var(--forminator-submission-views-delete-dialog-radius);
+			background: var(--forminator-submission-views-delete-dialog-background);
+			color: var(--forminator-submission-views-delete-dialog-color);
+			font-size: var(--forminator-submission-views-delete-dialog-font-size);
+			line-height: var(--forminator-submission-views-delete-dialog-line-height);
+			text-align: start;
+			opacity: 0;
+			transform: scale(var(--forminator-submission-views-delete-dialog-scale));
+			pointer-events: none;
+			transition:
+				opacity var(--forminator-submission-views-delete-dialog-duration) var(--forminator-submission-views-delete-dialog-easing),
+				transform var(--forminator-submission-views-delete-dialog-duration) var(--forminator-submission-views-delete-dialog-easing);
+
+			&[open] {
+				pointer-events: auto;
+				display: flex;
+				flex-direction: column;
+				align-items: flex-start;
+				gap: var(--forminator-submission-views-delete-dialog-gap);
+			}
+
+			&[data-state="closing"] {
+				pointer-events: none;
+			}
+
+			&[open][data-state="open"] {
+				opacity: 1;
+				transform: scale(1);
+			}
+
+			&::backdrop {
+				background: var(--forminator-submission-views-delete-dialog-backdrop);
+				opacity: 0;
+				transition:
+					opacity var(--forminator-submission-views-delete-dialog-duration) var(--forminator-submission-views-delete-dialog-easing);
+			}
+
+			&[open][data-state="open"]::backdrop {
+				opacity: 1;
+			}
+		}
+
+		&__delete-icon {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex-shrink: 0;
+			width: var(--forminator-submission-views-delete-badge-size);
+			height: var(--forminator-submission-views-delete-badge-size);
+			border-radius: 50%;
+			background: var(--forminator-submission-views-delete-badge-background);
+
+			.forminator-icon-delete {
+				@include _submission-views-icon-box;
+				font-size: var(--forminator-submission-views-delete-icon-size);
+				color: var(--forminator-submission-views-delete-icon-color);
+			}
+		}
+
+		&__delete-content {
+			display: flex;
+			flex-direction: column;
+			gap: var(--forminator-submission-views-delete-content-gap);
+			width: 100%;
+
+			p {
+				margin: 0;
+				color: inherit;
+			}
+		}
+
+		&__delete-title {
+			margin: 0;
+			font-size: var(--forminator-submission-views-delete-title-font-size);
+			font-weight: var(--forminator-submission-views-delete-title-font-weight);
+			color: inherit;
+		}
+
+		&__delete-actions {
+			display: flex;
+			justify-content: flex-end;
+			flex-wrap: wrap;
+			gap: var(--forminator-submission-views-delete-actions-gap);
+			width: 100%;
+
+			button {
+				font-size: var(--forminator-submission-views-delete-dialog-font-size);
+				line-height: var(--forminator-submission-views-delete-dialog-line-height);
+				margin: 0;
+				padding: var(--forminator-submission-views-delete-button-padding);
+				min-height: var(--forminator-submission-views-delete-button-min-height);
+				border: var(--forminator-submission-views-delete-button-border-width) solid transparent;
+				border-radius: var(--forminator-submission-views-delete-button-radius);
+				background: var(--forminator-submission-views-delete-cancel-background);
+				color: var(--forminator-submission-views-delete-cancel-color);
+			}
+
+			[data-delete-confirm] {
+				border-color: var(--forminator-submission-views-delete-confirm-background);
+				background: var(--forminator-submission-views-delete-confirm-background);
+				color: var(--forminator-submission-views-delete-confirm-color);
+			}
+		}
+	}
+
+	@media (hover: hover) and (pointer: fine) {
+		#{$block}__delete-actions {
+			button:not(:disabled):hover {
+				background: var(--forminator-submission-views-delete-cancel-hover-background);
+				color: var(--forminator-submission-views-delete-cancel-hover-color);
+			}
+
+			[data-delete-confirm]:not(:disabled):hover {
+				border-color: var(--forminator-submission-views-delete-confirm-hover-background);
+				background: var(--forminator-submission-views-delete-confirm-hover-background);
+				color: var(--forminator-submission-views-delete-confirm-hover-color);
+			}
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		#{$block}__delete-dialog {
+			--forminator-submission-views-delete-dialog-duration: var(--forminator-submission-views-reduced-motion-duration);
+
+			&,
+			&[open],
+			&[open][data-state="open"] {
+				transform: none;
+			}
+		}
+	}
+
+}

@@ -22,3 +22,10 @@
 		}
 	}
 }
+// Showcase spacing belongs to the page shell, not the Views library.
+@include body-class(true) {
+	.views-demo {
+		padding: 24px;
+		min-width: 0;
+	}
+}
