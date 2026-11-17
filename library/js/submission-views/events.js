@@ -11,7 +11,9 @@
 		// Shared event helpers. Every registered listener is removed on destroy.
 		function listen( target, type, handler, options ) {
 			target.addEventListener( type, handler, options );
-			context.listeners.push( () => target.removeEventListener( type, handler, options ) );
+			const remove = () => target.removeEventListener( type, handler, options );
+			context.listeners.push( remove );
+			return remove;
 		}
 
 		function delegate( type, targetSelector, handler ) {

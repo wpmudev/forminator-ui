@@ -18,12 +18,12 @@
 				if ( ! context.boundHandles.has( handle ) ) {
 					context.rememberHandleAttributes( handle );
 					context.boundHandles.add( handle );
-					context.listen( handle, 'pointerdown', context.startResizing );
-					context.listen( handle, 'pointermove', context.moveResizeHandle );
-					context.listen( handle, 'pointerup', context.stopResizing );
-					context.listen( handle, 'pointercancel', context.stopResizing );
-					context.listen( handle, 'lostpointercapture', context.stopResizing );
-					context.listen( handle, 'keydown', context.resizeWithKeyboard );
+					context.listenTable( handle, 'pointerdown', context.startResizing );
+					context.listenTable( handle, 'pointermove', context.moveResizeHandle );
+					context.listenTable( handle, 'pointerup', context.stopResizing );
+					context.listenTable( handle, 'pointercancel', context.stopResizing );
+					context.listenTable( handle, 'lostpointercapture', context.stopResizing );
+					context.listenTable( handle, 'keydown', context.resizeWithKeyboard );
 				}
 				handle.setAttribute( 'aria-valuemin', String( context.minColumnWidth ) );
 				handle.setAttribute( 'aria-valuemax', String( context.maxColumnWidth ) );

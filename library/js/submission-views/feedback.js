@@ -19,6 +19,24 @@
 		}
 
 		function syncLoadingRegions() {
+
+			// Release detached AJAX content instead of retaining disabled old controls.
+			context.loadingRegions.forEach( function( inert, region ) {
+				if ( ! context.view.contains( region ) ) {
+					if ( null === inert ) {
+						region.removeAttribute( 'inert' );
+					} else {
+						region.setAttribute( 'inert', inert );
+					}
+					context.loadingRegions.delete( region );
+				}
+			});
+			context.loadingControls.forEach( function( disabled, control ) {
+				if ( ! context.view.contains( control ) ) {
+					control.disabled = disabled;
+					context.loadingControls.delete( control );
+				}
+			});
 			context.view.querySelectorAll( context.selector + 'toolbar, ' + context.selector + 'frame, ' + context.selector + 'footer' ).forEach( function( region ) {
 				if ( ! context.loadingRegions.has( region ) ) {
 					context.loadingRegions.set( region, region.getAttribute( 'inert' ) );
