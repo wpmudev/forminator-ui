@@ -97,8 +97,27 @@
 					context.setColumnVisible( index, context.isVisibleColumn( header ) );
 				}
 			});
+			syncEmptyState();
 			context.bindResizeHandles();
 			context.applyColumnWidths();
+		}
+
+		// Keep the header and footer available when the consumer renders zero rows.
+		function syncEmptyState() {
+			const empty = context.view.querySelector( '[data-empty]' );
+			if ( ! empty ) {
+				return;
+			}
+			const hasRows = Array.from( context.table.tBodies ).some( function( body ) {
+				return Array.from( body.rows ).some( row => ! row.hidden );
+			});
+			const message = empty.querySelector( '[data-empty-message]' );
+			const search = context.view.querySelector( context.selector + 'search-input' );
+			if ( message ) {
+				const searching = search && search.value.trim();
+				message.textContent = searching ? message.dataset.noResults || 'No results found.' : message.dataset.noSubmissions || 'No submission available.';
+			}
+			empty.hidden = hasRows;
 		}
 
 		function destroy() {
