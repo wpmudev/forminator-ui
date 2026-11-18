@@ -37,7 +37,7 @@
 
 		// Print summary.
 		result.append( summary );
-		result.find( '.forminator-quiz--summary' ).append( '<p>You got ' + form.find( '.forminator-is_correct' ).length + '/' + form.find( '.forminator-question' ).length + ' correct!</p>' );
+		result.find( '.forminator-quiz--summary' ).append( '<p role="alert">You got ' + form.find( '.forminator-is_correct' ).length + '/' + form.find( '.forminator-question' ).length + ' correct!</p>' );
 		result.find( '.forminator-quiz--summary' ).show();
 		result.find( '.forminator-quiz--summary' ).removeAttr( 'hidden' );
 
