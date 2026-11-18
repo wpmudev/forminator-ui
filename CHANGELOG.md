@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.13.1
+
+### Patch Changes
+
+- [#206](https://github.com/wpmudev/forminator-ui/pull/206) [`1d452ce`](https://github.com/wpmudev/forminator-ui/commit/1d452ce5f8ab3224526adea5cb7772d719208fdc) Thanks [@creador-dev](https://github.com/creador-dev)! - Add centered Submission Views empty states for no submissions and no matching search results, using the new info font icon.
+
 ## 1.13.0
 
 ### Minor Changes
