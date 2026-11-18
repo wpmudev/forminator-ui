@@ -6,6 +6,28 @@
 			border: var(--forminator-submission-views-frame-border);
 		}
 
+		&__empty {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			gap: 4px;
+			min-height: 100px;
+			margin: 0;
+			padding: 16px;
+			font-size: var(--forminator-submission-views-font-size);
+			line-height: var(--forminator-submission-views-line-height);
+			text-align: center;
+
+			.forminator-icon-info {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				flex-shrink: 0;
+				font-size: 20px;
+				color: var(--forminator-submission-views-empty-icon-color);
+			}
+		}
+
 		&__scroll {
 			@include thin-scrollbar(
 				var(--forminator-submission-views-scrollbar-thumb),

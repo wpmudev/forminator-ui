@@ -145,6 +145,7 @@ library.watch.scripts.submissionViews = [
 	library.source.scripts + 'helpers/notices.js',
 	library.source.scripts + 'helpers/csv.js',
 	library.source.scripts + 'submission-views/events.js',
+	library.source.scripts + 'submission-views/table-lifecycle.js',
 	library.source.scripts + 'submission-views/feedback.js',
 	library.source.scripts + 'submission-views/layout.js',
 	library.source.scripts + 'submission-views/resizing.js',

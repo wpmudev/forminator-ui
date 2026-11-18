@@ -7,6 +7,32 @@
 
 	FUI._submissionViews = FUI._submissionViews || {};
 	FUI._submissionViews.columns = function( context ) {
+		function reconnectColumnOptions() {
+			const options = context.view.querySelector( '[data-columns]' );
+			const button = context.view.querySelector( '[data-columns-toggle]' );
+			if ( options !== context.columnOptions || button !== context.columnsButton ) {
+				context.setColumnOptionsOpen( false, false );
+				if ( context.columnOptions ) {
+					delete context.columnOptions.dataset.placement;
+					if ( null === context.originalColumnStyle ) {
+						context.columnOptions.removeAttribute( 'style' );
+					} else {
+						context.columnOptions.setAttribute( 'style', context.originalColumnStyle );
+					}
+				}
+				context.columnOptions = options;
+				context.columnsButton = button;
+				context.originalColumnStyle = options ? options.getAttribute( 'style' ) : null;
+				context.setColumnOptionsOpen( false, false );
+			}
+			context.originalColumnDisabled.forEach( function( disabled, input ) {
+				if ( ! options || ! options.contains( input ) ) {
+					input.disabled = disabled;
+					context.originalColumnDisabled.delete( input );
+				}
+			});
+		}
+
 		function setColumnOptionsOpen( open, restoreFocus ) {
 			if ( ! context.columnOptions || ! context.columnsButton ) {
 				return;
@@ -116,6 +142,7 @@
 		// Export data is explicit and independent of the table's displayed values.
 
 		Object.assign( context, {
+			reconnectColumnOptions,
 			setColumnOptionsOpen,
 			positionColumnOptions,
 			toggleColumnOptions,

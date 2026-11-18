@@ -39,15 +39,11 @@
 
 		// Per-instance state and original markup needed by destroy().
 		context.listeners = [];
+		context.tableListeners = [];
 		context.boundHandles = new WeakSet();
 		context.handleAttributes = new Map();
 		context.originalColumnDisabled = new Map();
 		context.widths = new Map();
-		context.originalColgroup = context.table.querySelector( 'colgroup' );
-		context.colgroup = context.originalColgroup || document.createElement( 'colgroup' );
-		context.originalColumns = Array.from( context.colgroup.childNodes );
-		context.originalTableStyle = context.table.getAttribute( 'style' );
-		context.originalScrollStyle = context.scroll.getAttribute( 'style' );
 		context.reducedMotion = window.matchMedia( '(prefers-reduced-motion: reduce)' );
 		context.headers = [];
 		context.minColumnWidth = 200;
@@ -79,9 +75,10 @@
 
 		// Instance lifecycle.
 		function refresh() {
-			if ( context.destroyed || ! context.table.tHead || ! context.table.tHead.rows.length ) {
+			if ( context.destroyed || ! context.reconnectTable() ) {
 				return;
 			}
+			context.reconnectColumnOptions();
 			if ( context.loading ) {
 				context.syncLoadingRegions();
 			}
@@ -100,8 +97,27 @@
 					context.setColumnVisible( index, context.isVisibleColumn( header ) );
 				}
 			});
+			syncEmptyState();
 			context.bindResizeHandles();
 			context.applyColumnWidths();
+		}
+
+		// Keep the header and footer available when the consumer renders zero rows.
+		function syncEmptyState() {
+			const empty = context.view.querySelector( '[data-empty]' );
+			if ( ! empty ) {
+				return;
+			}
+			const hasRows = Array.from( context.table.tBodies ).some( function( body ) {
+				return Array.from( body.rows ).some( row => ! row.hidden );
+			});
+			const message = empty.querySelector( '[data-empty-message]' );
+			const search = context.view.querySelector( context.selector + 'search-input' );
+			if ( message ) {
+				const searching = search && search.value.trim();
+				message.textContent = searching ? message.dataset.noResults || 'No results found.' : message.dataset.noSubmissions || 'No submission available.';
+			}
+			empty.hidden = hasRows;
 		}
 
 		function destroy() {
@@ -129,22 +145,11 @@
 				}
 			}
 			clearTimeout( context.closeTimer );
-			if ( context.observer ) {
-				context.observer.disconnect();
-			}
+			context.releaseTable();
 			context.directionObserver.disconnect();
 			context.listeners.forEach( remove => remove() );
 			context.originalColumnDisabled.forEach( function( disabled, input ) {
 				input.disabled = disabled;
-			});
-			context.handleAttributes.forEach( ( attributes, handle ) => {
-				attributes.forEach( ([ name, value ]) => {
-					if ( null === value ) {
-						handle.removeAttribute( name );
-					} else {
-						handle.setAttribute( name, value );
-					}
-				});
 			});
 			if ( context.panel && context.panel.open ) {
 				context.panel.close();
@@ -155,29 +160,11 @@
 			if ( context.panel ) {
 				delete context.panel.dataset.state;
 			}
-			if ( context.originalColgroup ) {
-				context.colgroup.replaceChildren( ...context.originalColumns );
-			} else {
-				context.colgroup.remove();
-			}
-			if ( null === context.originalTableStyle ) {
-				context.table.removeAttribute( 'style' );
-			} else {
-				context.table.setAttribute( 'style', context.originalTableStyle );
-			}
-			context.scroll.removeAttribute( 'data-scrollable' );
-			context.scroll.removeAttribute( 'data-content-behind' );
-			if ( null === context.originalScrollStyle ) {
-				context.scroll.removeAttribute( 'style' );
-			} else {
-				context.scroll.setAttribute( 'style', context.originalScrollStyle );
-			}
-			context.view.removeAttribute( 'data-column-resizing' );
 			instances.delete( context.view );
 		}
 
 		function updateLayout() {
-			if ( ! context.destroyed ) {
+			if ( ! context.destroyed && ! context.tableDetached ) {
 				context.applyColumnWidths();
 			}
 		}
@@ -189,15 +176,7 @@
 		}
 
 		function observeLayout() {
-			context.listen( context.scroll, 'scroll', context.updateScrollState, {
-				passive: true
-			});
-			if ( 'function' === typeof window.ResizeObserver ) {
-				context.observer = new window.ResizeObserver( context.updateLayout );
-				context.observer.observe( context.scroll );
-			} else {
-				context.listen( window, 'resize', context.updateLayout );
-			}
+			context.observeTable();
 			context.directionObserver = new window.MutationObserver( context.refreshDirection );
 
 			// Direction can come from this root, a wrapper or the page itself.
@@ -218,9 +197,7 @@
 					}
 				}, true );
 			});
-			if ( ! context.originalColgroup ) {
-				context.table.insertBefore( context.colgroup, context.table.tHead );
-			}
+			context.captureTable();
 			context.bindPanelEvents();
 			context.bindDeleteDialogEvents();
 			context.bindControlEvents();

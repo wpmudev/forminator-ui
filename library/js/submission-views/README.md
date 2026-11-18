@@ -5,6 +5,7 @@
 | File | Responsibility |
 | --- | --- |
 | `events.js` | Scoped delegation, event dispatch and listener cleanup |
+| `table-lifecycle.js` | Reconnect replacement tables, restore old layout and manage table-scoped listeners/observers |
 | `layout.js` | Column widths, horizontal overflow and sticky actions |
 | `resizing.js` | Pointer and keyboard column resizing |
 | `fields.js` | Structured sidebar fields, repeaters and links |
@@ -21,3 +22,5 @@ Shared URL, notice and CSV utilities live in `../helpers/`. These have no depend
 The ordered source list is `library.watch.scripts.submissionViews` in `gulpfile.js`. The same list drives the build and watcher. Helpers load first, feature factories next, and the entry point last. Build with `npx gulp library:scripts:submission-views`.
 
 Consumers still load only `forminator-submission-views.min.js` after jQuery. The public `FUI.submissionViews(root)` API and event names are unchanged. Do not call `FUI._submissionViews` factories from integrations.
+
+`refresh()` can reconnect a replacement table/frame inside the same root. Unique data-field-id values carry widths and visibility between matching data columns; integrations provide corresponding Manage columns markup. Replacing the root/dialogs/loader still requires a new instance.
