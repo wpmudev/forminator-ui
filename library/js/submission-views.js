@@ -215,6 +215,7 @@
 			setLoading: context.setLoading,
 			setPagination: context.setPagination,
 			setError: context.setError,
+			setSuccess: context.setSuccess,
 			open: context.openPanel,
 			close: context.closePanel,
 			setSubmission: context.setSubmission,

@@ -51,10 +51,8 @@
 			});
 		}
 
-		/** Rebuild allowed notice markup; never insert parsed source nodes directly. */
-
-		/** Display restricted HTML strings or a plain-text structured error. */
-		function setError( value ) {
+		/** Render either notice through the same validation and sanitization path. */
+		function setNotice( value, selector ) {
 			if ( context.destroyed ) {
 				return false;
 			}
@@ -69,7 +67,7 @@
 			if ( undefined !== link && ( ! text || ! link || 'object' !== typeof link || Array.isArray( link ) || 'string' !== typeof link.url || 'string' !== typeof link.label || ! link.label.trim() || undefined !== link.newTab && 'boolean' !== typeof link.newTab ) ) {
 				return false;
 			}
-			const alert = context.view.querySelector( '[data-view-error]' );
+			const alert = context.view.querySelector( selector );
 			if ( ! alert ) {
 				return false;
 			}
@@ -99,6 +97,14 @@
 				}
 			}
 			return true;
+		}
+
+		function setError( value ) {
+			return setNotice( value, '[data-view-error]' );
+		}
+
+		function setSuccess( value ) {
+			return setNotice( value, '[data-view-success]' );
 		}
 
 		/** Temporarily disable table controls while the integration updates data. */
@@ -160,6 +166,7 @@
 			setControlDisabled,
 			syncLoadingRegions,
 			setError,
+			setSuccess,
 			setLoading
 		});
 	};

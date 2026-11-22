@@ -11,5 +11,11 @@
 		text-align: start;
 		white-space: pre-line;
 		overflow-wrap: anywhere;
+
+		&--success {
+			border: var(--forminator-submission-views-alert-success-border);
+			background: var(--forminator-submission-views-alert-success-background);
+			color: var(--forminator-submission-views-alert-success-color);
+		}
 	}
 }
