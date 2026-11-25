@@ -1,4 +1,10 @@
 @mixin submission-views-alert($block) {
+	#{$block}__notices {
+		display: flex;
+		flex-direction: column;
+		gap: var(--forminator-submission-views-notices-gap);
+	}
+
 	#{$block}__alert {
 		margin: 0;
 		padding: var(--forminator-submission-views-alert-padding);
