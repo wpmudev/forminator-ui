@@ -1,4 +1,10 @@
 @mixin submission-views-alert($block) {
+	#{$block}__notices {
+		display: flex;
+		flex-direction: column;
+		gap: var(--forminator-submission-views-notices-gap);
+	}
+
 	#{$block}__alert {
 		margin: 0;
 		padding: var(--forminator-submission-views-alert-padding);
@@ -11,5 +17,11 @@
 		text-align: start;
 		white-space: pre-line;
 		overflow-wrap: anywhere;
+
+		&--success {
+			border: var(--forminator-submission-views-alert-success-border);
+			background: var(--forminator-submission-views-alert-success-background);
+			color: var(--forminator-submission-views-alert-success-color);
+		}
 	}
 }

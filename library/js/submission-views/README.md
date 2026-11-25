@@ -24,3 +24,6 @@ The ordered source list is `library.watch.scripts.submissionViews` in `gulpfile.
 Consumers still load only `forminator-submission-views.min.js` after jQuery. The public `FUI.submissionViews(root)` API and event names are unchanged. Do not call `FUI._submissionViews` factories from integrations.
 
 `refresh()` can reconnect a replacement table/frame inside the same root. Unique data-field-id values carry widths and visibility between matching data columns; integrations provide corresponding Manage columns markup. Replacing the root/dialogs/loader still requires a new instance.
+
+
+`setNotices([{ type: "success" | "error", message, link? }])` renders an ordered notice collection inside `.forminator-submission-views__notices[data-view-notice]`. Each generated child owns its style and ARIA live-region type; the container has no live role. Pass one entry for one notice, or several for multiple notices. clearNotice() and setNotices([]) clear the collection. These are the only public notice methods.

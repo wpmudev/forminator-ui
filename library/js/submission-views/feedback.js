@@ -51,13 +51,29 @@
 			});
 		}
 
-		/** Rebuild allowed notice markup; never insert parsed source nodes directly. */
-
-		/** Display restricted HTML strings or a plain-text structured error. */
-		function setError( value ) {
+		/** Clear the collection, including older one- or two-block markup. */
+		function clearNotice() {
 			if ( context.destroyed ) {
 				return false;
 			}
+			const containers = context.view.querySelectorAll( '[data-view-notice], [data-view-error], [data-view-success]' );
+			if ( ! containers.length ) {
+				return false;
+			}
+			containers.forEach( function( container ) {
+				container.hidden = true;
+				container.textContent = '';
+				container.classList.remove( 'forminator-submission-views__alert', 'forminator-submission-views__alert--success' );
+				container.classList.add( 'forminator-submission-views__notices' );
+				container.removeAttribute( 'role' );
+				container.removeAttribute( 'aria-live' );
+				container.removeAttribute( 'aria-atomic' );
+			});
+			return true;
+		}
+
+		/** Prepare safe content without changing any currently displayed notices. */
+		function createNotice( value, type ) {
 			const details = value && 'object' === typeof value && ! Array.isArray( value ) ? value : {
 				message: value
 			};
@@ -69,36 +85,83 @@
 			if ( undefined !== link && ( ! text || ! link || 'object' !== typeof link || Array.isArray( link ) || 'string' !== typeof link.url || 'string' !== typeof link.label || ! link.label.trim() || undefined !== link.newTab && 'boolean' !== typeof link.newTab ) ) {
 				return false;
 			}
-			const alert = context.view.querySelector( '[data-view-error]' );
-			if ( ! alert ) {
-				return false;
-			}
+			const content = document.createDocumentFragment();
 			if ( 'string' === typeof value ) {
-				const content = FUI.utils.renderNoticeHtml( text, 'forminator-submission-views__alert-link' );
-				alert.hidden = ! content.textContent.trim();
-				alert.replaceChildren( content );
-				return true;
-			}
-			alert.hidden = ! text;
-			alert.textContent = text;
-			if ( link ) {
-				alert.appendChild( document.createTextNode( ' ' ) );
-				const href = FUI.utils.getSafeUrl( link.url );
-				if ( href ) {
-					const anchor = document.createElement( 'a' );
-					anchor.className = 'forminator-submission-views__alert-link';
-					anchor.href = href;
-					anchor.textContent = link.label;
-					if ( true === link.newTab ) {
-						anchor.target = '_blank';
-						anchor.rel = 'noopener noreferrer';
+				content.appendChild( FUI.utils.renderNoticeHtml( text, 'forminator-submission-views__alert-link' ) );
+			} else {
+				content.appendChild( document.createTextNode( text ) );
+				if ( link ) {
+					content.appendChild( document.createTextNode( ' ' ) );
+					const href = FUI.utils.getSafeUrl( link.url );
+					if ( href ) {
+						const anchor = document.createElement( 'a' );
+						anchor.className = 'forminator-submission-views__alert-link';
+						anchor.href = href;
+						anchor.textContent = link.label;
+						if ( true === link.newTab ) {
+							anchor.target = '_blank';
+							anchor.rel = 'noopener noreferrer';
+						}
+						content.appendChild( anchor );
+					} else {
+						content.appendChild( document.createTextNode( link.label ) );
 					}
-					alert.appendChild( anchor );
-				} else {
-					alert.appendChild( document.createTextNode( link.label ) );
 				}
 			}
+			if ( ! content.textContent.trim() ) {
+				return null;
+			}
+			const notice = document.createElement( 'div' );
+			const success = 'success' === type;
+			notice.className = 'forminator-submission-views__alert';
+			notice.classList.toggle( 'forminator-submission-views__alert--success', success );
+			notice.setAttribute( 'role', success ? 'status' : 'alert' );
+			notice.setAttribute( 'aria-live', success ? 'polite' : 'assertive' );
+			notice.setAttribute( 'aria-atomic', 'true' );
+			notice.appendChild( content );
+			return notice;
+		}
+
+		function renderNotices( items ) {
+			if ( context.destroyed ) {
+				return false;
+			}
+			const container = context.view.querySelector( '[data-view-notice]' ) || context.view.querySelector( '[data-view-error], [data-view-success]' );
+			if ( ! container ) {
+				return false;
+			}
+			const content = document.createDocumentFragment();
+			for ( const item of items ) {
+				const notice = createNotice( item.value, item.type );
+				if ( false === notice ) {
+					return false;
+				}
+				if ( notice ) {
+					content.appendChild( notice );
+				}
+			}
+			clearNotice();
+			container.hidden = ! content.childNodes.length;
+			container.appendChild( content );
 			return true;
+		}
+
+		/** Replace the entire collection in the supplied order. */
+		function setNotices( notices ) {
+			if ( ! Array.isArray( notices ) ) {
+				return false;
+			}
+			const items = [];
+			for ( const notice of notices ) {
+				if ( ! notice || 'object' !== typeof notice || Array.isArray( notice ) || 'string' !== typeof notice.message || ! [ 'error', 'success' ].includes( notice.type ) ) {
+					return false;
+				}
+				items.push({
+					type: notice.type,
+					value: undefined === notice.link ? notice.message : { message: notice.message, link: notice.link }
+				});
+			}
+			return renderNotices( items );
 		}
 
 		/** Temporarily disable table controls while the integration updates data. */
@@ -159,7 +222,8 @@
 		Object.assign( context, {
 			setControlDisabled,
 			syncLoadingRegions,
-			setError,
+			clearNotice,
+			setNotices,
 			setLoading
 		});
 	};
