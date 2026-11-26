@@ -85,7 +85,7 @@
 
 			var $element = $( this ),
 				$formid  = $element.data( 'form-id' ),
-				$select  = $element.find( '.forminator-select2' )
+				$select  = $element.find( 'select.forminator-select2' )
 				;
 
 			var $themes = [
@@ -158,10 +158,7 @@
 							dropdownParent: $parent,
 							...( $hasCheckbox && {
 								closeOnSelect: false,
-								templateResult: FUI.select.formatCheckbox,
-								escapeMarkup: function( markup ) {
-									return markup;
-								}
+								templateResult: FUI.select.formatCheckbox
 							})
 						}).on( 'select2:opening', function() {
 							if ( $select.data( 'search-placeholder' ) ) {
