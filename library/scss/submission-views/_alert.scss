@@ -18,6 +18,12 @@
 		white-space: pre-line;
 		overflow-wrap: anywhere;
 
+		&--neutral {
+			border: var(--forminator-submission-views-alert-neutral-border);
+			background: var(--forminator-submission-views-alert-neutral-background);
+			color: var(--forminator-submission-views-alert-neutral-color);
+		}
+
 		&--success {
 			border: var(--forminator-submission-views-alert-success-border);
 			background: var(--forminator-submission-views-alert-success-background);

@@ -63,7 +63,7 @@
 			containers.forEach( function( container ) {
 				container.hidden = true;
 				container.textContent = '';
-				container.classList.remove( 'forminator-submission-views__alert', 'forminator-submission-views__alert--success' );
+				container.classList.remove( 'forminator-submission-views__alert', 'forminator-submission-views__alert--success', 'forminator-submission-views__alert--neutral' );
 				container.classList.add( 'forminator-submission-views__notices' );
 				container.removeAttribute( 'role' );
 				container.removeAttribute( 'aria-live' );
@@ -112,11 +112,12 @@
 				return null;
 			}
 			const notice = document.createElement( 'div' );
-			const success = 'success' === type;
+			const error = 'error' === type;
 			notice.className = 'forminator-submission-views__alert';
-			notice.classList.toggle( 'forminator-submission-views__alert--success', success );
-			notice.setAttribute( 'role', success ? 'status' : 'alert' );
-			notice.setAttribute( 'aria-live', success ? 'polite' : 'assertive' );
+			notice.classList.toggle( 'forminator-submission-views__alert--success', 'success' === type );
+			notice.classList.toggle( 'forminator-submission-views__alert--neutral', 'neutral' === type );
+			notice.setAttribute( 'role', error ? 'alert' : 'status' );
+			notice.setAttribute( 'aria-live', error ? 'assertive' : 'polite' );
 			notice.setAttribute( 'aria-atomic', 'true' );
 			notice.appendChild( content );
 			return notice;
@@ -153,7 +154,7 @@
 			}
 			const items = [];
 			for ( const notice of notices ) {
-				if ( ! notice || 'object' !== typeof notice || Array.isArray( notice ) || 'string' !== typeof notice.message || ! [ 'error', 'success' ].includes( notice.type ) ) {
+				if ( ! notice || 'object' !== typeof notice || Array.isArray( notice ) || 'string' !== typeof notice.message || ! [ 'error', 'success', 'neutral' ].includes( notice.type ) ) {
 					return false;
 				}
 				items.push({
