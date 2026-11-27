@@ -1,5 +1,17 @@
 # Change Log
 
+## 1.14.0
+
+### Minor Changes
+
+- [#208](https://github.com/wpmudev/forminator-ui/pull/208) [`02f118b`](https://github.com/wpmudev/forminator-ui/commit/02f118b573a3b048a1584283f0594137d014c358) Thanks [@creador-dev](https://github.com/creador-dev)! - Add the Submission Views `setNotices()` and `clearNotice()` APIs for displaying multiple success and error notices in one shared container. Support sanitized HTML, safe links, per-notice screen-reader announcements, and customizable styling and spacing. Replace the individual `setError()` and `setSuccess()` methods with the unified notice collection API.
+
+### Patch Changes
+
+- [#209](https://github.com/wpmudev/forminator-ui/pull/209) [`8fd9882`](https://github.com/wpmudev/forminator-ui/commit/8fd988235795831730dcde8fcebe38363701bcfc) Thanks [@creador-dev](https://github.com/creador-dev)! - Escape Select2 placeholder HTML and restrict dropdown initialization to select elements, while preserving checkbox option rendering.
+
+- [#206](https://github.com/wpmudev/forminator-ui/pull/206) [`1d452ce`](https://github.com/wpmudev/forminator-ui/commit/1d452ce5f8ab3224526adea5cb7772d719208fdc) Thanks [@creador-dev](https://github.com/creador-dev)! - Add centered Submission Views empty states for no submissions and no matching search results, using the new info font icon.
+
 ## 1.13.0
 
 ### Minor Changes
