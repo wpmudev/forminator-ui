@@ -54,9 +54,9 @@
 	--forminator-submission-views-detail-column-width: 180px;
 	--forminator-submission-views-resize-handle-display: block;
 	--forminator-submission-views-resize-divider-width: 1px;
-	--forminator-submission-views-resize-handle-color: #00000033;
+	--forminator-submission-views-resize-handle-color: color-mix(in srgb, currentColor 20%, transparent);
 	--forminator-submission-views-resize-divider-hover-width: 2px;
-	--forminator-submission-views-resize-handle-hover-color: #00000066;
+	--forminator-submission-views-resize-handle-hover-color: color-mix(in srgb, currentColor 40%, transparent);
 	// Column dropdown and row actions.
 	--forminator-submission-views-columns-width: 280px;
 	--forminator-submission-views-columns-max-height: 360px;
